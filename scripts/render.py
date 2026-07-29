@@ -323,7 +323,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int,
 
   <section class="nc">
     <h2>导入网易云音乐</h2>
-    <p>复制下面的列表，网易云 App「新建歌单 → 导入」即可（每行「歌名 - 艺人」）。</p>
+    <p>复制下面的列表，网易云 App「新建歌单 → 导入」即可（首行为歌单名，其余每行「歌名 - 艺人」）。</p>
     <pre id="nc-text">{nc}</pre>
     <button class="copybtn" id="nc-btn" onclick="copyNC()">复制歌单</button>
   </section>

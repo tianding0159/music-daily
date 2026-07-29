@@ -80,7 +80,8 @@ def main() -> None:
     picks, misses = enrich(picks, use_itunes=not args.no_itunes)
 
     issue_no = len(history) + 1 if args.date not in history else list(history).index(args.date) + 1
-    nc_text = netease.build_text(picks)
+    nc_title = netease.playlist_title(picks, args.date)
+    nc_text = netease.build_text(picks, nc_title)
     html = RENDERERS[args.theme].build_html(args.date, picks, issue_no, nc_text)
 
     SITE.mkdir(parents=True, exist_ok=True)

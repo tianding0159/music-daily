@@ -28,7 +28,8 @@ ICON_CAT = (
     '<rect x="3" y="13" width="3" height="1"/><rect x="9" y="13" width="3" height="1"/>'
     '<rect class="blush" x="2" y="5" width="1" height="1"/><rect class="blush" x="13" y="5" width="1" height="1"/>'
     '<rect class="nose" x="7" y="5" width="2" height="1"/>'
-    '<g class="cat-eyes"><rect x="4" y="3" width="2" height="2"/><rect x="10" y="3" width="2" height="2"/></g>'
+    '<g class="cat-eyes"><rect x="4" y="3" width="2" height="2"/><rect x="10" y="3" width="2" height="2"/>'
+    '<rect class="glint" x="5" y="3" width="1" height="1"/><rect class="glint" x="11" y="3" width="1" height="1"/></g>'
     '</svg>'
 )
 
@@ -90,24 +91,42 @@ a{color:inherit; text-decoration:none}
 
 /* LCD 屏幕模块 */
 .lcd{background:#08110c; border:1px solid var(--g1000); color:var(--green);
-  font-family:var(--mono); font-size:var(--fs-15); overflow:hidden; margin-bottom:var(--sp-md)}
+  font-family:var(--mono); font-size:var(--fs-15); overflow:hidden; position:relative; margin-bottom:var(--sp-md)}
 .lcd .row1{display:flex; align-items:center; gap:10px; padding:11px 16px; border-bottom:1px solid #12241a}
 .lcd .dot{width:8px; height:8px; border-radius:50%; background:var(--green); flex:none;
   box-shadow:0 0 8px var(--green); animation:blink 1.3s steps(1) infinite}
 .lcd #boot{white-space:pre; overflow:hidden; flex:1; min-width:0; text-overflow:ellipsis}
 .lcd #boot .cur{animation:blink .8s steps(1) infinite}
-.lcd .cat{height:26px; width:auto; flex:none; margin-left:8px; image-rendering:pixelated;
-  animation:cat-bob 2.6s ease-in-out infinite}
-.lcd .cat rect{fill:#7fd9a3}
+.lcd .stage{position:relative; height:48px; overflow:hidden}
+.cat-wrap{position:absolute; bottom:2px; left:2%; width:30px; height:30px;
+  animation:cat-roam 20s ease-in-out infinite}
+.lcd .cat{width:30px; height:30px; display:block; image-rendering:pixelated;
+  animation:cat-bob .6s ease-in-out infinite}
+.lcd .cat rect{fill:#8be0aa}
 .lcd .cat .cat-eyes rect{fill:#06231a}
+.lcd .cat .glint{fill:#eafff2}
 .lcd .cat .nose{fill:#f0a24a}
-.lcd .cat .blush{fill:#f05a24; opacity:.75}
-.lcd .cat .cat-eyes{transform-box:fill-box; transform-origin:center; animation:cat-blink 3.8s infinite}
+.lcd .cat .blush{fill:#f05a24; opacity:.65}
+.lcd .cat .cat-eyes{transform-box:fill-box; transform-origin:center; animation:cat-blink 4s infinite}
 .lcd .cat .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
-  animation:cat-wag 1.2s ease-in-out infinite alternate}
-@keyframes cat-bob{50%{transform:translateY(-1.5px)}}
-@keyframes cat-blink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(.12)}}
-@keyframes cat-wag{from{transform:rotate(-18deg)}to{transform:rotate(14deg)}}
+  animation:cat-wag .9s ease-in-out infinite alternate}
+@keyframes cat-bob{50%{transform:translateY(-1px)}}
+@keyframes cat-blink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes cat-wag{from{transform:rotate(-20deg)}to{transform:rotate(16deg)}}
+@keyframes cat-roam{
+  0%{left:2%;transform:scaleX(1)}
+  6%{left:2%;transform:scaleX(1) translateY(-8px)}
+  9%{left:5%;transform:scaleX(1) translateY(0)}
+  24%{left:45%;transform:scaleX(1)}
+  32%{left:45%;transform:scaleX(1)}
+  47%{left:80%;transform:scaleX(1)}
+  52%{left:80%;transform:scaleX(1) translateY(-8px)}
+  56%{left:80%;transform:scaleX(-1) translateY(0)}
+  74%{left:42%;transform:scaleX(-1)}
+  81%{left:42%;transform:scaleX(-1)}
+  96%{left:2%;transform:scaleX(-1)}
+  100%{left:2%;transform:scaleX(1)}
+}
 .lcd .ticker{padding:8px 0; position:relative; -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
 .lcd .track{display:inline-block; white-space:nowrap; padding-left:100%; color:#3fae6f;
@@ -227,7 +246,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 }
 @media(prefers-reduced-motion:reduce){
   .mod{opacity:1; transform:none; transition:none}
-  .track,.dot,.rec,.cat,.cat-eyes,.cat-tail{animation:none}
+  .track,.dot,.rec,.cat,.cat-wrap,.cat-eyes,.cat-tail{animation:none}
   html{scroll-behavior:auto}
 }
 """
@@ -387,7 +406,8 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
   </div>
 
   <div class="lcd">
-    <div class="row1"><span class="dot"></span><span id="boot" data-text="{_esc(boot)}"></span>{ICON_CAT}</div>
+    <div class="row1"><span class="dot"></span><span id="boot" data-text="{_esc(boot)}"></span></div>
+    <div class="stage"><div class="cat-wrap">{ICON_CAT}</div></div>
     <div class="ticker"><span class="track">{ticker}{ticker}</span></div>
   </div>
 
@@ -404,7 +424,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
   <section class="export">
     <div class="h">data export · 网易云导入 <span>format: title - artist</span></div>
     <div class="in">
-      <p>复制下列清单 → 网易云 App「新建歌单 → 导入」。</p>
+      <p>复制下列清单 → 网易云 App「新建歌单 → 导入」，第一行会作为歌单名自动创建。</p>
       <pre id="nc-text">{nc}</pre>
       <button class="btn solid" id="nc-btn" onclick="copyNC()" style="margin-top:12px">复制歌单 / copy</button>
     </div>
