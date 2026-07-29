@@ -1,0 +1,1617 @@
+{
+  "issue_no": 1,
+  "date": "2026-07-28",
+  "generated_at": "2026-07-29T07:18:32+00:00",
+  "theme": "grid",
+  "playlist_title": "一个人也不觉得空的房间（07.28）",
+  "netease_text": "一个人也不觉得空的房间（07.28）\nLovers' Carvings - Bibio\nいかれたBaby - Fishmans\nSummer Soul - cero\nDrop - Cornelius\nPlastic Love - Mariya Takeuchi\nTo Build a Home - The Cinematic Orchestra\nGreen Grass of Tunnel - múm\nRoygbiv - Boards of Canada\nHomage - Mild High Club\nTwiggy Twiggy - Pizzicato Five\nIt's Very Sunny - Casino Versus Japan\nIcefall - Nobukazu Takemura\nChanges - Sandro Perri\nComfort, Edge - Helena Deland\nXiu - Yu Su\nSereia Sentimental - Sessa\ngrace - haruka nakamura\nBaile de máscaras (Recarnaval) - Bala Desejo\nMilk Rock - Takako Minekawa\nWhatever Fits Together - Skullcrusher\nBuilding a Swing - Skullcrusher\n雨の夜と月の光 - gomes the hitman (ゴメス・ザ・ヒットマン)\nportrait of a dog - Jonah Yano\nThis World Couldn't See Us - Nabihah Iqbal\nCakes - Homecomings\nChariot - Aoife Nessa Frances\nkeisha - Yaya Bey\nWoof - Sen Morimoto\nHome - Hania Rani\nTOWN - Minako Yoshida (吉田美奈子)",
+  "tracks": [
+    {
+      "id": "sha1:eaebc89758487a7d",
+      "title": "Lovers' Carvings",
+      "artist": "Bibio",
+      "year": "2009",
+      "album": "Ambivalence Avenue",
+      "genres": [
+        "Folktronica",
+        "Organic Electronic",
+        "Indietronica"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "木质感",
+        "颗粒感",
+        "夏天傍晚"
+      ],
+      "production_tags": [
+        "tape saturation",
+        "cassette",
+        "granular",
+        "analog warmth"
+      ],
+      "instrumentation": [
+        "fingerstyle guitar",
+        "老式合成器"
+      ],
+      "vocal_style": "薄雾人声",
+      "bpm_band": "90-100",
+      "has_melody": true,
+      "scene": "夏天傍晚骑车穿过一排行道树，光从叶缝里一格一格打在脸上。",
+      "artist_oneliner": "Stephen Wilkinson 的 Bibio，把指弹吉他录进磁带、任它带着受潮般毛边的英国人。",
+      "why": "磁带的嘶声裹着一段循环指弹，合成器像从旧录音里透出来；越听越像一段被反复播放到磨损的私人录像。",
+      "fit_score": 97.0,
+      "source": "Ambivalence Avenue 长青 / folktronica 标杆",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Bibio",
+      "title_display": "Lovers' Carvings",
+      "artist_key": "bibio",
+      "title_key": "loverscarvings",
+      "version": "",
+      "album_key": "ambivalenceavenue",
+      "legacy_ids": [
+        "bibio-lovers-carvings"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:6343b23c96b71560",
+      "title": "いかれたBaby",
+      "artist": "Fishmans",
+      "year": "1996",
+      "album": "空中キャンプ",
+      "genres": [
+        "Dream Pop",
+        "Dub",
+        "Japanese Indie Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "温柔",
+        "城市夜晚",
+        "怀旧但现代"
+      ],
+      "production_tags": [
+        "reverb space",
+        "warm bass",
+        "analog warmth",
+        "soft"
+      ],
+      "instrumentation": [
+        "dub bass",
+        "clean guitar",
+        "synth pad"
+      ],
+      "vocal_style": "breathy 男声",
+      "bpm_band": "70-80",
+      "has_melody": true,
+      "scene": "深夜没关的窗，外头路灯半亮，你还没决定要不要发出那条消息的时候。",
+      "artist_oneliner": "佐藤伸治的 Fishmans，把牙买加 dub 的空旷贝斯泡进日语情歌、唱到人快化掉的东京乐队。",
+      "why": "贝斯放得很低很慢，混响把每个字的尾巴拉得老长；佐藤的气声几乎贴着话筒，像在你耳边小声认错。温柔得不像要给谁听。",
+      "fit_score": 96.0,
+      "source": "空中キャンプ 殿堂级 / 日系 dream pop 顶点",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Fishmans",
+      "title_display": "いかれたBaby",
+      "artist_key": "fishmans",
+      "title_key": "いかれたbaby",
+      "version": "",
+      "album_key": "空中キャンプ",
+      "legacy_ids": [
+        "fishmans-ikareta-baby"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:a350201f7ceb2b34",
+      "title": "Summer Soul",
+      "artist": "cero",
+      "year": "2015",
+      "album": "Obscure Ride",
+      "genres": [
+        "Japanese Indie Pop",
+        "Neo Soul",
+        "City Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "夏天傍晚",
+        "城市夜晚",
+        "松弛"
+      ],
+      "production_tags": [
+        "warm bass",
+        "soft compression",
+        "airy",
+        "clean"
+      ],
+      "instrumentation": [
+        "jazz bass",
+        "electric piano",
+        "clean guitar"
+      ],
+      "vocal_style": "轻柔和声",
+      "bpm_band": "90-100",
+      "has_melody": true,
+      "scene": "傍晚下班天还是橙蓝色，走到便利店门口又不想进去的那几步。",
+      "artist_oneliner": "东京三人组 cero，把 J Dilla 那派 neo-soul 的懒拍搬进日语抒情的那一队。",
+      "why": "贝斯永远拖在拍子后面半步，鼓点松松垮垮不对齐，人声和声叠成薄薄一层暖；副歌一遍就钉进脑子，却懒得给你一个用力的高潮。",
+      "fit_score": 95.0,
+      "source": "Obscure Ride 乐评公认 / 日系 neo-soul 标杆",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "cero",
+      "title_display": "Summer Soul",
+      "artist_key": "cero",
+      "title_key": "summersoul",
+      "version": "",
+      "album_key": "obscureride",
+      "legacy_ids": [
+        "cero-summer-soul"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:64a274ab3906c9fc",
+      "title": "Drop",
+      "artist": "Cornelius",
+      "year": "2001",
+      "album": "Point",
+      "genres": [
+        "Shibuya-kei",
+        "Art Pop",
+        "Ambient Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "空气感",
+        "精致",
+        "颗粒感"
+      ],
+      "production_tags": [
+        "field recording",
+        "reverb space",
+        "subtle glitch",
+        "wide stereo"
+      ],
+      "instrumentation": [
+        "clean guitar",
+        "水声采样"
+      ],
+      "vocal_style": "低语",
+      "bpm_band": "80-90",
+      "has_melody": true,
+      "scene": "夜里关了灯，只戴一边耳机躺着，想数清每颗声音站在哪一侧的时候。",
+      "artist_oneliner": "小山田圭吾——把 Shibuya-kei 一路拆到单颗声音都要摆位的那个洁癖者。",
+      "why": "水滴声敲出节拍，声音在左右耳之间来回走位、像有实体，底下始终浮着一条清亮旋律不肯沉。听得见每一颗声音被摆在哪。",
+      "fit_score": 93.0,
+      "source": "Point 长青名盘 / 声音设计范本",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Cornelius",
+      "title_display": "Drop",
+      "artist_key": "cornelius",
+      "title_key": "drop",
+      "version": "",
+      "album_key": "point",
+      "legacy_ids": [
+        "cornelius-drop"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:0b905dd0f7573ff3",
+      "title": "Plastic Love",
+      "artist": "Mariya Takeuchi",
+      "year": "1984",
+      "album": "Variety",
+      "genres": [
+        "City Pop",
+        "Sophisti-pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "城市夜晚",
+        "怀旧但现代",
+        "精致"
+      ],
+      "production_tags": [
+        "analog warmth",
+        "wide stereo",
+        "soft compression"
+      ],
+      "instrumentation": [
+        "电钢琴",
+        "funky bass",
+        "brass"
+      ],
+      "vocal_style": "清亮女声",
+      "bpm_band": "100-110",
+      "has_melody": true,
+      "scene": "城市高架上开车，霓虹在挡风玻璃上一条条淌过去的那段。",
+      "artist_oneliner": "竹内玛利亚，city pop 黄金期的招牌嗓，丈夫山下达郎替她把每层和声铺满。",
+      "why": "四拍打底的 groove 稳得像不会累，弦乐和铜管在高处闪；可歌词里是个装作不在乎、拒绝再动心的女人，甜面孔底下全是防备。",
+      "fit_score": 92.0,
+      "source": "City Pop 原典 / 全球再发现",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Mariya Takeuchi",
+      "title_display": "Plastic Love",
+      "artist_key": "mariyatakeuchi",
+      "title_key": "plasticlove",
+      "version": "",
+      "album_key": "variety",
+      "legacy_ids": [
+        "mariya-takeuchi-plastic-love"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:b4ee2b9927762b4a",
+      "title": "To Build a Home",
+      "artist": "The Cinematic Orchestra",
+      "year": "2007",
+      "album": "Ma Fleur",
+      "genres": [
+        "Jazz Pop",
+        "Chamber Pop",
+        "Downtempo"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "雨天",
+        "温柔",
+        "有人味"
+      ],
+      "production_tags": [
+        "felt piano",
+        "lush strings",
+        "reverb space",
+        "analog warmth"
+      ],
+      "instrumentation": [
+        "felt piano",
+        "弦乐"
+      ],
+      "vocal_style": "深情男声",
+      "bpm_band": "70-80",
+      "has_melody": true,
+      "scene": "雨天窝进旧沙发，想起一个早已不联系的人的那个下午。",
+      "artist_oneliner": "英国 nu-jazz 团体，靠一架毡音钢琴加 Patrick Watson 的嗓子，写出这首被反复翻用的催泪曲。",
+      "why": "毡音钢琴每个音都带着被毛毡闷住的钝响，弦乐从底下一寸寸顶上来却始终不喊；克制到最后一句才让眼眶发热。",
+      "fit_score": 91.0,
+      "source": "Ma Fleur / 长青金曲",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "The Cinematic Orchestra",
+      "title_display": "To Build a Home",
+      "artist_key": "thecinematicorchestra",
+      "title_key": "tobuildahome",
+      "version": "",
+      "album_key": "mafleur",
+      "legacy_ids": [
+        "cinematic-orchestra-to-build-a-home"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:dc59b4671c6a6cc2",
+      "title": "Green Grass of Tunnel",
+      "artist": "múm",
+      "year": "2002",
+      "album": "Finally We Are No One",
+      "genres": [
+        "Folktronica",
+        "Indietronica",
+        "Ambient Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "颗粒感",
+        "空气感",
+        "怀旧但现代"
+      ],
+      "production_tags": [
+        "glitch",
+        "field recording",
+        "analog warmth",
+        "granular"
+      ],
+      "instrumentation": [
+        "melodica",
+        "手风琴",
+        "glitch 打击"
+      ],
+      "vocal_style": "童声般 breathy 女声",
+      "bpm_band": "90-100",
+      "has_melody": true,
+      "scene": "起雾或落雪的清早，屋里还没开灯、窗玻璃蒙着一层白的时候。",
+      "artist_oneliner": "冰岛的 múm，把 glitch 的电子碎响做得像一本会翻页的童话绘本。",
+      "why": "细碎的电子噼啪声托着手风琴，双胞胎姐妹的气声细得像孩子在念咒；脆弱里裹着暖，像用旧毛线织出来的东西。",
+      "fit_score": 91.0,
+      "source": "Finally We Are No One 名盘",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "múm",
+      "title_display": "Green Grass of Tunnel",
+      "artist_key": "mm",
+      "title_key": "greengrassoftunnel",
+      "version": "",
+      "album_key": "finallywearenoone",
+      "legacy_ids": [
+        "mum-green-grass-of-tunnel"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:89514f6adba46d13",
+      "title": "Roygbiv",
+      "artist": "Boards of Canada",
+      "year": "1998",
+      "album": "Music Has the Right to Children",
+      "genres": [
+        "IDM",
+        "Downtempo",
+        "Hypnagogic Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "怀旧但现代",
+        "颗粒感",
+        "松弛"
+      ],
+      "production_tags": [
+        "tape saturation",
+        "analog warmth",
+        "vinyl crackle",
+        "wobble"
+      ],
+      "instrumentation": [
+        "模拟合成器",
+        "hip-hop 底鼓"
+      ],
+      "vocal_style": "无",
+      "bpm_band": "90-100",
+      "has_melody": true,
+      "scene": "翻出小时候的家庭录像带，画面偏色、声音发闷的那种下午。",
+      "artist_oneliner": "苏格兰兄弟 Boards of Canada，把褪色的童年记忆调成会走音的模拟合成器的那对人。",
+      "why": "合成器音准像晒化了一样微微飘移，底下垫着黑胶的噼啪；旋律短得不到一分钟，却够记一辈子——暖，可隐隐发着旧。",
+      "fit_score": 90.0,
+      "source": "MHTRTC 电子经典",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Boards of Canada",
+      "title_display": "Roygbiv",
+      "artist_key": "boardsofcanada",
+      "title_key": "roygbiv",
+      "version": "",
+      "album_key": "musichastherighttochildren",
+      "legacy_ids": [
+        "boards-of-canada-roygbiv"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:a69da6d57d2bf8e0",
+      "title": "Homage",
+      "artist": "Mild High Club",
+      "year": "2016",
+      "album": "Skiptracing",
+      "genres": [
+        "Psychedelic Pop",
+        "Jazz Pop",
+        "Sophisti-pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "松弛",
+        "怀旧但现代",
+        "城市夜晚"
+      ],
+      "production_tags": [
+        "analog warmth",
+        "tape saturation",
+        "soft"
+      ],
+      "instrumentation": [
+        "电钢琴",
+        "圆润 bass",
+        "clean guitar"
+      ],
+      "vocal_style": "慵懒男声",
+      "bpm_band": "95-105",
+      "has_melody": true,
+      "scene": "微醺的夜里坐在暖灯的酒吧角落，看冰块在杯里慢慢化的时候。",
+      "artist_oneliner": "Alexander Brettin，把 yacht rock 的顺滑和迷幻的晕眩揉进同一段 groove。",
+      "why": "和声走得精巧、拐弯处总藏个惊喜，groove 慢悠悠地晃。复古味很足，却没有一点老唱片的霉气。",
+      "fit_score": 90.0,
+      "source": "Skiptracing 长青",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Mild High Club",
+      "title_display": "Homage",
+      "artist_key": "mildhighclub",
+      "title_key": "homage",
+      "version": "",
+      "album_key": "skiptracing",
+      "legacy_ids": [
+        "mild-high-club-homage"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:3514b6e4e80e15bb",
+      "title": "Twiggy Twiggy",
+      "artist": "Pizzicato Five",
+      "year": "1991",
+      "album": "This Year's Girl",
+      "genres": [
+        "Shibuya-kei",
+        "Jazz Pop",
+        "Art Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "精致",
+        "怀旧但现代",
+        "松弛"
+      ],
+      "production_tags": [
+        "analog warmth",
+        "soft",
+        "wide stereo"
+      ],
+      "instrumentation": [
+        "电钢琴",
+        "弦乐",
+        "bossa 打击乐"
+      ],
+      "vocal_style": "俏皮女声",
+      "bpm_band": "95-105",
+      "has_melody": true,
+      "scene": "周末上午拉开窗帘擦桌子，想让身体先轻快起来的时候。",
+      "artist_oneliner": "野宫真贵领衔的 Pizzicato Five，把六十年代 mod 少女做派翻新成涩谷系橱窗的组合。",
+      "why": "一段复古管乐加轻快的 bossa 摇摆，野宫真贵唱得又懒又俏；歌名取自六十年代模特 Twiggy，整首像一张翻拍的时装杂志内页。",
+      "fit_score": 88.0,
+      "source": "Shibuya-kei 代表作",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Pizzicato Five",
+      "title_display": "Twiggy Twiggy",
+      "artist_key": "pizzicatofive",
+      "title_key": "twiggytwiggy",
+      "version": "",
+      "album_key": "thisyearsgirl",
+      "legacy_ids": [
+        "pizzicato-five-twiggy-twiggy"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:efcf441732950aa8",
+      "title": "It's Very Sunny",
+      "artist": "Casino Versus Japan",
+      "year": "2002",
+      "album": "Whole Numbers Play the Basics",
+      "genres": [
+        "ambient pop",
+        "IDM(melodic)",
+        "downtempo",
+        "hypnagogic pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "怀旧",
+        "空气感",
+        "夏天傍晚",
+        "松弛"
+      ],
+      "production_tags": [
+        "tape saturation",
+        "hazy糊化",
+        "暖合成器",
+        "微颗粒",
+        "lo-fi"
+      ],
+      "instrumentation": [],
+      "vocal_style": "纯器乐(偶有雾化人声采样)",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "午后阳光斜进来落在地板上，人靠着墙坐着、看灰尘在光柱里飘的时候。",
+      "artist_oneliner": "密尔沃基的 Erik Kowalski，和 Boards of Canada 同一频率的暖调朦胧电子。",
+      "why": "曲名就是听感——真的很晴。磁带味的暖合成器糊成一整片，旋律在雾里若隐若现地浮着，像隔着起雾的车窗看太阳。Boards of Canada 隔壁那张被漏听的唱片。",
+      "fit_score": 86.0,
+      "source": "Wikipedia",
+      "source_url": "https://en.wikipedia.org/wiki/Casino_Versus_Japan",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Casino Versus Japan",
+      "title_display": "It's Very Sunny",
+      "artist_key": "casinoversusjapan",
+      "title_key": "itsverysunny",
+      "version": "",
+      "album_key": "wholenumbersplaythebasics",
+      "legacy_ids": [
+        "d-casinoversus-itsverysunny"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:ea57d503a8c0b135",
+      "title": "Icefall",
+      "artist": "Nobukazu Takemura",
+      "year": "1999",
+      "album": "Scope",
+      "genres": [
+        "IDM",
+        "glitch",
+        "folktronica",
+        "nu jazz"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "精致不炫技",
+        "颗粒感",
+        "organic electronic",
+        "有人味",
+        "松弛"
+      ],
+      "production_tags": [
+        "subtle glitch",
+        "granular",
+        "warm synth",
+        "broken beat",
+        "圆润贝斯"
+      ],
+      "instrumentation": [],
+      "vocal_style": "器乐为主，偶有处理过的人声碎片",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "戴耳机通勤，或专注写东西、需要有点动静又不能被打扰的时候。",
+      "artist_oneliner": "竹村延和——日本IDM/glitch先锋，把数码噪点和碎拍写出爵士的暖度。",
+      "why": "音色像冰粒一颗颗落，底下却坐着爵士的圆润贝斯托着；碎拍不是拿来炫的，是在一句一句唱，这就是「电子也会呼吸」的样子。",
+      "fit_score": 86.0,
+      "source": "MusicBrainz",
+      "source_url": "https://musicbrainz.org/release/d59af959-3beb-4d8f-831d-4c59e8301911",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Nobukazu Takemura",
+      "title_display": "Icefall",
+      "artist_key": "nobukazutakemura",
+      "title_key": "icefall",
+      "version": "",
+      "album_key": "scope",
+      "legacy_ids": [
+        "d-nobukazutake-icefall"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:7154804eff2b715c",
+      "title": "Changes",
+      "artist": "Sandro Perri",
+      "year": "2011",
+      "album": "Impossible Spaces",
+      "genres": [
+        "leftfield pop",
+        "jazz pop",
+        "folktronica",
+        "sophisti-pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "有人味",
+        "松弛",
+        "organic electronic",
+        "温柔",
+        "怀旧又现代"
+      ],
+      "production_tags": [
+        "live band",
+        "organic electronic",
+        "saxophone",
+        "jazz groove",
+        "analog warmth"
+      ],
+      "instrumentation": [],
+      "vocal_style": "温柔男声，soft falsetto",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "周末黄昏一个人炖东西，锅在小火上咕嘟、天色一点点暗下去的那段。",
+      "artist_oneliner": "多伦多的 Sandro Perri——把爵士、民谣和电子熬成一锅慢慢生长、没有清楚边界的长曲。",
+      "why": "近八分钟里，活的乐队和电子处理咬着往前长，萨克斯从假声底下钻出来，接缝几乎看不见。你以为它要收尾了，它又抽出一层新的。",
+      "fit_score": 86.0,
+      "source": "Wikipedia",
+      "source_url": "https://en.wikipedia.org/wiki/Impossible_Spaces",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Sandro Perri",
+      "title_display": "Changes",
+      "artist_key": "sandroperri",
+      "title_key": "changes",
+      "version": "",
+      "album_key": "impossiblespaces",
+      "legacy_ids": [
+        "d-sandroperri-changes"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:3171cdc4711ccbaf",
+      "title": "Comfort, Edge",
+      "artist": "Helena Deland",
+      "year": "2020",
+      "album": "Someone New",
+      "genres": [
+        "dream pop",
+        "art pop",
+        "indietronica"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "朦胧",
+        "夜色",
+        "内省",
+        "数码微光",
+        "温柔忧郁"
+      ],
+      "production_tags": [
+        "woozy guitar",
+        "killer synth",
+        "digital glow",
+        "宽 stereo",
+        "柔和高频",
+        "subtle glitch"
+      ],
+      "instrumentation": [],
+      "vocal_style": "轻柔气声，脆弱但笃定，微微飘",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "雨夜关灯只留屏幕亮着，蓝白的光把你的脸照成一张陌生底片的那几分钟。",
+      "artist_oneliner": "蒙特利尔词曲人，把摇晃的吉他和割手的合成器缝进内省小调，人声脆得像要断、落点却稳。",
+      "why": "吉他一路晃着走，合成器忽然割进来一道锋利高频，人声轻得几乎是气、每个字却落得稳。暗色调里透出一点暖，像屏幕的光打在脸上那种冷暖交界。",
+      "fit_score": 86.0,
+      "source": "Wikipedia (Someone New — 已核对 tracklist 含 Comfort, Edge)",
+      "source_url": "https://en.wikipedia.org/wiki/Someone_New_(album)",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Helena Deland",
+      "title_display": "Comfort, Edge",
+      "artist_key": "helenadeland",
+      "title_key": "comfortedge",
+      "version": "",
+      "album_key": "someonenew",
+      "legacy_ids": [
+        "d-helenadeland-comfortedge"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:8644c03fb29ae4ce",
+      "title": "Xiu",
+      "artist": "Yu Su",
+      "year": "2021",
+      "album": "Yellow River Blue",
+      "genres": [
+        "organic electronic",
+        "downtempo",
+        "ambient dub",
+        "leftfield house"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "aqueous",
+        "nocturnal",
+        "hazy",
+        "city night",
+        "floating"
+      ],
+      "production_tags": [
+        "dub delay",
+        "analog warmth",
+        "field recording",
+        "rounded bass",
+        "granular texture",
+        "wide stereo"
+      ],
+      "instrumentation": [],
+      "vocal_style": "以器乐与飘忽的无词人声织体为主，人声当乐器用",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "雨夜开车过隧道，雨刷刚甩过、玻璃又糊上一层的那几秒。",
+      "artist_oneliner": "河南开封出生、现居温哥华的制作人苏玉，把中原记忆和 dub 空间熬进 left-field house，欧版由 Music From Memory 发行。",
+      "why": "dub 回声一层层往后退，圆润贝斯踩着 70 上下的慢拍，合成器化成水滴四处渗。潮湿、偏东方，比 Four Tet 那侧更多水汽，多数人还没碰过这张。",
+      "fit_score": 86.0,
+      "source": "Bandcamp",
+      "source_url": "https://yusu.bandcamp.com/album/yellow-river-blue",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Yu Su",
+      "title_display": "Xiu",
+      "artist_key": "yusu",
+      "title_key": "xiu",
+      "version": "",
+      "album_key": "yellowriverblue",
+      "legacy_ids": [
+        "d-yusu-xiu"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:0e19f8dd177421fb",
+      "title": "Sereia Sentimental",
+      "artist": "Sessa",
+      "year": "2022",
+      "album": "Estrela Acesa",
+      "genres": [
+        "MPB",
+        "modern bossa",
+        "chamber pop",
+        "tropicália"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "sensual",
+        "dusky",
+        "warm",
+        "intimate",
+        "sunlit"
+      ],
+      "production_tags": [
+        "nylon guitar",
+        "string arrangement",
+        "analog warmth",
+        "close-mic vocals",
+        "organic room sound"
+      ],
+      "instrumentation": [],
+      "vocal_style": "葡语男声，气声、慵懒、贴耳，偶有女声和声铺底",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "傍晚坐在阳台，饮料的冰块化了一半，你连伸手去拿都懒的那种松。",
+      "artist_oneliner": "圣保罗的 Sessa，接着 João Gilberto 那根尼龙弦往下写，把 MPB 剥到只剩情欲与呼吸，Mexican Summer 出品。",
+      "why": "尼龙吉他拨得干、能听见指尖蹭过缠弦，葡语气声贴着麦克风送出来，弦乐只在该起的地方轻轻托一把。极简、慵懒，却每句都有清楚的旋律——bossa 迷会循环一整个月的那种。",
+      "fit_score": 86.0,
+      "source": "Bandcamp",
+      "source_url": "https://sessa.bandcamp.com/album/estrela-acesa",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Sessa",
+      "title_display": "Sereia Sentimental",
+      "artist_key": "sessa",
+      "title_key": "sereiasentimental",
+      "version": "",
+      "album_key": "estrelaacesa",
+      "legacy_ids": [
+        "d-sessa-sereiasentimenta"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:a96ce11517508deb",
+      "title": "grace",
+      "artist": "haruka nakamura",
+      "year": "2008",
+      "album": "grace",
+      "genres": [
+        "folktronica",
+        "ambient",
+        "post-classical"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "静谧",
+        "木质感",
+        "清晨",
+        "organic"
+      ],
+      "production_tags": [
+        "felt piano",
+        "field recording",
+        "subtle glitch",
+        "acoustic guitar",
+        "wide stereo",
+        "organic electronic"
+      ],
+      "instrumentation": [],
+      "vocal_style": "器乐为主，人声若有若无地飘在远处",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "清晨煮好第一杯咖啡，还没开始处理任何事、只想让脑子空一会儿的时候。",
+      "artist_oneliner": "青森出身的作曲/钢琴家 haruka nakamura——2008 年由 Nujabes 引荐出道，把后古典和 folktronica 做成像呼吸一样起伏的电子。",
+      "why": "毛毡钢琴、真实环境录音，加上轻到几乎察觉不到的 glitch，整段的起伏真就跟呼吸一个节奏。Bibio、The Album Leaf、múm 那条线的日本近亲，温柔却不含糊。",
+      "fit_score": 86.0,
+      "source": "Wikipedia (haruka nakamura)",
+      "source_url": "https://ja.wikipedia.org/wiki/haruka_nakamura",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "haruka nakamura",
+      "title_display": "grace",
+      "artist_key": "harukanakamura",
+      "title_key": "grace",
+      "version": "",
+      "album_key": "grace",
+      "legacy_ids": [
+        "d-harukanakamu-grace"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:57350cbeb0ebbc34",
+      "title": "Baile de máscaras (Recarnaval)",
+      "artist": "Bala Desejo",
+      "year": "2022",
+      "album": "Sim Sim Sim",
+      "genres": [
+        "tropicália",
+        "MPB",
+        "chamber pop",
+        "psychedelic pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "怀旧又现代",
+        "温柔",
+        "夏天",
+        "松弛"
+      ],
+      "production_tags": [
+        "nylon guitar",
+        "层叠和声",
+        "弦乐管乐",
+        "analog warmth",
+        "tape warmth",
+        "宽stereo"
+      ],
+      "instrumentation": [],
+      "vocal_style": "四人男女混声，华丽层叠和声",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "傍晚站在阳台，手里半杯酒、脸有点热的时候。",
+      "artist_oneliner": "里约四人组（含Dora Morelenbaum），拿了拉丁格莱美的tropicália复兴新星。",
+      "why": "四个声部叠出70年代MPB黄金期那种华丽和声，却录得清清透透的当代；甜，但不是廉价city pop翻新那口廉价甜。",
+      "fit_score": 86.0,
+      "source": "MusicBrainz + Wikipedia",
+      "source_url": "https://en.wikipedia.org/wiki/Bala_Desejo",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Bala Desejo",
+      "title_display": "Baile de máscaras (Recarnaval)",
+      "artist_key": "baladesejo",
+      "title_key": "bailedemscaras",
+      "version": "",
+      "album_key": "simsimsim",
+      "legacy_ids": [
+        "d-baladesejo-bailedemscarasre"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:67cb2e78bc99962d",
+      "title": "Milk Rock",
+      "artist": "Takako Minekawa",
+      "year": "1997",
+      "album": "Cloudy Cloud Calculator",
+      "genres": [
+        "shibuya-kei",
+        "indietronica",
+        "electropop",
+        "bossa"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "可爱",
+        "怀旧又现代",
+        "松弛",
+        "精致不炫技",
+        "有人味"
+      ],
+      "production_tags": [
+        "vintage Casio",
+        "Moog",
+        "vocoder",
+        "analog warmth",
+        "柔和高频"
+      ],
+      "instrumentation": [],
+      "vocal_style": "轻柔女声，气声、俏皮",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "阴天的午后，想给关着灯的房间添点甜，把小摆件挪来挪去的时候。",
+      "artist_oneliner": "渋谷系的电子才女嶺川贵子——这首的混音出自 Cornelius（小山田圭吾）之手，两人后来成了夫妻。",
+      "why": "Juno 的模拟音色垒着玩具似的小声响，堆成一朵软乎乎的云，Cornelius 的手让它俏皮又不失精度。想更深地钻进 Cornelius 那套声音、又舍不得放掉旋律，这首是把门钥匙。",
+      "fit_score": 86.0,
+      "source": "Wikipedia",
+      "source_url": "https://en.wikipedia.org/wiki/Takako_Minekawa",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Takako Minekawa",
+      "title_display": "Milk Rock",
+      "artist_key": "takakominekawa",
+      "title_key": "milkrock",
+      "version": "",
+      "album_key": "cloudycloudcalculator",
+      "legacy_ids": [
+        "d-takakomineka-milkrock"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:fa2ab6212b0d2faf",
+      "title": "Whatever Fits Together",
+      "artist": "Skullcrusher",
+      "year": "2022",
+      "album": "Quiet the Room",
+      "genres": [
+        "dream pop",
+        "slowcore",
+        "ambient folk",
+        "bedroom pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "童年记忆",
+        "静谧",
+        "雾气",
+        "脆弱",
+        "室内午后"
+      ],
+      "production_tags": [
+        "felt piano",
+        "field recording",
+        "颗粒感 reverb",
+        "柔和高频",
+        "subtle glitch",
+        "木质 texture"
+      ],
+      "instrumentation": [],
+      "vocal_style": "极轻气声，几乎耳语，被空间感包住",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "冬天午后一个人在家，窗外一片灰白，暖气声比自己的呼吸还响的时候。",
+      "artist_oneliner": "Helen Ballentine 的独人计划（名字取自一种蘑菇），把童年卧室的静默压成一层慢慢化开的雾。",
+      "why": "毛毡钢琴的闷响、几乎贴着话筒的气声、门外的环境录音揉成一团，安静却不空——每处留白底下都有旋律托着。细到能听见房间在呼吸，是 Grouper 和梦幻流行之间那块最柔的地。",
+      "fit_score": 86.0,
+      "source": "Wikipedia (Skullcrusher / Quiet the Room)",
+      "source_url": "https://en.wikipedia.org/wiki/Quiet_the_Room",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Skullcrusher",
+      "title_display": "Whatever Fits Together",
+      "artist_key": "skullcrusher",
+      "title_key": "whateverfitstogether",
+      "version": "",
+      "album_key": "quiettheroom",
+      "legacy_ids": [
+        "d-skullcrusher-whateverfitstoge"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:1561099809f93ad3",
+      "title": "Building a Swing",
+      "artist": "Skullcrusher",
+      "year": "2022",
+      "album": "Quiet the Room",
+      "genres": [
+        "ambient folk",
+        "indie folk",
+        "bedroom pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "hushed",
+        "intimate",
+        "wintry",
+        "dreamy",
+        "fragile"
+      ],
+      "production_tags": [
+        "lo-fi",
+        "tape saturation",
+        "field recording",
+        "gentle electronics",
+        "felt textures",
+        "soft high-end"
+      ],
+      "instrumentation": [],
+      "vocal_style": "女声耳语、气声、极轻，像贴着耳朵唱",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "冬夜屋里只留一盏小灯，暖气还没热透、你缩着肩坐着的那十分钟。",
+      "artist_oneliner": "洛杉矶的 Helen Ballentine 以 Skullcrusher 之名做卧室民谣，把童年小屋的记忆录成飘忽的 ambient folk，Secretly Canadian 出品。",
+      "why": "民谣骨架泡在 tape 噪和窗外的田野录音里，她的耳语轻得像随时要散掉，偏偏底下有一条清楚的旋律拽着不放。不落 dream pop 那套俗套。",
+      "fit_score": 86.0,
+      "source": "Wikipedia",
+      "source_url": "https://en.wikipedia.org/wiki/Quiet_the_Room",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Skullcrusher",
+      "title_display": "Building a Swing",
+      "artist_key": "skullcrusher",
+      "title_key": "buildingaswing",
+      "version": "",
+      "album_key": "quiettheroom",
+      "legacy_ids": [
+        "d-skullcrusher-buildingaswing"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:adb3b2147bf4adf6",
+      "title": "雨の夜と月の光",
+      "artist": "gomes the hitman (ゴメス・ザ・ヒットマン)",
+      "year": "1999",
+      "album": "weekend",
+      "genres": [
+        "neo-acoustic",
+        "guitar pop",
+        "sophisti-pop",
+        "japanese indie"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "雨夜",
+        "温柔",
+        "怀旧",
+        "内省"
+      ],
+      "production_tags": [
+        "clean/jangle guitar",
+        "wooden warmth",
+        "lo-fi texture",
+        "soft high-end"
+      ],
+      "instrumentation": [],
+      "vocal_style": "山田稔明的轻柔男声，叙事感强",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "下雨的夜里只留窗边一盏暖灯，雨声盖过屋里所有动静的时候。",
+      "artist_oneliner": "东京外国语大学音乐社出身的 neo-aco 乐队——主唱山田稔明后来靠温柔民谣单飞，是日本吉他流行里长期被低估的一支。",
+      "why": "干净的吉他、木头一样的温度，山田稔明像说话一样把雨夜的月光唱出来，克制到几乎不动声色。带点 lo-fi 的录音底子却一点不糙——你要的『有人味、不炫技』就是这个样子。",
+      "fit_score": 86.0,
+      "source": "Wikipedia (ゴメス・ザ・ヒットマン)",
+      "source_url": "https://ja.wikipedia.org/wiki/ゴメス・ザ・ヒットマン",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "gomes the hitman (ゴメス・ザ・ヒットマン)",
+      "title_display": "雨の夜と月の光",
+      "artist_key": "gomesthehitman",
+      "title_key": "雨の夜と月の光",
+      "version": "",
+      "album_key": "weekend",
+      "legacy_ids": [
+        "d-gomesthehitm-雨の夜と月の光"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:6f8e9dc58af0101d",
+      "title": "portrait of a dog",
+      "artist": "Jonah Yano",
+      "year": "2023",
+      "album": "portrait of a dog",
+      "genres": [
+        "jazz pop",
+        "indie",
+        "quiet alternative R&B"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "tender",
+        "melancholic",
+        "warm",
+        "reflective",
+        "rainy"
+      ],
+      "production_tags": [
+        "live jazz band",
+        "upright bass",
+        "felt piano",
+        "string arrangement",
+        "analog warmth",
+        "organic room sound"
+      ],
+      "instrumentation": [],
+      "vocal_style": "日裔加拿大男声，轻柔、略沙、贴近麦克风",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "雨天窗边，一杯东西凉了都没察觉的那种走神。",
+      "artist_oneliner": "日裔加拿大唱作人 Jonah Yano，拉上多伦多爵士团 BADBADNOTGOOD 全程同录，把家族与身份写成一张温润的 jazz-pop。",
+      "why": "BADBADNOTGOOD 给的底子实打实——立式贝斯走得圆，felt piano 一按一放都留着呼吸，人声轻到像在对自己说话。爵士不炫技，全给情绪让路。",
+      "fit_score": 86.0,
+      "source": "Bandcamp",
+      "source_url": "https://jonahyano.bandcamp.com/album/portrait-of-a-dog",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Jonah Yano",
+      "title_display": "portrait of a dog",
+      "artist_key": "jonahyano",
+      "title_key": "portraitofadog",
+      "version": "",
+      "album_key": "portraitofadog",
+      "legacy_ids": [
+        "d-jonahyano-portraitofadog"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:aa2239b5fef2b36c",
+      "title": "This World Couldn't See Us",
+      "artist": "Nabihah Iqbal",
+      "year": "2023",
+      "album": "DREAMER",
+      "genres": [
+        "dream pop",
+        "indietronica",
+        "organic electronic",
+        "ambient pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "yearning",
+        "twilight",
+        "hopeful",
+        "hazy",
+        "spacious"
+      ],
+      "production_tags": [
+        "tape saturation",
+        "acoustic guitar",
+        "harmonium",
+        "wide reverb",
+        "lo-fi warmth",
+        "soft high-end"
+      ],
+      "instrumentation": [],
+      "vocal_style": "柔和女声、裹在混响里、略带疏离",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "黄昏散步，天从蓝转到紫、路灯刚亮还没全亮的那几分钟。",
+      "artist_oneliner": "伦敦的 Nabihah Iqbal，硬盘被偷、整张推倒重写才做成《DREAMER》，把 shoegaze 光晕、木吉他和电子织到一起，Ninja Tune 出品。",
+      "why": "木吉他和簧风琴打底，磁带暖噪把女声磨成一层雾面，电子只在底下像呼吸一样起伏。怀旧又现代，dream pop 里难得是 organic 而不是套模板的那种。",
+      "fit_score": 86.0,
+      "source": "Bandcamp",
+      "source_url": "https://nabihahiqbal.bandcamp.com/album/dreamer",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Nabihah Iqbal",
+      "title_display": "This World Couldn't See Us",
+      "artist_key": "nabihahiqbal",
+      "title_key": "thisworldcouldntseeus",
+      "version": "",
+      "album_key": "dreamer",
+      "legacy_ids": [
+        "d-nabihahiqbal-thisworldcouldnt"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:df5575fe8babc1e5",
+      "title": "Cakes",
+      "artist": "Homecomings",
+      "year": "2018",
+      "album": "WHALE LIVING",
+      "genres": [
+        "indie pop",
+        "jangle pop",
+        "dream pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "城市黄昏",
+        "温柔",
+        "清新",
+        "微苦"
+      ],
+      "production_tags": [
+        "chorus/jangle guitar",
+        "soft reverb",
+        "lo-fi warmth",
+        "felt-like keys"
+      ],
+      "instrumentation": [],
+      "vocal_style": "畳野彩加清透的轻柔女声",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "下班过天桥，天蓝里带橘，你没戴耳机也听见自己脚步慢下来的那段。",
+      "artist_oneliner": "京都精华大学民谣社出身的四人组，从英文 twee 唱到日语，jangle 吉他上总蒙着一层旧唱片的暖噪。",
+      "why": "jangle 吉他的琶音一颗颗抖着往前滚，畳野彩加把黄昏那点微苦唱得干净、不拖泥（电影《愛がなんだ》主题曲）。甜里留一道涩，是当代日系 indie pop 里少有的克制。",
+      "fit_score": 86.0,
+      "source": "Wikipedia (Homecomings)",
+      "source_url": "https://ja.wikipedia.org/wiki/Homecomings",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Homecomings",
+      "title_display": "Cakes",
+      "artist_key": "homecomings",
+      "title_key": "cakes",
+      "version": "",
+      "album_key": "whaleliving",
+      "legacy_ids": [
+        "d-homecomings-cakes"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:243e286ad9e876ab",
+      "title": "Chariot",
+      "artist": "Aoife Nessa Frances",
+      "year": "2022",
+      "album": "Protector",
+      "genres": [
+        "dream folk",
+        "sophisti-pop",
+        "chamber pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "contemplative",
+        "autumnal",
+        "floating",
+        "warm",
+        "gently melancholic"
+      ],
+      "production_tags": [
+        "string arrangement",
+        "analog warmth",
+        "spacious reverb",
+        "warm low-end",
+        "organic room sound",
+        "Heba Kadry master"
+      ],
+      "instrumentation": [],
+      "vocal_style": "温暖女声、中低音区、松弛不用力",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "秋日傍晚，屋里的光一格一格暗下去，你还没起身开灯的那会儿。",
+      "artist_oneliner": "都柏林唱作人 Aoife Nessa Frances，在爱尔兰乡下录成《Protector》，把梦幻民谣写出 sophisti-pop 的成熟，Heba Kadry 母带。",
+      "why": "温暖的中音女声浮在宽混响与弦乐上，一点不用力，每句都能接着哼下去。sophisti-pop 与 dream folk 干净地撞在一处——喜欢大貫妙子那种松弛成熟的人会一见如故。",
+      "fit_score": 86.0,
+      "source": "Bandcamp",
+      "source_url": "https://aoifenessafrances.bandcamp.com/album/protector",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Aoife Nessa Frances",
+      "title_display": "Chariot",
+      "artist_key": "aoifenessafrances",
+      "title_key": "chariot",
+      "version": "",
+      "album_key": "protector",
+      "legacy_ids": [
+        "d-aoifenessafr-chariot"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:17cbe82d6a995c7a",
+      "title": "keisha",
+      "artist": "Yaya Bey",
+      "year": "2022",
+      "album": "Remember Your North Star",
+      "genres": [
+        "neo soul",
+        "quiet alternative R&B",
+        "jazz pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "慵懒",
+        "夏天傍晚",
+        "松弛",
+        "带点幽默",
+        "自在"
+      ],
+      "production_tags": [
+        "broken beat",
+        "lo-fi 采样",
+        "圆润贝斯",
+        "soft groove",
+        "field recording 感",
+        "warm 低频"
+      ],
+      "instrumentation": [],
+      "vocal_style": "慵懒气声，说唱与歌唱之间滑动，随口哼的松弛感",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "夏日傍晚的阳台，风扇转着，捧一杯冰的东西发呆。",
+      "artist_oneliner": "布鲁克林诗人型音乐人，把 neo soul、断拍和加勒比根脉揉成随手记的一页日记。",
+      "why": "拍子松垮得刚刚好，她像自言自语一样把调子哼出来，糙，却满是体温；两分多钟，怀旧采样底下藏着很当代的那种松。",
+      "fit_score": 86.0,
+      "source": "Wikipedia (Yaya Bey / Remember Your North Star)",
+      "source_url": "https://en.wikipedia.org/wiki/Remember_Your_North_Star",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Yaya Bey",
+      "title_display": "keisha",
+      "artist_key": "yayabey",
+      "title_key": "keisha",
+      "version": "",
+      "album_key": "rememberyournorthstar",
+      "legacy_ids": [
+        "d-yayabey-keisha"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:bba881ad2efe37c3",
+      "title": "Woof",
+      "artist": "Sen Morimoto",
+      "year": "2020",
+      "album": "Sen Morimoto",
+      "genres": [
+        "jazz pop",
+        "bedroom pop",
+        "indietronica",
+        "neo soul"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "都市",
+        "慵懒",
+        "自嘲幽默",
+        "松弛",
+        "夜色游荡"
+      ],
+      "production_tags": [
+        "saxophone",
+        "圆润 bassline",
+        "jazz chord",
+        "lo-fi 录音感",
+        "宽 stereo",
+        "warm 键盘"
+      ],
+      "instrumentation": [],
+      "vocal_style": "松弛低声吟唱，说唱与歌之间，带点自嘲",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "半夜一个人在城里瞎逛，脑子既放空又有点乱、走着走着笑了一下的时候。",
+      "artist_oneliner": "芝加哥（生于京都）的多面手，自己吹萨克斯、写爵士和声，把卧室流行做出一整支乐队的厚度。",
+      "why": "爵士和声和他亲手吹的萨克斯撑起松弛的都市感，人声在说和唱之间来回滑，钩子藏在慵懒的语气里。一个人包办所有乐器，却没有一点卧室 demo 的单薄。",
+      "fit_score": 86.0,
+      "source": "Wikipedia (Sen Morimoto self-titled 2020)",
+      "source_url": "https://en.wikipedia.org/wiki/Sen_Morimoto_(album)",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Sen Morimoto",
+      "title_display": "Woof",
+      "artist_key": "senmorimoto",
+      "title_key": "woof",
+      "version": "",
+      "album_key": "senmorimoto",
+      "legacy_ids": [
+        "d-senmorimoto-woof"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:c80d7cf628134fdb",
+      "title": "Home",
+      "artist": "Hania Rani",
+      "year": "2020",
+      "album": "Home",
+      "genres": [
+        "modern classical",
+        "ambient electronic",
+        "folktronica"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "serene",
+        "luminous",
+        "longing",
+        "spacious",
+        "gentle"
+      ],
+      "production_tags": [
+        "felt piano",
+        "subtle electronics",
+        "strings",
+        "analog warmth",
+        "wide reverb",
+        "Nils-Frahm-adjacent mastering"
+      ],
+      "instrumentation": [],
+      "vocal_style": "柔和女声与无词吟唱，与钢琴交织",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "清晨或雨天在家慢慢醒，还赖着不想掀被子的那段。",
+      "artist_oneliner": "波兰钢琴家 Hania Rani，在《Home》里第一次开口唱，把 felt piano、微电子和弦乐织成温柔的 modern classical，Gondwana Records 出品。",
+      "why": "毛毡钢琴敲下去闷闷的、连锤头的软都听得见，电子在缝里一起一伏像呼吸，无词的轻吟绕着钢琴走。旋律清楚可哼，空间铺得很开。",
+      "fit_score": 86.0,
+      "source": "Bandcamp",
+      "source_url": "https://haniarani.bandcamp.com/album/home",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Hania Rani",
+      "title_display": "Home",
+      "artist_key": "haniarani",
+      "title_key": "home",
+      "version": "",
+      "album_key": "home",
+      "legacy_ids": [
+        "d-haniarani-home"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    },
+    {
+      "id": "sha1:21da40da9331f05c",
+      "title": "TOWN",
+      "artist": "Minako Yoshida (吉田美奈子)",
+      "year": "1980",
+      "album": "MONOCHROME",
+      "genres": [
+        "city pop",
+        "sophisti-pop",
+        "soul"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "都会夜晚",
+        "温暖",
+        "舒展",
+        "从容"
+      ],
+      "production_tags": [
+        "warm bass groove",
+        "electric piano",
+        "silky brass",
+        "analog warmth",
+        "wide mix"
+      ],
+      "instrumentation": [],
+      "vocal_style": "通透有力的女声，收放自如不飙",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "possibly-known",
+      "scene": "深夜一个人开车上空荡的高架，路灯一盏盏从挡风玻璃上划过去。",
+      "artist_oneliner": "吉田美奈子——给山下达郎写词的 Sugar Babe 世代核心，city pop 真正的奠基者之一，不是复兴期那批翻版。",
+      "why": "圆润的贝斯 groove 和电钢像夜风一样穿堂而过，铜管铺得又滑又亮。这是她自己操刀的《MONOCHROME》里最舒展的一段，是原产的 city pop，不是后来的廉价复刻。",
+      "fit_score": 80.0,
+      "source": "Wikipedia (吉田美奈子)",
+      "source_url": "https://ja.wikipedia.org/wiki/吉田美奈子",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Minako Yoshida (吉田美奈子)",
+      "title_display": "TOWN",
+      "artist_key": "minakoyoshida",
+      "title_key": "town",
+      "version": "",
+      "album_key": "monochrome",
+      "legacy_ids": [
+        "d-minakoyoshid-town"
+      ],
+      "_cover": "",
+      "_preview": "",
+      "_apple": ""
+    }
+  ]
+}

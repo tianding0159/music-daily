@@ -80,45 +80,87 @@ def _primary_mood(track: dict) -> str:
     return _norm(moods[0])
 
 
-def select_daily(pool: list[dict], history: dict, date_str: str, n: int = 15,
-                 recency_days: int = 45) -> list[dict]:
-    """选出当天 n 首：气质多样性优先，跨天不重样。"""
-    # 1) 硬过滤
-    eligible = [t for t in pool if is_eligible(t)[0]]
+LAST_RELAX: list[str] = []   # 上次选曲放宽了哪些软约束（供 build_daily 记录）
 
-    # 2) 排除近 recency_days 已发（history 的键是 YYYY-MM-DD，按字符串近似取最近 N 个发过的日期）
-    sent_dates = sorted(history.keys())
-    cutoff = set(sent_dates[-recency_days:]) if sent_dates else set()
-    recent = _recent_sent_ids(history, cutoff)
-    fresh = [t for t in eligible if t.get("id") not in recent]
 
-    # 3) 池耗尽兜底：不足 n 首则把最久没发的补回来
-    if len(fresh) < n:
-        last = _last_sent(history)
-        backfill = sorted(
-            [t for t in eligible if t.get("id") in recent],
-            key=lambda t: (last.get(t.get("id"), ""), _seeded_key(t, date_str)),
-        )
-        fresh = fresh + backfill
+def _akey(t: dict) -> str:
+    return t.get("artist_key") or _norm(t.get("artist", ""))
 
-    # 4) 打分 + 每日轮换扰动
-    fresh.sort(key=lambda t: (score(t) + _seeded_key(t, date_str) * 3), reverse=True)
 
-    # 5) 气质多样性挑选：按 primary mood 分桶，round-robin 轮取，保证一期里气质错落
+def _alkey(t: dict) -> str:
+    return t.get("album_key") or _norm(t.get("album", ""))
+
+
+def _fill(cands, n, date_str, picked, uid, uartist, ualbum, allow_artist_repeat=False) -> int:
+    """按气质多样性 round-robin 填充；硬守 同期同艺人/同专辑/canonical id 不重复。"""
+    ranked = sorted(cands, key=lambda t: score(t) + _seeded_key(t, date_str) * 6, reverse=True)
     buckets: dict[str, list[dict]] = {}
-    for t in fresh:
+    for t in ranked:
         buckets.setdefault(_primary_mood(t), []).append(t)
-    # 桶按内部最高分排序，轮流各取一首
-    ordered_moods = sorted(
-        buckets, key=lambda m: score(buckets[m][0]), reverse=True
-    )
+    moods = sorted(buckets, key=lambda m: score(buckets[m][0]), reverse=True)
+    start = len(picked)
+    advanced = True
+    while advanced and len(picked) < n:
+        advanced = False
+        for m in moods:
+            if len(picked) >= n:
+                break
+            b = buckets[m]
+            while b:
+                t = b.pop(0)
+                ak, alk = _akey(t), _alkey(t)
+                if t["id"] in uid:
+                    continue
+                if not allow_artist_repeat and ak in uartist:
+                    continue
+                if alk and alk in ualbum:
+                    continue
+                picked.append(t)
+                uid.add(t["id"]); uartist.add(ak)
+                if alk:
+                    ualbum.add(alk)
+                advanced = True
+                break
+    return len(picked) - start
+
+
+def select_daily(pool: list[dict], history: dict, date_str: str, n: int = 30,
+                 recency_days: int = 45, artist_gap_issues: int = 6) -> list[dict]:
+    """分阶段约束选曲：硬规则(旋律/黑名单/同期同艺人同专辑/canonical 去重/近 45 期不重复)优先，
+    库存不足时按固定顺序逐条放宽软约束并记录 LAST_RELAX。旋律与黑名单永不放宽。"""
+    global LAST_RELAX
+    LAST_RELAX = []
+    by_id = {t["id"]: t for t in pool if t.get("id")}
+    eligible = [t for t in pool if is_eligible(t)[0]]           # 硬过滤：旋律 + 黑名单
+    sent_dates = sorted(history)
+    recent_ids = _recent_sent_ids(history, set(sent_dates[-recency_days:]))
+    recent_artists = set()
+    for d in sent_dates[-artist_gap_issues:]:
+        for tid in history.get(d, []):
+            tr = by_id.get(tid)
+            if tr:
+                recent_artists.add(_akey(tr))
+    last = _last_sent(history)
     picked: list[dict] = []
-    while len(picked) < n and any(buckets[m] for m in ordered_moods):
-        for m in ordered_moods:
-            if buckets[m]:
-                picked.append(buckets[m].pop(0))
-                if len(picked) >= n:
-                    break
+    uid: set = set()
+    uartist: set = set()
+    ualbum: set = set()
+
+    def stage(cands, tag, allow_artist_repeat=False):
+        if len(picked) >= n:
+            return
+        added = _fill(cands, n, date_str, picked, uid, uartist, ualbum, allow_artist_repeat)
+        if added and tag:
+            LAST_RELAX.append(f"{tag}(+{added})")
+
+    fresh = [t for t in eligible if t["id"] not in recent_ids]
+    stage([t for t in fresh if _akey(t) not in recent_artists], "")             # 1 最严
+    stage(fresh, "放宽跨期艺人间隔")                                             # 2
+    backfill = sorted([t for t in eligible if t["id"] in recent_ids],
+                      key=lambda t: (last.get(t["id"], ""), _seeded_key(t, date_str)))
+    stage(backfill, "回填最久未发(池不足)")                                      # 3
+    stage(sorted(eligible, key=lambda t: (last.get(t["id"], ""), _seeded_key(t, date_str))),
+          "放宽同期同艺人(极端不足)", allow_artist_repeat=True)                  # 4（仍不放宽旋律/黑名单）
     return picked[:n]
 
 

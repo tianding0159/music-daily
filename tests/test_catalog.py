@@ -138,6 +138,14 @@ def test_picker_deterministic_and_dedup():
     assert len(a) == len(set(a)), "同一期不应重复"
 
 
+def test_picker_no_dup_artist_or_album_in_issue():
+    picks = picker.select_daily([dict(x) for x in POOL], HISTORY, "2026-08-11", 30)
+    aks = [t.get("artist_key") for t in picks]
+    alks = [t.get("album_key") for t in picks if t.get("album_key")]
+    assert len(aks) == len(set(aks)), "同一期出现重复艺人"
+    assert len(alks) == len(set(alks)), "同一期出现重复专辑"
+
+
 def test_blacklist_never_relaxed_and_melody_required():
     assert not picker.is_eligible({"has_melody": False, "genres": ["dream pop"]})[0]
     assert not picker.is_eligible({"has_melody": True, "genres": ["metal"]})[0]

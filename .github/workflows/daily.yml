@@ -1,13 +1,12 @@
 name: Daily Music Report
 
 # 每天北京时间早 8:00 更新（UTC 0:00，+11min 错峰避 GitHub schedule 高峰延迟）。
-# 也可在 Actions 页手动 workflow_dispatch 触发验证。
+# 只由定时或手动触发（已与候选合并解耦：普通 push/候选入库不触发日报）。
 on:
   schedule:
     - cron: "11 0 * * *"
   workflow_dispatch:
 
-# Pages 官方部署 + 把 history/缓存 写回 repo
 permissions:
   contents: write
   pages: write
@@ -26,27 +25,22 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: 生成今日日报 + 微信推送
-        env:
-          WECHAT_PUSH_KEY: ${{ secrets.WECHAT_PUSH_KEY }}
-          WECHAT_PUSH_PROVIDER: ${{ vars.WECHAT_PUSH_PROVIDER }}
-        run: |
-          python3 scripts/build_daily.py --theme grid --push --url "${{ vars.PAGES_URL }}"
+      - name: 构建日报（选曲 / 写 issue 快照 / 从快照重建 site；此处不推送微信）
+        run: python3 scripts/build_daily.py --theme grid
 
-      - name: 回写 history / iTunes 缓存到 repo
+      - name: 回写状态到 repo（history / issue 快照 / latest / iTunes 缓存 / site）
         run: |
           git config user.name "music-daily-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/history.json data/itunes_cache.json
+          git add data/history.json data/issues data/latest.json data/itunes_cache.json site
           if git diff --cached --quiet; then
             echo "无变更，跳过提交"
           else
-            git commit -m "chore: 更新 $(date -u +%F) 日报记录 [skip ci]"
+            git commit -m "chore: 日报 $(date -u +%F) [skip ci]"
             git push
           fi
 
@@ -58,3 +52,9 @@ jobs:
       - name: 部署到 GitHub Pages
         id: deploy
         uses: actions/deploy-pages@v4
+
+      - name: 部署后校验 + 微信通知（页面 200 才发；部署失败则本步失败、不发"已更新"）
+        env:
+          WECHAT_PUSH_KEY: ${{ secrets.WECHAT_PUSH_KEY }}
+          WECHAT_PUSH_PROVIDER: ${{ vars.WECHAT_PUSH_PROVIDER }}
+        run: python3 scripts/notify_after_deploy.py "${{ steps.deploy.outputs.page_url || vars.PAGES_URL }}"

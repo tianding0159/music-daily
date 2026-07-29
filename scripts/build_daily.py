@@ -1,13 +1,16 @@
 """每日投递主编排（纯 stdlib，可靠·确定·便宜）。
 
-流程：选曲 → iTunes 补封面/试听/Apple链接 → 渲染网页 → 写 site/ → 更新 history 去重
-→（可选）微信推送。GitHub Actions 每天定时跑这个脚本，或本地手动跑预览。
+流程：选曲 → iTunes 补封面/试听 → 写不可变 issue 快照(data/issues/YYYY-MM-DD.json)
+→ 从所有快照全量重建 site/archive/*.html + 最新一期 site/index.html → 更新 history 去重索引
+→ 写 data/latest.json（供部署成功后的通知步骤用）。
+微信推送在 CI 里由部署成功后的 notify_after_deploy.py 负责（本脚本 --push 仅供本地）。
 
 用法：
-  python3 scripts/build_daily.py                 # 用北京日期，出网页，不推送
+  python3 scripts/build_daily.py                 # 北京日期，出网页
   python3 scripts/build_daily.py --date 2026-07-28
-  python3 scripts/build_daily.py --push --url https://<user>.github.io/music-daily/
-  python3 scripts/build_daily.py --no-itunes     # 离线：跳过 iTunes（用池里 cover_url 兜底）
+  python3 scripts/build_daily.py --force-rebuild  # 重新生成当期快照（否则当天幂等复用）
+  python3 scripts/build_daily.py --no-itunes      # 离线：跳过 iTunes
+  python3 scripts/build_daily.py --push --url <PAGES_URL>   # 本地顺带发微信
 """
 from __future__ import annotations
 
@@ -28,6 +31,7 @@ RENDERERS = {"light": render, "grid": render_grid}
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 SITE = ROOT / "site"
+ISSUES = DATA / "issues"
 
 
 def _beijing_today() -> str:
@@ -45,28 +49,80 @@ def enrich(tracks: list[dict], use_itunes: bool) -> tuple[list[dict], list[str]]
     for t in tracks:
         info = itunes.lookup(t["artist"], t["title"], cache) if use_itunes else {"found": False}
         if info.get("found"):
-            t["_cover"] = info["artwork"]
-            t["_preview"] = info["preview"]
-            t["_apple"] = info["apple_url"]
+            t["_cover"], t["_preview"], t["_apple"] = info["artwork"], info["preview"], info["apple_url"]
         else:
-            t["_cover"] = t.get("cover_url", "")  # 池里若有备用封面则用
-            t["_preview"] = ""
-            t["_apple"] = ""
+            t["_cover"], t["_preview"], t["_apple"] = t.get("cover_url", ""), "", ""
             misses.append(f"{t['title']} — {t['artist']}")
     if use_itunes:
         itunes.save_cache(cache)
     return tracks, misses
 
 
+def _write_snapshot(date: str, issue_no: int, theme: str, picks: list[dict],
+                    title: str, nc_text: str) -> dict:
+    snap = {
+        "issue_no": issue_no, "date": date,
+        "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+        "theme": theme, "playlist_title": title, "netease_text": nc_text, "tracks": picks,
+    }
+    ISSUES.mkdir(parents=True, exist_ok=True)
+    (ISSUES / f"{date}.json").write_text(json.dumps(snap, ensure_ascii=False, indent=2), encoding="utf-8")
+    return snap
+
+
+def _backfill_snapshots(history: dict, pool: list[dict], skip_date: str = "") -> None:
+    """给还没有快照的历史日期补一份（不联网，用当前池数据），避免历史 archive 丢失。
+    跳过 skip_date（当前正在正常构建的日期，由主流程新鲜生成）。"""
+    by_id = {t["id"]: t for t in pool}
+    ISSUES.mkdir(parents=True, exist_ok=True)
+    for i, date in enumerate(sorted(history), 1):
+        if date == skip_date or (ISSUES / f"{date}.json").exists():
+            continue
+        picks = [dict(by_id[i2]) for i2 in history[date] if i2 in by_id]
+        if not picks:
+            continue
+        for t in picks:
+            t.setdefault("_cover", t.get("cover_url", "")); t.setdefault("_preview", ""); t.setdefault("_apple", "")
+        title = netease.playlist_title(picks, date)
+        _write_snapshot(date, i, "grid", picks, title, netease.build_text(picks, title))
+
+
+def _rebuild_site() -> None:
+    """清空 archive，从所有 issue 快照全量重建 archive/*.html 与最新一期 index.html。"""
+    arch = SITE / "archive"
+    if arch.exists():
+        for f in arch.glob("*.html"):
+            f.unlink()
+    arch.mkdir(parents=True, exist_ok=True)
+    snaps = sorted((json.loads(p.read_text(encoding="utf-8")) for p in ISSUES.glob("*.json")),
+                   key=lambda s: s["date"])
+    for s in snaps:
+        r = RENDERERS.get(s.get("theme", "grid"), render_grid)
+        html = r.build_html(s["date"], s["tracks"], s["issue_no"], s["netease_text"])
+        (arch / f"{s['date']}.html").write_text(html, encoding="utf-8")
+    if snaps:
+        latest = snaps[-1]
+        r = RENDERERS.get(latest.get("theme", "grid"), render_grid)
+        (SITE / "index.html").write_text(
+            r.build_html(latest["date"], latest["tracks"], latest["issue_no"], latest["netease_text"]),
+            encoding="utf-8")
+
+
+def _low_pool_warn(pool: list[dict], history: dict, n: int) -> str | None:
+    recent = selector._recent_sent_ids(history, set(sorted(history)[-45:]))
+    unsent = sum(1 for t in pool if selector.is_eligible(t)[0] and t["id"] not in recent)
+    return (f"⚠️ 候选池仅剩 {unsent} 首未发（不足一期），该补池了。" if unsent < n else None)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", default=_beijing_today())
     ap.add_argument("--n", type=int, default=30)
-    ap.add_argument("--push", action="store_true")
-    ap.add_argument("--url", default="")
-    ap.add_argument("--no-itunes", action="store_true")
     ap.add_argument("--theme", choices=list(RENDERERS), default="grid")
-    ap.add_argument("--out", default="", help="输出文件名（相对 site/），默认 index.html")
+    ap.add_argument("--force-rebuild", action="store_true", help="重生成当期快照（否则当天幂等复用）")
+    ap.add_argument("--no-itunes", action="store_true")
+    ap.add_argument("--push", action="store_true", help="本地顺带发微信（CI 用 notify_after_deploy）")
+    ap.add_argument("--url", default="")
     args = ap.parse_args()
 
     pool = _load_json(DATA / "pool.json", [])
@@ -74,47 +130,44 @@ def main() -> None:
     if not pool:
         raise SystemExit("pool.json 为空，先建候选池")
 
-    # 同一天重跑幂等：先摘掉当天自己的记录，避免把本期算进"近期已发"而自我排除
-    history.pop(args.date, None)
-    picks = selector.select_daily(pool, history, args.date, n=args.n)
-    picks, misses = enrich(picks, use_itunes=not args.no_itunes)
+    _backfill_snapshots(history, pool, skip_date=args.date)
+    snap_path = ISSUES / f"{args.date}.json"
 
-    issue_no = len(history) + 1 if args.date not in history else list(history).index(args.date) + 1
-    nc_title = netease.playlist_title(picks, args.date)
-    nc_text = netease.build_text(picks, nc_title)
-    html = RENDERERS[args.theme].build_html(args.date, picks, issue_no, nc_text)
+    if snap_path.exists() and not args.force_rebuild:
+        snap = json.loads(snap_path.read_text(encoding="utf-8"))
+        print(f"↻ 复用当期快照 第 {snap['issue_no']} 期 · {args.date} · {len(snap['tracks'])} 首（幂等）")
+    else:
+        history.pop(args.date, None)
+        picks = selector.select_daily(pool, history, args.date, n=args.n)
+        picks, misses = enrich(picks, use_itunes=not args.no_itunes)
+        existing = sorted(p.stem for p in ISSUES.glob("*.json"))
+        issue_no = existing.index(args.date) + 1 if args.date in existing else len(existing) + 1
+        title = netease.playlist_title(picks, args.date)
+        snap = _write_snapshot(args.date, issue_no, args.theme, picks, title,
+                               netease.build_text(picks, title))
+        history[args.date] = [t["id"] for t in picks]
+        (DATA / "history.json").write_text(json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"✅ 第 {issue_no} 期 · {args.date} · {len(picks)} 首")
+        for i, t in enumerate(picks, 1):
+            print(f"  {i:2d}. {t['title']} — {t['artist']} [{(t.get('genres') or ['?'])[0]}]"
+                  f"{'' if t.get('_cover') else '  (无封面)'}")
+        if misses:
+            print(f"⚠️  iTunes 未命中 {len(misses)} 首（用兜底封面）")
+        if selector.LAST_RELAX:
+            print(f"⚠️  选曲放宽软约束: {selector.LAST_RELAX}")
 
-    SITE.mkdir(parents=True, exist_ok=True)
-    (SITE / "archive").mkdir(parents=True, exist_ok=True)
-    out_name = args.out or "index.html"
-    (SITE / out_name).write_text(html, encoding="utf-8")
-    suffix = "" if args.theme == "grid" else f"-{args.theme}"
-    (SITE / "archive" / f"{args.date}{suffix}.html").write_text(html, encoding="utf-8")
-
-    history[args.date] = [t["id"] for t in picks]
-    (DATA / "history.json").write_text(
-        json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8"
-    )
-
-    print(f"✅ 第 {issue_no} 期 · {args.date} · {len(picks)} 首")
-    for i, t in enumerate(picks, 1):
-        mark = "" if t.get("_cover") else "  (无封面)"
-        print(f"  {i:2d}. {t['title']} — {t['artist']} [{(t.get('genres') or ['?'])[0]}]{mark}")
-    if misses:
-        print(f"⚠️  iTunes 未命中 {len(misses)} 首（用兜底封面，不影响文字信息）：")
-        for m in misses:
-            print(f"     - {m}")
-    print(f"📄 已写 {SITE/out_name}（theme={args.theme}）")
+    _rebuild_site()
+    warn = _low_pool_warn(pool, history, args.n)
+    (DATA / "latest.json").write_text(json.dumps({
+        "date": snap["date"], "issue_no": snap["issue_no"], "playlist_title": snap["playlist_title"],
+        "tracks_brief": [{"title": t["title"], "artist": t["artist"]} for t in snap["tracks"][:6]],
+        "n": len(snap["tracks"]), "low_pool_warn": warn, "relax": selector.LAST_RELAX,
+    }, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"📄 已重建 site/（archive {len(list(ISSUES.glob('*.json')))} 期 + index）")
 
     if args.push:
-        url = args.url or f"file://{SITE/'index.html'}"
-        # A 方案低池预警：算还剩多少"未发"存量，不足一期就提醒补池
-        sent_dates = sorted(history)
-        recent = selector._recent_sent_ids(history, set(sent_dates[-45:]))
-        unsent = sum(1 for t in pool if selector.is_eligible(t)[0] and t["id"] not in recent)
-        warn = (f"⚠️ 候选池仅剩 {unsent} 首未发（不足一期），该补池了——回 agent 一句「补池」即可。"
-                if unsent < args.n else None)
-        title, desp = push_wechat.build_desp(args.date, url, picks, warn=warn)
+        url = args.url or f"file://{SITE / 'index.html'}"
+        title, desp = push_wechat.build_desp(snap["date"], url, snap["tracks"], warn=warn)
         push_wechat.push(title, desp)
 
 
