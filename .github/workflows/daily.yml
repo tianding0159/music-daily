@@ -38,7 +38,7 @@ jobs:
           WECHAT_PUSH_KEY: ${{ secrets.WECHAT_PUSH_KEY }}
           WECHAT_PUSH_PROVIDER: ${{ vars.WECHAT_PUSH_PROVIDER }}
         run: |
-          python3 scripts/build_daily.py --theme te --push --url "${{ vars.PAGES_URL }}"
+          python3 scripts/build_daily.py --theme grid --push --url "${{ vars.PAGES_URL }}"
 
       - name: 回写 history / iTunes 缓存到 repo
         run: |

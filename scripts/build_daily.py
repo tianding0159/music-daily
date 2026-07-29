@@ -21,9 +21,9 @@ import netease
 import picker as selector
 import push_wechat
 import render
-import render_te
+import render_grid
 
-RENDERERS = {"apple": render, "te": render_te}
+RENDERERS = {"light": render, "grid": render_grid}
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
@@ -65,7 +65,7 @@ def main() -> None:
     ap.add_argument("--push", action="store_true")
     ap.add_argument("--url", default="")
     ap.add_argument("--no-itunes", action="store_true")
-    ap.add_argument("--theme", choices=list(RENDERERS), default="apple")
+    ap.add_argument("--theme", choices=list(RENDERERS), default="grid")
     ap.add_argument("--out", default="", help="输出文件名（相对 site/），默认 index.html")
     args = ap.parse_args()
 
@@ -87,7 +87,7 @@ def main() -> None:
     (SITE / "archive").mkdir(parents=True, exist_ok=True)
     out_name = args.out or "index.html"
     (SITE / out_name).write_text(html, encoding="utf-8")
-    suffix = "" if args.theme == "apple" else f"-{args.theme}"
+    suffix = "" if args.theme == "grid" else f"-{args.theme}"
     (SITE / "archive" / f"{args.date}{suffix}.html").write_text(html, encoding="utf-8")
 
     history[args.date] = [t["id"] for t in picks]
