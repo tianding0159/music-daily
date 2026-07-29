@@ -1,0 +1,60 @@
+name: Daily Music Report
+
+# 每 2 天北京时间早 8:00 更新（UTC 0:00，+11min 错峰避 GitHub schedule 高峰延迟）。
+# cron 的 */2 按"月内奇数日"触发，月末相邻两期最短可能隔 1 天，属可接受的近似。
+# 也可在 Actions 页手动 workflow_dispatch 触发验证。
+on:
+  schedule:
+    - cron: "11 0 */2 * *"
+  workflow_dispatch:
+
+# Pages 官方部署 + 把 history/缓存 写回 repo
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: daily-music
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 生成今日日报 + 微信推送
+        env:
+          WECHAT_PUSH_KEY: ${{ secrets.WECHAT_PUSH_KEY }}
+          WECHAT_PUSH_PROVIDER: ${{ vars.WECHAT_PUSH_PROVIDER }}
+        run: |
+          python3 scripts/build_daily.py --theme te --push --url "${{ vars.PAGES_URL }}"
+
+      - name: 回写 history / iTunes 缓存到 repo
+        run: |
+          git config user.name "music-daily-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/history.json data/itunes_cache.json
+          if git diff --cached --quiet; then
+            echo "无变更，跳过提交"
+          else
+            git commit -m "chore: 更新 $(date -u +%F) 日报记录 [skip ci]"
+            git push
+          fi
+
+      - name: 打包 site/ 为 Pages 制品
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: 部署到 GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4

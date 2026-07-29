@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="每日精选 15 首 · 旋律优先 · 气质优先 · 制作优先">
+<title>每日音乐日报 · 2026-07-28</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%226%22%20fill%3D%22%23fa2536%22/%3E%3Cpath%20d%3D%22M9%2017.5a2.5%202.5%200%201%201-2.5-2.5c.55%200%201.06.18%201.5.47V6l10-2v9.5A2.5%202.5%200%201%201%2015.5%2011c.55%200%201.06.18%201.5.47V6.24L9%207.8v9.7z%22%20fill%3D%22%23fff%22/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#ffffff; --bg2:#fbfbfd; --card:#ffffff; --ph:#f0f0f3;
+  --text:#1d1d1f; --sub:#6e6e73; --dim:#86868b;
+  --accent:#fa2536; --accent-ink:#e11d2b;
+  --pill-bg:#f2f2f4; --pill-ink:#515154;
+  --line:#e6e6eb; --hair:#d2d2d7;
+  --glass:rgba(255,255,255,.72);
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);
+  --radius:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",
+    "PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.55;
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  padding-bottom:120px;
+}
+.wrap{max-width:780px; margin:0 auto; padding:0 22px}
+
+/* 毛玻璃吸顶导航 */
+.nav{position:sticky; top:0; z-index:50; background:var(--glass);
+  backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex; align-items:center; justify-content:space-between; height:52px}
+.brand{display:flex; align-items:center; gap:9px; font-weight:700; font-size:16px; letter-spacing:-.01em}
+.brand .glyph{width:26px; height:26px; border-radius:8px; display:grid; place-items:center;
+  background:linear-gradient(150deg,#fb5560,var(--accent)); color:#fff; box-shadow:0 2px 6px rgba(250,37,54,.35)}
+.brand .glyph svg{width:16px; height:16px; fill:#fff}
+.nav .navdate{color:var(--dim); font-size:13px; font-variant-numeric:tabular-nums}
+
+/* Hero */
+header.hero{position:relative; padding:60px 22px 30px; text-align:center; overflow:hidden}
+header.hero::before{content:""; position:absolute; inset:-40% 0 auto 0; height:340px; z-index:-1;
+  background:
+    radial-gradient(60% 70% at 22% 0%,rgba(250,37,54,.10),transparent 60%),
+    radial-gradient(55% 70% at 82% 8%,rgba(255,138,90,.12),transparent 60%),
+    radial-gradient(50% 60% at 50% 30%,rgba(90,120,255,.06),transparent 60%)}
+.hero .eyebrow{color:var(--accent-ink); font-size:12px; font-weight:700; letter-spacing:.24em;
+  text-transform:uppercase}
+.hero h1{font-size:46px; font-weight:800; letter-spacing:-.03em; line-height:1.05; margin:12px 0 8px}
+.hero .sub{color:var(--sub); font-size:16px; font-variant-numeric:tabular-nums}
+.hero .credo{color:var(--dim); font-size:13px; margin-top:16px; max-width:440px;
+  margin-left:auto; margin-right:auto; line-height:1.6}
+.hero .count{display:inline-flex; align-items:center; gap:6px; margin-top:18px;
+  background:var(--pill-bg); color:var(--pill-ink); font-size:12.5px; font-weight:600;
+  padding:5px 13px; border-radius:999px}
+
+/* 列表 + 卡片 */
+.list{display:flex; flex-direction:column; gap:14px; margin-top:26px}
+.card{position:relative; background:var(--card); border:1px solid var(--line);
+  border-radius:var(--radius); padding:16px; display:flex; gap:16px; align-items:flex-start;
+  box-shadow:var(--shadow); transition:transform .25s ease, box-shadow .25s ease;
+  opacity:0; transform:translateY(14px); animation:rise .55s cubic-bezier(.22,.61,.36,1) forwards;
+  animation-delay:calc(var(--i,0)*40ms)}
+.card:hover{transform:translateY(-2px); box-shadow:0 2px 4px rgba(0,0,0,.05),0 16px 40px rgba(0,0,0,.10)}
+@keyframes rise{to{opacity:1; transform:none}}
+
+/* 封面 + 播放按钮 */
+.art{position:relative; width:118px; height:118px; flex:none}
+.cover{width:118px; height:118px; border-radius:14px; object-fit:cover; display:block;
+  background:var(--ph); box-shadow:0 6px 18px rgba(0,0,0,.16); transition:transform .3s ease}
+.cover.ph{display:grid; place-items:center; font-weight:800; font-size:34px; color:#fff;
+  background:linear-gradient(140deg,#fb5560,var(--accent))}
+.art:hover .cover{transform:scale(1.02)}
+.play{position:absolute; inset:0; margin:auto; width:46px; height:46px; border-radius:50%;
+  border:none; cursor:pointer; display:grid; place-items:center; color:#fff;
+  background:rgba(0,0,0,.42); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  opacity:0; transform:scale(.86); transition:opacity .22s ease, transform .22s ease;
+  box-shadow:0 4px 14px rgba(0,0,0,.3)}
+.art:hover .play, .play.playing{opacity:1; transform:scale(1)}
+.play svg{width:22px; height:22px; fill:#fff; margin-left:1px}
+.play.playing{background:var(--accent)}
+.play.playing svg{margin-left:0}
+
+/* 文本 */
+.body{flex:1; min-width:0}
+.idx{color:var(--dim); font-size:12px; font-weight:700; letter-spacing:.04em;
+  font-variant-numeric:tabular-nums}
+.title{font-size:20px; font-weight:700; letter-spacing:-.015em; line-height:1.25; margin:3px 0 1px}
+.artist{color:var(--text); font-size:15px; font-weight:600}
+.album{color:var(--sub); font-size:13px; margin-top:3px; font-variant-numeric:tabular-nums}
+.pills{margin:10px 0 8px; display:flex; flex-wrap:wrap; gap:6px}
+.pill{font-size:11px; font-weight:500; color:var(--pill-ink); background:var(--pill-bg);
+  border-radius:999px; padding:3px 10px; line-height:1.5}
+.pill.mood{color:var(--accent-ink); background:rgba(250,37,54,.07)}
+.oneliner{color:var(--sub); font-size:13px; font-style:italic; margin:8px 0 3px; line-height:1.55}
+.why{color:var(--text); font-size:14.5px; margin:6px 0; line-height:1.6}
+.scene{display:flex; align-items:center; gap:5px; color:var(--dim); font-size:12.5px; margin:8px 0 10px}
+.scene svg{width:13px; height:13px; fill:var(--dim); flex:none}
+.scene b{color:var(--sub); font-weight:600}
+.links{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+.chip{display:inline-flex; align-items:center; gap:4px; font-size:12.5px; font-weight:600;
+  color:var(--accent-ink); background:rgba(250,37,54,.08); border-radius:999px;
+  padding:5px 12px; text-decoration:none; transition:background .2s ease}
+.chip:hover{background:rgba(250,37,54,.14)}
+.chip.ghost{color:var(--pill-ink); background:var(--pill-bg)}
+.chip.ghost:hover{background:#e8e8ed}
+.src{color:var(--dim); font-size:11.5px; margin-top:9px}
+.src a{color:var(--dim)}
+
+/* 网易云导入 */
+.nc{margin:34px 0 0; background:var(--bg2); border:1px solid var(--line);
+  border-radius:var(--radius); padding:22px}
+.nc h2{font-size:18px; letter-spacing:-.01em; margin-bottom:4px}
+.nc p{color:var(--sub); font-size:13px; margin-bottom:14px; line-height:1.6}
+.nc pre{background:#fff; border:1px solid var(--line); border-radius:14px; padding:15px;
+  color:var(--text); font-size:13px; white-space:pre-wrap; line-height:1.7;
+  font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace; max-height:300px; overflow:auto}
+.copybtn{margin-top:12px; background:var(--accent); color:#fff; border:none; border-radius:999px;
+  padding:10px 22px; font-size:14px; font-weight:600; cursor:pointer; transition:transform .12s ease,filter .2s ease}
+.copybtn:hover{filter:brightness(1.05)}
+.copybtn:active{transform:scale(.97)}
+
+footer{color:var(--dim); font-size:12px; text-align:center; margin-top:44px; line-height:1.8}
+
+/* 底部「正在播放」迷你播放器 */
+.np{position:fixed; left:0; right:0; bottom:0; z-index:60; transform:translateY(120%);
+  transition:transform .4s cubic-bezier(.22,.61,.36,1); background:var(--glass);
+  backdrop-filter:saturate(180%) blur(24px); -webkit-backdrop-filter:saturate(180%) blur(24px);
+  border-top:1px solid var(--line)}
+.np.show{transform:none}
+.np-in{max-width:780px; margin:0 auto; padding:10px 22px; display:flex; align-items:center; gap:14px}
+.np img{width:46px; height:46px; border-radius:9px; object-fit:cover; flex:none; box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.np-meta{flex:1; min-width:0}
+.np-title{font-size:14px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.np-artist{font-size:12.5px; color:var(--sub); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.np-toggle{width:40px; height:40px; border-radius:50%; border:none; cursor:pointer; flex:none;
+  background:var(--accent); color:#fff; display:grid; place-items:center; box-shadow:0 3px 10px rgba(250,37,54,.35)}
+.np-toggle svg{width:19px; height:19px; fill:#fff}
+.np-time{font-size:12px; color:var(--dim); font-variant-numeric:tabular-nums; flex:none; width:38px; text-align:right}
+.np-prog{position:absolute; left:0; right:0; top:0; height:2px; background:rgba(0,0,0,.08)}
+.np-bar{height:100%; width:0; background:var(--accent); transition:width .2s linear}
+
+@media(max-width:560px){
+  .hero h1{font-size:34px}
+  .card{flex-direction:row}
+  .art,.cover{width:92px; height:92px}
+  .title{font-size:18px}
+  .wrap{padding:0 16px}
+}
+@media(prefers-reduced-motion:reduce){
+  .card{animation:none; opacity:1; transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <div class="brand"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17.5a2.5 2.5 0 1 1-2.5-2.5c.55 0 1.06.18 1.5.47V6l10-2v9.5A2.5 2.5 0 1 1 15.5 11c.55 0 1.06.18 1.5.47V6.24L9 7.8v9.7z"/></svg></span>每日音乐日报</div>
+    <div class="navdate">2026-07-28 · 第 1 期</div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Daily Music</div>
+  <h1>今日精选</h1>
+  <div class="sub">2026-07-28</div>
+  <div class="credo">旋律优先 · 气质优先 · 制作优先<br>越听越舒服，值得反复循环的 15 首</div>
+  <div class="count">🎧 今日 15 首</div>
+</header>
+
+<main class="wrap">
+  <div class="list">
+    
+    <article class="card" style="--i:0">
+      <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ac/de/05/acde05a3-0dab-61be-dd3a-ef92854e90fc/mzi.cxkbiari.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="play" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/75/65/b6/7565b6c5-f848-4690-d4e1-f4b4e893efc5/mzaf_15571987273744335747.plus.aac.p.m4a" data-title="Lovers&#x27; Carvings" data-artist="Bibio" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ac/de/05/acde05a3-0dab-61be-dd3a-ef92854e90fc/mzi.cxkbiari.jpg/600x600bb.jpg" aria-label="播放 30 秒试听"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.28-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg></button></div>
+      <div class="body">
+        <div class="idx">#01</div>
+        <h3 class="title">Lovers&#x27; Carvings</h3>
+        <div class="artist">Bibio</div>
+        <div class="album">Ambivalence Avenue · 2009</div>
+        <div class="pills"><span class="pill">Folktronica</span><span class="pill">Organic Electronic</span><span class="pill">Indietronica</span><span class="pill mood">木质感</span><span class="pill mood">颗粒感</span></div>
+        <p class="oneliner">Stephen Wilkinson，folktronica 里最有木头味与磁带感的英国人。</p>
+        <p class="why">磁带颗粒裹着指弹吉他与合成器，暖到发光。数码与自然融合的完美范例。</p>
+        <div class="scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span><b>最适合</b> · 夏天傍晚骑车，光透过树叶</span></div>
+        <div class="links"><a class="chip" href="https://music.apple.com/us/album/lovers-carvings/318815067?i=318815214&amp;uo=4" target="_blank" rel="noopener">Apple Music ↗</a><a class="chip ghost" href="https://music.163.com/#/search/m/?s=Lovers%27%20Carvings%20Bibio" target="_blank" rel="noopener">网易云 ↗</a></div>
+        <div class="src">来源 · Ambivalence Avenue 长青 / folktronica 标杆</div>
+      </div>
+    </article>
+
+    <article class="card" style="--i:1">
+      <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/b7/e7/59/b7e75910-79d1-dcdb-eb65-b3e39e401cb8/00602567912118.rgb.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="play" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/6f/32/ee/6f32ee7d-8da4-89b6-124e-0e227da097c5/mzaf_15258154589377059180.plus.aac.p.m4a" data-title="いかれたBaby" data-artist="Fishmans" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/b7/e7/59/b7e75910-79d1-dcdb-eb65-b3e39e401cb8/00602567912118.rgb.jpg/600x600bb.jpg" aria-label="播放 30 秒试听"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.28-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg></button></div>
+      <div class="body">
+        <div class="idx">#02</div>
+        <h3 class="title">いかれたBaby</h3>
+        <div class="artist">Fishmans</div>
+        <div class="album">空中キャンプ · 1996</div>
+        <div class="pills"><span class="pill">Dream Pop</span><span class="pill">Dub</span><span class="pill">Japanese Indie Pop</span><span class="pill mood">温柔</span><span class="pill mood">城市夜晚</span></div>
+        <p class="oneliner">佐藤伸治的 Fishmans，日本 dream/dub 的传奇，温柔到近乎透明。</p>
+        <p class="why">空间感做到极致，人声像贴着耳朵唱。听一次就忘不掉的那种温柔。</p>
+        <div class="scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span><b>最适合</b> · 深夜一个人，窗外有微光的时候</span></div>
+        <div class="links"><a class="chip" href="https://music.apple.com/us/album/ikareta-baby-live-at-akasaka-blitz-1998/1416934392?i=1416934416&amp;uo=4" target="_blank" rel="noopener">Apple Music ↗</a><a class="chip ghost" href="https://music.163.com/#/search/m/?s=%E3%81%84%E3%81%8B%E3%82%8C%E3%81%9FBaby%20Fishmans" target="_blank" rel="noopener">网易云 ↗</a></div>
+        <div class="src">来源 · 空中キャンプ 殿堂级 / 日系 dream pop 顶点</div>
+      </div>
+    </article>
+
+    <article class="card" style="--i:2">
+      <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8c/45/cd/8c45cd2f-1145-0746-4fd0-e526bf3c73a9/4538182529881.png/600x600bb.jpg" alt="" loading="lazy"><button class="play" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2d/0a/6c/2d0a6c2e-cb87-119e-495f-0e4a8564e72d/mzaf_8818393445654743297.plus.aac.p.m4a" data-title="Summer Soul" data-artist="cero" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8c/45/cd/8c45cd2f-1145-0746-4fd0-e526bf3c73a9/4538182529881.png/600x600bb.jpg" aria-label="播放 30 秒试听"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.28-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg></button></div>
+      <div class="body">
+        <div class="idx">#03</div>
+        <h3 class="title">Summer Soul</h3>
+        <div class="artist">cero</div>
+        <div class="album">Obscure Ride · 2015</div>
+        <div class="pills"><span class="pill">Japanese Indie Pop</span><span class="pill">Neo Soul</span><span class="pill">City Pop</span><span class="pill mood">夏天傍晚</span><span class="pill mood">城市夜晚</span></div>
+        <p class="oneliner">东京三人组，把日式旋律揉进美式 neo-soul groove 的代表。</p>
+        <p class="why">贝斯 groove 松弛得像空气，副歌一遍就记住。日系城市夜晚的教科书。</p>
+        <div class="scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span><b>最适合</b> · 夏天傍晚下班路上，天还没黑透的那种橙蓝色</span></div>
+        <div class="links"><a class="chip" href="https://music.apple.com/us/album/summer-soul/994807575?i=994807584&amp;uo=4" target="_blank" rel="noopener">Apple Music ↗</a><a class="chip ghost" href="https://music.163.com/#/search/m/?s=Summer%20Soul%20cero" target="_blank" rel="noopener">网易云 ↗</a></div>
+        <div class="src">来源 · Obscure Ride 乐评公认 / 日系 neo-soul 标杆</div>
+      </div>
+    </article>
+
+    <article class="card" style="--i:3">
+      <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/d6/eb/62/d6eb6271-d4dd-9445-3db4-db3878d6c93b/859721672696_cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="play" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/eb/e4/89/ebe48960-0453-1555-5ecf-60610f4a682a/mzaf_1273321717412635996.plus.aac.p.m4a" data-title="Drop" data-artist="Cornelius" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/d6/eb/62/d6eb6271-d4dd-9445-3db4-db3878d6c93b/859721672696_cover.jpg/600x600bb.jpg" aria-label="播放 30 秒试听"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.28-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg></button></div>
+      <div class="body">
+        <div class="idx">#04</div>
+        <h3 class="title">Drop</h3>
+        <div class="artist">Cornelius</div>
+        <div class="album">Point · 2001</div>
+        <div class="pills"><span class="pill">Shibuya-kei</span><span class="pill">Art Pop</span><span class="pill">Ambient Pop</span><span class="pill mood">空气感</span><span class="pill mood">精致</span></div>
+        <p class="oneliner">小山田圭吾，Shibuya-kei 走向声音设计极致的鬼才。</p>
+        <p class="why">用水滴声当节奏、把 stereo 空间当乐器，却始终有清亮旋律。制作洁癖者的天堂。</p>
+        <div class="scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span><b>最适合</b> · 戴上耳机，想听清每一颗声音的位置时</span></div>
+        <div class="links"><a class="chip" href="https://music.apple.com/us/album/drop/1254149405?i=1254149726&amp;uo=4" target="_blank" rel="noopener">Apple Music ↗</a><a class="chip ghost" href="https://music.163.com/#/search/m/?s=Drop%20Cornelius" target="_blank" rel="noopener">网易云 ↗</a></div>
+        <div class="src">来源 · Point 长青名盘 / 声音设计范本</div>
+      </div>
+    </article>
+
+    <article class="card" style="--i:4">
+      <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1b/bf/7d/1bbf7d0d-fe41-4e4b-29d0-7feb373a9e4c/190295078515.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="play" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/bf/83/69/bf8369db-79cc-822e-d36f-37b2e6fdb451/mzaf_10229507402446470387.plus.aac.p.m4a" data-title="Plastic Love" data-artist="Mariya Takeuchi" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1b/bf/7d/1bbf7d0d-fe41-4e4b-29d0-7feb373a9e4c/190295078515.jpg/600x600bb.jpg" aria-label="播放 30 秒试听"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.28-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg></button></div>
+      <div class="body">
+        <div class="idx">#05</div>
+        <h3 class="title">Plastic Love</h3>
+        <div class="artist">Mariya Takeuchi</div>
+        <div class="album">Variety · 1984</div>
+        <div class="pills"><span class="pill">City Pop</span><span class="pill">Sophisti-pop</span><span class="pill mood">城市夜晚</span><span class="pill mood">怀旧但现代</span></div>
+        <p class="oneliner">竹内玛利亚，日本 city pop 黄金时代的门面。</p>
+        <p class="why">真正优秀的 city pop 原典，不是廉价复刻。旋律与制作四十年不过时。</p>
+        <div class="scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span><b>最适合</b> · 城市夜晚开车过高架，霓虹在窗上流动</span></div>
+        <div class="links"><a class="chip" href="https://music.apple.com/us/album/plastic-love/1541673202?i=1541673399&amp;uo=4" target="_blank" rel="noopener">Apple Music ↗</a><a class="chip ghost" href="https://music.163.com/#/search/m/?s=Plastic%20Love%20Mariya%20Takeuchi" target="_blank" rel="noopener">网易云 ↗</a></div>
+        <div class="src">来源 · City Pop 原典 / 全球再发现</div>
+      </div>
+    </article>
+
+    <article class="card" style="--i:5">
+      <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/3c/68/0a/3c680a11-cfbc-9b9b-f758-403e303f61ea/14_LNT_BelleSeb_v1a_4500px.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="play" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/72/97/36/7297361f-9537-3e7b-3f99-3e9eaa6d9c34/mzaf_16315398933199629656.plus.aac.p.m4a" data-title="Green Grass of Tunnel" data-artist="múm" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/3c/68/0a/3c680a11-cfbc-9b9b-f758-403e303f61ea/14_LNT_BelleSeb_v1a_4500px.jpg/600x600bb.jpg" aria-label="播放 30 秒试听"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.28-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg></button></div>
+      <div class="body">
+        <div class="idx">#06</div>
+        <h3 class="title">Green Grass of Tunnel</h3>
+        <div class="artist">múm</div>
+        <div class="album">Finally We Are No One · 2002</div>
+        <div class="pills"><span class="pill">Folktronica</span><span class="pill">Indietronica</span><span class="pill">Ambient Pop</span><span class="pill mood">颗粒感</span><span class="pill mood">空气感</span></div>
+        <p class="oneliner">冰岛 múm，把 glitch 电子做得像童话绘本。</p>
+        <p class="why">细碎电子颗粒配天真人声与手风琴，脆弱又暖。folktronica 黄金期代表作。</p>
+        <div class="scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span><b>最适合</b> · 下雪或起雾的安静早晨</span></div>
+        <div class="links"><a class="chip" href="https://music.apple.com/us/album/green-grass-of-tunnel-mixed/1587270954?i=1587271304&amp;uo=4" target="_blank" rel="noopener">Apple Music ↗</a><a class="chip ghost" href="https://music.163.com/#/search/m/?s=Green%20Grass%20of%20Tunnel%20m%C3%BAm" target="_blank" rel="noopener">网易云 ↗</a></div>
+        <div class="src">来源 · Finally We Are No One 名盘</div>
+      </div>
+    </article>
+
+    <article class="card" style="--i:6">
+      <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/de/73/f2/de73f26c-42b9-168c-e003-592f44b7857e/801390015120.png/600x600bb.jpg" alt="" loading="lazy"><button class="play" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/96/8c/01/968c0166-cbb4-aa20-b249-93766e59c824/mzaf_330532835091751865.plus.aac.p.m4a" data-title="To Build a Home" data-artist="The Cinematic Orchestra" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/de/73/f2/de73f26c-42b9-168c-e003-592f44b7857e/801390015120.png/600x600bb.jpg" aria-label="播放 30 秒试听"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.28-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg></button></div>
+      <div class="body">
+        <div class="idx">#07</div>
+        <h3 class="title">To Build a Home</h3>
+        <div class="artist">The Cinematic Orchestra</div>
+        <div class="album">Ma Fleur · 2007</div>
+        <div class="pills"><span class="pill">Jazz Pop</span><span class="pill">Chamber Pop</span><span class="pill">Downtempo</span><span class="pill mood">雨天</span><span class="pill mood">温柔</span></div>
+        <p class="oneliner">英国 nu-jazz 团体，与 Patrick Watson 合作的世纪催泪曲。</p>
+        <p class="why">钢琴一进来就让人安静，弦乐推起情绪却不煽。旋律与制作都克制而深。</p>
+        <div class="scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span><b>最适合</b> · 雨天想家、想某个人的时候</span></div>
+        <div class="links"><a class="chip" href="https://music.apple.com/us/album/to-build-a-home-feat-patrick-watson/255464394?i=255470095&amp;uo=4" target="_blank" rel="noopener">Apple Music ↗</a><a class="chip ghost" href="https://music.163.com/#/search/m/?s=To%20Build%20a%20Home%20The%20Cinematic%20Orchestra" target="_blank" rel="noopener">网易云 ↗</a></div>
+        <div class="src">来源 · Ma Fleur / 长青金曲</div>
+      </div>
+    </article>
+
+    <article class="card" style="--i:7">
+      <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/69/b0/c3/69b0c397-dc3c-381f-386e-f7f4a3d9f754/Skiptracing.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="play" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/bb/7e/99/bb7e99d5-7ec3-4a0e-e805-2919da67c92f/mzaf_732972828779443253.plus.aac.p.m4a" data-title="Homage" data-artist="Mild High Club" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/69/b0/c3/69b0c397-dc3c-381f-386e-f7f4a3d9f754/Skiptracing.jpg/600x600bb.jpg" aria-label="播放 30 秒试听"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.28-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg></button></div>
+      <div class="body">
+        <div class="idx">#08</div>
+        <h3 class="title">Homage</h3>
+        <div class="artist">Mild High Club</div>
+        <div class="album">Skiptracing · 2016</div>
+        <div class="pills"><span class="pill">Psychedelic Pop</span><span class="pill">Jazz Pop</span><span class="pill">Sophisti-pop</span><span class="pill mood">松弛</span><span class="pill mood">怀旧但现代</span></div>
+        <p class="oneliner">Alexander Brettin，把 yacht rock 与迷幻揉成慵懒时髦。</p>
+        <p class="why">和声走向精巧、groove 慵懒，复古却不老气。制作与旋律双在线。</p>
+        <div class="scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span><b>最适合</b> · 微醺的夜晚，灯光很暖</span></div>
+        <div class="links"><a class="chip" href="https://music.apple.com/us/album/homage/1110226847?i=1110226862&amp;uo=4" target="_blank" rel="noopener">Apple Music ↗</a><a class="chip ghost" href="https://music.163.com/#/search/m/?s=Homage%20Mild%20High%20Club" target="_blank" rel="noopener">网易云 ↗</a></div>
+        <div class="src">来源 · Skiptracing 长青</div>
+      </div>
+    </article>
+
+    <article class="card" style="--i:8">
+      <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/b5/4c/c2/b54cc20d-03f5-f2c4-4a0d-9b51ad65af89/dj.txuslqgv.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="play" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c5/fe/9b/c5fe9bbd-3511-6797-560c-bd77759d63d0/mzaf_7238585652863500053.plus.aac.p.m4a" data-title="Roygbiv" data-artist="Boards of Canada" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/b5/4c/c2/b54cc20d-03f5-f2c4-4a0d-9b51ad65af89/dj.txuslqgv.jpg/600x600bb.jpg" aria-label="播放 30 秒试听"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.28-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg></button></div>
+      <div class="body">
+        <div class="idx">#09</div>
+        <h3 class="title">Roygbiv</h3>
+        <div class="artist">Boards of Canada</div>
+        <div class="album">Music Has the Right to Children · 1998</div>
+        <div class="pills"><span class="pill">IDM</span><span class="pill">Downtempo</span><span class="pill">Hypnagogic Pop</span><span class="pill mood">怀旧但现代</span><span class="pill mood">颗粒感</span></div>
+        <p class="oneliner">苏格兰兄弟组合，把童年记忆做成模拟合成器的声音。</p>
+        <p class="why">融化般的模拟音色配一段极短却难忘的旋律。怀旧又现代的教科书。</p>
+        <div class="scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span><b>最适合</b> · 翻看小时候的录像带那种褪色感</span></div>
+        <div class="links"><a class="chip" href="https://music.apple.com/us/album/roygbiv/281116024?i=281116081&amp;uo=4" target="_blank" rel="noopener">Apple Music ↗</a><a class="chip ghost" href="https://music.163.com/#/search/m/?s=Roygbiv%20Boards%20of%20Canada" target="_blank" rel="noopener">网易云 ↗</a></div>
+        <div class="src">来源 · MHTRTC 电子经典</div>
+      </div>
+    </article>
+
+    <article class="card" style="--i:9">
+      <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/1e/90/60/1e9060a5-5d24-21f4-aab2-df12941b4aea/jacket_MHXX01996B00Z_550.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="play" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/9e/c0/31/9ec03110-16e1-f97e-f06a-aaf6f79d85a6/mzaf_12151899738905406390.plus.aac.p.m4a" data-title="Twiggy Twiggy" data-artist="Pizzicato Five" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/1e/90/60/1e9060a5-5d24-21f4-aab2-df12941b4aea/jacket_MHXX01996B00Z_550.jpg/600x600bb.jpg" aria-label="播放 30 秒试听"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.28-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg></button></div>
+      <div class="body">
+        <div class="idx">#10</div>
+        <h3 class="title">Twiggy Twiggy</h3>
+        <div class="artist">Pizzicato Five</div>
+        <div class="album">This Year&#x27;s Girl · 1991</div>
+        <div class="pills"><span class="pill">Shibuya-kei</span><span class="pill">Jazz Pop</span><span class="pill">Art Pop</span><span class="pill mood">精致</span><span class="pill mood">怀旧但现代</span></div>
+        <p class="oneliner">野宫真贵领衔，Shibuya-kei 最会玩复古摩登的组合。</p>
+        <p class="why">六十年代 mod 感 + 现代制作，甜而不腻。Shibuya-kei 的门面之一。</p>
+        <div class="scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span><b>最适合</b> · 周末午后收拾房间，想轻快一点</span></div>
+        <div class="links"><a class="chip" href="https://music.apple.com/us/album/summertime-summertime/1536994776?i=1536994778&amp;uo=4" target="_blank" rel="noopener">Apple Music ↗</a><a class="chip ghost" href="https://music.163.com/#/search/m/?s=Twiggy%20Twiggy%20Pizzicato%20Five" target="_blank" rel="noopener">网易云 ↗</a></div>
+        <div class="src">来源 · Shibuya-kei 代表作</div>
+      </div>
+    </article>
+
+    <article class="card" style="--i:10">
+      <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/74/4e/93/744e930f-65d9-dffb-5d86-1360bb5a6bc5/724596932452.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="play" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/32/87/b6/3287b631-6497-8dfe-9766-77c1427848e7/mzaf_6755861276223187353.plus.aac.p.m4a" data-title="Heartbeats" data-artist="José González" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/74/4e/93/744e930f-65d9-dffb-5d86-1360bb5a6bc5/724596932452.jpg/600x600bb.jpg" aria-label="播放 30 秒试听"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.28-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg></button></div>
+      <div class="body">
+        <div class="idx">#11</div>
+        <h3 class="title">Heartbeats</h3>
+        <div class="artist">José González</div>
+        <div class="album">Veneer · 2003</div>
+        <div class="pills"><span class="pill">Ambient Folk</span><span class="pill">Indie Folk</span><span class="pill mood">木质感</span><span class="pill mood">温柔</span></div>
+        <p class="oneliner">José González，用一把尼龙弦吉他就能盛满情绪。</p>
+        <p class="why">尼龙吉他的木头质感与近距离人声，把电子原曲翻成素颜杰作。极致的木质温柔。</p>
+        <div class="scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span><b>最适合</b> · 安静的夜里，只想听清吉他与呼吸</span></div>
+        <div class="links"><a class="chip" href="https://music.apple.com/us/album/heartbeats/828118023?i=828118037&amp;uo=4" target="_blank" rel="noopener">Apple Music ↗</a><a class="chip ghost" href="https://music.163.com/#/search/m/?s=Heartbeats%20Jos%C3%A9%20Gonz%C3%A1lez" target="_blank" rel="noopener">网易云 ↗</a></div>
+        <div class="src">来源 · Veneer / The Knife 翻唱名版</div>
+      </div>
+    </article>
+
+    <article class="card" style="--i:11">
+      <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/cf/57/39/cf5739e6-332a-e64c-bed0-b763893c0517/artwork.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="play" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/c9/0a/46/c90a464f-379e-8f7a-a212-e22823ac9122/mzaf_8128269148088916110.plus.aac.p.m4a" data-title="Show Me How" data-artist="Men I Trust" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/cf/57/39/cf5739e6-332a-e64c-bed0-b763893c0517/artwork.jpg/600x600bb.jpg" aria-label="播放 30 秒试听"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.28-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg></button></div>
+      <div class="body">
+        <div class="idx">#12</div>
+        <h3 class="title">Show Me How</h3>
+        <div class="artist">Men I Trust</div>
+        <div class="album">Show Me How · 2018</div>
+        <div class="pills"><span class="pill">Dream Pop</span><span class="pill">Bedroom Pop</span><span class="pill">Indietronica</span><span class="pill mood">温柔</span><span class="pill mood">松弛</span></div>
+        <p class="oneliner">加拿大三人组，把慵懒做成一种高级审美。</p>
+        <p class="why">圆润 bassline 与气声人声松弛到骨子里，制作干净耐听。优秀 bedroom pop 的样板。</p>
+        <div class="scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span><b>最适合</b> · 慵懒的周末早晨，光很柔</span></div>
+        <div class="links"><a class="chip" href="https://music.apple.com/us/album/show-me-how/1719975687?i=1719975688&amp;uo=4" target="_blank" rel="noopener">Apple Music ↗</a><a class="chip ghost" href="https://music.163.com/#/search/m/?s=Show%20Me%20How%20Men%20I%20Trust" target="_blank" rel="noopener">网易云 ↗</a></div>
+        <div class="src">来源 · 社区高口碑 / bedroom pop 代表</div>
+      </div>
+    </article>
+
+    <article class="card" style="--i:12">
+      <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music/07/24/7b/mzi.sjudngwh.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="play" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/ea/24/0e/ea240ede-d019-a2cc-94c5-ad22d9c60558/mzaf_10779848742650227633.plus.aac.p.m4a" data-title="Take Off Your Shirt" data-artist="Bibio" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/07/24/7b/mzi.sjudngwh.jpg/600x600bb.jpg" aria-label="播放 30 秒试听"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.28-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg></button></div>
+      <div class="body">
+        <div class="idx">#13</div>
+        <h3 class="title">Take Off Your Shirt</h3>
+        <div class="artist">Bibio</div>
+        <div class="album">Silver Wilkinson · 2013</div>
+        <div class="pills"><span class="pill">Folktronica</span><span class="pill">Indietronica</span><span class="pill">Indie Pop</span><span class="pill mood">夏天傍晚</span><span class="pill mood">松弛</span></div>
+        <p class="oneliner">Bibio 更明亮流行的一面，依旧一身磁带暖意。</p>
+        <p class="why">副歌钩子干净上口，制作松弛不炫技。适合循环一整个夏天。</p>
+        <div class="scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span><b>最适合</b> · 夏日午后想动起来又不想太用力</span></div>
+        <div class="links"><a class="chip" href="https://music.apple.com/us/album/take-off-your-shirt/426292535?i=426292543&amp;uo=4" target="_blank" rel="noopener">Apple Music ↗</a><a class="chip ghost" href="https://music.163.com/#/search/m/?s=Take%20Off%20Your%20Shirt%20Bibio" target="_blank" rel="noopener">网易云 ↗</a></div>
+        <div class="src">来源 · Silver Wilkinson 精选</div>
+      </div>
+    </article>
+
+    <article class="card" style="--i:13">
+      <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/b5/09/30/b50930fc-c3e6-93ea-d146-de291b3e101a/3663729136985_cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="play" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/a2/58/9b/a2589b38-7b5d-f492-e1b9-5c6740afe2c7/mzaf_16439581342348638391.plus.aac.p.m4a" data-title="Angel Echoes" data-artist="Four Tet" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/b5/09/30/b50930fc-c3e6-93ea-d146-de291b3e101a/3663729136985_cover.jpg/600x600bb.jpg" aria-label="播放 30 秒试听"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.28-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg></button></div>
+      <div class="body">
+        <div class="idx">#14</div>
+        <h3 class="title">Angel Echoes</h3>
+        <div class="artist">Four Tet</div>
+        <div class="album">There Is Love in You · 2010</div>
+        <div class="pills"><span class="pill">Folktronica</span><span class="pill">IDM</span><span class="pill">Downtempo</span><span class="pill mood">空气感</span><span class="pill mood">颗粒感</span></div>
+        <p class="oneliner">Kieran Hebden，把人声切片织成情感的电子乐匠人。</p>
+        <p class="why">把一小段人声切成万花筒，却满是温度与旋律。旋律型 IDM 的入口。</p>
+        <div class="scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span><b>最适合</b> · 清晨醒来还没完全清醒时</span></div>
+        <div class="links"><a class="chip" href="https://music.apple.com/us/album/angel-echoes-jon-hopkins-remix/1537809701?i=1537811368&amp;uo=4" target="_blank" rel="noopener">Apple Music ↗</a><a class="chip ghost" href="https://music.163.com/#/search/m/?s=Angel%20Echoes%20Four%20Tet" target="_blank" rel="noopener">网易云 ↗</a></div>
+        <div class="src">来源 · There Is Love in You 名盘</div>
+      </div>
+    </article>
+
+    <article class="card" style="--i:14">
+      <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music20/v4/36/b4/60/36b46085-39a3-d5dd-6274-085f2640dc23/4538182634370_cov.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="play" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/a7/6e/65/a76e65d4-f166-f717-df0f-3b1bd1f4d052/mzaf_5692171182407264916.plus.aac.p.m4a" data-title="都会" data-artist="Taeko Onuki" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music20/v4/36/b4/60/36b46085-39a3-d5dd-6274-085f2640dc23/4538182634370_cov.jpg/600x600bb.jpg" aria-label="播放 30 秒试听"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.28-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg></button></div>
+      <div class="body">
+        <div class="idx">#15</div>
+        <h3 class="title">都会</h3>
+        <div class="artist">Taeko Onuki</div>
+        <div class="album">Sunshower · 1977</div>
+        <div class="pills"><span class="pill">City Pop</span><span class="pill">Sophisti-pop</span><span class="pill">Jazz Pop</span><span class="pill mood">城市夜晚</span><span class="pill mood">精致</span></div>
+        <p class="oneliner">大貫妙子，坂本龙一编曲加持的日系 sophisti-pop 女神。</p>
+        <p class="why">编曲精致到每个和声都讲究，却始终温柔耐听。Sunshower 是被时间证明的杰作。</p>
+        <div class="scene"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span><b>最适合</b> · 傍晚翻旧照片，带一点点惆怅</span></div>
+        <div class="links"><a class="chip" href="https://music.apple.com/jp/album/%E9%83%BD%E4%BC%9A/1133019460?i=1133019794&amp;uo=4" target="_blank" rel="noopener">Apple Music ↗</a><a class="chip ghost" href="https://music.163.com/#/search/m/?s=%E9%83%BD%E4%BC%9A%20Taeko%20Onuki" target="_blank" rel="noopener">网易云 ↗</a></div>
+        <div class="src">来源 · Sunshower 乐评公认杰作</div>
+      </div>
+    </article>
+  </div>
+
+  <section class="nc">
+    <h2>导入网易云音乐</h2>
+    <p>复制下面的列表，网易云 App「新建歌单 → 导入」即可（每行「歌名 - 艺人」）。</p>
+    <pre id="nc-text">Lovers&#x27; Carvings - Bibio
+いかれたBaby - Fishmans
+Summer Soul - cero
+Drop - Cornelius
+Plastic Love - Mariya Takeuchi
+Green Grass of Tunnel - múm
+To Build a Home - The Cinematic Orchestra
+Homage - Mild High Club
+Roygbiv - Boards of Canada
+Twiggy Twiggy - Pizzicato Five
+Heartbeats - José González
+Show Me How - Men I Trust
+Take Off Your Shirt - Bibio
+Angel Echoes - Four Tet
+都会 - Taeko Onuki</pre>
+    <button class="copybtn" id="nc-btn" onclick="copyNC()">复制歌单</button>
+  </section>
+
+  <footer>
+    每日 08:00 更新 · 封面与试听来自 Apple Music (iTunes)<br>仅供个人聆听发现
+  </footer>
+</main>
+
+<div class="np" id="np">
+  <div class="np-prog"><div class="np-bar" id="np-bar"></div></div>
+  <div class="np-in">
+    <img id="np-cover" alt="">
+    <div class="np-meta"><div class="np-title" id="np-title"></div><div class="np-artist" id="np-artist"></div></div>
+    <div class="np-time" id="np-time">0:00</div>
+    <button class="np-toggle" id="np-toggle" aria-label="播放/暂停"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h4v16H7zM13 4h4v16h-4z"/></svg></button>
+  </div>
+</div>
+
+<script>
+const audio = new Audio();
+let current = null;  // 当前播放的 play 按钮
+const np = document.getElementById('np');
+const npCover = document.getElementById('np-cover');
+const npTitle = document.getElementById('np-title');
+const npArtist = document.getElementById('np-artist');
+const npToggle = document.getElementById('np-toggle');
+const npBar = document.getElementById('np-bar');
+const npTime = document.getElementById('np-time');
+const ICON_PLAY = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.28-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg>`;
+const ICON_PAUSE = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h4v16H7zM13 4h4v16h-4z"/></svg>`;
+
+function fmt(t){ if(!t||isNaN(t)) return '0:00'; const m=Math.floor(t/60), s=Math.floor(t%60); return m+':'+String(s).padStart(2,'0'); }
+function setBtn(btn, playing){ btn.classList.toggle('playing', playing); btn.innerHTML = playing?ICON_PAUSE:ICON_PLAY; }
+
+function playTrack(btn){
+  if(current && current!==btn){ setBtn(current, false); }
+  if(current===btn && !audio.paused){ audio.pause(); return; }
+  if(current===btn && audio.paused){ audio.play(); return; }
+  current = btn;
+  audio.src = btn.dataset.src;
+  audio.play();
+  npCover.src = btn.dataset.cover || '';
+  npTitle.textContent = btn.dataset.title;
+  npArtist.textContent = btn.dataset.artist;
+  np.classList.add('show');
+}
+
+document.querySelectorAll('.play').forEach(btn=>{
+  btn.addEventListener('click', ()=>playTrack(btn));
+});
+npToggle.addEventListener('click', ()=>{ if(audio.paused) audio.play(); else audio.pause(); });
+audio.addEventListener('play', ()=>{ if(current) setBtn(current,true); npToggle.innerHTML=ICON_PAUSE; });
+audio.addEventListener('pause', ()=>{ if(current) setBtn(current,false); npToggle.innerHTML=ICON_PLAY; });
+audio.addEventListener('timeupdate', ()=>{
+  npBar.style.width = (audio.currentTime/(audio.duration||30)*100)+'%';
+  npTime.textContent = fmt(audio.currentTime);
+});
+audio.addEventListener('ended', ()=>{ if(current){ setBtn(current,false);} npBar.style.width='0%'; });
+
+function copyNC(){
+  const t=document.getElementById('nc-text').innerText;
+  navigator.clipboard.writeText(t).then(()=>{
+    const b=document.getElementById('nc-btn'); const o=b.innerText;
+    b.innerText='已复制 ✓'; setTimeout(()=>b.innerText=o,1600);
+  });
+}
+</script>
+</body>
+</html>

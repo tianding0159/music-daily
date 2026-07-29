@@ -1,0 +1,4687 @@
+[
+  {
+    "id": "cero-summer-soul",
+    "title": "Summer Soul",
+    "artist": "cero",
+    "year": "2015",
+    "album": "Obscure Ride",
+    "genres": [
+      "Japanese Indie Pop",
+      "Neo Soul",
+      "City Pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "夏天傍晚",
+      "城市夜晚",
+      "松弛"
+    ],
+    "production_tags": [
+      "warm bass",
+      "soft compression",
+      "airy",
+      "clean"
+    ],
+    "instrumentation": [
+      "jazz bass",
+      "electric piano",
+      "clean guitar"
+    ],
+    "vocal_style": "轻柔和声",
+    "bpm_band": "90-100",
+    "has_melody": true,
+    "scene": "傍晚下班天还是橙蓝色，走到便利店门口又不想进去的那几步。",
+    "artist_oneliner": "东京三人组 cero，把 J Dilla 那派 neo-soul 的懒拍搬进日语抒情的那一队。",
+    "why": "贝斯永远拖在拍子后面半步，鼓点松松垮垮不对齐，人声和声叠成薄薄一层暖；副歌一遍就钉进脑子，却懒得给你一个用力的高潮。",
+    "fit_score": 95,
+    "source": "Obscure Ride 乐评公认 / 日系 neo-soul 标杆",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "cornelius-drop",
+    "title": "Drop",
+    "artist": "Cornelius",
+    "year": "2001",
+    "album": "Point",
+    "genres": [
+      "Shibuya-kei",
+      "Art Pop",
+      "Ambient Pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "空气感",
+      "精致",
+      "颗粒感"
+    ],
+    "production_tags": [
+      "field recording",
+      "reverb space",
+      "subtle glitch",
+      "wide stereo"
+    ],
+    "instrumentation": [
+      "clean guitar",
+      "水声采样"
+    ],
+    "vocal_style": "低语",
+    "bpm_band": "80-90",
+    "has_melody": true,
+    "scene": "夜里关了灯，只戴一边耳机躺着，想数清每颗声音站在哪一侧的时候。",
+    "artist_oneliner": "小山田圭吾——把 Shibuya-kei 一路拆到单颗声音都要摆位的那个洁癖者。",
+    "why": "水滴声敲出节拍，声音在左右耳之间来回走位、像有实体，底下始终浮着一条清亮旋律不肯沉。听得见每一颗声音被摆在哪。",
+    "fit_score": 93,
+    "source": "Point 长青名盘 / 声音设计范本",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "fishmans-ikareta-baby",
+    "title": "いかれたBaby",
+    "artist": "Fishmans",
+    "year": "1996",
+    "album": "空中キャンプ",
+    "genres": [
+      "Dream Pop",
+      "Dub",
+      "Japanese Indie Pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "城市夜晚",
+      "怀旧但现代"
+    ],
+    "production_tags": [
+      "reverb space",
+      "warm bass",
+      "analog warmth",
+      "soft"
+    ],
+    "instrumentation": [
+      "dub bass",
+      "clean guitar",
+      "synth pad"
+    ],
+    "vocal_style": "breathy 男声",
+    "bpm_band": "70-80",
+    "has_melody": true,
+    "scene": "深夜没关的窗，外头路灯半亮，你还没决定要不要发出那条消息的时候。",
+    "artist_oneliner": "佐藤伸治的 Fishmans，把牙买加 dub 的空旷贝斯泡进日语情歌、唱到人快化掉的东京乐队。",
+    "why": "贝斯放得很低很慢，混响把每个字的尾巴拉得老长；佐藤的气声几乎贴着话筒，像在你耳边小声认错。温柔得不像要给谁听。",
+    "fit_score": 96,
+    "source": "空中キャンプ 殿堂级 / 日系 dream pop 顶点",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "mariya-takeuchi-plastic-love",
+    "title": "Plastic Love",
+    "artist": "Mariya Takeuchi",
+    "year": "1984",
+    "album": "Variety",
+    "genres": [
+      "City Pop",
+      "Sophisti-pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "城市夜晚",
+      "怀旧但现代",
+      "精致"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "wide stereo",
+      "soft compression"
+    ],
+    "instrumentation": [
+      "电钢琴",
+      "funky bass",
+      "brass"
+    ],
+    "vocal_style": "清亮女声",
+    "bpm_band": "100-110",
+    "has_melody": true,
+    "scene": "城市高架上开车，霓虹在挡风玻璃上一条条淌过去的那段。",
+    "artist_oneliner": "竹内玛利亚，city pop 黄金期的招牌嗓，丈夫山下达郎替她把每层和声铺满。",
+    "why": "四拍打底的 groove 稳得像不会累，弦乐和铜管在高处闪；可歌词里是个装作不在乎、拒绝再动心的女人，甜面孔底下全是防备。",
+    "fit_score": 92,
+    "source": "City Pop 原典 / 全球再发现",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "taeko-onuki-tokai",
+    "title": "都会",
+    "artist": "Taeko Onuki",
+    "year": "1977",
+    "album": "Sunshower",
+    "genres": [
+      "City Pop",
+      "Sophisti-pop",
+      "Jazz Pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "城市夜晚",
+      "精致",
+      "怀旧但现代"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "lush strings",
+      "soft"
+    ],
+    "instrumentation": [
+      "电钢琴",
+      "弦乐",
+      "jazz bass"
+    ],
+    "vocal_style": "温润女声",
+    "bpm_band": "90-100",
+    "has_melody": true,
+    "scene": "傍晚坐在窗边翻一沓旧照片，翻到一半停下来的那一张。",
+    "artist_oneliner": "大貫妙子，坂本龙一给她编曲的那张 Sunshower 里，把都市写得优雅又冷清的女声。",
+    "why": "弦乐一层层往上叠，和声走得比一般流行歌绕，钢琴却轻轻收着；唱的是都市繁华，底下是一个人看灯火的疏离。",
+    "fit_score": 91,
+    "source": "Sunshower 乐评公认杰作",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "pizzicato-five-twiggy-twiggy",
+    "title": "Twiggy Twiggy",
+    "artist": "Pizzicato Five",
+    "year": "1991",
+    "album": "This Year's Girl",
+    "genres": [
+      "Shibuya-kei",
+      "Jazz Pop",
+      "Art Pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "精致",
+      "怀旧但现代",
+      "松弛"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "soft",
+      "wide stereo"
+    ],
+    "instrumentation": [
+      "电钢琴",
+      "弦乐",
+      "bossa 打击乐"
+    ],
+    "vocal_style": "俏皮女声",
+    "bpm_band": "95-105",
+    "has_melody": true,
+    "scene": "周末上午拉开窗帘擦桌子，想让身体先轻快起来的时候。",
+    "artist_oneliner": "野宫真贵领衔的 Pizzicato Five，把六十年代 mod 少女做派翻新成涩谷系橱窗的组合。",
+    "why": "一段复古管乐加轻快的 bossa 摇摆，野宫真贵唱得又懒又俏；歌名取自六十年代模特 Twiggy，整首像一张翻拍的时装杂志内页。",
+    "fit_score": 88,
+    "source": "Shibuya-kei 代表作",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "tatsuro-yamashita-ride-on-time",
+    "title": "Ride On Time",
+    "artist": "Tatsuro Yamashita",
+    "year": "1980",
+    "album": "Ride On Time",
+    "genres": [
+      "City Pop",
+      "Sophisti-pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "夏天傍晚",
+      "城市夜晚",
+      "怀旧但现代"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "wide stereo",
+      "brass"
+    ],
+    "instrumentation": [
+      "电钢琴",
+      "funky bass",
+      "brass"
+    ],
+    "vocal_style": "醇厚男声 + 叠层和声",
+    "bpm_band": "110-120",
+    "has_melody": true,
+    "scene": "夏天沿海公路开车，摇下窗风灌进来、手不由得跟着打拍子的那段。",
+    "artist_oneliner": "山下达郎，能把自己一个人的嗓子叠成一整支合唱团的 city pop 制作教父。",
+    "why": "铜管一开就把天顶推高，他把自己的和声叠了一层又一层，密到像一群人替他喊；groove 一路往前冲，不留一点犹豫。",
+    "fit_score": 89,
+    "source": "City Pop 原典",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "anri-remember-summer-days",
+    "title": "Remember Summer Days",
+    "artist": "Anri",
+    "year": "1983",
+    "album": "Timely!!",
+    "genres": [
+      "City Pop",
+      "Jazz Pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "夏天傍晚",
+      "松弛",
+      "怀旧但现代"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "soft",
+      "wide stereo"
+    ],
+    "instrumentation": [
+      "电钢琴",
+      "funky bass",
+      "clean guitar"
+    ],
+    "vocal_style": "清甜女声",
+    "bpm_band": "105-115",
+    "has_melody": true,
+    "scene": "夏天傍晚翻到一张旧合照，想起某个具体的人还没说完的话。",
+    "artist_oneliner": "杏里，角松敏生替她打造的那批夏日 city pop 里嗓子最清甜的一位。",
+    "why": "前奏的电钢加拨弦一响就是海风，节奏轻快得像小跑；杏里唱得干净不使劲，可标题写着「记得那些夏天」——是回头看的甜，不是正在发生的。",
+    "fit_score": 88,
+    "source": "City Pop 夏日经典",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "bibio-lovers-carvings",
+    "title": "Lovers' Carvings",
+    "artist": "Bibio",
+    "year": "2009",
+    "album": "Ambivalence Avenue",
+    "genres": [
+      "Folktronica",
+      "Organic Electronic",
+      "Indietronica"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "木质感",
+      "颗粒感",
+      "夏天傍晚"
+    ],
+    "production_tags": [
+      "tape saturation",
+      "cassette",
+      "granular",
+      "analog warmth"
+    ],
+    "instrumentation": [
+      "fingerstyle guitar",
+      "老式合成器"
+    ],
+    "vocal_style": "薄雾人声",
+    "bpm_band": "90-100",
+    "has_melody": true,
+    "scene": "夏天傍晚骑车穿过一排行道树，光从叶缝里一格一格打在脸上。",
+    "artist_oneliner": "Stephen Wilkinson 的 Bibio，把指弹吉他录进磁带、任它带着受潮般毛边的英国人。",
+    "why": "磁带的嘶声裹着一段循环指弹，合成器像从旧录音里透出来；越听越像一段被反复播放到磨损的私人录像。",
+    "fit_score": 97,
+    "source": "Ambivalence Avenue 长青 / folktronica 标杆",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "bibio-take-off-your-shirt",
+    "title": "Take Off Your Shirt",
+    "artist": "Bibio",
+    "year": "2013",
+    "album": "Silver Wilkinson",
+    "genres": [
+      "Folktronica",
+      "Indietronica",
+      "Indie Pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "夏天傍晚",
+      "松弛",
+      "颗粒感"
+    ],
+    "production_tags": [
+      "tape saturation",
+      "analog warmth",
+      "soft"
+    ],
+    "instrumentation": [
+      "clean guitar",
+      "合成器",
+      "drum machine"
+    ],
+    "vocal_style": "轻柔男声",
+    "bpm_band": "100-110",
+    "has_melody": true,
+    "scene": "夏日午后想出门走走，又不打算走太远的那种松散劲儿。",
+    "artist_oneliner": "Bibio 更靠近流行的一面，磁带暖意还在、旋律却敞亮了许多。",
+    "why": "副歌钩子干净，跟着哼一遍就会，他没往上堆花活，只让磁带的温度托着；比起早期那些碎片，这首是把话说清楚的一次。",
+    "fit_score": 90,
+    "source": "Silver Wilkinson 精选",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "four-tet-angel-echoes",
+    "title": "Angel Echoes",
+    "artist": "Four Tet",
+    "year": "2010",
+    "album": "There Is Love in You",
+    "genres": [
+      "Folktronica",
+      "IDM",
+      "Downtempo"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "空气感",
+      "颗粒感",
+      "温柔"
+    ],
+    "production_tags": [
+      "granular",
+      "chopped vocal",
+      "reverb space",
+      "warm"
+    ],
+    "instrumentation": [
+      "切片人声",
+      "合成器",
+      "打击乐"
+    ],
+    "vocal_style": "切片女声",
+    "bpm_band": "110-120",
+    "has_melody": true,
+    "scene": "清晨闹钟响过一轮，眼睛半睁、还没起身的那几分钟。",
+    "artist_oneliner": "Kieran Hebden 的 Four Tet，把一小截人声剁碎、再拼回一段有体温旋律的电子乐匠。",
+    "why": "一句女声被切成无数小片，在拍子里翻来覆去地重排；碎归碎，底下的旋律始终暖着，不冷也不炫技。旋律型 IDM 最好走的一扇门。",
+    "fit_score": 92,
+    "source": "There Is Love in You 名盘",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "four-tet-two-thousand-and-seventeen",
+    "title": "Two Thousand and Seventeen",
+    "artist": "Four Tet",
+    "year": "2017",
+    "album": "New Energy",
+    "genres": [
+      "Organic Electronic",
+      "Ambient Pop",
+      "Downtempo"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "空气感",
+      "松弛",
+      "精致"
+    ],
+    "production_tags": [
+      "granular",
+      "reverb space",
+      "wide stereo"
+    ],
+    "instrumentation": [
+      "拨弦合成器",
+      "手碟感打击"
+    ],
+    "vocal_style": "无",
+    "bpm_band": "100-110",
+    "has_melody": true,
+    "scene": "傍晚烧一壶水泡茶，等它开、想让脑子慢下来的那段。",
+    "artist_oneliner": "Four Tet 近年最松的那张 New Energy 里，最通透的一首无词器乐。",
+    "why": "一段拨弦像水琴一样反复，每绕一圈就多添一点东西，空间铺得很开却不空；始终有一条明确的旋律线牵着走，不是把 pad 堆在那儿就算完。",
+    "fit_score": 91,
+    "source": "New Energy 精选",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "album-leaf-over-the-pond",
+    "title": "Over the Pond",
+    "artist": "The Album Leaf",
+    "year": "2004",
+    "album": "In a Safe Place",
+    "genres": [
+      "Ambient Pop",
+      "Post-rock",
+      "Electro-acoustic"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "空气感",
+      "怀旧但现代",
+      "温柔"
+    ],
+    "production_tags": [
+      "reverb space",
+      "analog warmth",
+      "soft"
+    ],
+    "instrumentation": [
+      "felt piano",
+      "合成器 pad",
+      "clean guitar"
+    ],
+    "vocal_style": "无",
+    "bpm_band": "80-90",
+    "has_melody": true,
+    "scene": "一场雨刚停，趴在窗台看水还在往下滴、什么都不想做的时候。",
+    "artist_oneliner": "Jimmy LaValle 的 The Album Leaf，跑去冰岛 Sigur Rós 的录音室做暖调电子的美国人。",
+    "why": "钢琴几个音起头，合成器 pad 在后面慢慢铺开，主题清清楚楚不含糊；安静，但不是发呆的空，是有话要说的那种安静。",
+    "fit_score": 90,
+    "source": "In a Safe Place 长青",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "mum-green-grass-of-tunnel",
+    "title": "Green Grass of Tunnel",
+    "artist": "múm",
+    "year": "2002",
+    "album": "Finally We Are No One",
+    "genres": [
+      "Folktronica",
+      "Indietronica",
+      "Ambient Pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "颗粒感",
+      "空气感",
+      "怀旧但现代"
+    ],
+    "production_tags": [
+      "glitch",
+      "field recording",
+      "analog warmth",
+      "granular"
+    ],
+    "instrumentation": [
+      "melodica",
+      "手风琴",
+      "glitch 打击"
+    ],
+    "vocal_style": "童声般 breathy 女声",
+    "bpm_band": "90-100",
+    "has_melody": true,
+    "scene": "起雾或落雪的清早，屋里还没开灯、窗玻璃蒙着一层白的时候。",
+    "artist_oneliner": "冰岛的 múm，把 glitch 的电子碎响做得像一本会翻页的童话绘本。",
+    "why": "细碎的电子噼啪声托着手风琴，双胞胎姐妹的气声细得像孩子在念咒；脆弱里裹着暖，像用旧毛线织出来的东西。",
+    "fit_score": 91,
+    "source": "Finally We Are No One 名盘",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "boards-of-canada-roygbiv",
+    "title": "Roygbiv",
+    "artist": "Boards of Canada",
+    "year": "1998",
+    "album": "Music Has the Right to Children",
+    "genres": [
+      "IDM",
+      "Downtempo",
+      "Hypnagogic Pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "怀旧但现代",
+      "颗粒感",
+      "松弛"
+    ],
+    "production_tags": [
+      "tape saturation",
+      "analog warmth",
+      "vinyl crackle",
+      "wobble"
+    ],
+    "instrumentation": [
+      "模拟合成器",
+      "hip-hop 底鼓"
+    ],
+    "vocal_style": "无",
+    "bpm_band": "90-100",
+    "has_melody": true,
+    "scene": "翻出小时候的家庭录像带，画面偏色、声音发闷的那种下午。",
+    "artist_oneliner": "苏格兰兄弟 Boards of Canada，把褪色的童年记忆调成会走音的模拟合成器的那对人。",
+    "why": "合成器音准像晒化了一样微微飘移，底下垫着黑胶的噼啪；旋律短得不到一分钟，却够记一辈子——暖，可隐隐发着旧。",
+    "fit_score": 90,
+    "source": "MHTRTC 电子经典",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "tycho-a-walk",
+    "title": "A Walk",
+    "artist": "Tycho",
+    "year": "2011",
+    "album": "Dive",
+    "genres": [
+      "Organic Electronic",
+      "Downtempo",
+      "Ambient Pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "夏天傍晚",
+      "空气感",
+      "松弛"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "wide stereo",
+      "soft compression"
+    ],
+    "instrumentation": [
+      "clean guitar",
+      "合成器 pad",
+      "krautrock 鼓"
+    ],
+    "vocal_style": "无",
+    "bpm_band": "110-120",
+    "has_melody": true,
+    "scene": "傍晚六点骑车下坡，风灌进袖子、路灯刚一盏盏亮起来的那几分钟。",
+    "artist_oneliner": "Scott Hansen——先做视觉设计（ISO50 那套海报）再做音乐的人，编曲也像他的画面一样给每个元素留足呼吸的间距。",
+    "why": "琶音合成器一颗颗铺开、鼓点在底下匀速往前顶，吉他在高处描出一条黄昏的轮廓线。全程没有人声，却把「迈开步子往前走」这件事讲得明明白白。",
+    "fit_score": 89,
+    "source": "Dive 精选 / downtempo 长青",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "gold-panda-quitters-raga",
+    "title": "Quitter's Raga",
+    "artist": "Gold Panda",
+    "year": "2010",
+    "album": "Lucky Shiner",
+    "genres": [
+      "Organic Electronic",
+      "IDM",
+      "Downtempo"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "颗粒感",
+      "空气感",
+      "松弛"
+    ],
+    "production_tags": [
+      "granular",
+      "chopped sample",
+      "analog warmth"
+    ],
+    "instrumentation": [
+      "西塔琴采样",
+      "切片打击"
+    ],
+    "vocal_style": "无",
+    "bpm_band": "100-110",
+    "has_melody": true,
+    "scene": "午后收拾书桌，把散乱的纸一张张归位、屋里忽然安静下来的那一刻。",
+    "artist_oneliner": "英国制作人 Gold Panda，专把西塔琴这类民族采样剁成碎片、再拼回一条会呼吸的律动。",
+    "why": "西塔琴被切成一小段一小段、错位叠成旋律，底下电子鼓点温温地转。东方的弦音和机器的规整咬在一起，谁也没盖过谁。",
+    "fit_score": 88,
+    "source": "Lucky Shiner 精选",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "mount-kimbie-before-i-move-off",
+    "title": "Before I Move Off",
+    "artist": "Mount Kimbie",
+    "year": "2010",
+    "album": "Crooks & Lovers",
+    "genres": [
+      "Indietronica",
+      "Downtempo",
+      "Electro-acoustic"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "颗粒感",
+      "城市夜晚",
+      "空气感"
+    ],
+    "production_tags": [
+      "granular",
+      "field recording",
+      "soft",
+      "warm"
+    ],
+    "instrumentation": [
+      "切片吉他",
+      "人声采样",
+      "打击"
+    ],
+    "vocal_style": "切片人声",
+    "bpm_band": "90-100",
+    "has_melody": true,
+    "scene": "夜班地铁靠窗，隧道灯一道道扫过玻璃、你数不清是第几道的时候。",
+    "artist_oneliner": "英国二人组，post-dubstep 里手工痕迹最重的一支——采样的接缝故意不磨平。",
+    "why": "日常的窸窣声响（field recording）被编进温软的律动里，人声切成碎片当乐器使。细节多到每听一遍都能再捞到新的一颗。",
+    "fit_score": 88,
+    "source": "Crooks & Lovers 长青",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "beach-house-space-song",
+    "title": "Space Song",
+    "artist": "Beach House",
+    "year": "2015",
+    "album": "Depression Cherry",
+    "genres": [
+      "Dream Pop",
+      "Ambient Pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "城市夜晚",
+      "温柔",
+      "怀旧但现代"
+    ],
+    "production_tags": [
+      "reverb space",
+      "analog warmth",
+      "wide stereo"
+    ],
+    "instrumentation": [
+      "合成器 pad",
+      "clean guitar",
+      "drum machine"
+    ],
+    "vocal_style": "梦呓女声",
+    "bpm_band": "100-110",
+    "has_melody": true,
+    "scene": "深夜一个人开车上环城高架，没有目的地、只想让路一直往前铺。",
+    "artist_oneliner": "Victoria Legrand 与 Alex Scally 的双人 dream pop，招牌是那种越听越往下沉、却舍不得醒的合成器。",
+    "why": "一条下行的合成器旋律像慢慢坠落，人声浮在上面失重；副歌那句钩子（\"fall back into place\"）一出来，整首歌就钉在你脑子里拔不掉。",
+    "fit_score": 93,
+    "source": "Depression Cherry / 当代 dream pop 经典",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "men-i-trust-show-me-how",
+    "title": "Show Me How",
+    "artist": "Men I Trust",
+    "year": "2018",
+    "album": "Show Me How",
+    "genres": [
+      "Dream Pop",
+      "Bedroom Pop",
+      "Indietronica"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "松弛",
+      "空气感"
+    ],
+    "production_tags": [
+      "soft compression",
+      "warm bass",
+      "analog warmth"
+    ],
+    "instrumentation": [
+      "圆润 bass",
+      "clean guitar",
+      "合成器"
+    ],
+    "vocal_style": "breathy 女声",
+    "bpm_band": "90-100",
+    "has_melody": true,
+    "scene": "周末睡到自然醒，光从窗帘缝斜切进来、你还赖着不想动的那一段。",
+    "artist_oneliner": "加拿大三人组，把「松」做成一门手艺——每个音都磨到没有棱角。",
+    "why": "圆滚滚的 bassline 在底下打着转，气声人声贴着耳朵飘。制作干净到几乎听不见杂质，却一点不冷。",
+    "fit_score": 92,
+    "source": "社区高口碑 / bedroom pop 代表",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "men-i-trust-numb",
+    "title": "Numb",
+    "artist": "Men I Trust",
+    "year": "2019",
+    "album": "Oncle Jazz",
+    "genres": [
+      "Dream Pop",
+      "Bedroom Pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "松弛",
+      "温柔",
+      "城市夜晚"
+    ],
+    "production_tags": [
+      "soft compression",
+      "warm bass",
+      "soft"
+    ],
+    "instrumentation": [
+      "圆润 bass",
+      "clean guitar"
+    ],
+    "vocal_style": "breathy 女声",
+    "bpm_band": "95-105",
+    "has_melody": true,
+    "scene": "晚饭后沿河边走，天没全黑、也不急着回家的那一段。",
+    "artist_oneliner": "Men I Trust 大碟《Oncle Jazz》里最抓人的一首，groove 慢到像踩在棉花上。",
+    "why": "律动松而不垮、旋律绵绵地绕，几件乐器互相让着位置。第一遍听平平，第三遍就离不开了。",
+    "fit_score": 90,
+    "source": "Oncle Jazz 精选",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "yumi-zouma-alena",
+    "title": "Alena",
+    "artist": "Yumi Zouma",
+    "year": "2014",
+    "album": "Yumi Zouma EP",
+    "genres": [
+      "Dream Pop",
+      "Indie Pop",
+      "Sophisti-pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "夏天傍晚",
+      "怀旧但现代",
+      "温柔"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "soft",
+      "wide stereo"
+    ],
+    "instrumentation": [
+      "合成器",
+      "clean guitar",
+      "圆润 bass"
+    ],
+    "vocal_style": "轻盈女声",
+    "bpm_band": "105-115",
+    "has_melody": true,
+    "scene": "夏末傍晚翻到一张旧照片，想起一个人、但已经不难过了。",
+    "artist_oneliner": "新西兰组合，接着 80 年代 sophisti-pop 往下写的那一脉，甜里带着克制。",
+    "why": "复古合成器铺出暖色，轻盈的女声掠过、甜到临界点又收住。怀旧的底子被处理得干净利落，一点不发潮。",
+    "fit_score": 89,
+    "source": "Yumi Zouma EP / 独立乐评推荐",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "mild-high-club-homage",
+    "title": "Homage",
+    "artist": "Mild High Club",
+    "year": "2016",
+    "album": "Skiptracing",
+    "genres": [
+      "Psychedelic Pop",
+      "Jazz Pop",
+      "Sophisti-pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "松弛",
+      "怀旧但现代",
+      "城市夜晚"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "tape saturation",
+      "soft"
+    ],
+    "instrumentation": [
+      "电钢琴",
+      "圆润 bass",
+      "clean guitar"
+    ],
+    "vocal_style": "慵懒男声",
+    "bpm_band": "95-105",
+    "has_melody": true,
+    "scene": "微醺的夜里坐在暖灯的酒吧角落，看冰块在杯里慢慢化的时候。",
+    "artist_oneliner": "Alexander Brettin，把 yacht rock 的顺滑和迷幻的晕眩揉进同一段 groove。",
+    "why": "和声走得精巧、拐弯处总藏个惊喜，groove 慢悠悠地晃。复古味很足，却没有一点老唱片的霉气。",
+    "fit_score": 90,
+    "source": "Skiptracing 长青",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "blood-orange-charcoal-baby",
+    "title": "Charcoal Baby",
+    "artist": "Blood Orange",
+    "year": "2018",
+    "album": "Negro Swan",
+    "genres": [
+      "Neo Soul",
+      "Leftfield Pop",
+      "Quiet Alternative R&B"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "城市夜晚",
+      "温柔",
+      "精致"
+    ],
+    "production_tags": [
+      "soft compression",
+      "warm bass",
+      "analog warmth"
+    ],
+    "instrumentation": [
+      "clean guitar",
+      "圆润 bass",
+      "合成器"
+    ],
+    "vocal_style": "柔和 falsetto",
+    "bpm_band": "90-100",
+    "has_melody": true,
+    "scene": "深夜想找个人说说话、又觉得说了也没用的那种时候。",
+    "artist_oneliner": "Dev Hynes（Blood Orange），当代最会用留白写 R&B 的作者，情绪越深、手越轻。",
+    "why": "吉他拨得克制、falsetto 柔得恰到好处，痛的地方从不拔高嗓门。\"come on and let me know\" 那句唱得越平静，底下的孤独越清楚。",
+    "fit_score": 89,
+    "source": "Negro Swan / Pitchfork 好评",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "sampha-no-one-knows-me-like-the-piano",
+    "title": "(No One Knows Me) Like the Piano",
+    "artist": "Sampha",
+    "year": "2017",
+    "album": "Process",
+    "genres": [
+      "Neo Soul",
+      "Quiet Alternative R&B",
+      "Chamber Pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "有人味",
+      "雨天"
+    ],
+    "production_tags": [
+      "felt piano",
+      "soft",
+      "reverb space",
+      "analog warmth"
+    ],
+    "instrumentation": [
+      "felt piano"
+    ],
+    "vocal_style": "真挚男声",
+    "bpm_band": "70-80",
+    "has_melody": true,
+    "scene": "雨天回到空房子，把外套挂好、还没开灯就先坐下的那一刻。",
+    "artist_oneliner": "Sampha，一把嗓子加一架钢琴就能让整个房间安静下来的英国人。",
+    "why": "毡音钢琴几乎素颜，人声贴着琴键起伏，写的是他母亲家那架陪了他半生的琴。克制到几乎不使劲，眼泪却先掉了。",
+    "fit_score": 92,
+    "source": "Process / Mercury 奖",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "cocteau-twins-cherry-coloured-funk",
+    "title": "Cherry-coloured Funk",
+    "artist": "Cocteau Twins",
+    "year": "1990",
+    "album": "Heaven or Las Vegas",
+    "genres": [
+      "Dream Pop",
+      "Ambient Pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "空气感",
+      "温柔",
+      "怀旧但现代"
+    ],
+    "production_tags": [
+      "reverb space",
+      "chorus guitar",
+      "wide stereo"
+    ],
+    "instrumentation": [
+      "chorus guitar",
+      "合成器",
+      "drum machine"
+    ],
+    "vocal_style": "缥缈女声",
+    "bpm_band": "100-110",
+    "has_melody": true,
+    "scene": "午睡刚醒、身体还没跟上、屋里光很白的那几分钟。",
+    "artist_oneliner": "Elizabeth Fraser 的嗓子，dream pop 的原始模板——她唱的常常不属于任何一种语言。",
+    "why": "合唱效果的吉他叠成一层层云，她用自造的音节当旋律唱，你听不懂词却全懂情绪。三十多年过去，后来的梦幻流行都还在学她这一口。",
+    "fit_score": 90,
+    "source": "Heaven or Las Vegas 殿堂",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "mazzy-star-fade-into-you",
+    "title": "Fade Into You",
+    "artist": "Mazzy Star",
+    "year": "1993",
+    "album": "So Tonight That I Might See",
+    "genres": [
+      "Dream Pop",
+      "Slowcore"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "怀旧但现代",
+      "松弛"
+    ],
+    "production_tags": [
+      "reverb space",
+      "analog warmth",
+      "vinyl crackle"
+    ],
+    "instrumentation": [
+      "slide guitar",
+      "钢琴",
+      "tambourine"
+    ],
+    "vocal_style": "慵懒女声",
+    "bpm_band": "70-80",
+    "has_melody": true,
+    "scene": "黄昏坐窗边发呆，看光一点点从墙上退走、时间跟着变慢。",
+    "artist_oneliner": "Hope Sandoval 的嗓子，把 slowcore 的慢和 dream pop 的暖焊在一起的那种永恒温柔。",
+    "why": "滑棒吉他和铃鼓慢到近乎停住，旋律却牢牢拽着你不松。三十年了，前奏一响还是立刻沦陷。",
+    "fit_score": 91,
+    "source": "长青金曲",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "alex-g-bobby",
+    "title": "Bobby",
+    "artist": "Alex G",
+    "year": "2017",
+    "album": "Rocket",
+    "genres": [
+      "Bedroom Pop",
+      "Indie Rock",
+      "Ambient Folk"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "木质感",
+      "有人味",
+      "松弛"
+    ],
+    "production_tags": [
+      "lo-fi",
+      "analog warmth",
+      "soft"
+    ],
+    "instrumentation": [
+      "fingerstyle guitar",
+      "小提琴",
+      "banjo"
+    ],
+    "vocal_style": "男女对唱 breathy",
+    "bpm_band": "100-110",
+    "has_melody": true,
+    "scene": "秋天午后趴在木地板上晒太阳，看灰尘在光柱里慢慢浮的时候。",
+    "artist_oneliner": "Alex Giannascoli，卧室独立里旋律手感最好的那批人之一，脏一点的录音质感是故意留的。",
+    "why": "提琴和男女对唱都带着毛边的真实感，旋律却工整得站得住脚。lo-fi 的粗糙不是遮丑，是把人味留在了里面。",
+    "fit_score": 88,
+    "source": "Rocket / 乐评好评",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "clairo-bags",
+    "title": "Bags",
+    "artist": "Clairo",
+    "year": "2019",
+    "album": "Immunity",
+    "genres": [
+      "Bedroom Pop",
+      "Indie Pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "有人味",
+      "夏天傍晚"
+    ],
+    "production_tags": [
+      "soft compression",
+      "analog warmth",
+      "warm"
+    ],
+    "instrumentation": [
+      "clean guitar",
+      "钢琴",
+      "圆润 bass"
+    ],
+    "vocal_style": "近距离 breathy 女声",
+    "bpm_band": "100-110",
+    "has_melody": true,
+    "scene": "暗恋的人就坐在旁边，你反复斟酌要不要开口的那几分钟。",
+    "artist_oneliner": "Clairo，被 Rostam 打磨过的高完成度卧室流行——把青涩做得很讲究。",
+    "why": "近距离的气声人声唱着「能不能看见我」，制作精致却不抢戏。心动里那点小心翼翼，被她一句句唱得很准。",
+    "fit_score": 88,
+    "source": "Immunity / Pitchfork 好评",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "american-football-never-meant",
+    "title": "Never Meant",
+    "artist": "American Football",
+    "year": "1999",
+    "album": "American Football",
+    "genres": [
+      "Midwest Emo",
+      "Soft Post-rock",
+      "Indie Rock"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "木质感",
+      "怀旧但现代",
+      "夏天傍晚"
+    ],
+    "production_tags": [
+      "clean",
+      "analog warmth",
+      "reverb space"
+    ],
+    "instrumentation": [
+      "jangle guitar",
+      "对位吉他",
+      "小号"
+    ],
+    "vocal_style": "少年感男声",
+    "bpm_band": "100-110",
+    "has_melody": true,
+    "scene": "夏末傍晚坐在没人的操场台阶上，天快黑、心里泛起一点少年式的怅然。",
+    "artist_oneliner": "Midwest emo 的奠基之作，封面那栋亮着灯的房子后来成了整个流派的图腾。",
+    "why": "两把吉他清亮地互相缠绕、对位精巧却不炫技，节奏在 6/8 里摇。这条吉他线，后来无数乐队都照着学。",
+    "fit_score": 90,
+    "source": "Midwest emo 奠基名盘",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "toe-goodbye",
+    "title": "Goodbye",
+    "artist": "toe",
+    "year": "2009",
+    "album": "For Long Tomorrow",
+    "genres": [
+      "Soft Post-rock",
+      "Midwest Emo"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "木质感",
+      "空气感",
+      "松弛"
+    ],
+    "production_tags": [
+      "clean",
+      "analog warmth",
+      "reverb space"
+    ],
+    "instrumentation": [
+      "tapping guitar",
+      "细腻鼓组",
+      "clean guitar"
+    ],
+    "vocal_style": "轻柔男声",
+    "bpm_band": "100-110",
+    "has_melody": true,
+    "scene": "雨停后推开窗，屋檐还在滴水、地上积水映着天光的那几分钟。",
+    "artist_oneliner": "东京 toe，把数学摇滚的碎拍拆开、再用 clean 吉他一点点抹平棱角的那一队。",
+    "why": "clean 吉他的分解和弦密密织成一张网，鼓点碎得像雨点却从不抢在旋律前面；那些复杂的拍子全埋在底下，你听见的是暖，不是难。",
+    "fit_score": 89,
+    "source": "For Long Tomorrow 精选",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "khruangbin-maria-tambien",
+    "title": "María También",
+    "artist": "Khruangbin",
+    "year": "2018",
+    "album": "Con Todo El Mundo",
+    "genres": [
+      "Psychedelic Pop",
+      "Downtempo",
+      "Funk"
+    ],
+    "genre_stars": 4,
+    "mood_tags": [
+      "夏天傍晚",
+      "松弛",
+      "木质感"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "reverb space",
+      "warm bass"
+    ],
+    "instrumentation": [
+      "clean guitar",
+      "圆润 bass",
+      "极简鼓"
+    ],
+    "vocal_style": "近乎器乐",
+    "bpm_band": "95-105",
+    "has_melody": true,
+    "scene": "夏夜开车往郊外走，摇下车窗、手臂搭在窗框上吹风的那段路。",
+    "artist_oneliner": "德州三人组，从六七十年代泰国 funk 黑胶里扒出吉他句法、做成全球通用的夏夜背景乐。",
+    "why": "圆 bass 在低处不紧不慢地滚，吉他句子干净又带一层迷幻的回音；人声几乎只当一件乐器用，整首靠 groove 稳稳往前推。",
+    "fit_score": 88,
+    "source": "Con Todo El Mundo 长青",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "khruangbin-white-gloves",
+    "title": "White Gloves",
+    "artist": "Khruangbin",
+    "year": "2015",
+    "album": "The Universe Smiles Upon You",
+    "genres": [
+      "Downtempo",
+      "Psychedelic Pop"
+    ],
+    "genre_stars": 4,
+    "mood_tags": [
+      "松弛",
+      "夏天傍晚",
+      "温柔"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "reverb space",
+      "soft"
+    ],
+    "instrumentation": [
+      "clean guitar",
+      "圆润 bass"
+    ],
+    "vocal_style": "轻柔和声",
+    "bpm_band": "90-100",
+    "has_melody": true,
+    "scene": "傍晚坐在窗边发呆，天色一点点暗下来、还没想起开灯的时候。",
+    "artist_oneliner": "Khruangbin 收起 funk 的棱角、只留和声与回音的那一面。",
+    "why": "人声化成几层薄和声浮在暖 groove 上，吉他退得很远，只在缝隙里冒一两句；比起他们的 funk 曲，这首几乎把速度调到静止。",
+    "fit_score": 86,
+    "source": "The Universe Smiles Upon You 精选",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "cinematic-orchestra-to-build-a-home",
+    "title": "To Build a Home",
+    "artist": "The Cinematic Orchestra",
+    "year": "2007",
+    "album": "Ma Fleur",
+    "genres": [
+      "Jazz Pop",
+      "Chamber Pop",
+      "Downtempo"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "雨天",
+      "温柔",
+      "有人味"
+    ],
+    "production_tags": [
+      "felt piano",
+      "lush strings",
+      "reverb space",
+      "analog warmth"
+    ],
+    "instrumentation": [
+      "felt piano",
+      "弦乐"
+    ],
+    "vocal_style": "深情男声",
+    "bpm_band": "70-80",
+    "has_melody": true,
+    "scene": "雨天窝进旧沙发，想起一个早已不联系的人的那个下午。",
+    "artist_oneliner": "英国 nu-jazz 团体，靠一架毡音钢琴加 Patrick Watson 的嗓子，写出这首被反复翻用的催泪曲。",
+    "why": "毡音钢琴每个音都带着被毛毡闷住的钝响，弦乐从底下一寸寸顶上来却始终不喊；克制到最后一句才让眼眶发热。",
+    "fit_score": 91,
+    "source": "Ma Fleur / 长青金曲",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "portishead-glory-box",
+    "title": "Glory Box",
+    "artist": "Portishead",
+    "year": "1994",
+    "album": "Dummy",
+    "genres": [
+      "Trip-Hop",
+      "Downtempo"
+    ],
+    "genre_stars": 4,
+    "mood_tags": [
+      "城市夜晚",
+      "颗粒感",
+      "怀旧但现代"
+    ],
+    "production_tags": [
+      "vinyl crackle",
+      "analog warmth",
+      "reverb space"
+    ],
+    "instrumentation": [
+      "slide guitar",
+      "采样鼓",
+      "电钢琴"
+    ],
+    "vocal_style": "烟嗓女声",
+    "bpm_band": "70-80",
+    "has_melody": true,
+    "scene": "深夜独自缩在小酒馆角落，杯里冰块化了一半、还没喝完的那杯。",
+    "artist_oneliner": "布里斯托 Portishead，Beth Gibbons 用一副磨损烟嗓给 trip-hop 定了调。",
+    "why": "黑胶噪点在底下沙沙响个不停，烟嗓被抻长又压碎；旋律其实很甜，却整个裹在午夜城市的锈里。",
+    "fit_score": 88,
+    "source": "Dummy 殿堂",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "massive-attack-teardrop",
+    "title": "Teardrop",
+    "artist": "Massive Attack",
+    "year": "1998",
+    "album": "Mezzanine",
+    "genres": [
+      "Trip-Hop",
+      "Downtempo"
+    ],
+    "genre_stars": 4,
+    "mood_tags": [
+      "雨天",
+      "城市夜晚",
+      "温柔"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "reverb space",
+      "soft"
+    ],
+    "instrumentation": [
+      "harpsichord",
+      "采样鼓",
+      "钢琴"
+    ],
+    "vocal_style": "空灵女声",
+    "bpm_band": "70-80",
+    "has_melody": true,
+    "scene": "雨夜靠窗，看一颗水珠顺着玻璃往下爬的那一刻。",
+    "artist_oneliner": "布里斯托 Massive Attack，请来 Cocteau Twins 的 Elizabeth Fraser 唱这首心跳般的 trip-hop 名曲。",
+    "why": "拨弦乐器敲出一段像心跳的 loop，一下一下顶着往前走，人声在上面轻轻荡；忧郁打底，偏偏旋律一响就钻进记忆里拔不出来。",
+    "fit_score": 88,
+    "source": "Mezzanine 名盘",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "nick-drake-northern-sky",
+    "title": "Northern Sky",
+    "artist": "Nick Drake",
+    "year": "1970",
+    "album": "Bryter Layter",
+    "genres": [
+      "Ambient Folk",
+      "Chamber Pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "木质感",
+      "温柔",
+      "怀旧但现代"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "lush strings",
+      "soft"
+    ],
+    "instrumentation": [
+      "fingerstyle guitar",
+      "钢琴",
+      "celesta"
+    ],
+    "vocal_style": "温柔男声",
+    "bpm_band": "80-90",
+    "has_melody": true,
+    "scene": "清晨窗帘透进第一道光，人已经醒了却还不想动的那几分钟。",
+    "artist_oneliner": "Nick Drake，英伦民谣里嗓音压得最低、身后才被听懂的那位。",
+    "why": "指弹吉他一颗颗滚出来，John Cale 的键盘和弦乐在后头暖着不喧宾；编曲点到即止，全靠留白把暖意撑住。",
+    "fit_score": 90,
+    "source": "Bryter Layter 殿堂",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "jose-gonzalez-heartbeats",
+    "title": "Heartbeats",
+    "artist": "José González",
+    "year": "2003",
+    "album": "Veneer",
+    "genres": [
+      "Ambient Folk",
+      "Indie Folk"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "木质感",
+      "温柔",
+      "有人味"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "close mic",
+      "soft"
+    ],
+    "instrumentation": [
+      "nylon guitar"
+    ],
+    "vocal_style": "轻柔男声",
+    "bpm_band": "90-100",
+    "has_melody": true,
+    "scene": "深夜关了灯坐在地板上，只想听清指甲碰弦和换气的那点声音。",
+    "artist_oneliner": "José González，瑞典人，一把尼龙弦吉他就够盛下整首歌的情绪。",
+    "why": "尼龙弦被指甲拨得颗颗分明，人声近到能听见每一次换气；把 The Knife 那首电子原曲扒到只剩木头和呼吸。",
+    "fit_score": 90,
+    "source": "Veneer / The Knife 翻唱名版",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "ceu-malemolencia",
+    "title": "Malemolência",
+    "artist": "Céu",
+    "year": "2005",
+    "album": "Céu",
+    "genres": [
+      "Modern Bossa",
+      "Downtempo",
+      "Neo Soul"
+    ],
+    "genre_stars": 4,
+    "mood_tags": [
+      "夏天傍晚",
+      "松弛",
+      "空气感"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "dub echo",
+      "soft",
+      "warm bass"
+    ],
+    "instrumentation": [
+      "nylon guitar",
+      "圆润 bass",
+      "打击乐"
+    ],
+    "vocal_style": "慵懒葡语女声",
+    "bpm_band": "85-95",
+    "has_melody": true,
+    "scene": "夏天傍晚的阳台，冰饮杯壁在冒汗、风把窗帘掀起来的时候。",
+    "artist_oneliner": "Céu，圣保罗人，把 bossa 骨架泡进 dub 回声和 downtempo 里的新一代巴西声音。",
+    "why": "尼龙吉他和慵懒葡语在暖 groove 上轻轻晃，dub 的回声把每个尾音甩得老长；骨子里还是 bossa，皮肤已经是当代的。",
+    "fit_score": 88,
+    "source": "Céu 首专 / 现代 MPB 佳作",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "joao-gilberto-chega-de-saudade",
+    "title": "Chega de Saudade",
+    "artist": "João Gilberto",
+    "year": "1959",
+    "album": "Chega de Saudade",
+    "genres": [
+      "Modern Bossa",
+      "Jazz Pop"
+    ],
+    "genre_stars": 4,
+    "mood_tags": [
+      "松弛",
+      "木质感",
+      "怀旧但现代"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "close mic",
+      "soft"
+    ],
+    "instrumentation": [
+      "nylon guitar"
+    ],
+    "vocal_style": "耳语葡语男声",
+    "bpm_band": "110-120",
+    "has_melody": true,
+    "scene": "午后阳光斜进厨房，等咖啡滴完、还没端起杯的那段慢时候。",
+    "artist_oneliner": "João Gilberto，1959 年用这首歌把 bossa nova 从无到有带到世上的人。",
+    "why": "尼龙吉他的切分轻得像随手一拨，耳语人声几乎不使力气；一切 bossa 的极简，都从这两三分钟开始。",
+    "fit_score": 86,
+    "source": "bossa nova 开山之作",
+    "source_url": "",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-pumablue-onlytrying2tellu",
+    "title": "Only Trying 2 Tell U",
+    "artist": "Puma Blue",
+    "year": "2021",
+    "album": "In Praise of Shadows",
+    "genres": [
+      "slowcore",
+      "quiet alternative R&B",
+      "jazz pop",
+      "bedroom pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "城市夜晚",
+      "失眠",
+      "温柔",
+      "颤抖脆弱",
+      "深夜独处"
+    ],
+    "production_tags": [
+      "breathy falsetto",
+      "reverb-drenched",
+      "brushed drums",
+      "tape saturation",
+      "upright bass",
+      "lo-fi 卧室录音感"
+    ],
+    "instrumentation": [],
+    "vocal_style": "气声假声，颤抖、耳语式，压得很低",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "凌晨两点关灯躺着，窗外有车灯扫过天花板的那阵。",
+    "artist_oneliner": "伦敦 Jacob Allen 的独角戏，把 Jeff Buckley 式的脆弱假声浸进爵士底噪和失眠夜色里。",
+    "why": "假声在 reverb 里发着抖，刷鼓和 upright bass 慵懒得像没睡醒；旋律明明能哼，整首却蒙着一层夜雾。是这一脉里最不炫技、最有体温的深夜情歌。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (In Praise of Shadows / Cindy Lee 检索页交叉确认艺人与专辑)",
+    "source_url": "https://en.wikipedia.org/wiki/In_Praise_of_Shadows_(Puma_Blue_album)",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-cleosol-roseinthedark",
+    "title": "Rose in the Dark",
+    "artist": "Cleo Sol",
+    "year": "2020",
+    "album": "Rose in the Dark",
+    "genres": [
+      "neo soul",
+      "quiet alternative R&B",
+      "sophisti-pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "治愈",
+      "松弛",
+      "母性温暖",
+      "雨天"
+    ],
+    "production_tags": [
+      "圆润木质贝斯",
+      "felt piano",
+      "宽 stereo",
+      "柔和高频",
+      "analog warmth",
+      "live band groove"
+    ],
+    "instrumentation": [],
+    "vocal_style": "温软胸腔声，层叠和声，不飙不炫、像贴着耳朵说话",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "周末傍晚在厨房煮东西，光线暖黄，一个人慢慢忙的时候。",
+    "artist_oneliner": "SAULT 幕后的女声、Little Simz 御用合唱，伦敦最懂留白的 neo soul 歌者。",
+    "why": "乐队是真人现场那种呼吸感，木贝斯圆得像能捏出水，她的嗓子总慢半拍才落下；旋律整首都能唱下来，却从头到尾不使一丝劲。",
+    "fit_score": 0.8,
+    "source": "Wikipedia (Cleo Sol / Rose in the Dark)",
+    "source_url": "https://en.wikipedia.org/wiki/Rose_in_the_Dark",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-yayabey-keisha",
+    "title": "keisha",
+    "artist": "Yaya Bey",
+    "year": "2022",
+    "album": "Remember Your North Star",
+    "genres": [
+      "neo soul",
+      "quiet alternative R&B",
+      "jazz pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "慵懒",
+      "夏天傍晚",
+      "松弛",
+      "带点幽默",
+      "自在"
+    ],
+    "production_tags": [
+      "broken beat",
+      "lo-fi 采样",
+      "圆润贝斯",
+      "soft groove",
+      "field recording 感",
+      "warm 低频"
+    ],
+    "instrumentation": [],
+    "vocal_style": "慵懒气声，说唱与歌唱之间滑动，随口哼的松弛感",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "夏日傍晚的阳台，风扇转着，捧一杯冰的东西发呆。",
+    "artist_oneliner": "布鲁克林诗人型音乐人，把 neo soul、断拍和加勒比根脉揉成随手记的一页日记。",
+    "why": "拍子松垮得刚刚好，她像自言自语一样把调子哼出来，糙，却满是体温；两分多钟，怀旧采样底下藏着很当代的那种松。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (Yaya Bey / Remember Your North Star)",
+    "source_url": "https://en.wikipedia.org/wiki/Remember_Your_North_Star",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-erikadecasie-polite",
+    "title": "Polite",
+    "artist": "Erika de Casier",
+    "year": "2021",
+    "album": "Sensational",
+    "genres": [
+      "quiet alternative R&B",
+      "downtempo",
+      "leftfield pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "都市夜晚",
+      "冷静性感",
+      "克制",
+      "光滑",
+      "深夜出租车"
+    ],
+    "production_tags": [
+      "subtle 2-step groove",
+      "宽 stereo",
+      "柔和高频",
+      "光洁合成器",
+      "冷色 pad",
+      "细腻 reverb"
+    ],
+    "instrumentation": [],
+    "vocal_style": "耳语气声，贴麦近距离，克制到近乎冷淡的温柔",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "深夜消息打好了又删、手指悬在发送键上的那几秒。",
+    "artist_oneliner": "Erika de Casier，哥本哈根人，把千禧年 R&B 的冷光和气声唱法擦得锃亮的那一个。",
+    "why": "极简鼓点留着大片空当，气声几乎贴着话筒说话；越克制越挑逗，冷调制作里全是欲言又止。",
+    "fit_score": 0.8,
+    "source": "Wikipedia (Erika de Casier / Sensational)",
+    "source_url": "https://en.wikipedia.org/wiki/Sensational_(album)",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-nourishedbyt-shedthatfear",
+    "title": "Shed That Fear",
+    "artist": "Nourished by Time",
+    "year": "2023",
+    "album": "Erotic Probiotic 2",
+    "genres": [
+      "quiet alternative R&B",
+      "indietronica",
+      "dream pop",
+      "leftfield pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "怀旧又现代",
+      "城市夜晚",
+      "温柔倔强",
+      "80s 暖调",
+      "孤独里有暖"
+    ],
+    "production_tags": [
+      "卧室 synth",
+      "analog warmth",
+      "drum machine",
+      "宽 pad",
+      "lo-fi 录音感",
+      "圆润 bassline"
+    ],
+    "instrumentation": [],
+    "vocal_style": "低沉温厚男声，带一点 croon，层叠回声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "傍晚一个人走路回家，耳机里放着这首，天正一点点黑下来。",
+    "artist_oneliner": "巴尔的摩 Marcus Brown 的卧室独作，一台采样机复刻 80 年代 synth-pop 的暖与孤独。",
+    "why": "全在卧室里做出来，却有整支乐队的暖度；drum machine 和圆润 bassline 撑起一段极抓耳的旋律，怀旧音色裹着非常当下的孤独。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (Nourished by Time / Erotic Probiotic 2)",
+    "source_url": "https://en.wikipedia.org/wiki/Erotic_Probiotic_2",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-helenadeland-comfortedge",
+    "title": "Comfort, Edge",
+    "artist": "Helena Deland",
+    "year": "2020",
+    "album": "Someone New",
+    "genres": [
+      "dream pop",
+      "art pop",
+      "indietronica"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "朦胧",
+      "夜色",
+      "内省",
+      "数码微光",
+      "温柔忧郁"
+    ],
+    "production_tags": [
+      "woozy guitar",
+      "killer synth",
+      "digital glow",
+      "宽 stereo",
+      "柔和高频",
+      "subtle glitch"
+    ],
+    "instrumentation": [],
+    "vocal_style": "轻柔气声，脆弱但笃定，微微飘",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "雨夜关灯只留屏幕亮着，蓝白的光把你的脸照成一张陌生底片的那几分钟。",
+    "artist_oneliner": "蒙特利尔词曲人，把摇晃的吉他和割手的合成器缝进内省小调，人声脆得像要断、落点却稳。",
+    "why": "吉他一路晃着走，合成器忽然割进来一道锋利高频，人声轻得几乎是气、每个字却落得稳。暗色调里透出一点暖，像屏幕的光打在脸上那种冷暖交界。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (Someone New — 已核对 tracklist 含 Comfort, Edge)",
+    "source_url": "https://en.wikipedia.org/wiki/Someone_New_(album)",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-skullcrusher-whateverfitstoge",
+    "title": "Whatever Fits Together",
+    "artist": "Skullcrusher",
+    "year": "2022",
+    "album": "Quiet the Room",
+    "genres": [
+      "dream pop",
+      "slowcore",
+      "ambient folk",
+      "bedroom pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "童年记忆",
+      "静谧",
+      "雾气",
+      "脆弱",
+      "室内午后"
+    ],
+    "production_tags": [
+      "felt piano",
+      "field recording",
+      "颗粒感 reverb",
+      "柔和高频",
+      "subtle glitch",
+      "木质 texture"
+    ],
+    "instrumentation": [],
+    "vocal_style": "极轻气声，几乎耳语，被空间感包住",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "冬天午后一个人在家，窗外一片灰白，暖气声比自己的呼吸还响的时候。",
+    "artist_oneliner": "Helen Ballentine 的独人计划（名字取自一种蘑菇），把童年卧室的静默压成一层慢慢化开的雾。",
+    "why": "毛毡钢琴的闷响、几乎贴着话筒的气声、门外的环境录音揉成一团，安静却不空——每处留白底下都有旋律托着。细到能听见房间在呼吸，是 Grouper 和梦幻流行之间那块最柔的地。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (Skullcrusher / Quiet the Room)",
+    "source_url": "https://en.wikipedia.org/wiki/Quiet_the_Room",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-lomelda-hannahsun",
+    "title": "Hannah Sun",
+    "artist": "Lomelda",
+    "year": "2020",
+    "album": "Hannah",
+    "genres": [
+      "slowcore",
+      "bedroom pop",
+      "quiet alternative"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "松弛",
+      "夏天傍晚",
+      "亲密",
+      "自省",
+      "缓慢"
+    ],
+    "production_tags": [
+      "clean guitar",
+      "lo-fi 录音感",
+      "圆润 bass",
+      "留白",
+      "自然动态",
+      "温暖中频"
+    ],
+    "instrumentation": [],
+    "vocal_style": "亲密低语，忽轻忽起，德州口音的松",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "夏天黄昏开车走乡道，副驾放着这首，风从没关严的窗缝里一股股灌进来的时候。",
+    "artist_oneliner": "德州 Hannah Read 的独人计划，用一把干净吉他和贴耳的低语写日记式 slowcore。",
+    "why": "结构松得像随手弹的草稿，可副歌一起，一条清亮旋律突然把整首拎直。亲密、朴素、带德州平原的空旷，越压低声音，情感反而越挤。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (Lomelda / Hannah)",
+    "source_url": "https://en.wikipedia.org/wiki/Hannah_(Lomelda_album)",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-timbernardes-mila",
+    "title": "Mila",
+    "artist": "Tim Bernardes",
+    "year": "2022",
+    "album": "Mil Coisas Invisíveis",
+    "genres": [
+      "chamber pop",
+      "japanese indie pop",
+      "ambient folk",
+      "sophisti-pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "怀旧",
+      "层叠合声",
+      "巴西暖阳",
+      "细腻感伤"
+    ],
+    "production_tags": [
+      "nylon guitar",
+      "层叠人声和声",
+      "弦乐编制",
+      "analog warmth",
+      "宽 stereo",
+      "felt piano"
+    ],
+    "instrumentation": [],
+    "vocal_style": "温软男高，多轨自我和声堆成合唱团，soft falsetto",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "秋天午后阳光斜切进屋，一个人等水烧开、慢慢烫茶壶的时候。",
+    "artist_oneliner": "圣保罗 O Terno 主唱，巴西新生代里最会把自己嗓子叠成一整个合唱团的那个。",
+    "why": "尼龙弦吉他打底，他把自己的声音叠成一层层和声，织成一整队温柔合唱，旋律推到心口发软。MPB 的血脉配上精细室内编制，怀旧又当代，Lamp 和大貫妙子的听众会一见如故。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (Tim Bernardes / Mil Coisas Invisíveis)",
+    "source_url": "https://en.wikipedia.org/wiki/Mil_Coisas_Invis%C3%ADveis",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-cassandrajen-harddrive",
+    "title": "Hard Drive",
+    "artist": "Cassandra Jenkins",
+    "year": "2021",
+    "album": "An Overview on Phenomenal Nature",
+    "genres": [
+      "sophisti-pop",
+      "art pop",
+      "ambient folk",
+      "chamber pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "疗愈",
+      "漂浮",
+      "都市漫游",
+      "抚慰",
+      "静水深流"
+    ],
+    "production_tags": [
+      "saxophone",
+      "ambient 铺底",
+      "field recording",
+      "宽 stereo",
+      "柔和高频",
+      "spoken-word 段落"
+    ],
+    "instrumentation": [],
+    "vocal_style": "半说半唱的温柔叙述，副歌化成气声吟唱",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "情绪塌下去的傍晚，戴耳机在街上漫无目的地走，红灯前停下来那一下突然想哭。",
+    "artist_oneliner": "纽约词曲人，把口语独白、萨克斯和街头环境声缝成会喘气的 art pop。",
+    "why": "半说半唱的独白慢慢化成气声吟唱，萨克斯和环境声在底下托着，副歌一句『count to three』落下来，像有人从背后轻拍你的肩。旋律不抬高嗓门却过耳难忘。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (An Overview on Phenomenal Nature)",
+    "source_url": "https://en.wikipedia.org/wiki/An_Overview_on_Phenomenal_Nature",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-tops-ifeelalive",
+    "title": "I Feel Alive",
+    "artist": "TOPS",
+    "year": "2020",
+    "album": "I Feel Alive",
+    "genres": [
+      "dream pop",
+      "sophisti-pop",
+      "city pop",
+      "indie pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "城市夜晚",
+      "轻盈",
+      "怀旧",
+      "松弛",
+      "80s 光泽"
+    ],
+    "production_tags": [
+      "chorus guitar",
+      "Juno pad",
+      "圆润 bassline",
+      "宽 stereo",
+      "柔和高频",
+      "analog warmth"
+    ],
+    "instrumentation": [],
+    "vocal_style": "Jane Penny 清透气声，轻盈上飘，微微慵懒",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "傍晚开车穿过市区，路灯刚一盏盏亮起来、人却还没到家的那段路。",
+    "artist_oneliner": "蒙特利尔 Arbutus 厂牌的梦幻流行乐队，把 80 年代 soft rock 的光泽擦得又亮又不腻。",
+    "why": "加了 chorus 的吉他、Juno 合成器铺底、圆润贝斯，搭出一段轻轻上扬的旋律，Jane Penny 的气声清透得像傍晚的风。city pop 那层油光被抹得干干净净，只剩轻。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (TOPS band — 确认 2020 专辑 I Feel Alive，dream pop/synth-pop/soft rock)",
+    "source_url": "https://en.wikipedia.org/wiki/TOPS_(band)",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-cindylee-babyblue",
+    "title": "Baby Blue",
+    "artist": "Cindy Lee",
+    "year": "2024",
+    "album": "Diamond Jubilee",
+    "genres": [
+      "hypnagogic pop",
+      "dream pop",
+      "sampledelia"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "旧梦",
+      "褪色照片",
+      "60s 幽灵",
+      "朦胧忧伤",
+      "午夜电台"
+    ],
+    "production_tags": [
+      "tape saturation",
+      "AM radio lo-fi",
+      "颗粒感",
+      "reverb 空间",
+      "vintage girl-group 编曲",
+      "hiss"
+    ],
+    "instrumentation": [],
+    "vocal_style": "飘忽双性气声，像隔着旧胶带的幽灵合声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "深夜翻抽屉翻出一叠旧照片，手边收音机正好调到一个快要收不到的老频道。",
+    "artist_oneliner": "前 Women 乐队 Patrick Flegel 的化名计划，用磁带噪声把 60 年代少女组合的幽灵招回来。",
+    "why": "旋律是彻头彻尾的 60 年代少女组合式甜，却被裹进磁带的 hiss 和昏黄混响里，像一张褪了色的旧照片在发潮。甜和幽灵感同时在场，正踩中 hypnagogic pop 的命门。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (Diamond Jubilee album — 已确认专辑与 Baby Blue 曲目)",
+    "source_url": "https://en.wikipedia.org/wiki/Diamond_Jubilee_(album)",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-nickhakim-needybees",
+    "title": "Needy Bees",
+    "artist": "Nick Hakim",
+    "year": "2017",
+    "album": "Green Twins",
+    "genres": [
+      "neo soul",
+      "quiet alternative R&B",
+      "psychedelic pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "朦胧",
+      "慵懒",
+      "烟雾感",
+      "深夜",
+      "迷幻温柔"
+    ],
+    "production_tags": [
+      "hazy reverb",
+      "tape saturation",
+      "warm 低频",
+      "psych 键盘",
+      "lo-fi 空间",
+      "圆润 bass"
+    ],
+    "instrumentation": [],
+    "vocal_style": "沙哑温软男声，泡在混响里，多层叠唱",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "深夜屋里只留一盏暖灯，人陷在沙发里、思绪早飘到别处去了。",
+    "artist_oneliner": "华盛顿出身的 neo soul 手艺人，把 D'Angelo 的烟熏灵魂乐推进更浓的迷幻雾里。",
+    "why": "人声和乐器一起泡在温热的混响里，像烟一样化不开，底下却有一条清晰旋律穿雾而过。粗颗粒的温柔，Blood Orange 和 Sampha 的听众会认得这种深夜 R&B。",
+    "fit_score": 0.8,
+    "source": "Wikipedia (Green Twins — 已确认 2017 Nick Hakim 专辑，含 Needy Bees)",
+    "source_url": "https://en.wikipedia.org/wiki/Green_Twins",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-senmorimoto-woof",
+    "title": "Woof",
+    "artist": "Sen Morimoto",
+    "year": "2020",
+    "album": "Sen Morimoto",
+    "genres": [
+      "jazz pop",
+      "bedroom pop",
+      "indietronica",
+      "neo soul"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "都市",
+      "慵懒",
+      "自嘲幽默",
+      "松弛",
+      "夜色游荡"
+    ],
+    "production_tags": [
+      "saxophone",
+      "圆润 bassline",
+      "jazz chord",
+      "lo-fi 录音感",
+      "宽 stereo",
+      "warm 键盘"
+    ],
+    "instrumentation": [],
+    "vocal_style": "松弛低声吟唱，说唱与歌之间，带点自嘲",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "半夜一个人在城里瞎逛，脑子既放空又有点乱、走着走着笑了一下的时候。",
+    "artist_oneliner": "芝加哥（生于京都）的多面手，自己吹萨克斯、写爵士和声，把卧室流行做出一整支乐队的厚度。",
+    "why": "爵士和声和他亲手吹的萨克斯撑起松弛的都市感，人声在说和唱之间来回滑，钩子藏在慵懒的语气里。一个人包办所有乐器，却没有一点卧室 demo 的单薄。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (Sen Morimoto self-titled 2020)",
+    "source_url": "https://en.wikipedia.org/wiki/Sen_Morimoto_(album)",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-bluelake-bloom",
+    "title": "Bloom",
+    "artist": "Blue Lake",
+    "year": "2023",
+    "album": "Sun Arcs",
+    "genres": [
+      "ambient folk",
+      "organic electronic",
+      "electro-acoustic",
+      "americana(实验)"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "木质感",
+      "夏天傍晚",
+      "松弛",
+      "怀旧又现代"
+    ],
+    "production_tags": [
+      "48弦zither",
+      "木吉他",
+      "pump organ",
+      "field recording",
+      "tape",
+      "Roland 606鼓机"
+    ],
+    "instrumentation": [],
+    "vocal_style": "纯器乐",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "夏天午后坐在水边，脚泡进凉水里、看光在水面碎成一片的那个下午。",
+    "artist_oneliner": "住柏林的美国人 Jason Dungan，用一把自制的 48 弦齐特琴弹田园电子的 Blue Lake。",
+    "why": "自制齐特琴一遍遍拨出粼粼波光似的循环，木头味、暖、带着一点田野的潮气，底下 606 鼓机轻轻走着。器乐一路铺开却从不显空。",
+    "fit_score": 0.86,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Sun_Arcs",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-erlandcooper-solangoose",
+    "title": "Solan Goose",
+    "artist": "Erland Cooper",
+    "year": "2018",
+    "album": "Solan Goose",
+    "genres": [
+      "organic electronic",
+      "ambient pop",
+      "modern classical",
+      "ambient folk"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "木质感",
+      "雨天",
+      "松弛",
+      "怀旧又现代"
+    ],
+    "production_tags": [
+      "field recording",
+      "felt piano",
+      "弦乐",
+      "暖合成器pad",
+      "空间reverb"
+    ],
+    "instrumentation": [],
+    "vocal_style": "器乐为主，远处人声/海鸟采样",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "清晨窗还蒙着雾，水壶没烧开、人也还没完全醒的那半小时。",
+    "artist_oneliner": "奥克尼群岛出身的苏格兰作曲人，拿海鸟的方言名给每首曲子命名。",
+    "why": "钢琴主题清亮得能跟着哼，底下垫着奥克尼的海风和鸟鸣实录，潮气几乎从声音里渗出来。弦乐和暖 pad 只在边上轻轻托，不抢。",
+    "fit_score": 0.86,
+    "source": "Bandcamp",
+    "source_url": "https://erlandcooper.bandcamp.com/album/solan-goose",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-casinoversus-itsverysunny",
+    "title": "It's Very Sunny",
+    "artist": "Casino Versus Japan",
+    "year": "2002",
+    "album": "Whole Numbers Play the Basics",
+    "genres": [
+      "ambient pop",
+      "IDM(melodic)",
+      "downtempo",
+      "hypnagogic pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "怀旧",
+      "空气感",
+      "夏天傍晚",
+      "松弛"
+    ],
+    "production_tags": [
+      "tape saturation",
+      "hazy糊化",
+      "暖合成器",
+      "微颗粒",
+      "lo-fi"
+    ],
+    "instrumentation": [],
+    "vocal_style": "纯器乐(偶有雾化人声采样)",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "午后阳光斜进来落在地板上，人靠着墙坐着、看灰尘在光柱里飘的时候。",
+    "artist_oneliner": "密尔沃基的 Erik Kowalski，和 Boards of Canada 同一频率的暖调朦胧电子。",
+    "why": "曲名就是听感——真的很晴。磁带味的暖合成器糊成一整片，旋律在雾里若隐若现地浮着，像隔着起雾的车窗看太阳。Boards of Canada 隔壁那张被漏听的唱片。",
+    "fit_score": 0.86,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Casino_Versus_Japan",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-colleen-floatinginthecle",
+    "title": "Floating in the Clearest Night",
+    "artist": "Colleen",
+    "year": "2005",
+    "album": "The Golden Morning Breaks",
+    "genres": [
+      "ambient folk",
+      "electro-acoustic",
+      "sampledelia",
+      "chamber pop(instrumental)"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "木质感",
+      "温柔",
+      "雨天",
+      "精致"
+    ],
+    "production_tags": [
+      "granular loops",
+      "原声乐器采样(大提琴/吉他/音乐盒)",
+      "tape",
+      "空间reverb"
+    ],
+    "instrumentation": [],
+    "vocal_style": "纯器乐",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "凌晨睡不着，索性开一盏小灯翻几页书、又看不进去的那段时间。",
+    "artist_oneliner": "法国音乐人 Cécile Schott，把大提琴、音乐盒这类原声乐器采样一圈圈手工缝成循环的那一位。",
+    "why": "大提琴和音乐盒的采样一圈圈叠起来，织成一块夜的布，颗粒感很重却始终裹着一个能哼出来的核。有机采样拼贴的教科书，手工的痕迹全留在声音表面。",
+    "fit_score": 0.86,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/The_Golden_Morning_Breaks",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-lusine-justacloud",
+    "title": "Just a Cloud",
+    "artist": "Lusine",
+    "year": "2017",
+    "album": "Sensorimotor",
+    "genres": [
+      "indietronica",
+      "ambient pop",
+      "IDM(melodic)",
+      "downtempo"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "空气感",
+      "精致",
+      "城市夜晚",
+      "温柔"
+    ],
+    "production_tags": [
+      "subtle glitch",
+      "宽stereo",
+      "柔和高频",
+      "微颗粒",
+      "优秀reverb"
+    ],
+    "instrumentation": [],
+    "vocal_style": "女声轻柔气声(Vilja Larjosto)，层叠和声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "夜里戴耳机沿着空街走，脚步和碎拍不知不觉踩到一块儿去的时候。",
+    "artist_oneliner": "西雅图 Ghostly 厂牌的微观电子工匠 Jeff McIlwain，把 glitch 碎片雕成流行旋律。",
+    "why": "细碎的 glitch 拍子在底下托着一段极干净的女声旋律，层层气声和声叠上去却一点不挤。精致但不炫技，Ghostly 一贯的那种克制。",
+    "fit_score": 0.86,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Sensorimotor_(album)",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-christianlff-eleven",
+    "title": "Eleven",
+    "artist": "Christian Löffler",
+    "year": "2012",
+    "album": "A Forest",
+    "genres": [
+      "downtempo",
+      "organic electronic",
+      "ambient pop",
+      "deep house(慢)"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "空气感",
+      "雨天",
+      "城市夜晚"
+    ],
+    "production_tags": [
+      "颗粒采样",
+      "暖pad",
+      "柔和高频",
+      "宽stereo",
+      "微glitch"
+    ],
+    "instrumentation": [],
+    "vocal_style": "女声气声碎片(Mohna)，层叠",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "傍晚一个人在家，天色一点点暗下去、懒得起身开灯的那段时间。",
+    "artist_oneliner": "德国 Ki Records 的 organic 电子诗人，把人声和自然采样磨成一股暖流。",
+    "why": "缓慢的律动托着雾一样的女声碎片，暖 pad 一涨一落像在呼吸，电子的声音里竟磨出了木头和体温。慢，但一直往前渗。",
+    "fit_score": 0.8,
+    "source": "Bandcamp",
+    "source_url": "https://christianloffler.bandcamp.com/album/a-forest",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-amiina-rugla",
+    "title": "Rugla",
+    "artist": "Amiina",
+    "year": "2007",
+    "album": "Kurr",
+    "genres": [
+      "chamber pop",
+      "folktronica",
+      "ambient pop",
+      "electro-acoustic"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "木质感",
+      "温柔",
+      "精致",
+      "怀旧"
+    ],
+    "production_tags": [
+      "弦乐",
+      "音乐盒/glockenspiel",
+      "微电子",
+      "field recording",
+      "tape"
+    ],
+    "instrumentation": [],
+    "vocal_style": "纯器乐(偶有轻哼)",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "午后画画，画到一半停笔、看阳光在纸上挪了半格的时候。",
+    "artist_oneliner": "冰岛四人弦乐团，给Sigur Rós拉过弦，转头把玩具木琴和音乐盒摆成一支童话小队的那几个人。",
+    "why": "音乐盒和拨弦敲出一段清清楚楚能哼的小调，细碎电子在音符缝里一闪；像大人偷藏的一盒玩具，摆得整整齐齐，舍不得弄乱。",
+    "fit_score": 0.86,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Kurr",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-sinfang-alwayseverything",
+    "title": "Always Everything",
+    "artist": "Sin Fang",
+    "year": "2011",
+    "album": "Summer Echoes",
+    "genres": [
+      "folktronica",
+      "dream pop",
+      "ambient pop",
+      "indie pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "夏天傍晚",
+      "怀旧",
+      "温柔",
+      "有人味"
+    ],
+    "production_tags": [
+      "lo-fi录音感",
+      "层叠和声",
+      "tape warmth",
+      "木吉他",
+      "微glitch"
+    ],
+    "instrumentation": [],
+    "vocal_style": "男声轻柔，层叠合唱",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "夏末傍晚骑车回家，风里已经有一点凉、天却还没黑透的那段路。",
+    "artist_oneliner": "冰岛Seabear主脑Sindri Már Sigfússon的单飞，把整支乐队塞进卧室录出来的民谣电子。",
+    "why": "木吉他和合成器叠成一层夏末的黄光，人声一层层往上摞，边缘还留着录音带的毛刺；不修干净，反而听得见人在里面。",
+    "fit_score": 0.86,
+    "source": "Bandcamp",
+    "source_url": "https://sinfang.bandcamp.com/album/summer-echoes",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-lalipuna-micronomic",
+    "title": "Micronomic",
+    "artist": "Lali Puna",
+    "year": "2004",
+    "album": "Faking the Books",
+    "genres": [
+      "indietronica",
+      "ambient pop",
+      "downtempo",
+      "electropop(温)"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "城市夜晚",
+      "精致",
+      "怀旧",
+      "松弛"
+    ],
+    "production_tags": [
+      "复古合成器",
+      "微glitch",
+      "圆润低频",
+      "tape",
+      "柔和鼓机"
+    ],
+    "instrumentation": [],
+    "vocal_style": "女声轻柔冷调(Valerie Trebeljahr)",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "夜里一个人坐在没开大灯的房间，只留桌角一盏，想一件没想通的事。",
+    "artist_oneliner": "德国Morr Music一脉，Valerie Trebeljahr把冷嗓压进碎鼓机的indietronica标尺。",
+    "why": "复古合成器铺底、鼓机碎成一地小节拍，女声冷冷地贴着走；不哭不闹，可那股压着的克制反而钩人。",
+    "fit_score": 0.86,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Faking_the_Books",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-kiasmos-held",
+    "title": "Held",
+    "artist": "Kiasmos",
+    "year": "2014",
+    "album": "Kiasmos",
+    "genres": [
+      "downtempo",
+      "minimal",
+      "melodic techno",
+      "organic electronic"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "松弛",
+      "精致",
+      "城市夜晚",
+      "冷静"
+    ],
+    "production_tags": [
+      "弦乐采样",
+      "analog warmth",
+      "微颗粒",
+      "优秀reverb",
+      "圆润低频"
+    ],
+    "instrumentation": [],
+    "vocal_style": "纯器乐",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "深夜长途，副驾睡着、你盯着前方两道灯往黑里钻的时候。",
+    "artist_oneliner": "Ólafur Arnalds与Janus Rasmussen两人，把古典弦乐拆碎了塞进极简电子的缝里。",
+    "why": "极简节拍上浮着一句能哼的弦乐动机，冷调子里藏着体温；它不炸，是一圈圈往上卷，卷到你没察觉已经站起来。",
+    "fit_score": 0.8,
+    "source": "Bandcamp",
+    "source_url": "https://kiasmos.bandcamp.com/album/kiasmos",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-rivalconsole-sunsabandon",
+    "title": "Sun's Abandon",
+    "artist": "Rival Consoles",
+    "year": "2018",
+    "album": "Persona",
+    "genres": [
+      "organic electronic",
+      "indietronica",
+      "IDM(melodic)",
+      "ambient pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "城市夜晚",
+      "精致",
+      "松弛",
+      "温柔"
+    ],
+    "production_tags": [
+      "analog synth",
+      "圆润低频",
+      "宽stereo",
+      "微颗粒",
+      "优秀reverb"
+    ],
+    "instrumentation": [],
+    "vocal_style": "纯器乐",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "深夜赶完一件难事，还没关电脑、椅背往后一靠的那一分钟。",
+    "artist_oneliner": "英国Erased Tapes旗下的Ryan Lee West，用手拧模拟合成器讲故事的那一个。",
+    "why": "模拟合成器慢慢长出一条会起伏的旋律线，暖，不炫；情绪一点点垒高，等你回神已经被推到某个高处。",
+    "fit_score": 0.8,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Persona_(Rival_Consoles_album)",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-ulrichschnau-aletterfromhome",
+    "title": "A Letter from Home",
+    "artist": "Ulrich Schnauss",
+    "year": "2003",
+    "album": "A Strangely Isolated Place",
+    "genres": [
+      "dream pop",
+      "shoegaze(电子)",
+      "ambient pop",
+      "indietronica"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "怀旧",
+      "空气感",
+      "城市夜晚",
+      "温柔"
+    ],
+    "production_tags": [
+      "层叠合成器",
+      "宽stereo",
+      "柔和高频",
+      "海洋reverb",
+      "shoegaze wall"
+    ],
+    "instrumentation": [],
+    "vocal_style": "器乐为主(人声化成pad)",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "夜车靠窗，看窗外的灯一颗颗被甩到身后的时候。",
+    "artist_oneliner": "德国的Ulrich Schnauss，把shoegaze那堵吉他墙拆了、改用合成器往天上砌的那个。",
+    "why": "合成器一层压一层堆成会发光的旋律云，怀旧的底子配当代的清亮；人声化成背景的pad，认不出词，却认得出那份想家。",
+    "fit_score": 0.8,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/A_Strangely_Isolated_Place",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-helios-dragonflyacrossa",
+    "title": "Dragonfly Across An Ancient Sky",
+    "artist": "Helios",
+    "year": "2006",
+    "album": "Eingya",
+    "genres": [
+      "ambient folk",
+      "soft post-rock",
+      "organic electronic",
+      "ambient pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "木质感",
+      "温柔",
+      "怀旧",
+      "夏天傍晚"
+    ],
+    "production_tags": [
+      "木吉他",
+      "felt piano",
+      "暖pad",
+      "field recording",
+      "空间reverb",
+      "微glitch"
+    ],
+    "instrumentation": [],
+    "vocal_style": "纯器乐",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "清晨出门散步，露水还在草尖、鞋头蹭湿一点的时候。",
+    "artist_oneliner": "Keith Kenniff（也是Goldmund）的暖调化名，站在post-rock与电子交界的那一侧。",
+    "why": "木吉他和felt钢琴的主题干干净净能哼，底下电子织体像清晨还没散的雾；ambient folk这一路，它是定盘的那几张之一。",
+    "fit_score": 0.8,
+    "source": "Bandcamp",
+    "source_url": "https://heliosmusic.bandcamp.com/album/eingya",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-goldpanda-marriage",
+    "title": "Marriage",
+    "artist": "Gold Panda",
+    "year": "2010",
+    "album": "Lucky Shiner",
+    "genres": [
+      "folktronica",
+      "indietronica",
+      "organic electronic",
+      "IDM(melodic)"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "怀旧",
+      "松弛",
+      "夏天傍晚"
+    ],
+    "production_tags": [
+      "sample-based",
+      "vocal-chop",
+      "tape warmth",
+      "granular",
+      "圆润低频"
+    ],
+    "instrumentation": [],
+    "vocal_style": "无主唱/人声采样切片(气声碎片)",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "黄昏骑车回家，或一个人慢慢把房间归位的时候。",
+    "artist_oneliner": "英国采样电子人，把民族乐器的采样切碎、再揉成会呼吸的暖循环那一挂。",
+    "why": "人声和器乐被切成碎片，重新拼成一个会起伏的循环，暖得像放旧了的胶片；一个月过去，你发现它还在歌单里转。",
+    "fit_score": 0.8,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Lucky_Shiner",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-sessa-canodacura",
+    "title": "Canção da cura",
+    "artist": "Sessa",
+    "year": "2022",
+    "album": "Estrela Acesa",
+    "genres": [
+      "modern bossa",
+      "MPB",
+      "tropicália",
+      "chamber pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "松弛",
+      "木质感",
+      "亲密",
+      "夏天傍晚"
+    ],
+    "production_tags": [
+      "nylon guitar",
+      "analog warmth",
+      "弦乐编制",
+      "圆润低频",
+      "柔和高频",
+      "房间空气感"
+    ],
+    "instrumentation": [],
+    "vocal_style": "轻柔男声，气声，层叠和声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "夏天傍晚坐在窗边，一个人慢慢剥一只橘子的时候。",
+    "artist_oneliner": "圣保罗『文化食人族』一脉，把samba、bossa和迷幻民谣揉成贴耳呢喃的Sessa（Sergio Sayeg）。",
+    "why": "尼龙弦和几笔极简弦乐像贴着耳朵录的，比João更凑近、比寻常bossa更当代；旋律安安静静，却记得住。",
+    "fit_score": 0.86,
+    "source": "MusicBrainz + Bandcamp",
+    "source_url": "https://sessa.bandcamp.com/",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-timbernardes-realmentelindo",
+    "title": "Realmente lindo",
+    "artist": "Tim Bernardes",
+    "year": "2022",
+    "album": "Mil Coisas Invisíveis",
+    "genres": [
+      "MPB",
+      "chamber pop",
+      "ambient folk",
+      "sophisti-pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "怀旧又现代",
+      "木质感",
+      "空气感"
+    ],
+    "production_tags": [
+      "nylon guitar",
+      "层叠和声",
+      "弦乐",
+      "analog warmth",
+      "优秀reverb空间",
+      "宽stereo"
+    ],
+    "instrumentation": [],
+    "vocal_style": "柔和男声，soft falsetto，一个人叠出的多层和声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "雨后清晨慢慢醒来，还赖在被子里不想动的时候。",
+    "artist_oneliner": "O Terno主唱、当代MPB的和声魔术师Tim Bernardes，一个人的嗓子叠出一整片合唱团。",
+    "why": "木吉他托着他自己叠出的多层人声，撑开一个近乎教堂的空间；技术满得吓人，却一点不炫，旋律一遍就住进脑子。曾提名拉丁格莱美最佳MPB。",
+    "fit_score": 0.86,
+    "source": "MusicBrainz + Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/24th_Annual_Latin_Grammy_Awards",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-fabianodonas-ykytu",
+    "title": "Ykytu",
+    "artist": "Fabiano do Nascimento",
+    "year": "2021",
+    "album": "Ykytu",
+    "genres": [
+      "modern bossa",
+      "ambient folk",
+      "jazz",
+      "organic electronic"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "松弛",
+      "木质感",
+      "organic",
+      "空气感",
+      "夏天"
+    ],
+    "production_tags": [
+      "nylon guitar",
+      "field recording",
+      "granular",
+      "优秀reverb",
+      "柔和高频",
+      "analog warmth"
+    ],
+    "instrumentation": [],
+    "vocal_style": "器乐为主，轻人声点缀",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "午后坐在树荫下，看光斑在地上一点点挪位的时候。",
+    "artist_oneliner": "洛杉矶与东京两头跑的巴西吉他手Fabiano do Nascimento，把尼龙弦和自然录音织成一片流动的林子。",
+    "why": "指弹尼龙弦上叠着细碎电子和自然采样，电子的进出像一次次呼吸；温暖不腻，留着让人喘气的空。",
+    "fit_score": 0.86,
+    "source": "MusicBrainz + Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Fabiano_do_Nascimento",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-baladesejo-bailedemscarasre",
+    "title": "Baile de máscaras (Recarnaval)",
+    "artist": "Bala Desejo",
+    "year": "2022",
+    "album": "Sim Sim Sim",
+    "genres": [
+      "tropicália",
+      "MPB",
+      "chamber pop",
+      "psychedelic pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "怀旧又现代",
+      "温柔",
+      "夏天",
+      "松弛"
+    ],
+    "production_tags": [
+      "nylon guitar",
+      "层叠和声",
+      "弦乐管乐",
+      "analog warmth",
+      "tape warmth",
+      "宽stereo"
+    ],
+    "instrumentation": [],
+    "vocal_style": "四人男女混声，华丽层叠和声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "傍晚站在阳台，手里半杯酒、脸有点热的时候。",
+    "artist_oneliner": "里约四人组（含Dora Morelenbaum），拿了拉丁格莱美的tropicália复兴新星。",
+    "why": "四个声部叠出70年代MPB黄金期那种华丽和声，却录得清清透透的当代；甜，但不是廉价city pop翻新那口廉价甜。",
+    "fit_score": 0.86,
+    "source": "MusicBrainz + Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Bala_Desejo",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-surprisechef-thelimp",
+    "title": "The Limp",
+    "artist": "Surprise Chef",
+    "year": "2021",
+    "album": "Daylight Savings",
+    "genres": [
+      "cinematic soul",
+      "jazz-funk",
+      "downtempo",
+      "library music"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "松弛",
+      "城市夜晚",
+      "电影感",
+      "木质感"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "tape saturation",
+      "圆润木质贝斯",
+      "Rhodes/felt keys",
+      "优秀reverb",
+      "柔和高频"
+    ],
+    "instrumentation": [],
+    "vocal_style": "器乐无人声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "城市深夜开车，上了空荡荡的高架、把音量拧大一格的时候。",
+    "artist_oneliner": "墨尔本器乐组Surprise Chef，David Axelrod式电影灵魂乐的当代DIY门徒。",
+    "why": "Khruangbin那一挂的慵懒器乐soul，磁带饱和裹着圆润的木质贝斯，旋律线清清楚楚能哼；不喧哗，一直往前蹭。",
+    "fit_score": 0.86,
+    "source": "MusicBrainz + Bandcamp",
+    "source_url": "https://surprisechef.bandcamp.com/",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-jizue-swallow",
+    "title": "swallow",
+    "artist": "jizue",
+    "year": "2010s",
+    "album": "",
+    "genres": [
+      "soft post-rock",
+      "jazz",
+      "instrumental",
+      "post-rock"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "木质感",
+      "空气感",
+      "松弛"
+    ],
+    "production_tags": [
+      "felt/jazz piano",
+      "圆润木质贝斯",
+      "clean guitar",
+      "analog warmth",
+      "优秀reverb"
+    ],
+    "instrumentation": [],
+    "vocal_style": "器乐无人声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "雨天窝在家，看窗上的水痕往下爬、发呆的时候。",
+    "artist_oneliner": "京都器乐四重奏jizue，钢琴挑大梁、把爵士揉进post-rock的旋律派（不是炫技那种fusion）。",
+    "why": "钢琴和clean吉他写得像有词的歌，句句能哼，暖而不刺；toe那条线里更靠钢琴、更肯抒情的一支。",
+    "fit_score": 0.86,
+    "source": "MusicBrainz + Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Jizue",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-porticoquart-waysofseeing",
+    "title": "Ways of Seeing",
+    "artist": "Portico Quartet",
+    "year": "2019",
+    "album": "Memory Streams",
+    "genres": [
+      "ambient jazz",
+      "downtempo",
+      "leftfield",
+      "electro-acoustic"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "空气感",
+      "城市夜晚",
+      "松弛",
+      "电影感"
+    ],
+    "production_tags": [
+      "hang drum",
+      "优秀reverb空间",
+      "宽stereo",
+      "subtle glitch",
+      "柔和高频",
+      "analog warmth"
+    ],
+    "instrumentation": [],
+    "vocal_style": "器乐无人声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "深夜换乘，站在空无一人的月台等下一班的时候。",
+    "artist_oneliner": "伦敦器乐组Portico Quartet，用hang钢舌鼓做出Cinematic Orchestra那一路的氛围爵士。",
+    "why": "hang鼓圆润的音色和细碎电子编成一片会流动的纹理，底下始终有旋律骨架撑着，不是漫无目的地铺；越走越沉。",
+    "fit_score": 0.8,
+    "source": "MusicBrainz",
+    "source_url": "https://en.wikipedia.org/wiki/Portico_Quartet",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-alfamist-doorfeatjordanra",
+    "title": "Door (feat. Jordan Rakei)",
+    "artist": "Alfa Mist",
+    "year": "2019",
+    "album": "Structuralism",
+    "genres": [
+      "jazz",
+      "neo soul",
+      "downtempo",
+      "jazz pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "松弛",
+      "城市夜晚",
+      "温柔",
+      "怀旧又现代"
+    ],
+    "production_tags": [
+      "felt/jazz piano",
+      "Rhodes",
+      "圆润贝斯",
+      "analog warmth",
+      "柔和高频",
+      "优秀reverb"
+    ],
+    "instrumentation": [],
+    "vocal_style": "柔和男声（Jordan Rakei），气声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "傍晚厨房切菜，油还没热、灶火只开了小的那阵。",
+    "artist_oneliner": "伦敦东区自学起家的键盘手Alfa Mist，把hip-hop的节拍网格搭在Rhodes和爵士钢琴底下的那类制作人。",
+    "why": "Rhodes和爵士钢琴一层层往下坐，Jordan Rakei的气嗓贴着琴键滑；不抢拍、不炫指法，groove像有人在你对面慢慢把话说完。",
+    "fit_score": 0.8,
+    "source": "MusicBrainz",
+    "source_url": "https://en.wikipedia.org/wiki/Alfa_Mist",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-giamargaret-groceries",
+    "title": "Groceries",
+    "artist": "Gia Margaret",
+    "year": "2018",
+    "album": "There's Always Glimmer",
+    "genres": [
+      "bedroom pop",
+      "ambient folk",
+      "dream pop",
+      "indietronica"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "空气感",
+      "亲密",
+      "雨天"
+    ],
+    "production_tags": [
+      "felt piano",
+      "cassette",
+      "lo-fi录音感",
+      "柔和高频",
+      "优秀reverb",
+      "subtle glitch"
+    ],
+    "instrumentation": [],
+    "vocal_style": "气声女声，耳语，层叠和声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "雨打着窗户，你在床上醒了一半又不想彻底醒的那段。",
+    "artist_oneliner": "芝加哥的Gia Margaret，把自己写的歌直接叫「睡眠音乐」的卧室民谣人。",
+    "why": "毛毡钢琴裹着磁带底噪，气嗓被叠成好几层耳语压在上面，偶尔一点数码碎响像唱针跳了格；安静，但旋律的骨头很清楚。",
+    "fit_score": 0.86,
+    "source": "MusicBrainz + Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Gia_Margaret",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-owen-emptybottle",
+    "title": "Empty Bottle",
+    "artist": "Owen",
+    "year": "2016",
+    "album": "The King of Whys",
+    "genres": [
+      "midwest emo",
+      "indie folk",
+      "singer-songwriter",
+      "quiet alternative"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "木质感",
+      "怀旧",
+      "亲密"
+    ],
+    "production_tags": [
+      "clean/fingerstyle guitar",
+      "analog warmth",
+      "弦乐点缀",
+      "柔和高频",
+      "lo-fi温度"
+    ],
+    "instrumentation": [],
+    "vocal_style": "柔和男声，气声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "深夜一个人坐着，翻到一张旧照片、手指停在上面没往下翻的那刻。",
+    "artist_oneliner": "American Football的Mike Kinsella单飞项目Owen，emo圈里最会用指弹木吉他把话说轻的人。",
+    "why": "指弹的clean吉他绕出一圈圈复杂却收着劲的音型，弦乐只在边角点一下；情绪是emo的，手感是民谣的，克制得让人心里发紧。",
+    "fit_score": 0.8,
+    "source": "MusicBrainz + Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Owen_(musician)",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-prawn-rooftops",
+    "title": "Rooftops",
+    "artist": "Prawn",
+    "year": "2017",
+    "album": "Run",
+    "genres": [
+      "midwest emo",
+      "soft post-rock",
+      "indie rock",
+      "emo"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "木质感",
+      "怀旧又现代",
+      "城市夜晚",
+      "温暖"
+    ],
+    "production_tags": [
+      "clean/jangle guitar",
+      "小号",
+      "analog warmth",
+      "优秀reverb",
+      "宽stereo",
+      "lo-fi温度"
+    ],
+    "instrumentation": [],
+    "vocal_style": "柔和男声，层叠",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "傍晚站在天台边，城市一盏一盏亮起灯、风还没凉的那十分钟。",
+    "artist_oneliner": "新泽西的Prawn，把一把小号焊进jangle吉他里、给midwest emo开了扇朝上窗的乐队。",
+    "why": "叮当作响的clean吉他铺开一整片，小号从缝里升上来把旋律往高处带；比一般emo更敞亮，扬起来的时候胸腔跟着松。",
+    "fit_score": 0.86,
+    "source": "MusicBrainz + Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Prawn_(band)",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-harukanakamu-lamp",
+    "title": "Lamp",
+    "artist": "haruka nakamura",
+    "year": "2008",
+    "album": "grace",
+    "genres": [
+      "ambient folk",
+      "ambient",
+      "electro-acoustic",
+      "minimal"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "空气感",
+      "木质感",
+      "雨天",
+      "松弛"
+    ],
+    "production_tags": [
+      "nylon/acoustic guitar",
+      "pianica",
+      "felt piano",
+      "field recording",
+      "优秀reverb",
+      "柔和高频"
+    ],
+    "instrumentation": [],
+    "vocal_style": "器乐为主，轻人声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "清晨天刚泛白，一个人端着第一杯茶、还没说第一句话的时候。",
+    "artist_oneliner": "东京作曲家haruka nakamura，用木吉他和口风琴写「查无此片的电影配乐」。",
+    "why": "尼龙弦木吉他和felt钢琴各弹几个音就停，留白里全是空气流动和远处收来的环境声；极简，却听得见房间的温度。",
+    "fit_score": 0.86,
+    "source": "MusicBrainz",
+    "source_url": "https://harukanakamura.bandcamp.com/",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-juliebyrne-naturalblue",
+    "title": "Natural Blue",
+    "artist": "Julie Byrne",
+    "year": "2017",
+    "album": "Not Even Happiness",
+    "genres": [
+      "ambient folk",
+      "dream pop",
+      "chamber pop",
+      "indie folk"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "空气感",
+      "温柔",
+      "怀旧又现代",
+      "亲密"
+    ],
+    "production_tags": [
+      "fingerstyle guitar",
+      "Juno/synth pad",
+      "优秀reverb空间",
+      "宽stereo",
+      "柔和高频",
+      "analog warmth"
+    ],
+    "instrumentation": [],
+    "vocal_style": "柔和女声，气声，层叠和声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "夜里一个人开车穿过没有路灯的旷野，抬头满是星星的那段。",
+    "artist_oneliner": "美国indie folk的Julie Byrne，指弹木吉他配丝绒嗓、专写夜路的行吟者。",
+    "why": "指弹吉他把骨架搭好，Juno的合成器pad在背后铺成一片，人声像雾一样漫过来把边缘泡软；folk的实和dream pop的空，恰好各占一半。",
+    "fit_score": 0.86,
+    "source": "MusicBrainz + Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Julie_Byrne",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-pumablue-velvetleaves",
+    "title": "Velvet Leaves",
+    "artist": "Puma Blue",
+    "year": "2021",
+    "album": "In Praise of Shadows",
+    "genres": [
+      "quiet alternative R&B",
+      "trip-hop",
+      "downtempo",
+      "jazz pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "城市夜晚",
+      "亲密",
+      "空气感",
+      "温柔"
+    ],
+    "production_tags": [
+      "felt/jazz keys",
+      "圆润贝斯",
+      "subtle glitch",
+      "tape warmth",
+      "优秀reverb",
+      "柔和高频"
+    ],
+    "instrumentation": [],
+    "vocal_style": "soft falsetto男声，气声，耳语",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "凌晨睡不着，窗外霓虹隔着玻璃糊成一团色的时候。",
+    "artist_oneliner": "伦敦的Jacob Allen，把Jeff Buckley那种发颤的假声搬进Portishead夜色里的那个人。",
+    "why": "爵士键盘和圆润贝斯织出一片潮乎乎的暗，颤动的假声贴着耳朵唱、几点数码碎响像雨没停透；私密到像偷听别人的失眠。",
+    "fit_score": 0.8,
+    "source": "MusicBrainz + Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Puma_Blue",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-yasuakishimi-suiren",
+    "title": "Suiren",
+    "artist": "Yasuaki Shimizu",
+    "year": "1982",
+    "album": "Kakashi",
+    "genres": [
+      "electro-acoustic",
+      "leftfield pop",
+      "minimal electronica",
+      "ambient",
+      "jazz"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "空气感",
+      "颗粒感",
+      "城市夜晚",
+      "松弛"
+    ],
+    "production_tags": [
+      "analog warmth",
+      "tape saturation",
+      "dub space",
+      "saxophone",
+      "优秀 reverb"
+    ],
+    "instrumentation": [],
+    "vocal_style": "以萨克斯与合成器为主的器乐，几乎无人声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "深夜雨刚停，一个人待在铺木地板的房间、只开一盏小灯。",
+    "artist_oneliner": "清水靖晃——日本萨克斯手兼作曲家，把爵士、dub和早期采样电子拧成一股谁也不像的声音。",
+    "why": "萨克斯被泡进dub的空旷回声里，磁带饱和给音色裹了层暖边，冷和暖同时在场；旋律清楚到能哼，整首却像一间潮木屋在慢慢呼吸。",
+    "fit_score": 0.8,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Kakashi_(album)",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-mariah-shinzonotobira心臓",
+    "title": "Shinzo no Tobira (心臓の扉)",
+    "artist": "Mariah",
+    "year": "1983",
+    "album": "Utakata no Hibi (うたかたの日々)",
+    "genres": [
+      "leftfield pop",
+      "fourth world",
+      "art pop",
+      "minimal electronica",
+      "city pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "怀旧又现代",
+      "空气感",
+      "梦幻",
+      "夏天傍晚",
+      "有人味"
+    ],
+    "production_tags": [
+      "synth pad",
+      "圆润木质贝斯",
+      "wide stereo",
+      "granular",
+      "tape"
+    ],
+    "instrumentation": [],
+    "vocal_style": "无国界语言的梦呓吟唱，气声、层叠",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "傍晚开着车、脑子完全放空、任风景往后退的那种独处。",
+    "artist_oneliner": "Mariah——清水靖晃组的乐队，1983年这张冷门专辑经Palto Flats再版后变成全球邪典。",
+    "why": "第四世界的合成器铺底，圆润木质的贝斯一步步走，人声用谁也听不懂的语言梦呓着；怀旧和超前撞在一起，钩子黏得出奇。",
+    "fit_score": 0.86,
+    "source": "MusicBrainz",
+    "source_url": "https://musicbrainz.org/search?query=Mariah%20Utakata%20no%20Hibi&type=release&method=indexed",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-susumuyokota-saku",
+    "title": "Saku",
+    "artist": "Susumu Yokota",
+    "year": "1999",
+    "album": "Sakura",
+    "genres": [
+      "sampledelia",
+      "ambient",
+      "downtempo",
+      "folktronica"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "空气感",
+      "梦幻",
+      "松弛",
+      "organic electronic"
+    ],
+    "production_tags": [
+      "granular",
+      "sampling",
+      "soft reverb",
+      "tape",
+      "柔和高频"
+    ],
+    "instrumentation": [],
+    "vocal_style": "被采样切碎的人声织体，无主唱",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "午睡前，樱花季的窗边、光斑在被子上慢慢挪的时候。",
+    "artist_oneliner": "横田进——日本电子作曲家，专拿别人的录音碎片拼出自己那片漂浮宇宙。",
+    "why": "把Harold Budd、Steve Reich、Joni Mitchell的碎片切碎再叠成樱花般飘着的织体，人声被剪成无字的呼吸；采样迷幻的范本，温柔到发亮。",
+    "fit_score": 0.8,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Sakura_(Susumu_Yokota_album)",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-nobukazutake-icefall",
+    "title": "Icefall",
+    "artist": "Nobukazu Takemura",
+    "year": "1999",
+    "album": "Scope",
+    "genres": [
+      "IDM",
+      "glitch",
+      "folktronica",
+      "nu jazz"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "精致不炫技",
+      "颗粒感",
+      "organic electronic",
+      "有人味",
+      "松弛"
+    ],
+    "production_tags": [
+      "subtle glitch",
+      "granular",
+      "warm synth",
+      "broken beat",
+      "圆润贝斯"
+    ],
+    "instrumentation": [],
+    "vocal_style": "器乐为主，偶有处理过的人声碎片",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "戴耳机通勤，或专注写东西、需要有点动静又不能被打扰的时候。",
+    "artist_oneliner": "竹村延和——日本IDM/glitch先锋，把数码噪点和碎拍写出爵士的暖度。",
+    "why": "音色像冰粒一颗颗落，底下却坐着爵士的圆润贝斯托着；碎拍不是拿来炫的，是在一句一句唱，这就是「电子也会呼吸」的样子。",
+    "fit_score": 0.86,
+    "source": "MusicBrainz",
+    "source_url": "https://musicbrainz.org/release/d59af959-3beb-4d8f-831d-4c59e8301911",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-takakomineka-milkrock",
+    "title": "Milk Rock",
+    "artist": "Takako Minekawa",
+    "year": "1997",
+    "album": "Cloudy Cloud Calculator",
+    "genres": [
+      "shibuya-kei",
+      "indietronica",
+      "electropop",
+      "bossa"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "可爱",
+      "怀旧又现代",
+      "松弛",
+      "精致不炫技",
+      "有人味"
+    ],
+    "production_tags": [
+      "vintage Casio",
+      "Moog",
+      "vocoder",
+      "analog warmth",
+      "柔和高频"
+    ],
+    "instrumentation": [],
+    "vocal_style": "轻柔女声，气声、俏皮",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "阴天的午后，想给关着灯的房间添点甜，把小摆件挪来挪去的时候。",
+    "artist_oneliner": "渋谷系的电子才女嶺川贵子——这首的混音出自 Cornelius（小山田圭吾）之手，两人后来成了夫妻。",
+    "why": "Juno 的模拟音色垒着玩具似的小声响，堆成一朵软乎乎的云，Cornelius 的手让它俏皮又不失精度。想更深地钻进 Cornelius 那套声音、又舍不得放掉旋律，这首是把门钥匙。",
+    "fit_score": 0.86,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Takako_Minekawa",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-dipinthepool-rabodelsol",
+    "title": "Rabo del Sol",
+    "artist": "Dip in the Pool",
+    "year": "1986",
+    "album": "Silence",
+    "genres": [
+      "sophisti-pop",
+      "art pop",
+      "ambient pop",
+      "dream pop",
+      "city pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "城市夜晚",
+      "空气感",
+      "温柔",
+      "怀旧又现代",
+      "精致不炫技"
+    ],
+    "production_tags": [
+      "DX7",
+      "wide stereo",
+      "优秀 reverb",
+      "synth pad",
+      "柔和高频"
+    ],
+    "instrumentation": [],
+    "vocal_style": "甲田益也子的清冷气声女声，耳语感",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "深夜城市，雨顺着窗玻璃往下爬、你在屋里没开大灯的时候。",
+    "artist_oneliner": "Dip in the Pool——甲田益也子与木村达司的二人组，用冷气声和合成器给都会孤独配音。",
+    "why": "清冷的气嗓漂在DX7的亮音色和一大片宽混响里，一个字都不用喊；旋律不吵，却听一次就卡在脑子里，正对Fishmans、大貫妙子那条线。",
+    "fit_score": 0.86,
+    "source": "MusicBrainz",
+    "source_url": "https://musicbrainz.org/release/32d417e3-51cd-4f83-b935-a9822c0bc653",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-inoyamaland-applestar",
+    "title": "Apple Star",
+    "artist": "Inoyama Land",
+    "year": "1983",
+    "album": "Danzindan-Pojidon",
+    "genres": [
+      "ambient",
+      "minimal electronica",
+      "kankyō ongaku",
+      "organic electronic"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "空气感",
+      "松弛",
+      "organic electronic",
+      "可爱",
+      "木质感"
+    ],
+    "production_tags": [
+      "Juno/analog synth",
+      "field recording",
+      "granular",
+      "柔和高频",
+      "优秀 reverb"
+    ],
+    "instrumentation": [],
+    "vocal_style": "纯器乐",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "午后看书或发呆，让它当房间背景、你几乎忘了它在响的时候。",
+    "artist_oneliner": "井上诚与山下康的环境音乐组，用玩具般的合成器点滴，日本kankyō ongaku里被藏起来的珍宝。",
+    "why": "水滴一样的合成器音一颗颗落，细碎音色搭出一座小花园的宇宙，天真又精致；再版后被全世界重新翻出来，音很清、能跟着哼。",
+    "fit_score": 0.86,
+    "source": "MusicBrainz",
+    "source_url": "https://musicbrainz.org/release/89ce58d0-28c2-40c7-9f32-db18d43dc0a7",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-gigimasin-callme",
+    "title": "Call Me",
+    "artist": "Gigi Masin",
+    "year": "1986",
+    "album": "Wind",
+    "genres": [
+      "ambient",
+      "balearic",
+      "downtempo",
+      "jazz"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "空气感",
+      "松弛",
+      "雨天",
+      "怀旧又现代"
+    ],
+    "production_tags": [
+      "tape loops",
+      "field recording",
+      "felt piano",
+      "优秀 reverb",
+      "granular"
+    ],
+    "instrumentation": [],
+    "vocal_style": "纯器乐，钢琴主导",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "深夜一个人看海或看雨，潮水一寸寸退下去的时候。",
+    "artist_oneliner": "Gigi Masin——威尼斯的隐士型ambient作曲家，私印孤本大半毁于2007年水灾、后来被无数人满世界找。",
+    "why": "磁带loop、felt钢琴和海浪般的混响一起往回退，温柔得像退潮；旋律极简却抓人，是那种过十年还会突然想起的曲子。",
+    "fit_score": 0.86,
+    "source": "MusicBrainz",
+    "source_url": "https://musicbrainz.org/release/a031a2be-ee86-4cf8-abb9-2583e3849a6e",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-nunocanavarr-bruma",
+    "title": "Bruma",
+    "artist": "Nuno Canavarro",
+    "year": "1988",
+    "album": "Plux Quba",
+    "genres": [
+      "leftfield pop",
+      "electro-acoustic",
+      "hypnagogic pop",
+      "minimal electronica"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "怀旧又现代",
+      "颗粒感",
+      "梦幻",
+      "空气感",
+      "有人味"
+    ],
+    "production_tags": [
+      "tape",
+      "granular",
+      "subtle glitch",
+      "lo-fi",
+      "wobbly synth"
+    ],
+    "instrumentation": [],
+    "vocal_style": "被处理成碎片的呢喃人声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "凌晨快睡着又没睡着，眼睛闭着还能看见天花板轮廓的那几分钟。",
+    "artist_oneliner": "葡萄牙实验音乐人 Nuno Canavarro——1988 年这张几乎失传，直到 Jim O'Rourke 把它挖出来再版，梦核（hypnagogic）这一脉才算有了源头。",
+    "why": "呢喃人声被剪成碎屑，飘在一台走音的合成器上，磁带底噪像旧家具上落的灰。怪得理直气壮，可旋律偏偏从走调里自己浮出来，浮上来就不肯再沉下去。",
+    "fit_score": 0.86,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Nuno_Canavarro",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-colleen-ritournelle",
+    "title": "Ritournelle",
+    "artist": "Colleen",
+    "year": "2003",
+    "album": "Everyone Alive Wants Answers",
+    "genres": [
+      "indietronica",
+      "electro-acoustic",
+      "folktronica",
+      "ambient"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "温柔",
+      "怀旧又现代",
+      "木质感",
+      "精致不炫技",
+      "松弛"
+    ],
+    "production_tags": [
+      "sampling",
+      "loop",
+      "cello",
+      "granular",
+      "analog warmth"
+    ],
+    "instrumentation": [],
+    "vocal_style": "纯器乐",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "下雨天缩在沙发角落，把毯子一直拉到下巴那种下午。",
+    "artist_oneliner": "法国人 Cécile Schott——把大提琴片段剪碎、一圈圈循环，拼出一台不用真乐队的手工八音盒。",
+    "why": "大提琴的碎句被剪短、绕成旋转木马转起来，底下垫着模拟机器的暖噪。全是采样拼出来的东西，摸上去却是木头的温度，不是电路板。",
+    "fit_score": 0.86,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Everyone_Alive_Wants_Answers",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-casinoversus-aquarium",
+    "title": "Aquarium",
+    "artist": "Casino Versus Japan",
+    "year": "2002",
+    "album": "Whole Numbers Play the Basics",
+    "genres": [
+      "folktronica",
+      "IDM",
+      "ambient",
+      "downtempo"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "怀旧又现代",
+      "空气感",
+      "松弛",
+      "梦幻",
+      "夏天傍晚"
+    ],
+    "production_tags": [
+      "warm synth",
+      "soft breakbeat",
+      "tape warble",
+      "subtle glitch",
+      "柔和高频"
+    ],
+    "instrumentation": [],
+    "vocal_style": "器乐为主，偶有朦胧人声采样",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "夏天午后开长途，副驾没人，风从半开的窗缝里挤进来的时候。",
+    "artist_oneliner": "美国电子人 Erik Kowalski——做的东西总被拉去跟 Boards of Canada 比，却比 BoC 少了那层阴郁。",
+    "why": "褪色合成器浮在软塌塌的碎拍上，磁带一直在发抖，高频被磨圆了棱角。整段像被封在一盘转旧的带子里，暖，而且总慢你半拍。",
+    "fit_score": 0.86,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Whole_Numbers_Play_the_Basics",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-arovane-seaside",
+    "title": "Seaside",
+    "artist": "Arovane",
+    "year": "2000",
+    "album": "Tides",
+    "genres": [
+      "IDM",
+      "ambient",
+      "downtempo",
+      "indietronica"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "空气感",
+      "松弛",
+      "organic electronic",
+      "精致不炫技",
+      "夏天傍晚"
+    ],
+    "production_tags": [
+      "warm pad",
+      "soft breakbeat",
+      "granular",
+      "wide stereo",
+      "subtle glitch"
+    ],
+    "instrumentation": [],
+    "vocal_style": "纯器乐",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "傍晚火车靠窗，海一段段闪过又被防风林挡住的那阵。",
+    "artist_oneliner": "德国 IDM 匠人 Uwe Zahn——Tides 常被列进史上最佳 IDM，却是这类音乐里最不冷的一张。",
+    "why": "暖调 pad 一涨一退，细碎节拍像退潮后留在沙上的水纹，声场铺得很开。别的 IDM 忙着炫算法，这张只想把你的肩膀按下去。",
+    "fit_score": 0.8,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Tides_(Arovane_album)",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-sandroperri-changes",
+    "title": "Changes",
+    "artist": "Sandro Perri",
+    "year": "2011",
+    "album": "Impossible Spaces",
+    "genres": [
+      "leftfield pop",
+      "jazz pop",
+      "folktronica",
+      "sophisti-pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "有人味",
+      "松弛",
+      "organic electronic",
+      "温柔",
+      "怀旧又现代"
+    ],
+    "production_tags": [
+      "live band",
+      "organic electronic",
+      "saxophone",
+      "jazz groove",
+      "analog warmth"
+    ],
+    "instrumentation": [],
+    "vocal_style": "温柔男声，soft falsetto",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "周末黄昏一个人炖东西，锅在小火上咕嘟、天色一点点暗下去的那段。",
+    "artist_oneliner": "多伦多的 Sandro Perri——把爵士、民谣和电子熬成一锅慢慢生长、没有清楚边界的长曲。",
+    "why": "近八分钟里，活的乐队和电子处理咬着往前长，萨克斯从假声底下钻出来，接缝几乎看不见。你以为它要收尾了，它又抽出一层新的。",
+    "fit_score": 0.86,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Impossible_Spaces",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-virginiaastl-withmyeyeswideop",
+    "title": "With My Eyes Wide Open I'm Dreaming",
+    "artist": "Virginia Astley",
+    "year": "1983",
+    "album": "From Gardens Where We Feel Secure",
+    "genres": [
+      "chamber pop",
+      "ambient folk",
+      "pastoral",
+      "minimal"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "空气感",
+      "夏天傍晚",
+      "木质感",
+      "温柔",
+      "怀旧又现代"
+    ],
+    "production_tags": [
+      "felt piano",
+      "field recording",
+      "birdsong",
+      "flute",
+      "优秀 reverb"
+    ],
+    "instrumentation": [],
+    "vocal_style": "以钢琴/长笛为主的器乐，人声近乎无词",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "夏天午后开着窗午睡，纱帘被风顶起来又落下的那半小时。",
+    "artist_oneliner": "英国田园派作曲家 Virginia Astley——把一整天的乡下光景，钢琴、长笛、真录下来的鸟叫，编成一张几乎没有歌词的专辑。",
+    "why": "毛毡钢琴敲下去闷闷的，长笛绕上来，缝里全是实录的鸟鸣和虫声。混响拖得很长，像午后的热气散不掉——旋律干净到能跟着哼，却被时间藏了四十年。",
+    "fit_score": 0.86,
+    "source": "MusicBrainz",
+    "source_url": "https://musicbrainz.org/search?query=Virginia%20Astley%20From%20Gardens%20Where%20We%20Feel%20Secure&type=release&method=indexed",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-ichikoaoba青葉-porcelain",
+    "title": "Porcelain",
+    "artist": "Ichiko Aoba (青葉市子)",
+    "year": "2020",
+    "album": "アダンの風 (Windswept Adan)",
+    "genres": [
+      "ambient folk",
+      "chamber folk",
+      "japanese indie"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "空气感",
+      "静谧",
+      "木质感",
+      "梦境",
+      "海岛清晨"
+    ],
+    "production_tags": [
+      "nylon-guitar fingerstyle",
+      "field recording",
+      "lush reverb",
+      "wide stereo",
+      "chamber strings",
+      "organic"
+    ],
+    "instrumentation": [],
+    "vocal_style": "轻柔气声女声，如耳语般贴耳",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "雨停后的清晨拉开窗帘，玻璃上还挂着没干的水珠时。",
+    "artist_oneliner": "京都的青葉市子——吟游诗人式的创作歌手，录音师是 Fishmans 那位 ZAK，坂本龙一、Cornelius 都找过她合作。",
+    "why": "尼龙弦指弹、贴着耳朵的气声，加上真录来的海浪与风，一起拼出一座并不存在的岛。是 ZAK 那套录音血脉里最柔的一支，旋律清楚到能哼，却半点不逞技巧。",
+    "fit_score": 0.8,
+    "source": "Wikipedia (Ichiko Aoba)",
+    "source_url": "https://en.wikipedia.org/wiki/Ichiko_Aoba",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-videotapemus-cocktailmoon",
+    "title": "Cocktail Moon",
+    "artist": "VIDEOTAPEMUSIC",
+    "year": "2020",
+    "album": "Cocktail Moon (Single)",
+    "genres": [
+      "sampledelia",
+      "hypnagogic pop",
+      "downtempo",
+      "exotica"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "怀旧",
+      "夏夜",
+      "慵懒",
+      "VHS复古",
+      "城市霓虹"
+    ],
+    "production_tags": [
+      "tape saturation",
+      "VHS sampling",
+      "dub echo",
+      "round wooden bass",
+      "granular",
+      "warm high-end"
+    ],
+    "instrumentation": [],
+    "vocal_style": "以采样人声与器乐为主，偶有嘉宾轻唱",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "夏天傍晚的阳台，风扇转着，天还蓝着没黑透的那半小时。",
+    "artist_oneliner": "东京的影音制作人——从二手店淘来的废弃 VHS 里采样，拼出一整个褪色的昭和梦，隶属 Kakubarhythm 厂牌。",
+    "why": "磁带饱和、dub 回声一层层散开，圆润的木头贝斯在底下慢慢走——像一杯正在化开的月光鸡尾酒。数码采样和自然声揉得看不出接缝，是这类做旧美学里手最稳的一个。",
+    "fit_score": 0.86,
+    "source": "VIDEOTAPEMUSIC Bandcamp discography",
+    "source_url": "https://videotapemusic.bandcamp.com/",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-minakoyoshid-town",
+    "title": "TOWN",
+    "artist": "Minako Yoshida (吉田美奈子)",
+    "year": "1980",
+    "album": "MONOCHROME",
+    "genres": [
+      "city pop",
+      "sophisti-pop",
+      "soul"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "都会夜晚",
+      "温暖",
+      "舒展",
+      "从容"
+    ],
+    "production_tags": [
+      "warm bass groove",
+      "electric piano",
+      "silky brass",
+      "analog warmth",
+      "wide mix"
+    ],
+    "instrumentation": [],
+    "vocal_style": "通透有力的女声，收放自如不飙",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "深夜一个人开车上空荡的高架，路灯一盏盏从挡风玻璃上划过去。",
+    "artist_oneliner": "吉田美奈子——给山下达郎写词的 Sugar Babe 世代核心，city pop 真正的奠基者之一，不是复兴期那批翻版。",
+    "why": "圆润的贝斯 groove 和电钢像夜风一样穿堂而过，铜管铺得又滑又亮。这是她自己操刀的《MONOCHROME》里最舒展的一段，是原产的 city pop，不是后来的廉价复刻。",
+    "fit_score": 0.8,
+    "source": "Wikipedia (吉田美奈子)",
+    "source_url": "https://ja.wikipedia.org/wiki/吉田美奈子",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-cymbals-highwaystarspeed",
+    "title": "Highway Star, Speed Star",
+    "artist": "Cymbals",
+    "year": "2000",
+    "album": "Mr.Noone Special",
+    "genres": [
+      "shibuya-kei",
+      "guitar pop",
+      "indie pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "明快",
+      "城市",
+      "复古摩登",
+      "轻盈"
+    ],
+    "production_tags": [
+      "jangle guitar",
+      "shuffle groove",
+      "round bass",
+      "retro pop arrangement"
+    ],
+    "instrumentation": [],
+    "vocal_style": "土岐麻子的女声，甜而不腻、带一点爵士咬字",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "周末午后一边收拾房间一边跟着晃，阳光斜进来照见浮尘的时候。",
+    "artist_oneliner": "世纪之交的渋谷系三人组——主唱是日后被叫作『City Pop 女王』的土岐麻子，编曲沖井礼二精细到骨头缝里。",
+    "why": "jangle 吉他叮叮当当，shuffle 律动一晃一晃，土岐麻子把爵士的咬字化进甜里，不腻。喜欢 Cornelius、Flipper's Guitar 那条线的话，这是同一片林子往深走的地方。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (Cymbals)",
+    "source_url": "https://ja.wikipedia.org/wiki/Cymbals",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-gomesthehitm-雨の夜と月の光",
+    "title": "雨の夜と月の光",
+    "artist": "gomes the hitman (ゴメス・ザ・ヒットマン)",
+    "year": "1999",
+    "album": "weekend",
+    "genres": [
+      "neo-acoustic",
+      "guitar pop",
+      "sophisti-pop",
+      "japanese indie"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "雨夜",
+      "温柔",
+      "怀旧",
+      "内省"
+    ],
+    "production_tags": [
+      "clean/jangle guitar",
+      "wooden warmth",
+      "lo-fi texture",
+      "soft high-end"
+    ],
+    "instrumentation": [],
+    "vocal_style": "山田稔明的轻柔男声，叙事感强",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "下雨的夜里只留窗边一盏暖灯，雨声盖过屋里所有动静的时候。",
+    "artist_oneliner": "东京外国语大学音乐社出身的 neo-aco 乐队——主唱山田稔明后来靠温柔民谣单飞，是日本吉他流行里长期被低估的一支。",
+    "why": "干净的吉他、木头一样的温度，山田稔明像说话一样把雨夜的月光唱出来，克制到几乎不动声色。带点 lo-fi 的录音底子却一点不糙——你要的『有人味、不炫技』就是这个样子。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (ゴメス・ザ・ヒットマン)",
+    "source_url": "https://ja.wikipedia.org/wiki/ゴメス・ザ・ヒットマン",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-luckyoldsunラ-街の人",
+    "title": "街の人",
+    "artist": "Lucky Old Sun (ラッキーオールドサン)",
+    "year": "2021",
+    "album": "うすらい",
+    "genres": [
+      "japanese indie pop",
+      "folk",
+      "city pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "城市黄昏",
+      "松弛",
+      "温柔",
+      "生活感"
+    ],
+    "production_tags": [
+      "clean guitar",
+      "warm room sound",
+      "soft groove",
+      "analog warmth"
+    ],
+    "instrumentation": [],
+    "vocal_style": "ナナ的柔和女声与篠原良彰男声的男女和声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "傍晚散步快到家，第一盏街灯啪地亮起来的那一下。",
+    "artist_oneliner": "如今扎根四国的夫妻二人组——民谣和 city pop 中间那块松弛地带，队名借自久保田麻琴的一首老歌。",
+    "why": "男女和声铺在带着体温的房间录音上，写一座城里普通人的黄昏，松弛得像一次长呼吸。这是电影《街の上で》的主题曲，好就好在朴素——旋律好哼，听得见人真的在场。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (ラッキーオールドサン)",
+    "source_url": "https://ja.wikipedia.org/wiki/ラッキーオールドサン",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-harukanakamu-grace",
+    "title": "grace",
+    "artist": "haruka nakamura",
+    "year": "2008",
+    "album": "grace",
+    "genres": [
+      "folktronica",
+      "ambient",
+      "post-classical"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "静谧",
+      "木质感",
+      "清晨",
+      "organic"
+    ],
+    "production_tags": [
+      "felt piano",
+      "field recording",
+      "subtle glitch",
+      "acoustic guitar",
+      "wide stereo",
+      "organic electronic"
+    ],
+    "instrumentation": [],
+    "vocal_style": "器乐为主，人声若有若无地飘在远处",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "清晨煮好第一杯咖啡，还没开始处理任何事、只想让脑子空一会儿的时候。",
+    "artist_oneliner": "青森出身的作曲/钢琴家 haruka nakamura——2008 年由 Nujabes 引荐出道，把后古典和 folktronica 做成像呼吸一样起伏的电子。",
+    "why": "毛毡钢琴、真实环境录音，加上轻到几乎察觉不到的 glitch，整段的起伏真就跟呼吸一个节奏。Bibio、The Album Leaf、múm 那条线的日本近亲，温柔却不含糊。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (haruka nakamura)",
+    "source_url": "https://ja.wikipedia.org/wiki/haruka_nakamura",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-takakomineka-milkrock",
+    "title": "Milk Rock",
+    "artist": "Takako Minekawa (嶺川貴子)",
+    "year": "1997",
+    "album": "Cloudy Cloud Calculator",
+    "genres": [
+      "shibuya-kei",
+      "electronica",
+      "toytronica",
+      "indie pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "俏皮",
+      "复古电子",
+      "温柔",
+      "梦幻"
+    ],
+    "production_tags": [
+      "Juno/analog synth",
+      "toy textures",
+      "round bass",
+      "warm electronics",
+      "tape warmth"
+    ],
+    "instrumentation": [],
+    "vocal_style": "轻柔气声女声，甜而通透",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "阴天的午后，想给关着灯的房间添点甜，把小摆件挪来挪去的时候。",
+    "artist_oneliner": "渋谷系的电子才女嶺川贵子——这首的混音出自 Cornelius（小山田圭吾）之手，两人后来成了夫妻。",
+    "why": "Juno 的模拟音色垒着玩具似的小声响，堆成一朵软乎乎的云，Cornelius 的手让它俏皮又不失精度。想更深地钻进 Cornelius 那套声音、又舍不得放掉旋律，这首是把门钥匙。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (Takako Minekawa)",
+    "source_url": "https://en.wikipedia.org/wiki/Takako_Minekawa",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-sunnydayserv-babyblue",
+    "title": "baby blue",
+    "artist": "Sunny Day Service (サニーデイ・サービス)",
+    "year": "1997",
+    "album": "サニーデイ・サービス",
+    "genres": [
+      "japanese indie pop",
+      "guitar pop",
+      "folk rock"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "夏日",
+      "青春",
+      "慵懒",
+      "怀旧"
+    ],
+    "production_tags": [
+      "jangle guitar",
+      "lo-fi warmth",
+      "70s-flavored arrangement",
+      "analog room sound"
+    ],
+    "instrumentation": [],
+    "vocal_style": "曽我部恵一略带沙哑的温柔男声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "夏天傍晚骑车下坡，风灌进袖子、影子被拉得老长的那段路。",
+    "artist_oneliner": "曽我部恵一领衔的日本吉他流行常青树——把 70 年代民谣的质地揉进城市青春，是一整代日本独立乐队的精神原点。",
+    "why": "jangle 吉他配上带房间感的 lo-fi 录音，把夏天那种发青的蓝唱得又懒又真。旋律朗朗上口，录音带着阳光晒褪色的颗粒，一个月后还在脑子里转。",
+    "fit_score": 0.8,
+    "source": "Wikipedia (サニーデイ・サービス)",
+    "source_url": "https://ja.wikipedia.org/wiki/サニーデイ・サービス",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-homecomings-cakes",
+    "title": "Cakes",
+    "artist": "Homecomings",
+    "year": "2018",
+    "album": "WHALE LIVING",
+    "genres": [
+      "indie pop",
+      "jangle pop",
+      "dream pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "城市黄昏",
+      "温柔",
+      "清新",
+      "微苦"
+    ],
+    "production_tags": [
+      "chorus/jangle guitar",
+      "soft reverb",
+      "lo-fi warmth",
+      "felt-like keys"
+    ],
+    "instrumentation": [],
+    "vocal_style": "畳野彩加清透的轻柔女声",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "下班过天桥，天蓝里带橘，你没戴耳机也听见自己脚步慢下来的那段。",
+    "artist_oneliner": "京都精华大学民谣社出身的四人组，从英文 twee 唱到日语，jangle 吉他上总蒙着一层旧唱片的暖噪。",
+    "why": "jangle 吉他的琶音一颗颗抖着往前滚，畳野彩加把黄昏那点微苦唱得干净、不拖泥（电影《愛がなんだ》主题曲）。甜里留一道涩，是当代日系 indie pop 里少有的克制。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (Homecomings)",
+    "source_url": "https://ja.wikipedia.org/wiki/Homecomings",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-kaoruakimoto-dressdown",
+    "title": "Dress Down",
+    "artist": "Kaoru Akimoto (秋元薫)",
+    "year": "1986",
+    "album": "Cologne",
+    "genres": [
+      "city pop",
+      "aor",
+      "boogie"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "都会夜晚",
+      "慵懒",
+      "复古",
+      "微醺"
+    ],
+    "production_tags": [
+      "DX7 synth",
+      "warm slap bass",
+      "smooth groove",
+      "80s reverb",
+      "wide stereo"
+    ],
+    "instrumentation": [],
+    "vocal_style": "温柔从容的女声，气口松弛",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "possibly-known",
+    "scene": "半夜把顶灯关了只留一盏台灯，倒了第二杯酒还没喝的那会儿。",
+    "artist_oneliner": "1986 年发《Cologne》的 city pop 歌手，这首《Dress Down》被近年 city pop 复兴从旧货架上重新挖出、封成遗珠。",
+    "why": "DX7 的电钢一层层铺开夜色，slap bass 弹得圆而不炸低频，秋元薫的气口松到像刚脱了高跟鞋。是 80 年代的真货、不是复古滤镜，旋律顺得能跟着哼到天亮。",
+    "fit_score": 0.8,
+    "source": "Wikipedia (秋元薫)",
+    "source_url": "https://ja.wikipedia.org/wiki/秋元薫",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-ozorakimijim-光暈halo",
+    "title": "光暈 (halo)",
+    "artist": "Ozora Kimijima (君島大空)",
+    "year": "2021",
+    "album": "袖の汀 (EP)",
+    "genres": [
+      "quiet alternative",
+      "art pop",
+      "folk",
+      "jazz-tinged indie"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "空气感",
+      "静谧",
+      "漂浮",
+      "内省"
+    ],
+    "production_tags": [
+      "floating looped guitar",
+      "subtle glitch",
+      "wide stereo",
+      "lush reverb",
+      "jazz harmony"
+    ],
+    "instrumentation": [],
+    "vocal_style": "soft falsetto，气声假声男声，贴耳漂浮",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "深夜关了灯躺平，只戴一只耳机，想把自己交给这层声音的时候。",
+    "artist_oneliner": "1995 年生的东京吉他手，从 SoundCloud 一人多轨自录起家，把假声唱得比吉他还轻的那一个。",
+    "why": "循环叠录的吉他一圈圈散开，君島大空的假声贴着耳朵飘、随时像要断，底下细碎 glitch 和 jazz 和声托着它不落地。当代日本最像『吉他会发光』的那批新声之一。",
+    "fit_score": 0.86,
+    "source": "Wikipedia (君島大空)",
+    "source_url": "https://ja.wikipedia.org/wiki/君島大空",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-pearltheoyst-readtheroomfeatl",
+    "title": "Read the Room (feat. Laetitia Sadier)",
+    "artist": "Pearl & The Oysters",
+    "year": "2023",
+    "album": "Coast 2 Coast",
+    "genres": [
+      "shibuya-kei",
+      "sunshine pop",
+      "indietronica",
+      "library music",
+      "lounge pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "sunny",
+      "breezy",
+      "nostalgic",
+      "playful",
+      "weightless"
+    ],
+    "production_tags": [
+      "vintage synths",
+      "analog warmth",
+      "Juno/M1 pad",
+      "soft high-end",
+      "wide stereo",
+      "playful arrangement"
+    ],
+    "instrumentation": [],
+    "vocal_style": "男女轻声对唱、气声、慵懒松弛，客串的正是 Stereolab 的 Laetitia Sadier",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "傍晚开车过桥，太阳压在河面上，你不自觉松了油门的那一下。",
+    "artist_oneliner": "旅居洛杉矶的法裔双人组，把 shibuya-kei 的甜、太空时代 lounge 与游戏配乐揉成一张不设防的糖果唱片，Stones Throw 出品。",
+    "why": "Juno/M1 的 pad 软得像棉花糖，男女气声一句接一句对唱，还拉来 Stereolab 的 Laetitia Sadier 亲自坐镇、把血统焊死。旋律一遍就哼得出，每层 pad 都在轻轻鼓气。",
+    "fit_score": 0.86,
+    "source": "Bandcamp",
+    "source_url": "https://pearlandtheoysters.bandcamp.com/album/coast-2-coast",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-yusu-xiu",
+    "title": "Xiu",
+    "artist": "Yu Su",
+    "year": "2021",
+    "album": "Yellow River Blue",
+    "genres": [
+      "organic electronic",
+      "downtempo",
+      "ambient dub",
+      "leftfield house"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "aqueous",
+      "nocturnal",
+      "hazy",
+      "city night",
+      "floating"
+    ],
+    "production_tags": [
+      "dub delay",
+      "analog warmth",
+      "field recording",
+      "rounded bass",
+      "granular texture",
+      "wide stereo"
+    ],
+    "instrumentation": [],
+    "vocal_style": "以器乐与飘忽的无词人声织体为主，人声当乐器用",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "雨夜开车过隧道，雨刷刚甩过、玻璃又糊上一层的那几秒。",
+    "artist_oneliner": "河南开封出生、现居温哥华的制作人苏玉，把中原记忆和 dub 空间熬进 left-field house，欧版由 Music From Memory 发行。",
+    "why": "dub 回声一层层往后退，圆润贝斯踩着 70 上下的慢拍，合成器化成水滴四处渗。潮湿、偏东方，比 Four Tet 那侧更多水汽，多数人还没碰过这张。",
+    "fit_score": 0.86,
+    "source": "Bandcamp",
+    "source_url": "https://yusu.bandcamp.com/album/yellow-river-blue",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-sessa-sereiasentimenta",
+    "title": "Sereia Sentimental",
+    "artist": "Sessa",
+    "year": "2022",
+    "album": "Estrela Acesa",
+    "genres": [
+      "MPB",
+      "modern bossa",
+      "chamber pop",
+      "tropicália"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "sensual",
+      "dusky",
+      "warm",
+      "intimate",
+      "sunlit"
+    ],
+    "production_tags": [
+      "nylon guitar",
+      "string arrangement",
+      "analog warmth",
+      "close-mic vocals",
+      "organic room sound"
+    ],
+    "instrumentation": [],
+    "vocal_style": "葡语男声，气声、慵懒、贴耳，偶有女声和声铺底",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "傍晚坐在阳台，饮料的冰块化了一半，你连伸手去拿都懒的那种松。",
+    "artist_oneliner": "圣保罗的 Sessa，接着 João Gilberto 那根尼龙弦往下写，把 MPB 剥到只剩情欲与呼吸，Mexican Summer 出品。",
+    "why": "尼龙吉他拨得干、能听见指尖蹭过缠弦，葡语气声贴着麦克风送出来，弦乐只在该起的地方轻轻托一把。极简、慵懒，却每句都有清楚的旋律——bossa 迷会循环一整个月的那种。",
+    "fit_score": 0.86,
+    "source": "Bandcamp",
+    "source_url": "https://sessa.bandcamp.com/album/estrela-acesa",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-jonahyano-portraitofadog",
+    "title": "portrait of a dog",
+    "artist": "Jonah Yano",
+    "year": "2023",
+    "album": "portrait of a dog",
+    "genres": [
+      "jazz pop",
+      "indie",
+      "quiet alternative R&B"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "tender",
+      "melancholic",
+      "warm",
+      "reflective",
+      "rainy"
+    ],
+    "production_tags": [
+      "live jazz band",
+      "upright bass",
+      "felt piano",
+      "string arrangement",
+      "analog warmth",
+      "organic room sound"
+    ],
+    "instrumentation": [],
+    "vocal_style": "日裔加拿大男声，轻柔、略沙、贴近麦克风",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "雨天窗边，一杯东西凉了都没察觉的那种走神。",
+    "artist_oneliner": "日裔加拿大唱作人 Jonah Yano，拉上多伦多爵士团 BADBADNOTGOOD 全程同录，把家族与身份写成一张温润的 jazz-pop。",
+    "why": "BADBADNOTGOOD 给的底子实打实——立式贝斯走得圆，felt piano 一按一放都留着呼吸，人声轻到像在对自己说话。爵士不炫技，全给情绪让路。",
+    "fit_score": 0.86,
+    "source": "Bandcamp",
+    "source_url": "https://jonahyano.bandcamp.com/album/portrait-of-a-dog",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-skullcrusher-buildingaswing",
+    "title": "Building a Swing",
+    "artist": "Skullcrusher",
+    "year": "2022",
+    "album": "Quiet the Room",
+    "genres": [
+      "ambient folk",
+      "indie folk",
+      "bedroom pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "hushed",
+      "intimate",
+      "wintry",
+      "dreamy",
+      "fragile"
+    ],
+    "production_tags": [
+      "lo-fi",
+      "tape saturation",
+      "field recording",
+      "gentle electronics",
+      "felt textures",
+      "soft high-end"
+    ],
+    "instrumentation": [],
+    "vocal_style": "女声耳语、气声、极轻，像贴着耳朵唱",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "冬夜屋里只留一盏小灯，暖气还没热透、你缩着肩坐着的那十分钟。",
+    "artist_oneliner": "洛杉矶的 Helen Ballentine 以 Skullcrusher 之名做卧室民谣，把童年小屋的记忆录成飘忽的 ambient folk，Secretly Canadian 出品。",
+    "why": "民谣骨架泡在 tape 噪和窗外的田野录音里，她的耳语轻得像随时要散掉，偏偏底下有一条清楚的旋律拽着不放。不落 dream pop 那套俗套。",
+    "fit_score": 0.86,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Quiet_the_Room",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-aoifenessafr-chariot",
+    "title": "Chariot",
+    "artist": "Aoife Nessa Frances",
+    "year": "2022",
+    "album": "Protector",
+    "genres": [
+      "dream folk",
+      "sophisti-pop",
+      "chamber pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "contemplative",
+      "autumnal",
+      "floating",
+      "warm",
+      "gently melancholic"
+    ],
+    "production_tags": [
+      "string arrangement",
+      "analog warmth",
+      "spacious reverb",
+      "warm low-end",
+      "organic room sound",
+      "Heba Kadry master"
+    ],
+    "instrumentation": [],
+    "vocal_style": "温暖女声、中低音区、松弛不用力",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "秋日傍晚，屋里的光一格一格暗下去，你还没起身开灯的那会儿。",
+    "artist_oneliner": "都柏林唱作人 Aoife Nessa Frances，在爱尔兰乡下录成《Protector》，把梦幻民谣写出 sophisti-pop 的成熟，Heba Kadry 母带。",
+    "why": "温暖的中音女声浮在宽混响与弦乐上，一点不用力，每句都能接着哼下去。sophisti-pop 与 dream folk 干净地撞在一处——喜欢大貫妙子那种松弛成熟的人会一见如故。",
+    "fit_score": 0.86,
+    "source": "Bandcamp",
+    "source_url": "https://aoifenessafrances.bandcamp.com/album/protector",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-marinaherlop-miu",
+    "title": "miu",
+    "artist": "Marina Herlop",
+    "year": "2022",
+    "album": "Pripyat",
+    "genres": [
+      "art pop",
+      "leftfield pop",
+      "electro-acoustic"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "hypnotic",
+      "otherworldly",
+      "delicate",
+      "ritualistic",
+      "shimmering"
+    ],
+    "production_tags": [
+      "granular processing",
+      "subtle glitch",
+      "piano",
+      "layered vocals",
+      "digital-organic blend",
+      "PAN aesthetic"
+    ],
+    "instrumentation": [],
+    "vocal_style": "多层女声，受印度卡纳提克唱法启发，被颗粒化处理成人声织体",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "深夜写不下去干脆停手，让这片声音先把脑子填满的那几分钟。",
+    "artist_oneliner": "巴塞罗那钢琴科班出身的 Marina Herlop，首张电脑制作专辑就把卡纳提克式人声颗粒化成晶体，前卫厂牌 PAN 出品。",
+    "why": "卡纳提克式的多层女声被颗粒处理拆成一片细密碎响，与钢琴互相缠绕、又时时错开，旋律始终清晰、绝非无调噪音。既精致又新奇，听完就想收藏。",
+    "fit_score": 0.86,
+    "source": "Bandcamp",
+    "source_url": "https://marinaherlop.bandcamp.com/album/pripyat",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-erikadecasie-nobutterfliesnon",
+    "title": "No Butterflies, No Nothing",
+    "artist": "Erika de Casier",
+    "year": "2021",
+    "album": "Sensational",
+    "genres": [
+      "quiet alternative R&B",
+      "leftfield pop",
+      "downtempo"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "cool",
+      "nocturnal",
+      "intimate",
+      "sultry",
+      "understated"
+    ],
+    "production_tags": [
+      "2-step garage groove",
+      "subtle glossy synths",
+      "restrained mix",
+      "soft high-end",
+      "wide stereo",
+      "Y2K reference"
+    ],
+    "instrumentation": [],
+    "vocal_style": "极轻的气声女声、贴耳低语，克制不飙",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "城市夜里坐末班车，车厢空到能听见自己呼吸，窗外霓虹一格格划过的那段。",
+    "artist_oneliner": "葡萄牙裔丹麦歌手 Erika de Casier，把 Aaliyah/TLC 的世纪初 R&B 和 UK garage 重写成冷调、私密的当代版本，4AD 出品。",
+    "why": "耳语般的气声浮在轻巧的 2-step 碎拍上，制作精致却全程收着——没有大鼓、没有 drop，只留丝滑和空当。跟那些一味刺耳的爆款 R&B 划得清清楚楚。",
+    "fit_score": 0.86,
+    "source": "Wikipedia",
+    "source_url": "https://en.wikipedia.org/wiki/Sensational_(Erika_de_Casier_album)",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-nabihahiqbal-thisworldcouldnt",
+    "title": "This World Couldn't See Us",
+    "artist": "Nabihah Iqbal",
+    "year": "2023",
+    "album": "DREAMER",
+    "genres": [
+      "dream pop",
+      "indietronica",
+      "organic electronic",
+      "ambient pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "yearning",
+      "twilight",
+      "hopeful",
+      "hazy",
+      "spacious"
+    ],
+    "production_tags": [
+      "tape saturation",
+      "acoustic guitar",
+      "harmonium",
+      "wide reverb",
+      "lo-fi warmth",
+      "soft high-end"
+    ],
+    "instrumentation": [],
+    "vocal_style": "柔和女声、裹在混响里、略带疏离",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "黄昏散步，天从蓝转到紫、路灯刚亮还没全亮的那几分钟。",
+    "artist_oneliner": "伦敦的 Nabihah Iqbal，硬盘被偷、整张推倒重写才做成《DREAMER》，把 shoegaze 光晕、木吉他和电子织到一起，Ninja Tune 出品。",
+    "why": "木吉他和簧风琴打底，磁带暖噪把女声磨成一层雾面，电子只在底下像呼吸一样起伏。怀旧又现代，dream pop 里难得是 organic 而不是套模板的那种。",
+    "fit_score": 0.86,
+    "source": "Bandcamp",
+    "source_url": "https://nabihahiqbal.bandcamp.com/album/dreamer",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-videotapemus-nomozaki",
+    "title": "Nomozaki",
+    "artist": "VIDEOTAPEMUSIC",
+    "year": "2024",
+    "album": "Revisit",
+    "genres": [
+      "sampledelia",
+      "exotica",
+      "downtempo",
+      "ambient pop"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "nostalgic",
+      "hazy",
+      "tropical",
+      "dreamy",
+      "melancholic"
+    ],
+    "production_tags": [
+      "VHS sampling",
+      "tape saturation",
+      "dub echo",
+      "vintage synths",
+      "field recording",
+      "Chihei Hatakeyama mix"
+    ],
+    "instrumentation": [],
+    "vocal_style": "以采样与器乐为主，偶有处理过的怀旧人声片段",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "夏夜阳台，翻一叠泛黄的旧照片，看着看着就走了神。",
+    "artist_oneliner": "东京的 VIDEOTAPEMUSIC，从二手店淘来的旧 VHS 带里抠采样，拼成怀旧异域风的 sampledelia，本作由 ambient 名家冥丁（Chihei Hatakeyama）混音。",
+    "why": "以地名为题，旧录像带的采样碎片浮在 dub 回声里，磁带的糊把 exotica 的甜也糊成了旧的，旋律却清亮不空。冥丁的混音给足了摆放声音的余地。",
+    "fit_score": 0.86,
+    "source": "Bandcamp",
+    "source_url": "https://videotapemusic.bandcamp.com/album/revisit",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-haniarani-home",
+    "title": "Home",
+    "artist": "Hania Rani",
+    "year": "2020",
+    "album": "Home",
+    "genres": [
+      "modern classical",
+      "ambient electronic",
+      "folktronica"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "serene",
+      "luminous",
+      "longing",
+      "spacious",
+      "gentle"
+    ],
+    "production_tags": [
+      "felt piano",
+      "subtle electronics",
+      "strings",
+      "analog warmth",
+      "wide reverb",
+      "Nils-Frahm-adjacent mastering"
+    ],
+    "instrumentation": [],
+    "vocal_style": "柔和女声与无词吟唱，与钢琴交织",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "清晨或雨天在家慢慢醒，还赖着不想掀被子的那段。",
+    "artist_oneliner": "波兰钢琴家 Hania Rani，在《Home》里第一次开口唱，把 felt piano、微电子和弦乐织成温柔的 modern classical，Gondwana Records 出品。",
+    "why": "毛毡钢琴敲下去闷闷的、连锤头的软都听得见，电子在缝里一起一伏像呼吸，无词的轻吟绕着钢琴走。旋律清楚可哼，空间铺得很开。",
+    "fit_score": 0.86,
+    "source": "Bandcamp",
+    "source_url": "https://haniarani.bandcamp.com/album/home",
+    "added_date": "2026-07-28"
+  },
+  {
+    "id": "d-hovvdy-aroundagain",
+    "title": "Around Again",
+    "artist": "Hovvdy",
+    "year": "2021",
+    "album": "True Love",
+    "genres": [
+      "bedroom pop",
+      "indie folk",
+      "slowcore"
+    ],
+    "genre_stars": 5,
+    "mood_tags": [
+      "tender",
+      "cozy",
+      "wistful",
+      "warm",
+      "laid-back"
+    ],
+    "production_tags": [
+      "lo-fi",
+      "tape warmth",
+      "muted drums",
+      "soft synth pad",
+      "rounded bass",
+      "gentle mix"
+    ],
+    "instrumentation": [],
+    "vocal_style": "柔和男声、松弛、略带鼻音的亲切感",
+    "bpm_band": "70–120",
+    "has_melody": true,
+    "familiarity": "likely-unheard",
+    "scene": "午后窝进沙发，阳光在地板上慢慢挪，你连手机都懒得拿的那种松。",
+    "artist_oneliner": "德州 Austin 双人组 Hovvdy，自称做『pillowcore』，把 slowcore 的慢和卧室流行的暖揉成软乎乎一张唱片。",
+    "why": "闷鼓压得低低的，暖 tape 和软塌塌的合成 pad 托着略带鼻音的男声，慢，却不闷——每首都有一个抓得住的旋律钩。卧室流行本该有的样子，没有一点 AI 味或套路。",
+    "fit_score": 0.86,
+    "source": "Bandcamp",
+    "source_url": "https://hovvdy.bandcamp.com/album/true-love",
+    "added_date": "2026-07-28"
+  }
+]

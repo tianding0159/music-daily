@@ -1,0 +1,58 @@
+name: Replenish Pool (auto)
+
+# B · 全自动补池：每周一 UTC 01:27 查一次候选池"未发存量"，低于阈值才调 Anthropic API
+# 按同口味标准发现新曲、iTunes 验真去重后写回 pool.json。存量充足时直接跳过，不花 API。
+# 也可在 Actions 页手动 workflow_dispatch（可勾 force）。
+on:
+  schedule:
+    - cron: "27 1 * * 1"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "无视阈值强制补池"
+        type: boolean
+        default: false
+      add:
+        description: "向 LLM 要多少首候选"
+        default: "40"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: replenish-pool
+  cancel-in-progress: false
+
+jobs:
+  replenish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 安装依赖（仅补池需要 anthropic）
+        run: pip install --quiet anthropic
+
+      - name: 按同标准发现新曲、验真、写回 pool
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MD_MODEL: ${{ vars.MD_MODEL }}
+        run: |
+          python3 scripts/replenish.py \
+            --add "${{ github.event.inputs.add || '40' }}" \
+            ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+
+      - name: 回写 pool.json 到 repo
+        run: |
+          git config user.name "music-daily-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/pool.json data/itunes_cache.json
+          if git diff --cached --quiet; then
+            echo "池无变更（存量充足或无新增），跳过提交"
+          else
+            git commit -m "chore: 自动补池 $(date -u +%F) [skip ci]"
+            git push
+          fi
