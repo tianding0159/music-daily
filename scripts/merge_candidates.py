@@ -62,6 +62,8 @@ def _load_pool() -> list[dict]:
 def parse_candidates(text: str) -> list[dict]:
     """容忍代码围栏 / 外层对象，抽出曲目数组。"""
     t = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.M).strip()
+    # 容错：LLM/聊天常把直引号变成弯引号，会让 JSON 解析失败——归一化回直引号
+    t = t.translate(str.maketrans({"“": '"', "”": '"', "‘": "'", "’": "'"}))
     try:
         v = json.loads(t)
     except json.JSONDecodeError:

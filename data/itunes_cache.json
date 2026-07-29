@@ -606,5 +606,85 @@
     "apple_url": "",
     "matched_artist": "",
     "matched_title": ""
+  },
+  "minuano|lemon elegy": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/80/36/bb/8036bbb5-4d70-5850-ae89-84dd230bafce/cover.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ed/4f/77/ed4f77ac-6dc2-36b6-38b6-1db01f6a8e78/mzaf_10725052532884530619.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/lemon-elegy/1743167396?i=1743167633&uo=4",
+    "matched_artist": "Minuano",
+    "matched_title": "Lemon Elegy"
+  },
+  "mei ehara|day to night": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/03/e6/c5/03e6c51e-e846-4f16-9eb3-22809361448c/4538182881248.png/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/85/c0/63/85c063fc-4c5a-6a5c-a7cf-3594dd3583d2/mzaf_16170472812030414702.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/day-to-night/1509186266?i=1509186273&uo=4",
+    "matched_artist": "mei ehara",
+    "matched_title": "Day to Night"
+  },
+  "satomimagae|numa": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/6e/26/41/6e264192-cafc-08c7-e43e-c29a7db71df4/747742383656.png/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f4/4f/42/f44f4200-8079-419a-0241-9d9574ce9e7e/mzaf_2529966797729889963.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/numa/1551198031?i=1551198250&uo=4",
+    "matched_artist": "Satomimagae",
+    "matched_title": "Numa"
+  },
+  "mamerico|waltz for hulot": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/91/8b/37/918b374c-3b7f-715a-4c56-858fce0e1760/859759860492_cover.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/3a/1e/4f/3a1e4f33-5703-1eda-e111-761dac09b3a0/mzaf_6618464651708842259.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/waltz-for-hulot/1701247567?i=1701247568&uo=4",
+    "matched_artist": "mamerico",
+    "matched_title": "Waltz for Hulot"
+  },
+  "aus|halo": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/57/0c/bb/570cbbf5-39d1-f1b1-2290-72dba58ccbab/Cover.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/Music7/v4/fb/81/31/fb813158-e7bd-c29f-30dc-afce31f9f289/mzaf_2894042549542593455.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/halo-ulrich-schnauss-remix-of-aus/603664915?i=603665167&uo=4",
+    "matched_artist": "Aus",
+    "matched_title": "Halo (Ulrich Schnauss Remix of Aus)"
+  },
+  "ml buch|i m a girl you can hold irl": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b0/56/ea/b056ea2c-c64e-046c-41c1-cab92c45f4fe/840200586740_cover.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c4/53/46/c453461c-89e5-fbcc-c0f2-6714404c94c7/mzaf_1152479001411139343.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/im-a-girl-you-can-hold-irl/1748201772?i=1748201777&uo=4",
+    "matched_artist": "ML Buch",
+    "matched_title": "I'm a Girl You Can Hold IRL"
+  },
+  "dora morelenbaum|venha comigo": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/4a/f5/23/4af5232b-70fc-c258-4fab-77a5139f1bc2/cover.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/78/26/0c/78260c6b-7c72-2b5f-0792-3ba174f7a3ac/mzaf_13471124693601683514.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/venha-comigo/1758717876?i=1758718180&uo=4",
+    "matched_artist": "Dora Morelenbaum",
+    "matched_title": "Venha Comigo"
+  },
+  "bruno berle|at meu viol o": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/07/c0/ea/07c0ea4e-03b5-1957-e505-f9b535d781b6/cover.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/72/57/f3/7257f30e-5ee6-6487-969e-483e13172d74/mzaf_5674101079852903850.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/at%C3%A9-meu-viol%C3%A3o/1619124045?i=1619124323&uo=4",
+    "matched_artist": "Bruno Berle",
+    "matched_title": "Até Meu Violão"
+  },
+  "niecy blues|u care": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/24/ea/d8/24ead82a-c309-db7d-0dc6-392f6e84d61f/796441824021.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/32/d6/84/32d684d6-cc56-f4a7-7827-4586fabeaaf1/mzaf_14711002859084463225.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/u-care/1707078352?i=1707078368&uo=4",
+    "matched_artist": "Niecy Blues",
+    "matched_title": "U Care"
+  },
+  "tara clerkin trio|marble walls": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f5/36/a4/f536a449-b469-cf84-27bf-6523c3155ba3/0197189432682.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d3/36/92/d33692ef-75f9-b0a2-4326-c66400213bbc/mzaf_14869915674436251679.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/marble-walls/1860409769?i=1860409774&uo=4",
+    "matched_artist": "Tara Clerkin Trio",
+    "matched_title": "Marble Walls"
   }
 }
