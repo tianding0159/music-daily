@@ -107,7 +107,13 @@ def main() -> None:
 
     if args.push:
         url = args.url or f"file://{SITE/'index.html'}"
-        title, desp = push_wechat.build_desp(args.date, url, picks)
+        # A 方案低池预警：算还剩多少"未发"存量，不足一期就提醒补池
+        sent_dates = sorted(history)
+        recent = selector._recent_sent_ids(history, set(sent_dates[-45:]))
+        unsent = sum(1 for t in pool if selector.is_eligible(t)[0] and t["id"] not in recent)
+        warn = (f"⚠️ 候选池仅剩 {unsent} 首未发（不足一期），该补池了——回 agent 一句「补池」即可。"
+                if unsent < args.n else None)
+        title, desp = push_wechat.build_desp(args.date, url, picks, warn=warn)
         push_wechat.push(title, desp)
 
 

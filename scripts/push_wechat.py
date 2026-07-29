@@ -52,14 +52,17 @@ def push(title: str, desp_md: str, key: str | None = None,
         return False
 
 
-def build_desp(date_str: str, url: str, tracks: list[dict]) -> tuple[str, str]:
-    """返回 (title, markdown desp)。列前几首勾一下胃口。"""
+def build_desp(date_str: str, url: str, tracks: list[dict],
+               warn: str | None = None) -> tuple[str, str]:
+    """返回 (title, markdown desp)。列前几首勾一下胃口；warn 非空时附低池预警（A 方案）。"""
     title = f"🎵 今日音乐日报 · {date_str} · {len(tracks)}首"
     lines = [f"**{date_str} 今日 {len(tracks)} 首已更新**", "", f"👉 [点开今日日报]({url})", ""]
     for t in tracks[:5]:
         lines.append(f"- {t['title']} — {t['artist']}")
     if len(tracks) > 5:
         lines.append(f"- …等共 {len(tracks)} 首")
+    if warn:
+        lines += ["", "---", warn]
     return title, "\n".join(lines)
 
 
