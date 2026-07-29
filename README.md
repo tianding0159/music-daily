@@ -1,7 +1,7 @@
 # 每日音乐日报 · Daily Music Report
 
 每2天早8:00（北京时间）自动更新的音乐日报：按口味profile精选 **30首**，
-Teenage Engineering工业风网页（专辑封面 + 30s试听 + 艺人/专辑介绍 + 推荐理由 + 场景），
+工业 / 工程风格网页（专辑封面 + 30s试听 + 艺人/专辑介绍 + 推荐理由 + 场景），
 并附一份可一键复制的网易云导入文本。发布到GitHub Pages，可选发一条微信推送提醒。
 
 ## 怎么运作（发现与投递解耦）
@@ -9,7 +9,7 @@ Teenage Engineering工业风网页（专辑封面 + 30s试听 + 艺人/专辑介
 ```
 [发现·定期·重]  乐评/社区  ──►  data/pool.json 常青候选池（打好美学标签 + 写好卡片）
 [投递·每期·轻]  纯脚本：黑名单硬过滤 → 旋律必须 → 打分 → 按气质多样性挑 30 首
-                → iTunes 补封面/试听/Apple 链接 → 渲染网页 → 更新 history 去重 → 微信推送
+                → 补封面/试听/官方播放页链接 → 渲染网页 → 更新 history 去重 → 微信推送
                 (build_daily.py，GitHub Actions 每 2 天定时跑；跨期绝不重复)
 ```
 
@@ -22,7 +22,7 @@ Teenage Engineering工业风网页（专辑封面 + 30s试听 + 艺人/专辑介
 data/     pool.json(候选池) · history.json(去重记录) · itunes_cache.json(封面缓存)
 docs/     profile.md(口味依据) · style_bible.md(文案文风规范)
 scripts/  build_daily.py(主编排) · picker.py(选曲) · itunes.py(封面/试听)
-          render_te.py(默认 TE 皮肤) · render.py(可选 Apple 风) · netease.py · push_wechat.py
+          render_te.py(默认皮肤·工业风) · render.py(可选皮肤·浅色卡片) · netease.py · push_wechat.py
 site/     index.html(最新一期) · archive/YYYY-MM-DD.html(存档)  ← GitHub Pages 发布目录
 .github/workflows/daily.yml   定时/推送触发的构建与部署
 ```

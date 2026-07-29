@@ -1,10 +1,10 @@
-"""渲染 Teenage Engineering / OP-1 field 风格的每日日报网页（纯 Python 模板，零依赖）。
+"""渲染工业 / 瑞士国际主义(Swiss)风格的每日日报网页（纯 Python 模板，零依赖）。
 
-设计规范取自 teenage.engineering 现行生产 CSS（2026-07 研习）：
+设计规范（自研的工程/网格美学，不隶属任何特定品牌）：
 - 字体：Univers Next Pro 的免费替身 Inter 100/300（极细）+ Space Mono（技术数据）+ Noto Sans SC；
   标题小写、正文字重 300、层级靠字号不靠加粗。
 - 配色：底 #f5f5f5（非纯白）、字 #0f0e12（非纯黑）、发丝灰阶、蓝 #0071bb / LCD 绿 #006837 /
-  招牌橙 #f05a24（招牌橙是 #f05a24，不是 #fe5000）。旋钮四色做分类色标。
+  强调橙 #f05a24。多色做流派分类色标。
 - 版式：12 栏网格、方角（border-radius:0）、几乎无阴影、发丝线 + 工程方格纸分格、vw/clamp 间距。
 - 动效：极度克制、.2s、hover opacity:.7、播放键 scale(.94)+bulge、LCD 跑马灯 + boot 打字机、
   卡片 IntersectionObserver 分级进场。
@@ -19,7 +19,7 @@ import urllib.parse
 ICON_PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5.5v13a.7.7 0 0 0 1.07.6l10.4-6.5a.7.7 0 0 0 0-1.2L8.07 4.9A.7.7 0 0 0 7 5.5z"/></svg>'
 ICON_PAUSE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.5h4v15h-4zM13.5 4.5h4v15h-4z"/></svg>'
 
-# OP-1 编码旋钮四色 + 补色，做流派分类色标（小面积）
+# 工程编码色思路的一组多色 + 补色，做流派分类色标（小面积）
 KNOB = ["#0071bb", "#006837", "#f05a24", "#fab413", "#b81d13", "#0f0e12"]
 
 
@@ -277,7 +277,7 @@ def _mod(track: dict, idx: int) -> str:
     tags += "".join(f'<span class="tag">{_esc(m)}</span>' for m in (track.get("mood_tags") or [])[:2])
     links = []
     if track.get("_apple"):
-        links.append(f'<a class="btn solid" href="{_esc(track["_apple"])}" target="_blank" rel="noopener">apple ↗</a>')
+        links.append(f'<a class="btn solid" href="{_esc(track["_apple"])}" target="_blank" rel="noopener">试听 ↗</a>')
     links.append(f'<a class="btn line" href="{_ncsearch(track)}" target="_blank" rel="noopener">网易云 ↗</a>')
     src = ""
     if track.get("source"):
@@ -388,7 +388,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
   <footer>
     <span>music daily · md-{n:02d} · issue {issue_no:03d}</span>
     <span>updated 08:00 cst</span>
-    <span>artwork © apple music · personal use</span>
+    <span>cover &amp; preview via public music api · personal use</span>
   </footer>
 </main>
 

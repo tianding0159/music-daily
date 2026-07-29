@@ -1,9 +1,9 @@
-"""渲染 Apple Music 风格的每日日报网页（纯 Python 字符串模板，零依赖）。
+"""渲染浅色玻璃卡片风格的每日日报网页（纯 Python 字符串模板，零依赖）。
 
-浅色 Apple Music 美学：毛玻璃吸顶导航、封面圆形播放按钮（点封面播 30s 试听）、
+浅色玻璃卡片美学：毛玻璃吸顶导航、封面圆形播放按钮（点封面播 30s 试听）、
 底部「正在播放」迷你播放器、编辑部式 hero、squircle 封面 + 悬停浮起、载入分级动画。
 每首含：封面 / 曲名·艺人 / 专辑·年份 / 风格·气质标签 / 一句话艺人介绍 / 推荐理由 /
-最适合场景 / 试听 / Apple·网易云跳转 / 来源。页尾附可一键复制的网易云导入文本块。
+最适合场景 / 试听 / 官方播放页·网易云跳转 / 来源。页尾附可一键复制的网易云导入文本块。
 """
 from __future__ import annotations
 
@@ -249,7 +249,7 @@ def _card(track: dict, idx: int) -> str:
     )
     links = []
     if track.get("_apple"):
-        links.append(f'<a class="chip" href="{_esc(track["_apple"])}" target="_blank" rel="noopener">Apple Music ↗</a>')
+        links.append(f'<a class="chip" href="{_esc(track["_apple"])}" target="_blank" rel="noopener">试听 ↗</a>')
     links.append(f'<a class="chip ghost" href="{_ncsearch(track)}" target="_blank" rel="noopener">网易云 ↗</a>')
     src = ""
     if track.get("source"):
@@ -329,7 +329,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int,
   </section>
 
   <footer>
-    每日 08:00 更新 · 封面与试听来自 Apple Music (iTunes)<br>仅供个人聆听发现
+    每日 08:00 更新 · 封面与试听来自公开音乐接口<br>仅供个人聆听发现
   </footer>
 </main>
 
