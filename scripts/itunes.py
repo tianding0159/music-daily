@@ -1,7 +1,7 @@
 """iTunes Search API 查询：专辑封面 / 30s 试听 / Apple Music 链接，带本地缓存。
 
-纯标准库（urllib）。GitHub Actions 托管 runner 在美国、无 VPC-SC，iTunes 完全可达；
-本地 Ona 容器有公网出口也能直连。查不到的曲目返回 found=False，由上层回退占位封面。
+纯标准库（urllib）。GitHub Actions 托管 runner 与本地环境均有公网出口，iTunes 可直连。
+查不到的曲目返回 found=False，由上层回退占位封面。
 """
 from __future__ import annotations
 

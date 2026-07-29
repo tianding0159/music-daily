@@ -4,8 +4,7 @@
 按 4 气质簇跑一批 profile 导出的查询，抓回 标题/URL/摘要，落 data/discover_leads.json。
 真正把线索变成打好美学标签、写好卡片、核过来源的 pool 条目，由 LLM 按下方总开关完成。
 
-后端：TAVILY_API_KEY 存在走 Tavily（干净、绕 VPC-SC）；否则退 DuckDuckGo。纯 stdlib。
-（hub 里 demos/web-search 是更全的多后端版本，个人 repo 为自包含在此内联最小实现。）
+后端：TAVILY_API_KEY 存在走 Tavily（结果干净）；否则退 DuckDuckGo。纯 stdlib、自包含。
 """
 from __future__ import annotations
 
