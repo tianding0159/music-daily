@@ -32,6 +32,12 @@ ICON_CAT = (
     '<rect class="glint" x="5" y="3" width="1" height="1"/><rect class="glint" x="11" y="3" width="1" height="1"/></g>'
     '</svg>'
 )
+# 道具：吃饭用的食盆、玩耍用的小球（配合行为循环出现）
+ICON_BOWL = ('<svg viewBox="0 0 12 6" shape-rendering="crispEdges" aria-hidden="true">'
+             '<rect class="food" x="3" y="1" width="6" height="1"/>'
+             '<rect x="1" y="2" width="10" height="1"/><rect x="2" y="3" width="8" height="2"/></svg>')
+ICON_BALL = ('<svg viewBox="0 0 6 6" shape-rendering="crispEdges" aria-hidden="true">'
+             '<rect x="1" y="1" width="4" height="4"/><rect class="hl" x="1" y="1" width="1" height="1"/></svg>')
 
 # 工程编码色思路的一组多色 + 补色，做流派分类色标（小面积）
 KNOB = ["#0071bb", "#006837", "#f05a24", "#fab413", "#b81d13", "#0f0e12"]
@@ -92,41 +98,61 @@ a{color:inherit; text-decoration:none}
 /* LCD 屏幕模块 */
 .lcd{background:#08110c; border:1px solid var(--g1000); color:var(--green);
   font-family:var(--mono); font-size:var(--fs-15); overflow:hidden; position:relative; margin-bottom:var(--sp-md)}
-.lcd .row1{display:flex; align-items:center; gap:10px; padding:11px 16px; border-bottom:1px solid #12241a}
+.lcd .row1{display:flex; align-items:center; gap:10px; padding:9px 16px; min-height:46px; border-bottom:1px solid #12241a}
 .lcd .dot{width:8px; height:8px; border-radius:50%; background:var(--green); flex:none;
   box-shadow:0 0 8px var(--green); animation:blink 1.3s steps(1) infinite}
 .lcd #boot{white-space:pre; overflow:hidden; flex:1; min-width:0; text-overflow:ellipsis}
 .lcd #boot .cur{animation:blink .8s steps(1) infinite}
-.lcd .stage{position:relative; height:48px; overflow:hidden}
-.cat-wrap{position:absolute; bottom:2px; left:2%; width:30px; height:30px;
-  animation:cat-roam 20s ease-in-out infinite}
-.lcd .cat{width:30px; height:30px; display:block; image-rendering:pixelated;
-  animation:cat-bob .6s ease-in-out infinite}
+.lcd .cat-wrap{position:relative; width:58px; height:34px; flex:none; margin-left:auto; align-self:center;
+  transform-origin:bottom center; animation:cat-breathe 2.8s ease-in-out infinite}
+.lcd .cat{position:absolute; right:2px; bottom:1px; width:30px; height:30px; display:block;
+  image-rendering:pixelated; transform-origin:bottom center; animation:cat-act 22s ease-in-out infinite}
 .lcd .cat rect{fill:#8be0aa}
 .lcd .cat .cat-eyes rect{fill:#06231a}
 .lcd .cat .glint{fill:#eafff2}
 .lcd .cat .nose{fill:#f0a24a}
 .lcd .cat .blush{fill:#f05a24; opacity:.65}
-.lcd .cat .cat-eyes{transform-box:fill-box; transform-origin:center; animation:cat-blink 4s infinite}
+.lcd .cat .cat-eyes{transform-box:fill-box; transform-origin:center; animation:cat-blink 3.4s infinite}
 .lcd .cat .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
   animation:cat-wag .9s ease-in-out infinite alternate}
-@keyframes cat-bob{50%{transform:translateY(-1px)}}
+.lcd .prop{position:absolute; bottom:1px; image-rendering:pixelated; opacity:0}
+.lcd .prop.bowl{left:12px; width:15px} .lcd .prop.bowl svg{display:block; width:15px}
+.lcd .prop.ball{left:5px; width:9px} .lcd .prop.ball svg{display:block; width:9px}
+.lcd .prop.bowl{animation:prop-bowl 22s ease-in-out infinite}
+.lcd .prop.ball{animation:prop-ball 22s ease-in-out infinite}
+.lcd .prop.bowl rect{fill:#6fbf90} .lcd .prop.bowl .food{fill:#f0a24a}
+.lcd .prop.ball rect{fill:#f05a24} .lcd .prop.ball .hl{fill:#ffd7bf}
+@keyframes cat-breathe{50%{transform:scaleY(1.04)}}
 @keyframes cat-blink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
 @keyframes cat-wag{from{transform:rotate(-20deg)}to{transform:rotate(16deg)}}
-@keyframes cat-roam{
-  0%{left:2%;transform:scaleX(1)}
-  6%{left:2%;transform:scaleX(1) translateY(-8px)}
-  9%{left:5%;transform:scaleX(1) translateY(0)}
-  24%{left:45%;transform:scaleX(1)}
-  32%{left:45%;transform:scaleX(1)}
-  47%{left:80%;transform:scaleX(1)}
-  52%{left:80%;transform:scaleX(1) translateY(-8px)}
-  56%{left:80%;transform:scaleX(-1) translateY(0)}
-  74%{left:42%;transform:scaleX(-1)}
-  81%{left:42%;transform:scaleX(-1)}
-  96%{left:2%;transform:scaleX(-1)}
-  100%{left:2%;transform:scaleX(1)}
+/* 行为循环：静(归位,含小动作)→吃饭→静→伸懒腰→静→玩球→静，灵动不死板 */
+@keyframes cat-act{
+  0%,4%{transform:rotate(0)}
+  8%{transform:rotate(-7deg)}
+  13%{transform:rotate(2deg)}
+  18%{transform:rotate(0)}
+  27%{transform:rotate(7deg) translate(-3px,2px)}
+  30%{transform:rotate(7deg) translate(-3px,0)}
+  33%{transform:rotate(7deg) translate(-3px,2px)}
+  36%{transform:rotate(7deg) translate(-3px,0)}
+  40%{transform:rotate(0) translate(0,0)}
+  47%{transform:rotate(5deg)}
+  52%{transform:rotate(0)}
+  61%{transform:scaleX(1.3) translateX(-4px)}
+  66%{transform:scaleX(1.3) translateX(-4px)}
+  70%{transform:scaleX(1) translateX(0)}
+  74%{transform:translateY(-2px)}
+  78%{transform:translateY(0)}
+  84%{transform:translate(-6px,1px) rotate(6deg)}
+  87%{transform:translate(0,0) rotate(0)}
+  91%{transform:translate(-6px,1px) rotate(6deg)}
+  94%{transform:translate(0,0) rotate(0)}
+  100%{transform:rotate(0)}
 }
+@keyframes prop-bowl{0%,23%{opacity:0}26%,39%{opacity:1}41%,100%{opacity:0}}
+@keyframes prop-ball{0%,80%{opacity:0;transform:translateY(0)}82%{opacity:1;transform:translateY(0)}
+  85%{opacity:1;transform:translateY(-9px)}88%{opacity:1;transform:translateY(0)}
+  91%{opacity:1;transform:translateY(-6px)}94%{opacity:1;transform:translateY(0)}96%,100%{opacity:0}}
 .lcd .ticker{padding:8px 0; position:relative; -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
 .lcd .track{display:inline-block; white-space:nowrap; padding-left:100%; color:#3fae6f;
@@ -246,7 +272,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 }
 @media(prefers-reduced-motion:reduce){
   .mod{opacity:1; transform:none; transition:none}
-  .track,.dot,.rec,.cat,.cat-wrap,.cat-eyes,.cat-tail{animation:none}
+  .track,.dot,.rec,.cat,.cat-wrap,.cat-eyes,.cat-tail,.prop{animation:none}
   html{scroll-behavior:auto}
 }
 """
@@ -406,8 +432,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
   </div>
 
   <div class="lcd">
-    <div class="row1"><span class="dot"></span><span id="boot" data-text="{_esc(boot)}"></span></div>
-    <div class="stage"><div class="cat-wrap">{ICON_CAT}</div></div>
+    <div class="row1"><span class="dot"></span><span id="boot" data-text="{_esc(boot)}"></span><div class="cat-wrap">{ICON_CAT}<span class="prop bowl">{ICON_BOWL}</span><span class="prop ball">{ICON_BALL}</span></div></div>
     <div class="ticker"><span class="track">{ticker}{ticker}</span></div>
   </div>
 
