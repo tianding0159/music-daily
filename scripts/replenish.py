@@ -139,7 +139,7 @@ def main() -> None:
         seen.add(k)
         st = _stars(t.get("genres"))
         fam = t.get("familiarity", "likely-unheard")
-        fit = 0.70 + 0.05 * (st - 3) + (0.06 if fam == "likely-unheard" else 0.0 if fam == "possibly-known" else -0.05)
+        fit = 70 + 5 * (st - 3) + {"likely-unheard": 6, "possibly-known": 0, "classic-known": -5}.get(fam, 0)
         pool.append({
             "id": f"d-{_norm(t['artist'])[:12]}-{_norm(t['title'])[:16]}",
             "title": t.get("title", ""), "artist": t.get("artist", ""),
@@ -150,7 +150,7 @@ def main() -> None:
             "bpm_band": "70–120", "has_melody": t.get("has_melody", True),
             "familiarity": fam, "scene": t.get("scene", ""),
             "artist_oneliner": t.get("artist_oneliner", ""), "why": t.get("why", ""),
-            "fit_score": round(min(fit, 0.95), 3),
+            "fit_score": round(min(max(fit, 0), 95), 1),
             "source": t.get("source", ""), "source_url": t.get("source_url", ""),
             "added_date": today,
         })

@@ -22,6 +22,7 @@ import sys
 from pathlib import Path
 
 import itunes
+import migrate_catalog as mc
 import picker
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -93,21 +94,31 @@ def parse_candidates(text: str) -> list[dict]:
     return v if isinstance(v, list) else []
 
 
+_FAM_ADJ = {"likely-unheard": 6, "possibly-known": 0, "classic-known": -5}
+
+
+def _fit_score(genre_stars: int, familiarity: str) -> float:
+    """百分制 0..95：基线 70 + 流派档位 + 熟悉度方向。绝不写 0..1。"""
+    fit = 70 + 5 * (genre_stars - 3) + _FAM_ADJ.get(familiarity, 0)
+    return round(min(max(fit, 0), 95), 1)
+
+
 def merge(cands: list[dict], pool: list[dict], validate: bool = True) -> tuple[list[dict], dict]:
-    seen = {_norm(t["title"]) + "|" + _norm(t["artist"]) for t in pool}
+    seen = {t.get("id") for t in pool if t.get("id")}  # 现有 canonical id
     cache = itunes.load_cache() if validate else {}
     today = dt.datetime.now(dt.timezone.utc).astimezone(
         dt.timezone(dt.timedelta(hours=8))).strftime("%Y-%m-%d")
     added = dup = fake = badgenre = verdrop = 0
     for t in cands:
         title, artist = (t.get("title") or "").strip(), (t.get("artist") or "").strip()
-        k = _norm(title) + "|" + _norm(artist)
-        if not title or not artist or k == "|":
+        if not title or not artist:
             continue
-        if k in seen:
+        apple_tid = str(t.get("apple_track_id") or "")
+        cid = mc.canonical_id({"artist": artist, "title": title,
+                               "album": t.get("album", ""), "apple_track_id": apple_tid})
+        if cid in seen:
             dup += 1
             continue
-        # 黑名单流派直接挡（和 picker 同口径）
         if {g.lower() for g in (t.get("genres") or [])} & picker.BLACKLIST:
             badgenre += 1
             continue
@@ -116,17 +127,26 @@ def merge(cands: list[dict], pool: list[dict], validate: bool = True) -> tuple[l
             if not info.get("found"):
                 fake += 1
                 continue
-            vm = _version_mismatch(title, info.get("matched_title", ""))
-            if vm:
+            if _version_mismatch(title, info.get("matched_title", "")):
                 verdrop += 1
                 continue
-        seen.add(k)
+            apple_tid = str(info.get("track_id") or apple_tid)  # P1-6 起 iTunes 会带 trackId
+            if apple_tid:
+                cid = f"apple:{apple_tid}"
+                if cid in seen:
+                    dup += 1
+                    continue
+        seen.add(cid)
         st = _stars(t.get("genres"))
         fam = t.get("familiarity", "likely-unheard")
-        fit = 0.70 + 0.05 * (st - 3) + (0.06 if fam == "likely-unheard" else 0.0 if fam == "possibly-known" else -0.05)
         pool.append({
-            "id": f"c-{_norm(artist)[:12]}-{_norm(title)[:16]}",
+            "id": cid,
             "title": title, "artist": artist,
+            "artist_display": artist, "title_display": title,
+            "artist_key": mc.keyify(artist), "title_key": mc.keyify(title),
+            "version": mc.detect_version(title), "album_key": mc.keyify(t.get("album", "")),
+            "apple_track_id": apple_tid, "apple_collection_id": str(t.get("apple_collection_id") or ""),
+            "legacy_ids": [],
             "year": t.get("year", ""), "album": t.get("album", ""),
             "genres": t.get("genres", []), "genre_stars": st,
             "mood_tags": t.get("mood_tags", []), "production_tags": t.get("production_tags", []),
@@ -134,7 +154,7 @@ def merge(cands: list[dict], pool: list[dict], validate: bool = True) -> tuple[l
             "bpm_band": t.get("bpm_band", "70–120"), "has_melody": t.get("has_melody", True),
             "familiarity": fam, "scene": t.get("scene", ""),
             "artist_oneliner": t.get("artist_oneliner", ""), "why": t.get("why", ""),
-            "fit_score": round(min(fit, 0.95), 3),
+            "fit_score": _fit_score(st, fam),
             "source": t.get("source", ""), "source_url": t.get("source_url", ""),
             "added_date": today,
         })

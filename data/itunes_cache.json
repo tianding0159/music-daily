@@ -686,5 +686,21 @@
     "apple_url": "https://music.apple.com/us/album/marble-walls/1860409769?i=1860409774&uo=4",
     "matched_artist": "Tara Clerkin Trio",
     "matched_title": "Marble Walls"
+  },
+  "bala desejo|baile de m scaras": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/8a/54/55/8a5455df-9722-604c-c053-bd9791b4ad49/cover.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/55/ce/fb/55cefb48-fda0-b8f3-f451-72db0dc5ac36/mzaf_6223482680045154041.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/baile-de-m%C3%A1scaras-recarnaval-jamz-supernova-sam/1710719927?i=1710719940&uo=4",
+    "matched_artist": "Bala Desejo",
+    "matched_title": "Baile De Máscaras (Recarnaval) [Jamz Supernova & Sam Interface Remix]"
+  },
+  "minako yoshida|town": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/0a/7e/9d/0a7e9d93-3ecd-986b-8223-ee17e97d0ad1/886448397229.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/6e/24/5f/6e245f01-2212-a00d-0845-1d1ede9ec6d0/mzaf_12482265938880810684.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/town/1506827447?i=1506827448&uo=4",
+    "matched_artist": "Minako Yoshida",
+    "matched_title": "Town"
   }
 }

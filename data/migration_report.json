@@ -1,0 +1,25 @@
+{
+  "report": {
+    "before_count": 120,
+    "after_count": 119,
+    "duplicate_old_ids": [
+      "d-takakomineka-milkrock"
+    ],
+    "merged_groups": 1,
+    "unresolved_conflicts": 0,
+    "fit_all_0_100": true,
+    "ids_unique": true,
+    "history_dates": 2
+  },
+  "merged": [
+    {
+      "canonical": "sha1:67cb2e78bc99962d",
+      "kept": "Takako Minekawa - Milk Rock",
+      "merged_from": [
+        "Takako Minekawa - Milk Rock (id=d-takakomineka-milkrock)",
+        "Takako Minekawa (嶺川貴子) - Milk Rock (id=d-takakomineka-milkrock)"
+      ]
+    }
+  ],
+  "unresolved": []
+}
