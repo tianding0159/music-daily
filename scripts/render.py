@@ -249,8 +249,8 @@ def _card(track: dict, idx: int) -> str:
     )
     links = []
     if track.get("_apple"):
-        links.append(f'<a class="chip" href="{_esc(track["_apple"])}" target="_blank" rel="noopener">试听 ↗</a>')
-    links.append(f'<a class="chip ghost" href="{_ncsearch(track)}" target="_blank" rel="noopener">网易云 ↗</a>')
+        links.append(f'<a class="chip" href="{_esc(track["_apple"])}" target="_blank" rel="noopener">listen ↗</a>')
+    links.append(f'<a class="chip ghost" href="{_ncsearch(track)}" target="_blank" rel="noopener">netease ↗</a>')
     src = ""
     if track.get("source"):
         s = _esc(track["source"])

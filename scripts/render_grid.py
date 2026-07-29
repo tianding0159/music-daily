@@ -277,8 +277,8 @@ def _mod(track: dict, idx: int) -> str:
     tags += "".join(f'<span class="tag">{_esc(m)}</span>' for m in (track.get("mood_tags") or [])[:2])
     links = []
     if track.get("_apple"):
-        links.append(f'<a class="btn solid" href="{_esc(track["_apple"])}" target="_blank" rel="noopener">试听 ↗</a>')
-    links.append(f'<a class="btn line" href="{_ncsearch(track)}" target="_blank" rel="noopener">网易云 ↗</a>')
+        links.append(f'<a class="btn solid" href="{_esc(track["_apple"])}" target="_blank" rel="noopener">listen ↗</a>')
+    links.append(f'<a class="btn line" href="{_ncsearch(track)}" target="_blank" rel="noopener">netease ↗</a>')
     src = ""
     if track.get("source"):
         s = _esc(track["source"])
