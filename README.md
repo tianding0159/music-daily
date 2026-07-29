@@ -1,7 +1,7 @@
 # 每日音乐日报 · Daily Music Report
 
 每天早8:00（北京时间）自动更新的音乐日报：按口味profile精选 **30首**，
-工业 / 工程风格网页（专辑封面 + 30s试听 + 艺人/专辑介绍 + 推荐理由 + 场景），
+工业 / 工程风格网页（专辑封面 + 艺人/专辑介绍 + 推荐理由 + 场景 + 官方播放页/网易云外链），
 并附一份可一键复制的网易云导入文本。发布到GitHub Pages，可选发一条微信推送提醒。
 
 ## 怎么运作（发现与投递解耦）
@@ -9,7 +9,7 @@
 ```
 [发现·定期·重]  乐评/社区  ──►  data/pool.json 常青候选池（打好美学标签 + 写好卡片）
 [投递·每期·轻]  纯脚本：黑名单硬过滤 → 旋律必须 → 打分 → 按气质多样性挑 30 首
-                → 补封面/试听/官方播放页链接 → 渲染网页 → 更新 history 去重 → 微信推送
+                → 补封面/官方播放页链接 → 写 issue 快照 → 从快照重建 archive+index → 部署成功后推微信
                 (build_daily.py，GitHub Actions 每天定时跑；跨期绝不重复)
 ```
 
@@ -43,7 +43,14 @@ python3 -m http.server -d site 8899                           # 浏览器开 loc
    - **Secret** `WECHAT_PUSH_KEY` —— Server酱SendKey或PushPlus token
    - **Variable** `PAGES_URL` —— Pages地址（如 `https://<用户名>.github.io/music-daily/`）
    - **Variable** `WECHAT_PUSH_PROVIDER` —— `serverchan`（默认）或 `pushplus`
-4. `daily.yml` 触发：每天定时 + push到 `main` 即部署 + 可手动Run workflow。
+4. `daily.yml` 触发：**每天定时 + 手动workflow_dispatch**（与候选合并解耦：普通push / 候选入库不触发日报）。候选合并由 `merge.yml`（push `candidates/**.json` 时）负责。
+
+## 运维与授权
+
+- 运维手册（节奏 / 合并 / 回滚 / canary / 库存指标，事实源）：见 [`docs/operations.md`](docs/operations.md)。
+- 用ChatGPT补库：见 [`REPLENISH_PROMPT.md`](REPLENISH_PROMPT.md)。
+- 授权：**代码MIT**（`LICENSE`）；**口味画像 / 文案 / 曲库等内容保留所有权利**（`CONTENT_LICENSE.md`）。
+- 页面不内嵌音频，仅官方播放页外链；封面来自iTunes/Apple公开接口，无官方合作关系。
 
 ## 补充候选池（保持新鲜）
 

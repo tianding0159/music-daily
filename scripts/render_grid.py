@@ -16,8 +16,6 @@ from __future__ import annotations
 import html
 import urllib.parse
 
-ICON_PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5.5v13a.7.7 0 0 0 1.07.6l10.4-6.5a.7.7 0 0 0 0-1.2L8.07 4.9A.7.7 0 0 0 7 5.5z"/></svg>'
-ICON_PAUSE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.5h4v15h-4zM13.5 4.5h4v15h-4z"/></svg>'
 # LCD 上的像素小猫（绿屏设备宠物感）：会眨眼(cat-eyes)、甩尾(cat-tail)、轻轻呼吸摇摆(整体 bob)
 ICON_CAT = (
     '<svg class="cat" viewBox="0 0 16 15" shape-rendering="crispEdges" aria-hidden="true">'
@@ -198,15 +196,6 @@ a{color:inherit; text-decoration:none}
 .cover.ph{display:grid; place-items:center; font-family:var(--mono); font-size:var(--fs-30);
   color:var(--white); background:var(--ink); border:none}
 .art:hover .cover{opacity:.82}
-.pbtn{position:absolute; right:8px; bottom:8px; width:38px; height:38px; border:none;
-  background:var(--ink); color:var(--white); cursor:pointer; display:grid; place-items:center;
-  transition:opacity .2s}
-.pbtn svg{width:16px; height:16px; fill:var(--white); margin-left:1px}
-.pbtn:hover{opacity:.8}
-.pbtn:active{transform:scale(.94)}
-.pbtn.playing{background:var(--orange)}
-.pbtn.bulge{animation:bulge .28s ease-in-out}
-@keyframes bulge{40%{transform:scale(1.22)}}
 .hd{flex:1; min-width:0}
 .title{font-size:var(--fs-25); font-weight:100; line-height:1.12; letter-spacing:-.01em}
 .artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
@@ -245,26 +234,6 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
   padding:var(--sp-lg) 0; font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
   color:var(--g600); border-top:1px solid var(--g300)}
 
-/* 底部 LCD 播放条 */
-.np{position:fixed; left:0; right:0; bottom:0; z-index:1000; background:#08110c;
-  border-top:1px solid var(--g1000); color:var(--green); transform:translateY(120%);
-  transition:transform .3s ease-out}
-.np.show{transform:none}
-.np .prog{height:2px; background:#12241a}
-.np .prog .bar{height:100%; width:0; background:var(--green); transition:width .2s linear}
-.np .in{max-width:1160px; margin:0 auto; padding:9px var(--sp-xl); display:flex; align-items:center;
-  gap:14px; font-family:var(--mono); font-size:var(--fs-10)}
-.np .st{text-transform:uppercase; letter-spacing:.1em; white-space:nowrap; color:var(--green)}
-.np .st .rec{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--orange);
-  margin-right:7px; animation:blink 1s steps(1) infinite}
-.np .m{flex:1; min-width:0; color:#cfe9d8; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-.np .m b{color:var(--white); font-weight:700}
-.np .t{color:var(--green); width:40px; text-align:right}
-.np .tg{width:32px; height:32px; border:1px solid var(--green); background:transparent; color:var(--green);
-  cursor:pointer; display:grid; place-items:center; flex:none; transition:opacity .2s}
-.np .tg:hover{opacity:.7}
-.np .tg svg{width:14px; height:14px; fill:var(--green)}
-
 @media(max-width:720px){
   .grid{grid-template-columns:1fr}
   .hero{align-items:flex-start}
@@ -278,29 +247,6 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 """
 
 JS = """
-// 播放
-const audio=new Audio(); let current=null;
-const np=document.getElementById('np'), npT=document.getElementById('np-title'),
-  npA=document.getElementById('np-artist'), npTog=document.getElementById('np-toggle'),
-  npBar=document.getElementById('np-bar'), npTime=document.getElementById('np-time');
-const IP=`%PLAY%`, IZ=`%PAUSE%`;
-function fmt(t){if(!t||isNaN(t))return'0:00';const m=Math.floor(t/60),s=Math.floor(t%60);return m+':'+String(s).padStart(2,'0');}
-function setBtn(b,p){b.classList.toggle('playing',p);b.innerHTML=p?IZ:IP;}
-function play(btn){
-  if(current&&current!==btn)setBtn(current,false);
-  if(current===btn&&!audio.paused){audio.pause();return;}
-  if(current===btn&&audio.paused){audio.play();return;}
-  current=btn; audio.src=btn.dataset.src; audio.play();
-  btn.classList.remove('bulge'); void btn.offsetWidth; btn.classList.add('bulge');
-  npT.textContent=btn.dataset.title; npA.textContent=btn.dataset.artist; np.classList.add('show');
-}
-document.querySelectorAll('.pbtn').forEach(b=>b.addEventListener('click',()=>play(b)));
-npTog.addEventListener('click',()=>{if(audio.paused)audio.play();else audio.pause();});
-audio.addEventListener('play',()=>{if(current)setBtn(current,true);npTog.innerHTML=IZ;});
-audio.addEventListener('pause',()=>{if(current)setBtn(current,false);npTog.innerHTML=IP;});
-audio.addEventListener('timeupdate',()=>{npBar.style.width=(audio.currentTime/(audio.duration||30)*100)+'%';npTime.textContent=fmt(audio.currentTime);});
-audio.addEventListener('ended',()=>{if(current)setBtn(current,false);npBar.style.width='0%';});
-
 // LCD boot 打字机
 const boot=document.getElementById('boot'), BOOT=boot?boot.dataset.text:'';
 if(boot){let i=0;boot.textContent='';(function type(){if(i<=BOOT.length){boot.innerHTML=BOOT.slice(0,i)+'<span class="cur">▋</span>';i++;setTimeout(type,26);}else{boot.textContent=BOOT;}})();}
@@ -331,14 +277,7 @@ def _art(track: dict) -> str:
         cover = f'<img class="cover" src="{_esc(art)}" alt="" loading="lazy">'
     else:
         cover = f'<div class="cover ph">{_esc((track.get("artist") or "?")[:1].upper())}</div>'
-    pbtn = ""
-    if track.get("_preview"):
-        pbtn = (
-            f'<button class="pbtn" data-src="{_esc(track["_preview"])}" '
-            f'data-title="{_esc(track["title"])}" data-artist="{_esc(track["artist"])}" '
-            f'aria-label="play preview">{ICON_PLAY}</button>'
-        )
-    return f'<div class="art">{cover}{pbtn}</div>'
+    return f'<div class="art">{cover}</div>'
 
 
 def _mod(track: dict, idx: int) -> str:
@@ -385,7 +324,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
     if len(tracks) % 2 == 1:  # 补一格方格纸填充，让网格成完整矩形
         mods += '\n<div class="mod fill"></div>'
     nc = _esc(netease_text)
-    js = JS.replace("%PLAY%", ICON_PLAY).replace("%PAUSE%", ICON_PAUSE)
+    js = JS
     n = len(tracks)
     ymd = date_str.replace("-", ".")
     genres = sorted({(t.get("genres") or ["—"])[0] for t in tracks})
@@ -406,7 +345,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f0e12">
-<meta name="description" content="每日精选 15 首 · melody-first · mood-first · production-first">
+<meta name="description" content="每日精选 30 首 · melody-first · mood-first · production-first">
 <title>music daily · md-{n:02d} · {_esc(date_str)}</title>
 <link rel="icon" href="{favicon}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -458,19 +397,9 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
   <footer>
     <span>music daily · md-{n:02d} · issue {issue_no:03d}</span>
     <span>updated 08:00 cst</span>
-    <span>cover &amp; preview via public music api · personal use</span>
+    <span>cover via public music api · personal use</span>
   </footer>
 </main>
-
-<div class="np" id="np">
-  <div class="prog"><div class="bar" id="np-bar"></div></div>
-  <div class="in">
-    <span class="st"><span class="rec"></span>now playing</span>
-    <span class="m"><b id="np-title"></b> — <span id="np-artist"></span></span>
-    <span class="t" id="np-time">0:00</span>
-    <button class="tg" id="np-toggle" aria-label="play/pause">{ICON_PAUSE}</button>
-  </div>
-</div>
 
 <script>{js}</script>
 </body>

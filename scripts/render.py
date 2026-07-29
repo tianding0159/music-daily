@@ -295,7 +295,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int,
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
-<meta name="description" content="每日精选 15 首 · 旋律优先 · 气质优先 · 制作优先">
+<meta name="description" content="每日精选 30 首 · 旋律优先 · 气质优先 · 制作优先">
 <title>每日音乐日报 · {_esc(date_str)}</title>
 <link rel="icon" href="{favicon}">
 <style>{CSS}</style>

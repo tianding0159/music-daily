@@ -1,0 +1,31 @@
+MIT License
+
+Copyright (c) 2026 tianding0159
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+--------------------------------------------------------------------------------
+NOTE — 授权边界（重要）
+
+本 MIT 许可**仅覆盖代码**：scripts/、.github/workflows/、以及通用模板代码。
+
+**不覆盖内容与策展资产**，包括但不限于：docs/profile.md（口味画像）、
+docs/style_bible.md（文案文风）、data/（曲库 pool、issue 快照、反馈等）、
+以及日报文案（artist_oneliner / why / scene 等）。这些内容 **保留所有权利**，
+详见 CONTENT_LICENSE.md。
