@@ -18,6 +18,19 @@ import urllib.parse
 
 ICON_PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5.5v13a.7.7 0 0 0 1.07.6l10.4-6.5a.7.7 0 0 0 0-1.2L8.07 4.9A.7.7 0 0 0 7 5.5z"/></svg>'
 ICON_PAUSE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.5h4v15h-4zM13.5 4.5h4v15h-4z"/></svg>'
+# LCD 上的像素小猫（绿屏设备宠物感）：会眨眼(cat-eyes)、甩尾(cat-tail)、轻轻呼吸摇摆(整体 bob)
+ICON_CAT = (
+    '<svg class="cat" viewBox="0 0 16 15" shape-rendering="crispEdges" aria-hidden="true">'
+    '<g class="cat-tail"><rect x="12" y="9" width="2" height="2"/><rect x="13" y="7" width="2" height="2"/>'
+    '<rect x="14" y="6" width="1" height="2"/></g>'
+    '<rect x="2" y="0" width="3" height="2"/><rect x="11" y="0" width="3" height="2"/>'
+    '<rect x="2" y="1" width="12" height="7"/><rect x="3" y="8" width="9" height="5"/>'
+    '<rect x="3" y="13" width="3" height="1"/><rect x="9" y="13" width="3" height="1"/>'
+    '<rect class="blush" x="2" y="5" width="1" height="1"/><rect class="blush" x="13" y="5" width="1" height="1"/>'
+    '<rect class="nose" x="7" y="5" width="2" height="1"/>'
+    '<g class="cat-eyes"><rect x="4" y="3" width="2" height="2"/><rect x="10" y="3" width="2" height="2"/></g>'
+    '</svg>'
+)
 
 # 工程编码色思路的一组多色 + 补色，做流派分类色标（小面积）
 KNOB = ["#0071bb", "#006837", "#f05a24", "#fab413", "#b81d13", "#0f0e12"]
@@ -81,8 +94,20 @@ a{color:inherit; text-decoration:none}
 .lcd .row1{display:flex; align-items:center; gap:10px; padding:11px 16px; border-bottom:1px solid #12241a}
 .lcd .dot{width:8px; height:8px; border-radius:50%; background:var(--green); flex:none;
   box-shadow:0 0 8px var(--green); animation:blink 1.3s steps(1) infinite}
-.lcd #boot{white-space:pre; overflow:hidden}
+.lcd #boot{white-space:pre; overflow:hidden; flex:1; min-width:0; text-overflow:ellipsis}
 .lcd #boot .cur{animation:blink .8s steps(1) infinite}
+.lcd .cat{height:26px; width:auto; flex:none; margin-left:8px; image-rendering:pixelated;
+  animation:cat-bob 2.6s ease-in-out infinite}
+.lcd .cat rect{fill:#7fd9a3}
+.lcd .cat .cat-eyes rect{fill:#06231a}
+.lcd .cat .nose{fill:#f0a24a}
+.lcd .cat .blush{fill:#f05a24; opacity:.75}
+.lcd .cat .cat-eyes{transform-box:fill-box; transform-origin:center; animation:cat-blink 3.8s infinite}
+.lcd .cat .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
+  animation:cat-wag 1.2s ease-in-out infinite alternate}
+@keyframes cat-bob{50%{transform:translateY(-1.5px)}}
+@keyframes cat-blink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(.12)}}
+@keyframes cat-wag{from{transform:rotate(-18deg)}to{transform:rotate(14deg)}}
 .lcd .ticker{padding:8px 0; position:relative; -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
 .lcd .track{display:inline-block; white-space:nowrap; padding-left:100%; color:#3fae6f;
@@ -202,7 +227,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 }
 @media(prefers-reduced-motion:reduce){
   .mod{opacity:1; transform:none; transition:none}
-  .track,.dot,.rec{animation:none}
+  .track,.dot,.rec,.cat,.cat-eyes,.cat-tail{animation:none}
   html{scroll-behavior:auto}
 }
 """
@@ -324,7 +349,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
         f'<b>{i:02d}</b> {_esc(t["title"])} <i>—</i> {_esc(t["artist"])}<i>·</i>'
         for i, t in enumerate(tracks, 1)
     )
-    boot = f"system ready — {n} tracks loaded · melody-first · mood-first · production-first · 越听越舒服 值得反复循环"
+    boot = f"system ready — {n} tracks loaded · melody-first · mood-first · production-first"
     favicon = "data:image/svg+xml," + urllib.parse.quote(
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">'
         '<rect width="24" height="24" fill="#f05a24"/>'
@@ -362,7 +387,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
   </div>
 
   <div class="lcd">
-    <div class="row1"><span class="dot"></span><span id="boot" data-text="{_esc(boot)}"></span></div>
+    <div class="row1"><span class="dot"></span><span id="boot" data-text="{_esc(boot)}"></span>{ICON_CAT}</div>
     <div class="ticker"><span class="track">{ticker}{ticker}</span></div>
   </div>
 
