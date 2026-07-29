@@ -1,8 +1,9 @@
 name: Merge Candidates
 
-# 把 LLM 产出的候选曲目 JSON 上传到 candidates/ 目录（GitHub 网页 Add file 即可），
-# 本 workflow 自动：iTunes 验真 + 去重 + 打标签 → 写进 pool.json → 清除候选文件 → 提交。
-# 提交 pool.json 会触发 daily.yml（push main）重新构建并部署，新曲随下一期生效。
+# 把 LLM 产出的候选 JSON 传到 candidates/（GitHub 网页 Add file 即可），本 workflow：
+# schema 校验 → iTunes 精确版本匹配 → 去重 → 入库 → quarantine 落盘 → 合并报告 → 提交。
+# transient_error（网络/限流）时脚本非零退出 → 合并/提交步骤跳过 → 候选保留待下次重试。
+# 入库后不立即发日报；新曲随下一次每天 08:11 的 daily 自然生效（与 daily 解耦）。
 on:
   push:
     branches: [main]
@@ -19,23 +20,24 @@ concurrency:
 jobs:
   merge:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: 验真 + 去重 + 合并进 pool
+      - name: 校验 + 精确验真 + 去重 + 合并（transient 时非零退出→后续跳过、候选保留）
         run: python3 scripts/merge_candidates.py
 
-      - name: 回写 pool（触发重新部署）
+      - name: 回写 pool / quarantine / 报告（仅上一步成功时）
         run: |
           git config user.name "music-daily-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/pool.json data/itunes_cache.json candidates/
+          git add data/pool.json data/itunes_cache.json candidates/ quarantine/ reports/ 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo "无新增（候选为空/全部重复或验不到），跳过提交"
+            echo "无变更（候选为空/全部隔离），跳过提交"
           else
-            git commit -m "chore: 合并候选新曲 $(date -u +%F)"
+            git commit -m "chore: 合并候选 $(date -u +%F)"
             git push
           fi

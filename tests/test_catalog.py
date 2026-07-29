@@ -12,9 +12,55 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
+import itunes  # noqa: E402
 import merge_candidates as mcand  # noqa: E402
 import migrate_catalog as mc  # noqa: E402
 import picker  # noqa: E402
+import validate_candidates as vc  # noqa: E402
+
+
+def _good_cand(**over):
+    t = {"title": "So Many Details", "artist": "Toro y Moi", "year": "2013",
+         "album": "Anything in Return", "genres": ["indietronica", "dream pop"],
+         "mood_tags": ["城市夜晚", "颗粒感"], "production_tags": ["soft compression"],
+         "instrumentation": ["synth"], "vocal_style": "气声", "bpm_band": "90–100",
+         "has_melody": True, "familiarity": "likely-unheard",
+         "scene": "深夜末班地铁靠窗，玻璃把你映成陌生人的那十分钟",
+         "artist_oneliner": "南加州 chillwave 代表人物之一", "why": "合成器铺出雾面，人声浮在上面。",
+         "source": "Bandcamp", "source_url": "https://example.com/x"}
+    t.update(over)
+    return t
+
+
+def test_itunes_classify_statuses():
+    assert itunes.classify("Bibio", "Lovers' Carvings",
+                           [{"artistName": "Bibio", "trackName": "Lovers' Carvings"}])[0] == "exact_match"
+    assert itunes.classify("aus", "Halo",
+                           [{"artistName": "Aus", "trackName": "Halo (Ulrich Schnauss Remix of Aus)"}])[0] == "version_mismatch"
+    assert itunes.classify("aus", "Halo",
+                           [{"artistName": "Beyoncé", "trackName": "Halo"}])[0] == "artist_mismatch"
+    assert itunes.classify("X", "Y", [{"artistName": "Z", "trackName": "W"}])[0] == "not_found"
+    assert itunes.classify("Beach House", "Space Song",
+                           [{"artistName": "Beach House feat. Q", "trackName": "Space Song"}])[0] == "acceptable_match"
+
+
+def test_validate_track_good_and_bad():
+    assert vc.validate_track(_good_cand()) == []
+    assert vc.validate_track(_good_cand(year="2010s"))
+    assert vc.validate_track(_good_cand(has_melody=False))
+    assert vc.validate_track(_good_cand(familiarity="unknown"))
+    assert vc.validate_track(_good_cand(source_url="http://x"))
+    assert vc.validate_track(_good_cand(scene="通勤时听"))
+    assert vc.validate_track(_good_cand(bpm_band="fast"))
+
+
+def test_validate_batch_caps():
+    classic = [_good_cand(artist=f"A{i}", title=f"T{i}", familiarity="classic-known") for i in range(4)]
+    valid, invalid = vc.validate_batch(classic)
+    assert len(valid) == 2 and len(invalid) == 2  # classic-known 全批最多 2
+    same = [_good_cand(artist="Solo", title=f"S{i}") for i in range(5)]
+    valid2, invalid2 = vc.validate_batch(same)
+    assert len(valid2) == 3  # 单艺人最多 3/批
 
 POOL = json.loads((ROOT / "data" / "pool.json").read_text(encoding="utf-8"))
 HISTORY = json.loads((ROOT / "data" / "history.json").read_text(encoding="utf-8"))
@@ -80,9 +126,9 @@ def test_fit_score_scale_and_direction():
 
 
 def test_blacklist_filtered_in_merge():
-    cands = [{"title": "X", "artist": "Y", "genres": ["festival edm"], "has_melody": True}]
-    _, stats = mcand.merge(cands, [dict(t) for t in POOL], validate=False)
-    assert stats["badgenre"] == 1 and stats["added"] == 0
+    cands = [_good_cand(artist="ZZBlack", title="EDM Thing", genres=["festival edm"])]
+    _, rep = mcand.merge(cands, [dict(t) for t in POOL], validate=False)
+    assert rep["counts"]["blacklist"] == 1 and rep["counts"]["added"] == 0
 
 
 def test_picker_deterministic_and_dedup():
