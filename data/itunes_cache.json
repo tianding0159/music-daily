@@ -470,5 +470,125 @@
     "apple_url": "https://music.apple.com/us/album/chariot/1783198782?i=1783198787&uo=4",
     "matched_artist": "Aoife Nessa Frances",
     "matched_title": "Chariot"
+  },
+  "mariah|shinzo no tobira": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/0f/42/25/0f42252b-698b-6a98-649a-8ebf4e85ab05/COCB-54216.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/2f/c3/b0/2fc3b02c-f6a2-9f1d-eb8a-1a9a7c2bf291/mzaf_16893789488957758318.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/shinzo-no-tobira/1472149501?i=1472149509&uo=4",
+    "matched_artist": "Mariah",
+    "matched_title": "Shinzo No Tobira"
+  },
+  "lucky old sun|街の人": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/5e/28/38/5e2838cf-1c13-32f3-2f59-26797d34e9df/D000000002651.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/ec/88/c6/ec88c694-bc7c-4619-0b19-feb6ef7f8930/mzaf_8648666040202347478.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/%E8%A1%97/1014896341?i=1014896717&uo=4",
+    "matched_artist": "Lucky Old Sun",
+    "matched_title": "街"
+  },
+  "videotapemusic|nomozaki": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/16/0d/f6/160df678-a45d-afe3-f55b-a334670fd573/4580789631658.png/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/58/3d/8c/583d8cee-014e-fe54-d2a9-311a26922910/mzaf_3774106342630733146.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/nomozaki/1745494733?i=1745494737&uo=4",
+    "matched_artist": "VIDEOTAPEMUSIC & Manami Kakudo",
+    "matched_title": "Nomozaki"
+  },
+  "hovvdy|around again": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c9/57/2d/c9572d7a-f810-bf30-2b4b-f3180a06d9d5/196006635138.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/75/13/43/751343c7-d523-5848-53ac-7e1f5897c535/mzaf_3066772526877613571.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/around-again/1570535704?i=1570536524&uo=4",
+    "matched_artist": "Hovvdy",
+    "matched_title": "Around Again"
+  },
+  "marina herlop|miu": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/bf/66/af/bf66af51-d208-095c-861d-b55d9ea92403/26408.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/74/5b/71/745b7185-466d-6274-7602-e35dc1128344/mzaf_17566852107555782107.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/miu/1582821287?i=1582821290&uo=4",
+    "matched_artist": "Marina Herlop",
+    "matched_title": "miu"
+  },
+  "videotapemusic|cocktail moon": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/ee/ad/ee/eeadeeb1-3f78-94e0-5091-04863f116229/4538182892343_cov.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/fd/44/0a/fd440ab9-9b5a-8fbc-e817-eef77f6c33ab/mzaf_8716109445446578307.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/cocktail-moon-feat-mellow-fellow-andy-chlau-single-version/1517359986?i=1517359987&uo=4",
+    "matched_artist": "VIDEOTAPEMUSIC",
+    "matched_title": "Cocktail Moon (feat. Mellow Fellow & Andy Chlau) [Single Version]"
+  },
+  "cymbals|highway star speed star": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/33/90/43/339043eb-2f5f-53dc-d3e2-ce8384e8c6d9/VICL-35170.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/c6/0f/8b/c60f8b7e-4221-c602-af2e-1f61f9f63b7c/mzaf_4869558234980133959.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/highway-star-speed-star/1720674244?i=1720674245&uo=4",
+    "matched_artist": "Cymbals",
+    "matched_title": "Highway Star, Speed Star"
+  },
+  "cassandra jenkins|hard drive": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/08/7f/29/087f2972-9e02-4f6e-670c-d69d364336c0/600197016428.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/95/7d/4c/957d4c95-d266-fa00-d124-5fdd919ab441/mzaf_5397077128534061862.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/hard-drive/1539427484?i=1539427490&uo=4",
+    "matched_artist": "Cassandra Jenkins",
+    "matched_title": "Hard Drive"
+  },
+  "cindy lee|baby blue": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/89/b8/bc/89b8bc09-769f-7b9f-857b-19feba0c24b1/744861610168.png/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/21/a8/84/21a884f2-d375-735a-455d-7f41f457df23/mzaf_14640307397658492457.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/baby-blue/1589221907?i=1589221925&uo=4",
+    "matched_artist": "King Krule",
+    "matched_title": "Baby Blue"
+  },
+  "pearl the oysters|read the room": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/fa/96/15/fa9615a9-9285-04a6-f9f5-9f99717e6b6c/1662.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/be/6a/ca/be6aca8a-0216-920e-7b88-2697a98b2c01/mzaf_2397982978410383603.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/read-the-room-feat-laetitia-sadier/1665327524?i=1665328072&uo=4",
+    "matched_artist": "Pearl & The Oysters",
+    "matched_title": "Read the Room (feat. Laetitia Sadier)"
+  },
+  "erika de casier|no butterflies no nothing": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/10/e2/df/10e2df8f-7bba-1cbd-86aa-2f4a269c399d/191400035478.png/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview124/v4/0e/1f/0c/0e1f0cc8-f0ca-5600-90e0-cfb354d37d52/mzaf_8987548653598534387.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/no-butterflies-no-nothing/1560653786?i=1560654640&uo=4",
+    "matched_artist": "Erika de Casier",
+    "matched_title": "No Butterflies, No Nothing"
+  },
+  "kaoru akimoto|dress down": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/60/f2/37/60f23702-b7e3-d529-abf2-ed56a8fbbc68/VEATP-34226.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/40/bc/c2/40bcc22e-ba0d-0924-ab8c-da7d40353c56/mzaf_4772645034301018186.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/dress-down/1237549660?i=1237549875&uo=4",
+    "matched_artist": "Kaoru Akimoto",
+    "matched_title": "Dress Down"
+  },
+  "erika de casier|polite": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/10/e2/df/10e2df8f-7bba-1cbd-86aa-2f4a269c399d/191400035478.png/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview124/v4/ae/bd/77/aebd7711-c75d-b13c-eb21-90ed53b31b20/mzaf_11893955574130720382.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/polite/1560653786?i=1560654459&uo=4",
+    "matched_artist": "Erika de Casier",
+    "matched_title": "Polite"
+  },
+  "sunny day service|baby blue": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/44/fd/ef/44fdef60-f09d-1857-e56d-c00b889febeb/11821600.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/27/9f/e5/279fe5f2-eb9b-381c-b3e7-7cb7badacf45/mzaf_13446387753224501347.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/baby-blue/1441621132?i=1441621133&uo=4",
+    "matched_artist": "Sunny Day Service",
+    "matched_title": "baby blue"
+  },
+  "nick hakim|needy bees": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/dc/b7/f0/dcb7f0e6-3846-1b07-8c9f-c630cb0e98bf/cover.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e0/28/52/e02852ee-58f6-b3da-cd85-aac990b74a30/mzaf_13121244893082209205.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/needy-bees/1219744639?i=1219744644&uo=4",
+    "matched_artist": "Nick Hakim",
+    "matched_title": "Needy Bees"
   }
 }
