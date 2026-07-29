@@ -1,6 +1,6 @@
 # 每日音乐日报 · Daily Music Report
 
-每2天早8:00（北京时间）自动更新的音乐日报：按口味profile精选 **30首**，
+每天早8:00（北京时间）自动更新的音乐日报：按口味profile精选 **30首**，
 工业 / 工程风格网页（专辑封面 + 30s试听 + 艺人/专辑介绍 + 推荐理由 + 场景），
 并附一份可一键复制的网易云导入文本。发布到GitHub Pages，可选发一条微信推送提醒。
 
@@ -10,7 +10,7 @@
 [发现·定期·重]  乐评/社区  ──►  data/pool.json 常青候选池（打好美学标签 + 写好卡片）
 [投递·每期·轻]  纯脚本：黑名单硬过滤 → 旋律必须 → 打分 → 按气质多样性挑 30 首
                 → 补封面/试听/官方播放页链接 → 渲染网页 → 更新 history 去重 → 微信推送
-                (build_daily.py，GitHub Actions 每 2 天定时跑；跨期绝不重复)
+                (build_daily.py，GitHub Actions 每天定时跑；跨期绝不重复)
 ```
 
 选曲依据「气质 + 制作 + 旋律」而非流派：旋律必须存在，好听 > 耐听 > 制作 > 气质 > 易循环 >
@@ -35,7 +35,7 @@ python3 -m http.server -d site 8899                           # 浏览器开 loc
 # 可选：--push 发微信；--no-itunes 离线跳过封面查询
 ```
 
-## 部署（每2天自动）
+## 部署（每天自动）
 
 1. 建repo，把本目录推上去。
 2. Settings → **Pages** → Source选 **GitHub Actions**。
@@ -43,7 +43,7 @@ python3 -m http.server -d site 8899                           # 浏览器开 loc
    - **Secret** `WECHAT_PUSH_KEY` —— Server酱SendKey或PushPlus token
    - **Variable** `PAGES_URL` —— Pages地址（如 `https://<用户名>.github.io/music-daily/`）
    - **Variable** `WECHAT_PUSH_PROVIDER` —— `serverchan`（默认）或 `pushplus`
-4. `daily.yml` 触发：每2天定时 + push到 `main` 即部署 + 可手动Run workflow。
+4. `daily.yml` 触发：每天定时 + push到 `main` 即部署 + 可手动Run workflow。
 
 ## 补充候选池（保持新鲜）
 

@@ -1,11 +1,10 @@
 name: Daily Music Report
 
-# 每 2 天北京时间早 8:00 更新（UTC 0:00，+11min 错峰避 GitHub schedule 高峰延迟）。
-# cron 的 */2 按"月内奇数日"触发，月末相邻两期最短可能隔 1 天，属可接受的近似。
+# 每天北京时间早 8:00 更新（UTC 0:00，+11min 错峰避 GitHub schedule 高峰延迟）。
 # 也可在 Actions 页手动 workflow_dispatch 触发验证。
 on:
   schedule:
-    - cron: "11 0 */2 * *"
+    - cron: "11 0 * * *"
   workflow_dispatch:
   push:
     branches: [main]

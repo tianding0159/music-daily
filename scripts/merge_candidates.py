@@ -42,6 +42,23 @@ def _norm(s: str) -> str:
     return re.sub(r"[^0-9a-z一-鿿぀-ヿ]+", "", (s or "").lower())
 
 
+# 版本词：iTunes 命中的标题若含这些、而候选标题未声明 → 交付的是另一录音版本，剔除
+VERSION_WORDS = ("remix", "remixed", "live", "remaster", "remastered", "rework",
+                 "re recorded", "re recording", "acoustic", "instrumental", "demo",
+                 "reprise", "radio edit", "single edit", "extended", "rerecorded")
+
+
+def _version_mismatch(cand_title: str, matched_title: str) -> str | None:
+    """候选是原版、iTunes 却给了 remix/live/remaster 等 → 返回命中的版本词，否则 None。"""
+    c = " " + _norm(cand_title) + " "
+    m = " " + _norm(matched_title) + " "
+    for w in VERSION_WORDS:
+        wn = _norm(w)
+        if wn in m and wn not in c:
+            return w
+    return None
+
+
 def _stars(genres) -> int:
     best = 3
     for g in genres or []:
@@ -81,7 +98,7 @@ def merge(cands: list[dict], pool: list[dict], validate: bool = True) -> tuple[l
     cache = itunes.load_cache() if validate else {}
     today = dt.datetime.now(dt.timezone.utc).astimezone(
         dt.timezone(dt.timedelta(hours=8))).strftime("%Y-%m-%d")
-    added = dup = fake = badgenre = 0
+    added = dup = fake = badgenre = verdrop = 0
     for t in cands:
         title, artist = (t.get("title") or "").strip(), (t.get("artist") or "").strip()
         k = _norm(title) + "|" + _norm(artist)
@@ -98,6 +115,10 @@ def merge(cands: list[dict], pool: list[dict], validate: bool = True) -> tuple[l
             info = itunes.lookup(artist, title, cache)
             if not info.get("found"):
                 fake += 1
+                continue
+            vm = _version_mismatch(title, info.get("matched_title", ""))
+            if vm:
+                verdrop += 1
                 continue
         seen.add(k)
         st = _stars(t.get("genres"))
@@ -120,7 +141,7 @@ def merge(cands: list[dict], pool: list[dict], validate: bool = True) -> tuple[l
         added += 1
     if validate:
         itunes.save_cache(cache)
-    return pool, {"added": added, "dup": dup, "fake": fake, "badgenre": badgenre}
+    return pool, {"added": added, "dup": dup, "fake": fake, "badgenre": badgenre, "verdrop": verdrop}
 
 
 def cmd_context() -> None:
@@ -158,7 +179,7 @@ def main() -> None:
     before = len(pool)
     pool, stats = merge(cands, pool, validate=True)
     print(f"结果：+{stats['added']} 首（重复 {stats['dup']} · iTunes 验不到 {stats['fake']} · "
-          f"黑名单流派 {stats['badgenre']}）→ 池 {before} → {len(pool)}")
+          f"版本错配 {stats['verdrop']} · 黑名单流派 {stats['badgenre']}）→ 池 {before} → {len(pool)}")
 
     if args.dry_run:
         print("(--dry-run，未写盘)")
