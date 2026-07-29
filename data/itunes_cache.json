@@ -590,5 +590,21 @@
     "apple_url": "https://music.apple.com/us/album/needy-bees/1219744639?i=1219744644&uo=4",
     "matched_artist": "Nick Hakim",
     "matched_title": "Needy Bees"
+  },
+  "toro y moi|so many details": {
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/e0/7b/e8/e07be8eb-837c-60a0-50b7-5197983606e3/677517007756_.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4e/21/5b/4e215b23-c842-e3cd-65f5-43b4ecb4f11b/mzaf_10157278413066645566.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/so-many-details/1666142474?i=1666142658&uo=4",
+    "matched_artist": "Toro y Moi",
+    "matched_title": "So Many Details"
+  },
+  "zzxq fakeband qwzz|nonexistent song 99999": {
+    "found": false,
+    "artwork": "",
+    "preview": "",
+    "apple_url": "",
+    "matched_artist": "",
+    "matched_title": ""
   }
 }
