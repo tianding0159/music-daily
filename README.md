@@ -22,7 +22,7 @@
 data/     pool.json(候选池) · history.json(去重记录) · itunes_cache.json(封面缓存)
 docs/     profile.md(口味依据) · style_bible.md(文案文风规范)
 scripts/  build_daily.py(主编排) · picker.py(选曲) · itunes.py(封面/试听)
-          render_grid.py(默认皮肤·工业风) · render.py(可选皮肤·浅色卡片) · netease.py · push_wechat.py
+          render_grid.py(网页皮肤·工业风) · netease.py · push_wechat.py
 site/     index.html(最新一期) · archive/YYYY-MM-DD.html(存档)  ← GitHub Pages 发布目录
 .github/workflows/daily.yml   定时/推送触发的构建与部署
 ```

@@ -252,16 +252,21 @@ def main() -> int:
                   ("→ " + q.get("matched", "")) if q.get("matched") else "")
         return 0
 
-    today = dt.datetime.now(dt.timezone.utc).astimezone(
-        dt.timezone(dt.timedelta(hours=8))).strftime("%Y-%m-%d")
+    now = dt.datetime.now(dt.timezone.utc).astimezone(dt.timezone(dt.timedelta(hours=8)))
+    today = now.strftime("%Y-%m-%d")
+    # 报告/隔离用「候选文件名」做唯一运行标识（单文件上传时），多文件混合才退回时间戳——
+    # 保证同一天先跑 canary 再跑补库不会互相覆盖，canary 证据永久留存、可回溯到具体输入。
+    run_id = paths[0].stem if len(paths) == 1 else f"{today}-{now.strftime('%H%M%S')}"
+    report_obj = {**c, "run_id": run_id, "candidates": [p.name for p in paths],
+                  "generated_at": now.isoformat(timespec="seconds")}
     (DATA / "pool.json").write_text(json.dumps(pool, ensure_ascii=False, indent=2), encoding="utf-8")
     if rep["quarantined"]:
         QUAR.mkdir(parents=True, exist_ok=True)
-        (QUAR / f"{today}.json").write_text(
+        (QUAR / f"{run_id}.json").write_text(
             json.dumps(rep["quarantined"], ensure_ascii=False, indent=2), encoding="utf-8")
     REPORTS.mkdir(parents=True, exist_ok=True)
-    (REPORTS / f"{today}.json").write_text(json.dumps(c, ensure_ascii=False, indent=2), encoding="utf-8")
-    _step_summary(f"### merge report {today}\n\n```json\n{json.dumps(c, ensure_ascii=False, indent=2)}\n```")
+    (REPORTS / f"{run_id}.json").write_text(json.dumps(report_obj, ensure_ascii=False, indent=2), encoding="utf-8")
+    _step_summary(f"### merge report {run_id}\n\n```json\n{json.dumps(report_obj, ensure_ascii=False, indent=2)}\n```")
     if not args.keep:  # 仅成功、非 transient 时删除已处理候选
         for p in paths:
             if CAND in p.resolve().parents:

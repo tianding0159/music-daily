@@ -20,7 +20,9 @@ concurrency:
 jobs:
   merge:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 60min：每周补库单文件最多 225 首，iTunes 限流约 3s/次、最坏 US+JP 各查一次
+    # ≈ 225×2×3s ≈ 22.5min，留足余量（transient 是 fail-closed 立即退出，不靠重试撑时间）。
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

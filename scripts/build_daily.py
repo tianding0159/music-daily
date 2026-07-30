@@ -23,10 +23,9 @@ import itunes
 import netease
 import picker as selector
 import push_wechat
-import render
 import render_grid
 
-RENDERERS = {"light": render, "grid": render_grid}
+RENDERERS = {"grid": render_grid}
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"

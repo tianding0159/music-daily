@@ -36,6 +36,9 @@ ICON_BOWL = ('<svg viewBox="0 0 12 6" shape-rendering="crispEdges" aria-hidden="
              '<rect x="1" y="2" width="10" height="1"/><rect x="2" y="3" width="8" height="2"/></svg>')
 ICON_BALL = ('<svg viewBox="0 0 6 6" shape-rendering="crispEdges" aria-hidden="true">'
              '<rect x="1" y="1" width="4" height="4"/><rect class="hl" x="1" y="1" width="1" height="1"/></svg>')
+# 试听播放/暂停键（叠在封面左下，播放 iTunes 公开 30s previewUrl；仅预览、非整曲）
+ICON_PLAY = '<svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg>'
+ICON_PAUSE = '<svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg>'
 
 # 工程编码色思路的一组多色 + 补色，做流派分类色标（小面积）
 KNOB = ["#0071bb", "#006837", "#f05a24", "#fab413", "#b81d13", "#0f0e12"]
@@ -196,6 +199,16 @@ a{color:inherit; text-decoration:none}
 .cover.ph{display:grid; place-items:center; font-family:var(--mono); font-size:var(--fs-30);
   color:var(--white); background:var(--ink); border:none}
 .art:hover .cover{opacity:.82}
+.pbtn{position:absolute; left:6px; bottom:6px; width:26px; height:26px; display:grid; place-items:center;
+  background:var(--ink); color:var(--white); border:none; padding:0; cursor:pointer; opacity:.9;
+  transition:transform .15s, opacity .2s, background .2s}
+.pbtn:hover{opacity:1}
+.pbtn:active{transform:scale(.9)}
+.pbtn svg{width:11px; height:11px; fill:var(--white); display:block}
+.pbtn .i-pause{display:none}
+.pbtn.playing{background:var(--green-d); opacity:1}
+.pbtn.playing .i-play{display:none}
+.pbtn.playing .i-pause{display:block}
 .hd{flex:1; min-width:0}
 .title{font-size:var(--fs-25); font-weight:100; line-height:1.12; letter-spacing:-.01em}
 .artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
@@ -259,6 +272,16 @@ document.querySelectorAll('.mod').forEach((m,k)=>{m.dataset.d=(k%6)*70;io.observ
 function copyNC(){const t=document.getElementById('nc-text').innerText;
   navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('nc-btn'),o=b.innerText;
     b.innerText='copied ✓';setTimeout(()=>b.innerText=o,1600);});}
+
+// 30s 试听：单例 audio，点击播放/暂停，切歌互斥（源为 iTunes 公开 previewUrl，仅预览非整曲）
+(function(){var au=new Audio(),cur=null;
+  au.addEventListener('ended',function(){if(cur){cur.classList.remove('playing');cur=null;}});
+  document.querySelectorAll('.pbtn').forEach(function(b){
+    b.addEventListener('click',function(){var src=b.dataset.src;if(!src)return;
+      if(cur===b){if(au.paused){au.play();b.classList.add('playing');}else{au.pause();b.classList.remove('playing');}return;}
+      if(cur)cur.classList.remove('playing');
+      au.src=src;cur=b;b.classList.add('playing');au.play();});});
+})();
 """
 
 
@@ -277,7 +300,10 @@ def _art(track: dict) -> str:
         cover = f'<img class="cover" src="{_esc(art)}" alt="" loading="lazy">'
     else:
         cover = f'<div class="cover ph">{_esc((track.get("artist") or "?")[:1].upper())}</div>'
-    return f'<div class="art">{cover}</div>'
+    prev = track.get("_preview") or ""
+    pbtn = (f'<button class="pbtn" type="button" data-src="{_esc(prev)}" aria-label="试听 30 秒">'
+            f'{ICON_PLAY}{ICON_PAUSE}</button>') if prev else ""
+    return f'<div class="art">{cover}{pbtn}</div>'
 
 
 def _mod(track: dict, idx: int) -> str:
@@ -397,7 +423,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
   <footer>
     <span>music daily · md-{n:02d} · issue {issue_no:03d}</span>
     <span>updated 08:00 cst</span>
-    <span>cover via public music api · personal use</span>
+    <span>cover &amp; preview via public music api · personal use</span>
   </footer>
 </main>
 
