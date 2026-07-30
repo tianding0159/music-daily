@@ -30,5 +30,6 @@
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": []
+  "relax": [],
+  "fresh_build": false
 }
