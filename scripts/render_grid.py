@@ -209,6 +209,26 @@ a{color:inherit; text-decoration:none}
 .pbtn.playing{background:var(--green-d); opacity:1}
 .pbtn.playing .i-play{display:none}
 .pbtn.playing .i-pause{display:block}
+/* 底部 now-playing 条：封面键触发后浮现，显当前曲/进度/播放暂停，与封面键联动 */
+#np{position:fixed; left:0; right:0; bottom:0; z-index:1200; display:none; align-items:center; gap:clamp(8px,1.2vw,14px);
+  background:var(--ink); color:var(--white); border-top:1px solid var(--g1000); height:76px; padding:0 clamp(16px,4vw,52px)}
+#np.on{display:flex}
+#np-cover{width:52px; height:52px; flex:none; object-fit:cover; background:var(--g1000)}
+#np-meta{flex:none; width:clamp(110px,20vw,240px); min-width:0}
+#np-title{font-size:var(--fs-15); font-weight:300; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+#np-artist{font-family:var(--mono); font-size:var(--fs-10); color:var(--g300); text-transform:uppercase;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:3px}
+.np-btn{width:34px; height:34px; flex:none; display:grid; place-items:center; cursor:pointer;
+  background:var(--green-d); color:var(--white); border:none; transition:transform .15s}
+.np-btn:active{transform:scale(.9)}
+.np-btn svg{width:13px; height:13px; fill:var(--white); display:block}
+.np-btn .i-pause{display:none}
+#np.playing .np-btn .i-play{display:none}
+#np.playing .np-btn .i-pause{display:block}
+#np-bar{flex:1; min-width:40px; height:4px; background:var(--g1000); position:relative; cursor:pointer}
+#np-fill{position:absolute; left:0; top:0; bottom:0; width:0; background:var(--green)}
+#np-time{flex:none; min-width:82px; text-align:right; font-family:var(--mono); font-size:var(--fs-10); color:var(--g300)}
+@media(max-width:720px){#np-meta{width:clamp(90px,32vw,160px)} #np-time{display:none}}
 .hd{flex:1; min-width:0}
 .title{font-size:var(--fs-25); font-weight:100; line-height:1.12; letter-spacing:-.01em}
 .artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
@@ -273,14 +293,28 @@ function copyNC(){const t=document.getElementById('nc-text').innerText;
   navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('nc-btn'),o=b.innerText;
     b.innerText='copied ✓';setTimeout(()=>b.innerText=o,1600);});}
 
-// 30s 试听：单例 audio，点击播放/暂停，切歌互斥（源为 iTunes 公开 previewUrl，仅预览非整曲）
-(function(){var au=new Audio(),cur=null;
-  au.addEventListener('ended',function(){if(cur){cur.classList.remove('playing');cur=null;}});
-  document.querySelectorAll('.pbtn').forEach(function(b){
-    b.addEventListener('click',function(){var src=b.dataset.src;if(!src)return;
-      if(cur===b){if(au.paused){au.play();b.classList.add('playing');}else{au.pause();b.classList.remove('playing');}return;}
-      if(cur)cur.classList.remove('playing');
-      au.src=src;cur=b;b.classList.add('playing');au.play();});});
+// 30s 试听：单例 audio + 底部 now-playing 条；封面键与底部条联动，切歌互斥（iTunes 公开 previewUrl，仅预览非整曲）
+(function(){
+  var au=new Audio(), cur=null;
+  var np=document.getElementById('np'), C=document.getElementById('np-cover'),
+      T=document.getElementById('np-title'), A=document.getElementById('np-artist'),
+      BAR=document.getElementById('np-bar'), FILL=document.getElementById('np-fill'),
+      TIME=document.getElementById('np-time'), TOG=document.getElementById('np-toggle');
+  function fmt(s){if(!isFinite(s)||s<0)s=0;s=Math.floor(s);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+  function mark(on){if(cur)cur.classList.toggle('playing',on);if(np)np.classList.toggle('playing',on);}
+  au.addEventListener('timeupdate',function(){if(au.duration&&FILL){FILL.style.width=(au.currentTime/au.duration*100)+'%';TIME.textContent=fmt(au.currentTime)+' / '+fmt(au.duration);}});
+  au.addEventListener('play',function(){mark(true);});
+  au.addEventListener('pause',function(){mark(false);});
+  au.addEventListener('ended',function(){mark(false);if(FILL)FILL.style.width='0%';});
+  function playCard(b){var src=b.dataset.src;if(!src)return;
+    if(cur===b){if(au.paused)au.play();else au.pause();return;}
+    if(cur)cur.classList.remove('playing');
+    au.src=src;cur=b;
+    if(C)C.src=b.dataset.cover||'';if(T)T.textContent=b.dataset.title||'';if(A)A.textContent=b.dataset.artist||'';
+    if(np)np.classList.add('on');au.play();}
+  document.querySelectorAll('.pbtn').forEach(function(b){b.addEventListener('click',function(){playCard(b);});});
+  if(TOG)TOG.addEventListener('click',function(){if(!cur)return;if(au.paused)au.play();else au.pause();});
+  if(BAR)BAR.addEventListener('click',function(e){if(!au.duration)return;var r=BAR.getBoundingClientRect();au.currentTime=(e.clientX-r.left)/r.width*au.duration;});
 })();
 """
 
@@ -301,7 +335,9 @@ def _art(track: dict) -> str:
     else:
         cover = f'<div class="cover ph">{_esc((track.get("artist") or "?")[:1].upper())}</div>'
     prev = track.get("_preview") or ""
-    pbtn = (f'<button class="pbtn" type="button" data-src="{_esc(prev)}" aria-label="试听 30 秒">'
+    pbtn = (f'<button class="pbtn" type="button" data-src="{_esc(prev)}" '
+            f'data-cover="{_esc(art)}" data-title="{_esc(track.get("title",""))}" '
+            f'data-artist="{_esc(track.get("artist",""))}" aria-label="试听 30 秒">'
             f'{ICON_PLAY}{ICON_PAUSE}</button>') if prev else ""
     return f'<div class="art">{cover}{pbtn}</div>'
 
@@ -426,6 +462,14 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
     <span>cover &amp; preview via public music api · personal use</span>
   </footer>
 </main>
+
+<div id="np" aria-live="polite">
+  <img id="np-cover" alt="">
+  <div id="np-meta"><div id="np-title" class="lc"></div><div id="np-artist"></div></div>
+  <button id="np-toggle" class="np-btn" type="button" aria-label="播放/暂停">{ICON_PLAY}{ICON_PAUSE}</button>
+  <div id="np-bar"><div id="np-fill"></div></div>
+  <span id="np-time" class="mono">0:00 / 0:00</span>
+</div>
 
 <script>{js}</script>
 </body>
