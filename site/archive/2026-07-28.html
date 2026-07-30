@@ -161,6 +161,16 @@ a{color:inherit; text-decoration:none}
 .cover.ph{display:grid; place-items:center; font-family:var(--mono); font-size:var(--fs-30);
   color:var(--white); background:var(--ink); border:none}
 .art:hover .cover{opacity:.82}
+.pbtn{position:absolute; left:6px; bottom:6px; width:26px; height:26px; display:grid; place-items:center;
+  background:var(--ink); color:var(--white); border:none; padding:0; cursor:pointer; opacity:.9;
+  transition:transform .15s, opacity .2s, background .2s}
+.pbtn:hover{opacity:1}
+.pbtn:active{transform:scale(.9)}
+.pbtn svg{width:11px; height:11px; fill:var(--white); display:block}
+.pbtn .i-pause{display:none}
+.pbtn.playing{background:var(--green-d); opacity:1}
+.pbtn.playing .i-play{display:none}
+.pbtn.playing .i-pause{display:block}
 .hd{flex:1; min-width:0}
 .title{font-size:var(--fs-25); font-weight:100; line-height:1.12; letter-spacing:-.01em}
 .artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
@@ -974,7 +984,7 @@ TOWN - Minako Yoshida (吉田美奈子)</pre>
   <footer>
     <span>music daily · md-30 · issue 001</span>
     <span>updated 08:00 cst</span>
-    <span>cover via public music api · personal use</span>
+    <span>cover &amp; preview via public music api · personal use</span>
   </footer>
 </main>
 
@@ -991,6 +1001,16 @@ document.querySelectorAll('.mod').forEach((m,k)=>{m.dataset.d=(k%6)*70;io.observ
 function copyNC(){const t=document.getElementById('nc-text').innerText;
   navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('nc-btn'),o=b.innerText;
     b.innerText='copied ✓';setTimeout(()=>b.innerText=o,1600);});}
+
+// 30s 试听：单例 audio，点击播放/暂停，切歌互斥（源为 iTunes 公开 previewUrl，仅预览非整曲）
+(function(){var au=new Audio(),cur=null;
+  au.addEventListener('ended',function(){if(cur){cur.classList.remove('playing');cur=null;}});
+  document.querySelectorAll('.pbtn').forEach(function(b){
+    b.addEventListener('click',function(){var src=b.dataset.src;if(!src)return;
+      if(cur===b){if(au.paused){au.play();b.classList.add('playing');}else{au.pause();b.classList.remove('playing');}return;}
+      if(cur)cur.classList.remove('playing');
+      au.src=src;cur=b;b.classList.add('playing');au.play();});});
+})();
 </script>
 </body>
 </html>
