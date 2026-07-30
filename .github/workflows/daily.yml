@@ -4,7 +4,8 @@ name: Daily Music Report
 # 只由定时或手动触发（已与候选合并解耦：普通 push/候选入库不触发日报）。
 on:
   schedule:
-    - cron: "11 0 * * *"
+    - cron: "11 0 * * *"   # 主：每天北京 08:11（UTC 00:11）
+    - cron: "7 1 * * *"    # 备份：北京 09:07；主被 GitHub 跳过时兜底，当期已建则 notify 幂等跳过、不重发微信
   workflow_dispatch:
 
 permissions:

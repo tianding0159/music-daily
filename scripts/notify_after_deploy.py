@@ -43,8 +43,11 @@ def main() -> int:
         return 1
     print(f"✅ 部署校验通过：{url}")
 
-    import push_wechat  # 延迟导入
     latest = json.loads((DATA / "latest.json").read_text(encoding="utf-8")) if (DATA / "latest.json").exists() else {}
+    if latest.get("fresh_build") is False:
+        print("↻ 本期非本次新建（当期此前已发布），跳过重复微信推送")
+        return 0
+    import push_wechat  # 延迟导入
     tracks = latest.get("tracks_brief", [])
     title, desp = push_wechat.build_desp(latest.get("date", ""), url, tracks, warn=latest.get("low_pool_warn"))
     if push_wechat.push(title, desp):

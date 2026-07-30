@@ -135,7 +135,9 @@ def main() -> None:
     if snap_path.exists() and not args.force_rebuild:
         snap = json.loads(snap_path.read_text(encoding="utf-8"))
         print(f"↻ 复用当期快照 第 {snap['issue_no']} 期 · {args.date} · {len(snap['tracks'])} 首（幂等）")
+        fresh = False
     else:
+        fresh = True
         history.pop(args.date, None)
         picks = selector.select_daily(pool, history, args.date, n=args.n)
         picks, misses = enrich(picks, use_itunes=not args.no_itunes)
@@ -161,6 +163,7 @@ def main() -> None:
         "date": snap["date"], "issue_no": snap["issue_no"], "playlist_title": snap["playlist_title"],
         "tracks_brief": [{"title": t["title"], "artist": t["artist"]} for t in snap["tracks"][:6]],
         "n": len(snap["tracks"]), "low_pool_warn": warn, "relax": selector.LAST_RELAX,
+        "fresh_build": fresh,
     }, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"📄 已重建 site/（archive {len(list(ISSUES.glob('*.json')))} 期 + index）")
 
