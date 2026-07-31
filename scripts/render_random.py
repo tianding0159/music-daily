@@ -310,7 +310,7 @@ function lcd(msg){const b=$('#boot');if(b)b.textContent=msg;}
 
 function match(t){
   const m=$('#f-mood').value, g=$('#f-genre').value, d=$('#f-decade').value;
-  if(m && !(t.mood_tags||[]).includes(m))return false;
+  if(m && !(t.mood_tags||[]).map(x=>TAGMAP[x]||TAGMAP[String(x).toLowerCase()]||x).includes(m))return false;
   if(g && !((t.genres||[]).map(x=>x.toLowerCase()).includes(g)))return false;
   if(d){const y=parseInt(t.year||'0',10); if(!y||Math.floor(y/10)*10!==parseInt(d,10))return false;}
   return true;
@@ -427,11 +427,13 @@ function fill(sel,items,label){
 fetch('pool.min.json').then(r=>r.json()).then(d=>{
   POOL=d;
   const mc={},gc={},dc={};
-  d.forEach(t=>{(t.mood_tags||[]).forEach(m=>mc[m]=(mc[m]||0)+1);
+  const tgm=(x)=>TAGMAP[x]||TAGMAP[String(x).toLowerCase()]||x;
+  // 气质按【映射后的名字】合并计数，避免「怀旧又现代」等同义变体重复出现
+  d.forEach(t=>{(t.mood_tags||[]).forEach(m=>{const k=tgm(m);mc[k]=(mc[k]||0)+1});
     (t.genres||[]).forEach(g=>{g=g.toLowerCase();gc[g]=(gc[g]||0)+1});
     const y=parseInt(t.year||'0',10); if(y){const k=Math.floor(y/10)*10; dc[k]=(dc[k]||0)+1}});
   const top=(o,n)=>Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,n).map(([k,v])=>[k,k+' ('+v+')']);
-  fill('#f-mood',top(mc,14).map(([k,lbl])=>[k,(TAGMAP[k]||TAGMAP[k.toLowerCase()]||k)+lbl.slice(lbl.indexOf(' ('))]),'\\u5168\\u90e8\\u6c14\\u8d28');
+  fill('#f-mood',top(mc,14),'\\u5168\\u90e8\\u5fc3\\u60c5');
   fill('#f-genre',top(gc,18),'\\u5168\\u90e8\\u6d41\\u6d3e');
   fill('#f-decade',Object.keys(dc).sort().map(k=>[k,k+'s ('+dc[k]+')']),'\\u5168\\u90e8\\u5e74\\u4ee3');
   lcd(POOL.length+' tracks loaded \\u00b7 hit space or press the button — one pick at a time');

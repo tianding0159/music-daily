@@ -66,56 +66,90 @@ a{color:inherit; text-decoration:none}
   box-shadow:0 0 8px var(--green); animation:blink 1.3s steps(1) infinite}
 .lcd #boot{white-space:pre; overflow:hidden; flex:1; min-width:0; text-overflow:ellipsis}
 .lcd #boot .cur{animation:blink .8s steps(1) infinite}
-.lcd .cat-wrap{position:relative; width:58px; height:34px; flex:none; margin-left:auto; align-self:center;
-  transform-origin:bottom center; animation:cat-breathe 2.8s ease-in-out infinite}
-.lcd .cat{position:absolute; right:2px; bottom:1px; width:30px; height:30px; display:block;
-  image-rendering:pixelated; transform-origin:bottom center; animation:cat-act 22s ease-in-out infinite}
+.lcd .cat-wrap{position:relative; width:clamp(96px,14vw,148px); height:34px; flex:none; margin-left:auto;
+  align-self:center; transform-origin:bottom center; animation:cat-breathe 2.2s ease-in-out infinite}
+.lcd .cat{position:absolute; right:4px; bottom:1px; width:31px; height:31px; display:block;
+  image-rendering:pixelated; transform-origin:bottom center; animation:cat-act 11s ease-in-out infinite}
 .lcd .cat rect{fill:#8be0aa}
 .lcd .cat .cat-eyes rect{fill:#06231a}
 .lcd .cat .glint{fill:#eafff2}
 .lcd .cat .nose{fill:#f0a24a}
 .lcd .cat .blush{fill:#f05a24; opacity:.65}
-.lcd .cat .cat-eyes{transform-box:fill-box; transform-origin:center; animation:cat-blink 3.4s infinite}
+.lcd .cat .cat-eyes{transform-box:fill-box; transform-origin:center; animation:cat-blink 2.4s infinite}
 .lcd .cat .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
-  animation:cat-wag .9s ease-in-out infinite alternate}
+  animation:cat-wag .5s ease-in-out infinite alternate}
 .lcd .prop{position:absolute; bottom:1px; image-rendering:pixelated; opacity:0}
-.lcd .prop.bowl{left:12px; width:15px} .lcd .prop.bowl svg{display:block; width:15px}
-.lcd .prop.ball{left:5px; width:9px} .lcd .prop.ball svg{display:block; width:9px}
-.lcd .prop.bowl{animation:prop-bowl 22s ease-in-out infinite}
-.lcd .prop.ball{animation:prop-ball 22s ease-in-out infinite}
+.lcd .prop.bowl{left:8px; width:16px} .lcd .prop.bowl svg{display:block; width:16px}
+.lcd .prop.ball{right:2px; width:10px} .lcd .prop.ball svg{display:block; width:10px}
+.lcd .prop.bowl{animation:prop-bowl 11s ease-in-out infinite}
+.lcd .prop.ball{animation:prop-ball 11s ease-in-out infinite}
 .lcd .prop.bowl rect{fill:#6fbf90} .lcd .prop.bowl .food{fill:#f0a24a}
 .lcd .prop.ball rect{fill:#f05a24} .lcd .prop.ball .hl{fill:#ffd7bf}
 @keyframes cat-breathe{50%{transform:scaleY(1.04)}}
 @keyframes cat-blink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
-@keyframes cat-wag{from{transform:rotate(-20deg)}to{transform:rotate(16deg)}}
-/* 行为循环：静(归位,含小动作)→吃饭→静→伸懒腰→静→玩球→静，灵动不死板 */
+@keyframes cat-wag{from{transform:rotate(-26deg)}to{transform:rotate(22deg)}}
+/* 行为循环（11s）：走去饭盆 → 低头连啃 → 走回 → 伸懒腰 → 追球左右扑 → 跳 → 坐下舔爪 → 归位。
+   走位靠 translateX（舞台已加宽到 ~130px），动作幅度做大，一眼看得见。 */
 @keyframes cat-act{
-  0%,4%{transform:rotate(0)}
-  8%{transform:rotate(-7deg)}
-  13%{transform:rotate(2deg)}
-  18%{transform:rotate(0)}
-  27%{transform:rotate(7deg) translate(-3px,2px)}
-  30%{transform:rotate(7deg) translate(-3px,0)}
-  33%{transform:rotate(7deg) translate(-3px,2px)}
-  36%{transform:rotate(7deg) translate(-3px,0)}
-  40%{transform:rotate(0) translate(0,0)}
-  47%{transform:rotate(5deg)}
-  52%{transform:rotate(0)}
-  61%{transform:scaleX(1.3) translateX(-4px)}
-  66%{transform:scaleX(1.3) translateX(-4px)}
-  70%{transform:scaleX(1) translateX(0)}
-  74%{transform:translateY(-2px)}
-  78%{transform:translateY(0)}
-  84%{transform:translate(-6px,1px) rotate(6deg)}
-  87%{transform:translate(0,0) rotate(0)}
-  91%{transform:translate(-6px,1px) rotate(6deg)}
-  94%{transform:translate(0,0) rotate(0)}
-  100%{transform:rotate(0)}
+  0%{transform:translateX(0)}
+  /* 走向左侧饭盆（4 步小颠） */
+  3%{transform:translateX(-14px) translateY(-1.5px)}
+  5%{transform:translateX(-26px) translateY(0)}
+  7%{transform:translateX(-40px) translateY(-1.5px)}
+  9%{transform:translateX(-52px) translateY(0)}
+  /* 低头连啃 5 下 */
+  11%{transform:translateX(-52px) translateY(3px) rotate(6deg)}
+  13%{transform:translateX(-52px) translateY(0) rotate(4deg)}
+  15%{transform:translateX(-52px) translateY(3px) rotate(6deg)}
+  17%{transform:translateX(-52px) translateY(0) rotate(4deg)}
+  19%{transform:translateX(-52px) translateY(3px) rotate(6deg)}
+  21%{transform:translateX(-52px) translateY(0) rotate(0)}
+  /* 走回中间 */
+  24%{transform:translateX(-38px) translateY(-1.5px)}
+  26%{transform:translateX(-24px) translateY(0)}
+  28%{transform:translateX(-12px) translateY(-1.5px)}
+  30%{transform:translateX(0) translateY(0)}
+  /* 伸懒腰：前扑拉长 → 弹回 */
+  34%{transform:translateX(-4px) scaleX(1.42) scaleY(.82) rotate(-3deg)}
+  38%{transform:translateX(-4px) scaleX(1.42) scaleY(.82) rotate(-3deg)}
+  41%{transform:translateX(0) scaleX(.94) scaleY(1.1)}
+  43%{transform:translateX(0) scale(1)}
+  /* 追球：右扑 → 左扑 → 右扑（带侧倾） */
+  47%{transform:translateX(16px) rotate(10deg)}
+  50%{transform:translateX(-8px) rotate(-12deg)}
+  53%{transform:translateX(14px) rotate(9deg)}
+  56%{transform:translateX(-6px) rotate(-8deg)}
+  59%{transform:translateX(4px) rotate(0)}
+  /* 起跳（两下） */
+  62%{transform:translateX(2px) translateY(-9px) scaleY(1.12)}
+  65%{transform:translateX(0) translateY(0) scaleY(.92)}
+  67%{transform:translateX(0) translateY(-6px) scaleY(1.08)}
+  70%{transform:translateX(0) translateY(0) scale(1)}
+  /* 坐下舔爪（歪头两次） */
+  74%{transform:translateY(2px) rotate(-9deg)}
+  77%{transform:translateY(2px) rotate(-3deg)}
+  80%{transform:translateY(2px) rotate(-9deg)}
+  83%{transform:translateY(2px) rotate(-3deg)}
+  86%{transform:translateY(0) rotate(0)}
+  /* 归位前甩头 + 抖一抖 */
+  89%{transform:rotate(7deg)}
+  91%{transform:rotate(-5deg)}
+  93%{transform:rotate(4deg)}
+  95%{transform:rotate(0) scaleX(1.05)}
+  97%{transform:scaleX(1)}
+  100%{transform:translateX(0)}
 }
-@keyframes prop-bowl{0%,23%{opacity:0}26%,39%{opacity:1}41%,100%{opacity:0}}
-@keyframes prop-ball{0%,80%{opacity:0;transform:translateY(0)}82%{opacity:1;transform:translateY(0)}
-  85%{opacity:1;transform:translateY(-9px)}88%{opacity:1;transform:translateY(0)}
-  91%{opacity:1;transform:translateY(-6px)}94%{opacity:1;transform:translateY(0)}96%,100%{opacity:0}}
+@keyframes prop-bowl{0%{opacity:0}2%,22%{opacity:1}25%,100%{opacity:0}}
+@keyframes prop-ball{
+  0%,44%{opacity:0; transform:translate(0,0)}
+  46%{opacity:1; transform:translate(0,0)}
+  49%{opacity:1; transform:translate(-14px,-9px)}
+  52%{opacity:1; transform:translate(6px,0)}
+  55%{opacity:1; transform:translate(-10px,-7px)}
+  58%{opacity:1; transform:translate(2px,0)}
+  61%{opacity:1; transform:translate(-4px,-4px)}
+  64%{opacity:.6; transform:translate(0,0)}
+  67%,100%{opacity:0; transform:translate(0,0)}}
 .lcd .ticker{padding:8px 0; position:relative; -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
 .lcd .track{display:inline-block; white-space:nowrap; padding-left:100%; color:#3fae6f;
@@ -598,7 +632,7 @@ function lcd(msg){const b=$('#boot');if(b)b.textContent=msg;}
 
 function match(t){
   const m=$('#f-mood').value, g=$('#f-genre').value, d=$('#f-decade').value;
-  if(m && !(t.mood_tags||[]).includes(m))return false;
+  if(m && !(t.mood_tags||[]).map(x=>TAGMAP[x]||TAGMAP[String(x).toLowerCase()]||x).includes(m))return false;
   if(g && !((t.genres||[]).map(x=>x.toLowerCase()).includes(g)))return false;
   if(d){const y=parseInt(t.year||'0',10); if(!y||Math.floor(y/10)*10!==parseInt(d,10))return false;}
   return true;
@@ -715,11 +749,13 @@ function fill(sel,items,label){
 fetch('pool.min.json').then(r=>r.json()).then(d=>{
   POOL=d;
   const mc={},gc={},dc={};
-  d.forEach(t=>{(t.mood_tags||[]).forEach(m=>mc[m]=(mc[m]||0)+1);
+  const tgm=(x)=>TAGMAP[x]||TAGMAP[String(x).toLowerCase()]||x;
+  // 气质按【映射后的名字】合并计数，避免「怀旧又现代」等同义变体重复出现
+  d.forEach(t=>{(t.mood_tags||[]).forEach(m=>{const k=tgm(m);mc[k]=(mc[k]||0)+1});
     (t.genres||[]).forEach(g=>{g=g.toLowerCase();gc[g]=(gc[g]||0)+1});
     const y=parseInt(t.year||'0',10); if(y){const k=Math.floor(y/10)*10; dc[k]=(dc[k]||0)+1}});
   const top=(o,n)=>Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,n).map(([k,v])=>[k,k+' ('+v+')']);
-  fill('#f-mood',top(mc,14).map(([k,lbl])=>[k,(TAGMAP[k]||TAGMAP[k.toLowerCase()]||k)+lbl.slice(lbl.indexOf(' ('))]),'\u5168\u90e8\u6c14\u8d28');
+  fill('#f-mood',top(mc,14),'\u5168\u90e8\u5fc3\u60c5');
   fill('#f-genre',top(gc,18),'\u5168\u90e8\u6d41\u6d3e');
   fill('#f-decade',Object.keys(dc).sort().map(k=>[k,k+'s ('+dc[k]+')']),'\u5168\u90e8\u5e74\u4ee3');
   lcd(POOL.length+' tracks loaded \u00b7 hit space or press the button — one pick at a time');
