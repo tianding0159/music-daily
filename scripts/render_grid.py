@@ -18,19 +18,61 @@ import re
 import urllib.parse
 
 # LCD 上的像素小猫（绿屏设备宠物感）：会眨眼(cat-eyes)、甩尾(cat-tail)、轻轻呼吸摇摆(整体 bob)
-ICON_CAT = (
-    '<svg class="cat" viewBox="0 0 16 15" shape-rendering="crispEdges" aria-hidden="true">'
-    '<g class="cat-tail"><rect x="12" y="9" width="2" height="2"/><rect x="13" y="7" width="2" height="2"/>'
-    '<rect x="14" y="6" width="1" height="2"/></g>'
-    '<rect x="2" y="0" width="3" height="2"/><rect x="11" y="0" width="3" height="2"/>'
-    '<rect x="2" y="1" width="12" height="7"/><rect x="3" y="8" width="9" height="5"/>'
-    '<rect x="3" y="13" width="3" height="1"/><rect x="9" y="13" width="3" height="1"/>'
-    '<rect class="blush" x="2" y="5" width="1" height="1"/><rect class="blush" x="13" y="5" width="1" height="1"/>'
-    '<rect class="nose" x="7" y="5" width="2" height="1"/>'
-    '<g class="cat-eyes"><rect x="4" y="3" width="2" height="2"/><rect x="10" y="3" width="2" height="2"/>'
-    '<rect class="glint" x="5" y="3" width="1" height="1"/><rect class="glint" x="11" y="3" width="1" height="1"/></g>'
-    '</svg>'
-)
+# 像素猫：4 套姿态（站立 / 蹲坐 / 伸展 / 舔爪），靠 CSS 切显隐做定格动画，比单图 transform 生动得多
+def _cat_pose(cls: str, body: str) -> str:
+    return (f'<svg class="cat pose {cls}" viewBox="0 0 20 16" shape-rendering="crispEdges" aria-hidden="true">'
+            f'{body}</svg>')
+
+
+# 共用零件
+_EARS = '<rect x="3" y="1" width="2" height="2"/><rect x="9" y="1" width="2" height="2"/>'
+_EYES = ('<g class="cat-eyes"><rect x="4" y="5" width="2" height="2"/><rect x="8" y="5" width="2" height="2"/>'
+         '<rect class="glint" x="5" y="5" width="1" height="1"/><rect class="glint" x="9" y="5" width="1" height="1"/></g>')
+_FACE = ('<rect class="nose" x="6" y="7" width="2" height="1"/>'
+         '<rect class="blush" x="2" y="7" width="1" height="1"/><rect class="blush" x="11" y="7" width="1" height="1"/>')
+
+# ① 站立（四肢着地，尾巴翘）
+ICON_CAT_STAND = _cat_pose("p-stand",
+    '<g class="cat-tail"><rect x="13" y="8" width="2" height="2"/><rect x="14" y="6" width="2" height="2"/>'
+    '<rect x="15" y="5" width="1" height="2"/></g>'
+    + _EARS + '<rect x="2" y="2" width="10" height="7"/>'
+    '<rect x="3" y="9" width="10" height="3"/>'
+    '<rect x="3" y="12" width="2" height="2"/><rect x="7" y="12" width="2" height="2"/>'
+    '<rect x="11" y="12" width="2" height="2"/>'
+    + _FACE + _EYES)
+
+# ② 蹲坐（身体缩短、前爪并拢在前）
+ICON_CAT_SIT = _cat_pose("p-sit",
+    '<g class="cat-tail"><rect x="13" y="10" width="3" height="2"/><rect x="15" y="8" width="2" height="2"/></g>'
+    + _EARS + '<rect x="2" y="2" width="10" height="7"/>'
+    '<rect x="3" y="9" width="9" height="4"/>'
+    '<rect x="4" y="13" width="2" height="1"/><rect x="8" y="13" width="2" height="1"/>'
+    + _FACE + _EYES)
+
+# ③ 伸展（身体拉长、前肢前伸、屁股翘起）
+ICON_CAT_STRETCH = _cat_pose("p-stretch",
+    '<g class="cat-tail"><rect x="16" y="4" width="2" height="2"/><rect x="17" y="2" width="2" height="2"/></g>'
+    + '<rect x="1" y="4" width="2" height="2"/><rect x="7" y="3" width="2" height="2"/>'
+    '<rect x="0" y="6" width="14" height="4"/>'
+    '<rect x="13" y="4" width="5" height="6"/>'
+    '<rect x="1" y="10" width="2" height="2"/><rect x="14" y="10" width="2" height="3"/>'
+    '<g class="cat-eyes"><rect x="2" y="7" width="2" height="1"/></g>'
+    '<rect class="nose" x="0" y="8" width="1" height="1"/>')
+
+# ④ 舔爪（歪头，一只前爪抬到嘴边）
+ICON_CAT_LICK = _cat_pose("p-lick",
+    '<g class="cat-tail"><rect x="13" y="10" width="3" height="2"/><rect x="15" y="9" width="2" height="2"/></g>'
+    + '<rect x="3" y="1" width="2" height="2"/><rect x="9" y="1" width="2" height="2"/>'
+    '<rect x="2" y="2" width="10" height="7"/><rect x="3" y="9" width="9" height="4"/>'
+    '<rect x="4" y="13" width="2" height="1"/>'
+    '<rect x="7" y="7" width="3" height="4"/>'          # 抬起的前爪
+    '<rect class="nose" x="6" y="7" width="1" height="1"/>'
+    '<rect class="blush" x="2" y="7" width="1" height="1"/>'
+    '<g class="cat-eyes"><rect x="4" y="5" width="2" height="1"/><rect x="8" y="5" width="2" height="1"/></g>')
+
+ICON_CAT = ICON_CAT_STAND + ICON_CAT_SIT + ICON_CAT_STRETCH + ICON_CAT_LICK
+
+
 # 道具：吃饭用的食盆、玩耍用的小球（配合行为循环出现）
 ICON_BOWL = ('<svg viewBox="0 0 12 6" shape-rendering="crispEdges" aria-hidden="true">'
              '<rect class="food" x="3" y="1" width="6" height="1"/>'
@@ -110,90 +152,77 @@ a{color:inherit; text-decoration:none}
   box-shadow:0 0 8px var(--green); animation:blink 1.3s steps(1) infinite}
 .lcd #boot{white-space:pre; overflow:hidden; flex:1; min-width:0; text-overflow:ellipsis}
 .lcd #boot .cur{animation:blink .8s steps(1) infinite}
-.lcd .cat-wrap{position:relative; width:clamp(96px,14vw,148px); height:34px; flex:none; margin-left:auto;
-  align-self:center; transform-origin:bottom center; animation:cat-breathe 2.2s ease-in-out infinite}
-.lcd .cat{position:absolute; right:4px; bottom:1px; width:31px; height:31px; display:block;
-  image-rendering:pixelated; transform-origin:bottom center; animation:cat-act 11s ease-in-out infinite}
-.lcd .cat rect{fill:#8be0aa}
-.lcd .cat .cat-eyes rect{fill:#06231a}
-.lcd .cat .glint{fill:#eafff2}
-.lcd .cat .nose{fill:#f0a24a}
-.lcd .cat .blush{fill:#f05a24; opacity:.65}
-.lcd .cat .cat-eyes{transform-box:fill-box; transform-origin:center; animation:cat-blink 2.4s infinite}
-.lcd .cat .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
-  animation:cat-wag .5s ease-in-out infinite alternate}
-.lcd .prop{position:absolute; bottom:1px; image-rendering:pixelated; opacity:0}
-.lcd .prop.bowl{left:8px; width:16px} .lcd .prop.bowl svg{display:block; width:16px}
-.lcd .prop.ball{right:2px; width:10px} .lcd .prop.ball svg{display:block; width:10px}
-.lcd .prop.bowl{animation:prop-bowl 11s ease-in-out infinite}
-.lcd .prop.ball{animation:prop-ball 11s ease-in-out infinite}
-.lcd .prop.bowl rect{fill:#6fbf90} .lcd .prop.bowl .food{fill:#f0a24a}
-.lcd .prop.ball rect{fill:#f05a24} .lcd .prop.ball .hl{fill:#ffd7bf}
-@keyframes cat-breathe{50%{transform:scaleY(1.04)}}
+.lcd .cat-wrap{position:relative; width:clamp(104px,15vw,156px); height:34px; flex:none; margin-left:auto;
+  align-self:center}
+/* 4 套姿态叠在一起，靠 opacity 切换做定格动画；整体走位靠 .cat-wrap 的 travel */
+.lcd .pose{position:absolute; right:4px; bottom:1px; width:34px; height:27px; display:block;
+  image-rendering:pixelated; opacity:0; transform-origin:bottom center}
+.lcd .pose rect{fill:#8be0aa}
+.lcd .pose .cat-eyes rect{fill:#06231a}
+.lcd .pose .glint{fill:#eafff2}
+.lcd .pose .nose{fill:#f0a24a}
+.lcd .pose .blush{fill:#f05a24; opacity:.7}
+.lcd .pose .cat-eyes{transform-box:fill-box; transform-origin:center; animation:cat-blink 2.2s infinite}
+.lcd .pose .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
+  animation:cat-wag .42s ease-in-out infinite alternate}
+/* 走位（整只猫在舞台上来回） */
+.lcd .cat-wrap{animation:cat-travel 10s ease-in-out infinite}
+@keyframes cat-travel{
+  0%,4%{transform:translateX(0)}
+  14%{transform:translateX(-62px)}          /* 走到饭盆 */
+  30%{transform:translateX(-62px)}          /* 吃 */
+  40%{transform:translateX(-20px)}          /* 走回 */
+  52%{transform:translateX(-24px)}          /* 伸懒腰原地 */
+  62%{transform:translateX(10px)}           /* 追球右扑 */
+  68%{transform:translateX(-14px)}          /* 左扑 */
+  74%{transform:translateX(6px)}
+  82%{transform:translateX(0)}              /* 回来坐下 */
+  100%{transform:translateX(0)}}
+/* 姿态时间轴：站(走) → 蹲(吃) → 站(走) → 伸展 → 站(扑) → 蹲(舔爪) */
+.lcd .p-stand{animation:pose-stand 10s steps(1) infinite, cat-bob .34s ease-in-out infinite}
+.lcd .p-sit{animation:pose-sit 10s steps(1) infinite}
+.lcd .p-stretch{animation:pose-stretch 10s steps(1) infinite}
+.lcd .p-lick{animation:pose-lick 10s steps(1) infinite}
+@keyframes pose-stand{0%,15%{opacity:1}16%,31%{opacity:0}32%,43%{opacity:1}44%,55%{opacity:0}
+  56%,79%{opacity:1}80%,100%{opacity:0}}
+@keyframes pose-sit{0%,15%{opacity:0}16%,31%{opacity:1}32%,79%{opacity:0}80%,100%{opacity:0}}
+@keyframes pose-stretch{0%,43%{opacity:0}44%,55%{opacity:1}56%,100%{opacity:0}}
+@keyframes pose-lick{0%,79%{opacity:0}80%,100%{opacity:1}}
+/* 走路时的小颠 + 吃饭低头 + 扑击倾斜（叠在姿态上） */
+@keyframes cat-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
+.lcd .p-sit{animation:pose-sit 10s steps(1) infinite, cat-eat 10s ease-in-out infinite}
+@keyframes cat-eat{
+  0%,17%{transform:translateY(0) rotate(0)}
+  19%{transform:translateY(3px) rotate(5deg)}21%{transform:translateY(0) rotate(3deg)}
+  23%{transform:translateY(3px) rotate(5deg)}25%{transform:translateY(0) rotate(3deg)}
+  27%{transform:translateY(3px) rotate(5deg)}29%,100%{transform:translateY(0) rotate(0)}}
+.lcd .p-stretch{animation:pose-stretch 10s steps(1) infinite, cat-stretch 10s ease-in-out infinite}
+@keyframes cat-stretch{0%,44%{transform:scaleX(1)}48%{transform:scaleX(1.18) translateX(-3px)}
+  53%{transform:scaleX(1.18) translateX(-3px)}56%,100%{transform:scaleX(1)}}
+.lcd .p-lick{animation:pose-lick 10s steps(1) infinite, cat-lick 10s ease-in-out infinite}
+@keyframes cat-lick{0%,80%{transform:rotate(0)}83%{transform:rotate(-11deg)}86%{transform:rotate(-3deg)}
+  89%{transform:rotate(-11deg)}92%{transform:rotate(-3deg)}95%,100%{transform:rotate(0)}}
 @keyframes cat-blink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
 @keyframes cat-wag{from{transform:rotate(-26deg)}to{transform:rotate(22deg)}}
-/* 行为循环（11s）：走去饭盆 → 低头连啃 → 走回 → 伸懒腰 → 追球左右扑 → 跳 → 坐下舔爪 → 归位。
-   走位靠 translateX（舞台已加宽到 ~130px），动作幅度做大，一眼看得见。 */
-@keyframes cat-act{
-  0%{transform:translateX(0)}
-  /* 走向左侧饭盆（4 步小颠） */
-  3%{transform:translateX(-14px) translateY(-1.5px)}
-  5%{transform:translateX(-26px) translateY(0)}
-  7%{transform:translateX(-40px) translateY(-1.5px)}
-  9%{transform:translateX(-52px) translateY(0)}
-  /* 低头连啃 5 下 */
-  11%{transform:translateX(-52px) translateY(3px) rotate(6deg)}
-  13%{transform:translateX(-52px) translateY(0) rotate(4deg)}
-  15%{transform:translateX(-52px) translateY(3px) rotate(6deg)}
-  17%{transform:translateX(-52px) translateY(0) rotate(4deg)}
-  19%{transform:translateX(-52px) translateY(3px) rotate(6deg)}
-  21%{transform:translateX(-52px) translateY(0) rotate(0)}
-  /* 走回中间 */
-  24%{transform:translateX(-38px) translateY(-1.5px)}
-  26%{transform:translateX(-24px) translateY(0)}
-  28%{transform:translateX(-12px) translateY(-1.5px)}
-  30%{transform:translateX(0) translateY(0)}
-  /* 伸懒腰：前扑拉长 → 弹回 */
-  34%{transform:translateX(-4px) scaleX(1.42) scaleY(.82) rotate(-3deg)}
-  38%{transform:translateX(-4px) scaleX(1.42) scaleY(.82) rotate(-3deg)}
-  41%{transform:translateX(0) scaleX(.94) scaleY(1.1)}
-  43%{transform:translateX(0) scale(1)}
-  /* 追球：右扑 → 左扑 → 右扑（带侧倾） */
-  47%{transform:translateX(16px) rotate(10deg)}
-  50%{transform:translateX(-8px) rotate(-12deg)}
-  53%{transform:translateX(14px) rotate(9deg)}
-  56%{transform:translateX(-6px) rotate(-8deg)}
-  59%{transform:translateX(4px) rotate(0)}
-  /* 起跳（两下） */
-  62%{transform:translateX(2px) translateY(-9px) scaleY(1.12)}
-  65%{transform:translateX(0) translateY(0) scaleY(.92)}
-  67%{transform:translateX(0) translateY(-6px) scaleY(1.08)}
-  70%{transform:translateX(0) translateY(0) scale(1)}
-  /* 坐下舔爪（歪头两次） */
-  74%{transform:translateY(2px) rotate(-9deg)}
-  77%{transform:translateY(2px) rotate(-3deg)}
-  80%{transform:translateY(2px) rotate(-9deg)}
-  83%{transform:translateY(2px) rotate(-3deg)}
-  86%{transform:translateY(0) rotate(0)}
-  /* 归位前甩头 + 抖一抖 */
-  89%{transform:rotate(7deg)}
-  91%{transform:rotate(-5deg)}
-  93%{transform:rotate(4deg)}
-  95%{transform:rotate(0) scaleX(1.05)}
-  97%{transform:scaleX(1)}
-  100%{transform:translateX(0)}
-}
-@keyframes prop-bowl{0%{opacity:0}2%,22%{opacity:1}25%,100%{opacity:0}}
+/* 道具：饭盆(吃饭期) / 球(追球期被扑得乱弹) */
+.lcd .prop{position:absolute; bottom:1px; image-rendering:pixelated; opacity:0}
+.lcd .prop.bowl{left:6px; width:17px} .lcd .prop.bowl svg{display:block; width:17px}
+.lcd .prop.ball{right:0; width:10px} .lcd .prop.ball svg{display:block; width:10px}
+.lcd .prop.bowl{animation:prop-bowl 10s ease-in-out infinite}
+.lcd .prop.ball{animation:prop-ball 10s ease-in-out infinite}
+.lcd .prop.bowl rect{fill:#6fbf90} .lcd .prop.bowl .food{fill:#f0a24a}
+.lcd .prop.ball rect{fill:#f05a24} .lcd .prop.ball .hl{fill:#ffd7bf}
+@keyframes cat-breathe{50%{transform:scaleY(1.03)}}
+@keyframes prop-bowl{0%{opacity:0}8%,31%{opacity:1}34%,100%{opacity:0}}
 @keyframes prop-ball{
-  0%,44%{opacity:0; transform:translate(0,0)}
-  46%{opacity:1; transform:translate(0,0)}
-  49%{opacity:1; transform:translate(-14px,-9px)}
-  52%{opacity:1; transform:translate(6px,0)}
-  55%{opacity:1; transform:translate(-10px,-7px)}
-  58%{opacity:1; transform:translate(2px,0)}
-  61%{opacity:1; transform:translate(-4px,-4px)}
-  64%{opacity:.6; transform:translate(0,0)}
-  67%,100%{opacity:0; transform:translate(0,0)}}
+  0%,56%{opacity:0; transform:translate(0,0)}
+  58%{opacity:1; transform:translate(0,0)}
+  62%{opacity:1; transform:translate(-18px,-11px)}
+  66%{opacity:1; transform:translate(4px,0)}
+  70%{opacity:1; transform:translate(-12px,-8px)}
+  74%{opacity:1; transform:translate(2px,0)}
+  78%{opacity:.7; transform:translate(-5px,-3px)}
+  81%,100%{opacity:0; transform:translate(0,0)}}
 .lcd .ticker{padding:8px 0; position:relative; -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
 .lcd .track{display:inline-block; white-space:nowrap; padding-left:100%; color:#3fae6f;
@@ -336,7 +365,9 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 }
 @media(prefers-reduced-motion:reduce){
   .mod{opacity:1; transform:none; transition:none}
-  .track,.dot,.rec,.cat,.cat-wrap,.cat-eyes,.cat-tail,.prop{animation:none}
+  .track,.dot,.rec,.pose,.cat-wrap,.cat-eyes,.cat-tail,.prop{animation:none}
+  .pose{opacity:0}
+  .p-stand{opacity:1}
   html{scroll-behavior:auto}
 }
 """
