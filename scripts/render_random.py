@@ -95,17 +95,19 @@ body{padding-bottom:76px}
 
 /* ① 双开门：由 JS 临时插入 .doors 并在动画结束后移除 —— 卡片默认永远可见，
    即便动画被关闭/中断也不会留下黑屏（旧版用 ::before/::after 做遮罩，reduced-motion 下会卡成全黑）*/
-.doors{position:absolute; inset:0; z-index:4; pointer-events:none; overflow:hidden}
+.doors{position:absolute; inset:0; z-index:4; pointer-events:none; overflow:hidden;
+  animation:doors-gone .01s linear 2.6s both}
+@keyframes doors-gone{to{opacity:0; visibility:hidden}}
 /* 门板：墨色纸面（斜织纹 + 极淡颗粒），非科技感；内缘一道暖白高光当"门边"。
    动作分两拍：0.15s 先【合上】（从两侧推入、有落定顿感），1.78s 再【拉开】。*/
-.doors i{position:absolute; top:38px; bottom:0; width:50.6%; display:block;
+.doors i{position:absolute; top:38px; bottom:0; width:32%; display:block;
   background-color:#16151a;
   background-image:
     repeating-linear-gradient(45deg, rgba(255,255,255,.022) 0 2px, transparent 2px 6px),
     repeating-linear-gradient(-45deg, rgba(0,0,0,.16) 0 2px, transparent 2px 6px),
     radial-gradient(120% 90% at 50% 0%, rgba(255,255,255,.045), transparent 62%);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.07), inset 0 -22px 34px -24px rgba(0,0,0,.85)}
-.doors i.l{left:0; animation:door-close-l .34s cubic-bezier(.3,1.4,.5,1) .15s both,
+.doors i.l{left:36%; animation:door-close-l .34s cubic-bezier(.3,1.4,.5,1) .15s both,
   door-open-l .66s cubic-bezier(.6,0,.14,1) 1.78s both}
 .doors i.r{right:0; animation:door-close-r .34s cubic-bezier(.3,1.4,.5,1) .15s both,
   door-open-r .66s cubic-bezier(.6,0,.14,1) 1.78s both}
@@ -115,7 +117,7 @@ body{padding-bottom:76px}
   opacity:.75}
 .doors i.l::after{right:0} .doors i.r::after{left:0}
 /* 门缝：合上瞬间"咔"地压出一道细影，拉开时迸一下 */
-.doors::before{content:""; position:absolute; left:50%; top:38px; bottom:0; width:3px;
+.doors::before{content:""; position:absolute; left:68%; top:38px; bottom:0; width:3px;
   margin-left:-1.5px; background:linear-gradient(180deg,transparent,rgba(0,0,0,.85),transparent);
   box-shadow:0 0 6px rgba(0,0,0,.6);
   animation:seam-shut .3s ease-out .42s both, seam-burst .7s ease-out 1.72s both}

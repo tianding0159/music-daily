@@ -80,63 +80,78 @@ a{color:inherit; text-decoration:none}
 .lcd .pose .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
   animation:cat-wag .42s ease-in-out infinite alternate}
 /* 走位（整只猫在舞台上来回） */
-.lcd .cat-wrap{animation:cat-travel 10s ease-in-out infinite}
+.lcd .cat-wrap{animation:cat-travel 14s ease-in-out infinite}
+/* 9 个动作（14s 一轮，慢一点看得清）：
+   ①走去饭盆 ②低头吃 ③走回 ④伸懒腰 ⑤追球左右扑 ⑥连跳 ⑦坐下舔爪 ⑧趴下打盹 ⑨起身抖毛归位 */
 @keyframes cat-travel{
-  0%,4%{transform:translateX(0)}
-  14%{transform:translateX(-62px)}          /* 走到饭盆 */
-  30%{transform:translateX(-62px)}          /* 吃 */
-  40%{transform:translateX(-20px)}          /* 走回 */
-  52%{transform:translateX(-24px)}          /* 伸懒腰原地 */
-  62%{transform:translateX(10px)}           /* 追球右扑 */
-  68%{transform:translateX(-14px)}          /* 左扑 */
-  74%{transform:translateX(6px)}
-  82%{transform:translateX(0)}              /* 回来坐下 */
+  0%,3%{transform:translateX(0)}
+  10%{transform:translateX(-64px)}      /* ① 走到饭盆 */
+  24%{transform:translateX(-64px)}      /* ② 吃 */
+  31%{transform:translateX(-26px)}      /* ③ 走回 */
+  40%{transform:translateX(-30px)}      /* ④ 伸懒腰 */
+  47%{transform:translateX(12px)}       /* ⑤ 追球右扑 */
+  52%{transform:translateX(-16px)}      /*     左扑 */
+  57%{transform:translateX(8px)}        /*     右扑 */
+  63%{transform:translateX(0)}          /* ⑥ 连跳 */
+  70%{transform:translateX(-6px)}       /* ⑦ 坐下舔爪 */
+  84%{transform:translateX(-6px)}       /* ⑧ 趴下打盹 */
+  94%{transform:translateX(0)}          /* ⑨ 起身抖毛归位 */
   100%{transform:translateX(0)}}
-/* 姿态时间轴：站(走) → 蹲(吃) → 站(走) → 伸展 → 站(扑) → 蹲(舔爪) */
-.lcd .p-stand{animation:pose-stand 10s steps(1) infinite, cat-bob .34s ease-in-out infinite}
-.lcd .p-sit{animation:pose-sit 10s steps(1) infinite}
-.lcd .p-stretch{animation:pose-stretch 10s steps(1) infinite}
-.lcd .p-lick{animation:pose-lick 10s steps(1) infinite}
-@keyframes pose-stand{0%,15%{opacity:1}16%,31%{opacity:0}32%,43%{opacity:1}44%,55%{opacity:0}
-  56%,79%{opacity:1}80%,100%{opacity:0}}
-@keyframes pose-sit{0%,15%{opacity:0}16%,31%{opacity:1}32%,79%{opacity:0}80%,100%{opacity:0}}
-@keyframes pose-stretch{0%,43%{opacity:0}44%,55%{opacity:1}56%,100%{opacity:0}}
-@keyframes pose-lick{0%,79%{opacity:0}80%,100%{opacity:1}}
-/* 走路时的小颠 + 吃饭低头 + 扑击倾斜（叠在姿态上） */
+/* 姿态时间轴（5 套姿态切换支撑 9 个动作） */
+.lcd .p-stand{animation:pose-stand 14s steps(1) infinite, cat-bob .4s ease-in-out infinite}
+.lcd .p-sit{animation:pose-sit 14s steps(1) infinite, cat-eat 14s ease-in-out infinite}
+.lcd .p-stretch{animation:pose-stretch 14s steps(1) infinite, cat-stretch 14s ease-in-out infinite}
+.lcd .p-lick{animation:pose-lick 14s steps(1) infinite, cat-lick 14s ease-in-out infinite}
+.lcd .p-sleep{animation:pose-sleep 14s steps(1) infinite, cat-sleep 14s ease-in-out infinite}
+@keyframes pose-stand{0%,11%{opacity:1}12%,25%{opacity:0}26%,35%{opacity:1}36%,43%{opacity:0}
+  44%,64%{opacity:1}65%,90%{opacity:0}91%,100%{opacity:1}}
+@keyframes pose-sit{0%,11%{opacity:0}12%,25%{opacity:1}26%,64%{opacity:0}
+  65%,75%{opacity:1}76%,100%{opacity:0}}
+@keyframes pose-stretch{0%,35%{opacity:0}36%,43%{opacity:1}44%,100%{opacity:0}}
+@keyframes pose-lick{0%,64%{opacity:0}65%,75%{opacity:1}76%,100%{opacity:0}}
+@keyframes pose-sleep{0%,75%{opacity:0}76%,90%{opacity:1}91%,100%{opacity:0}}
+/* 各动作细节 */
 @keyframes cat-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
-.lcd .p-sit{animation:pose-sit 10s steps(1) infinite, cat-eat 10s ease-in-out infinite}
-@keyframes cat-eat{
-  0%,17%{transform:translateY(0) rotate(0)}
+@keyframes cat-eat{0%,13%{transform:translateY(0) rotate(0)}
+  15%{transform:translateY(3px) rotate(5deg)}17%{transform:translateY(0) rotate(3deg)}
   19%{transform:translateY(3px) rotate(5deg)}21%{transform:translateY(0) rotate(3deg)}
-  23%{transform:translateY(3px) rotate(5deg)}25%{transform:translateY(0) rotate(3deg)}
-  27%{transform:translateY(3px) rotate(5deg)}29%,100%{transform:translateY(0) rotate(0)}}
-.lcd .p-stretch{animation:pose-stretch 10s steps(1) infinite, cat-stretch 10s ease-in-out infinite}
-@keyframes cat-stretch{0%,44%{transform:scaleX(1)}48%{transform:scaleX(1.18) translateX(-3px)}
-  53%{transform:scaleX(1.18) translateX(-3px)}56%,100%{transform:scaleX(1)}}
-.lcd .p-lick{animation:pose-lick 10s steps(1) infinite, cat-lick 10s ease-in-out infinite}
-@keyframes cat-lick{0%,80%{transform:rotate(0)}83%{transform:rotate(-11deg)}86%{transform:rotate(-3deg)}
-  89%{transform:rotate(-11deg)}92%{transform:rotate(-3deg)}95%,100%{transform:rotate(0)}}
+  23%{transform:translateY(3px) rotate(5deg)}25%,100%{transform:translateY(0) rotate(0)}}
+@keyframes cat-stretch{0%,36%{transform:scaleX(1)}39%{transform:scaleX(1.22) translateX(-4px)}
+  42%{transform:scaleX(1.22) translateX(-4px)}44%,100%{transform:scaleX(1)}}
+@keyframes cat-lick{0%,65%{transform:rotate(0)}68%{transform:rotate(-12deg)}70%{transform:rotate(-3deg)}
+  72%{transform:rotate(-12deg)}74%{transform:rotate(-3deg)}75%,100%{transform:rotate(0)}}
+@keyframes cat-sleep{0%,76%{transform:translateY(0)}
+  79%{transform:translateY(3px)}82%{transform:translateY(2px)}
+  85%{transform:translateY(3px)}88%{transform:translateY(2px)}90%,100%{transform:translateY(0)}}
+/* ⑥ 连跳（叠在 stand 上） */
+.lcd .p-stand{animation:pose-stand 14s steps(1) infinite, cat-bob .4s ease-in-out infinite,
+  cat-hop 14s ease-in-out infinite}
+@keyframes cat-hop{0%,57%{transform:translateY(0)}
+  59%{transform:translateY(-9px) scaleY(1.1)}61%{transform:translateY(0) scaleY(.93)}
+  62.5%{transform:translateY(-6px) scaleY(1.06)}64%,92%{transform:translateY(0) scale(1)}
+  /* ⑨ 抖毛 */
+  94%{transform:rotate(6deg)}96%{transform:rotate(-5deg)}98%{transform:rotate(3deg)}100%{transform:none}}
 @keyframes cat-blink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
 @keyframes cat-wag{from{transform:rotate(-26deg)}to{transform:rotate(22deg)}}
 /* 道具：饭盆(吃饭期) / 球(追球期被扑得乱弹) */
 .lcd .prop{position:absolute; bottom:1px; image-rendering:pixelated; opacity:0}
 .lcd .prop.bowl{left:6px; width:17px} .lcd .prop.bowl svg{display:block; width:17px}
 .lcd .prop.ball{right:0; width:10px} .lcd .prop.ball svg{display:block; width:10px}
-.lcd .prop.bowl{animation:prop-bowl 10s ease-in-out infinite}
-.lcd .prop.ball{animation:prop-ball 10s ease-in-out infinite}
+.lcd .prop.bowl{animation:prop-bowl 14s ease-in-out infinite}
+.lcd .prop.ball{animation:prop-ball 14s ease-in-out infinite}
 .lcd .prop.bowl rect{fill:#6fbf90} .lcd .prop.bowl .food{fill:#f0a24a}
 .lcd .prop.ball rect{fill:#f05a24} .lcd .prop.ball .hl{fill:#ffd7bf}
 @keyframes cat-breathe{50%{transform:scaleY(1.03)}}
-@keyframes prop-bowl{0%{opacity:0}8%,31%{opacity:1}34%,100%{opacity:0}}
+@keyframes prop-bowl{0%{opacity:0}6%,25%{opacity:1}28%,100%{opacity:0}}
 @keyframes prop-ball{
-  0%,56%{opacity:0; transform:translate(0,0)}
-  58%{opacity:1; transform:translate(0,0)}
-  62%{opacity:1; transform:translate(-18px,-11px)}
-  66%{opacity:1; transform:translate(4px,0)}
-  70%{opacity:1; transform:translate(-12px,-8px)}
-  74%{opacity:1; transform:translate(2px,0)}
-  78%{opacity:.7; transform:translate(-5px,-3px)}
-  81%,100%{opacity:0; transform:translate(0,0)}}
+  0%,43%{opacity:0; transform:translate(0,0)}
+  45%{opacity:1; transform:translate(0,0)}
+  48%{opacity:1; transform:translate(-20px,-12px)}
+  52%{opacity:1; transform:translate(5px,0)}
+  55%{opacity:1; transform:translate(-14px,-9px)}
+  58%{opacity:1; transform:translate(3px,0)}
+  61%{opacity:.7; transform:translate(-6px,-4px)}
+  64%,100%{opacity:0; transform:translate(0,0)}}
 .lcd .ticker{padding:8px 0; position:relative; -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
 .lcd .track{display:inline-block; white-space:nowrap; padding-left:100%; color:#3fae6f;
@@ -279,7 +294,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 }
 @media(prefers-reduced-motion:reduce){
   .mod{opacity:1; transform:none; transition:none}
-  .track,.dot,.rec,.pose,.cat-wrap,.cat-eyes,.cat-tail,.prop{animation:none}
+  .track,.dot,.rec,.pose,.p-sleep,.cat-wrap,.cat-eyes,.cat-tail,.prop{animation:none}
   .pose{opacity:0}
   .p-stand{opacity:1}
   html{scroll-behavior:auto}
@@ -304,7 +319,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
   </div>
 
   <div class="lcd">
-    <div class="row1"><span class="dot"></span><span id="boot" data-text="system ready — 30 tracks loaded · melody-first · mood-first · production-first"></span><div class="cat-wrap"><svg class="cat pose p-stand" viewBox="0 0 20 17" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail"><rect x="13" y="8" width="2" height="2"/><rect x="14" y="6" width="2" height="2"/><rect x="15" y="5" width="1" height="2"/></g><rect x="2" y="0" width="3" height="2"/><rect x="9" y="0" width="3" height="2"/><rect x="1" y="1" width="12" height="9"/><rect x="3" y="10" width="9" height="3"/><rect x="3" y="13" width="2" height="2"/><rect x="7" y="13" width="2" height="2"/><rect x="10" y="13" width="2" height="2"/><rect class="nose" x="6" y="8" width="2" height="1"/><rect class="blush" x="1" y="8" width="2" height="1"/><rect class="blush" x="11" y="8" width="2" height="1"/><g class="cat-eyes"><rect x="3" y="5" width="2" height="2"/><rect x="9" y="5" width="2" height="2"/><rect class="glint" x="3" y="5" width="1" height="1"/><rect class="glint" x="9" y="5" width="1" height="1"/></g></svg><svg class="cat pose p-sit" viewBox="0 0 20 17" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail"><rect x="13" y="10" width="3" height="2"/><rect x="15" y="8" width="2" height="2"/></g><rect x="2" y="0" width="3" height="2"/><rect x="9" y="0" width="3" height="2"/><rect x="1" y="1" width="12" height="9"/><rect x="3" y="10" width="9" height="4"/><rect x="4" y="14" width="2" height="1"/><rect x="8" y="14" width="2" height="1"/><rect class="nose" x="6" y="8" width="2" height="1"/><rect class="blush" x="1" y="8" width="2" height="1"/><rect class="blush" x="11" y="8" width="2" height="1"/><g class="cat-eyes"><rect x="3" y="5" width="2" height="2"/><rect x="9" y="5" width="2" height="2"/><rect class="glint" x="3" y="5" width="1" height="1"/><rect class="glint" x="9" y="5" width="1" height="1"/></g></svg><svg class="cat pose p-stretch" viewBox="0 0 20 17" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail"><rect x="16" y="4" width="2" height="2"/><rect x="17" y="2" width="2" height="2"/></g><rect x="1" y="4" width="2" height="2"/><rect x="7" y="3" width="2" height="2"/><rect x="0" y="6" width="14" height="4"/><rect x="13" y="4" width="5" height="6"/><rect x="1" y="10" width="2" height="2"/><rect x="14" y="10" width="2" height="3"/><g class="cat-eyes"><rect x="2" y="7" width="2" height="1"/></g><rect class="nose" x="0" y="8" width="1" height="1"/></svg><svg class="cat pose p-lick" viewBox="0 0 20 17" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail"><rect x="13" y="10" width="3" height="2"/><rect x="15" y="9" width="2" height="2"/></g><rect x="2" y="0" width="3" height="2"/><rect x="9" y="0" width="3" height="2"/><rect x="1" y="1" width="12" height="9"/><rect x="3" y="10" width="9" height="4"/><rect x="4" y="14" width="2" height="1"/><rect x="7" y="8" width="3" height="4"/><rect class="nose" x="6" y="7" width="1" height="1"/><rect class="blush" x="2" y="7" width="1" height="1"/><g class="cat-eyes"><rect x="4" y="5" width="2" height="1"/><rect x="8" y="5" width="2" height="1"/></g></svg><span class="prop bowl"><svg viewBox="0 0 12 6" shape-rendering="crispEdges" aria-hidden="true"><rect class="food" x="3" y="1" width="6" height="1"/><rect x="1" y="2" width="10" height="1"/><rect x="2" y="3" width="8" height="2"/></svg></span><span class="prop ball"><svg viewBox="0 0 6 6" shape-rendering="crispEdges" aria-hidden="true"><rect x="1" y="1" width="4" height="4"/><rect class="hl" x="1" y="1" width="1" height="1"/></svg></span></div></div>
+    <div class="row1"><span class="dot"></span><span id="boot" data-text="system ready — 30 tracks loaded · melody-first · mood-first · production-first"></span><div class="cat-wrap"><svg class="cat pose p-stand" viewBox="0 0 20 17" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail"><rect x="13" y="8" width="2" height="2"/><rect x="14" y="6" width="2" height="2"/><rect x="15" y="5" width="1" height="2"/></g><rect x="2" y="0" width="3" height="2"/><rect x="9" y="0" width="3" height="2"/><rect x="1" y="1" width="12" height="9"/><rect x="3" y="10" width="9" height="3"/><rect x="3" y="13" width="2" height="2"/><rect x="7" y="13" width="2" height="2"/><rect x="10" y="13" width="2" height="2"/><rect class="nose" x="6" y="8" width="2" height="1"/><rect class="blush" x="1" y="8" width="2" height="1"/><rect class="blush" x="11" y="8" width="2" height="1"/><g class="cat-eyes"><rect x="3" y="5" width="2" height="2"/><rect x="9" y="5" width="2" height="2"/><rect class="glint" x="3" y="5" width="1" height="1"/><rect class="glint" x="9" y="5" width="1" height="1"/></g></svg><svg class="cat pose p-sit" viewBox="0 0 20 17" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail"><rect x="13" y="10" width="3" height="2"/><rect x="15" y="8" width="2" height="2"/></g><rect x="2" y="0" width="3" height="2"/><rect x="9" y="0" width="3" height="2"/><rect x="1" y="1" width="12" height="9"/><rect x="3" y="10" width="9" height="4"/><rect x="4" y="14" width="2" height="1"/><rect x="8" y="14" width="2" height="1"/><rect class="nose" x="6" y="8" width="2" height="1"/><rect class="blush" x="1" y="8" width="2" height="1"/><rect class="blush" x="11" y="8" width="2" height="1"/><g class="cat-eyes"><rect x="3" y="5" width="2" height="2"/><rect x="9" y="5" width="2" height="2"/><rect class="glint" x="3" y="5" width="1" height="1"/><rect class="glint" x="9" y="5" width="1" height="1"/></g></svg><svg class="cat pose p-stretch" viewBox="0 0 20 17" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail"><rect x="16" y="4" width="2" height="2"/><rect x="17" y="2" width="2" height="2"/></g><rect x="1" y="4" width="2" height="2"/><rect x="7" y="3" width="2" height="2"/><rect x="0" y="6" width="14" height="4"/><rect x="13" y="4" width="5" height="6"/><rect x="1" y="10" width="2" height="2"/><rect x="14" y="10" width="2" height="3"/><g class="cat-eyes"><rect x="2" y="7" width="2" height="1"/></g><rect class="nose" x="0" y="8" width="1" height="1"/></svg><svg class="cat pose p-lick" viewBox="0 0 20 17" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail"><rect x="13" y="10" width="3" height="2"/><rect x="15" y="9" width="2" height="2"/></g><rect x="2" y="0" width="3" height="2"/><rect x="9" y="0" width="3" height="2"/><rect x="1" y="1" width="12" height="9"/><rect x="3" y="10" width="9" height="4"/><rect x="4" y="14" width="2" height="1"/><rect x="7" y="8" width="3" height="4"/><rect class="nose" x="6" y="7" width="1" height="1"/><rect class="blush" x="2" y="7" width="1" height="1"/><g class="cat-eyes"><rect x="4" y="5" width="2" height="1"/><rect x="8" y="5" width="2" height="1"/></g></svg><svg class="cat pose p-sleep" viewBox="0 0 20 17" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail"><rect x="15" y="12" width="3" height="1"/><rect x="17" y="11" width="2" height="1"/></g><rect x="2" y="6" width="3" height="2"/><rect x="9" y="6" width="3" height="2"/><rect x="1" y="7" width="12" height="6"/><rect x="12" y="9" width="5" height="4"/><g class="cat-eyes"><rect x="3" y="10" width="3" height="1"/><rect x="8" y="10" width="3" height="1"/></g><rect class="nose" x="6" y="11" width="2" height="1"/><rect class="blush" x="1" y="11" width="2" height="1"/></svg><span class="prop bowl"><svg viewBox="0 0 12 6" shape-rendering="crispEdges" aria-hidden="true"><rect class="food" x="3" y="1" width="6" height="1"/><rect x="1" y="2" width="10" height="1"/><rect x="2" y="3" width="8" height="2"/></svg></span><span class="prop ball"><svg viewBox="0 0 6 6" shape-rendering="crispEdges" aria-hidden="true"><rect x="1" y="1" width="4" height="4"/><rect class="hl" x="1" y="1" width="1" height="1"/></svg></span></div></div>
     <div class="ticker"><span class="track"><b>01</b> Show Me How <i>—</i> Men I Trust<i>·</i><b>02</b> Two Thousand and Seventeen <i>—</i> Four Tet<i>·</i><b>03</b> 都会 <i>—</i> Taeko Onuki<i>·</i><b>04</b> Heartbeats <i>—</i> José González<i>·</i><b>05</b> Before I Move Off <i>—</i> Mount Kimbie<i>·</i><b>06</b> Remember Summer Days <i>—</i> Anri<i>·</i><b>07</b> Cocktail Moon <i>—</i> VIDEOTAPEMUSIC<i>·</i><b>08</b> Hard Drive <i>—</i> Cassandra Jenkins<i>·</i><b>09</b> Around Again <i>—</i> Hovvdy<i>·</i><b>10</b> Ykytu <i>—</i> Fabiano do Nascimento<i>·</i><b>11</b> Read the Room (feat. Laetitia Sadier) <i>—</i> Pearl &amp; The Oysters<i>·</i><b>12</b> No Butterflies, No Nothing <i>—</i> Erika de Casier<i>·</i><b>13</b> Shed That Fear <i>—</i> Nourished by Time<i>·</i><b>14</b> Baby Blue <i>—</i> Cindy Lee<i>·</i><b>15</b> Highway Star, Speed Star <i>—</i> Cymbals<i>·</i><b>16</b> 街の人 <i>—</i> Lucky Old Sun (ラッキーオールドサン)<i>·</i><b>17</b> miu <i>—</i> Marina Herlop<i>·</i><b>18</b> Teardrop <i>—</i> Massive Attack<i>·</i><b>19</b> baby blue <i>—</i> Sunny Day Service (サニーデイ・サービス)<i>·</i><b>20</b> Dress Down <i>—</i> Kaoru Akimoto (秋元薫)<i>·</i><b>21</b> Needy Bees <i>—</i> Nick Hakim<i>·</i><b>22</b> (No One Knows Me) Like the Piano <i>—</i> Sampha<i>·</i><b>23</b> Cherry-coloured Funk <i>—</i> Cocteau Twins<i>·</i><b>24</b> Charcoal Baby <i>—</i> Blood Orange<i>·</i><b>25</b> Northern Sky <i>—</i> Nick Drake<i>·</i><b>26</b> Quitter&#x27;s Raga <i>—</i> Gold Panda<i>·</i><b>27</b> Ride On Time <i>—</i> Tatsuro Yamashita<i>·</i><b>28</b> A Letter from Home <i>—</i> Ulrich Schnauss<i>·</i><b>29</b> The Limp <i>—</i> Surprise Chef<i>·</i><b>30</b> Shinzo no Tobira (心臓の扉) <i>—</i> Mariah<i>·</i><b>01</b> Show Me How <i>—</i> Men I Trust<i>·</i><b>02</b> Two Thousand and Seventeen <i>—</i> Four Tet<i>·</i><b>03</b> 都会 <i>—</i> Taeko Onuki<i>·</i><b>04</b> Heartbeats <i>—</i> José González<i>·</i><b>05</b> Before I Move Off <i>—</i> Mount Kimbie<i>·</i><b>06</b> Remember Summer Days <i>—</i> Anri<i>·</i><b>07</b> Cocktail Moon <i>—</i> VIDEOTAPEMUSIC<i>·</i><b>08</b> Hard Drive <i>—</i> Cassandra Jenkins<i>·</i><b>09</b> Around Again <i>—</i> Hovvdy<i>·</i><b>10</b> Ykytu <i>—</i> Fabiano do Nascimento<i>·</i><b>11</b> Read the Room (feat. Laetitia Sadier) <i>—</i> Pearl &amp; The Oysters<i>·</i><b>12</b> No Butterflies, No Nothing <i>—</i> Erika de Casier<i>·</i><b>13</b> Shed That Fear <i>—</i> Nourished by Time<i>·</i><b>14</b> Baby Blue <i>—</i> Cindy Lee<i>·</i><b>15</b> Highway Star, Speed Star <i>—</i> Cymbals<i>·</i><b>16</b> 街の人 <i>—</i> Lucky Old Sun (ラッキーオールドサン)<i>·</i><b>17</b> miu <i>—</i> Marina Herlop<i>·</i><b>18</b> Teardrop <i>—</i> Massive Attack<i>·</i><b>19</b> baby blue <i>—</i> Sunny Day Service (サニーデイ・サービス)<i>·</i><b>20</b> Dress Down <i>—</i> Kaoru Akimoto (秋元薫)<i>·</i><b>21</b> Needy Bees <i>—</i> Nick Hakim<i>·</i><b>22</b> (No One Knows Me) Like the Piano <i>—</i> Sampha<i>·</i><b>23</b> Cherry-coloured Funk <i>—</i> Cocteau Twins<i>·</i><b>24</b> Charcoal Baby <i>—</i> Blood Orange<i>·</i><b>25</b> Northern Sky <i>—</i> Nick Drake<i>·</i><b>26</b> Quitter&#x27;s Raga <i>—</i> Gold Panda<i>·</i><b>27</b> Ride On Time <i>—</i> Tatsuro Yamashita<i>·</i><b>28</b> A Letter from Home <i>—</i> Ulrich Schnauss<i>·</i><b>29</b> The Limp <i>—</i> Surprise Chef<i>·</i><b>30</b> Shinzo no Tobira (心臓の扉) <i>—</i> Mariah<i>·</i></span></div>
   </div>
 
