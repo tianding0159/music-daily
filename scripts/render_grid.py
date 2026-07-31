@@ -35,9 +35,9 @@ _HEAD = (
     '<rect x="12" y="4" width="4" height="4"/>'
     '</g>'
     '<g class="cat-eyes">'                                             # 粗横线眼（呆呆的）
-    '<rect x="4" y="6" width="4" height="2"/><rect x="10" y="6" width="4" height="2"/>'
+    '<rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/>'
     '</g>'
-    '<rect class="mouth" x="8" y="10" width="2" height="1"/>'          # 小嘴（居中、贴在眼下方）
+    '<rect class="mouth" x="8" y="8" width="2" height="1"/>'           # 小嘴上提，贴近眼睛
     '<rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/>')
 
 # ① 站立（矮胖四肢）

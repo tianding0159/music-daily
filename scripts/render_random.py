@@ -70,15 +70,17 @@ body{padding-bottom:76px}
 #roll:hover .dice .vinyl{animation:vinyl-idle 6s linear infinite}
 #roll:active .dice{transform:scale(.93)}
 /* 转动：由慢到快加速起转（spin-up），到位后维持高速 */
-#roll.rolling .dice .vinyl{animation:vinyl-up .9s cubic-bezier(.5,0,.9,.6) both,
-  vinyl-fast .34s linear .9s infinite}
+#roll.rolling .dice .vinyl{animation:vinyl-up 1.5s cubic-bezier(.45,0,.85,.5) both,
+  vinyl-fast .28s linear 1.5s infinite}
 @keyframes vinyl-idle{to{transform:rotate(360deg)}}
 @keyframes vinyl-up{
   0%{transform:rotate(0)}
-  30%{transform:rotate(48deg)}
-  58%{transform:rotate(168deg)}
-  80%{transform:rotate(400deg)}
-  100%{transform:rotate(720deg)}}
+  18%{transform:rotate(30deg)}
+  38%{transform:rotate(120deg)}
+  58%{transform:rotate(330deg)}
+  76%{transform:rotate(700deg)}
+  90%{transform:rotate(1120deg)}
+  100%{transform:rotate(1480deg)}}
 @keyframes vinyl-fast{to{transform:rotate(360deg)}}
 /* 高光弧在高速时更亮（转起来的感觉） */
 #roll.rolling .dice .shine{animation:shine-hot .34s ease-in-out infinite}
@@ -99,7 +101,21 @@ body{padding-bottom:76px}
 /* 唱盘：一张真在转的黑胶（JS 插入 .tt 到封面框） */
 .card .big-art{position:relative; z-index:2}
 .tt{position:absolute; inset:0; z-index:3; pointer-events:none; display:grid; place-items:center;
-  background:var(--ink); animation:tt-out .01s linear 1.62s forwards}
+  background:
+    radial-gradient(circle at 50% 46%, #2a2a2a 0 46%, #1c1c1c 47% 100%),
+    var(--ink);
+  animation:tt-out .01s linear 1.62s forwards}
+/* 转盘毡垫的圈线（让盘面不空） */
+.tt::before{content:""; position:absolute; inset:6%; border-radius:50%;
+  border:1px solid rgba(255,255,255,.08);
+  background:repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,.03) 0 2px, transparent 2px 7px)}
+/* 左下角转速标记 33⅓ + 右下角小指示灯 */
+.tt::after{content:"33⅓"; position:absolute; left:7%; bottom:6%; font-family:var(--mono);
+  font-size:9px; letter-spacing:.08em; color:rgba(255,255,255,.4)}
+.tt .led{position:absolute; right:8%; bottom:7%; width:5px; height:5px; border-radius:50%;
+  background:var(--orange); box-shadow:0 0 6px var(--orange);
+  animation:led-on .3s steps(1) .2s infinite}
+@keyframes led-on{50%{opacity:.35}}
 @keyframes tt-out{to{opacity:0; visibility:hidden}}
 .tt .disc{width:88%; aspect-ratio:1; border-radius:50%; position:relative;
   background:
@@ -120,19 +136,27 @@ body{padding-bottom:76px}
   animation:sheen .3s linear .5s infinite}
 @keyframes sheen{to{transform:rotate(360deg)}}
 /* 唱臂：从右上摆入，针尖压到唱片外缘 */
-.tt .arm{position:absolute; right:4%; top:2%; width:56%; height:8%; transform-origin:92% 50%;
-  transform:rotate(-38deg); animation:arm-in .8s cubic-bezier(.3,1.02,.4,1) .72s both}
+/* 唱臂：支点在右上角，从抬起(-34°)【放下】到压在唱片外缘(+16°)，停在那里不移开 */
+.tt .arm{position:absolute; right:6%; top:8%; width:58%; height:7%; transform-origin:94% 50%;
+  transform:rotate(-34deg); animation:arm-down .95s cubic-bezier(.34,.9,.3,1) .65s both}
 .tt .arm i{position:absolute; inset:0; background:linear-gradient(90deg,#e8e4dc,#b8b2a6);
   border-radius:2px; box-shadow:0 1px 2px rgba(0,0,0,.5)}
 .tt .arm b{position:absolute; left:-2%; top:-40%; width:16%; height:180%; background:#f5f5f5;
   clip-path:polygon(0 0,100% 22%,100% 78%,0 100%)}
-@keyframes arm-in{0%{transform:rotate(-38deg)}72%{transform:rotate(-3deg)}
-  86%{transform:rotate(1.5deg)}100%{transform:rotate(0)}}
+@keyframes arm-down{0%{transform:rotate(-34deg)}
+  62%{transform:rotate(13deg)}          /* 落到唱片上 */
+  76%{transform:rotate(10deg)}          /* 微弹 */
+  88%{transform:rotate(16.5deg)}
+  100%{transform:rotate(16deg)}}        /* 停在唱片上，不移开 */
 /* 落针一瞬：针尖处一圈涟漪 */
-.tt .drop{position:absolute; left:14%; top:26%; width:14%; aspect-ratio:1; border-radius:50%;
-  border:1.5px solid rgba(255,255,255,.85); opacity:0;
-  animation:drop-ring .5s ease-out 1.48s both}
-@keyframes drop-ring{0%{opacity:.9; transform:scale(.3)}100%{opacity:0; transform:scale(2.6)}}
+/* 落针冲击：就在针尖压下的位置(唱片右侧外缘)，一小圈快速扩散 + 一下微亮，短促不抢戏 */
+.tt .drop{position:absolute; right:16%; top:31%; width:9%; aspect-ratio:1; border-radius:50%;
+  border:1px solid rgba(255,255,255,.7); opacity:0;
+  animation:drop-ring .34s ease-out 1.28s both}
+@keyframes drop-ring{0%{opacity:.85; transform:scale(.4)}70%{opacity:.35}100%{opacity:0; transform:scale(1.9)}}
+/* 落针后唱片整体一下微亮（表示开始出声） */
+.tt .disc{animation:disc-up 1.5s cubic-bezier(.42,0,.72,.55) both, disc-lit .3s ease-out 1.28s both}
+@keyframes disc-lit{0%{filter:brightness(1)}40%{filter:brightness(1.28)}100%{filter:brightness(1)}}
 
 /* 封面：唱盘隐去的同时"定格"成专辑封面 */
 .card .big-art .cover{animation:cover-set .5s cubic-bezier(.2,1.3,.32,1) 1.5s both}
@@ -371,7 +395,8 @@ function render(t){
   (function(){
     const art=card.querySelector('.big-art'); if(!art)return;
     const tt=document.createElement('div'); tt.className='tt';
-    tt.innerHTML='<div class="disc"></div><div class="arm"><i></i><b></b></div><span class="drop"></span>';
+    tt.innerHTML='<div class="disc"></div><div class="arm"><i></i><b></b></div>'
+      +'<span class="drop"></span><span class="led"></span>';
     art.appendChild(tt);
     setTimeout(()=>tt.remove(), 1750);
   })();
