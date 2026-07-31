@@ -85,8 +85,10 @@ a{color:inherit; text-decoration:none}
 .lcd .pose .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
   animation:cat-wag .42s ease-in-out infinite alternate}
 /* 走位（整只猫在舞台上来回） */
-.lcd .cat-wrap{animation:cat-travel 20s ease-in-out infinite; will-change:transform;
-  backface-visibility:hidden; transform:translateZ(0)}
+.lcd .cat-move{position:absolute; inset:0; animation:cat-travel 20s ease-in-out infinite;
+  will-change:transform; backface-visibility:hidden; transform:translateZ(0)}
+/* travel 必须挂内层 .cat-move —— 挂 .cat-wrap 的话道具是它的子元素、会跟着猫一起平移，
+   猫与饭盆间距恒定，"走过去吃饭"就永远走不到。 */
 /* 9 个动作（20s 一轮，放慢到看得清每个动作）：
    ①走去饭盆 ②低头吃 ③走回 ④伸懒腰 ⑤追球左右扑 ⑥连跳 ⑦坐下舔爪 ⑧趴下打盹 ⑨起身抖毛归位 */
 @keyframes cat-travel{
@@ -109,13 +111,12 @@ a{color:inherit; text-decoration:none}
 .lcd .p-stretch{animation:pose-stretch 20s steps(1) infinite, cat-stretch 20s ease-in-out infinite}
 .lcd .p-lick{animation:pose-lick 20s steps(1) infinite, cat-lick 20s ease-in-out infinite}
 .lcd .p-sleep{animation:pose-sleep 20s steps(1) infinite, cat-sleep 20s ease-in-out infinite}
-@keyframes pose-stand{0%,11%{opacity:1}12%,25%{opacity:0}26%,35%{opacity:1}36%,43%{opacity:0}
-  44%,64%{opacity:1}65%,90%{opacity:0}91%,100%{opacity:1}}
-@keyframes pose-sit{0%,11%{opacity:0}12%,25%{opacity:1}26%,64%{opacity:0}
-  65%,75%{opacity:1}76%,100%{opacity:0}}
-@keyframes pose-stretch{0%,35%{opacity:0}36%,43%{opacity:1}44%,100%{opacity:0}}
-@keyframes pose-lick{0%,64%{opacity:0}65%,75%{opacity:1}76%,100%{opacity:0}}
-@keyframes pose-sleep{0%,75%{opacity:0}76%,90%{opacity:1}91%,100%{opacity:0}}
+@keyframes pose-stand{0%,10.5%{opacity:1}11%,25.5%{opacity:0}26%,34.5%{opacity:1}35%,43.5%{opacity:0}
+  44%,63.5%{opacity:1}64%,90.5%{opacity:0}91%,100%{opacity:1}}
+@keyframes pose-sit{0%,11%{opacity:0}12%,25%{opacity:1}26%,100%{opacity:0}}
+@keyframes pose-stretch{0%,35.5%{opacity:0}36%,43%{opacity:1}43.5%,100%{opacity:0}}
+@keyframes pose-lick{0%,64.5%{opacity:0}65%,75%{opacity:1}75.5%,100%{opacity:0}}
+@keyframes pose-sleep{0%,75.5%{opacity:0}76%,90%{opacity:1}90.5%,100%{opacity:0}}
 /* 各动作细节 */
 @keyframes cat-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
 @keyframes cat-eat{0%,13%{transform:translateY(0) rotate(0)}
@@ -300,7 +301,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 }
 @media(prefers-reduced-motion:reduce){
   .mod{opacity:1; transform:none; transition:none}
-  .track,.dot,.rec,.pose,.p-sleep,.cat-wrap,.cat-eyes,.cat-tail,.prop{animation:none}
+  .track,.dot,.rec,.pose,.p-sleep,.cat-wrap,.cat-move,.cat-eyes,.cat-tail,.prop{animation:none}
   .pose{opacity:0}
   .p-stand{opacity:1}
   html{scroll-behavior:auto}
@@ -331,11 +332,12 @@ body{padding-bottom:76px}
 #roll .k{font-size:var(--fs-10); color:var(--g300); letter-spacing:.06em; position:relative; z-index:1}
 #roll .lab{position:relative; z-index:1}
 /* 按下时从中心荡开的波纹 */
-#roll::after{content:""; position:absolute; left:50%; top:50%; width:8px; height:8px;
-  background:rgba(255,255,255,.28); transform:translate(-50%,-50%) scale(0); opacity:0}
+#roll::after{content:""; position:absolute; left:50%; top:50%; width:34px; height:34px;
+  border-radius:50%; border:1px solid rgba(255,255,255,.5);
+  transform:translate(-50%,-50%) scale(0); opacity:0}
 #roll.ping::after{animation:ping .5s ease-out}
-@keyframes ping{0%{transform:translate(-50%,-50%) scale(0);opacity:.7}
-  100%{transform:translate(-50%,-50%) scale(34);opacity:0}}
+@keyframes ping{0%{transform:translate(-50%,-50%) scale(.5);opacity:.75}
+  100%{transform:translate(-50%,-50%) scale(3.2);opacity:0}}
 /* 图标 */
 #roll .dice{width:30px; height:30px; display:inline-block; flex:none; position:relative; z-index:1}
 #roll .dice .vinyl{transform-box:fill-box; transform-origin:center; will-change:transform}
@@ -367,103 +369,121 @@ body{padding-bottom:76px}
 .card{border:1px solid var(--g300); background:var(--paper); margin-top:var(--sp-md);
   position:relative; overflow:hidden}
 /* ══ 唱针落针 + 唱片起转（约 2.6s）：唱盘起转→加速→唱臂摆入→落针"咔"→定格成封面→信息沿轨迹浮出 ══ */
-.card.in{animation:card-in .38s cubic-bezier(.16,1,.3,1) both, tt-thud .2s ease-out 2.42s both}
+.card.in{animation:card-in .38s cubic-bezier(.16,1,.3,1) both, tt-thud .2s ease-out 1.75s both}
 @keyframes card-in{from{opacity:0; transform:translateY(10px)}to{opacity:1; transform:none}}
 @keyframes tt-thud{0%{transform:none}34%{transform:translateY(2px)}100%{transform:none}}
 
 /* 唱盘：一张真在转的黑胶（JS 插入 .tt 到封面框） */
 .card .big-art{position:relative; z-index:2}
 .tt{position:absolute; inset:0; z-index:3; pointer-events:none; display:grid; place-items:center;
-  background:
-    radial-gradient(circle at 50% 46%, #2a2a2a 0 46%, #1c1c1c 47% 100%),
-    var(--ink);
-  animation:tt-out .22s ease-out 2.42s forwards}
-/* 转盘毡垫的圈线（让盘面不空） */
-.tt::before{content:""; position:absolute; inset:6%; border-radius:50%;
-  border:1px solid rgba(255,255,255,.08);
-  background:repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,.03) 0 2px, transparent 2px 7px)}
-/* 左下角转速标记 33⅓ + 右下角小指示灯 */
-.tt::after{content:"33⅓"; position:absolute; left:7%; bottom:6%; font-family:var(--mono);
-  font-size:9px; letter-spacing:.08em; color:rgba(255,255,255,.4)}
-.tt .led{position:absolute; right:8%; bottom:7%; width:5px; height:5px; border-radius:50%;
-  background:var(--orange); box-shadow:0 0 6px var(--orange);
-  animation:led-on .3s steps(1) .2s infinite}
+  overflow:hidden; background:var(--ink);
+  animation:tt-out .2s ease-out 1.75s forwards}
+/* ── 唱盘：先摆一个正方形「转盘舞台」.deck，所有几何都相对它 ──
+   为什么要 deck：.tt 铺满封面框，而封面框不保证正方；直接在非正方容器上
+   写 inset% + border-radius:50% 会压出椭圆(之前毡垫圈就是这么歪的)。 */
+.tt .deck{position:relative; width:100%; aspect-ratio:1; max-height:100%}
+@supports (container-type:size){
+  .tt{container-type:size}
+  .tt .deck{width:min(100cqw,100cqh); height:min(100cqw,100cqh); aspect-ratio:auto}
+}
+/* 转盘底座 + 毡垫同心圈线（在正方 deck 上，所以是真圆） */
+.tt .deck::before{content:""; position:absolute; inset:2%; border-radius:50%;
+  background:radial-gradient(circle at 50% 50%, #303030 0 62%, #232323 63% 100%);
+  border:1px solid rgba(255,255,255,.07);
+  box-shadow:inset 0 0 20px rgba(0,0,0,.55)}
+.tt .deck::after{content:"";position:absolute; inset:9%; border-radius:50%;
+  background:repeating-radial-gradient(circle at 50% 50%,
+    rgba(255,255,255,.045) 0 1px, transparent 1px 8px)}
+/* 左下转速标记 + 右下电源灯（挂 .tt 而非 deck，贴在方框角上） */
+.tt::after{content:"33⅓"; position:absolute; left:7%; bottom:5%; font-family:var(--mono);
+  font-size:9px; letter-spacing:.08em; color:rgba(255,255,255,.38); z-index:4}
+.tt .led{position:absolute; right:8%; bottom:6%; width:5px; height:5px; border-radius:50%;
+  background:var(--orange); box-shadow:0 0 6px var(--orange); z-index:4;
+  animation:led-on .34s steps(1) .2s infinite}
 @keyframes led-on{50%{opacity:.35}}
 @keyframes tt-out{to{opacity:0; visibility:hidden}}
-/* 唱盘淡出与封面落位交叠 .22s，不留黑一帧 */
-.tt .dwrap{width:88%; aspect-ratio:1; position:relative;
-  animation:disc-place .46s cubic-bezier(.22,1.12,.3,1) both}
-@keyframes disc-place{0%{opacity:0; transform:translateY(-34%) scale(.84)}
-  70%{opacity:1; transform:translateY(2%) scale(1.015)}
+/* 唱片：占 deck 80% 居中(半径 r=0.40·deck)，.dwrap 只管「放上去」的位移，
+   .disc 只管自转 —— 分层是为了两者不抢同一个 transform。 */
+.tt .dwrap{position:absolute; left:10%; top:10%; width:80%; height:80%; z-index:2;
+  animation:disc-place .4s cubic-bezier(.22,1.12,.3,1) both}
+@keyframes disc-place{0%{opacity:0; transform:translateY(-30%) scale(.86)}
+  72%{opacity:1; transform:translateY(1.5%) scale(1.012)}
   100%{opacity:1; transform:none}}
-.tt .disc{width:100%; aspect-ratio:1; border-radius:50%; position:relative;
+.tt .disc{width:100%; height:100%; border-radius:50%; position:relative;
   background:
-    repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,.10) 0 1px, transparent 1px 4px),
-    radial-gradient(circle at 50% 50%, #f05a24 0 15%, #141414 15.5% 100%);
-  box-shadow:0 0 0 1px rgba(255,255,255,.22), inset 0 0 26px rgba(0,0,0,.7);
-  will-change:transform}
-/* 由慢到快起转 */
+    repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,.09) 0 1px, transparent 1px 4px),
+    radial-gradient(circle at 50% 50%, #f5f5f5 0 15%, #191919 15.5% 100%);
+  box-shadow:0 0 0 1px rgba(255,255,255,.2), inset 0 0 24px rgba(0,0,0,.72);
+  will-change:transform;
+  animation:disc-up 1.45s cubic-bezier(.4,0,.75,.5) .3s both, disc-lit .3s ease-out 1.42s both}
 @keyframes disc-up{
-  0%{transform:rotate(0)} 12%{transform:rotate(22deg)} 28%{transform:rotate(96deg)}
-  46%{transform:rotate(280deg)} 64%{transform:rotate(620deg)} 80%{transform:rotate(1080deg)}
-  100%{transform:rotate(1720deg)}}
-/* 主轴小孔 */
-.tt .disc::after{content:""; position:absolute; left:50%; top:50%; width:8%; aspect-ratio:1;
-  transform:translate(-50%,-50%); border-radius:50%; background:var(--paper)}
-/* 反光：固定在盘面上方的一道宽光带（不随盘自转，所以不会像秒针） */
+  0%{transform:rotate(0)} 12%{transform:rotate(20deg)} 28%{transform:rotate(88deg)}
+  46%{transform:rotate(256deg)} 64%{transform:rotate(572deg)} 80%{transform:rotate(990deg)}
+  100%{transform:rotate(1440deg)}}
+@keyframes disc-lit{0%{filter:brightness(1)}40%{filter:brightness(1.26)}100%{filter:brightness(1)}}
+/* 白色纸标签上随盘同转的极小转速字（跟按钮图标同一套语言） */
+.tt .disc::before{content:"33⅓"; position:absolute; left:50%; top:50%;
+  transform:translate(-50%,-50%); font-family:var(--mono); font-size:7px;
+  color:#1a1a1a; letter-spacing:-.02em; z-index:2}
+/* 固定反光带：挂在不自转的 .dwrap 上，所以不会变成一根转动的秒针 */
 .tt .dwrap::after{content:""; position:absolute; inset:0; border-radius:50%; pointer-events:none;
-  background:linear-gradient(118deg, transparent 28%, rgba(255,255,255,.14) 43%,
-    rgba(255,255,255,.04) 53%, transparent 66%)}
-/* 唱臂：从右上摆入，针尖压到唱片外缘 */
-/* 唱臂：支点在右上角，从抬起(-34°)【放下】到压在唱片外缘(+16°)，停在那里不移开 */
-.tt .arm{position:absolute; right:6%; top:8%; width:58%; height:7%; transform-origin:94% 50%;
-  transform:rotate(-34deg); animation:arm-down 1.3s cubic-bezier(.34,.9,.3,1) 1.1s both}
-.tt .arm i{position:absolute; inset:0; background:linear-gradient(90deg,#e8e4dc,#b8b2a6);
-  border-radius:2px; box-shadow:0 1px 2px rgba(0,0,0,.5)}
-.tt .arm b{position:absolute; left:-2%; top:-40%; width:16%; height:180%; background:#f5f5f5;
-  clip-path:polygon(0 0,100% 22%,100% 78%,0 100%)}
-@keyframes arm-down{0%{transform:rotate(-34deg)}
-  62%{transform:rotate(13deg)}          /* 落到唱片上 */
-  76%{transform:rotate(10deg)}          /* 微弹 */
-  88%{transform:rotate(16.5deg)}
-  100%{transform:rotate(16deg)}}        /* 停在唱片上，不移开 */
-/* 落针一瞬：针尖处一圈涟漪 */
-/* 落针冲击：就在针尖压下的位置(唱片右侧外缘)，一小圈快速扩散 + 一下微亮，短促不抢戏 */
-.tt .drop{position:absolute; right:16%; top:31%; width:9%; aspect-ratio:1; border-radius:50%;
-  border:1px solid rgba(255,255,255,.7); opacity:0;
-  animation:drop-ring .36s ease-out 2.2s both}
-@keyframes drop-ring{0%{opacity:.85; transform:scale(.4)}70%{opacity:.35}100%{opacity:0; transform:scale(1.9)}}
-/* 落针后唱片整体一下微亮（表示开始出声） */
-.tt .disc{animation:disc-up 2.1s cubic-bezier(.4,0,.75,.5) .34s both,
-  disc-lit .34s ease-out 2.2s both}
-@keyframes disc-lit{0%{filter:brightness(1)}40%{filter:brightness(1.28)}100%{filter:brightness(1)}}
+  background:linear-gradient(118deg, transparent 28%, rgba(255,255,255,.13) 43%,
+    rgba(255,255,255,.035) 53%, transparent 66%)}
+/* ── 唱臂：支点在右下(0.955,0.730)，臂长 L=0.385·deck，向左上伸 ──
+   符号约定(实测 DOMMatrix 核过)：支点在右、针尖在左时，CSS 角度【减小】才是针尖落下。
+   停机位 88° → 针尖在 1.17r(盘外)；落针位 73° → 针尖在 0.92r(外圈第一道纹)。
+   所以动作是 88°→73°「放上去」并停住，绝不再是反着抬起飞离。 */
+.tt .arm{position:absolute; right:3%; bottom:5.6%; width:28.9%; height:2.8%; z-index:3;
+  transform-origin:100% 50%; transform:rotate(80deg);
+  animation:arm-down .85s cubic-bezier(.3,.86,.32,1) .55s both}
+@keyframes arm-down{
+  0%{transform:rotate(80deg)}                   /* 停机位：针尖在盘外 1.11r */
+  70%{transform:rotate(57.2deg)}                /* 落到外圈，略过冲 */
+  86%{transform:rotate(59.4deg)}                /* 一次很轻的回弹 */
+  100%{transform:rotate(58.5deg)}}              /* 停在唱片上 0.92r，不移开 */
+.tt .arm i{position:absolute; left:6%; right:8%; top:22%; bottom:22%; border-radius:2px;
+  background:linear-gradient(180deg,#efebe3,#cbc5b9 55%,#9b958a);
+  box-shadow:0 1px 2px rgba(0,0,0,.5)}                             /* 细管臂身 */
+.tt .arm i::before{content:""; position:absolute; right:-34%; top:-190%; width:30%; height:480%;
+  border-radius:50%; background:linear-gradient(180deg,#e2ddd3,#8e887e)}   /* 支点端配重 */
+.tt .arm b{position:absolute; left:0; top:-70%; width:17%; height:240%; border-radius:1px;
+  background:linear-gradient(180deg,#f6f3ed,#c3bdb1)}                      /* 拾音头 */
+.tt .arm b::after{content:""; position:absolute; left:14%; bottom:-46%; width:34%; height:46%;
+  background:#8e887e}                                                      /* 针尖 */
+/* 落针冲击：圆心就落在【落针位的针尖】(0.842,0.362)——之前它离针尖 88px，
+   所以看着就是"一个白圈莫名放大"。现在它和针尖同点，读作针尖触盘。 */
+.tt .drop{position:absolute; left:81.9%; top:68.4%; width:13%; height:13%;
+  margin-left:-6.5%; margin-top:-6.5%; border-radius:50%; z-index:4; opacity:0;
+  border:1px solid rgba(255,255,255,.62);
+  animation:drop-ring .3s ease-out 1.42s both}
+@keyframes drop-ring{0%{opacity:.8; transform:scale(.5)}70%{opacity:.3}100%{opacity:0; transform:scale(1.55)}}
 
 /* 封面：唱盘隐去的同时"定格"成专辑封面 */
-.card .big-art .cover{animation:cover-set .54s cubic-bezier(.2,1.3,.32,1) 2.42s both}
+.card .big-art .cover{animation:cover-set .5s cubic-bezier(.2,1.3,.32,1) 1.75s both}
 @keyframes cover-set{0%{opacity:0; transform:scale(1.1) rotate(-4deg); filter:saturate(.5)}
   60%{opacity:1; transform:scale(1.01) rotate(.6deg); filter:saturate(1)}
   100%{opacity:1; transform:none}}
 /* 播放键在落针后出现（唱片已经在放了） */
-.card.in .big-art .pbtn{animation:pbtn-in .3s ease-out 2.78s both}
+.card.in .big-art .pbtn{animation:pbtn-in .3s ease-out 2s both}
 @keyframes pbtn-in{from{opacity:0; transform:translateY(5px) scale(.86)}to{opacity:1; transform:none}}
 
 /* 信息：沿唱针"读取"的方向由内向外逐行浮出 */
-.card.in .c-title{animation:read-in .46s cubic-bezier(.16,1,.3,1) 2.24s both}
-.card.in .c-artist{animation:read-in .42s cubic-bezier(.16,1,.3,1) 2.94s both}
-.card.in .c-meta{animation:read-in .42s cubic-bezier(.16,1,.3,1) 2.46s both}
-.card.in .tags{animation:read-in .42s cubic-bezier(.16,1,.3,1) 2.54s both}
-.card.in .c-one{animation:read-in .42s cubic-bezier(.16,1,.3,1) 2.63s both}
-.card.in .c-why{animation:read-in .46s cubic-bezier(.16,1,.3,1) 2.72s both}
-.card.in .c-scene{animation:read-in .42s cubic-bezier(.16,1,.3,1) 2.84s both}
-.card.in .c-links{animation:read-in .42s cubic-bezier(.16,1,.3,1) 2.94s both}
+.card.in .c-title{animation:read-in .44s cubic-bezier(.16,1,.3,1) 1.6s both}
+.card.in .c-artist{animation:read-in .4s cubic-bezier(.16,1,.3,1) 2.14s both}
+.card.in .c-meta{animation:read-in .4s cubic-bezier(.16,1,.3,1) 1.72s both}
+.card.in .tags{animation:read-in .4s cubic-bezier(.16,1,.3,1) 1.8s both}
+.card.in .c-one{animation:read-in .4s cubic-bezier(.16,1,.3,1) 1.88s both}
+.card.in .c-why{animation:read-in .44s cubic-bezier(.16,1,.3,1) 1.96s both}
+.card.in .c-scene{animation:read-in .4s cubic-bezier(.16,1,.3,1) 2.06s both}
+.card.in .c-links{animation:read-in .4s cubic-bezier(.16,1,.3,1) 2.14s both}
 @keyframes read-in{from{opacity:0; transform:translateX(-10px)}
   to{opacity:1; transform:none}}
 /* 标题打字机光标：闪三下后 content 清空（不占位） */
 .card.in .c-title::after{content:"\258b"; color:var(--orange); margin-left:3px;
-  animation:cur-blink .46s steps(1) 2.62s 3 both, cur-clear .01s linear 4.1s forwards}
+  animation:cur-blink .32s steps(1) 1.7s 3 both, cur-clear .01s linear 2.68s forwards}
 @keyframes cur-blink{50%{opacity:0}}
 @keyframes cur-clear{to{content:""; opacity:0; margin-left:0; font-size:0}}
-.card.in .bpm{animation:bpm-lit .5s ease-out 3.06s both}
+.card.in .bpm{animation:bpm-lit .44s ease-out 2.28s both}
 @keyframes bpm-lit{from{border-left-color:var(--g300)}
   45%{border-left-color:var(--bc,var(--g300)); background:rgba(0,0,0,.05)}
   to{border-left-color:var(--bc,var(--g300)); background:transparent}}
@@ -474,17 +494,14 @@ body{padding-bottom:76px}
   text-transform:uppercase; letter-spacing:.1em}
 .card .c-tag{display:inline-flex; gap:8px; align-items:center}
 .card .c-main{display:flex; gap:var(--sp-lg); padding:var(--sp-lg); flex-wrap:wrap}
-.card .big-art{position:relative; width:clamp(150px,22vw,232px); aspect-ratio:1; flex:none}
+.card .big-art{position:relative; width:clamp(150px,22vw,232px); aspect-ratio:1; flex:none;
+  align-self:flex-start}   /* 不加这行会被 flex 纵向拉伸成 232×342，圆变椭圆 */
 .card .big-art .cover{width:100%; height:100%; object-fit:cover; display:block;
   background:var(--g100); border:1px solid var(--g100)}
 .card .big-art .cover.ph{display:grid; place-items:center; font-family:var(--mono);
   font-size:var(--fs-40); font-weight:400; color:var(--white); background:var(--ink); border:none;
   background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.06) 0 8px,transparent 8px 16px)}
 .card .big-art .pbtn{left:10px; bottom:10px; width:38px; height:38px}
-/* 揭晓期间播放键隐身（唱片还在翻的时候不该有播放键杵着），装载完成后才淡入 */
-.card.in .big-art .pbtn{animation:pbtn-in .32s ease-out 1.76s both}
-@keyframes pbtn-in{from{opacity:0; transform:translateY(6px) scale(.86)}
-  to{opacity:1; transform:none}}
 .card .big-art .pbtn svg{width:15px; height:15px}
 .card .c-hd{flex:1; min-width:240px; display:flex; flex-direction:column; position:relative}
 /* 读入前的占位骨架（等文字到位就淡掉），让右半边不至于空一大片 */
@@ -495,11 +512,11 @@ body{padding-bottom:76px}
     linear-gradient(rgba(15,14,18,.05),rgba(15,14,18,.05)) 0 71px/44% 9px no-repeat,
     linear-gradient(rgba(15,14,18,.05),rgba(15,14,18,.05)) 0 96px/86% 9px no-repeat,
     linear-gradient(rgba(15,14,18,.05),rgba(15,14,18,.05)) 0 112px/68% 9px no-repeat;
-  animation:skel-out .34s ease-out 2.24s both}
+  animation:skel-out .3s ease-out 1.6s both}
 .card.in .c-hd::after{content:""; position:absolute; inset:0 -20% 0 0; pointer-events:none; z-index:1;
   background:linear-gradient(104deg, transparent 34%, rgba(255,255,255,.62) 50%, transparent 66%);
   background-size:180% 100%;
-  animation:skel-sweep 1.15s linear infinite, skel-out .34s ease-out 2.24s both}
+  animation:skel-sweep 1.05s linear infinite, skel-out .3s ease-out 1.6s both}
 @keyframes skel-sweep{from{background-position:-80% 0}to{background-position:180% 0}}
 @keyframes skel-out{to{opacity:0}}
 .card .c-hd>*{position:relative; z-index:2}
@@ -586,7 +603,6 @@ body.has-basket{padding-bottom:134px}
     opacity:1; transform:none; transition:none; animation:none; filter:none; clip-path:none}
   .tt{display:none}
   .card.in .c-title::after{content:""; animation:none}
-  .card.in .c-title::after{content:""; animation:none}
   .card.in .big-art .pbtn{animation:none; opacity:1; transform:none}
   #roll.ping::after{animation:none; display:none}
   #roll .dice g{animation:none !important}
@@ -616,7 +632,7 @@ body.has-basket{padding-bottom:134px}
 
   <div class="lcd">
     <div class="row1"><span class="dot"></span><span id="boot" data-text="loading 856 tracks…"></span>
-      <div class="cat-wrap"><svg class="cat pose p-stand" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="12" width="2" height="2"/><rect x="17" y="10" width="2" height="2"/><rect x="18" y="9" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="12" width="10" height="4"/><rect x="4" y="16" width="3" height="2"/><rect x="11" y="16" width="3" height="2"/></g><g class="fur2"><rect x="10" y="12" width="4" height="2"/></g><g class="pad"><rect x="4" y="16" width="3" height="1"/><rect x="11" y="16" width="3" height="1"/></g></svg><svg class="cat pose p-sit" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="14" width="3" height="2"/><rect x="18" y="12" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="11" width="10" height="5"/><rect x="3" y="13" width="12" height="3"/></g><g class="pad"><rect x="5" y="15" width="2" height="1"/><rect x="11" y="15" width="2" height="1"/></g></svg><svg class="cat pose p-stretch" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="18" y="5" width="2" height="2"/><rect x="19" y="3" width="2" height="2"/></g><g class="fur"><rect x="2" y="2" width="3" height="2"/><rect x="8" y="1" width="3" height="2"/><rect x="1" y="3" width="11" height="5"/><rect x="0" y="5" width="14" height="4"/><rect x="13" y="4" width="6" height="6"/><rect x="1" y="9" width="3" height="2"/><rect x="14" y="10" width="3" height="3"/></g><g class="fur2"><rect x="13" y="4" width="6" height="2"/></g><g class="cat-eyes"><rect x="2" y="5" width="3" height="1"/></g><rect class="nose" x="0" y="6" width="1" height="1"/><g class="pad"><rect x="1" y="10" width="3" height="1"/></g></svg><svg class="cat pose p-lick" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="14" width="3" height="2"/><rect x="18" y="13" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="11" width="10" height="5"/><rect x="8" y="8" width="3" height="5"/></g><g class="pad"><rect x="8" y="8" width="3" height="1"/><rect x="5" y="15" width="2" height="1"/></g></svg><svg class="cat pose p-sleep" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="17" y="15" width="3" height="1"/><rect x="19" y="14" width="2" height="1"/></g><g class="fur"><rect x="3" y="6" width="3" height="2"/><rect x="12" y="6" width="3" height="2"/><rect x="2" y="7" width="14" height="7"/><rect x="1" y="9" width="16" height="5"/><rect x="14" y="11" width="5" height="4"/></g><g class="fur2"><rect x="3" y="6" width="3" height="2"/><rect x="12" y="9" width="4" height="3"/></g><g class="cat-eyes"><rect x="4" y="10" width="3" height="1"/><rect x="11" y="10" width="3" height="1"/></g><rect class="nose" x="8" y="11" width="2" height="1"/><rect class="blush" x="2" y="11" width="2" height="1"/><g class="zzz"><rect x="17" y="4" width="3" height="1"/><rect x="19" y="5" width="1" height="1"/><rect x="17" y="6" width="3" height="1"/></g></svg><span class="prop bowl"><svg viewBox="0 0 14 8" shape-rendering="crispEdges" aria-hidden="true"><rect class="fish" x="4" y="0" width="4" height="1"/><rect class="fish" x="3" y="1" width="1" height="1"/><rect class="fish" x="8" y="1" width="1" height="1"/><rect class="food" x="3" y="2" width="8" height="1"/><rect x="1" y="3" width="12" height="1"/><rect x="2" y="4" width="10" height="3"/></svg></span><span class="prop ball"><svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><rect x="1" y="1" width="6" height="6"/><rect class="hl" x="1" y="1" width="2" height="2"/><rect class="yarn" x="3" y="2" width="1" height="4"/><rect class="yarn" x="2" y="4" width="4" height="1"/></svg></span></div></div>
+      <div class="cat-wrap"><div class="cat-move"><svg class="cat pose p-stand" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="12" width="2" height="2"/><rect x="17" y="10" width="2" height="2"/><rect x="18" y="9" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="12" width="10" height="4"/><rect x="4" y="16" width="3" height="2"/><rect x="11" y="16" width="3" height="2"/></g><g class="fur2"><rect x="10" y="12" width="4" height="2"/></g><g class="pad"><rect x="4" y="16" width="3" height="1"/><rect x="11" y="16" width="3" height="1"/></g></svg><svg class="cat pose p-sit" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="14" width="3" height="2"/><rect x="18" y="12" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="11" width="10" height="5"/><rect x="3" y="13" width="12" height="3"/></g><g class="pad"><rect x="5" y="15" width="2" height="1"/><rect x="11" y="15" width="2" height="1"/></g></svg><svg class="cat pose p-stretch" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="18" y="5" width="2" height="2"/><rect x="19" y="3" width="2" height="2"/></g><g class="fur"><rect x="2" y="2" width="3" height="2"/><rect x="8" y="1" width="3" height="2"/><rect x="1" y="3" width="11" height="5"/><rect x="0" y="5" width="14" height="4"/><rect x="13" y="4" width="6" height="6"/><rect x="1" y="9" width="3" height="2"/><rect x="14" y="10" width="3" height="3"/></g><g class="fur2"><rect x="13" y="4" width="6" height="2"/></g><g class="cat-eyes"><rect x="2" y="5" width="3" height="1"/></g><rect class="nose" x="0" y="6" width="1" height="1"/><g class="pad"><rect x="1" y="10" width="3" height="1"/></g></svg><svg class="cat pose p-lick" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="14" width="3" height="2"/><rect x="18" y="13" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="11" width="10" height="5"/><rect x="8" y="8" width="3" height="5"/></g><g class="pad"><rect x="8" y="8" width="3" height="1"/><rect x="5" y="15" width="2" height="1"/></g></svg><svg class="cat pose p-sleep" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="17" y="15" width="3" height="1"/><rect x="19" y="14" width="2" height="1"/></g><g class="fur"><rect x="3" y="6" width="3" height="2"/><rect x="12" y="6" width="3" height="2"/><rect x="2" y="7" width="14" height="7"/><rect x="1" y="9" width="16" height="5"/><rect x="14" y="11" width="5" height="4"/></g><g class="fur2"><rect x="3" y="6" width="3" height="2"/><rect x="12" y="9" width="4" height="3"/></g><g class="cat-eyes"><rect x="4" y="10" width="3" height="1"/><rect x="11" y="10" width="3" height="1"/></g><rect class="nose" x="8" y="11" width="2" height="1"/><rect class="blush" x="2" y="11" width="2" height="1"/><g class="zzz"><rect x="17" y="4" width="3" height="1"/><rect x="19" y="5" width="1" height="1"/><rect x="17" y="6" width="3" height="1"/></g></svg></div><span class="prop bowl"><svg viewBox="0 0 14 8" shape-rendering="crispEdges" aria-hidden="true"><rect class="fish" x="4" y="0" width="4" height="1"/><rect class="fish" x="3" y="1" width="1" height="1"/><rect class="fish" x="8" y="1" width="1" height="1"/><rect class="food" x="3" y="2" width="8" height="1"/><rect x="1" y="3" width="12" height="1"/><rect x="2" y="4" width="10" height="3"/></svg></span><span class="prop ball"><svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><rect x="1" y="1" width="6" height="6"/><rect class="hl" x="1" y="1" width="2" height="2"/><rect class="yarn" x="3" y="2" width="1" height="4"/><rect class="yarn" x="2" y="4" width="4" height="1"/></svg></span></div></div>
   </div>
 
   <div class="dice-wrap">
@@ -677,6 +693,7 @@ body.has-basket{padding-bottom:134px}
 </div>
 
 <script>const TAGMAP={"有人味": "人声在场", "organic": "有机质地", "organic electronic": "有机电子", "warm": "温暖", "精致但不炫技": "精致克制", "精致不炫技": "精致克制", "精致": "精致克制", "怀旧但现代": "怀旧又现代", "怀旧": "怀旧又现代", "都市": "城市夜晚", "夜色": "城市夜晚", "深夜": "城市夜晚", "柔": "温柔", "暖": "温暖", "甜": "甜润", "私密": "亲密", "内收": "内省", "缓慢生长": "缓慢舒展", "微凉": "清冷", "静谧": "安静"};
+const tgm=(x)=>TAGMAP[x]||TAGMAP[String(x).toLowerCase()]||x;
 const KNOB=["#0071bb", "#006837", "#f05a24", "#fab413", "#b81d13", "#0f0e12"];
 const PLAY="<svg class=\"i-play\" viewBox=\"0 0 10 10\" aria-hidden=\"true\"><path d=\"M2 1 L9 5 L2 9 Z\"/></svg>";
 const PAUSE="<svg class=\"i-pause\" viewBox=\"0 0 10 10\" aria-hidden=\"true\"><rect x=\"2\" y=\"1\" width=\"2.6\" height=\"8\"/><rect x=\"5.4\" y=\"1\" width=\"2.6\" height=\"8\"/></svg>";
@@ -715,7 +732,7 @@ function lcd(msg){const b=$('#boot');if(b)b.textContent=msg;}
 
 function match(t){
   const m=$('#f-mood').value, g=$('#f-genre').value, d=$('#f-decade').value;
-  if(m && !(t.mood_tags||[]).map(x=>TAGMAP[x]||TAGMAP[String(x).toLowerCase()]||x).includes(m))return false;
+  if(m && !(t.mood_tags||[]).map(tgm).includes(m))return false;
   if(g && !((t.genres||[]).map(x=>x.toLowerCase()).includes(g)))return false;
   if(d){const y=parseInt(t.year||'0',10); if(!y||Math.floor(y/10)*10!==parseInt(d,10))return false;}
   return true;
@@ -728,7 +745,7 @@ function render(t){
   const pb=t.p?('<button class="pbtn" id="cpb" type="button" aria-label="\u8bd5\u542c 30 \u79d2">'+PLAY+PAUSE+'</button>'):'';
   const g0=(t.genres||['\u2014'])[0];
   const tags=[].concat((t.genres||[]).slice(1,3),(t.mood_tags||[]).slice(0,2))
-    .map(x=>'<span class="tag">'+x+'</span>').join('');
+    .map(x=>'<span class="tag">'+tgm(x)+'</span>').join('');
   const bpmC=(bb)=>{const n=String(bb||'').match(/\d+/g); if(!n)return '';
     const m=(+n[0]+ +n[n.length-1])/2;
     return m<85?'#0071bb':m<105?'#006837':m<125?'#fab413':'#f05a24';};
@@ -755,10 +772,11 @@ function render(t){
   (function(){
     const art=card.querySelector('.big-art'); if(!art)return;
     const tt=document.createElement('div'); tt.className='tt';
-    tt.innerHTML='<div class="dwrap"><div class="disc"></div></div><div class="arm"><i></i><b></b></div>'
-      +'<span class="drop"></span><span class="led"></span>';
+    tt.innerHTML='<div class="deck"><div class="dwrap"><div class="disc"></div></div>'
+      +'<div class="arm"><i></i><b></b></div><span class="drop"></span></div>'
+      +'<span class="led"></span>';
     art.appendChild(tt);
-    setTimeout(()=>tt.remove(), 2980);
+    setTimeout(()=>tt.remove(), 2050);
   })();
   requestAnimationFrame(()=>card.classList.add('in'));
   const pb2=$('#cpb'); if(pb2)pb2.addEventListener('click',()=>toggle(t));
@@ -825,7 +843,6 @@ function fill(sel,items,label){
 fetch('pool.min.json').then(r=>r.json()).then(d=>{
   POOL=d;
   const mc={},gc={},dc={};
-  const tgm=(x)=>TAGMAP[x]||TAGMAP[String(x).toLowerCase()]||x;
   // 气质按【映射后的名字】合并计数，避免「怀旧又现代」等同义变体重复出现
   d.forEach(t=>{(t.mood_tags||[]).forEach(m=>{const k=tgm(m);mc[k]=(mc[k]||0)+1});
     (t.genres||[]).forEach(g=>{g=g.toLowerCase();gc[g]=(gc[g]||0)+1});

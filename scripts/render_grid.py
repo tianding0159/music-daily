@@ -193,8 +193,10 @@ a{color:inherit; text-decoration:none}
 .lcd .pose .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
   animation:cat-wag .42s ease-in-out infinite alternate}
 /* 走位（整只猫在舞台上来回） */
-.lcd .cat-wrap{animation:cat-travel 20s ease-in-out infinite; will-change:transform;
-  backface-visibility:hidden; transform:translateZ(0)}
+.lcd .cat-move{position:absolute; inset:0; animation:cat-travel 20s ease-in-out infinite;
+  will-change:transform; backface-visibility:hidden; transform:translateZ(0)}
+/* travel 必须挂内层 .cat-move —— 挂 .cat-wrap 的话道具是它的子元素、会跟着猫一起平移，
+   猫与饭盆间距恒定，"走过去吃饭"就永远走不到。 */
 /* 9 个动作（20s 一轮，放慢到看得清每个动作）：
    ①走去饭盆 ②低头吃 ③走回 ④伸懒腰 ⑤追球左右扑 ⑥连跳 ⑦坐下舔爪 ⑧趴下打盹 ⑨起身抖毛归位 */
 @keyframes cat-travel{
@@ -217,13 +219,12 @@ a{color:inherit; text-decoration:none}
 .lcd .p-stretch{animation:pose-stretch 20s steps(1) infinite, cat-stretch 20s ease-in-out infinite}
 .lcd .p-lick{animation:pose-lick 20s steps(1) infinite, cat-lick 20s ease-in-out infinite}
 .lcd .p-sleep{animation:pose-sleep 20s steps(1) infinite, cat-sleep 20s ease-in-out infinite}
-@keyframes pose-stand{0%,11%{opacity:1}12%,25%{opacity:0}26%,35%{opacity:1}36%,43%{opacity:0}
-  44%,64%{opacity:1}65%,90%{opacity:0}91%,100%{opacity:1}}
-@keyframes pose-sit{0%,11%{opacity:0}12%,25%{opacity:1}26%,64%{opacity:0}
-  65%,75%{opacity:1}76%,100%{opacity:0}}
-@keyframes pose-stretch{0%,35%{opacity:0}36%,43%{opacity:1}44%,100%{opacity:0}}
-@keyframes pose-lick{0%,64%{opacity:0}65%,75%{opacity:1}76%,100%{opacity:0}}
-@keyframes pose-sleep{0%,75%{opacity:0}76%,90%{opacity:1}91%,100%{opacity:0}}
+@keyframes pose-stand{0%,10.5%{opacity:1}11%,25.5%{opacity:0}26%,34.5%{opacity:1}35%,43.5%{opacity:0}
+  44%,63.5%{opacity:1}64%,90.5%{opacity:0}91%,100%{opacity:1}}
+@keyframes pose-sit{0%,11%{opacity:0}12%,25%{opacity:1}26%,100%{opacity:0}}
+@keyframes pose-stretch{0%,35.5%{opacity:0}36%,43%{opacity:1}43.5%,100%{opacity:0}}
+@keyframes pose-lick{0%,64.5%{opacity:0}65%,75%{opacity:1}75.5%,100%{opacity:0}}
+@keyframes pose-sleep{0%,75.5%{opacity:0}76%,90%{opacity:1}90.5%,100%{opacity:0}}
 /* 各动作细节 */
 @keyframes cat-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
 @keyframes cat-eat{0%,13%{transform:translateY(0) rotate(0)}
@@ -408,7 +409,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 }
 @media(prefers-reduced-motion:reduce){
   .mod{opacity:1; transform:none; transition:none}
-  .track,.dot,.rec,.pose,.p-sleep,.cat-wrap,.cat-eyes,.cat-tail,.prop{animation:none}
+  .track,.dot,.rec,.pose,.p-sleep,.cat-wrap,.cat-move,.cat-eyes,.cat-tail,.prop{animation:none}
   .pose{opacity:0}
   .p-stand{opacity:1}
   html{scroll-behavior:auto}
@@ -474,20 +475,29 @@ function copyNC(){const t=document.getElementById('nc-text').innerText;
   function applyFilter(){var on=document.body.classList.contains('fav-mode');
     document.querySelectorAll('.mod').forEach(function(m){if(m.classList.contains('fill'))return;
       m.classList.toggle('hidden', on && hearts.indexOf(m.dataset.k)<0);});}
+  function pageHits(){var n=0;document.querySelectorAll('.mod').forEach(function(m){
+    if(!m.classList.contains('fill') && m.dataset.k && hearts.indexOf(m.dataset.k)>=0)n++;});return n;}
   function refresh(){document.querySelectorAll('.heart').forEach(function(h){h.classList.toggle('on',hearts.indexOf(h.dataset.k)>=0);});
-    if(nEl)nEl.textContent=hearts.length;}
+    if(nEl)nEl.textContent=pageHits();}   /* 数本页命中，不数跨期总收藏——按钮做的是本页筛选 */
   document.querySelectorAll('.heart').forEach(function(h){h.addEventListener('click',function(){
     var k=h.dataset.k,i=hearts.indexOf(k);if(i>=0)hearts.splice(i,1);else hearts.push(k);sv(hearts);refresh();applyFilter();});});
   var only=document.getElementById('fav-only');
+  /* 只改 label 文本，不用 innerHTML 整体替换 —— 那会把 #fav-n 换成新节点，
+     JS 手里的 nEl 变成游离引用，之后 refresh() 全写进空气里。 */
+  var lbEl=document.getElementById('fav-lb');
+  function hint(msg){if(!lbEl)return; var o=lbEl.textContent; lbEl.textContent=msg;
+    if(nEl)nEl.style.display='none';
+    setTimeout(function(){lbEl.textContent=o;if(nEl)nEl.style.display='';refresh();},1900);}
   if(only)only.addEventListener('click',function(){
-    if(!hearts.length && !document.body.classList.contains('fav-mode')){
-      var o=only.innerHTML; only.innerHTML='还没收藏 · 点卡片右上角 \u2665';
-      setTimeout(function(){only.innerHTML=o;},1800); return;}
+    if(!document.body.classList.contains('fav-mode') && pageHits()===0){
+      /* 判「本页有没有命中」而不是「有没有收藏过」：只在往期收藏过时，本页筛完是空的 */
+      hint(hearts.length ? '\u672c\u671f\u6ca1\u6709\u6536\u85cf \u00b7 \u5f80\u671f ARCHIVE \u91cc\u6709 '+hearts.length+' \u9996'
+                         : '\u8fd8\u6ca1\u6536\u85cf \u00b7 \u70b9\u5361\u7247\u53f3\u4e0a\u89d2 \u2665'); return;}
     document.body.classList.toggle('fav-mode');
     only.classList.toggle('active',document.body.classList.contains('fav-mode'));applyFilter();});
   var exp=document.getElementById('fav-export'), box=document.getElementById('fav-box'), txt=document.getElementById('fav-text');
   if(exp)exp.addEventListener('click',function(){
-    txt.textContent=hearts.length?('我收藏的 · MUSIC DAILY\\n'+hearts.join('\\n')):'（还没有收藏。点每首右上角的 heart 即可）';
+    txt.textContent=hearts.length?('我收藏的 · MUSIC DAILY（含往期，共 '+hearts.length+' 首）\\n'+hearts.join('\\n')):'（还没有收藏。点每首右上角的 heart 即可）';
     box.style.display='block';box.scrollIntoView({behavior:'smooth'});});
   refresh();
 })();
@@ -662,7 +672,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
   </div>
 
   <div class="lcd">
-    <div class="row1"><span class="dot"></span><span id="boot" data-text="{_esc(boot)}"></span><div class="cat-wrap">{ICON_CAT}<span class="prop bowl">{ICON_BOWL}</span><span class="prop ball">{ICON_BALL}</span></div></div>
+    <div class="row1"><span class="dot"></span><span id="boot" data-text="{_esc(boot)}"></span><div class="cat-wrap"><div class="cat-move">{ICON_CAT}</div><span class="prop bowl">{ICON_BOWL}</span><span class="prop ball">{ICON_BALL}</span></div></div>
     <div class="ticker"><span class="track">{ticker}{ticker}</span></div>
   </div>
 
@@ -672,7 +682,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
   </div>
 
   <div class="tools">
-    <button class="tbtn" id="fav-only" type="button">♥ 只看收藏 <span id="fav-n">0</span></button>
+    <button class="tbtn" id="fav-only" type="button"><span id="fav-lb">♥ 只看收藏</span> <span id="fav-n">0</span></button>
     <button class="tbtn line" id="fav-export" type="button">导出收藏</button>
     <a class="tbtn line" href="{archive_href}">往期 archive ↗</a>
     <a class="tbtn line" href="{random_href}">听点别的 shuffle ↗</a>

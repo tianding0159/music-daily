@@ -71,6 +71,28 @@ def _write_snapshot(date: str, issue_no: int, theme: str, picks: list[dict],
     return snap
 
 
+def _recent_titles(before: str = "", extra: dict[str, str] | None = None, k: int = 6) -> list[str]:
+    """近 k 期已用过的歌单名（去掉尾部日期括号），用于避开重名。
+    before 非空时只看该日期之前的期；extra 是还没落盘的 {date: title}（backfill 累积用）。"""
+    got: list[tuple[str, str]] = []
+    for pth in ISSUES.glob("*.json"):
+        if before and pth.stem >= before:
+            continue
+        try:
+            got.append((pth.stem, json.loads(pth.read_text(encoding="utf-8")).get("playlist_title", "")))
+        except Exception:
+            pass
+    for d, t in (extra or {}).items():
+        if not before or d < before:
+            got.append((d, t))
+    out = []
+    for _d, t in sorted(got)[-k:]:
+        base = re.sub(r"（[^）]*）\s*$", "", t)
+        if base:
+            out.append(base)
+    return out
+
+
 def _backfill_snapshots(history: dict, pool: list[dict], skip_date: str = "",
                         use_itunes: bool = True) -> None:
     """给还没有快照的历史日期补一份，避免历史 archive 丢失。
@@ -78,6 +100,7 @@ def _backfill_snapshots(history: dict, pool: list[dict], skip_date: str = "",
     跳过 skip_date（当前正在正常构建的日期，由主流程新鲜生成）。"""
     by_id = {t["id"]: t for t in pool}
     ISSUES.mkdir(parents=True, exist_ok=True)
+    made: dict[str, str] = {}                     # 本轮已补的 {date: title}，链式累积避免互相撞名
     for i, date in enumerate(sorted(history), 1):
         if date == skip_date or (ISSUES / f"{date}.json").exists():
             continue
@@ -85,7 +108,9 @@ def _backfill_snapshots(history: dict, pool: list[dict], skip_date: str = "",
         if not picks:
             continue
         picks, _ = enrich(picks, use_itunes=use_itunes)   # 补封面/试听，别产出空封面快照
-        title = netease.playlist_title(picks, date)
+        title = netease.playlist_title(picks, date,
+                                       recent_titles=_recent_titles(before=date, extra=made))
+        made[date] = title
         _write_snapshot(date, i, "grid", picks, title, netease.build_text(picks, title))
 
 
@@ -178,15 +203,8 @@ def main() -> None:
         picks, misses = enrich(picks, use_itunes=not args.no_itunes)
         existing = sorted(p.stem for p in ISSUES.glob("*.json"))
         issue_no = existing.index(args.date) + 1 if args.date in existing else len(existing) + 1
-        recent_titles = []
-        for pth in sorted(ISSUES.glob("*.json"))[-6:]:
-            try:
-                base = re.sub(r"（[^）]*）\s*$", "", json.loads(pth.read_text(encoding="utf-8")).get("playlist_title", ""))
-                if base:
-                    recent_titles.append(base)
-            except Exception:
-                pass
-        title = netease.playlist_title(picks, args.date, recent_titles=recent_titles)
+        title = netease.playlist_title(picks, args.date,
+                                       recent_titles=_recent_titles(before=args.date))
         snap = _write_snapshot(args.date, issue_no, args.theme, picks, title,
                                netease.build_text(picks, title))
         history[args.date] = [t["id"] for t in picks]
