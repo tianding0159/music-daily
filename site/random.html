@@ -347,12 +347,41 @@ body{padding-bottom:76px}
 
 /* ① 双开门：由 JS 临时插入 .doors 并在动画结束后移除 —— 卡片默认永远可见，
    即便动画被关闭/中断也不会留下黑屏（旧版用 ::before/::after 做遮罩，reduced-motion 下会卡成全黑）*/
-.doors{position:absolute; inset:0; z-index:4; pointer-events:none}
-.doors i{position:absolute; top:38px; bottom:0; width:50.6%; background:#0f0e12; display:block}
-.doors i.l{left:0; border-right:1px solid #272727; animation:door-l .62s cubic-bezier(.7,0,.2,1) 1.72s both}
-.doors i.r{right:0; border-left:1px solid #272727; animation:door-r .62s cubic-bezier(.7,0,.2,1) 1.72s both}
-@keyframes door-l{0%{transform:translateX(0)}100%{transform:translateX(-101%)}}
-@keyframes door-r{0%{transform:translateX(0)}100%{transform:translateX(101%)}}
+.doors{position:absolute; inset:0; z-index:4; pointer-events:none; overflow:hidden}
+/* 门板：LCD 深绿底 + 细密扫描线 + 竖向拉丝，靠近门缝一侧压暗（有厚度）*/
+.doors i{position:absolute; top:38px; bottom:0; width:50.6%; display:block;
+  background-color:#08110c;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(63,174,111,.075) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.028) 0 1px, transparent 1px 5px),
+    linear-gradient(90deg, rgba(0,0,0,.42), rgba(0,0,0,0) 42%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), inset 0 -18px 26px -18px rgba(0,0,0,.7)}
+.doors i.l{left:0; border-right:1px solid #1c3a2a; transform-origin:left center;
+  animation:door-l .68s cubic-bezier(.62,0,.16,1) 1.72s both}
+.doors i.r{right:0; border-left:1px solid #1c3a2a; transform-origin:right center;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(63,174,111,.075) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.028) 0 1px, transparent 1px 5px),
+    linear-gradient(270deg, rgba(0,0,0,.42), rgba(0,0,0,0) 42%);
+  animation:door-r .68s cubic-bezier(.62,0,.16,1) 1.72s both}
+/* 门内侧的金属高光边（拉开时最亮，像门缘反光） */
+.doors i::after{content:""; position:absolute; top:0; bottom:0; width:2px;
+  background:linear-gradient(180deg,rgba(139,224,170,.0),rgba(139,224,170,.55),rgba(139,224,170,.0));
+  opacity:.5; animation:edge-lit .68s ease-out 1.72s both}
+.doors i.l::after{right:-1px} .doors i.r::after{left:-1px}
+@keyframes edge-lit{0%{opacity:.45}35%{opacity:1}100%{opacity:0}}
+/* 门缝：合上时一道细亮线，开门瞬间"迸开" */
+.doors::before{content:""; position:absolute; left:50%; top:38px; bottom:0; width:2px;
+  margin-left:-1px; background:linear-gradient(180deg,transparent,#8be0aa,rgba(139,224,170,.35),transparent);
+  filter:blur(.4px); animation:seam .9s ease-out 1.5s both}
+@keyframes seam{0%{opacity:.55; transform:scaleX(1)}
+  24%{opacity:1; transform:scaleX(2.6)}
+  100%{opacity:0; transform:scaleX(1)}}
+/* 拉开：先"卸扣"回弹 2px，再滑出 */
+@keyframes door-l{0%{transform:translateX(0)}12%{transform:translateX(2px)}
+  100%{transform:translateX(-101%)}}
+@keyframes door-r{0%{transform:translateX(0)}12%{transform:translateX(-2px)}
+  100%{transform:translateX(101%)}}
 
 /* ② 检索屏：顶栏 LCD 绿等宽字飞速跳曲名（JS 填 #jb-scan），到 1.7s 咔地定格 */
 .jb-scan{position:absolute; left:0; right:0; top:0; height:38px; z-index:12; display:flex;
