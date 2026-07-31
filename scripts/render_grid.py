@@ -546,7 +546,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
     <button class="tbtn" id="fav-only" type="button">♥ 只看收藏 <span id="fav-n">0</span></button>
     <button class="tbtn line" id="fav-export" type="button">导出收藏 → 网易云</button>
     <a class="tbtn line" href="{archive_href}">往期 archive ↗</a>
-    <a class="tbtn line" href="{random_href}">🎲 随机一首 shuffle ↗</a>
+    <a class="tbtn line" href="{random_href}">抽一首 shuffle ↗</a>
   </div>
 
   <div class="sect">tracklist</div>

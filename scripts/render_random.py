@@ -1,4 +1,4 @@
-"""渲染独立的「随机一首」页（site/random.html）+ 精简池 JSON（site/pool.min.json）。
+"""渲染独立的「今天听点别的」随机页（site/random.html）+ 精简池 JSON（site/pool.min.json）。
 
 设计延续日报页的工程 / 网格视觉语言（Inter 极细 + Space Mono、方角、发丝线、方格纸、LCD 绿），
 但交互是"拆盲盒"：一次只给一首、巨型摇一摇按钮 + LCD 洗牌动画 + 30s 试听自动播。
@@ -274,8 +274,8 @@ def build_html(n_total: int) -> str:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f0e12">
-<meta name="description" content="从 {n_total} 首曲库里随机摇一首 · melody-first · mood-first">
-<title>music daily · shuffle · 随机一首</title>
+<meta name="description" content="从 {n_total} 首曲库里随手抽一首 · melody-first · mood-first">
+<title>music daily · shuffle · 今天听点别的</title>
 <link rel="icon" href="{favicon}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -294,7 +294,7 @@ def build_html(n_total: int) -> str:
 <main class="wrap">
   <div class="hero">
     <div class="h-l">
-      <h1 class="lc">随机一首</h1>
+      <h1 class="lc">今天听点别的</h1>
       <div class="en">shuffle · one pick at a time · from the whole pool</div>
     </div>
     <div class="h-r"><span class="big">{n_total}</span>tracks in pool<br>
