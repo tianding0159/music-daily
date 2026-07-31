@@ -97,9 +97,14 @@ def _rebuild_site() -> None:
                    key=lambda s: s["date"])
     for s in snaps:
         r = RENDERERS.get(s.get("theme", "grid"), render_grid)
-        html = r.build_html(s["date"], s["tracks"], s["issue_no"], s["netease_text"])
+        html = r.build_html(s["date"], s["tracks"], s["issue_no"], s["netease_text"], archive_href="index.html")
         (arch / f"{s['date']}.html").write_text(html, encoding="utf-8")
     if snaps:
+        idx = render_grid.build_archive_index([
+            {"date": s2["date"], "issue_no": s2["issue_no"],
+             "playlist_title": s2.get("playlist_title", ""), "n": len(s2["tracks"])}
+            for s2 in reversed(snaps)])
+        (arch / "index.html").write_text(idx, encoding="utf-8")
         latest = snaps[-1]
         r = RENDERERS.get(latest.get("theme", "grid"), render_grid)
         (SITE / "index.html").write_text(

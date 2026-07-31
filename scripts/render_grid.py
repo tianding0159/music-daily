@@ -40,6 +40,11 @@ ICON_BALL = ('<svg viewBox="0 0 6 6" shape-rendering="crispEdges" aria-hidden="t
 ICON_PLAY = '<svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg>'
 ICON_PAUSE = '<svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg>'
 
+# 上一首/下一首（整期贯穿播放）+ 收藏心形（filled 由 .on 控制色）
+ICON_PREV = '<svg viewBox="0 0 12 10" aria-hidden="true"><rect x="1" y="1" width="2" height="8"/><path d="M11 1 L4 5 L11 9 Z"/></svg>'
+ICON_NEXT = '<svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 1 L8 5 L1 9 Z"/><rect x="9" y="1" width="2" height="8"/></svg>'
+ICON_HEART = '<svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>'
+
 # 工程编码色思路的一组多色 + 补色，做流派分类色标（小面积）
 KNOB = ["#0071bb", "#006837", "#f05a24", "#fab413", "#b81d13", "#0f0e12"]
 
@@ -229,6 +234,26 @@ a{color:inherit; text-decoration:none}
 #np-fill{position:absolute; left:0; top:0; bottom:0; width:0; background:var(--green)}
 #np-time{flex:none; min-width:82px; text-align:right; font-family:var(--mono); font-size:var(--fs-10); color:var(--g300)}
 @media(max-width:720px){#np-meta{width:clamp(90px,32vw,160px)} #np-time{display:none}}
+#np-prev,#np-next{width:30px; height:30px} #np-prev svg,#np-next svg{width:12px; height:10px}
+.heart{background:none; border:none; padding:0 0 0 8px; cursor:pointer; line-height:0}
+.heart svg{width:18px; height:18px; fill:var(--g300); transition:fill .15s, transform .15s}
+.heart:hover svg{fill:var(--g600)}
+.heart.on svg{fill:var(--red)}
+.heart:active svg{transform:scale(.85)}
+.tools{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:var(--sp-md)}
+.tbtn{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:8px 12px; cursor:pointer;
+  border:1px solid var(--ink); background:var(--paper); color:var(--ink); display:inline-flex; align-items:center; gap:6px; transition:opacity .2s}
+.tbtn:hover{opacity:.7}
+.tbtn.active{background:var(--ink); color:var(--white)}
+.tbtn.line{background:transparent}
+.mod.hidden{display:none}
+.arc{border-top:1px solid var(--g300); border-left:1px solid var(--g300); margin-top:var(--sp-md)}
+.arc a{display:flex; align-items:baseline; gap:var(--sp-md); padding:14px 16px;
+  border-right:1px solid var(--g300); border-bottom:1px solid var(--g300); transition:background .15s}
+.arc a:hover{background:var(--white)}
+.arc .d{font-family:var(--mono); font-size:var(--fs-15); color:var(--ink); flex:none; width:110px}
+.arc .no{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); flex:none}
+.arc .t{font-size:var(--fs-15); font-weight:300; color:var(--g900); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 .hd{flex:1; min-width:0}
 .title{font-size:var(--fs-25); font-weight:100; line-height:1.12; letter-spacing:-.01em}
 .artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
@@ -293,29 +318,64 @@ function copyNC(){const t=document.getElementById('nc-text').innerText;
   navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('nc-btn'),o=b.innerText;
     b.innerText='copied ✓';setTimeout(()=>b.innerText=o,1600);});}
 
-// 30s 试听：单例 audio + 底部 now-playing 条；封面键与底部条联动，切歌互斥（iTunes 公开 previewUrl，仅预览非整曲）
+// 30s 试听：单例 audio + 底部条；整期贯穿(自动续播/上一首/下一首)、键盘、切歌互斥（iTunes 公开 previewUrl，仅预览非整曲）
 (function(){
   var au=new Audio(), cur=null;
+  var btns=[].slice.call(document.querySelectorAll('.pbtn'));
   var np=document.getElementById('np'), C=document.getElementById('np-cover'),
       T=document.getElementById('np-title'), A=document.getElementById('np-artist'),
       BAR=document.getElementById('np-bar'), FILL=document.getElementById('np-fill'),
-      TIME=document.getElementById('np-time'), TOG=document.getElementById('np-toggle');
+      TIME=document.getElementById('np-time'), TOG=document.getElementById('np-toggle'),
+      PREV=document.getElementById('np-prev'), NEXT=document.getElementById('np-next');
   function fmt(s){if(!isFinite(s)||s<0)s=0;s=Math.floor(s);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
   function mark(on){if(cur)cur.classList.toggle('playing',on);if(np)np.classList.toggle('playing',on);}
   au.addEventListener('timeupdate',function(){if(au.duration&&FILL){FILL.style.width=(au.currentTime/au.duration*100)+'%';TIME.textContent=fmt(au.currentTime)+' / '+fmt(au.duration);}});
   au.addEventListener('play',function(){mark(true);});
   au.addEventListener('pause',function(){mark(false);});
-  au.addEventListener('ended',function(){mark(false);if(FILL)FILL.style.width='0%';});
-  function playCard(b){var src=b.dataset.src;if(!src)return;
-    if(cur===b){if(au.paused)au.play();else au.pause();return;}
+  au.addEventListener('ended',function(){mark(false);if(FILL)FILL.style.width='0%';step(1);});
+  function load(b){var src=b.dataset.src;if(!src)return;
     if(cur)cur.classList.remove('playing');
     au.src=src;cur=b;
     if(C)C.src=b.dataset.cover||'';if(T)T.textContent=b.dataset.title||'';if(A)A.textContent=b.dataset.artist||'';
     if(np)np.classList.add('on');au.play();}
-  document.querySelectorAll('.pbtn').forEach(function(b){b.addEventListener('click',function(){playCard(b);});});
-  if(TOG)TOG.addEventListener('click',function(){if(!cur)return;if(au.paused)au.play();else au.pause();});
+  function playCard(b){if(cur===b){if(au.paused)au.play();else au.pause();return;}load(b);}
+  function step(d){if(!btns.length)return;var i=cur?btns.indexOf(cur):-1;var j=i+d;
+    if(j<0)j=btns.length-1;if(j>=btns.length)j=0;load(btns[j]);}
+  btns.forEach(function(b){b.addEventListener('click',function(){playCard(b);});});
+  if(TOG)TOG.addEventListener('click',function(){if(!cur){if(btns[0])load(btns[0]);return;}if(au.paused)au.play();else au.pause();});
+  if(PREV)PREV.addEventListener('click',function(){step(-1);});
+  if(NEXT)NEXT.addEventListener('click',function(){step(1);});
   if(BAR)BAR.addEventListener('click',function(e){if(!au.duration)return;var r=BAR.getBoundingClientRect();au.currentTime=(e.clientX-r.left)/r.width*au.duration;});
+  document.addEventListener('keydown',function(e){var tag=(e.target.tagName||'').toLowerCase();if(tag==='input'||tag==='textarea')return;
+    if(e.code==='Space'){e.preventDefault();if(!cur){if(btns[0])load(btns[0]);}else if(au.paused)au.play();else au.pause();}
+    else if(e.key==='ArrowRight'){step(1);}else if(e.key==='ArrowLeft'){step(-1);}});
 })();
+
+// heart 收藏：localStorage 跨期累计 + 只看收藏 + 导出网易云
+(function(){
+  var KEY='md_hearts';
+  function ld(){try{return JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){return [];}}
+  function sv(a){try{localStorage.setItem(KEY,JSON.stringify(a));}catch(e){}}
+  var hearts=ld(), nEl=document.getElementById('fav-n');
+  function applyFilter(){var on=document.body.classList.contains('fav-mode');
+    document.querySelectorAll('.mod').forEach(function(m){if(m.classList.contains('fill'))return;
+      m.classList.toggle('hidden', on && hearts.indexOf(m.dataset.k)<0);});}
+  function refresh(){document.querySelectorAll('.heart').forEach(function(h){h.classList.toggle('on',hearts.indexOf(h.dataset.k)>=0);});
+    if(nEl)nEl.textContent=hearts.length;}
+  document.querySelectorAll('.heart').forEach(function(h){h.addEventListener('click',function(){
+    var k=h.dataset.k,i=hearts.indexOf(k);if(i>=0)hearts.splice(i,1);else hearts.push(k);sv(hearts);refresh();applyFilter();});});
+  var only=document.getElementById('fav-only');
+  if(only)only.addEventListener('click',function(){document.body.classList.toggle('fav-mode');
+    only.classList.toggle('active',document.body.classList.contains('fav-mode'));applyFilter();});
+  var exp=document.getElementById('fav-export'), box=document.getElementById('fav-box'), txt=document.getElementById('fav-text');
+  if(exp)exp.addEventListener('click',function(){
+    txt.textContent=hearts.length?('我收藏的 · music daily\n'+hearts.join('\n')):'（还没有收藏。点每首右上角的 heart 即可）';
+    box.style.display='block';box.scrollIntoView({behavior:'smooth'});});
+  refresh();
+})();
+function copyFav(){var t=document.getElementById('fav-text').innerText;
+  navigator.clipboard.writeText(t).then(function(){var b=document.getElementById('fav-copy'),o=b.innerText;
+    b.innerText='copied \u2713';setTimeout(function(){b.innerText=o;},1600);});}
 """
 
 
@@ -356,11 +416,15 @@ def _mod(track: dict, idx: int) -> str:
         src = (f'<a href="{_esc(track["source_url"])}" target="_blank" rel="noopener">{s}</a>'
                if track.get("source_url") else s)
     meta = " / ".join(x for x in [_esc(track.get("year", "")), _esc(track.get("album", ""))] if x)
+    key = f"{track['title']} - {track['artist']}"
     return f"""
-    <article class="mod">
+    <article class="mod" data-k="{_esc(key)}">
       <div class="m-top">
         <span class="m-num">{idx:02d}</span>
-        <span class="m-code" style="background:{_knob(g0)}">{_esc(g0)}</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:{_knob(g0)}">{_esc(g0)}</span>
+          <button class="heart" type="button" data-k="{_esc(key)}" aria-label="收藏">{ICON_HEART}</button>
+        </span>
       </div>
       <div class="m-main">
         {_art(track)}
@@ -381,7 +445,8 @@ def _mod(track: dict, idx: int) -> str:
     </article>"""
 
 
-def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: str) -> str:
+def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: str,
+               archive_href: str = "archive/index.html") -> str:
     mods = "\n".join(_mod(t, i) for i, t in enumerate(tracks, 1))
     if len(tracks) % 2 == 1:  # 补一格方格纸填充，让网格成完整矩形
         mods += '\n<div class="mod fill"></div>'
@@ -442,6 +507,12 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
     <div>tracks <b>{n:02d}</b></div><div>genres <b>{genre_line or '—'}</b></div>
   </div>
 
+  <div class="tools">
+    <button class="tbtn" id="fav-only" type="button">♥ 只看收藏 <span id="fav-n">0</span></button>
+    <button class="tbtn line" id="fav-export" type="button">导出收藏 → 网易云</button>
+    <a class="tbtn line" href="{archive_href}">往期 archive ↗</a>
+  </div>
+
   <div class="sect">tracklist</div>
   <div class="grid">
     {mods}
@@ -456,6 +527,15 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
     </div>
   </section>
 
+  <section class="export" id="fav-box" style="display:none">
+    <div class="h">我收藏的 · 网易云导入 <span>存在此浏览器 · 跨期累计</span></div>
+    <div class="in">
+      <p>你在各期点 ♥ 收藏的曲目（本浏览器）。复制 → 网易云「新建歌单 → 导入」。</p>
+      <pre id="fav-text"></pre>
+      <button class="btn solid" id="fav-copy" onclick="copyFav()" style="margin-top:12px">复制收藏 / copy</button>
+    </div>
+  </section>
+
   <footer>
     <span>music daily · md-{n:02d} · issue {issue_no:03d}</span>
     <span>updated 08:00 cst</span>
@@ -466,11 +546,57 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
 <div id="np" aria-live="polite">
   <img id="np-cover" alt="">
   <div id="np-meta"><div id="np-title" class="lc"></div><div id="np-artist"></div></div>
+  <button id="np-prev" class="np-btn" type="button" aria-label="上一首">{ICON_PREV}</button>
   <button id="np-toggle" class="np-btn" type="button" aria-label="播放/暂停">{ICON_PLAY}{ICON_PAUSE}</button>
+  <button id="np-next" class="np-btn" type="button" aria-label="下一首">{ICON_NEXT}</button>
   <div id="np-bar"><div id="np-fill"></div></div>
   <span id="np-time" class="mono">0:00 / 0:00</span>
 </div>
 
 <script>{js}</script>
+</body>
+</html>"""
+
+
+def build_archive_index(issues: list[dict]) -> str:
+    """往期索引页（site/archive/index.html）：按日期倒序列出所有期。issues 已倒序。"""
+    rows = "\n".join(
+        f'<a href="{_esc(s["date"])}.html"><span class="d">{_esc(s["date"])}</span>'
+        f'<span class="no">issue {int(s.get("issue_no", 0)):03d} / {int(s.get("n", 0)):02d}首</span>'
+        f'<span class="t">{_esc(s.get("playlist_title", ""))}</span></a>'
+        for s in issues
+    )
+    favicon = "data:image/svg+xml," + urllib.parse.quote(
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">'
+        '<rect width="24" height="24" fill="#f05a24"/>'
+        '<rect x="5" y="5" width="14" height="14" fill="none" stroke="#0f0e12" stroke-width="2"/></svg>')
+    return f"""<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f0e12">
+<title>music daily · archive</title>
+<link rel="icon" href="{favicon}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
+<style>{CSS}</style>
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <div class="brand lc"><span class="sq"></span>music daily</div>
+  <div class="serial"><span>archive</span><span>共 <b>{len(issues)}</b> 期</span></div>
+</div></nav>
+<main class="wrap">
+  <div class="hero"><div class="h-l"><h1 class="lc">往期</h1>
+    <div class="en">archive · all issues</div></div>
+    <div class="h-r"><span class="big">{len(issues):02d}</span>issues<br><a href="../index.html" style="border-bottom:1px solid var(--g300)">← 最新一期</a></div>
+  </div>
+  <div class="arc">
+    {rows}
+  </div>
+  <footer><span>music daily · archive</span><span><a href="../index.html" style="border-bottom:1px solid var(--g300)">← 回到最新</a></span></footer>
+</main>
 </body>
 </html>"""
