@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import html
+import re
 import urllib.parse
 
 # LCD 上的像素小猫（绿屏设备宠物感）：会眨眼(cat-eyes)、甩尾(cat-tail)、轻轻呼吸摇摆(整体 bob)
@@ -259,8 +260,8 @@ a{color:inherit; text-decoration:none}
 .artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
   margin-top:5px; letter-spacing:.03em}
 .meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:7px; line-height:1.6}
-.bpm{display:inline-block; margin-left:8px; padding:1px 6px; border:1px solid var(--g200);
-  color:var(--g900); letter-spacing:.04em; white-space:nowrap}
+.bpm{display:inline-block; margin-left:8px; padding:1px 6px 1px 5px; border:1px solid var(--g200);
+  border-left:3px solid var(--bc,var(--g300)); color:var(--g900); letter-spacing:.04em; white-space:nowrap}
 .tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:8px}
 .tag{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:2px 7px;
   background:var(--g100); color:var(--g900)}
@@ -415,10 +416,26 @@ def _tag(x: str) -> str:
     return TAG_MAP.get(x, TAG_MAP.get(x.lower(), x))
 
 
-def _bpm(track: dict) -> str:
-    """'70–120' → '70–120 bpm'；缺失返回空串。"""
+# BPM 速度分档 → 站内配色（慢蓝 / 中绿 / 偏快黄 / 快橙），按区间中点判定
+BPM_TIERS = ((85, "slow", "#0071bb"), (105, "mid", "#006837"),
+             (125, "up", "#fab413"), (10 ** 9, "fast", "#f05a24"))
+
+
+def _bpm_mid(track: dict) -> float:
+    ns = re.findall(r"\d+", str(track.get("bpm_band", "")))
+    return (int(ns[0]) + int(ns[-1])) / 2 if ns else 0.0
+
+
+def _bpm(track: dict) -> tuple[str, str]:
+    """返回 ('70–120 bpm', 颜色)；缺失返回 ('', '')。颜色按速度分四档。"""
     b = str(track.get("bpm_band", "")).strip()
-    return f"{b} bpm" if b else ""
+    if not b:
+        return "", ""
+    mid = _bpm_mid(track)
+    for lim, _name, color in BPM_TIERS:
+        if mid < lim:
+            return f"{b} bpm", color
+    return f"{b} bpm", BPM_TIERS[-1][2]
 
 
 def _art(track: dict) -> str:
@@ -441,7 +458,7 @@ def _mod(track: dict, idx: int) -> str:
     tags += "".join(f'<span class="tag">{_esc(_tag(m))}</span>' for m in (track.get("mood_tags") or [])[:2])
     links = []
     if track.get("_apple"):
-        links.append(f'<a class="btn solid" href="{_esc(track["_apple"])}" target="_blank" rel="noopener">listen ↗</a>')
+        links.append(f'<a class="btn solid" href="{_esc(track["_apple"])}" target="_blank" rel="noopener">listen</a>')
     links.append(f'<a class="btn line" href="{_spsearch(track)}" target="_blank" rel="noopener">spotify ↗</a>')
     links.append(f'<a class="btn line" href="{_ncsearch(track)}" target="_blank" rel="noopener">netease ↗</a>')
     src = ""
@@ -450,7 +467,7 @@ def _mod(track: dict, idx: int) -> str:
         src = (f'<a href="{_esc(track["source_url"])}" target="_blank" rel="noopener">{s}</a>'
                if track.get("source_url") else s)
     meta = " / ".join(x for x in [_esc(track.get("year", "")), _esc(track.get("album", ""))] if x)
-    bpm = _bpm(track)
+    bpm, bpm_c = _bpm(track)
     key = f"{track['title']} - {track['artist']}"
     return f"""
     <article class="mod" data-k="{_esc(key)}">
@@ -466,7 +483,7 @@ def _mod(track: dict, idx: int) -> str:
         <div class="hd">
           <div class="title lc">{_esc(track['title'])}</div>
           <div class="artist">{_esc(track['artist'])}</div>
-          <div class="meta">{meta}{f'<span class="bpm">{_esc(bpm)}</span>' if bpm else ''}</div>
+          <div class="meta">{meta}{f'<span class="bpm" style="--bc:{bpm_c}">{_esc(bpm)}</span>' if bpm else ''}</div>
           <div class="tags">{tags}</div>
         </div>
       </div>
