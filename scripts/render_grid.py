@@ -106,7 +106,8 @@ ICON_BALL = ('<svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="t
 # 试听播放/暂停键（叠在封面左下，播放 iTunes 公开 30s previewUrl；仅预览、非整曲）
 ICON_PLAY = '<svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg>'
 ICON_PAUSE = '<svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg>'
-# 上一首/下一首（整期贯穿播放）+ 收藏心形
+
+# 上一首/下一首（整期贯穿播放）+ 收藏心形（filled 由 .on 控制色）
 ICON_PREV = '<svg viewBox="0 0 12 10" aria-hidden="true"><rect x="1" y="1" width="2" height="8"/><path d="M11 1 L4 5 L11 9 Z"/></svg>'
 ICON_NEXT = '<svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 1 L8 5 L1 9 Z"/><rect x="9" y="1" width="2" height="8"/></svg>'
 ICON_HEART = '<svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>'
@@ -122,14 +123,12 @@ def _knob(seed: str) -> str:
 CSS = """
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  /* 纸质杂志：暖米纸底 + 墨色字 + 印刷色点缀（去掉荧光绿/仪器蓝的科技味） */
-  --white:#fffdf8; --paper:#f4efe4; --paper2:#ebe4d6; --ink:#1a1714;
-  --g100:#e3dccd; --g200:#cfc6b4; --g300:#b8ae99; --g500:#9c9282;
-  --g600:#7a7164; --g900:#443e36; --g1000:#2b2620;
-  --blue:#3a5f7d; --green:#5c7a5e; --green-d:#445f47; --orange:#d4622a;
-  --red:#a33c2b; --yellow:#c99a3c;
+  --white:#fff; --paper:#f5f5f5; --ink:#0f0e12;
+  --g100:#e5e5e5; --g200:#ccc; --g300:#b2b2b2; --g500:#a1a7af;
+  --g600:#767676; --g900:#4d4d4d; --g1000:#272727;
+  --blue:#0071bb; --green:#00a651; --green-d:#006837; --orange:#f05a24;
+  --red:#b81d13; --yellow:#fab413;
   --sans:"Inter","Noto Sans SC","Helvetica Neue",Arial,sans-serif;
-  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC",Georgia,"Times New Roman",serif;
   --mono:"Space Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
   --fs-10:clamp(11px,.92vw,13px); --fs-15:clamp(12px,1.1vw,15px);
   --fs-20:clamp(15px,1.5vw,20px); --fs-25:clamp(19px,2.1vw,27px);
@@ -140,9 +139,6 @@ CSS = """
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--sans); font-weight:300; color:var(--ink); background:var(--paper);
-  background-image:
-    repeating-linear-gradient(0deg, rgba(26,23,20,.012) 0 1px, transparent 1px 3px),
-    radial-gradient(120% 80% at 20% 0%, rgba(255,255,255,.5), transparent 60%);
   line-height:1.5; letter-spacing:0; -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility; font-feature-settings:"kern" 1,"liga" 1;
   padding-bottom:76px; overscroll-behavior-y:none}
@@ -164,8 +160,7 @@ a{color:inherit; text-decoration:none}
 /* Hero */
 .hero{padding:var(--sp-xl) 0 var(--sp-lg); display:flex; align-items:flex-end;
   justify-content:space-between; gap:var(--sp-lg); flex-wrap:wrap}
-.hero .h-l h1{font-family:var(--serif); font-size:var(--fs-40); font-weight:400; line-height:1.05;
-  letter-spacing:.01em}
+.hero .h-l h1{font-size:var(--fs-40); font-weight:100; line-height:1.02; letter-spacing:-.01em}
 .hero .h-l .en{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
   color:var(--g600); margin-top:10px; letter-spacing:.06em}
 .hero .h-r{text-align:right; font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
@@ -174,22 +169,13 @@ a{color:inherit; text-decoration:none}
   font-family:var(--sans); line-height:.9; letter-spacing:-.02em}
 
 /* LCD 屏幕模块 */
-.lcd{background:var(--white); border:1px solid var(--g200); color:var(--g900);
-  font-family:var(--mono); font-size:var(--fs-15); overflow:hidden; position:relative;
-  margin-bottom:var(--sp-md); box-shadow:0 1px 0 rgba(255,255,255,.7) inset, 0 2px 6px rgba(26,23,20,.05);
-  background-image:repeating-linear-gradient(0deg, rgba(26,23,20,.02) 0 1px, transparent 1px 4px)}
-/* 上下两条"胶带" */
-.lcd::before,.lcd::after{content:""; position:absolute; width:52px; height:15px; z-index:2;
-  background:rgba(212,98,42,.16); border-left:1px dashed rgba(212,98,42,.3);
-  border-right:1px dashed rgba(212,98,42,.3); transform:rotate(-2deg)}
-.lcd::before{left:14px; top:-7px}
-.lcd::after{right:16px; bottom:-7px; transform:rotate(2.5deg)}
-.lcd .row1{display:flex; align-items:center; gap:10px; padding:9px 16px; min-height:46px;
-  border-bottom:1px dashed var(--g200)}
-.lcd .dot{width:7px; height:7px; border-radius:50%; background:var(--orange); flex:none;
-  animation:blink 1.6s steps(1) infinite}
-.lcd #boot{white-space:pre; overflow:hidden; flex:1; min-width:0; text-overflow:ellipsis; color:var(--g900)}
-.lcd #boot .cur{animation:blink .8s steps(1) infinite; color:var(--orange)}
+.lcd{background:#08110c; border:1px solid var(--g1000); color:var(--green);
+  font-family:var(--mono); font-size:var(--fs-15); overflow:hidden; position:relative; margin-bottom:var(--sp-md)}
+.lcd .row1{display:flex; align-items:center; gap:10px; padding:9px 16px; min-height:46px; border-bottom:1px solid #12241a}
+.lcd .dot{width:8px; height:8px; border-radius:50%; background:var(--green); flex:none;
+  box-shadow:0 0 8px var(--green); animation:blink 1.3s steps(1) infinite}
+.lcd #boot{white-space:pre; overflow:hidden; flex:1; min-width:0; text-overflow:ellipsis}
+.lcd #boot .cur{animation:blink .8s steps(1) infinite}
 .lcd .cat-wrap{position:relative; width:clamp(104px,15vw,156px); height:34px; flex:none; margin-left:auto;
   align-self:center}
 /* 4 套姿态叠在一起，靠 opacity 切换做定格动画；整体走位靠 .cat-wrap 的 travel */
@@ -267,8 +253,8 @@ a{color:inherit; text-decoration:none}
 .lcd .prop.ball{right:0; width:10px} .lcd .prop.ball svg{display:block; width:10px}
 .lcd .prop.bowl{animation:prop-bowl 14s ease-in-out infinite}
 .lcd .prop.ball{animation:prop-ball 14s ease-in-out infinite}
-.lcd .prop.bowl rect{fill:#b8ae99} .lcd .prop.bowl .food{fill:#d4622a} .lcd .prop.bowl .fish{fill:#9c9282}
-.lcd .prop.ball rect{fill:#d4622a} .lcd .prop.ball .hl{fill:#f2c9a8} .lcd .prop.ball .yarn{fill:#a33c2b}
+.lcd .prop.bowl rect{fill:#6fbf90} .lcd .prop.bowl .food{fill:#f0a24a}
+.lcd .prop.ball rect{fill:#f05a24} .lcd .prop.ball .hl{fill:#ffd7bf}
 @keyframes cat-breathe{50%{transform:scaleY(1.03)}}
 @keyframes prop-bowl{0%{opacity:0}6%,25%{opacity:1}28%,100%{opacity:0}}
 @keyframes prop-ball{
@@ -280,13 +266,13 @@ a{color:inherit; text-decoration:none}
   58%{opacity:1; transform:translate(3px,0)}
   61%{opacity:.7; transform:translate(-6px,-4px)}
   64%,100%{opacity:0; transform:translate(0,0)}}
-.lcd .ticker{padding:8px 0; position:relative; border-top:1px dashed var(--g200); -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
+.lcd .ticker{padding:8px 0; position:relative; -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
-.lcd .track{display:inline-block; white-space:nowrap; padding-left:100%; color:var(--g600);
+.lcd .track{display:inline-block; white-space:nowrap; padding-left:100%; color:#3fae6f;
   animation:marquee 26s linear infinite}
 .lcd:hover .track{animation-play-state:paused}
-.lcd .track b{color:var(--orange); font-weight:700}
-.lcd .track i{color:var(--g300); font-style:normal; margin:0 14px}
+.lcd .track b{color:var(--green); font-weight:700}
+.lcd .track i{color:#1f6b42; font-style:normal; margin:0 14px}
 @keyframes blink{50%{opacity:.2}}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
@@ -376,7 +362,7 @@ a{color:inherit; text-decoration:none}
 .arc .no{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); flex:none}
 .arc .t{font-size:var(--fs-15); font-weight:300; color:var(--g900); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 .hd{flex:1; min-width:0}
-.title{font-family:var(--serif); font-size:var(--fs-25); font-weight:400; line-height:1.2; letter-spacing:0}
+.title{font-size:var(--fs-25); font-weight:100; line-height:1.12; letter-spacing:-.01em}
 .artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
   margin-top:5px; letter-spacing:.03em}
 .meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:7px; line-height:1.6}
@@ -387,7 +373,7 @@ a{color:inherit; text-decoration:none}
   background:var(--g100); color:var(--g900)}
 .body{padding:var(--sp-md); display:flex; flex-direction:column; flex:1}
 .one{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); line-height:1.65; margin-bottom:7px}
-.why{font-family:var(--serif); font-size:var(--fs-15); font-weight:400; line-height:1.75}
+.why{font-size:var(--fs-15); font-weight:300; line-height:1.55}
 .scene{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
   margin-top:auto; padding-top:11px}
 .scene .k{color:var(--orange)}
