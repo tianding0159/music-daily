@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Forest Flower: Sunrise",
+    "artist": "Charles Lloyd",
+    "reason": "version_mismatch",
+    "matched": "Forest Flower: Sunrise (Live)",
+    "matched_artist": "Charles Lloyd"
+  },
+  {
+    "title": "Gypsy Queen",
+    "artist": "Gábor Szabó",
+    "reason": "artist_mismatch",
+    "matched": "Gypsy Queen",
+    "matched_artist": "Gabor Szabo"
+  },
+  {
+    "title": "Nakamarra",
+    "artist": "Hiatus Kaiyote",
+    "reason": "duplicate"
+  }
+]

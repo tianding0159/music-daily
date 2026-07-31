@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Água e Vinho",
+    "artist": "Egberto Gismonti",
+    "reason": "artist_mismatch",
+    "matched": "Água e Vinho (Transcr. for Guitar by Rosie Bennet)",
+    "matched_artist": "Rosie Bennet"
+  },
+  {
+    "title": "Mas Que Nada",
+    "artist": "Sérgio Mendes",
+    "reason": "version_mismatch",
+    "matched": "Mas Que Nada (Live, April 1973)",
+    "matched_artist": "Sérgio Mendes & Brasil '77"
+  },
+  {
+    "title": "Bay City",
+    "artist": "Junko Yagami",
+    "reason": "version_mismatch",
+    "matched": "Bay City (Max Denor Remix)",
+    "matched_artist": "Max Denor & JUNKO YAGAMI"
+  },
+  {
+    "title": "Wild Animals",
+    "artist": "Liv.e",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "The Rabbit Hunter",
+    "artist": "Yin Yin",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  }
+]

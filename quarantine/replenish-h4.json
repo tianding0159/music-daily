@@ -1,0 +1,28 @@
+[
+  {
+    "title": "You Are Everything",
+    "artist": "The Stylistics",
+    "reason": "duplicate"
+  },
+  {
+    "title": "Goodie Bag",
+    "artist": "Still Woozy",
+    "reason": "artist_mismatch",
+    "matched": "Goodie Bag (Instrumental)",
+    "matched_artist": "Goodie Mob"
+  },
+  {
+    "title": "Something My Heart Trusts",
+    "artist": "Yazmin Lacey",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Cold War",
+    "artist": "Cautious Clay",
+    "reason": "version_mismatch",
+    "matched": "Cold War (feat. Nick AM) [Nick AM Remix]",
+    "matched_artist": "Cautious Clay"
+  }
+]

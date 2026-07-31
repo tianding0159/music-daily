@@ -1,0 +1,31 @@
+[
+  {
+    "title": "Our Love Is Heavenly",
+    "artist": "Heavenly",
+    "reason": "duplicate"
+  },
+  {
+    "title": "Pristine Christine",
+    "artist": "The Sea Urchins",
+    "reason": "duplicate"
+  },
+  {
+    "title": "Best Friend",
+    "artist": "Rex Orange County",
+    "reason": "version_mismatch",
+    "matched": "Best Friend (Live at Radio City Music Hall)",
+    "matched_artist": "Rex Orange County"
+  },
+  {
+    "title": "American Spirits",
+    "artist": "Inner Wave",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Starting Today",
+    "artist": "Joe Armon-Jones",
+    "reason": "duplicate"
+  }
+]

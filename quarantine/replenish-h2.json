@@ -1,0 +1,99 @@
+[
+  {
+    "title": "The Nightmare of J.B. Stanislas",
+    "artist": "Nick Garrie",
+    "reason": "version_mismatch",
+    "matched": "The Nightmare of J.B. Stanislas (Demo)",
+    "matched_artist": "Nick Garrie"
+  },
+  {
+    "title": "Postcards of Scarborough",
+    "artist": "Michael Chapman",
+    "reason": "duplicate"
+  },
+  {
+    "title": "To Be Without a Hitch",
+    "artist": "Bridget St John",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Seventeen",
+    "artist": "Tomberlin",
+    "reason": "duplicate"
+  },
+  {
+    "title": "The Fear of Living Again",
+    "artist": "Florist",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Sight of You",
+    "artist": "Pale Saints",
+    "reason": "duplicate"
+  },
+  {
+    "title": "Between Something and Nothing",
+    "artist": "The Ocean Blue",
+    "reason": "duplicate"
+  },
+  {
+    "title": "Winona",
+    "artist": "Drop Nineteens",
+    "reason": "duplicate"
+  },
+  {
+    "title": "Drive That Fast",
+    "artist": "Kitchens of Distinction",
+    "reason": "duplicate"
+  },
+  {
+    "title": "Pearl",
+    "artist": "Chapterhouse",
+    "reason": "duplicate"
+  },
+  {
+    "title": "Nothing to Be Done",
+    "artist": "The Pastels",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Prisms",
+    "artist": "Jonny Nash",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Lucky Fellow",
+    "artist": "Leroy Hutson",
+    "reason": "duplicate"
+  },
+  {
+    "title": "Intimate Friends",
+    "artist": "Eddie Kendricks",
+    "reason": "duplicate"
+  },
+  {
+    "title": "I Can't Stand the Rain",
+    "artist": "Ann Peebles",
+    "reason": "duplicate"
+  },
+  {
+    "title": "La-La (Means I Love You)",
+    "artist": "The Delfonics",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Is It Because I'm Black",
+    "artist": "Syl Johnson",
+    "reason": "duplicate"
+  }
+]

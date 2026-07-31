@@ -1,0 +1,20 @@
+{
+  "input": 32,
+  "schema_valid": 32,
+  "exact_match": 30,
+  "acceptable_match": 0,
+  "duplicates": 4,
+  "version_mismatch": 0,
+  "artist_mismatch": 0,
+  "album_mismatch": 0,
+  "not_found": 2,
+  "blacklist": 0,
+  "transient_error": 0,
+  "added": 26,
+  "quarantined": 6,
+  "run_id": "replenish-h8",
+  "candidates": [
+    "replenish-h8.json"
+  ],
+  "generated_at": "2026-07-31T11:01:23+08:00"
+}

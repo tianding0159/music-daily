@@ -1,0 +1,36 @@
+[
+  {
+    "title": "With Light and with Love",
+    "artist": "Woods",
+    "reason": "duplicate"
+  },
+  {
+    "title": "Way Out Weather",
+    "artist": "Steve Gunn",
+    "reason": "duplicate"
+  },
+  {
+    "title": "Wallflower",
+    "artist": "Jordan Rakei",
+    "reason": "duplicate"
+  },
+  {
+    "title": "Downers",
+    "artist": "Greentea Peng",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Ripe",
+    "artist": "Jogging House",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Lucky Girl",
+    "artist": "Fazerdaze",
+    "reason": "duplicate"
+  }
+]

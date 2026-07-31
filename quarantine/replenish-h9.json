@@ -1,0 +1,36 @@
+[
+  {
+    "title": "Fire",
+    "artist": "Waxahatchee",
+    "reason": "duplicate"
+  },
+  {
+    "title": "Super Natural",
+    "artist": "Turnover",
+    "reason": "duplicate"
+  },
+  {
+    "title": "Tú Calorro",
+    "artist": "Grupo Los Yoyi",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Colibria",
+    "artist": "Nicola Cruz",
+    "reason": "duplicate"
+  },
+  {
+    "title": "Kill Me",
+    "artist": "Indigo De Souza",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Deep in Love",
+    "artist": "Bonny Light Horseman",
+    "reason": "duplicate"
+  }
+]
