@@ -187,7 +187,7 @@ a{color:inherit; text-decoration:none}
 .lcd .pose .nose{fill:#e8859a}
 .lcd .pose .mouth{fill:#e8859a}
 .lcd .pose .blush{fill:#f2a9b5; opacity:.85}
-.lcd .pose .pad rect{fill:#f2a9b5}
+.lcd .pose .pad rect{fill:#ffffff}
 .lcd .pose .zzz rect{fill:#9c9282}
 .lcd .pose .cat-eyes{transform-box:fill-box; transform-origin:center; animation:cat-blink 2.2s infinite}
 .lcd .pose .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
