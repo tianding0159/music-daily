@@ -1,35 +1,35 @@
 {
-  "date": "2026-07-30",
-  "issue_no": 3,
-  "playlist_title": "木头、旧磁带和一点灰（07.30）",
+  "date": "2026-07-31",
+  "issue_no": 4,
+  "playlist_title": "一个人也不觉得空的房间（07.31）",
   "tracks_brief": [
     {
-      "title": "Space Song",
-      "artist": "Beach House"
+      "title": "Over the Pond",
+      "artist": "The Album Leaf"
     },
     {
-      "title": "Fade Into You",
-      "artist": "Mazzy Star"
+      "title": "Alena",
+      "artist": "Yumi Zouma"
     },
     {
-      "title": "Never Meant",
-      "artist": "American Football"
+      "title": "Bags",
+      "artist": "Clairo"
     },
     {
-      "title": "Les Fleurs",
-      "artist": "Minnie Riperton"
+      "title": "The Moon",
+      "artist": "The Microphones"
     },
     {
-      "title": "Chateau Lobby #4 (In C for Two Virgins)",
-      "artist": "Father John Misty"
+      "title": "County Line",
+      "artist": "Cass McCombs"
     },
     {
-      "title": "Kettering",
-      "artist": "The Antlers"
+      "title": "Young, Latin and Proud",
+      "artist": "Helado Negro"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
   "relax": [],
-  "fresh_build": false
+  "fresh_build": true
 }
