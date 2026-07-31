@@ -46,30 +46,63 @@ body{padding-bottom:76px}
 .fsel .lbl{position:absolute; left:14px; top:6px; font-family:var(--mono); font-size:9px;
   color:var(--g500); text-transform:uppercase; letter-spacing:.1em; pointer-events:none}
 .fsel select{padding-top:20px}
-#roll{flex:0 0 auto; min-width:clamp(160px,26vw,260px); border:none; cursor:pointer;
+#roll{flex:0 0 auto; min-width:clamp(160px,26vw,260px); border:none; cursor:pointer; position:relative;
   background:var(--ink); color:var(--white); font-family:var(--mono); font-size:var(--fs-20);
-  text-transform:uppercase; letter-spacing:.08em; padding:18px 26px; display:flex;
+  text-transform:uppercase; letter-spacing:.08em; padding:18px 26px; display:flex; overflow:hidden;
   align-items:center; justify-content:center; gap:12px; transition:background .2s, transform .1s}
 #roll:hover{background:var(--g1000)}
 #roll:active{transform:scale(.985)}
 #roll.rolling{background:var(--green-d)}
-#roll .k{font-size:var(--fs-10); color:var(--g300); letter-spacing:.06em}
-#roll .dice{width:23px; height:15px; display:inline-block; flex:none}
-#roll .dice g{transition:transform .2s}
-#roll:hover .a1{transform:translateX(1.5px)}
-#roll:hover .a2{transform:translateX(-1.5px)}
-#roll.rolling .a1{animation:sw1 .42s ease-in-out infinite}
-#roll.rolling .a2{animation:sw2 .42s ease-in-out infinite}
-@keyframes sw1{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
-@keyframes sw2{0%,100%{transform:translateX(0)}50%{transform:translateX(-3px)}}
+#roll .k{font-size:var(--fs-10); color:var(--g300); letter-spacing:.06em; position:relative; z-index:1}
+#roll .lab{position:relative; z-index:1}
+/* 按下时从中心荡开的波纹 */
+#roll::after{content:""; position:absolute; left:50%; top:50%; width:8px; height:8px;
+  background:rgba(255,255,255,.28); transform:translate(-50%,-50%) scale(0); opacity:0}
+#roll.ping::after{animation:ping .5s ease-out}
+@keyframes ping{0%{transform:translate(-50%,-50%) scale(0);opacity:.7}
+  100%{transform:translate(-50%,-50%) scale(34);opacity:0}}
+/* 图标 */
+#roll .dice{width:26px; height:24px; display:inline-block; flex:none; position:relative; z-index:1;
+  image-rendering:pixelated}
+#roll .dice g{transform-box:fill-box; transform-origin:center}
+#roll .dice .paw{transform-origin:50% 100%; transition:transform .18s cubic-bezier(.34,1.56,.64,1)}
+#roll:hover .dice .paw{transform:translateY(-2.5px) rotate(-4deg)}
+#roll:active .dice .paw{transform:translateY(1px)}
+#roll.rolling .dice .paw{animation:paw-tap .42s ease-in-out infinite}
+#roll.rolling .dice .disc,#roll.rolling .dice .disc-h{animation:disc-wob .42s ease-in-out infinite}
+#roll.rolling .dice .note{animation:note-pop .84s ease-out infinite}
+@keyframes paw-tap{0%,100%{transform:translateY(-3px) rotate(-5deg)}50%{transform:translateY(1px) rotate(2deg)}}
+@keyframes disc-wob{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.82) translateY(1px)}}
+@keyframes note-pop{0%{opacity:0;transform:translate(0,0)}
+  25%{opacity:1;transform:translate(1px,-3px)}
+  70%{opacity:.7;transform:translate(3px,-7px)}
+  100%{opacity:0;transform:translate(4px,-10px)}}
+
 .hint{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:8px}
 .hint b{color:var(--ink); font-weight:400}
 .hint kbd{border:1px solid var(--g300); padding:1px 6px; background:var(--white)}
 
 /* 单张大卡 */
 .card{border:1px solid var(--g300); background:var(--paper); margin-top:var(--sp-md);
-  opacity:0; transform:translateY(6px); transition:opacity .35s ease-out, transform .35s ease-out}
+  opacity:0; transform:translateY(8px); transition:opacity .38s ease-out, transform .38s ease-out;
+  position:relative; overflow:hidden}
 .card.in{opacity:1; transform:none}
+/* 揭晓瞬间：顶栏一道扫光 */
+.card.in .c-top::after{content:""; position:absolute; left:0; top:0; height:100%; width:38%;
+  background:linear-gradient(90deg,transparent,rgba(0,166,81,.16),transparent);
+  animation:sweep .75s ease-out 1 forwards; pointer-events:none}
+@keyframes sweep{from{transform:translateX(-120%)}to{transform:translateX(360%)}}
+/* 封面：从像素糊到清晰 + 轻微放大 */
+.card .big-art .cover{animation:art-in .5s ease-out both}
+@keyframes art-in{from{opacity:0; transform:scale(.94); filter:blur(6px)}
+  to{opacity:1; transform:scale(1); filter:blur(0)}}
+/* 文字块错峰上浮 */
+.card.in .c-title{animation:rise .42s ease-out .04s both}
+.card.in .c-artist{animation:rise .42s ease-out .09s both}
+.card.in .c-meta,.card.in .tags{animation:rise .42s ease-out .14s both}
+.card.in .c-one,.card.in .c-why{animation:rise .42s ease-out .19s both}
+.card.in .c-scene,.card.in .c-links{animation:rise .42s ease-out .24s both}
+@keyframes rise{from{opacity:0; transform:translateY(7px)}to{opacity:1; transform:none}}
 .card .c-top{display:flex; align-items:center; justify-content:space-between;
   padding:12px 16px; border-bottom:1px solid var(--g100)}
 .card .c-no{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
@@ -115,18 +148,35 @@ body{padding-bottom:76px}
   .fsel{flex:1 1 50%}
 }
 @media(prefers-reduced-motion:reduce){
-  .card{opacity:1; transform:none; transition:none}
+  .card,.card .big-art .cover,.card.in .c-title,.card.in .c-artist,.card.in .c-meta,.card.in .tags,
+  .card.in .c-one,.card.in .c-why,.card.in .c-scene,.card.in .c-links{
+    opacity:1; transform:none; transition:none; animation:none; filter:none}
+  .card.in .c-top::after,#roll.ping::after{animation:none; display:none}
+  #roll .dice g{animation:none !important}
   #roll.rolling .dice{animation:none}
 }
 """
 
 ICON_DICE = (
-    # 双向箭头「⇄」：换/另起的语义直给，线条极简、任何尺寸都清楚，与站内 ↗ ▸ 同一符号语言
-    '<svg class="dice" viewBox="0 0 22 14" shape-rendering="geometricPrecision" aria-hidden="true">'
-    '<g class="a1" fill="#fff"><rect x="1" y="3.4" width="15" height="1.5"/>'
-    '<path d="M15 1 L21 4.15 L15 7.3 Z"/></g>'
-    '<g class="a2" fill="#fff"><rect x="6" y="9.1" width="15" height="1.5"/>'
-    '<path d="M7 6.7 L1 9.85 L7 13 Z"/></g>'
+    # 像素猫爪 + 唱片：爪在上、片在下、中间留白，小尺寸也分得清；按下时爪拍、片弹、冒音符
+    '<svg class="dice" viewBox="0 0 24 22" shape-rendering="crispEdges" aria-hidden="true">'
+    # 猫爪：4 趾 + 圆掌（留白清楚）
+    '<g class="paw" fill="#fff">'
+    '<rect x="3" y="3" width="3" height="3"/><rect x="8" y="1" width="3" height="3"/>'
+    '<rect x="13" y="1" width="3" height="3"/><rect x="18" y="3" width="3" height="3"/>'
+    '<rect x="5" y="7" width="14" height="4"/><rect x="6" y="11" width="12" height="1"/>'
+    '</g>'
+    # 唱片：横向黑胶（外圈 + 中孔），与爪之间留 2px 空气
+    '<g class="disc" fill="#fff">'
+    '<rect x="6" y="15" width="12" height="1"/><rect x="4" y="16" width="16" height="4"/>'
+    '<rect x="6" y="20" width="12" height="1"/>'
+    '</g>'
+    '<g class="disc-h" fill="#0f0e12"><rect x="11" y="17" width="2" height="2"/></g>'
+    # 音符（按下时冒）
+    '<g class="note" fill="#fff" opacity="0">'
+    '<rect x="21" y="7" width="1" height="4"/><rect x="22" y="6" width="2" height="1"/>'
+    '<rect x="20" y="11" width="2" height="2"/>'
+    '</g>'
     '</svg>')
 
 JS = """
@@ -255,11 +305,11 @@ fetch('pool.min.json').then(r=>r.json()).then(d=>{
   if(seed){seen.push(seed.id);render(seed);pushRecent(seed);}else{roll();}
 });
 
-$('#roll').addEventListener('click',roll);
+$('#roll').addEventListener('click',()=>{const b=$('#roll');b.classList.remove('ping');void b.offsetWidth;b.classList.add('ping');roll();});
 document.addEventListener('keydown',(e)=>{
   const tag=(e.target.tagName||'').toLowerCase();
   if(tag==='input'||tag==='textarea'||tag==='select')return;
-  if(e.code==='Space'){e.preventDefault();roll();}
+  if(e.code==='Space'){e.preventDefault();const b=$('#roll');b.classList.remove('ping');void b.offsetWidth;b.classList.add('ping');roll();}
   else if(e.key==='p'||e.key==='P'){if(cur)toggle(cur);}
 });
 """
@@ -320,7 +370,7 @@ def build_html(n_total: int) -> str:
       <div class="fsel"><span class="lbl">genre</span><select id="f-genre"></select></div>
       <div class="fsel"><span class="lbl">decade</span><select id="f-decade"></select></div>
     </div>
-    <button id="roll" type="button">{ICON_DICE}另起一首<span class="k">space</span></button>
+    <button id="roll" type="button">{ICON_DICE}<span class="lab">另起一首</span><span class="k">space</span></button>
   </div>
   <div class="hint">按 <kbd>space</kbd> 另起一首 · <kbd>p</kbd> 播放/暂停 · 每首自动播 30 秒试听 · ♥ 收藏与日报页共用</div>
 
