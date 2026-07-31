@@ -34,12 +34,10 @@ _HEAD = (
     '<rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/>'
     '<rect x="12" y="4" width="4" height="4"/>'
     '</g>'
-    '<g class="cat-eyes">'                                             # 大圆眼（内收，别贴边）
-    '<rect x="5" y="5" width="3" height="3"/><rect x="10" y="5" width="3" height="3"/>'
-    '<rect class="glint" x="5" y="5" width="1" height="1"/><rect class="glint" x="10" y="5" width="1" height="1"/>'
+    '<g class="cat-eyes">'                                             # 粗横线眼（呆呆的）
+    '<rect x="4" y="6" width="4" height="2"/><rect x="10" y="6" width="4" height="2"/>'
     '</g>'
-    '<rect class="nose" x="8" y="9" width="2" height="1"/>'            # 鼻子下移，和眼睛拉开
-    '<rect class="mouth" x="7" y="10" width="1" height="1"/><rect class="mouth" x="10" y="10" width="1" height="1"/>'
+    '<rect class="mouth" x="8" y="10" width="2" height="1"/>'          # 小嘴（居中、贴在眼下方）
     '<rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/>')
 
 # ① 站立（矮胖四肢）
@@ -187,7 +185,7 @@ a{color:inherit; text-decoration:none}
 .lcd .pose .cat-eyes rect{fill:#2b2620}
 .lcd .pose .glint{fill:#ffffff}
 .lcd .pose .nose{fill:#e8859a}
-.lcd .pose .mouth{fill:#b8ae99}
+.lcd .pose .mouth{fill:#e8859a}
 .lcd .pose .blush{fill:#f2a9b5; opacity:.85}
 .lcd .pose .pad rect{fill:#f2a9b5}
 .lcd .pose .zzz rect{fill:#9c9282}
