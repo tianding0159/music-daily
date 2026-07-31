@@ -191,6 +191,26 @@ a{color:inherit; text-decoration:none}
 #np-fill{position:absolute; left:0; top:0; bottom:0; width:0; background:var(--green)}
 #np-time{flex:none; min-width:82px; text-align:right; font-family:var(--mono); font-size:var(--fs-10); color:var(--g300)}
 @media(max-width:720px){#np-meta{width:clamp(90px,32vw,160px)} #np-time{display:none}}
+#np-prev,#np-next{width:30px; height:30px} #np-prev svg,#np-next svg{width:12px; height:10px}
+.heart{background:none; border:none; padding:0 0 0 8px; cursor:pointer; line-height:0}
+.heart svg{width:18px; height:18px; fill:var(--g300); transition:fill .15s, transform .15s}
+.heart:hover svg{fill:var(--g600)}
+.heart.on svg{fill:var(--red)}
+.heart:active svg{transform:scale(.85)}
+.tools{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:var(--sp-md)}
+.tbtn{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:8px 12px; cursor:pointer;
+  border:1px solid var(--ink); background:var(--paper); color:var(--ink); display:inline-flex; align-items:center; gap:6px; transition:opacity .2s}
+.tbtn:hover{opacity:.7}
+.tbtn.active{background:var(--ink); color:var(--white)}
+.tbtn.line{background:transparent}
+.mod.hidden{display:none}
+.arc{border-top:1px solid var(--g300); border-left:1px solid var(--g300); margin-top:var(--sp-md)}
+.arc a{display:flex; align-items:baseline; gap:var(--sp-md); padding:14px 16px;
+  border-right:1px solid var(--g300); border-bottom:1px solid var(--g300); transition:background .15s}
+.arc a:hover{background:var(--white)}
+.arc .d{font-family:var(--mono); font-size:var(--fs-15); color:var(--ink); flex:none; width:110px}
+.arc .no{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); flex:none}
+.arc .t{font-size:var(--fs-15); font-weight:300; color:var(--g900); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 .hd{flex:1; min-width:0}
 .title{font-size:var(--fs-25); font-weight:100; line-height:1.12; letter-spacing:-.01em}
 .artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
@@ -268,13 +288,22 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
     <div>tracks <b>30</b></div><div>genres <b>downtempo · dream pop · midwest emo · soft post-rock · ambient · ambient folk</b></div>
   </div>
 
+  <div class="tools">
+    <button class="tbtn" id="fav-only" type="button">♥ 只看收藏 <span id="fav-n">0</span></button>
+    <button class="tbtn line" id="fav-export" type="button">导出收藏 → 网易云</button>
+    <a class="tbtn line" href="index.html">往期 archive ↗</a>
+  </div>
+
   <div class="sect">tracklist</div>
   <div class="grid">
     
-    <article class="mod">
+    <article class="mod" data-k="Space Song - Beach House">
       <div class="m-top">
         <span class="m-num">01</span>
-        <span class="m-code" style="background:#f05a24">Dream Pop</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">Dream Pop</span>
+          <button class="heart" type="button" data-k="Space Song - Beach House" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/09/e0/d5/09e0d559-0682-f0f0-5e0c-3cd11e3114fd/beachhouse_depressioncherry_2400_300.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/4b/1d/64/4b1d6431-295b-2683-d180-cf3cba4eb943/mzaf_10508096473229016789.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/09/e0/d5/09e0d559-0682-f0f0-5e0c-3cd11e3114fd/beachhouse_depressioncherry_2400_300.jpg/600x600bb.jpg" data-title="Space Song" data-artist="Beach House" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -294,10 +323,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Fade Into You - Mazzy Star">
       <div class="m-top">
         <span class="m-num">02</span>
-        <span class="m-code" style="background:#f05a24">Dream Pop</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">Dream Pop</span>
+          <button class="heart" type="button" data-k="Fade Into You - Mazzy Star" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/0f/03/ea/0f03ead1-d1eb-27fd-0734-b257b515692f/13UABIM59278.rgb.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4c/db/e8/4cdbe88c-b737-617d-0c1c-35ba36445750/mzaf_4038354414747356567.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/0f/03/ea/0f03ead1-d1eb-27fd-0734-b257b515692f/13UABIM59278.rgb.jpg/600x600bb.jpg" data-title="Fade Into You" data-artist="Mazzy Star" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -317,10 +349,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Never Meant - American Football">
       <div class="m-top">
         <span class="m-num">03</span>
-        <span class="m-code" style="background:#b81d13">Midwest Emo</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#b81d13">Midwest Emo</span>
+          <button class="heart" type="button" data-k="Never Meant - American Football" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/17/90/19/179019ea-4eaf-b2e5-ca19-68cdbb795032/644110027696.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/53/2b/d9/532bd9e7-5f04-ab94-fe30-e85b911d15ce/mzaf_13111898941128044078.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/17/90/19/179019ea-4eaf-b2e5-ca19-68cdbb795032/644110027696.png/600x600bb.jpg" data-title="Never Meant" data-artist="American Football" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -340,10 +375,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Les Fleurs - Minnie Riperton">
       <div class="m-top">
         <span class="m-num">04</span>
-        <span class="m-code" style="background:#006837">neo soul</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#006837">neo soul</span>
+          <button class="heart" type="button" data-k="Les Fleurs - Minnie Riperton" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/7d/1b/96/7d1b96cc-1519-8a06-0a28-62aba1bc0aa0/00602577421426.rgb.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/be/de/58/bede5841-0e4f-f026-b827-34ba3ba6eab3/mzaf_5652546095634699206.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/7d/1b/96/7d1b96cc-1519-8a06-0a28-62aba1bc0aa0/00602577421426.rgb.jpg/600x600bb.jpg" data-title="Les Fleurs" data-artist="Minnie Riperton" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -363,10 +401,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Chateau Lobby #4 (In C for Two Virgins) - Father John Misty">
       <div class="m-top">
         <span class="m-num">05</span>
-        <span class="m-code" style="background:#fab413">chamber pop</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#fab413">chamber pop</span>
+          <button class="heart" type="button" data-k="Chateau Lobby #4 (In C for Two Virgins) - Father John Misty" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/06/d3/5b/06d35b24-2744-eae0-7160-b5e453f9fd57/FJM_ILoveYouHoneybear.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b1/d7/a8/b1d7a8fe-fe8d-1e13-d214-dab38a59e552/mzaf_8884353165015795170.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/06/d3/5b/06d35b24-2744-eae0-7160-b5e453f9fd57/FJM_ILoveYouHoneybear.jpg/600x600bb.jpg" data-title="Chateau Lobby #4 (In C for Two Virgins)" data-artist="Father John Misty" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -386,10 +427,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Kettering - The Antlers">
       <div class="m-top">
         <span class="m-num">06</span>
-        <span class="m-code" style="background:#f05a24">slowcore</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">slowcore</span>
+          <button class="heart" type="button" data-k="Kettering - The Antlers" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/e0/57/3e/e0573efe-8fa6-52be-5ac2-e7952e3fb63d/884385757045.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/8f/ae/b8/8faeb82d-70f6-3c3d-7fab-17d3240f7d07/mzaf_3806518662313981167.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/e0/57/3e/e0573efe-8fa6-52be-5ac2-e7952e3fb63d/884385757045.jpg/600x600bb.jpg" data-title="Kettering" data-artist="The Antlers" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -409,10 +453,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Ordinary Joe - Terry Callier">
       <div class="m-top">
         <span class="m-num">07</span>
-        <span class="m-code" style="background:#006837">neo soul</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#006837">neo soul</span>
+          <button class="heart" type="button" data-k="Ordinary Joe - Terry Callier" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/f4/3c/3a/f43c3a9c-a080-13d6-00b7-ba6f75d7b0d8/00602438051229.rgb.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/b6/2e/3d/b62e3daa-a32c-f9bb-01cb-231df944761d/mzaf_6375270000106339893.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/f4/3c/3a/f43c3a9c-a080-13d6-00b7-ba6f75d7b0d8/00602438051229.rgb.jpg/600x600bb.jpg" data-title="Ordinary Joe" data-artist="Terry Callier" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -432,10 +479,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Fahrenheit Fair Enough - Telefon Tel Aviv">
       <div class="m-top">
         <span class="m-num">08</span>
-        <span class="m-code" style="background:#f05a24">idm</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">idm</span>
+          <button class="heart" type="button" data-k="Fahrenheit Fair Enough - Telefon Tel Aviv" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music71/v4/6c/5f/b4/6c5fb4de-697d-ff3f-7067-af1ae9a767df/804297827223.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/1f/5a/d0/1f5ad02a-2d5d-046a-a348-7f654d1c3f7a/mzaf_8952805902503803468.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music71/v4/6c/5f/b4/6c5fb4de-697d-ff3f-7067-af1ae9a767df/804297827223.jpg/600x600bb.jpg" data-title="Fahrenheit Fair Enough" data-artist="Telefon Tel Aviv" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -455,10 +505,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Music for a Found Harmonium - Penguin Cafe Orchestra">
       <div class="m-top">
         <span class="m-num">09</span>
-        <span class="m-code" style="background:#fab413">chamber pop</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#fab413">chamber pop</span>
+          <button class="heart" type="button" data-k="Music for a Found Harmonium - Penguin Cafe Orchestra" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/de/7a/73/de7a73c8-de62-032a-f39a-405dafc8917b/00724384201555.rgb.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/5f/00/fb/5f00fbc8-b6bd-3ef1-3485-290948189e86/mzaf_11583327077098754989.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/de/7a/73/de7a73c8-de62-032a-f39a-405dafc8917b/00724384201555.rgb.jpg/600x600bb.jpg" data-title="Music for a Found Harmonium" data-artist="Penguin Cafe Orchestra" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -478,10 +531,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Bruma - Nuno Canavarro">
       <div class="m-top">
         <span class="m-num">10</span>
-        <span class="m-code" style="background:#f05a24">leftfield pop</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">leftfield pop</span>
+          <button class="heart" type="button" data-k="Bruma - Nuno Canavarro" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/8a/f5/3a/8af53aa8-4a98-a3cb-0ae1-c5ad76e49760/Fwd_Re_iNuno.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/23/cc/28/23cc287d-dbee-9db7-6989-c172c38c244f/mzaf_5419486601519436718.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/8a/f5/3a/8af53aa8-4a98-a3cb-0ae1-c5ad76e49760/Fwd_Re_iNuno.jpg/600x600bb.jpg" data-title="Bruma" data-artist="Nuno Canavarro" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -501,10 +557,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Tuyo - Rodrigo Amarante">
       <div class="m-top">
         <span class="m-num">11</span>
-        <span class="m-code" style="background:#f05a24">bossa</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">bossa</span>
+          <button class="heart" type="button" data-k="Tuyo - Rodrigo Amarante" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/eb/94/9b/eb949bf8-b8bd-78c9-19bf-960c1ccbf4f5/3663729244468_cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/9c/29/c7/9c29c72c-dca4-0e34-4e54-54ac38730ee3/mzaf_8689960936500616438.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/eb/94/9b/eb949bf8-b8bd-78c9-19bf-960c1ccbf4f5/3663729244468_cover.jpg/600x600bb.jpg" data-title="Tuyo" data-artist="Rodrigo Amarante" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -524,10 +583,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Locket - Crumb">
       <div class="m-top">
         <span class="m-num">12</span>
-        <span class="m-code" style="background:#f05a24">psychedelic pop</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">psychedelic pop</span>
+          <button class="heart" type="button" data-k="Locket - Crumb" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/a0/b1/28/a0b128b5-4340-4f10-da1a-4d32f434557e/cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/5b/40/09/5b400992-d5a6-795c-ee37-737ff7e8744e/mzaf_14433410779622676116.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/a0/b1/28/a0b128b5-4340-4f10-da1a-4d32f434557e/cover.jpg/600x600bb.jpg" data-title="Locket" data-artist="Crumb" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -547,10 +609,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Call Me - Gigi Masin">
       <div class="m-top">
         <span class="m-num">13</span>
-        <span class="m-code" style="background:#b81d13">ambient</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#b81d13">ambient</span>
+          <button class="heart" type="button" data-k="Call Me - Gigi Masin" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c5/30/ba/c530ba3d-982a-cefb-4188-db86453ecfd2/65345.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/57/a5/b8/57a5b833-e4b8-1b13-db27-ee676672b0a1/mzaf_11118562928256064740.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c5/30/ba/c530ba3d-982a-cefb-4188-db86453ecfd2/65345.jpg/600x600bb.jpg" data-title="Call Me" data-artist="Gigi Masin" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -570,10 +635,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Goodbye - toe">
       <div class="m-top">
         <span class="m-num">14</span>
-        <span class="m-code" style="background:#b81d13">Soft Post-rock</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#b81d13">Soft Post-rock</span>
+          <button class="heart" type="button" data-k="Goodbye - toe" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/35/79/de/3579de9a-06d4-836d-b338-fb9c01622e18/888174970318.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d4/9c/95/d49c9514-83d3-0469-ca8b-36379af3d9fc/mzaf_17319043912274360078.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/35/79/de/3579de9a-06d4-836d-b338-fb9c01622e18/888174970318.png/600x600bb.jpg" data-title="Goodbye" data-artist="toe" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -593,10 +661,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Climax Night - Yogee New Waves">
       <div class="m-top">
         <span class="m-num">15</span>
-        <span class="m-code" style="background:#0071bb">japanese indie</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0071bb">japanese indie</span>
+          <button class="heart" type="button" data-k="Climax Night - Yogee New Waves" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/84/74/e0/8474e066-f19c-8874-c466-608a89a72662/paraiso_cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/7b/21/6d/7b216d96-dae2-d0ea-172b-7a6c2e02a466/mzaf_8664260277916898118.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/84/74/e0/8474e066-f19c-8874-c466-608a89a72662/paraiso_cover.jpg/600x600bb.jpg" data-title="Climax Night" data-artist="Yogee New Waves" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -616,10 +687,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Wildfires - Sault">
       <div class="m-top">
         <span class="m-num">16</span>
-        <span class="m-code" style="background:#006837">neo soul</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#006837">neo soul</span>
+          <button class="heart" type="button" data-k="Wildfires - Sault" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/66/f1/98/66f19821-f899-77e5-4daa-32a8e877d649/859740074815_cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/fe/d1/af/fed1af4b-e726-75b6-9a9e-05b004b35462/mzaf_14255087679003128171.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/66/f1/98/66f19821-f899-77e5-4daa-32a8e877d649/859740074815_cover.jpg/600x600bb.jpg" data-title="Wildfires" data-artist="Sault" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -639,10 +713,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Heavy Water/I&#x27;d Rather Be Sleeping - Grouper">
       <div class="m-top">
         <span class="m-num">17</span>
-        <span class="m-code" style="background:#f05a24">ambient folk</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">ambient folk</span>
+          <button class="heart" type="button" data-k="Heavy Water/I&#x27;d Rather Be Sleeping - Grouper" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/83/c4/d1/83c4d1e8-0735-ca6d-5e3e-bbbac99cef41/mzi.euplhgfk.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e0/e5/dd/e0e5dd9b-46ec-7fc1-c929-88a13b3b1352/mzaf_17399387481749506738.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/83/c4/d1/83c4d1e8-0735-ca6d-5e3e-bbbac99cef41/mzi.euplhgfk.jpg/600x600bb.jpg" data-title="Heavy Water/I&#x27;d Rather Be Sleeping" data-artist="Grouper" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -662,10 +739,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Parasol - The Sea and Cake">
       <div class="m-top">
         <span class="m-num">18</span>
-        <span class="m-code" style="background:#0071bb">indie rock</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0071bb">indie rock</span>
+          <button class="heart" type="button" data-k="Parasol - The Sea and Cake" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music49/v4/fc/86/da/fc86da55-3dde-b496-ec97-7aae4387d38f/dj.owoowbnc.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c0/1d/26/c01d2688-78e6-1f76-a66b-f39816b77855/mzaf_9049628652327267221.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music49/v4/fc/86/da/fc86da55-3dde-b496-ec97-7aae4387d38f/dj.owoowbnc.jpg/600x600bb.jpg" data-title="Parasol" data-artist="The Sea and Cake" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -685,10 +765,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Valve - Visible Cloaks">
       <div class="m-top">
         <span class="m-num">19</span>
-        <span class="m-code" style="background:#0f0e12">organic electronic</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0f0e12">organic electronic</span>
+          <button class="heart" type="button" data-k="Valve - Visible Cloaks" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music71/v4/73/81/8a/73818a7e-0f26-da53-4662-cf98734d769c/716670165702.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/02/0a/4e/020a4ee0-9d18-e14e-97a0-aa801794c482/mzaf_13296692410114211060.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music71/v4/73/81/8a/73818a7e-0f26-da53-4662-cf98734d769c/716670165702.jpg/600x600bb.jpg" data-title="Valve" data-artist="Visible Cloaks" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -708,10 +791,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Sastanàqqàm - Tinariwen">
       <div class="m-top">
         <span class="m-num">20</span>
-        <span class="m-code" style="background:#f05a24">ambient folk</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">ambient folk</span>
+          <button class="heart" type="button" data-k="Sastanàqqàm - Tinariwen" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/75/55/f0/7555f01d-92a0-6e03-5daa-0c57787ef61f/0045778746705.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/63/ea/6f/63ea6f11-4001-ea4e-7db5-5b4b1441b3d5/mzaf_16347736810790002817.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/75/55/f0/7555f01d-92a0-6e03-5daa-0c57787ef61f/0045778746705.png/600x600bb.jpg" data-title="Sastanàqqàm" data-artist="Tinariwen" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -731,10 +817,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Cars and Girls - Prefab Sprout">
       <div class="m-top">
         <span class="m-num">21</span>
-        <span class="m-code" style="background:#fab413">sophisti-pop</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#fab413">sophisti-pop</span>
+          <button class="heart" type="button" data-k="Cars and Girls - Prefab Sprout" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/37/46/da/3746da02-8199-3953-63ca-6996ee400c4c/886447826164.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/dd/37/03/dd3703e6-9a8e-c6ea-4fe3-3dedd3b6802f/mzaf_13782757114810596760.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/37/46/da/3746da02-8199-3953-63ca-6996ee400c4c/886447826164.jpg/600x600bb.jpg" data-title="Cars and Girls" data-artist="Prefab Sprout" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -754,10 +843,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Gladly - Tirzah">
       <div class="m-top">
         <span class="m-num">22</span>
-        <span class="m-code" style="background:#fab413">quiet alternative</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#fab413">quiet alternative</span>
+          <button class="heart" type="button" data-k="Gladly - Tirzah" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/cc/f7/42/ccf742e6-d991-8f8d-7a70-8b5c1e53c1b6/887828039463.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/13/73/2b/13732b28-87cb-d3c9-ce17-08c1cc2685e7/mzaf_221384137866488682.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/cc/f7/42/ccf742e6-d991-8f8d-7a70-8b5c1e53c1b6/887828039463.png/600x600bb.jpg" data-title="Gladly" data-artist="Tirzah" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -777,10 +869,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="The Kiss - Judee Sill">
       <div class="m-top">
         <span class="m-num">23</span>
-        <span class="m-code" style="background:#0071bb">chamber folk</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0071bb">chamber folk</span>
+          <button class="heart" type="button" data-k="The Kiss - Judee Sill" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/e9/e4/7b/e9e47b19-b3c0-d5e2-59e2-faf1b7ff7647/s05.exswrarj.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/7d/a9/77/7da9774a-f118-6931-4d45-307b987d4a0a/mzaf_7658624510919777823.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/e9/e4/7b/e9e47b19-b3c0-d5e2-59e2-faf1b7ff7647/s05.exswrarj.jpg/600x600bb.jpg" data-title="The Kiss" data-artist="Judee Sill" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -800,10 +895,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Tonight - Sibylle Baier">
       <div class="m-top">
         <span class="m-num">24</span>
-        <span class="m-code" style="background:#f05a24">ambient folk</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">ambient folk</span>
+          <button class="heart" type="button" data-k="Tonight - Sibylle Baier" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/14/57/78/14577894-f936-a51f-bb49-06d8ee669e7e/888003356313.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/11/1a/0c/111a0c54-1ba5-66bf-ad75-6d79bbc8a3f6/mzaf_11195999638423044217.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/14/57/78/14577894-f936-a51f-bb49-06d8ee669e7e/888003356313.jpg/600x600bb.jpg" data-title="Tonight" data-artist="Sibylle Baier" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -823,10 +921,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Always Everything - Sin Fang">
       <div class="m-top">
         <span class="m-num">25</span>
-        <span class="m-code" style="background:#b81d13">folktronica</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#b81d13">folktronica</span>
+          <button class="heart" type="button" data-k="Always Everything - Sin Fang" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music/40/56/f4/mzi.djcnqedd.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/39/c1/f1/39c1f133-dca1-9696-ea56-a8a4ba859bd1/mzaf_4704643259551107269.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/40/56/f4/mzi.djcnqedd.jpg/600x600bb.jpg" data-title="Always Everything" data-artist="Sin Fang" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -846,10 +947,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Ghost Ship in a Storm - Jim O&#x27;Rourke">
       <div class="m-top">
         <span class="m-num">26</span>
-        <span class="m-code" style="background:#0071bb">chamber folk</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0071bb">chamber folk</span>
+          <button class="heart" type="button" data-k="Ghost Ship in a Storm - Jim O&#x27;Rourke" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/cd/47/fc/cd47fcda-0764-1555-41dc-b635b5b138ca/5060391090535_cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a1/c0/7d/a1c07d0b-14dc-a727-67ce-f79d8a3d667c/mzaf_7889708178372347855.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/cd/47/fc/cd47fcda-0764-1555-41dc-b635b5b138ca/5060391090535_cover.jpg/600x600bb.jpg" data-title="Ghost Ship in a Storm" data-artist="Jim O&#x27;Rourke" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -869,10 +973,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="I See a Darkness - Bonnie &#x27;Prince&#x27; Billy">
       <div class="m-top">
         <span class="m-num">27</span>
-        <span class="m-code" style="background:#f05a24">ambient folk</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">ambient folk</span>
+          <button class="heart" type="button" data-k="I See a Darkness - Bonnie &#x27;Prince&#x27; Billy" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/d9/87/5c/d9875cb2-93fb-c5d4-0db1-220a75c3c803/781484802228.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/28/ec/78/28ec789b-1902-28c4-8835-b488ff69ebd6/mzaf_1142398345063665715.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/d9/87/5c/d9875cb2-93fb-c5d4-0db1-220a75c3c803/781484802228.png/600x600bb.jpg" data-title="I See a Darkness" data-artist="Bonnie &#x27;Prince&#x27; Billy" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -892,10 +999,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="White Gloves - Khruangbin">
       <div class="m-top">
         <span class="m-num">28</span>
-        <span class="m-code" style="background:#fab413">Downtempo</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#fab413">Downtempo</span>
+          <button class="heart" type="button" data-k="White Gloves - Khruangbin" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/08/d9/24/08d924cf-3f00-268c-c772-58b7f96b5797/5060391090474_cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/80/36/8b/80368b48-d0fa-5c91-dd0c-ec434333d50a/mzaf_8057435054718355347.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/08/d9/24/08d924cf-3f00-268c-c772-58b7f96b5797/5060391090474_cover.jpg/600x600bb.jpg" data-title="White Gloves" data-artist="Khruangbin" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -915,10 +1025,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Just a Cloud - Lusine">
       <div class="m-top">
         <span class="m-num">29</span>
-        <span class="m-code" style="background:#006837">indietronica</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#006837">indietronica</span>
+          <button class="heart" type="button" data-k="Just a Cloud - Lusine" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e0/7a/ab/e07aab9f-583c-91f9-4a36-13f3c0a51829/5073.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/3e/94/63/3e946312-563f-5967-38e1-b44e4631800b/mzaf_17714087012240651030.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e0/7a/ab/e07aab9f-583c-91f9-4a36-13f3c0a51829/5073.jpg/600x600bb.jpg" data-title="Just a Cloud" data-artist="Lusine" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -938,10 +1051,13 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
       </div>
     </article>
 
-    <article class="mod">
+    <article class="mod" data-k="Watussi - Harmonia">
       <div class="m-top">
         <span class="m-num">30</span>
-        <span class="m-code" style="background:#b81d13">krautrock</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#b81d13">krautrock</span>
+          <button class="heart" type="button" data-k="Watussi - Harmonia" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
       </div>
       <div class="m-main">
         <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music20/v4/97/35/c4/9735c4f2-9502-7a15-31f9-738fe9c3b96d/mzm.ujzxjfaj.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c6/79/ed/c679edba-ffc5-e0a8-5ca2-d04c39507dfb/mzaf_10196844559441449196.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music20/v4/97/35/c4/9735c4f2-9502-7a15-31f9-738fe9c3b96d/mzm.ujzxjfaj.jpg/600x600bb.jpg" data-title="Watussi" data-artist="Harmonia" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
@@ -1001,6 +1117,15 @@ Watussi - Harmonia</pre>
     </div>
   </section>
 
+  <section class="export" id="fav-box" style="display:none">
+    <div class="h">我收藏的 · 网易云导入 <span>存在此浏览器 · 跨期累计</span></div>
+    <div class="in">
+      <p>你在各期点 ♥ 收藏的曲目（本浏览器）。复制 → 网易云「新建歌单 → 导入」。</p>
+      <pre id="fav-text"></pre>
+      <button class="btn solid" id="fav-copy" onclick="copyFav()" style="margin-top:12px">复制收藏 / copy</button>
+    </div>
+  </section>
+
   <footer>
     <span>music daily · md-30 · issue 003</span>
     <span>updated 08:00 cst</span>
@@ -1011,7 +1136,9 @@ Watussi - Harmonia</pre>
 <div id="np" aria-live="polite">
   <img id="np-cover" alt="">
   <div id="np-meta"><div id="np-title" class="lc"></div><div id="np-artist"></div></div>
+  <button id="np-prev" class="np-btn" type="button" aria-label="上一首"><svg viewBox="0 0 12 10" aria-hidden="true"><rect x="1" y="1" width="2" height="8"/><path d="M11 1 L4 5 L11 9 Z"/></svg></button>
   <button id="np-toggle" class="np-btn" type="button" aria-label="播放/暂停"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button>
+  <button id="np-next" class="np-btn" type="button" aria-label="下一首"><svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 1 L8 5 L1 9 Z"/><rect x="9" y="1" width="2" height="8"/></svg></button>
   <div id="np-bar"><div id="np-fill"></div></div>
   <span id="np-time" class="mono">0:00 / 0:00</span>
 </div>
@@ -1030,29 +1157,66 @@ function copyNC(){const t=document.getElementById('nc-text').innerText;
   navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('nc-btn'),o=b.innerText;
     b.innerText='copied ✓';setTimeout(()=>b.innerText=o,1600);});}
 
-// 30s 试听：单例 audio + 底部 now-playing 条；封面键与底部条联动，切歌互斥（iTunes 公开 previewUrl，仅预览非整曲）
+// 30s 试听：单例 audio + 底部条；整期贯穿(自动续播/上一首/下一首)、键盘、切歌互斥（iTunes 公开 previewUrl，仅预览非整曲）
 (function(){
   var au=new Audio(), cur=null;
+  var btns=[].slice.call(document.querySelectorAll('.pbtn'));
   var np=document.getElementById('np'), C=document.getElementById('np-cover'),
       T=document.getElementById('np-title'), A=document.getElementById('np-artist'),
       BAR=document.getElementById('np-bar'), FILL=document.getElementById('np-fill'),
-      TIME=document.getElementById('np-time'), TOG=document.getElementById('np-toggle');
+      TIME=document.getElementById('np-time'), TOG=document.getElementById('np-toggle'),
+      PREV=document.getElementById('np-prev'), NEXT=document.getElementById('np-next');
   function fmt(s){if(!isFinite(s)||s<0)s=0;s=Math.floor(s);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
   function mark(on){if(cur)cur.classList.toggle('playing',on);if(np)np.classList.toggle('playing',on);}
   au.addEventListener('timeupdate',function(){if(au.duration&&FILL){FILL.style.width=(au.currentTime/au.duration*100)+'%';TIME.textContent=fmt(au.currentTime)+' / '+fmt(au.duration);}});
   au.addEventListener('play',function(){mark(true);});
   au.addEventListener('pause',function(){mark(false);});
-  au.addEventListener('ended',function(){mark(false);if(FILL)FILL.style.width='0%';});
-  function playCard(b){var src=b.dataset.src;if(!src)return;
-    if(cur===b){if(au.paused)au.play();else au.pause();return;}
+  au.addEventListener('ended',function(){mark(false);if(FILL)FILL.style.width='0%';step(1);});
+  function load(b){var src=b.dataset.src;if(!src)return;
     if(cur)cur.classList.remove('playing');
     au.src=src;cur=b;
     if(C)C.src=b.dataset.cover||'';if(T)T.textContent=b.dataset.title||'';if(A)A.textContent=b.dataset.artist||'';
     if(np)np.classList.add('on');au.play();}
-  document.querySelectorAll('.pbtn').forEach(function(b){b.addEventListener('click',function(){playCard(b);});});
-  if(TOG)TOG.addEventListener('click',function(){if(!cur)return;if(au.paused)au.play();else au.pause();});
+  function playCard(b){if(cur===b){if(au.paused)au.play();else au.pause();return;}load(b);}
+  function step(d){if(!btns.length)return;var i=cur?btns.indexOf(cur):-1;var j=i+d;
+    if(j<0)j=btns.length-1;if(j>=btns.length)j=0;load(btns[j]);}
+  btns.forEach(function(b){b.addEventListener('click',function(){playCard(b);});});
+  if(TOG)TOG.addEventListener('click',function(){if(!cur){if(btns[0])load(btns[0]);return;}if(au.paused)au.play();else au.pause();});
+  if(PREV)PREV.addEventListener('click',function(){step(-1);});
+  if(NEXT)NEXT.addEventListener('click',function(){step(1);});
   if(BAR)BAR.addEventListener('click',function(e){if(!au.duration)return;var r=BAR.getBoundingClientRect();au.currentTime=(e.clientX-r.left)/r.width*au.duration;});
+  document.addEventListener('keydown',function(e){var tag=(e.target.tagName||'').toLowerCase();if(tag==='input'||tag==='textarea')return;
+    if(e.code==='Space'){e.preventDefault();if(!cur){if(btns[0])load(btns[0]);}else if(au.paused)au.play();else au.pause();}
+    else if(e.key==='ArrowRight'){step(1);}else if(e.key==='ArrowLeft'){step(-1);}});
 })();
+
+// heart 收藏：localStorage 跨期累计 + 只看收藏 + 导出网易云
+(function(){
+  var KEY='md_hearts';
+  function ld(){try{return JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){return [];}}
+  function sv(a){try{localStorage.setItem(KEY,JSON.stringify(a));}catch(e){}}
+  var hearts=ld(), nEl=document.getElementById('fav-n');
+  function applyFilter(){var on=document.body.classList.contains('fav-mode');
+    document.querySelectorAll('.mod').forEach(function(m){if(m.classList.contains('fill'))return;
+      m.classList.toggle('hidden', on && hearts.indexOf(m.dataset.k)<0);});}
+  function refresh(){document.querySelectorAll('.heart').forEach(function(h){h.classList.toggle('on',hearts.indexOf(h.dataset.k)>=0);});
+    if(nEl)nEl.textContent=hearts.length;}
+  document.querySelectorAll('.heart').forEach(function(h){h.addEventListener('click',function(){
+    var k=h.dataset.k,i=hearts.indexOf(k);if(i>=0)hearts.splice(i,1);else hearts.push(k);sv(hearts);refresh();applyFilter();});});
+  var only=document.getElementById('fav-only');
+  if(only)only.addEventListener('click',function(){document.body.classList.toggle('fav-mode');
+    only.classList.toggle('active',document.body.classList.contains('fav-mode'));applyFilter();});
+  var exp=document.getElementById('fav-export'), box=document.getElementById('fav-box'), txt=document.getElementById('fav-text');
+  if(exp)exp.addEventListener('click',function(){
+    txt.textContent=hearts.length?('我收藏的 · music daily
+'+hearts.join('
+')):'（还没有收藏。点每首右上角的 heart 即可）';
+    box.style.display='block';box.scrollIntoView({behavior:'smooth'});});
+  refresh();
+})();
+function copyFav(){var t=document.getElementById('fav-text').innerText;
+  navigator.clipboard.writeText(t).then(function(){var b=document.getElementById('fav-copy'),o=b.innerText;
+    b.innerText='copied ✓';setTimeout(function(){b.innerText=o;},1600);});}
 </script>
 </body>
 </html>
