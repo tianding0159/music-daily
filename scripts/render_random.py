@@ -54,9 +54,14 @@ body{padding-bottom:76px}
 #roll:active{transform:scale(.985)}
 #roll.rolling{background:var(--green-d)}
 #roll .k{font-size:var(--fs-10); color:var(--g300); letter-spacing:.06em}
-#roll .dice{width:19px; height:19px; display:inline-block; flex:none; image-rendering:pixelated}
-#roll.rolling .dice{animation:dice-spin .45s steps(4) infinite}
-@keyframes dice-spin{to{transform:rotate(360deg)}}
+#roll .dice{width:23px; height:15px; display:inline-block; flex:none}
+#roll .dice g{transition:transform .2s}
+#roll:hover .a1{transform:translateX(1.5px)}
+#roll:hover .a2{transform:translateX(-1.5px)}
+#roll.rolling .a1{animation:sw1 .42s ease-in-out infinite}
+#roll.rolling .a2{animation:sw2 .42s ease-in-out infinite}
+@keyframes sw1{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
+@keyframes sw2{0%,100%{transform:translateX(0)}50%{transform:translateX(-3px)}}
 .hint{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:8px}
 .hint b{color:var(--ink); font-weight:400}
 .hint kbd{border:1px solid var(--g300); padding:1px 6px; background:var(--white)}
@@ -115,13 +120,14 @@ body{padding-bottom:76px}
 }
 """
 
-ICON_DICE = ('<svg class="dice" viewBox="0 0 14 14" shape-rendering="crispEdges" aria-hidden="true">'
-             '<rect x="0.5" y="0.5" width="13" height="13" fill="none" stroke="#fff" stroke-width="1.5"/>'
-             '<rect x="3" y="3" width="2.2" height="2.2" fill="#fff"/>'
-             '<rect x="8.8" y="3" width="2.2" height="2.2" fill="#fff"/>'
-             '<rect x="5.9" y="5.9" width="2.2" height="2.2" fill="#fff"/>'
-             '<rect x="3" y="8.8" width="2.2" height="2.2" fill="#fff"/>'
-             '<rect x="8.8" y="8.8" width="2.2" height="2.2" fill="#fff"/></svg>')
+ICON_DICE = (
+    # 双向箭头「⇄」：换/另起的语义直给，线条极简、任何尺寸都清楚，与站内 ↗ ▸ 同一符号语言
+    '<svg class="dice" viewBox="0 0 22 14" shape-rendering="geometricPrecision" aria-hidden="true">'
+    '<g class="a1" fill="#fff"><rect x="1" y="3.4" width="15" height="1.5"/>'
+    '<path d="M15 1 L21 4.15 L15 7.3 Z"/></g>'
+    '<g class="a2" fill="#fff"><rect x="6" y="9.1" width="15" height="1.5"/>'
+    '<path d="M7 6.7 L1 9.85 L7 13 Z"/></g>'
+    '</svg>')
 
 JS = """
 const $=(s)=>document.querySelector(s);
@@ -276,7 +282,7 @@ def build_html(n_total: int) -> str:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f0e12">
-<meta name="description" content="从 {n_total} 首曲库里随手换一首 · melody-first · mood-first">
+<meta name="description" content="从 {n_total} 首曲库里随手另起一首 · melody-first · mood-first">
 <title>music daily · shuffle · 今天听点别的</title>
 <link rel="icon" href="{favicon}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -314,9 +320,9 @@ def build_html(n_total: int) -> str:
       <div class="fsel"><span class="lbl">genre</span><select id="f-genre"></select></div>
       <div class="fsel"><span class="lbl">decade</span><select id="f-decade"></select></div>
     </div>
-    <button id="roll" type="button">{ICON_DICE}换一首<span class="k">space</span></button>
+    <button id="roll" type="button">{ICON_DICE}另起一首<span class="k">space</span></button>
   </div>
-  <div class="hint">按 <kbd>space</kbd> 换下一首 · <kbd>p</kbd> 播放/暂停 · 每首自动播 30 秒试听 · ♥ 收藏与日报页共用</div>
+  <div class="hint">按 <kbd>space</kbd> 另起一首 · <kbd>p</kbd> 播放/暂停 · 每首自动播 30 秒试听 · ♥ 收藏与日报页共用</div>
 
   <div class="sect">the pick</div>
   <article class="card" id="card"><div class="c-main">rolling…</div></article>

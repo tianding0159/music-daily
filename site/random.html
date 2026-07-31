@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f0e12">
-<meta name="description" content="从 856 首曲库里随手换一首 · melody-first · mood-first">
+<meta name="description" content="从 856 首曲库里随手另起一首 · melody-first · mood-first">
 <title>music daily · shuffle · 今天听点别的</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%230f0e12%22/%3E%3Crect%20x%3D%225%22%20y%3D%225%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22none%22%20stroke%3D%22%23f05a24%22%20stroke-width%3D%222%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -284,9 +284,14 @@ body{padding-bottom:76px}
 #roll:active{transform:scale(.985)}
 #roll.rolling{background:var(--green-d)}
 #roll .k{font-size:var(--fs-10); color:var(--g300); letter-spacing:.06em}
-#roll .dice{width:19px; height:19px; display:inline-block; flex:none; image-rendering:pixelated}
-#roll.rolling .dice{animation:dice-spin .45s steps(4) infinite}
-@keyframes dice-spin{to{transform:rotate(360deg)}}
+#roll .dice{width:23px; height:15px; display:inline-block; flex:none}
+#roll .dice g{transition:transform .2s}
+#roll:hover .a1{transform:translateX(1.5px)}
+#roll:hover .a2{transform:translateX(-1.5px)}
+#roll.rolling .a1{animation:sw1 .42s ease-in-out infinite}
+#roll.rolling .a2{animation:sw2 .42s ease-in-out infinite}
+@keyframes sw1{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
+@keyframes sw2{0%,100%{transform:translateX(0)}50%{transform:translateX(-3px)}}
 .hint{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:8px}
 .hint b{color:var(--ink); font-weight:400}
 .hint kbd{border:1px solid var(--g300); padding:1px 6px; background:var(--white)}
@@ -375,9 +380,9 @@ body{padding-bottom:76px}
       <div class="fsel"><span class="lbl">genre</span><select id="f-genre"></select></div>
       <div class="fsel"><span class="lbl">decade</span><select id="f-decade"></select></div>
     </div>
-    <button id="roll" type="button"><svg class="dice" viewBox="0 0 14 14" shape-rendering="crispEdges" aria-hidden="true"><rect x="0.5" y="0.5" width="13" height="13" fill="none" stroke="#fff" stroke-width="1.5"/><rect x="3" y="3" width="2.2" height="2.2" fill="#fff"/><rect x="8.8" y="3" width="2.2" height="2.2" fill="#fff"/><rect x="5.9" y="5.9" width="2.2" height="2.2" fill="#fff"/><rect x="3" y="8.8" width="2.2" height="2.2" fill="#fff"/><rect x="8.8" y="8.8" width="2.2" height="2.2" fill="#fff"/></svg>换一首<span class="k">space</span></button>
+    <button id="roll" type="button"><svg class="dice" viewBox="0 0 22 14" shape-rendering="geometricPrecision" aria-hidden="true"><g class="a1" fill="#fff"><rect x="1" y="3.4" width="15" height="1.5"/><path d="M15 1 L21 4.15 L15 7.3 Z"/></g><g class="a2" fill="#fff"><rect x="6" y="9.1" width="15" height="1.5"/><path d="M7 6.7 L1 9.85 L7 13 Z"/></g></svg>另起一首<span class="k">space</span></button>
   </div>
-  <div class="hint">按 <kbd>space</kbd> 换下一首 · <kbd>p</kbd> 播放/暂停 · 每首自动播 30 秒试听 · ♥ 收藏与日报页共用</div>
+  <div class="hint">按 <kbd>space</kbd> 另起一首 · <kbd>p</kbd> 播放/暂停 · 每首自动播 30 秒试听 · ♥ 收藏与日报页共用</div>
 
   <div class="sect">the pick</div>
   <article class="card" id="card"><div class="c-main">rolling…</div></article>
