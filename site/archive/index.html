@@ -142,9 +142,9 @@ a{color:inherit; text-decoration:none}
 .grid{display:grid; grid-template-columns:repeat(2,1fr);
   border-top:1px solid var(--g300); border-left:1px solid var(--g300)}
 .mod{border-right:1px solid var(--g300); border-bottom:1px solid var(--g300);
-  background:var(--paper); display:flex; flex-direction:column; position:relative;
-  opacity:0; transform:translateY(8px); transition:opacity .4s ease-out, transform .4s ease-out}
-.mod.in{opacity:1; transform:none}
+  background:var(--paper); display:flex; flex-direction:column; position:relative}
+.anim .mod{opacity:0; transform:translateY(8px); transition:opacity .4s ease-out, transform .4s ease-out}
+.anim .mod.in{opacity:1; transform:none}
 .mod.fill{background:
   repeating-linear-gradient(0deg,transparent,transparent 21px,var(--g100) 21px,var(--g100) 22px),
   repeating-linear-gradient(90deg,transparent,transparent 21px,var(--g100) 21px,var(--g100) 22px)}

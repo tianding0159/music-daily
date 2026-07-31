@@ -143,9 +143,9 @@ a{color:inherit; text-decoration:none}
 .grid{display:grid; grid-template-columns:repeat(2,1fr);
   border-top:1px solid var(--g300); border-left:1px solid var(--g300)}
 .mod{border-right:1px solid var(--g300); border-bottom:1px solid var(--g300);
-  background:var(--paper); display:flex; flex-direction:column; position:relative;
-  opacity:0; transform:translateY(8px); transition:opacity .4s ease-out, transform .4s ease-out}
-.mod.in{opacity:1; transform:none}
+  background:var(--paper); display:flex; flex-direction:column; position:relative}
+.anim .mod{opacity:0; transform:translateY(8px); transition:opacity .4s ease-out, transform .4s ease-out}
+.anim .mod.in{opacity:1; transform:none}
 .mod.fill{background:
   repeating-linear-gradient(0deg,transparent,transparent 21px,var(--g100) 21px,var(--g100) 22px),
   repeating-linear-gradient(90deg,transparent,transparent 21px,var(--g100) 21px,var(--g100) 22px)}
@@ -1148,10 +1148,13 @@ TOWN - Minako Yoshida (吉田美奈子)</pre>
 const boot=document.getElementById('boot'), BOOT=boot?boot.dataset.text:'';
 if(boot){let i=0;boot.textContent='';(function type(){if(i<=BOOT.length){boot.innerHTML=BOOT.slice(0,i)+'<span class="cur">▋</span>';i++;setTimeout(type,26);}else{boot.textContent=BOOT;}})();}
 
-// 卡片分级进场
-const io=new IntersectionObserver((es)=>{es.forEach((e,k)=>{if(e.isIntersecting){const el=e.target;
-  setTimeout(()=>el.classList.add('in'),(el.dataset.d||0)*1);io.unobserve(el);}});},{threshold:.12});
-document.querySelectorAll('.mod').forEach((m,k)=>{m.dataset.d=(k%6)*70;io.observe(m);});
+// 卡片分级进场（渐进增强：默认可见，仅 JS 正常时启用进场动画，避免 JS 出错整页空白）
+if('IntersectionObserver' in window){
+  document.body.classList.add('anim');
+  const io=new IntersectionObserver((es)=>{es.forEach((e,k)=>{if(e.isIntersecting){const el=e.target;
+    setTimeout(()=>el.classList.add('in'),(el.dataset.d||0)*1);io.unobserve(el);}});},{threshold:.12});
+  document.querySelectorAll('.mod').forEach((m,k)=>{m.dataset.d=(k%6)*70;io.observe(m);});
+}
 
 function copyNC(){const t=document.getElementById('nc-text').innerText;
   navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('nc-btn'),o=b.innerText;
