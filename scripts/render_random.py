@@ -50,12 +50,14 @@ body{padding-bottom:76px}
 #roll{flex:0 0 auto; min-width:clamp(160px,26vw,260px); border:none; cursor:pointer; position:relative;
   background:var(--ink); color:var(--white); font-family:var(--mono); font-size:var(--fs-20);
   text-transform:uppercase; letter-spacing:.08em; padding:14px 24px; display:flex; overflow:hidden;
-  align-items:center; justify-content:center; gap:13px; min-height:72px;
+  align-items:baseline; justify-content:center; gap:13px; min-height:72px;
   transition:background .2s, transform .1s}
 #roll:hover{background:var(--g1000)}
 #roll:active{transform:scale(.985)}
 #roll.rolling{background:var(--green-d)}
-#roll .k{font-size:var(--fs-10); color:var(--g300); letter-spacing:.06em; position:relative; z-index:1}
+#roll .k{font-size:var(--fs-10); color:var(--g300); letter-spacing:.06em; position:relative; z-index:1;
+  /* #roll 用 align-items:baseline，但 mono 小号字的基线盒比 .lab 略高，补 2px 压平 */
+  top:2px}
 #roll .lab{position:relative; z-index:1}
 /* 按下时从中心荡开的波纹 */
 #roll::after{content:""; position:absolute; left:50%; top:50%; width:34px; height:34px;
@@ -89,7 +91,8 @@ body{padding-bottom:76px}
 
 .hint{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:8px}
 .hint b{color:var(--ink); font-weight:400}
-.hint kbd{border:1px solid var(--g300); padding:1px 6px; background:var(--white)}
+.hint kbd{border:1px solid var(--g300); padding:1px 6px; background:var(--white);
+  display:inline-block; line-height:1.4; vertical-align:middle; position:relative; top:-1px}
 
 /* 单张大卡 */
 .card{border:1px solid var(--g300); background:var(--paper); margin-top:var(--sp-md);
@@ -151,8 +154,11 @@ body{padding-bottom:76px}
    CSS 做不到文字沿圆弧，故内嵌一小段 SVG textPath。class 用 vlbl，别撞筛选器的 .lbl。 */
 .tt .disc .vlbl{position:absolute; left:50%; top:50%; width:44%; height:44%;
   transform:translate(-50%,-50%); z-index:2; pointer-events:none}
+.tt .disc .vlbl{shape-rendering:geometricPrecision}
 .tt .disc .vlbl text{font-size:1.6px; fill:#242424; letter-spacing:.05px;
-  font-family:ui-monospace,Menlo,monospace}
+  font-family:ui-monospace,Menlo,monospace;
+  /* 关掉字形微调：小号字旋转时 hinting 会逐帧改变对齐网格，看着就是抖 */
+  text-rendering:geometricPrecision}
 /* 固定反光带：挂在不自转的 .dwrap 上，所以不会变成一根转动的秒针 */
 .tt .dwrap::after{content:""; position:absolute; inset:0; border-radius:50%; pointer-events:none;
   background:linear-gradient(118deg, transparent 28%, rgba(255,255,255,.13) 43%,
@@ -251,7 +257,8 @@ body{padding-bottom:76px}
 .card .c-title{font-size:var(--fs-30); font-weight:100; line-height:1.32; letter-spacing:-.015em;
   padding-bottom:.12em; overflow:visible}
 .card .c-artist{font-family:var(--mono); font-size:var(--fs-15); text-transform:uppercase;
-  color:var(--g900); margin-top:8px; letter-spacing:.03em}
+  word-break:break-word; line-height:1.5;
+  color:var(--g900); margin-top:8px; letter-spacing:.1em}
 .card .c-meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:8px}
 .card .c-meta .bpm{display:inline-block; margin-left:9px; padding:1px 7px 1px 6px;
   border:1px solid var(--g200); border-left:3px solid var(--bc,var(--g300));
@@ -283,7 +290,7 @@ body{padding-bottom:76px}
 #basket.pop .bk-n{animation:bk-bump .38s cubic-bezier(.34,1.56,.64,1)}
 @keyframes bk-bump{0%{transform:scale(1)}45%{transform:scale(1.45)}100%{transform:scale(1)}}
 #basket .bk-list{flex:1; min-width:0; font-family:var(--mono); font-size:var(--fs-10);
-  color:var(--g600); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  color:var(--g600); letter-spacing:.04em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 #basket .bk-btn{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
   padding:7px 11px; cursor:pointer; border:1px solid var(--ink); background:var(--ink);
   color:var(--white); flex:none; transition:opacity .2s}
@@ -316,8 +323,10 @@ body.has-basket{padding-bottom:134px}
 .recent .r:hover{background:var(--white)}
 .recent .r .rt{font-size:var(--fs-15); font-weight:300; white-space:nowrap;
   overflow:hidden; text-overflow:ellipsis}
-.recent .r .ra{font-family:var(--mono); font-size:9px; color:var(--g600);
-  text-transform:uppercase; margin-top:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.recent .r .ra{font-family:var(--mono); font-size:9px; color:var(--g600); letter-spacing:.09em;
+  text-transform:uppercase; margin-top:4px; line-height:1.45;
+  /* 长艺人名（最长 45 字符）不要一刀切省略号，允许折到第二行 */
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
 @media(max-width:720px){
   .recent{grid-template-columns:repeat(2,1fr)}
   #roll{flex:1 1 100%; min-width:0}
