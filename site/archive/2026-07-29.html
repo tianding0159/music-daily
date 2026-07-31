@@ -76,18 +76,18 @@ a{color:inherit; text-decoration:none}
 .lcd .pose .fur2 rect{fill:#ffffff}
 .lcd .pose .cat-eyes rect{fill:#2b2620}
 .lcd .pose .glint{fill:#ffffff}
-.lcd .pose .nose{fill:#e8859a}
-.lcd .pose .mouth{fill:#e8859a}
-.lcd .pose .blush{fill:#f2a9b5; opacity:.85}
+.lcd .pose .nose{fill:var(--orange)}
+.lcd .pose .mouth{fill:var(--orange)}
+.lcd .pose .blush{fill:var(--orange); opacity:.42}
 .lcd .pose .pad rect{fill:#ffffff}
 .lcd .pose .zzz rect{fill:#9c9282}
 .lcd .pose .cat-eyes{transform-box:fill-box; transform-origin:center; animation:cat-blink 2.2s infinite}
 .lcd .pose .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
   animation:cat-wag .42s ease-in-out infinite alternate}
 /* 走位（整只猫在舞台上来回） */
-.lcd .cat-wrap{animation:cat-travel 14s ease-in-out infinite; will-change:transform;
+.lcd .cat-wrap{animation:cat-travel 20s ease-in-out infinite; will-change:transform;
   backface-visibility:hidden; transform:translateZ(0)}
-/* 9 个动作（14s 一轮，慢一点看得清）：
+/* 9 个动作（20s 一轮，放慢到看得清每个动作）：
    ①走去饭盆 ②低头吃 ③走回 ④伸懒腰 ⑤追球左右扑 ⑥连跳 ⑦坐下舔爪 ⑧趴下打盹 ⑨起身抖毛归位 */
 @keyframes cat-travel{
   0%,3%{transform:translateX(0)}
@@ -104,11 +104,11 @@ a{color:inherit; text-decoration:none}
   94%{transform:translateX(0)}          /* ⑨ 起身抖毛归位 */
   100%{transform:translateX(0)}}
 /* 姿态时间轴（5 套姿态切换支撑 9 个动作） */
-.lcd .p-stand{animation:pose-stand 14s steps(1) infinite, cat-bob .4s ease-in-out infinite}
-.lcd .p-sit{animation:pose-sit 14s steps(1) infinite, cat-eat 14s ease-in-out infinite}
-.lcd .p-stretch{animation:pose-stretch 14s steps(1) infinite, cat-stretch 14s ease-in-out infinite}
-.lcd .p-lick{animation:pose-lick 14s steps(1) infinite, cat-lick 14s ease-in-out infinite}
-.lcd .p-sleep{animation:pose-sleep 14s steps(1) infinite, cat-sleep 14s ease-in-out infinite}
+.lcd .p-stand{animation:pose-stand 20s steps(1) infinite, cat-bob .58s ease-in-out infinite}
+.lcd .p-sit{animation:pose-sit 20s steps(1) infinite, cat-eat 20s ease-in-out infinite}
+.lcd .p-stretch{animation:pose-stretch 20s steps(1) infinite, cat-stretch 20s ease-in-out infinite}
+.lcd .p-lick{animation:pose-lick 20s steps(1) infinite, cat-lick 20s ease-in-out infinite}
+.lcd .p-sleep{animation:pose-sleep 20s steps(1) infinite, cat-sleep 20s ease-in-out infinite}
 @keyframes pose-stand{0%,11%{opacity:1}12%,25%{opacity:0}26%,35%{opacity:1}36%,43%{opacity:0}
   44%,64%{opacity:1}65%,90%{opacity:0}91%,100%{opacity:1}}
 @keyframes pose-sit{0%,11%{opacity:0}12%,25%{opacity:1}26%,64%{opacity:0}
@@ -130,8 +130,8 @@ a{color:inherit; text-decoration:none}
   79%{transform:translateY(3px)}82%{transform:translateY(2px)}
   85%{transform:translateY(3px)}88%{transform:translateY(2px)}90%,100%{transform:translateY(0)}}
 /* ⑥ 连跳（叠在 stand 上） */
-.lcd .p-stand{animation:pose-stand 14s steps(1) infinite, cat-bob .4s ease-in-out infinite,
-  cat-hop 14s ease-in-out infinite}
+.lcd .p-stand{animation:pose-stand 20s steps(1) infinite, cat-bob .58s ease-in-out infinite,
+  cat-hop 20s ease-in-out infinite}
 @keyframes cat-hop{0%,57%{transform:translateY(0)}
   59%{transform:translateY(-9px) scaleY(1.1)}61%{transform:translateY(0) scaleY(.93)}
   62.5%{transform:translateY(-6px) scaleY(1.06)}64%,92%{transform:translateY(0) scale(1)}
@@ -143,10 +143,10 @@ a{color:inherit; text-decoration:none}
 .lcd .prop{position:absolute; bottom:1px; image-rendering:pixelated; opacity:0}
 .lcd .prop.bowl{left:6px; width:17px} .lcd .prop.bowl svg{display:block; width:17px}
 .lcd .prop.ball{right:0; width:10px} .lcd .prop.ball svg{display:block; width:10px}
-.lcd .prop.bowl{animation:prop-bowl 14s ease-in-out infinite}
-.lcd .prop.ball{animation:prop-ball 14s ease-in-out infinite}
-.lcd .prop.bowl rect{fill:#6fbf90} .lcd .prop.bowl .food{fill:#f0a24a}
-.lcd .prop.ball rect{fill:#f05a24} .lcd .prop.ball .hl{fill:#ffd7bf}
+.lcd .prop.bowl{animation:prop-bowl 20s ease-in-out infinite}
+.lcd .prop.ball{animation:prop-ball 20s ease-in-out infinite}
+.lcd .prop.bowl rect{fill:#e9e9e9} .lcd .prop.bowl .food{fill:#b9b9b9}
+.lcd .prop.ball rect{fill:#f2f2f2} .lcd .prop.ball .hl{fill:#c8c8c8}
 @keyframes cat-breathe{50%{transform:scaleY(1.03)}}
 @keyframes prop-bowl{0%{opacity:0}6%,25%{opacity:1}28%,100%{opacity:0}}
 @keyframes prop-ball{
