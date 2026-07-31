@@ -259,6 +259,8 @@ a{color:inherit; text-decoration:none}
 .artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
   margin-top:5px; letter-spacing:.03em}
 .meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:7px; line-height:1.6}
+.bpm{display:inline-block; margin-left:8px; padding:1px 6px; border:1px solid var(--g200);
+  color:var(--g900); letter-spacing:.04em; white-space:nowrap}
 .tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:8px}
 .tag{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:2px 7px;
   background:var(--g100); color:var(--g900)}
@@ -268,7 +270,7 @@ a{color:inherit; text-decoration:none}
 .scene{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
   margin-top:auto; padding-top:11px}
 .scene .k{color:var(--orange)}
-.links{display:flex; gap:8px; margin-top:11px}
+.links{display:flex; gap:7px; margin-top:11px; flex-wrap:wrap}
 .btn{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:8px 12px;
   cursor:pointer; transition:opacity .2s; border:1px solid var(--ink)}
 .btn.solid{background:var(--ink); color:var(--white)}
@@ -391,6 +393,34 @@ def _ncsearch(track: dict) -> str:
     return f"https://music.163.com/#/search/m/?s={q}"
 
 
+def _spsearch(track: dict) -> str:
+    q = urllib.parse.quote(f"{track['title']} {track['artist']}")
+    return f"https://open.spotify.com/search/{q}"
+
+
+# 展示层 tag 归一：策展时写的口语/英文/同义变体，统一成得体的中文短词（不改 pool 原数据）
+TAG_MAP = {
+    "有人味": "人声在场", "organic": "有机质地", "organic electronic": "有机电子",
+    "warm": "温暖", "精致但不炫技": "精致克制", "精致不炫技": "精致克制", "精致": "精致克制",
+    "怀旧但现代": "怀旧又现代", "怀旧": "怀旧又现代",
+    "都市": "城市夜晚", "夜色": "城市夜晚", "深夜": "城市夜晚",
+    "柔": "温柔", "暖": "温暖", "甜": "甜润", "私密": "亲密",
+    "内收": "内省", "缓慢生长": "缓慢舒展", "微凉": "清冷", "静谧": "安静",
+}
+
+
+def _tag(x: str) -> str:
+    """展示用 tag：归一 + 去掉英文原样混入。"""
+    x = str(x or "").strip()
+    return TAG_MAP.get(x, TAG_MAP.get(x.lower(), x))
+
+
+def _bpm(track: dict) -> str:
+    """'70–120' → '70–120 bpm'；缺失返回空串。"""
+    b = str(track.get("bpm_band", "")).strip()
+    return f"{b} bpm" if b else ""
+
+
 def _art(track: dict) -> str:
     art = track.get("_cover") or track.get("artwork") or ""
     if art:
@@ -407,11 +437,12 @@ def _art(track: dict) -> str:
 
 def _mod(track: dict, idx: int) -> str:
     g0 = (track.get("genres") or ["—"])[0]
-    tags = "".join(f'<span class="tag">{_esc(g)}</span>' for g in (track.get("genres") or [])[1:3])
-    tags += "".join(f'<span class="tag">{_esc(m)}</span>' for m in (track.get("mood_tags") or [])[:2])
+    tags = "".join(f'<span class="tag">{_esc(_tag(g))}</span>' for g in (track.get("genres") or [])[1:3])
+    tags += "".join(f'<span class="tag">{_esc(_tag(m))}</span>' for m in (track.get("mood_tags") or [])[:2])
     links = []
     if track.get("_apple"):
         links.append(f'<a class="btn solid" href="{_esc(track["_apple"])}" target="_blank" rel="noopener">listen ↗</a>')
+    links.append(f'<a class="btn line" href="{_spsearch(track)}" target="_blank" rel="noopener">spotify ↗</a>')
     links.append(f'<a class="btn line" href="{_ncsearch(track)}" target="_blank" rel="noopener">netease ↗</a>')
     src = ""
     if track.get("source"):
@@ -419,6 +450,7 @@ def _mod(track: dict, idx: int) -> str:
         src = (f'<a href="{_esc(track["source_url"])}" target="_blank" rel="noopener">{s}</a>'
                if track.get("source_url") else s)
     meta = " / ".join(x for x in [_esc(track.get("year", "")), _esc(track.get("album", ""))] if x)
+    bpm = _bpm(track)
     key = f"{track['title']} - {track['artist']}"
     return f"""
     <article class="mod" data-k="{_esc(key)}">
@@ -434,7 +466,7 @@ def _mod(track: dict, idx: int) -> str:
         <div class="hd">
           <div class="title lc">{_esc(track['title'])}</div>
           <div class="artist">{_esc(track['artist'])}</div>
-          <div class="meta">{meta}</div>
+          <div class="meta">{meta}{f'<span class="bpm">{_esc(bpm)}</span>' if bpm else ''}</div>
           <div class="tags">{tags}</div>
         </div>
       </div>
@@ -600,7 +632,7 @@ def build_archive_index(issues: list[dict]) -> str:
   <div class="arc">
     {rows}
   </div>
-  <footer><span>music daily · archive</span><span><a href="../index.html" style="border-bottom:1px solid var(--g300)">← 回到最新</a></span></footer>
+  <footer><span>music daily · archive</span><span>{len(issues)} issues · melody-first</span></footer>
 </main>
 </body>
 </html>"""

@@ -216,6 +216,8 @@ a{color:inherit; text-decoration:none}
 .artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
   margin-top:5px; letter-spacing:.03em}
 .meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:7px; line-height:1.6}
+.bpm{display:inline-block; margin-left:8px; padding:1px 6px; border:1px solid var(--g200);
+  color:var(--g900); letter-spacing:.04em; white-space:nowrap}
 .tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:8px}
 .tag{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:2px 7px;
   background:var(--g100); color:var(--g900)}
@@ -225,7 +227,7 @@ a{color:inherit; text-decoration:none}
 .scene{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
   margin-top:auto; padding-top:11px}
 .scene .k{color:var(--orange)}
-.links{display:flex; gap:8px; margin-top:11px}
+.links{display:flex; gap:7px; margin-top:11px; flex-wrap:wrap}
 .btn{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:8px 12px;
   cursor:pointer; transition:opacity .2s; border:1px solid var(--ink)}
 .btn.solid{background:var(--ink); color:var(--white)}
@@ -322,7 +324,7 @@ body{padding-bottom:76px}
 .card.empty .c-main{color:var(--g500); justify-content:center; text-align:center;
   font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:var(--sp-xl)}
 
-/* 刚摇过 */
+/* 刚抽过 */
 .recent{border-top:1px solid var(--g300); border-left:1px solid var(--g300);
   display:grid; grid-template-columns:repeat(4,1fr); margin-top:var(--sp-md)}
 .recent .r{border-right:1px solid var(--g300); border-bottom:1px solid var(--g300);
@@ -373,14 +375,14 @@ body{padding-bottom:76px}
       <div class="fsel"><span class="lbl">genre</span><select id="f-genre"></select></div>
       <div class="fsel"><span class="lbl">decade</span><select id="f-decade"></select></div>
     </div>
-    <button id="roll" type="button"><svg class="dice" viewBox="0 0 14 14" shape-rendering="crispEdges" aria-hidden="true"><rect x="0.5" y="0.5" width="13" height="13" fill="none" stroke="#fff" stroke-width="1.5"/><rect x="3" y="3" width="2.2" height="2.2" fill="#fff"/><rect x="8.8" y="3" width="2.2" height="2.2" fill="#fff"/><rect x="5.9" y="5.9" width="2.2" height="2.2" fill="#fff"/><rect x="3" y="8.8" width="2.2" height="2.2" fill="#fff"/><rect x="8.8" y="8.8" width="2.2" height="2.2" fill="#fff"/></svg>摇一首<span class="k">space</span></button>
+    <button id="roll" type="button"><svg class="dice" viewBox="0 0 14 14" shape-rendering="crispEdges" aria-hidden="true"><rect x="0.5" y="0.5" width="13" height="13" fill="none" stroke="#fff" stroke-width="1.5"/><rect x="3" y="3" width="2.2" height="2.2" fill="#fff"/><rect x="8.8" y="3" width="2.2" height="2.2" fill="#fff"/><rect x="5.9" y="5.9" width="2.2" height="2.2" fill="#fff"/><rect x="3" y="8.8" width="2.2" height="2.2" fill="#fff"/><rect x="8.8" y="8.8" width="2.2" height="2.2" fill="#fff"/></svg>抽一首<span class="k">space</span></button>
   </div>
-  <div class="hint">按 <kbd>space</kbd> 再摇一首 · <kbd>p</kbd> 播放/暂停 · 摇到的自动播 30 秒试听 · ♥ 收藏与日报页共用</div>
+  <div class="hint">按 <kbd>space</kbd> 再抽一首 · <kbd>p</kbd> 播放/暂停 · 抽到的自动播 30 秒试听 · ♥ 收藏与日报页共用</div>
 
   <div class="sect">the pick</div>
   <article class="card" id="card"><div class="c-main">rolling…</div></article>
 
-  <div class="sect">刚摇过 · recent</div>
+  <div class="sect">刚抽过 · recent</div>
   <div class="recent" id="recent"></div>
 
   <footer>
@@ -439,6 +441,7 @@ function render(t){
   const meta=[t.year,t.album,t.bpm_band?('bpm '+t.bpm_band):''].filter(Boolean).join(' / ');
   const on=hearts.indexOf(t.title+' - '+t.artist)>=0?' on':'';
   const links=(t.a?'<a class="btn solid" href="'+t.a+'" target="_blank" rel="noopener">listen \u2197</a>':'')
+    +'<a class="btn line" href="https://open.spotify.com/search/'+encodeURIComponent(t.title+' '+t.artist)+'" target="_blank" rel="noopener">spotify \u2197</a>'
     +'<a class="btn line" href="https://music.163.com/#/search/m/?s='+encodeURIComponent(t.title+' '+t.artist)+'" target="_blank" rel="noopener">netease \u2197</a>'
     +'<button class="heart'+on+'" id="chz" type="button" data-k="'+(t.title+' - '+t.artist).replace(/"/g,'&quot;')+'" aria-label="\u6536\u85cf">'+HEART+'</button>';
   const card=$('#card');
@@ -521,7 +524,7 @@ fetch('pool.min.json').then(r=>r.json()).then(d=>{
   fill('#f-mood',top(mc,14),'\u6c14\u8d28 \u00b7 all');
   fill('#f-genre',top(gc,18),'\u6d41\u6d3e \u00b7 all');
   fill('#f-decade',Object.keys(dc).sort().map(k=>[k,k+'s ('+dc[k]+')']),'\u5e74\u4ee3 \u00b7 all');
-  lcd(POOL.length+' tracks loaded \u00b7 press the button or hit space');
+  lcd(POOL.length+' tracks loaded \u00b7 hit space or press the button — one pick at a time');
   const q=new URLSearchParams(location.search).get('t');
   const seed=q?POOL.find(t=>t.id===q):null;
   if(seed){seen.push(seed.id);render(seed);pushRecent(seed);}else{roll();}

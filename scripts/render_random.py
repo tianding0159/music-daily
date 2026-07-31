@@ -93,7 +93,7 @@ body{padding-bottom:76px}
 .card.empty .c-main{color:var(--g500); justify-content:center; text-align:center;
   font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:var(--sp-xl)}
 
-/* 刚摇过 */
+/* 刚抽过 */
 .recent{border-top:1px solid var(--g300); border-left:1px solid var(--g300);
   display:grid; grid-template-columns:repeat(4,1fr); margin-top:var(--sp-md)}
 .recent .r{border-right:1px solid var(--g300); border-bottom:1px solid var(--g300);
@@ -159,6 +159,7 @@ function render(t){
   const meta=[t.year,t.album,t.bpm_band?('bpm '+t.bpm_band):''].filter(Boolean).join(' / ');
   const on=hearts.indexOf(t.title+' - '+t.artist)>=0?' on':'';
   const links=(t.a?'<a class="btn solid" href="'+t.a+'" target="_blank" rel="noopener">listen \\u2197</a>':'')
+    +'<a class="btn line" href="https://open.spotify.com/search/'+encodeURIComponent(t.title+' '+t.artist)+'" target="_blank" rel="noopener">spotify \\u2197</a>'
     +'<a class="btn line" href="https://music.163.com/#/search/m/?s='+encodeURIComponent(t.title+' '+t.artist)+'" target="_blank" rel="noopener">netease \\u2197</a>'
     +'<button class="heart'+on+'" id="chz" type="button" data-k="'+(t.title+' - '+t.artist).replace(/"/g,'&quot;')+'" aria-label="\\u6536\\u85cf">'+HEART+'</button>';
   const card=$('#card');
@@ -241,7 +242,7 @@ fetch('pool.min.json').then(r=>r.json()).then(d=>{
   fill('#f-mood',top(mc,14),'\\u6c14\\u8d28 \\u00b7 all');
   fill('#f-genre',top(gc,18),'\\u6d41\\u6d3e \\u00b7 all');
   fill('#f-decade',Object.keys(dc).sort().map(k=>[k,k+'s ('+dc[k]+')']),'\\u5e74\\u4ee3 \\u00b7 all');
-  lcd(POOL.length+' tracks loaded \\u00b7 press the button or hit space');
+  lcd(POOL.length+' tracks loaded \\u00b7 hit space or press the button — one pick at a time');
   const q=new URLSearchParams(location.search).get('t');
   const seed=q?POOL.find(t=>t.id===q):null;
   if(seed){seen.push(seed.id);render(seed);pushRecent(seed);}else{roll();}
@@ -311,14 +312,14 @@ def build_html(n_total: int) -> str:
       <div class="fsel"><span class="lbl">genre</span><select id="f-genre"></select></div>
       <div class="fsel"><span class="lbl">decade</span><select id="f-decade"></select></div>
     </div>
-    <button id="roll" type="button">{ICON_DICE}摇一首<span class="k">space</span></button>
+    <button id="roll" type="button">{ICON_DICE}抽一首<span class="k">space</span></button>
   </div>
-  <div class="hint">按 <kbd>space</kbd> 再摇一首 · <kbd>p</kbd> 播放/暂停 · 摇到的自动播 30 秒试听 · ♥ 收藏与日报页共用</div>
+  <div class="hint">按 <kbd>space</kbd> 再抽一首 · <kbd>p</kbd> 播放/暂停 · 抽到的自动播 30 秒试听 · ♥ 收藏与日报页共用</div>
 
   <div class="sect">the pick</div>
   <article class="card" id="card"><div class="c-main">rolling…</div></article>
 
-  <div class="sect">刚摇过 · recent</div>
+  <div class="sect">刚抽过 · recent</div>
   <div class="recent" id="recent"></div>
 
   <footer>
