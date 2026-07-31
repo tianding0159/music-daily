@@ -93,55 +93,15 @@ body{padding-bottom:76px}
 .card.in{animation:jb-boot .34s cubic-bezier(.16,1,.3,1) both}
 @keyframes jb-boot{from{opacity:0; transform:translateY(12px) scaleY(.97)}to{opacity:1; transform:none}}
 
-/* ① 双开门：由 JS 临时插入 .doors 并在动画结束后移除 —— 卡片默认永远可见，
-   即便动画被关闭/中断也不会留下黑屏（旧版用 ::before/::after 做遮罩，reduced-motion 下会卡成全黑）*/
-.doors{position:absolute; inset:0; z-index:4; pointer-events:none; overflow:hidden;
-  animation:doors-gone .01s linear 2.6s both}
-@keyframes doors-gone{to{opacity:0; visibility:hidden}}
-/* 门板：墨色纸面（斜织纹 + 极淡颗粒），非科技感；内缘一道暖白高光当"门边"。
-   动作分两拍：0.15s 先【合上】（从两侧推入、有落定顿感），1.78s 再【拉开】。*/
-.doors i{position:absolute; top:38px; bottom:0; width:32%; display:block;
-  background-color:#16151a;
-  background-image:
-    repeating-linear-gradient(45deg, rgba(255,255,255,.022) 0 2px, transparent 2px 6px),
-    repeating-linear-gradient(-45deg, rgba(0,0,0,.16) 0 2px, transparent 2px 6px),
-    radial-gradient(120% 90% at 50% 0%, rgba(255,255,255,.045), transparent 62%);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.07), inset 0 -22px 34px -24px rgba(0,0,0,.85)}
-.doors i.l{left:36%; animation:door-close-l .34s cubic-bezier(.3,1.4,.5,1) .15s both,
-  door-open-l .66s cubic-bezier(.6,0,.14,1) 1.78s both}
-.doors i.r{right:0; animation:door-close-r .34s cubic-bezier(.3,1.4,.5,1) .15s both,
-  door-open-r .66s cubic-bezier(.6,0,.14,1) 1.78s both}
-/* 门内缘高光（像门边倒角的反光，暖白不是荧光绿） */
-.doors i::after{content:""; position:absolute; top:0; bottom:0; width:3px;
-  background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,246,235,.5) 45%,rgba(255,255,255,0));
-  opacity:.75}
-.doors i.l::after{right:0} .doors i.r::after{left:0}
-/* 门缝：合上瞬间"咔"地压出一道细影，拉开时迸一下 */
-.doors::before{content:""; position:absolute; left:68%; top:38px; bottom:0; width:3px;
-  margin-left:-1.5px; background:linear-gradient(180deg,transparent,rgba(0,0,0,.85),transparent);
-  box-shadow:0 0 6px rgba(0,0,0,.6);
-  animation:seam-shut .3s ease-out .42s both, seam-burst .7s ease-out 1.72s both}
-@keyframes seam-shut{0%{opacity:0; transform:scaleX(3)}100%{opacity:1; transform:scaleX(1)}}
-@keyframes seam-burst{0%{opacity:1}22%{opacity:1; transform:scaleX(2.4);
-  background:linear-gradient(180deg,transparent,rgba(255,246,235,.75),transparent)}
-  100%{opacity:0; transform:scaleX(1)}}
-/* 关门：从两侧推入，末尾轻微过冲落定 */
-@keyframes door-close-l{0%{transform:translateX(-101%)}82%{transform:translateX(1.5px)}100%{transform:translateX(0)}}
-@keyframes door-close-r{0%{transform:translateX(101%)}82%{transform:translateX(-1.5px)}100%{transform:translateX(0)}}
-/* 开门：先卸扣回弹 2px 再抽走 */
-@keyframes door-open-l{0%{transform:translateX(0)}14%{transform:translateX(2.5px)}100%{transform:translateX(-101%)}}
-@keyframes door-open-r{0%{transform:translateX(0)}14%{transform:translateX(-2.5px)}100%{transform:translateX(101%)}}
-
 /* ② 检索屏：顶栏 LCD 绿等宽字飞速跳曲名（JS 填 #jb-scan），到 1.7s 咔地定格 */
 .jb-scan{position:absolute; left:0; right:0; top:0; height:38px; z-index:12; display:flex;
-  align-items:center; gap:10px; padding:0 16px; background:#08110c; color:#3fae6f;
+  align-items:center; gap:10px; padding:0 16px; background:var(--white); color:var(--g900);
   font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.06em; white-space:nowrap;
-  overflow:hidden; border-bottom:1px solid #12241a;
-  animation:scan-off .3s ease-out 1.95s both}
-.jb-scan .dotp{width:6px; height:6px; background:var(--green); flex:none;
-  box-shadow:0 0 6px var(--green); animation:blink .34s steps(1) infinite}
+  overflow:hidden; border-bottom:1px dashed var(--g200);
+  animation:scan-off .3s ease-out 1.7s both}
+.jb-scan .dotp{width:6px; height:6px; background:var(--orange); flex:none; animation:blink .34s steps(1) infinite}
 .jb-scan .txt{flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis}
-.jb-scan.lock .txt{color:var(--green); font-weight:700}
+.jb-scan.lock .txt{color:var(--orange); font-weight:700}
 @keyframes scan-off{to{opacity:0; transform:translateY(-100%)}}
 
 /* ③ 唱片架推送：唱片从右侧成排推进，带位移模糊与厚度阴影，先快后慢 */
@@ -156,7 +116,7 @@ body{padding-bottom:76px}
   70%{transform:translateX(0) skewX(0); filter:blur(0)}
   100%{transform:translateX(-108%) skewX(5deg); opacity:0; filter:blur(1.2px)}}
 /* ④ 选中那张：滑到位 → 立起来旋 90° → 落进框（回弹） */
-.card .big-art .cover{animation:load-in .62s cubic-bezier(.2,1.25,.3,1) 1.42s both}
+.card .big-art .cover{animation:load-in .58s cubic-bezier(.2,1.25,.3,1) 1.15s both}
 @keyframes load-in{
   0%{opacity:0; transform:translateX(58%) rotateY(74deg) scale(.9)}
   45%{opacity:1; transform:translateX(6%) rotateY(16deg) scale(1.02)}
@@ -164,28 +124,29 @@ body{padding-bottom:76px}
   100%{opacity:1; transform:none}}
 /* 装载到位那一下：封面边缘一闪 + 卡片轻震 */
 .card .big-art .slot{position:absolute; inset:-2px; z-index:8; pointer-events:none;
-  border:2px solid rgba(255,255,255,.9); opacity:0;
-  animation:slot-flash .32s ease-out 1.96s both}
+  border:2px solid rgba(212,98,42,.75); opacity:0;
+  animation:slot-flash .3s ease-out 1.66s both}
 @keyframes slot-flash{0%{opacity:0; transform:scale(1.06)}35%{opacity:.95; transform:scale(1)}100%{opacity:0}}
-.card.in{animation:jb-boot .34s cubic-bezier(.16,1,.3,1) both, jb-thud .2s ease-out 1.98s both}
+.card.in{animation:jb-boot .34s cubic-bezier(.16,1,.3,1) both, jb-thud .2s ease-out 1.68s both}
 @keyframes jb-thud{0%{transform:none}35%{transform:translateY(2px)}100%{transform:none}}
 
 /* ⑤ 信息：打字机式从右滑入 + 尾部光标闪一下 */
-.card.in .c-title{animation:type-in .46s cubic-bezier(.16,1,.3,1) 2.18s both}
-.card.in .c-artist{animation:type-in .4s cubic-bezier(.16,1,.3,1) 2.30s both}
-.card.in .c-meta{animation:type-in .4s cubic-bezier(.16,1,.3,1) 2.40s both}
-.card.in .tags{animation:type-in .4s cubic-bezier(.16,1,.3,1) 2.48s both}
-.card.in .c-one{animation:type-in .4s cubic-bezier(.16,1,.3,1) 2.56s both}
-.card.in .c-why{animation:type-in .44s cubic-bezier(.16,1,.3,1) 2.64s both}
-.card.in .c-scene{animation:type-in .4s cubic-bezier(.16,1,.3,1) 2.76s both}
-.card.in .c-links{animation:type-in .4s cubic-bezier(.16,1,.3,1) 2.86s both}
+.card.in .c-title{animation:type-in .46s cubic-bezier(.16,1,.3,1) 1.72s both}
+.card.in .c-artist{animation:type-in .4s cubic-bezier(.16,1,.3,1) 1.82s both}
+.card.in .c-meta{animation:type-in .4s cubic-bezier(.16,1,.3,1) 1.90s both}
+.card.in .tags{animation:type-in .4s cubic-bezier(.16,1,.3,1) 1.97s both}
+.card.in .c-one{animation:type-in .4s cubic-bezier(.16,1,.3,1) 2.04s both}
+.card.in .c-why{animation:type-in .44s cubic-bezier(.16,1,.3,1) 2.11s both}
+.card.in .c-scene{animation:type-in .4s cubic-bezier(.16,1,.3,1) 2.20s both}
+.card.in .c-links{animation:type-in .4s cubic-bezier(.16,1,.3,1) 2.28s both}
 @keyframes type-in{from{opacity:0; transform:translateX(14px); clip-path:inset(0 100% 0 0)}
   to{opacity:1; transform:none; clip-path:inset(0 0 0 0)}}
-.card.in .c-title::after{content:"\\258b"; color:var(--green); margin-left:4px;
-  animation:cur-blink .5s steps(1) 2.5s 3 both, cur-gone .01s linear 4s both}
+/* 标题打字机光标：闪三下后 content 置空（真正不占位；旧版只改 opacity 会残留遮挡下方） */
+.card.in .c-title::after{content:"\\258b"; color:var(--orange); margin-left:3px; font-weight:400;
+  animation:cur-blink .46s steps(1) 1.9s 3 both, cur-clear .01s linear 3.3s forwards}
 @keyframes cur-blink{50%{opacity:0}}
-@keyframes cur-gone{to{opacity:0; display:none}}
-.card.in .bpm{animation:bpm-lit .5s ease-out 2.9s both}
+@keyframes cur-clear{to{content:""; opacity:0; margin-left:0; font-size:0}}
+.card.in .bpm{animation:bpm-lit .5s ease-out 2.38s both}
 @keyframes bpm-lit{from{border-left-color:var(--g300)}
   45%{border-left-color:var(--bc,var(--g300)); background:rgba(0,0,0,.05)}
   to{border-left-color:var(--bc,var(--g300)); background:transparent}}
@@ -204,7 +165,7 @@ body{padding-bottom:76px}
   background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.06) 0 8px,transparent 8px 16px)}
 .card .big-art .pbtn{left:10px; bottom:10px; width:38px; height:38px}
 /* 揭晓期间播放键隐身（唱片还在翻的时候不该有播放键杵着），装载完成后才淡入 */
-.card.in .big-art .pbtn{animation:pbtn-in .34s ease-out 2.06s both}
+.card.in .big-art .pbtn{animation:pbtn-in .32s ease-out 1.76s both}
 @keyframes pbtn-in{from{opacity:0; transform:translateY(6px) scale(.86)}
   to{opacity:1; transform:none}}
 .card .big-art .pbtn svg{width:15px; height:15px}
@@ -284,10 +245,11 @@ body.has-basket{padding-bottom:134px}
   .fsel{flex:1 1 50%}
 }
 @media(prefers-reduced-motion:reduce){
-  .card,.card.in,.card .big-art .cover,.rack,.jb-scan,.card .big-art .slot,.card.in .bpm,.card.in .c-title::after,.card.in .c-title,.card.in .c-artist,.card.in .c-meta,.card.in .tags,
+  .card,.card.in,.card .big-art .cover,.rack,.jb-scan,.card .big-art .slot,.card.in .bpm,.card.in .c-title,.card.in .c-artist,.card.in .c-meta,.card.in .tags,
   .card.in .c-one,.card.in .c-why,.card.in .c-scene,.card.in .c-links{
     opacity:1; transform:none; transition:none; animation:none; filter:none}
-  .doors,.jb-scan,.rack,.card .big-art .slot{display:none}
+  .jb-scan,.rack,.card .big-art .slot{display:none}
+  .card.in .c-title::after{content:""; animation:none}
   .card.in .big-art .pbtn{animation:none; opacity:1; transform:none}
   #roll.ping::after{animation:none; display:none}
   #roll .dice g{animation:none !important}
@@ -397,11 +359,6 @@ function render(t){
     });
     art.appendChild(rack);
     const slot=document.createElement('span'); slot.className='slot'; art.appendChild(slot);
-    // 双开门（临时元素，动画完就移除；即便中断也不会留黑屏）
-    const doors=document.createElement('div'); doors.className='doors';
-    doors.innerHTML='<i class="l"></i><i class="r"></i>';
-    card.appendChild(doors);
-    setTimeout(()=>doors.remove(), 2450);
     // ② 检索屏：飞速跳曲名，1.7s 咔地定格成这次抽到的
     const scan=document.createElement('div'); scan.className='jb-scan';
     scan.innerHTML='<span class="dotp"></span><span class="txt">scanning…</span>';
@@ -413,7 +370,7 @@ function render(t){
     }, 62);
     setTimeout(()=>{clearInterval(iv); scan.classList.add('lock');
       tx.textContent='◉ '+t.title+' — '+t.artist;}, 1700);
-    setTimeout(()=>{rack.remove(); slot.remove(); scan.remove(); doors.remove();}, 3100);
+    setTimeout(()=>{rack.remove(); slot.remove(); scan.remove();}, 3100);
   })();
   requestAnimationFrame(()=>card.classList.add('in'));
   const pb2=$('#cpb'); if(pb2)pb2.addEventListener('click',()=>toggle(t));
