@@ -2,7 +2,8 @@
 
 用法：python3 scripts/healthcheck.py
 覆盖：池可解析 / id 唯一 / fit 0-100 / year 合理 / 必填字段 / 黑名单漏网 /
-history 与 pool 一致 / canonical 字段 / 库存与可支撑天数（告警）。
+history 与 pool 一致 / canonical 字段 / 库存与可支撑天数（告警）/
+文案口径（copy_check：文案黑名单词、圣经范例句被入库、跨歌重复、模板集中度）。
 """
 from __future__ import annotations
 
@@ -12,6 +13,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import copy_check  # noqa: E402
 import picker  # noqa: E402
 
 DATA = Path(__file__).resolve().parent.parent / "data"
@@ -67,6 +69,11 @@ def main() -> int:
     if dangling:
         p0.append(f"history 指向不存在的 id：{ {d: v[:3] for d, v in list(dangling.items())[:3]} }")
 
+    # 文案（口径来自 docs/style_bible.md，见 copy_check.py）
+    c_p0, c_warn, c_m = copy_check.check_copy(pool)
+    p0 += c_p0
+    warn += c_warn
+
     # 库存（告警）
     eligible = [t for t in pool if picker.is_eligible(t)[0]]
     sent_dates = sorted(history)
@@ -80,6 +87,9 @@ def main() -> int:
 
     print("=== healthcheck ===")
     print("stock:", json.dumps(stock, ensure_ascii=False))
+    print("copy: ", json.dumps({k: c_m[k] for k in (
+        "blacklist_hits", "example_verbatim", "oneliner_dash_pct",
+        "scene_top_tail_pct", "scene_timeword_pct") if k in c_m}, ensure_ascii=False))
     for w in warn:
         print("  [warn]", w)
     for e in p0:

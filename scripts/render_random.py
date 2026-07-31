@@ -138,7 +138,7 @@ body{padding-bottom:76px}
 .tt .disc{width:100%; height:100%; border-radius:50%; position:relative;
   background:
     repeating-radial-gradient(circle at 50% 50%, rgba(255,255,255,.09) 0 1px, transparent 1px 4px),
-    radial-gradient(circle at 50% 50%, #f5f5f5 0 15%, #191919 15.5% 100%);
+    radial-gradient(circle closest-side at 50% 50%, #f5f5f5 0 30%, #191919 30.5% 100%);
   box-shadow:0 0 0 1px rgba(255,255,255,.2), inset 0 0 24px rgba(0,0,0,.72);
   will-change:transform;
   animation:disc-up 1.45s cubic-bezier(.4,0,.75,.5) .3s both, disc-lit .3s ease-out 1.42s both}
@@ -147,10 +147,12 @@ body{padding-bottom:76px}
   46%{transform:rotate(256deg)} 64%{transform:rotate(572deg)} 80%{transform:rotate(990deg)}
   100%{transform:rotate(1440deg)}}
 @keyframes disc-lit{0%{filter:brightness(1)}40%{filter:brightness(1.26)}100%{filter:brightness(1)}}
-/* 白色纸标签上随盘同转的极小转速字（跟按钮图标同一套语言） */
-.tt .disc::before{content:"33⅓"; position:absolute; left:50%; top:50%;
-  transform:translate(-50%,-50%); font-family:var(--mono); font-size:7px;
-  color:#1a1a1a; letter-spacing:-.02em; z-index:2}
+/* 纸标签上的转速字：沿标签内圈弧排（真黑胶就是围着中心绕的，不横在正中间），随盘同转。
+   CSS 做不到文字沿圆弧，故内嵌一小段 SVG textPath。class 用 vlbl，别撞筛选器的 .lbl。 */
+.tt .disc .vlbl{position:absolute; left:50%; top:50%; width:44%; height:44%;
+  transform:translate(-50%,-50%); z-index:2; pointer-events:none}
+.tt .disc .vlbl text{font-size:1.6px; fill:#242424; letter-spacing:.05px;
+  font-family:ui-monospace,Menlo,monospace}
 /* 固定反光带：挂在不自转的 .dwrap 上，所以不会变成一根转动的秒针 */
 .tt .dwrap::after{content:""; position:absolute; inset:0; border-radius:50%; pointer-events:none;
   background:linear-gradient(118deg, transparent 28%, rgba(255,255,255,.13) 43%,
@@ -357,9 +359,12 @@ ICON_DICE = (
     # 中心纸标签（橙色）+ 主轴小孔
     '<circle cx="17" cy="17" r="5.4" fill="#f5f5f5"/>'
     '<circle cx="17" cy="17" r="5.4" fill="none" stroke="#fff" stroke-width=".6" stroke-opacity=".25"/>'
-    # 标签上的极小转速字，随盘一起转（不做主轴黑点）
-    '<text x="17" y="18.05" text-anchor="middle" font-size="3.1" fill="#141414"'
-    '  font-family="ui-monospace,Menlo,monospace" letter-spacing="-.1">33\u2153</text>'
+    # 标签内两圈细压印环 + 主轴点。
+    # 不在这里放弧排转速字：图标 30px、白标签实测才 10px 宽，字环要 23px，塞不下。
+    # 「绕着圈的转速字」放在够大的 the pick 唱片标签上（那里 75px）。
+    '<circle cx="17" cy="17" r="3.7" fill="none" stroke="#b9b3a8" stroke-width=".3"/>'
+    '<circle cx="17" cy="17" r="2.4" fill="none" stroke="#cbc5ba" stroke-width=".28"/>'
+    '<circle cx="17" cy="17" r=".6" fill="#a8a29a"/>'
     '</g>'
     '</svg>')
 
@@ -437,7 +442,12 @@ function render(t){
   (function(){
     const art=card.querySelector('.big-art'); if(!art)return;
     const tt=document.createElement('div'); tt.className='tt';
-    tt.innerHTML='<div class="deck"><div class="dwrap"><div class="disc"></div></div>'
+    const LBL='<svg class="vlbl" viewBox="0 0 20 20" aria-hidden="true">'
+      +'<defs><path id="dlbl" fill="none" d="M 10 5.1 A 4.9 4.9 0 1 1 9.99 5.1"/></defs>'
+      +'<text><textPath href="#dlbl" startOffset="4%">'
+      +'33\u2153 RPM \u00b7 LONG PLAY</textPath></text>'
+      +'<circle cx="10" cy="10" r=".5" fill="#a8a29a"/></svg>';
+    tt.innerHTML='<div class="deck"><div class="dwrap"><div class="disc">'+LBL+'</div></div>'
       +'<div class="arm"><i></i><b></b></div><span class="drop"></span></div>'
       +'<span class="led"></span>';
     art.appendChild(tt);
@@ -639,8 +649,9 @@ def build_html(n_total: int) -> str:
       <circle cx="17" cy="17" r="8.4" stroke-width=".5"/></g>
     <path d="M6.6 9.4A14 14 0 0 1 24.6 6.2" fill="none" stroke="#fff" stroke-width="1.4" stroke-opacity=".3" stroke-linecap="round"/>
     <circle cx="17" cy="17" r="5.4" fill="#f5f5f5"/>
-    <text x="17" y="18.05" text-anchor="middle" font-size="3.1" fill="#141414"
-      font-family="ui-monospace,Menlo,monospace" letter-spacing="-.1">33&#8531;</text>
+    <circle cx="17" cy="17" r="3.7" fill="none" stroke="#b9b3a8" stroke-width=".3"/>
+    <circle cx="17" cy="17" r="2.4" fill="none" stroke="#cbc5ba" stroke-width=".28"/>
+    <circle cx="17" cy="17" r=".6" fill="#a8a29a"/>
   </svg>
   <span class="bk-txt">篮子里 <span class="bk-n" id="bk-n">0</span> 首</span>
   <span class="bk-list" id="bk-list"></span>

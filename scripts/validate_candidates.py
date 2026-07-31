@@ -7,6 +7,11 @@ validate_batch(cands, pool) -> (valid, invalids)  批级规则：批内去重、
 from __future__ import annotations
 
 import re
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import copy_check  # noqa: E402
 
 FAMILIARITY = {"likely-unheard", "possibly-known", "classic-known"}
 REQUIRED = ["title", "artist", "year", "album", "genres", "mood_tags", "production_tags",
@@ -56,6 +61,13 @@ def validate_track(t: dict) -> list[str]:
         errs.append("scene 是功能标签(如通勤/放松)，需具体场景")
     if len(scene) < 6:
         errs.append("scene 过短")
+    # 文案口径（与 healthcheck 同一个 copy_check，口径只有一份）：
+    # 单条能查的两项 —— 黑名单词、圣经范例句被原样抄。
+    # 占比类指标要整批才有意义，放在 validate_batch。
+    p0, _w, _m = copy_check.check_copy([t])
+    for e in p0:
+        if e.startswith("黑名单词") or e.startswith("圣经范例句"):
+            errs.append(e.split("：")[0] + "（见 style_bible 第五节）")
     return errs
 
 

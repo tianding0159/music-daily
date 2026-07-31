@@ -1,7 +1,8 @@
 """离线确定性测试（无需网络/pytest）。运行：python3 tests/test_catalog.py
 
 覆盖：pool 数据完整性、canonical id 稳定性/去重、版本错配检测、fit 百分制、
-黑名单过滤、picker 同一天稳定 + 去重。任一失败 → 退出码 1。
+黑名单过滤、picker 同一天稳定 + 去重、文案口径护栏（copy_check）。
+任一失败 → 退出码 1。
 """
 from __future__ import annotations
 
@@ -12,6 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
+import copy_check  # noqa: E402
 import itunes  # noqa: E402
 import merge_candidates as mcand  # noqa: E402
 import migrate_catalog as mc  # noqa: E402
@@ -149,6 +151,72 @@ def test_picker_no_dup_artist_or_album_in_issue():
 def test_blacklist_never_relaxed_and_melody_required():
     assert not picker.is_eligible({"has_melody": False, "genres": ["dream pop"]})[0]
     assert not picker.is_eligible({"has_melody": True, "genres": ["metal"]})[0]
+
+
+# ── 文案口径护栏（copy_check）──
+# 为什么要测：文案标准以前只活在 style_bible.md 与 commit message 里，
+# 结果「声称全量重写」实际只改了一个字段、圣经范例句被原样入库都没人挡住。
+
+def _ok_track(**over):
+    t = {"id": "t1", "title": "T", "artist": "A", "year": "2020", "album": "Al",
+         "genres": ["dream pop"], "mood_tags": ["温柔"], "has_melody": True,
+         "familiarity": "likely-unheard", "fit_score": 80, "bpm_band": "70–120",
+         "source_url": "https://example.com/a", "source": "bandcamp",
+         "production_tags": ["tape"], "instrumentation": ["guitar"], "vocal_style": "soft",
+         "artist_oneliner": "布鲁克林的吉他手，指甲刮弦的声音全留在录音里。",
+         "why": "吉他磨得起毛，副歌一到全松开。",
+         "scene": "等水烧开的两分钟，站在灶台边不想动。"}
+    t.update(over)
+    return t
+
+
+def test_copy_blacklist_parsed_from_bible_not_hardcoded():
+    bl = copy_check.blacklist()
+    assert len(bl) > 30, f"黑名单应从圣经 parse 出几十个词，实际 {len(bl)}"
+    assert "慵懒" in bl and "空灵" in bl
+    # 「宝藏歌手/专辑」的缩写不能被拆成裸词「专辑」这种中性词
+    assert "专辑" not in bl, "『专辑』是中性词，不该进黑名单（曾因拆 / 误报）"
+    assert "宝藏专辑" in bl, "缩写应还原成完整词"
+
+
+def test_copy_catches_blacklist_word():
+    p0, _w, _m = copy_check.check_copy([_ok_track(artist_oneliner="一个慵懒的歌手。")])
+    assert any("黑名单" in e for e in p0), p0
+
+
+def test_copy_catches_bible_example_verbatim():
+    ex = copy_check.examples()
+    assert ex, "应能从圣经 parse 出范例句"
+    p0, _w, _m = copy_check.check_copy([_ok_track(scene=ex[0])])
+    assert any("范例句" in e for e in p0), p0
+
+
+def test_copy_catches_cross_track_duplicate():
+    a = _ok_track(id="a")
+    b = _ok_track(id="b")            # scene 与 a 完全相同
+    p0, _w, _m = copy_check.check_copy([a, b])
+    assert any("完全重复" in e for e in p0), p0
+
+
+def test_copy_warns_on_template_concentration():
+    # 10 条 oneliner 全用破折号同位语 → 占比 100%，应告警而非 P0
+    pool = [_ok_track(id=f"t{i}", artist_oneliner=f"某地某人——做某种声音的第{i}个。",
+                      scene=f"第{i}个动作做完，手还停在那里。") for i in range(10)]
+    p0, warn, m = copy_check.check_copy(pool)
+    assert m["oneliner_dash_pct"] == 100.0, m
+    assert any("破折号" in w for w in warn), warn
+    assert not any("破折号" in e for e in p0), "模板集中度是告警不是 P0"
+
+
+def test_copy_clean_track_passes():
+    p0, _w, _m = copy_check.check_copy([_ok_track()])
+    assert not p0, p0
+
+
+def test_validate_candidates_rejects_bad_copy():
+    errs = vc.validate_track(_ok_track(artist_oneliner="一个慵懒的歌手，声音很治愈。"))
+    assert any("黑名单" in e for e in errs), errs
+    assert not vc.validate_track(_ok_track()), vc.validate_track(_ok_track())
 
 
 if __name__ == "__main__":

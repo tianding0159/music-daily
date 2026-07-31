@@ -193,59 +193,58 @@ a{color:inherit; text-decoration:none}
 .lcd .pose .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
   animation:cat-wag .42s ease-in-out infinite alternate}
 /* 走位（整只猫在舞台上来回） */
-.lcd .cat-move{position:absolute; inset:0; animation:cat-travel 20s ease-in-out infinite;
+.lcd .cat-move{position:absolute; inset:0; animation:cat-travel 20s cubic-bezier(.5,0,.5,1) infinite;
   will-change:transform; backface-visibility:hidden; transform:translateZ(0)}
 /* travel 必须挂内层 .cat-move —— 挂 .cat-wrap 的话道具是它的子元素、会跟着猫一起平移，
    猫与饭盆间距恒定，"走过去吃饭"就永远走不到。 */
 /* 9 个动作（20s 一轮，放慢到看得清每个动作）：
    ①走去饭盆 ②低头吃 ③走回 ④伸懒腰 ⑤追球左右扑 ⑥连跳 ⑦坐下舔爪 ⑧趴下打盹 ⑨起身抖毛归位 */
 @keyframes cat-travel{
-  0%,3%{transform:translateX(0)}
-  10%{transform:translateX(-64px)}      /* ① 走到饭盆 */
-  24%{transform:translateX(-64px)}      /* ② 吃 */
-  31%{transform:translateX(-26px)}      /* ③ 走回 */
-  40%{transform:translateX(-30px)}      /* ④ 伸懒腰 */
-  47%{transform:translateX(12px)}       /* ⑤ 追球右扑 */
-  52%{transform:translateX(-16px)}      /*     左扑 */
-  57%{transform:translateX(8px)}        /*     右扑 */
-  63%{transform:translateX(0)}          /* ⑥ 连跳 */
-  70%{transform:translateX(-6px)}       /* ⑦ 坐下舔爪 */
-  84%{transform:translateX(-6px)}       /* ⑧ 趴下打盹 */
-  94%{transform:translateX(0)}          /* ⑨ 起身抖毛归位 */
-  100%{transform:translateX(0)}}
+  0%,6%{transform:translateX(0)}         /* 呆：站着（1.2s） */
+  13%,27%{transform:translateX(-64px)}   /* 走去饭盆 → 吃（吃的这段不移动） */
+  33%{transform:translateX(-64px)}       /* 呆：吃完抬头（1.2s，原地） */
+  38%,47%{transform:translateX(-28px)}   /* 走回来 → 伸懒腰（伸的这段不移动） */
+  53%{transform:translateX(-28px)}       /* 呆：伸完站定（1.2s，原地） */
+  57%{transform:translateX(14px)}        /* 追球：右扑 */
+  60%{transform:translateX(-18px)}       /*       左扑 */
+  62%{transform:translateX(6px)}         /*       右扑 */
+  64%,76%{transform:translateX(-4px)}    /* 呆 → 坐下舔爪（原地） */
+  93%{transform:translateX(-4px)}        /* 趴睡（整段原地） */
+  97%,100%{transform:translateX(0)}}     /* 起身抖毛归位 + 呆 */
 /* 姿态时间轴（5 套姿态切换支撑 9 个动作） */
 .lcd .p-stand{animation:pose-stand 20s steps(1) infinite, cat-bob .58s ease-in-out infinite}
 .lcd .p-sit{animation:pose-sit 20s steps(1) infinite, cat-eat 20s ease-in-out infinite}
 .lcd .p-stretch{animation:pose-stretch 20s steps(1) infinite, cat-stretch 20s ease-in-out infinite}
 .lcd .p-lick{animation:pose-lick 20s steps(1) infinite, cat-lick 20s ease-in-out infinite}
 .lcd .p-sleep{animation:pose-sleep 20s steps(1) infinite, cat-sleep 20s ease-in-out infinite}
-@keyframes pose-stand{0%,10.5%{opacity:1}11%,25.5%{opacity:0}26%,34.5%{opacity:1}35%,43.5%{opacity:0}
-  44%,63.5%{opacity:1}64%,90.5%{opacity:0}91%,100%{opacity:1}}
-@keyframes pose-sit{0%,11%{opacity:0}12%,25%{opacity:1}26%,100%{opacity:0}}
-@keyframes pose-stretch{0%,35.5%{opacity:0}36%,43%{opacity:1}43.5%,100%{opacity:0}}
-@keyframes pose-lick{0%,64.5%{opacity:0}65%,75%{opacity:1}75.5%,100%{opacity:0}}
-@keyframes pose-sleep{0%,75.5%{opacity:0}76%,90%{opacity:1}90.5%,100%{opacity:0}}
+@keyframes pose-stand{0%{opacity:1}13%{opacity:0}27%{opacity:1}38%{opacity:0}
+  47%{opacity:1}64%{opacity:0}93%{opacity:1}100%{opacity:1}}
+@keyframes pose-sit{0%{opacity:0}13%{opacity:1}27%{opacity:0}100%{opacity:0}}
+@keyframes pose-stretch{0%{opacity:0}38%{opacity:1}47%{opacity:0}100%{opacity:0}}
+@keyframes pose-lick{0%{opacity:0}64%{opacity:1}76%{opacity:0}100%{opacity:0}}
+@keyframes pose-sleep{0%{opacity:0}76%{opacity:1}93%{opacity:0}100%{opacity:0}}
 /* 各动作细节 */
 @keyframes cat-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
-@keyframes cat-eat{0%,13%{transform:translateY(0) rotate(0)}
-  15%{transform:translateY(3px) rotate(5deg)}17%{transform:translateY(0) rotate(3deg)}
-  19%{transform:translateY(3px) rotate(5deg)}21%{transform:translateY(0) rotate(3deg)}
-  23%{transform:translateY(3px) rotate(5deg)}25%,100%{transform:translateY(0) rotate(0)}}
-@keyframes cat-stretch{0%,36%{transform:scaleX(1)}39%{transform:scaleX(1.22) translateX(-4px)}
-  42%{transform:scaleX(1.22) translateX(-4px)}44%,100%{transform:scaleX(1)}}
-@keyframes cat-lick{0%,65%{transform:rotate(0)}68%{transform:rotate(-12deg)}70%{transform:rotate(-3deg)}
-  72%{transform:rotate(-12deg)}74%{transform:rotate(-3deg)}75%,100%{transform:rotate(0)}}
-@keyframes cat-sleep{0%,76%{transform:translateY(0)}
-  79%{transform:translateY(3px)}82%{transform:translateY(2px)}
-  85%{transform:translateY(3px)}88%{transform:translateY(2px)}90%,100%{transform:translateY(0)}}
+@keyframes cat-eat{0%,15%{transform:translateY(0) rotate(0)}
+  17%{transform:translateY(3px) rotate(5deg)}19%{transform:translateY(0) rotate(3deg)}
+  21%{transform:translateY(3px) rotate(5deg)}23%{transform:translateY(0) rotate(3deg)}
+  25%{transform:translateY(3px) rotate(5deg)}27%,100%{transform:translateY(0) rotate(0)}}
+@keyframes cat-stretch{0%,39%{transform:scaleX(1)}41.5%{transform:scaleX(1.22) translateX(-4px)}
+  44.5%{transform:scaleX(1.22) translateX(-4px)}47%,100%{transform:scaleX(1)}}
+@keyframes cat-lick{0%,66%{transform:rotate(0)}68.5%{transform:rotate(-12deg)}70%{transform:rotate(-3deg)}
+  71.5%{transform:rotate(-12deg)}73%{transform:rotate(-3deg)}74%,100%{transform:rotate(0)}}
+@keyframes cat-sleep{0%,78%{transform:translateY(0)}
+  81%{transform:translateY(3px)}84%{transform:translateY(2px)}
+  87%{transform:translateY(3px)}90%{transform:translateY(2px)}92%,100%{transform:translateY(0)}}
 /* ⑥ 连跳（叠在 stand 上） */
 .lcd .p-stand{animation:pose-stand 20s steps(1) infinite, cat-bob .58s ease-in-out infinite,
   cat-hop 20s ease-in-out infinite}
-@keyframes cat-hop{0%,57%{transform:translateY(0)}
-  59%{transform:translateY(-9px) scaleY(1.1)}61%{transform:translateY(0) scaleY(.93)}
-  62.5%{transform:translateY(-6px) scaleY(1.06)}64%,92%{transform:translateY(0) scale(1)}
-  /* ⑨ 抖毛 */
-  94%{transform:rotate(6deg)}96%{transform:rotate(-5deg)}98%{transform:rotate(3deg)}100%{transform:none}}
+@keyframes cat-hop{0%,56%{transform:translateY(0)}
+  58%{transform:translateY(-9px) scaleY(1.1)}60%{transform:translateY(0) scaleY(.93)}
+  61.5%{transform:translateY(-6px) scaleY(1.06)}63%,93%{transform:translateY(0) scale(1)}
+  /* 起身抖毛，抖完留一段站定（呆） */
+  95%{transform:rotate(6deg)}96.5%{transform:rotate(-5deg)}98%{transform:rotate(3deg)}
+  99%,100%{transform:none}}
 @keyframes cat-blink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
 @keyframes cat-wag{from{transform:rotate(-26deg)}to{transform:rotate(22deg)}}
 /* 道具：饭盆(吃饭期) / 球(追球期被扑得乱弹) */
@@ -257,16 +256,16 @@ a{color:inherit; text-decoration:none}
 .lcd .prop.bowl rect{fill:#e9e9e9} .lcd .prop.bowl .food{fill:#b9b9b9}
 .lcd .prop.ball rect{fill:#f2f2f2} .lcd .prop.ball .hl{fill:#c8c8c8}
 @keyframes cat-breathe{50%{transform:scaleY(1.03)}}
-@keyframes prop-bowl{0%{opacity:0}6%,25%{opacity:1}28%,100%{opacity:0}}
+@keyframes prop-bowl{0%{opacity:0}8%,31%{opacity:1}34%,100%{opacity:0}}
 @keyframes prop-ball{
-  0%,43%{opacity:0; transform:translate(0,0)}
-  45%{opacity:1; transform:translate(0,0)}
-  48%{opacity:1; transform:translate(-20px,-12px)}
-  52%{opacity:1; transform:translate(5px,0)}
-  55%{opacity:1; transform:translate(-14px,-9px)}
-  58%{opacity:1; transform:translate(3px,0)}
-  61%{opacity:.7; transform:translate(-6px,-4px)}
-  64%,100%{opacity:0; transform:translate(0,0)}}
+  0%,52%{opacity:0; transform:translate(0,0)}
+  54%{opacity:1; transform:translate(0,0)}
+  57%{opacity:1; transform:translate(-20px,-12px)}
+  59%{opacity:1; transform:translate(5px,0)}
+  61%{opacity:1; transform:translate(-14px,-9px)}
+  62.5%{opacity:1; transform:translate(3px,0)}
+  64%{opacity:.7; transform:translate(-6px,-4px)}
+  66%,100%{opacity:0; transform:translate(0,0)}}
 .lcd .ticker{padding:8px 0; position:relative; -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
 .lcd .track{display:inline-block; white-space:nowrap; padding-left:100%; color:#3fae6f;
