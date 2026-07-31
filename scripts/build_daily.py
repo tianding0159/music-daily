@@ -70,8 +70,10 @@ def _write_snapshot(date: str, issue_no: int, theme: str, picks: list[dict],
     return snap
 
 
-def _backfill_snapshots(history: dict, pool: list[dict], skip_date: str = "") -> None:
-    """给还没有快照的历史日期补一份（不联网，用当前池数据），避免历史 archive 丢失。
+def _backfill_snapshots(history: dict, pool: list[dict], skip_date: str = "",
+                        use_itunes: bool = True) -> None:
+    """给还没有快照的历史日期补一份，避免历史 archive 丢失。
+    也补 iTunes 封面/试听（多数走缓存），否则补出来的 archive 页会没有封面和试听。
     跳过 skip_date（当前正在正常构建的日期，由主流程新鲜生成）。"""
     by_id = {t["id"]: t for t in pool}
     ISSUES.mkdir(parents=True, exist_ok=True)
@@ -81,8 +83,7 @@ def _backfill_snapshots(history: dict, pool: list[dict], skip_date: str = "") ->
         picks = [dict(by_id[i2]) for i2 in history[date] if i2 in by_id]
         if not picks:
             continue
-        for t in picks:
-            t.setdefault("_cover", t.get("cover_url", "")); t.setdefault("_preview", ""); t.setdefault("_apple", "")
+        picks, _ = enrich(picks, use_itunes=use_itunes)   # 补封面/试听，别产出空封面快照
         title = netease.playlist_title(picks, date)
         _write_snapshot(date, i, "grid", picks, title, netease.build_text(picks, title))
 
@@ -135,7 +136,7 @@ def main() -> None:
     if not pool:
         raise SystemExit("pool.json 为空，先建候选池")
 
-    _backfill_snapshots(history, pool, skip_date=args.date)
+    _backfill_snapshots(history, pool, skip_date=args.date, use_itunes=not args.no_itunes)
     snap_path = ISSUES / f"{args.date}.json"
 
     if snap_path.exists() and not args.force_rebuild:
