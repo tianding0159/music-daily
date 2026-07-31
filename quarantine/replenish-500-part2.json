@@ -1,0 +1,299 @@
+[
+  {
+    "title": "New Young City",
+    "artist": "For Tracy Hyde",
+    "reason": "schema",
+    "detail": [
+      "批内重复"
+    ]
+  },
+  {
+    "title": "クロノスタシス",
+    "artist": "Kinoko Teikoku",
+    "reason": "schema",
+    "detail": [
+      "批内重复"
+    ]
+  },
+  {
+    "title": "Nunca Volveré",
+    "artist": "Girl Ultra",
+    "reason": "schema",
+    "detail": [
+      "why 超过两句"
+    ]
+  },
+  {
+    "title": "Sorry Again",
+    "artist": "Velocity Girl",
+    "reason": "version_mismatch",
+    "matched": "Sorry Again (2025 Remaster)",
+    "matched_artist": "Velocity Girl"
+  },
+  {
+    "title": "Umbrellas",
+    "artist": "Pinkshinyultrablast",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "クロノスタシス",
+    "artist": "Kinoko Teikoku",
+    "reason": "artist_mismatch",
+    "matched": "クロノスタシス",
+    "matched_artist": "きのこ帝国"
+  },
+  {
+    "title": "New Young City",
+    "artist": "For Tracy Hyde",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Mini Skirt",
+    "artist": "Kaji Hideki",
+    "reason": "artist_mismatch",
+    "matched": "Mini Skirt",
+    "matched_artist": "HIDEKI KAJI"
+  },
+  {
+    "title": "Lovely People",
+    "artist": "Kaji Hideki",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Fanfare",
+    "artist": "Advantage Lucy",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Loved",
+    "artist": "Swinging Popsicle",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "ロマンス",
+    "artist": "Lamp",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "エスパー",
+    "artist": "Mitsume",
+    "reason": "artist_mismatch",
+    "matched": "エスパー",
+    "matched_artist": "ミツメ"
+  },
+  {
+    "title": "煙",
+    "artist": "Mitsume",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Nightlong",
+    "artist": "For Tracy Hyde",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "ラムダ",
+    "artist": "Clammbon",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "波よせて",
+    "artist": "Clammbon",
+    "reason": "artist_mismatch",
+    "matched": "波よせて",
+    "matched_artist": "クラムボン"
+  },
+  {
+    "title": "Type III",
+    "artist": "paris match",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Steppin' Out",
+    "artist": "Fantastic Plastic Machine",
+    "reason": "version_mismatch",
+    "matched": "Steppin' Out (Costes Re-Edit)",
+    "matched_artist": "Fantastic Plastic Machine"
+  },
+  {
+    "title": "PICNIC",
+    "artist": "Ou Shu",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "サンセット・マーメイド",
+    "artist": "Hitomitoi",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Great Five Lakes",
+    "artist": "Buffalo Daughter",
+    "reason": "version_mismatch",
+    "matched": "Great Five Lakes (2022 Remastered)",
+    "matched_artist": "Buffalo Daughter"
+  },
+  {
+    "title": "Blue Field",
+    "artist": "Port of Notes",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "雨",
+    "artist": "Petrolz",
+    "reason": "artist_mismatch",
+    "matched": "雨",
+    "matched_artist": "ペトロールズ"
+  },
+  {
+    "title": "我愛你",
+    "artist": "Cody Lee",
+    "reason": "artist_mismatch",
+    "matched": "我愛你",
+    "matched_artist": "Cody・Lee(李)"
+  },
+  {
+    "title": "Fica",
+    "artist": "Silva",
+    "reason": "artist_mismatch",
+    "matched": "Fica (Ao Vivo)",
+    "matched_artist": "Silvânia & Berg"
+  },
+  {
+    "title": "Solidão",
+    "artist": "Moreno Veloso",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Volta e Meia",
+    "artist": "Terno Rei",
+    "reason": "artist_mismatch",
+    "matched": "volta e meia",
+    "matched_artist": "O Terno, Devendra Banhart & Shintaro Sakamoto"
+  },
+  {
+    "title": "Nuvem",
+    "artist": "Terno Rei",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Meu Esquema",
+    "artist": "Rachel Reis",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Vem",
+    "artist": "Mallu Magalhães",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Deixa",
+    "artist": "Tiê",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Ya Qué",
+    "artist": "Bratty",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Ilalá",
+    "artist": "Chancha Via Circuito",
+    "reason": "artist_mismatch",
+    "matched": "Ilaló (feat. Mateo Kingman)",
+    "matched_artist": "Chancha Vía Circuito"
+  },
+  {
+    "title": "Prince of Prints",
+    "artist": "Gepe",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Se Ve Desde Aquí",
+    "artist": "Mabe Fratti",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Ciruelo",
+    "artist": "Barrio Lindo",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Firefly",
+    "artist": "American Music Club",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Nature's Gift",
+    "artist": "Itasca",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Suddenly",
+    "artist": "Molly Sarlé",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Sweet Nothing",
+    "artist": "Working Week",
+    "reason": "version_mismatch",
+    "matched": "Sweet Nothing (Live)",
+    "matched_artist": "Working Week"
+  },
+  {
+    "title": "Nothing to Be Done",
+    "artist": "The Pastels",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  }
+]
