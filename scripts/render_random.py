@@ -12,7 +12,8 @@ from __future__ import annotations
 
 import json
 
-from render_grid import CSS, ICON_CAT, ICON_BOWL, ICON_BALL, ICON_PLAY, ICON_PAUSE, ICON_HEART, KNOB, _esc
+from render_grid import (CSS, ICON_CAT, ICON_BOWL, ICON_BALL, ICON_PLAY, ICON_PAUSE,
+                         ICON_HEART, KNOB, TAG_MAP, _esc)
 
 # 精简字段：只留展示要用的（体积从 ~1.5MB 降到 ~400KB）
 FIELDS = ("id", "title", "artist", "year", "album", "genres", "mood_tags",
@@ -93,7 +94,7 @@ body{padding-bottom:76px}
 .card.empty .c-main{color:var(--g500); justify-content:center; text-align:center;
   font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:var(--sp-xl)}
 
-/* 刚抽过 */
+/* 刚听过 */
 .recent{border-top:1px solid var(--g300); border-left:1px solid var(--g300);
   display:grid; grid-template-columns:repeat(4,1fr); margin-top:var(--sp-md)}
 .recent .r{border-right:1px solid var(--g300); border-bottom:1px solid var(--g300);
@@ -239,9 +240,9 @@ fetch('pool.min.json').then(r=>r.json()).then(d=>{
     (t.genres||[]).forEach(g=>{g=g.toLowerCase();gc[g]=(gc[g]||0)+1});
     const y=parseInt(t.year||'0',10); if(y){const k=Math.floor(y/10)*10; dc[k]=(dc[k]||0)+1}});
   const top=(o,n)=>Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,n).map(([k,v])=>[k,k+' ('+v+')']);
-  fill('#f-mood',top(mc,14),'\\u6c14\\u8d28 \\u00b7 all');
-  fill('#f-genre',top(gc,18),'\\u6d41\\u6d3e \\u00b7 all');
-  fill('#f-decade',Object.keys(dc).sort().map(k=>[k,k+'s ('+dc[k]+')']),'\\u5e74\\u4ee3 \\u00b7 all');
+  fill('#f-mood',top(mc,14).map(([k,lbl])=>[k,(TAGMAP[k]||TAGMAP[k.toLowerCase()]||k)+lbl.slice(lbl.indexOf(' ('))]),'\\u5168\\u90e8\\u6c14\\u8d28');
+  fill('#f-genre',top(gc,18),'\\u5168\\u90e8\\u6d41\\u6d3e');
+  fill('#f-decade',Object.keys(dc).sort().map(k=>[k,k+'s ('+dc[k]+')']),'\\u5168\\u90e8\\u5e74\\u4ee3');
   lcd(POOL.length+' tracks loaded \\u00b7 hit space or press the button — one pick at a time');
   const q=new URLSearchParams(location.search).get('t');
   const seed=q?POOL.find(t=>t.id===q):null;
@@ -265,7 +266,8 @@ def build_html(n_total: int) -> str:
         '<rect width="24" height="24" fill="#0f0e12"/>'
         '<rect x="5" y="5" width="14" height="14" fill="none" stroke="#f05a24" stroke-width="2"/></svg>')
     boot = f"loading {n_total} tracks…"
-    js = (f"const KNOB={json.dumps(KNOB)};\n"
+    js = (f"const TAGMAP={json.dumps(TAG_MAP, ensure_ascii=False)};\n"
+          f"const KNOB={json.dumps(KNOB)};\n"
           f"const PLAY={json.dumps(ICON_PLAY)};\nconst PAUSE={json.dumps(ICON_PAUSE)};\n"
           f"const HEART={json.dumps(ICON_HEART)};\n") + JS
     return f"""<!DOCTYPE html>
@@ -274,7 +276,7 @@ def build_html(n_total: int) -> str:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f0e12">
-<meta name="description" content="从 {n_total} 首曲库里随手抽一首 · melody-first · mood-first">
+<meta name="description" content="从 {n_total} 首曲库里随手换一首 · melody-first · mood-first">
 <title>music daily · shuffle · 今天听点别的</title>
 <link rel="icon" href="{favicon}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -312,14 +314,14 @@ def build_html(n_total: int) -> str:
       <div class="fsel"><span class="lbl">genre</span><select id="f-genre"></select></div>
       <div class="fsel"><span class="lbl">decade</span><select id="f-decade"></select></div>
     </div>
-    <button id="roll" type="button">{ICON_DICE}抽一首<span class="k">space</span></button>
+    <button id="roll" type="button">{ICON_DICE}换一首<span class="k">space</span></button>
   </div>
-  <div class="hint">按 <kbd>space</kbd> 再抽一首 · <kbd>p</kbd> 播放/暂停 · 抽到的自动播 30 秒试听 · ♥ 收藏与日报页共用</div>
+  <div class="hint">按 <kbd>space</kbd> 换下一首 · <kbd>p</kbd> 播放/暂停 · 每首自动播 30 秒试听 · ♥ 收藏与日报页共用</div>
 
   <div class="sect">the pick</div>
   <article class="card" id="card"><div class="c-main">rolling…</div></article>
 
-  <div class="sect">刚抽过 · recent</div>
+  <div class="sect">刚听过 · recent</div>
   <div class="recent" id="recent"></div>
 
   <footer>

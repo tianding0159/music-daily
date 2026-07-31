@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f0e12">
-<meta name="description" content="从 856 首曲库里随手抽一首 · melody-first · mood-first">
+<meta name="description" content="从 856 首曲库里随手换一首 · melody-first · mood-first">
 <title>music daily · shuffle · 今天听点别的</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%230f0e12%22/%3E%3Crect%20x%3D%225%22%20y%3D%225%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22none%22%20stroke%3D%22%23f05a24%22%20stroke-width%3D%222%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -324,7 +324,7 @@ body{padding-bottom:76px}
 .card.empty .c-main{color:var(--g500); justify-content:center; text-align:center;
   font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:var(--sp-xl)}
 
-/* 刚抽过 */
+/* 刚听过 */
 .recent{border-top:1px solid var(--g300); border-left:1px solid var(--g300);
   display:grid; grid-template-columns:repeat(4,1fr); margin-top:var(--sp-md)}
 .recent .r{border-right:1px solid var(--g300); border-bottom:1px solid var(--g300);
@@ -375,14 +375,14 @@ body{padding-bottom:76px}
       <div class="fsel"><span class="lbl">genre</span><select id="f-genre"></select></div>
       <div class="fsel"><span class="lbl">decade</span><select id="f-decade"></select></div>
     </div>
-    <button id="roll" type="button"><svg class="dice" viewBox="0 0 14 14" shape-rendering="crispEdges" aria-hidden="true"><rect x="0.5" y="0.5" width="13" height="13" fill="none" stroke="#fff" stroke-width="1.5"/><rect x="3" y="3" width="2.2" height="2.2" fill="#fff"/><rect x="8.8" y="3" width="2.2" height="2.2" fill="#fff"/><rect x="5.9" y="5.9" width="2.2" height="2.2" fill="#fff"/><rect x="3" y="8.8" width="2.2" height="2.2" fill="#fff"/><rect x="8.8" y="8.8" width="2.2" height="2.2" fill="#fff"/></svg>抽一首<span class="k">space</span></button>
+    <button id="roll" type="button"><svg class="dice" viewBox="0 0 14 14" shape-rendering="crispEdges" aria-hidden="true"><rect x="0.5" y="0.5" width="13" height="13" fill="none" stroke="#fff" stroke-width="1.5"/><rect x="3" y="3" width="2.2" height="2.2" fill="#fff"/><rect x="8.8" y="3" width="2.2" height="2.2" fill="#fff"/><rect x="5.9" y="5.9" width="2.2" height="2.2" fill="#fff"/><rect x="3" y="8.8" width="2.2" height="2.2" fill="#fff"/><rect x="8.8" y="8.8" width="2.2" height="2.2" fill="#fff"/></svg>换一首<span class="k">space</span></button>
   </div>
-  <div class="hint">按 <kbd>space</kbd> 再抽一首 · <kbd>p</kbd> 播放/暂停 · 抽到的自动播 30 秒试听 · ♥ 收藏与日报页共用</div>
+  <div class="hint">按 <kbd>space</kbd> 换下一首 · <kbd>p</kbd> 播放/暂停 · 每首自动播 30 秒试听 · ♥ 收藏与日报页共用</div>
 
   <div class="sect">the pick</div>
   <article class="card" id="card"><div class="c-main">rolling…</div></article>
 
-  <div class="sect">刚抽过 · recent</div>
+  <div class="sect">刚听过 · recent</div>
   <div class="recent" id="recent"></div>
 
   <footer>
@@ -400,7 +400,8 @@ body{padding-bottom:76px}
   <span id="np-time" class="mono">0:00 / 0:00</span>
 </div>
 
-<script>const KNOB=["#0071bb", "#006837", "#f05a24", "#fab413", "#b81d13", "#0f0e12"];
+<script>const TAGMAP={"有人味": "人声在场", "organic": "有机质地", "organic electronic": "有机电子", "warm": "温暖", "精致但不炫技": "精致克制", "精致不炫技": "精致克制", "精致": "精致克制", "怀旧但现代": "怀旧又现代", "怀旧": "怀旧又现代", "都市": "城市夜晚", "夜色": "城市夜晚", "深夜": "城市夜晚", "柔": "温柔", "暖": "温暖", "甜": "甜润", "私密": "亲密", "内收": "内省", "缓慢生长": "缓慢舒展", "微凉": "清冷", "静谧": "安静"};
+const KNOB=["#0071bb", "#006837", "#f05a24", "#fab413", "#b81d13", "#0f0e12"];
 const PLAY="<svg class=\"i-play\" viewBox=\"0 0 10 10\" aria-hidden=\"true\"><path d=\"M2 1 L9 5 L2 9 Z\"/></svg>";
 const PAUSE="<svg class=\"i-pause\" viewBox=\"0 0 10 10\" aria-hidden=\"true\"><rect x=\"2\" y=\"1\" width=\"2.6\" height=\"8\"/><rect x=\"5.4\" y=\"1\" width=\"2.6\" height=\"8\"/></svg>";
 const HEART="<svg class=\"i-heart\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z\"/></svg>";
@@ -521,9 +522,9 @@ fetch('pool.min.json').then(r=>r.json()).then(d=>{
     (t.genres||[]).forEach(g=>{g=g.toLowerCase();gc[g]=(gc[g]||0)+1});
     const y=parseInt(t.year||'0',10); if(y){const k=Math.floor(y/10)*10; dc[k]=(dc[k]||0)+1}});
   const top=(o,n)=>Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,n).map(([k,v])=>[k,k+' ('+v+')']);
-  fill('#f-mood',top(mc,14),'\u6c14\u8d28 \u00b7 all');
-  fill('#f-genre',top(gc,18),'\u6d41\u6d3e \u00b7 all');
-  fill('#f-decade',Object.keys(dc).sort().map(k=>[k,k+'s ('+dc[k]+')']),'\u5e74\u4ee3 \u00b7 all');
+  fill('#f-mood',top(mc,14).map(([k,lbl])=>[k,(TAGMAP[k]||TAGMAP[k.toLowerCase()]||k)+lbl.slice(lbl.indexOf(' ('))]),'\u5168\u90e8\u6c14\u8d28');
+  fill('#f-genre',top(gc,18),'\u5168\u90e8\u6d41\u6d3e');
+  fill('#f-decade',Object.keys(dc).sort().map(k=>[k,k+'s ('+dc[k]+')']),'\u5168\u90e8\u5e74\u4ee3');
   lcd(POOL.length+' tracks loaded \u00b7 hit space or press the button — one pick at a time');
   const q=new URLSearchParams(location.search).get('t');
   const seed=q?POOL.find(t=>t.id===q):null;
