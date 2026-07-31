@@ -20,33 +20,33 @@ import urllib.parse
 # LCD 上的像素小猫（绿屏设备宠物感）：会眨眼(cat-eyes)、甩尾(cat-tail)、轻轻呼吸摇摆(整体 bob)
 # 像素猫：4 套姿态（站立 / 蹲坐 / 伸展 / 舔爪），靠 CSS 切显隐做定格动画，比单图 transform 生动得多
 def _cat_pose(cls: str, body: str) -> str:
-    return (f'<svg class="cat pose {cls}" viewBox="0 0 20 16" shape-rendering="crispEdges" aria-hidden="true">'
+    return (f'<svg class="cat pose {cls}" viewBox="0 0 20 17" shape-rendering="crispEdges" aria-hidden="true">'
             f'{body}</svg>')
 
 
 # 共用零件
-_EARS = '<rect x="3" y="1" width="2" height="2"/><rect x="9" y="1" width="2" height="2"/>'
-_EYES = ('<g class="cat-eyes"><rect x="4" y="5" width="2" height="2"/><rect x="8" y="5" width="2" height="2"/>'
-         '<rect class="glint" x="5" y="5" width="1" height="1"/><rect class="glint" x="9" y="5" width="1" height="1"/></g>')
-_FACE = ('<rect class="nose" x="6" y="7" width="2" height="1"/>'
-         '<rect class="blush" x="2" y="7" width="1" height="1"/><rect class="blush" x="11" y="7" width="1" height="1"/>')
+_EARS = '<rect x="2" y="0" width="3" height="2"/><rect x="9" y="0" width="3" height="2"/>'
+_EYES = ('<g class="cat-eyes"><rect x="3" y="5" width="2" height="2"/><rect x="9" y="5" width="2" height="2"/>'
+         '<rect class="glint" x="3" y="5" width="1" height="1"/><rect class="glint" x="9" y="5" width="1" height="1"/></g>')
+_FACE = ('<rect class="nose" x="6" y="8" width="2" height="1"/>'
+         '<rect class="blush" x="1" y="8" width="2" height="1"/><rect class="blush" x="11" y="8" width="2" height="1"/>')
 
 # ① 站立（四肢着地，尾巴翘）
 ICON_CAT_STAND = _cat_pose("p-stand",
     '<g class="cat-tail"><rect x="13" y="8" width="2" height="2"/><rect x="14" y="6" width="2" height="2"/>'
     '<rect x="15" y="5" width="1" height="2"/></g>'
-    + _EARS + '<rect x="2" y="2" width="10" height="7"/>'
-    '<rect x="3" y="9" width="10" height="3"/>'
-    '<rect x="3" y="12" width="2" height="2"/><rect x="7" y="12" width="2" height="2"/>'
-    '<rect x="11" y="12" width="2" height="2"/>'
+    + _EARS + '<rect x="1" y="1" width="12" height="9"/>'
+    '<rect x="3" y="10" width="9" height="3"/>'
+    '<rect x="3" y="13" width="2" height="2"/><rect x="7" y="13" width="2" height="2"/>'
+    '<rect x="10" y="13" width="2" height="2"/>'
     + _FACE + _EYES)
 
 # ② 蹲坐（身体缩短、前爪并拢在前）
 ICON_CAT_SIT = _cat_pose("p-sit",
     '<g class="cat-tail"><rect x="13" y="10" width="3" height="2"/><rect x="15" y="8" width="2" height="2"/></g>'
-    + _EARS + '<rect x="2" y="2" width="10" height="7"/>'
-    '<rect x="3" y="9" width="9" height="4"/>'
-    '<rect x="4" y="13" width="2" height="1"/><rect x="8" y="13" width="2" height="1"/>'
+    + _EARS + '<rect x="1" y="1" width="12" height="9"/>'
+    '<rect x="3" y="10" width="9" height="4"/>'
+    '<rect x="4" y="14" width="2" height="1"/><rect x="8" y="14" width="2" height="1"/>'
     + _FACE + _EYES)
 
 # ③ 伸展（身体拉长、前肢前伸、屁股翘起）
@@ -62,10 +62,10 @@ ICON_CAT_STRETCH = _cat_pose("p-stretch",
 # ④ 舔爪（歪头，一只前爪抬到嘴边）
 ICON_CAT_LICK = _cat_pose("p-lick",
     '<g class="cat-tail"><rect x="13" y="10" width="3" height="2"/><rect x="15" y="9" width="2" height="2"/></g>'
-    + '<rect x="3" y="1" width="2" height="2"/><rect x="9" y="1" width="2" height="2"/>'
-    '<rect x="2" y="2" width="10" height="7"/><rect x="3" y="9" width="9" height="4"/>'
-    '<rect x="4" y="13" width="2" height="1"/>'
-    '<rect x="7" y="7" width="3" height="4"/>'          # 抬起的前爪
+    + '<rect x="2" y="0" width="3" height="2"/><rect x="9" y="0" width="3" height="2"/>'
+    '<rect x="1" y="1" width="12" height="9"/><rect x="3" y="10" width="9" height="4"/>'
+    '<rect x="4" y="14" width="2" height="1"/>'
+    '<rect x="7" y="8" width="3" height="4"/>'          # 抬起的前爪
     '<rect class="nose" x="6" y="7" width="1" height="1"/>'
     '<rect class="blush" x="2" y="7" width="1" height="1"/>'
     '<g class="cat-eyes"><rect x="4" y="5" width="2" height="1"/><rect x="8" y="5" width="2" height="1"/></g>')
@@ -155,7 +155,7 @@ a{color:inherit; text-decoration:none}
 .lcd .cat-wrap{position:relative; width:clamp(104px,15vw,156px); height:34px; flex:none; margin-left:auto;
   align-self:center}
 /* 4 套姿态叠在一起，靠 opacity 切换做定格动画；整体走位靠 .cat-wrap 的 travel */
-.lcd .pose{position:absolute; right:4px; bottom:1px; width:34px; height:27px; display:block;
+.lcd .pose{position:absolute; right:4px; bottom:1px; width:38px; height:32px; display:block;
   image-rendering:pixelated; opacity:0; transform-origin:bottom center}
 .lcd .pose rect{fill:#8be0aa}
 .lcd .pose .cat-eyes rect{fill:#06231a}
@@ -436,7 +436,11 @@ function copyNC(){const t=document.getElementById('nc-text').innerText;
   document.querySelectorAll('.heart').forEach(function(h){h.addEventListener('click',function(){
     var k=h.dataset.k,i=hearts.indexOf(k);if(i>=0)hearts.splice(i,1);else hearts.push(k);sv(hearts);refresh();applyFilter();});});
   var only=document.getElementById('fav-only');
-  if(only)only.addEventListener('click',function(){document.body.classList.toggle('fav-mode');
+  if(only)only.addEventListener('click',function(){
+    if(!hearts.length && !document.body.classList.contains('fav-mode')){
+      var o=only.innerHTML; only.innerHTML='还没收藏 · 点卡片右上角 \u2665';
+      setTimeout(function(){only.innerHTML=o;},1800); return;}
+    document.body.classList.toggle('fav-mode');
     only.classList.toggle('active',document.body.classList.contains('fav-mode'));applyFilter();});
   var exp=document.getElementById('fav-export'), box=document.getElementById('fav-box'), txt=document.getElementById('fav-text');
   if(exp)exp.addEventListener('click',function(){

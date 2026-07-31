@@ -93,11 +93,12 @@ body{padding-bottom:76px}
 .card.in{animation:jb-boot .34s cubic-bezier(.16,1,.3,1) both}
 @keyframes jb-boot{from{opacity:0; transform:translateY(12px) scaleY(.97)}to{opacity:1; transform:none}}
 
-/* ① 双开门（左右两扇，盖住整卡；1.72s 起向两侧拉开） */
-.card.in::before,.card.in::after{content:""; position:absolute; top:0; bottom:0; width:50.5%;
-  background:#0f0e12; z-index:8; pointer-events:none}
-.card.in::before{left:0; border-right:1px solid #272727; animation:door-l .62s cubic-bezier(.7,0,.2,1) 1.72s both}
-.card.in::after{right:0; border-left:1px solid #272727; animation:door-r .62s cubic-bezier(.7,0,.2,1) 1.72s both}
+/* ① 双开门：由 JS 临时插入 .doors 并在动画结束后移除 —— 卡片默认永远可见，
+   即便动画被关闭/中断也不会留下黑屏（旧版用 ::before/::after 做遮罩，reduced-motion 下会卡成全黑）*/
+.doors{position:absolute; inset:0; z-index:8; pointer-events:none}
+.doors i{position:absolute; top:0; bottom:0; width:50.6%; background:#0f0e12; display:block}
+.doors i.l{left:0; border-right:1px solid #272727; animation:door-l .62s cubic-bezier(.7,0,.2,1) 1.72s both}
+.doors i.r{right:0; border-left:1px solid #272727; animation:door-r .62s cubic-bezier(.7,0,.2,1) 1.72s both}
 @keyframes door-l{0%{transform:translateX(0)}100%{transform:translateX(-101%)}}
 @keyframes door-r{0%{transform:translateX(0)}100%{transform:translateX(101%)}}
 
@@ -249,9 +250,10 @@ body.has-basket{padding-bottom:134px}
   .fsel{flex:1 1 50%}
 }
 @media(prefers-reduced-motion:reduce){
-  .card,.card.in,.card.in::before,.card.in::after,.card .big-art .cover,.rack,.jb-scan,.card .big-art .slot,.card.in .bpm,.card.in .c-title::after,.card.in .c-title,.card.in .c-artist,.card.in .c-meta,.card.in .tags,
+  .card,.card.in,.card .big-art .cover,.rack,.jb-scan,.card .big-art .slot,.card.in .bpm,.card.in .c-title::after,.card.in .c-title,.card.in .c-artist,.card.in .c-meta,.card.in .tags,
   .card.in .c-one,.card.in .c-why,.card.in .c-scene,.card.in .c-links{
     opacity:1; transform:none; transition:none; animation:none; filter:none}
+  .doors,.jb-scan,.rack,.card .big-art .slot{display:none}
   #roll.ping::after{animation:none; display:none}
   #roll .dice g{animation:none !important}
   #roll.rolling .dice{animation:none}
@@ -360,6 +362,11 @@ function render(t){
     });
     art.appendChild(rack);
     const slot=document.createElement('span'); slot.className='slot'; art.appendChild(slot);
+    // 双开门（临时元素，动画完就移除；即便中断也不会留黑屏）
+    const doors=document.createElement('div'); doors.className='doors';
+    doors.innerHTML='<i class="l"></i><i class="r"></i>';
+    card.appendChild(doors);
+    setTimeout(()=>doors.remove(), 2450);
     // ② 检索屏：飞速跳曲名，1.7s 咔地定格成这次抽到的
     const scan=document.createElement('div'); scan.className='jb-scan';
     scan.innerHTML='<span class="dotp"></span><span class="txt">scanning…</span>';
@@ -371,7 +378,7 @@ function render(t){
     }, 62);
     setTimeout(()=>{clearInterval(iv); scan.classList.add('lock');
       tx.textContent='◉ '+t.title+' — '+t.artist;}, 1700);
-    setTimeout(()=>{rack.remove(); slot.remove(); scan.remove();}, 3100);
+    setTimeout(()=>{rack.remove(); slot.remove(); scan.remove(); doors.remove();}, 3100);
   })();
   requestAnimationFrame(()=>card.classList.add('in'));
   const pb2=$('#cpb'); if(pb2)pb2.addEventListener('click',()=>toggle(t));
