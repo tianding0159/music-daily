@@ -95,15 +95,15 @@ body{padding-bottom:76px}
 
 /* ① 双开门：由 JS 临时插入 .doors 并在动画结束后移除 —— 卡片默认永远可见，
    即便动画被关闭/中断也不会留下黑屏（旧版用 ::before/::after 做遮罩，reduced-motion 下会卡成全黑）*/
-.doors{position:absolute; inset:0; z-index:8; pointer-events:none}
-.doors i{position:absolute; top:0; bottom:0; width:50.6%; background:#0f0e12; display:block}
+.doors{position:absolute; inset:0; z-index:4; pointer-events:none}
+.doors i{position:absolute; top:38px; bottom:0; width:50.6%; background:#0f0e12; display:block}
 .doors i.l{left:0; border-right:1px solid #272727; animation:door-l .62s cubic-bezier(.7,0,.2,1) 1.72s both}
 .doors i.r{right:0; border-left:1px solid #272727; animation:door-r .62s cubic-bezier(.7,0,.2,1) 1.72s both}
 @keyframes door-l{0%{transform:translateX(0)}100%{transform:translateX(-101%)}}
 @keyframes door-r{0%{transform:translateX(0)}100%{transform:translateX(101%)}}
 
 /* ② 检索屏：顶栏 LCD 绿等宽字飞速跳曲名（JS 填 #jb-scan），到 1.7s 咔地定格 */
-.jb-scan{position:absolute; left:0; right:0; top:0; height:38px; z-index:9; display:flex;
+.jb-scan{position:absolute; left:0; right:0; top:0; height:38px; z-index:12; display:flex;
   align-items:center; gap:10px; padding:0 16px; background:#08110c; color:#3fae6f;
   font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.06em; white-space:nowrap;
   overflow:hidden; border-bottom:1px solid #12241a;
@@ -115,8 +115,8 @@ body{padding-bottom:76px}
 @keyframes scan-off{to{opacity:0; transform:translateY(-100%)}}
 
 /* ③ 唱片架推送：唱片从右侧成排推进，带位移模糊与厚度阴影，先快后慢 */
-.card .big-art{perspective:1000px; transform-style:preserve-3d}
-.rack{position:absolute; inset:0; z-index:6; pointer-events:none; overflow:hidden}
+.card .big-art{perspective:1000px; transform-style:preserve-3d; position:relative; z-index:6}
+.rack{position:absolute; inset:0; z-index:7; pointer-events:none; overflow:hidden}
 .rack .rc{position:absolute; inset:0; background-size:cover; background-position:center;
   background-color:var(--g100); box-shadow:-8px 0 14px rgba(0,0,0,.35), inset 1px 0 0 rgba(255,255,255,.28);
   animation:rack-push .34s cubic-bezier(.3,0,.35,1) both}
@@ -133,7 +133,7 @@ body{padding-bottom:76px}
   72%{transform:translateX(0) rotateY(-5deg) scale(1.035)}
   100%{opacity:1; transform:none}}
 /* 装载到位那一下：封面边缘一闪 + 卡片轻震 */
-.card .big-art .slot{position:absolute; inset:-2px; z-index:7; pointer-events:none;
+.card .big-art .slot{position:absolute; inset:-2px; z-index:8; pointer-events:none;
   border:2px solid rgba(255,255,255,.9); opacity:0;
   animation:slot-flash .32s ease-out 1.96s both}
 @keyframes slot-flash{0%{opacity:0; transform:scale(1.06)}35%{opacity:.95; transform:scale(1)}100%{opacity:0}}
@@ -463,7 +463,7 @@ fetch('pool.min.json').then(r=>r.json()).then(d=>{
         cp=document.getElementById('bk-copy');
   if(ex)ex.addEventListener('click',()=>{
     if(!hearts.length)return;
-    txt.textContent='今晚的篮子 · music daily\\n'+hearts.join('\\n');
+    txt.textContent='今晚的篮子 · MUSIC DAILY\\n'+hearts.join('\\n');
     box.classList.add('on'); box.scrollIntoView({behavior:'smooth',block:'center'});});
   if(cl)cl.addEventListener('click',()=>{
     hearts.length=0; sv(hearts); bkRender(false);
@@ -502,7 +502,7 @@ def build_html(n_total: int) -> str:
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f0e12">
 <meta name="description" content="从 {n_total} 首曲库里随手另起一首 · melody-first · mood-first">
-<title>music daily · shuffle · 今天听点别的</title>
+<title>MUSIC DAILY · shuffle · 今天听点别的</title>
 <link rel="icon" href="{favicon}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -512,7 +512,7 @@ def build_html(n_total: int) -> str:
 <body>
 <nav class="nav">
   <div class="wrap">
-    <div class="brand lc"><span class="sq"></span>music daily</div>
+    <div class="brand"><span class="sq"></span>MUSIC DAILY</div>
     <div class="serial"><span>mode <b>shuffle</b></span><span>pool <b>{n_total}</b></span>
       <span><a href="index.html" style="border-bottom:1px solid var(--g300)">← 今日精选</a></span></div>
   </div>
@@ -559,7 +559,7 @@ def build_html(n_total: int) -> str:
   </section>
 
   <footer>
-    <span>music daily · shuffle</span>
+    <span>MUSIC DAILY · shuffle</span>
     <span><a href="index.html" style="border-bottom:1px solid var(--g300)">今日精选 →</a></span>
     <span>cover &amp; preview via public music api · personal use</span>
   </footer>

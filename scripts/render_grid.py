@@ -444,7 +444,7 @@ function copyNC(){const t=document.getElementById('nc-text').innerText;
     only.classList.toggle('active',document.body.classList.contains('fav-mode'));applyFilter();});
   var exp=document.getElementById('fav-export'), box=document.getElementById('fav-box'), txt=document.getElementById('fav-text');
   if(exp)exp.addEventListener('click',function(){
-    txt.textContent=hearts.length?('我收藏的 · music daily\\n'+hearts.join('\\n')):'（还没有收藏。点每首右上角的 heart 即可）';
+    txt.textContent=hearts.length?('我收藏的 · MUSIC DAILY\\n'+hearts.join('\\n')):'（还没有收藏。点每首右上角的 heart 即可）';
     box.style.display='block';box.scrollIntoView({behavior:'smooth'});});
   refresh();
 })();
@@ -594,7 +594,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f0e12">
 <meta name="description" content="每日精选 30 首 · melody-first · mood-first · production-first">
-<title>music daily · md-{n:02d} · {_esc(date_str)}</title>
+<title>MUSIC DAILY · md-{n:02d} · {_esc(date_str)}</title>
 <link rel="icon" href="{favicon}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -604,7 +604,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
 <body>
 <nav class="nav">
   <div class="wrap">
-    <div class="brand lc"><span class="sq"></span>music daily</div>
+    <div class="brand"><span class="sq"></span>MUSIC DAILY</div>
     <div class="serial"><span>model <b>md-{n:02d}</b></span><span>issue <b>{issue_no:03d}</b></span><span>date <b>{ymd}</b></span></div>
   </div>
 </nav>
@@ -659,7 +659,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
   </section>
 
   <footer>
-    <span>music daily · md-{n:02d} · issue {issue_no:03d}</span>
+    <span>MUSIC DAILY · md-{n:02d} · issue {issue_no:03d}</span>
     <span>updated 08:00 cst</span>
     <span>cover &amp; preview via public music api · personal use</span>
   </footer>
@@ -698,7 +698,7 @@ def build_archive_index(issues: list[dict]) -> str:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f0e12">
-<title>music daily · archive</title>
+<title>MUSIC DAILY · archive</title>
 <link rel="icon" href="{favicon}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -707,7 +707,7 @@ def build_archive_index(issues: list[dict]) -> str:
 </head>
 <body>
 <nav class="nav"><div class="wrap">
-  <div class="brand lc"><span class="sq"></span>music daily</div>
+  <div class="brand"><span class="sq"></span>MUSIC DAILY</div>
   <div class="serial"><span>archive</span><span>共 <b>{len(issues)}</b> 期</span></div>
 </div></nav>
 <main class="wrap">
@@ -718,7 +718,7 @@ def build_archive_index(issues: list[dict]) -> str:
   <div class="arc">
     {rows}
   </div>
-  <footer><span>music daily · archive</span><span>{len(issues)} issues · melody-first</span></footer>
+  <footer><span>MUSIC DAILY · archive</span><span>{len(issues)} issues · melody-first</span></footer>
 </main>
 </body>
 </html>"""
