@@ -17,6 +17,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import re
 from pathlib import Path
 
 import itunes
@@ -148,7 +149,15 @@ def main() -> None:
         picks, misses = enrich(picks, use_itunes=not args.no_itunes)
         existing = sorted(p.stem for p in ISSUES.glob("*.json"))
         issue_no = existing.index(args.date) + 1 if args.date in existing else len(existing) + 1
-        title = netease.playlist_title(picks, args.date)
+        recent_titles = []
+        for pth in sorted(ISSUES.glob("*.json"))[-6:]:
+            try:
+                base = re.sub(r"（[^）]*）\s*$", "", json.loads(pth.read_text(encoding="utf-8")).get("playlist_title", ""))
+                if base:
+                    recent_titles.append(base)
+            except Exception:
+                pass
+        title = netease.playlist_title(picks, args.date, recent_titles=recent_titles)
         snap = _write_snapshot(args.date, issue_no, args.theme, picks, title,
                                netease.build_text(picks, title))
         history[args.date] = [t["id"] for t in picks]

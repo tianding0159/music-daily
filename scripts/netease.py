@@ -37,18 +37,28 @@ TITLE_BANK: list[tuple[str, tuple[str, ...]]] = [
 ]
 
 
-def playlist_title(tracks: list[dict], date_str: str) -> str:
-    """按当天主导气质挑一个歌单名，附日期保证每日唯一；确定性（同日期同结果）。"""
+def playlist_title(tracks: list[dict], date_str: str, recent_titles=()) -> str:
+    """按当天主导气质挑歌单名 + 日期；确定性。recent_titles=近几期已用的名(不含日期)，避开重名。"""
     md = date_str[5:].replace("-", ".")  # MM.DD
     moods = Counter(m for t in tracks for m in (t.get("mood_tags") or []))
     seed = int(hashlib.sha256(date_str.encode()).hexdigest()[:8], 16)
-    best, best_score = TITLE_BANK[0][0], -1.0
-    for i, (name, keys) in enumerate(TITLE_BANK):
-        overlap = sum(c for m, c in moods.items() if any(k in m or m in k for k in keys))
-        tie = ((seed + i * 2654435761) % 997) / 997.0  # 同分时按日期确定性轮换
-        score = overlap + tie * 0.01
-        if score > best_score:
-            best, best_score = name, score
+    recent = set(recent_titles or ())
+
+    def _pick(skip: set) -> tuple[str, float]:
+        b, bs = None, -1.0
+        for i, (name, keys) in enumerate(TITLE_BANK):
+            if name in skip:
+                continue
+            overlap = sum(c for m, c in moods.items() if any(k in m or m in k for k in keys))
+            tie = ((seed + i * 2654435761) % 997) / 997.0  # 同分时按日期确定性轮换
+            score = overlap + tie * 0.01
+            if score > bs:
+                b, bs = name, score
+        return b, bs
+
+    best, _ = _pick(recent)          # 先在"排除近期名"里挑
+    if best is None:                 # 近期名把库占满(极少)→退回全库最佳
+        best, _ = _pick(set())
     return f"{best}（{md}）"
 
 

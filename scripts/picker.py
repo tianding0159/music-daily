@@ -7,6 +7,7 @@
 from __future__ import annotations
 
 import hashlib
+import re
 
 # 黑名单流派/制作标签（命中即排除）——profile 明确不喜欢的
 BLACKLIST = {
@@ -80,6 +81,24 @@ def _primary_mood(track: dict) -> str:
     return _norm(moods[0])
 
 
+# 动态反差：识别"上扬/groove/明快"曲，避免整期全是软调（温柔/木质/松弛）
+BRIGHT_GENRES = ("boogie", "funk", "disco", "nu-disco", "soul", "neo soul", "neo-soul",
+                 "samba", "jazz-funk", "jazz funk", "city pop", "afrobeat", "house")
+
+
+def _bpm_mid(t: dict) -> float:
+    ns = re.findall(r"\d+", str(t.get("bpm_band", "")))
+    return (int(ns[0]) + int(ns[-1])) / 2 if ns else 90.0
+
+
+def _is_bright(t: dict) -> bool:
+    """节奏偏快(≥108)或 groove 型流派 → 视为对比色。"""
+    if _bpm_mid(t) >= 108:
+        return True
+    gs = " ".join(t.get("genres") or []).lower()
+    return any(bg in gs for bg in BRIGHT_GENRES)
+
+
 LAST_RELAX: list[str] = []   # 上次选曲放宽了哪些软约束（供 build_daily 记录）
 
 
@@ -125,7 +144,8 @@ def _fill(cands, n, date_str, picked, uid, uartist, ualbum, allow_artist_repeat=
 
 
 def select_daily(pool: list[dict], history: dict, date_str: str, n: int = 30,
-                 recency_days: int = 45, artist_gap_issues: int = 6) -> list[dict]:
+                 recency_days: int = 45, artist_gap_issues: int = 6,
+                 bright_floor: int = 5) -> list[dict]:
     """分阶段约束选曲：硬规则(旋律/黑名单/同期同艺人同专辑/canonical 去重/近 45 期不重复)优先，
     库存不足时按固定顺序逐条放宽软约束并记录 LAST_RELAX。旋律与黑名单永不放宽。"""
     global LAST_RELAX
@@ -154,7 +174,14 @@ def select_daily(pool: list[dict], history: dict, date_str: str, n: int = 30,
             LAST_RELAX.append(f"{tag}(+{added})")
 
     fresh = [t for t in eligible if t["id"] not in recent_ids]
-    stage([t for t in fresh if _akey(t) not in recent_artists], "")             # 1 最严
+    fresh_strict = [t for t in fresh if _akey(t) not in recent_artists]
+    # 动态反差：先在最严池里保底挑 bright_floor 首上扬/groove 曲，避免整期一路软到底
+    brights = [t for t in fresh_strict if _is_bright(t)]
+    if brights and bright_floor > 0:
+        added = _fill(brights, min(bright_floor, n), date_str, picked, uid, uartist, ualbum)
+        if added:
+            LAST_RELAX.append(f"bright保底(+{added})")
+    stage(fresh_strict, "")                                                      # 1 最严
     stage(fresh, "放宽跨期艺人间隔")                                             # 2
     backfill = sorted([t for t in eligible if t["id"] in recent_ids],
                       key=lambda t: (last.get(t["id"], ""), _seeded_key(t, date_str)))

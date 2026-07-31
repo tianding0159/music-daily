@@ -78,6 +78,8 @@
 **英文（译介时同样避）**：
 sonic landscape / sonic journey / sonic tapestry / soundscape（尤其 lush/vast soundscape）、hauntingly beautiful、ethereal、atmospheric（空用）、aural、lush（后不接具体乐器时）、soaring vocals、pulsating、infectious hooks、textural（空转）、a masterclass in…、tour de force、genre-defying / genre-bending、seamless fusion、effortlessly blends、instant classic、must-listen、"washes over you"、"takes you on a journey"、"at once X and Y"（万能句式）。
 
+**跨卡片别撞收尾词（重要）**：同一批 / 相邻几期里，`why` 的收尾别反复用同一句式——尤其「能跟着哼 / 旋律清清楚楚 / 越听越舒服 / 后劲很大」这类。单条看没问题，连着读就露馅（实测 Album Leaf、Virginia Astley、Inoyama Land 连着都点"能跟着哼"）。每条 why 的落点换角度：有的落制作、有的落情绪反差、有的落一个画面，别都收在"好听/能哼"。
+
 **替换准则**：想写一个抽象形容词时，逼问一次"具体是什么声音元素让它这样"——"空灵"是"混响拉很长、尾巴迟迟不落地"，就写后者。把结论换成证据，把形容词换成动词+物件。
 
 ---
