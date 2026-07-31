@@ -44,7 +44,16 @@ jobs:
             echo "无变更，跳过提交"
           else
             git commit -m "chore: 日报 $(date -u +%F) [skip ci]"
-            git push
+            # 裸 push 顶不住分支移动：手动 dispatch 与定时槽位若前后脚跑，
+            # 或人在本地刚推过，后完成的这次就会被 "fetch first" 拒掉、整条 run 判失败。
+            # 回写内容都是可重放的构建产物，rebase 重试即可。
+            for i in 1 2 3 4 5; do
+              if git push; then echo "回写成功（第 $i 次）"; exit 0; fi
+              echo "push 被拒，rebase 后重试（第 $i 次）"
+              git pull --rebase --autostash origin main || exit 1
+              sleep $((i * 3))
+            done
+            echo "::error::回写重试 5 次仍失败"; exit 1
           fi
 
       - name: 打包 site/ 为 Pages 制品
