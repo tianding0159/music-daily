@@ -25,6 +25,7 @@ import netease
 import picker as selector
 import push_wechat
 import render_grid
+import render_random
 
 RENDERERS = {"grid": render_grid}
 
@@ -99,7 +100,7 @@ def _rebuild_site() -> None:
                    key=lambda s: s["date"])
     for s in snaps:
         r = RENDERERS.get(s.get("theme", "grid"), render_grid)
-        html = r.build_html(s["date"], s["tracks"], s["issue_no"], s["netease_text"], archive_href="index.html")
+        html = r.build_html(s["date"], s["tracks"], s["issue_no"], s["netease_text"], archive_href="index.html", random_href="../random.html")
         (arch / f"{s['date']}.html").write_text(html, encoding="utf-8")
     if snaps:
         idx = render_grid.build_archive_index([
@@ -112,6 +113,33 @@ def _rebuild_site() -> None:
         (SITE / "index.html").write_text(
             r.build_html(latest["date"], latest["tracks"], latest["issue_no"], latest["netease_text"]),
             encoding="utf-8")
+
+
+MEDIA = DATA / "pool_media.json"          # id -> {c,p,a} 封面/试听/Apple 链接，增量累积
+_MEDIA_BUDGET = 60                        # 单次最多现查多少首（CI 时长可控；其余下次继续）
+
+
+def _build_random(pool: list[dict], use_itunes: bool) -> int:
+    """生成随机页 + 精简池 JSON。媒体字段增量补：只查还没有的，单次上限 _MEDIA_BUDGET 首。"""
+    media = _load_json(MEDIA, {})
+    items = [dict(t) for t in pool if selector.is_eligible(t)[0]]
+    todo = [t for t in items if t["id"] not in media]
+    if use_itunes and todo:
+        cache = itunes.load_cache()
+        for t in todo[:_MEDIA_BUDGET]:
+            info = itunes.lookup(t["artist"], t["title"], cache)
+            media[t["id"]] = ({"c": info["artwork"], "p": info["preview"], "a": info["apple_url"]}
+                              if info.get("found") else {"c": "", "p": "", "a": ""})
+        itunes.save_cache(cache)
+        MEDIA.write_text(json.dumps(media, ensure_ascii=False), encoding="utf-8")
+        print(f"🎧 媒体增量补 {min(len(todo), _MEDIA_BUDGET)} 首（剩 {max(0, len(todo) - _MEDIA_BUDGET)} 首下次继续）")
+    for t in items:
+        m = media.get(t["id"], {})
+        t["_cover"], t["_preview"], t["_apple"] = m.get("c", ""), m.get("p", ""), m.get("a", "")
+    SITE.mkdir(parents=True, exist_ok=True)
+    (SITE / "pool.min.json").write_text(render_random.build_pool_json(items), encoding="utf-8")
+    (SITE / "random.html").write_text(render_random.build_html(len(items)), encoding="utf-8")
+    return len(items)
 
 
 def _low_pool_warn(pool: list[dict], history: dict, n: int) -> str | None:
@@ -173,6 +201,8 @@ def main() -> None:
             print(f"⚠️  选曲放宽软约束: {selector.LAST_RELAX}")
 
     _rebuild_site()
+    n_rand = _build_random(pool, use_itunes=not args.no_itunes)
+    print(f"🎲 随机页已生成（{n_rand} 首可摇）")
     warn = _low_pool_warn(pool, history, args.n)
     (DATA / "latest.json").write_text(json.dumps({
         "date": snap["date"], "issue_no": snap["issue_no"], "playlist_title": snap["playlist_title"],
