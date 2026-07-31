@@ -1,0 +1,20 @@
+{
+  "input": 122,
+  "schema_valid": 122,
+  "exact_match": 113,
+  "acceptable_match": 2,
+  "duplicates": 0,
+  "version_mismatch": 1,
+  "artist_mismatch": 2,
+  "album_mismatch": 0,
+  "not_found": 4,
+  "blacklist": 0,
+  "transient_error": 0,
+  "added": 115,
+  "quarantined": 7,
+  "run_id": "replenish-500-part1",
+  "candidates": [
+    "replenish-500-part1.json"
+  ],
+  "generated_at": "2026-07-31T09:18:32+08:00"
+}
