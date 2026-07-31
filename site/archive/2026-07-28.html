@@ -1208,9 +1208,7 @@ function copyNC(){const t=document.getElementById('nc-text').innerText;
     only.classList.toggle('active',document.body.classList.contains('fav-mode'));applyFilter();});
   var exp=document.getElementById('fav-export'), box=document.getElementById('fav-box'), txt=document.getElementById('fav-text');
   if(exp)exp.addEventListener('click',function(){
-    txt.textContent=hearts.length?('我收藏的 · music daily
-'+hearts.join('
-')):'（还没有收藏。点每首右上角的 heart 即可）';
+    txt.textContent=hearts.length?('我收藏的 · music daily\n'+hearts.join('\n')):'（还没有收藏。点每首右上角的 heart 即可）';
     box.style.display='block';box.scrollIntoView({behavior:'smooth'});});
   refresh();
 })();
