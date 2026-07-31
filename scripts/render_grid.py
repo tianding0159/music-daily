@@ -18,82 +18,95 @@ import re
 import urllib.parse
 
 # LCD 上的像素小猫（绿屏设备宠物感）：会眨眼(cat-eyes)、甩尾(cat-tail)、轻轻呼吸摇摆(整体 bob)
-# 像素猫：4 套姿态（站立 / 蹲坐 / 伸展 / 舔爪），靠 CSS 切显隐做定格动画，比单图 transform 生动得多
+# Q 版像素猫（chibi 比例：头身 1:1、大圆眼带高光、橘白奶牛配色 + 粉肉垫/粉腮）
 def _cat_pose(cls: str, body: str) -> str:
-    return (f'<svg class="cat pose {cls}" viewBox="0 0 20 17" shape-rendering="crispEdges" aria-hidden="true">'
+    return (f'<svg class="cat pose {cls}" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true">'
             f'{body}</svg>')
 
 
-# 共用零件
-_EARS = '<rect x="2" y="0" width="3" height="2"/><rect x="9" y="0" width="3" height="2"/>'
-_EYES = ('<g class="cat-eyes"><rect x="3" y="5" width="2" height="2"/><rect x="9" y="5" width="2" height="2"/>'
-         '<rect class="glint" x="3" y="5" width="1" height="1"/><rect class="glint" x="9" y="5" width="1" height="1"/></g>')
-_FACE = ('<rect class="nose" x="6" y="8" width="2" height="1"/>'
-         '<rect class="blush" x="1" y="8" width="2" height="1"/><rect class="blush" x="11" y="8" width="2" height="1"/>')
+# 共用：大脑袋（占画面上 2/3）+ 大圆眼 + 粉腮 + 橘斑
+_HEAD = (
+    '<g class="fur">'                                                  # 白底大头
+    '<rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/>'   # 耳朵
+    '<rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/>'
+    '</g>'
+    '<g class="fur2">'                                                 # 橘色斑纹（额头 + 右脸）
+    '<rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/>'
+    '<rect x="12" y="4" width="4" height="4"/>'
+    '</g>'
+    '<g class="cat-eyes">'                                             # 大圆眼（内收，别贴边）
+    '<rect x="5" y="5" width="3" height="3"/><rect x="10" y="5" width="3" height="3"/>'
+    '<rect class="glint" x="5" y="5" width="1" height="1"/><rect class="glint" x="10" y="5" width="1" height="1"/>'
+    '</g>'
+    '<rect class="nose" x="8" y="9" width="2" height="1"/>'            # 鼻子下移，和眼睛拉开
+    '<rect class="mouth" x="7" y="10" width="1" height="1"/><rect class="mouth" x="10" y="10" width="1" height="1"/>'
+    '<rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/>')
 
-# ① 站立（四肢着地，尾巴翘）
+# ① 站立（矮胖四肢）
 ICON_CAT_STAND = _cat_pose("p-stand",
-    '<g class="cat-tail"><rect x="13" y="8" width="2" height="2"/><rect x="14" y="6" width="2" height="2"/>'
-    '<rect x="15" y="5" width="1" height="2"/></g>'
-    + _EARS + '<rect x="1" y="1" width="12" height="9"/>'
-    '<rect x="3" y="10" width="9" height="3"/>'
-    '<rect x="3" y="13" width="2" height="2"/><rect x="7" y="13" width="2" height="2"/>'
-    '<rect x="10" y="13" width="2" height="2"/>'
-    + _FACE + _EYES)
+    '<g class="cat-tail fur"><rect x="16" y="12" width="2" height="2"/><rect x="17" y="10" width="2" height="2"/>'
+    '<rect x="18" y="9" width="2" height="2"/></g>' + _HEAD +
+    '<g class="fur"><rect x="4" y="12" width="10" height="4"/>'
+    '<rect x="4" y="16" width="3" height="2"/><rect x="11" y="16" width="3" height="2"/></g>'
+    '<g class="fur2"><rect x="10" y="12" width="4" height="2"/></g>'
+    '<g class="pad"><rect x="4" y="16" width="3" height="1"/><rect x="11" y="16" width="3" height="1"/></g>')
 
-# ② 蹲坐（身体缩短、前爪并拢在前）
+# ② 蹲坐（团成一团）
 ICON_CAT_SIT = _cat_pose("p-sit",
-    '<g class="cat-tail"><rect x="13" y="10" width="3" height="2"/><rect x="15" y="8" width="2" height="2"/></g>'
-    + _EARS + '<rect x="1" y="1" width="12" height="9"/>'
-    '<rect x="3" y="10" width="9" height="4"/>'
-    '<rect x="4" y="14" width="2" height="1"/><rect x="8" y="14" width="2" height="1"/>'
-    + _FACE + _EYES)
+    '<g class="cat-tail fur"><rect x="16" y="14" width="3" height="2"/><rect x="18" y="12" width="2" height="2"/></g>'
+    + _HEAD +
+    '<g class="fur"><rect x="4" y="11" width="10" height="5"/><rect x="3" y="13" width="12" height="3"/></g>'
+    '<g class="pad"><rect x="5" y="15" width="2" height="1"/><rect x="11" y="15" width="2" height="1"/></g>')
 
-# ③ 伸展（身体拉长、前肢前伸、屁股翘起）
+# ③ 伸懒腰（身体拉长、屁股翘）
 ICON_CAT_STRETCH = _cat_pose("p-stretch",
-    '<g class="cat-tail"><rect x="16" y="4" width="2" height="2"/><rect x="17" y="2" width="2" height="2"/></g>'
-    + '<rect x="1" y="4" width="2" height="2"/><rect x="7" y="3" width="2" height="2"/>'
-    '<rect x="0" y="6" width="14" height="4"/>'
-    '<rect x="13" y="4" width="5" height="6"/>'
-    '<rect x="1" y="10" width="2" height="2"/><rect x="14" y="10" width="2" height="3"/>'
-    '<g class="cat-eyes"><rect x="2" y="7" width="2" height="1"/></g>'
-    '<rect class="nose" x="0" y="8" width="1" height="1"/>')
+    '<g class="cat-tail fur"><rect x="18" y="5" width="2" height="2"/><rect x="19" y="3" width="2" height="2"/></g>'
+    '<g class="fur"><rect x="2" y="2" width="3" height="2"/><rect x="8" y="1" width="3" height="2"/>'
+    '<rect x="1" y="3" width="11" height="5"/><rect x="0" y="5" width="14" height="4"/>'
+    '<rect x="13" y="4" width="6" height="6"/>'
+    '<rect x="1" y="9" width="3" height="2"/><rect x="14" y="10" width="3" height="3"/></g>'
+    '<g class="fur2"><rect x="13" y="4" width="6" height="2"/></g>'
+    '<g class="cat-eyes"><rect x="2" y="5" width="3" height="1"/></g>'
+    '<rect class="nose" x="0" y="6" width="1" height="1"/>'
+    '<g class="pad"><rect x="1" y="10" width="3" height="1"/></g>')
 
-# ④ 舔爪（歪头，一只前爪抬到嘴边）
+# ④ 舔爪（歪头 + 抬爪）
 ICON_CAT_LICK = _cat_pose("p-lick",
-    '<g class="cat-tail"><rect x="13" y="10" width="3" height="2"/><rect x="15" y="9" width="2" height="2"/></g>'
-    + '<rect x="2" y="0" width="3" height="2"/><rect x="9" y="0" width="3" height="2"/>'
-    '<rect x="1" y="1" width="12" height="9"/><rect x="3" y="10" width="9" height="4"/>'
-    '<rect x="4" y="14" width="2" height="1"/>'
-    '<rect x="7" y="8" width="3" height="4"/>'          # 抬起的前爪
-    '<rect class="nose" x="6" y="7" width="1" height="1"/>'
-    '<rect class="blush" x="2" y="7" width="1" height="1"/>'
-    '<g class="cat-eyes"><rect x="4" y="5" width="2" height="1"/><rect x="8" y="5" width="2" height="1"/></g>')
+    '<g class="cat-tail fur"><rect x="16" y="14" width="3" height="2"/><rect x="18" y="13" width="2" height="2"/></g>'
+    + _HEAD +
+    '<g class="fur"><rect x="4" y="11" width="10" height="5"/>'
+    '<rect x="8" y="8" width="3" height="5"/></g>'                       # 抬起的前爪
+    '<g class="pad"><rect x="8" y="8" width="3" height="1"/><rect x="5" y="15" width="2" height="1"/></g>')
 
-# ⑤ 趴睡（身体摊平、闭眼、尾巴收拢）
+# ⑤ 趴睡（摊平 + 闭眼 + Zzz）
 ICON_CAT_SLEEP = _cat_pose("p-sleep",
-    '<g class="cat-tail"><rect x="15" y="12" width="3" height="1"/><rect x="17" y="11" width="2" height="1"/></g>'
-    + '<rect x="2" y="6" width="3" height="2"/><rect x="9" y="6" width="3" height="2"/>'   # 耳朵（贴平）
-    '<rect x="1" y="7" width="12" height="6"/>'                                            # 身体摊平
-    '<rect x="12" y="9" width="5" height="4"/>'
-    '<g class="cat-eyes"><rect x="3" y="10" width="3" height="1"/><rect x="8" y="10" width="3" height="1"/></g>'
-    '<rect class="nose" x="6" y="11" width="2" height="1"/>'
-    '<rect class="blush" x="1" y="11" width="2" height="1"/>')
+    '<g class="cat-tail fur"><rect x="17" y="15" width="3" height="1"/><rect x="19" y="14" width="2" height="1"/></g>'
+    '<g class="fur"><rect x="3" y="6" width="3" height="2"/><rect x="12" y="6" width="3" height="2"/>'
+    '<rect x="2" y="7" width="14" height="7"/><rect x="1" y="9" width="16" height="5"/>'
+    '<rect x="14" y="11" width="5" height="4"/></g>'
+    '<g class="fur2"><rect x="3" y="6" width="3" height="2"/><rect x="12" y="9" width="4" height="3"/></g>'
+    '<g class="cat-eyes"><rect x="4" y="10" width="3" height="1"/><rect x="11" y="10" width="3" height="1"/></g>'
+    '<rect class="nose" x="8" y="11" width="2" height="1"/>'
+    '<rect class="blush" x="2" y="11" width="2" height="1"/>'
+    '<g class="zzz"><rect x="17" y="4" width="3" height="1"/><rect x="19" y="5" width="1" height="1"/>'
+    '<rect x="17" y="6" width="3" height="1"/></g>')
 
 ICON_CAT = (ICON_CAT_STAND + ICON_CAT_SIT + ICON_CAT_STRETCH + ICON_CAT_LICK + ICON_CAT_SLEEP)
 
+# 道具：食盆（带小鱼骨）、毛线球
+ICON_BOWL = ('<svg viewBox="0 0 14 8" shape-rendering="crispEdges" aria-hidden="true">'
+             '<rect class="fish" x="4" y="0" width="4" height="1"/><rect class="fish" x="3" y="1" width="1" height="1"/>'
+             '<rect class="fish" x="8" y="1" width="1" height="1"/>'
+             '<rect class="food" x="3" y="2" width="8" height="1"/>'
+             '<rect x="1" y="3" width="12" height="1"/><rect x="2" y="4" width="10" height="3"/></svg>')
+ICON_BALL = ('<svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true">'
+             '<rect x="1" y="1" width="6" height="6"/><rect class="hl" x="1" y="1" width="2" height="2"/>'
+             '<rect class="yarn" x="3" y="2" width="1" height="4"/><rect class="yarn" x="2" y="4" width="4" height="1"/></svg>')
 
-# 道具：吃饭用的食盆、玩耍用的小球（配合行为循环出现）
-ICON_BOWL = ('<svg viewBox="0 0 12 6" shape-rendering="crispEdges" aria-hidden="true">'
-             '<rect class="food" x="3" y="1" width="6" height="1"/>'
-             '<rect x="1" y="2" width="10" height="1"/><rect x="2" y="3" width="8" height="2"/></svg>')
-ICON_BALL = ('<svg viewBox="0 0 6 6" shape-rendering="crispEdges" aria-hidden="true">'
-             '<rect x="1" y="1" width="4" height="4"/><rect class="hl" x="1" y="1" width="1" height="1"/></svg>')
 # 试听播放/暂停键（叠在封面左下，播放 iTunes 公开 30s previewUrl；仅预览、非整曲）
 ICON_PLAY = '<svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg>'
 ICON_PAUSE = '<svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg>'
-
-# 上一首/下一首（整期贯穿播放）+ 收藏心形（filled 由 .on 控制色）
+# 上一首/下一首（整期贯穿播放）+ 收藏心形
 ICON_PREV = '<svg viewBox="0 0 12 10" aria-hidden="true"><rect x="1" y="1" width="2" height="8"/><path d="M11 1 L4 5 L11 9 Z"/></svg>'
 ICON_NEXT = '<svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 1 L8 5 L1 9 Z"/><rect x="9" y="1" width="2" height="8"/></svg>'
 ICON_HEART = '<svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>'
@@ -109,12 +122,14 @@ def _knob(seed: str) -> str:
 CSS = """
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --white:#fff; --paper:#f5f5f5; --ink:#0f0e12;
-  --g100:#e5e5e5; --g200:#ccc; --g300:#b2b2b2; --g500:#a1a7af;
-  --g600:#767676; --g900:#4d4d4d; --g1000:#272727;
-  --blue:#0071bb; --green:#00a651; --green-d:#006837; --orange:#f05a24;
-  --red:#b81d13; --yellow:#fab413;
+  /* 纸质杂志：暖米纸底 + 墨色字 + 印刷色点缀（去掉荧光绿/仪器蓝的科技味） */
+  --white:#fffdf8; --paper:#f4efe4; --paper2:#ebe4d6; --ink:#1a1714;
+  --g100:#e3dccd; --g200:#cfc6b4; --g300:#b8ae99; --g500:#9c9282;
+  --g600:#7a7164; --g900:#443e36; --g1000:#2b2620;
+  --blue:#3a5f7d; --green:#5c7a5e; --green-d:#445f47; --orange:#d4622a;
+  --red:#a33c2b; --yellow:#c99a3c;
   --sans:"Inter","Noto Sans SC","Helvetica Neue",Arial,sans-serif;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif SC",Georgia,"Times New Roman",serif;
   --mono:"Space Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
   --fs-10:clamp(11px,.92vw,13px); --fs-15:clamp(12px,1.1vw,15px);
   --fs-20:clamp(15px,1.5vw,20px); --fs-25:clamp(19px,2.1vw,27px);
@@ -125,6 +140,9 @@ CSS = """
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--sans); font-weight:300; color:var(--ink); background:var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(26,23,20,.012) 0 1px, transparent 1px 3px),
+    radial-gradient(120% 80% at 20% 0%, rgba(255,255,255,.5), transparent 60%);
   line-height:1.5; letter-spacing:0; -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility; font-feature-settings:"kern" 1,"liga" 1;
   padding-bottom:76px; overscroll-behavior-y:none}
@@ -146,7 +164,8 @@ a{color:inherit; text-decoration:none}
 /* Hero */
 .hero{padding:var(--sp-xl) 0 var(--sp-lg); display:flex; align-items:flex-end;
   justify-content:space-between; gap:var(--sp-lg); flex-wrap:wrap}
-.hero .h-l h1{font-size:var(--fs-40); font-weight:100; line-height:1.02; letter-spacing:-.01em}
+.hero .h-l h1{font-family:var(--serif); font-size:var(--fs-40); font-weight:400; line-height:1.05;
+  letter-spacing:.01em}
 .hero .h-l .en{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
   color:var(--g600); margin-top:10px; letter-spacing:.06em}
 .hero .h-r{text-align:right; font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
@@ -155,23 +174,36 @@ a{color:inherit; text-decoration:none}
   font-family:var(--sans); line-height:.9; letter-spacing:-.02em}
 
 /* LCD 屏幕模块 */
-.lcd{background:#08110c; border:1px solid var(--g1000); color:var(--green);
-  font-family:var(--mono); font-size:var(--fs-15); overflow:hidden; position:relative; margin-bottom:var(--sp-md)}
-.lcd .row1{display:flex; align-items:center; gap:10px; padding:9px 16px; min-height:46px; border-bottom:1px solid #12241a}
-.lcd .dot{width:8px; height:8px; border-radius:50%; background:var(--green); flex:none;
-  box-shadow:0 0 8px var(--green); animation:blink 1.3s steps(1) infinite}
-.lcd #boot{white-space:pre; overflow:hidden; flex:1; min-width:0; text-overflow:ellipsis}
-.lcd #boot .cur{animation:blink .8s steps(1) infinite}
+.lcd{background:var(--white); border:1px solid var(--g200); color:var(--g900);
+  font-family:var(--mono); font-size:var(--fs-15); overflow:hidden; position:relative;
+  margin-bottom:var(--sp-md); box-shadow:0 1px 0 rgba(255,255,255,.7) inset, 0 2px 6px rgba(26,23,20,.05);
+  background-image:repeating-linear-gradient(0deg, rgba(26,23,20,.02) 0 1px, transparent 1px 4px)}
+/* 上下两条"胶带" */
+.lcd::before,.lcd::after{content:""; position:absolute; width:52px; height:15px; z-index:2;
+  background:rgba(212,98,42,.16); border-left:1px dashed rgba(212,98,42,.3);
+  border-right:1px dashed rgba(212,98,42,.3); transform:rotate(-2deg)}
+.lcd::before{left:14px; top:-7px}
+.lcd::after{right:16px; bottom:-7px; transform:rotate(2.5deg)}
+.lcd .row1{display:flex; align-items:center; gap:10px; padding:9px 16px; min-height:46px;
+  border-bottom:1px dashed var(--g200)}
+.lcd .dot{width:7px; height:7px; border-radius:50%; background:var(--orange); flex:none;
+  animation:blink 1.6s steps(1) infinite}
+.lcd #boot{white-space:pre; overflow:hidden; flex:1; min-width:0; text-overflow:ellipsis; color:var(--g900)}
+.lcd #boot .cur{animation:blink .8s steps(1) infinite; color:var(--orange)}
 .lcd .cat-wrap{position:relative; width:clamp(104px,15vw,156px); height:34px; flex:none; margin-left:auto;
   align-self:center}
 /* 4 套姿态叠在一起，靠 opacity 切换做定格动画；整体走位靠 .cat-wrap 的 travel */
-.lcd .pose{position:absolute; right:4px; bottom:1px; width:38px; height:32px; display:block;
+.lcd .pose{position:absolute; right:4px; bottom:0; width:42px; height:38px; display:block;
   image-rendering:pixelated; opacity:0; transform-origin:bottom center}
-.lcd .pose rect{fill:#8be0aa}
-.lcd .pose .cat-eyes rect{fill:#06231a}
-.lcd .pose .glint{fill:#eafff2}
-.lcd .pose .nose{fill:#f0a24a}
-.lcd .pose .blush{fill:#f05a24; opacity:.7}
+.lcd .pose .fur rect{fill:#fffdf8; stroke:#c9bda6; stroke-width:.25}
+.lcd .pose .fur2 rect{fill:#e89a4e}
+.lcd .pose .cat-eyes rect{fill:#3a322a}
+.lcd .pose .glint{fill:#fffdf8}
+.lcd .pose .nose{fill:#e8859a}
+.lcd .pose .mouth{fill:#c9bda6}
+.lcd .pose .blush{fill:#f2a9b5; opacity:.85}
+.lcd .pose .pad rect{fill:#f2a9b5}
+.lcd .pose .zzz rect{fill:#9c9282}
 .lcd .pose .cat-eyes{transform-box:fill-box; transform-origin:center; animation:cat-blink 2.2s infinite}
 .lcd .pose .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
   animation:cat-wag .42s ease-in-out infinite alternate}
@@ -235,8 +267,8 @@ a{color:inherit; text-decoration:none}
 .lcd .prop.ball{right:0; width:10px} .lcd .prop.ball svg{display:block; width:10px}
 .lcd .prop.bowl{animation:prop-bowl 14s ease-in-out infinite}
 .lcd .prop.ball{animation:prop-ball 14s ease-in-out infinite}
-.lcd .prop.bowl rect{fill:#6fbf90} .lcd .prop.bowl .food{fill:#f0a24a}
-.lcd .prop.ball rect{fill:#f05a24} .lcd .prop.ball .hl{fill:#ffd7bf}
+.lcd .prop.bowl rect{fill:#b8ae99} .lcd .prop.bowl .food{fill:#d4622a} .lcd .prop.bowl .fish{fill:#9c9282}
+.lcd .prop.ball rect{fill:#d4622a} .lcd .prop.ball .hl{fill:#f2c9a8} .lcd .prop.ball .yarn{fill:#a33c2b}
 @keyframes cat-breathe{50%{transform:scaleY(1.03)}}
 @keyframes prop-bowl{0%{opacity:0}6%,25%{opacity:1}28%,100%{opacity:0}}
 @keyframes prop-ball{
@@ -248,13 +280,13 @@ a{color:inherit; text-decoration:none}
   58%{opacity:1; transform:translate(3px,0)}
   61%{opacity:.7; transform:translate(-6px,-4px)}
   64%,100%{opacity:0; transform:translate(0,0)}}
-.lcd .ticker{padding:8px 0; position:relative; -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
+.lcd .ticker{padding:8px 0; position:relative; border-top:1px dashed var(--g200); -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
-.lcd .track{display:inline-block; white-space:nowrap; padding-left:100%; color:#3fae6f;
+.lcd .track{display:inline-block; white-space:nowrap; padding-left:100%; color:var(--g600);
   animation:marquee 26s linear infinite}
 .lcd:hover .track{animation-play-state:paused}
-.lcd .track b{color:var(--green); font-weight:700}
-.lcd .track i{color:#1f6b42; font-style:normal; margin:0 14px}
+.lcd .track b{color:var(--orange); font-weight:700}
+.lcd .track i{color:var(--g300); font-style:normal; margin:0 14px}
 @keyframes blink{50%{opacity:.2}}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
@@ -344,7 +376,7 @@ a{color:inherit; text-decoration:none}
 .arc .no{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); flex:none}
 .arc .t{font-size:var(--fs-15); font-weight:300; color:var(--g900); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 .hd{flex:1; min-width:0}
-.title{font-size:var(--fs-25); font-weight:100; line-height:1.12; letter-spacing:-.01em}
+.title{font-family:var(--serif); font-size:var(--fs-25); font-weight:400; line-height:1.2; letter-spacing:0}
 .artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
   margin-top:5px; letter-spacing:.03em}
 .meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:7px; line-height:1.6}
@@ -355,7 +387,7 @@ a{color:inherit; text-decoration:none}
   background:var(--g100); color:var(--g900)}
 .body{padding:var(--sp-md); display:flex; flex-direction:column; flex:1}
 .one{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); line-height:1.65; margin-bottom:7px}
-.why{font-size:var(--fs-15); font-weight:300; line-height:1.55}
+.why{font-family:var(--serif); font-size:var(--fs-15); font-weight:400; line-height:1.75}
 .scene{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
   margin-top:auto; padding-top:11px}
 .scene .k{color:var(--orange)}
