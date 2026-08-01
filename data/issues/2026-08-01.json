@@ -1,0 +1,1467 @@
+{
+  "issue_no": 5,
+  "date": "2026-08-01",
+  "generated_at": "2026-08-01T00:02:02+00:00",
+  "theme": "grid",
+  "playlist_title": "耳朵先安静，人才跟上（08.01）",
+  "netease_text": "耳朵先安静，人才跟上（08.01）\nA Walk - Tycho\nFantastic Man - William Onyeabor\nArthur - Kelly Lee Owens\nOld Friends - Pinegrove\nLa Perla - Sofia Kourtesis\nEveryday - Vetiver\nHey Moon - Molly Nilsson\nMono no Aware - Great Grandpa\nYour Cocoon - Jerry Paper\nIn the Waiting Line - Zero 7\nThe Jeweler - Pearls Before Swine\nlust - Rei Harakami\nBringing Home the Ashes - The Wild Swans\nSometime Later - Alpha\nBelow It - Peter Broderick\nElastic Girl - Kahimi Karie\nAt It Again - Slow Pulp\nThe First Picture of You - The Lotus Eaters\nTime Is the Enemy - Quantic\nAvalanche - Boogarins\nTime and Tide - Basia\nSoon It Will Be Cold Enough to Build Fires - Emancipator\nKaty Song - Red House Painters\nSprout and the Bean - Joanna Newsom\nAfter the Moment - Craft Spells\nMumble - Whirr\nThrough The Deep - The fin.\nCool Dry Place - Katy Kirby\nCloud Corner - Marisa Anderson\nFailure - A Sunny Day in Glasgow",
+  "tracks": [
+    {
+      "id": "sha1:ecd606d5817293df",
+      "title": "A Walk",
+      "artist": "Tycho",
+      "year": "2011",
+      "album": "Dive",
+      "genres": [
+        "Organic Electronic",
+        "Downtempo",
+        "Ambient Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "夏天傍晚",
+        "空气感",
+        "松弛"
+      ],
+      "production_tags": [
+        "analog warmth",
+        "wide stereo",
+        "soft compression"
+      ],
+      "instrumentation": [
+        "clean guitar",
+        "合成器 pad",
+        "krautrock 鼓"
+      ],
+      "vocal_style": "无",
+      "bpm_band": "110-120",
+      "has_melody": true,
+      "scene": "傍晚六点骑车下坡，风灌进袖子、路灯刚一盏盏亮起来的那几分钟。",
+      "artist_oneliner": "Scott Hansen——先做视觉设计（ISO50 那套海报）再做音乐的人，编曲也像他的画面一样给每个元素留足呼吸的间距。",
+      "why": "全曲没有一句人声，「迈开步子往前走」这件事照样讲得明明白白。琶音一颗颗往前铺，吉他在高处描出一条黄昏的轮廓线。",
+      "fit_score": 89.0,
+      "source": "Dive 精选 / downtempo 长青",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Tycho",
+      "title_display": "A Walk",
+      "artist_key": "tycho",
+      "title_key": "awalk",
+      "version": "",
+      "album_key": "dive",
+      "legacy_ids": [
+        "tycho-a-walk"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/46/be/ed/46beed8a-5d0f-1077-cbeb-aace15e69f44/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/fc/42/ed/fc42ed54-f3c4-f5a0-f5be-43c9b3fb2215/mzaf_1338879779032740875.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/a-walk/679251532?i=679251628&uo=4"
+    },
+    {
+      "id": "apple:708418258",
+      "title": "Fantastic Man",
+      "artist": "William Onyeabor",
+      "artist_display": "William Onyeabor",
+      "title_display": "Fantastic Man",
+      "artist_key": "williamonyeabor",
+      "title_key": "fantasticman",
+      "version": "",
+      "album_key": "bodysoul",
+      "apple_track_id": "708418258",
+      "apple_collection_id": "708418132",
+      "legacy_ids": [],
+      "year": "1979",
+      "album": "Body & Soul",
+      "genres": [
+        "organic electronic",
+        "funk"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "城市夜晚",
+        "怀旧又现代"
+      ],
+      "production_tags": [
+        "analog synth",
+        "drum machine",
+        "funk groove"
+      ],
+      "instrumentation": [
+        "synthesizer",
+        "drum machine",
+        "bass"
+      ],
+      "vocal_style": "呼应式男女合唱，英语",
+      "bpm_band": "105–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "深夜一个人在房间跟着节奏傻乐、把烦心事甩出去的时候。",
+      "artist_oneliner": "William Onyeabor——尼日利亚的神秘商人，自购合成器在家做出超前时代的非洲电子放克。",
+      "why": "老合成器配鼓机搭出一段天真上头的放克，男女一唱一和。土法炼钢，前卫得吓人，快乐得毫无防备——David Byrne 专门为他建了厂牌。",
+      "fit_score": 86,
+      "source": "RateYourMusic",
+      "source_url": "https://rateyourmusic.com/artist/william_onyeabor",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/40/3f/25/403f25f9-8944-14b3-96e3-1ce643733aea/dj.avftodws.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/4d/de/cf/4ddecf4b-d687-49d5-d2b9-a09fb501d8da/mzaf_11605663425041732952.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/fantastic-man/708418132?i=708418258&uo=4"
+    },
+    {
+      "id": "apple:1499159817",
+      "title": "Arthur",
+      "artist": "Kelly Lee Owens",
+      "artist_display": "Kelly Lee Owens",
+      "title_display": "Arthur",
+      "artist_key": "kellyleeowens",
+      "title_key": "arthur",
+      "version": "",
+      "album_key": "kellyleeowens",
+      "apple_track_id": "1499159817",
+      "apple_collection_id": "1499159807",
+      "legacy_ids": [],
+      "year": "2017",
+      "album": "Kelly Lee Owens",
+      "genres": [
+        "organic electronic",
+        "dream pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "空气感",
+        "城市夜晚"
+      ],
+      "production_tags": [
+        "pulsing synth",
+        "airy vocal",
+        "wide reverb"
+      ],
+      "instrumentation": [
+        "synthesizer",
+        "drum machine",
+        "voice"
+      ],
+      "vocal_style": "缥缈女声，气声",
+      "bpm_band": "110–125",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "送别一个人后，独自走夜路、让节奏带着往前的时候。",
+      "artist_oneliner": "Kelly Lee Owens——威尔士制作人，把 techno 的脉动和 dream pop 的雾焊在一起。",
+      "why": "合成器一下一下匀速脉动，人声薄薄地贴在上面。这是写给一位逝者的歌，舞曲的脉搏底下压着化不开的温柔，越走越轻。",
+      "fit_score": 86,
+      "source": "Pitchfork",
+      "source_url": "https://pitchfork.com/artists/kelly-lee-owens",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/66/6c/68/666c6826-31f9-3106-9224-981a40084e58/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a1/97/a9/a197a9a4-aee5-7e2f-6b6e-f34c35425ecd/mzaf_3456700036919949474.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/arthur/1499159807?i=1499159817&uo=4"
+    },
+    {
+      "id": "apple:1496548233",
+      "title": "Old Friends",
+      "artist": "Pinegrove",
+      "artist_display": "Pinegrove",
+      "title_display": "Old Friends",
+      "artist_key": "pinegrove",
+      "title_key": "oldfriends",
+      "version": "",
+      "album_key": "cardinal",
+      "apple_track_id": "1496548233",
+      "apple_collection_id": "1496548232",
+      "legacy_ids": [],
+      "year": "2016",
+      "album": "Cardinal",
+      "genres": [
+        "indie rock",
+        "midwest emo"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "有人味",
+        "木质感"
+      ],
+      "production_tags": [
+        "jangle guitar",
+        "alt-country twang",
+        "warm mix"
+      ],
+      "instrumentation": [
+        "electric guitar",
+        "bass",
+        "drums"
+      ],
+      "vocal_style": "真诚男声，略带颤",
+      "bpm_band": "110–130",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "意识到又和一个老朋友久没联系、心里愧疚起来的深夜。",
+      "artist_oneliner": "Pinegrove——新泽西乐队，把 emo 的真诚和乡村摇滚的暖拧在一起。",
+      "why": "吉他叮当里带着乡村的一点颤音，他唱得毫不修饰。「我该对老朋友更好一点」——成年后友情的疏远和自责，被说得太直白了。",
+      "fit_score": 86,
+      "source": "Pitchfork",
+      "source_url": "https://pitchfork.com/artists/pinegrove",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/23/d0/97/23d09729-1e91-54ef-e8dc-61152b696cde/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/6c/3a/9f/6c3a9fd6-1aaa-fa2c-5ecb-8ab3366423cf/mzaf_13139435139650956206.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/old-friends/1496548232?i=1496548233&uo=4"
+    },
+    {
+      "id": "apple:1549099883",
+      "title": "La Perla",
+      "artist": "Sofia Kourtesis",
+      "artist_display": "Sofia Kourtesis",
+      "title_display": "La Perla",
+      "artist_key": "sofiakourtesis",
+      "title_key": "laperla",
+      "version": "",
+      "album_key": "madres",
+      "apple_track_id": "1549099883",
+      "apple_collection_id": "1549099882",
+      "legacy_ids": [],
+      "year": "2021",
+      "album": "Madres",
+      "genres": [
+        "Organic Electronic",
+        "Downtempo"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "温柔",
+        "城市夜晚"
+      ],
+      "production_tags": [
+        "field recording",
+        "宽stereo"
+      ],
+      "instrumentation": [
+        "synth",
+        "drum machine",
+        "vocal chops"
+      ],
+      "vocal_style": "女声碎片人声",
+      "bpm_band": "105–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "派对散场后独自留下来跳最后一支，天快亮、脚已经酸但你不想停的时候。",
+      "artist_oneliner": "秘鲁裔柏林制作人，把家庭录音和城市噪音缝进温柔的舞曲里。",
+      "why": "合成器一层层往上叠，亮得像日出前那道天。人声被剪碎当乐器用，反复吐同一个音节；节奏偏快也不砸，缝里全是呼吸——想跳舞，又想哭一下。",
+      "fit_score": 86,
+      "source": "Bandcamp Daily",
+      "source_url": "https://daily.bandcamp.com/features/sofia-kourtesis-madres",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ff/b1/1b/ffb11b00-8edc-ee96-c6ce-e5b4c489ed61/5054429143287.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/bb/a9/8e/bba98e06-07ff-58da-61a2-57b2efc0e853/mzaf_17098899823394457580.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/la-perla/1549099882?i=1549099883&uo=4"
+    },
+    {
+      "id": "apple:304173817",
+      "title": "Everyday",
+      "artist": "Vetiver",
+      "artist_display": "Vetiver",
+      "title_display": "Everyday",
+      "artist_key": "vetiver",
+      "title_key": "everyday",
+      "version": "",
+      "album_key": "thingofthepast",
+      "apple_track_id": "304173817",
+      "apple_collection_id": "304173782",
+      "legacy_ids": [],
+      "year": "2009",
+      "album": "Thing of the Past",
+      "genres": [
+        "ambient folk",
+        "chamber pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "夏天傍晚",
+        "木质感"
+      ],
+      "production_tags": [
+        "fingerpicked guitar",
+        "warm band",
+        "soft mix"
+      ],
+      "instrumentation": [
+        "acoustic guitar",
+        "bass",
+        "drums",
+        "strings"
+      ],
+      "vocal_style": "温和男声，气声",
+      "bpm_band": "95–115",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "和爱人过着平淡日子、忽然觉得平淡也很珍贵的傍晚。",
+      "artist_oneliner": "Vetiver——旧金山的 Andy Cabic，把 freak folk 磨成温暖亲切的日常民谣。",
+      "why": "指弹的暖是实打实的，乐队只在旁边托一把。「想每天都和你在一起」这种朴素愿望没加半点修饰，反而站得住。",
+      "fit_score": 86,
+      "source": "RateYourMusic",
+      "source_url": "https://rateyourmusic.com/artist/vetiver",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ea/cb/59/eacb59cb-38ac-e760-b99f-f7f6cc1e10d9/mzi.heetyiit.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/5e/eb/8d/5eeb8d61-3e08-ad81-39e2-0fd3284fe396/mzaf_3277810971264756280.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/everyday/304173782?i=304173817&uo=4"
+    },
+    {
+      "id": "apple:328823657",
+      "title": "Hey Moon",
+      "artist": "Molly Nilsson",
+      "artist_display": "Molly Nilsson",
+      "title_display": "Hey Moon",
+      "artist_key": "mollynilsson",
+      "title_key": "heymoon",
+      "version": "",
+      "album_key": "thesethingstaketime",
+      "apple_track_id": "328823657",
+      "apple_collection_id": "328823641",
+      "legacy_ids": [],
+      "year": "2009",
+      "album": "These Things Take Time",
+      "genres": [
+        "dream pop",
+        "art pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "城市夜晚",
+        "温柔"
+      ],
+      "production_tags": [
+        "lo-fi synth",
+        "drum machine",
+        "tape warmth"
+      ],
+      "instrumentation": [
+        "synthesizer",
+        "drum machine",
+        "voice"
+      ],
+      "vocal_style": "低哑女声，孤独感",
+      "bpm_band": "85–105",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "独居的深夜，对着窗外的月亮说了句没人听见的话的时候。",
+      "artist_oneliner": "Molly Nilsson——瑞典 DIY 音乐人，用最简陋的合成器写最孤独的浪漫。",
+      "why": "合成器和鼓机糙得像卧室 demo，人声低哑。她对着月亮说只有你陪我熬夜，音质越糙，独居的孤独越真。",
+      "fit_score": 86,
+      "source": "Bandcamp Daily",
+      "source_url": "https://mollynilsson.bandcamp.com",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2c/60/a8/2c60a8e1-a606-8376-ece2-0c37f22d1cda/859702026777_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/85/8b/11/858b1123-dbb6-8be9-f56e-0636d96adc19/mzaf_9006855834414497709.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/hey-moon/328823641?i=328823657&uo=4"
+    },
+    {
+      "id": "apple:1505802362",
+      "title": "Mono no Aware",
+      "artist": "Great Grandpa",
+      "artist_display": "Great Grandpa",
+      "title_display": "Mono no Aware",
+      "artist_key": "greatgrandpa",
+      "title_key": "mononoaware",
+      "version": "",
+      "album_key": "fourofarrows",
+      "apple_track_id": "1505802362",
+      "apple_collection_id": "1505802262",
+      "legacy_ids": [],
+      "year": "2019",
+      "album": "Four of Arrows",
+      "genres": [
+        "indie rock",
+        "dream pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "有人味",
+        "空气感"
+      ],
+      "production_tags": [
+        "layered guitar",
+        "dynamic build",
+        "warm mix"
+      ],
+      "instrumentation": [
+        "electric guitar",
+        "bass",
+        "drums",
+        "strings"
+      ],
+      "vocal_style": "饱满女声，克制到爆发",
+      "bpm_band": "95–115",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "意识到眼前的好时光正在流逝、想把它记住的傍晚。",
+      "artist_oneliner": "Great Grandpa——西雅图五人组，把 90 年代 alt-rock 的厚和细腻的情感缝在一起。",
+      "why": "吉他一层层叠上去，人声从压着唱到彻底放开。借日语「物哀」写美好易逝，编曲从安静涨到辽阔，把那份珍惜托得很高。",
+      "fit_score": 86,
+      "source": "Pitchfork",
+      "source_url": "https://pitchfork.com/artists/great-grandpa",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/14/98/89/14988981-b18a-5925-7577-3af77fd40765/63354.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/66/2a/db/662adb19-a334-ec3a-8743-ee5d774b2357/mzaf_11283357753393550398.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/mono-no-aware/1505802262?i=1505802362&uo=4"
+    },
+    {
+      "id": "apple:1414714104",
+      "title": "Your Cocoon",
+      "artist": "Jerry Paper",
+      "artist_display": "Jerry Paper",
+      "title_display": "Your Cocoon",
+      "artist_key": "jerrypaper",
+      "title_key": "yourcocoon",
+      "version": "",
+      "album_key": "likeababy",
+      "apple_track_id": "1414714104",
+      "apple_collection_id": "1414714102",
+      "legacy_ids": [],
+      "year": "2018",
+      "album": "Like a Baby",
+      "genres": [
+        "bedroom pop",
+        "organic electronic"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "松弛",
+        "怀旧又现代"
+      ],
+      "production_tags": [
+        "vintage synth",
+        "soft groove",
+        "warm mix"
+      ],
+      "instrumentation": [
+        "synthesizer",
+        "bass",
+        "drums",
+        "guitar"
+      ],
+      "vocal_style": "慵懒中性嗓音",
+      "bpm_band": "95–115",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "想把自己裹进被子里、把世界关在门外的那种一天。",
+      "artist_oneliner": "Jerry Paper——Lucas Nathan，把复古软摇滚和存在主义的迷惘调成一杯温吞。",
+      "why": "他劝你缩回自己的茧里歇一会儿，语气松得像没打算叫醒你。底下复古合成器荡来荡去，一张陷下去的旧沙发。",
+      "fit_score": 86,
+      "source": "Bandcamp Daily",
+      "source_url": "https://jerrypaper.bandcamp.com",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/85/f9/53/85f95394-f496-2db8-599a-cb649d9ade42/likeababy.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/2e/a7/c5/2ea7c516-9e4b-f524-23c0-ed2bd098f9e1/mzaf_3815096031235896395.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/your-cocoon/1414714102?i=1414714104&uo=4"
+    },
+    {
+      "id": "apple:1814441080",
+      "title": "In the Waiting Line",
+      "artist": "Zero 7",
+      "artist_display": "Zero 7",
+      "title_display": "In the Waiting Line",
+      "artist_key": "zero7",
+      "title_key": "inthewaitingline",
+      "version": "",
+      "album_key": "simplethings",
+      "apple_track_id": "1814441080",
+      "apple_collection_id": "1814440892",
+      "legacy_ids": [],
+      "year": "2001",
+      "album": "Simple Things",
+      "genres": [
+        "downtempo",
+        "organic electronic"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "空气感",
+        "松弛"
+      ],
+      "production_tags": [
+        "warm synth",
+        "soft beat",
+        "string pad"
+      ],
+      "instrumentation": [
+        "synthesizer",
+        "bass",
+        "drums",
+        "strings"
+      ],
+      "vocal_style": "慵懒女声，气声",
+      "bpm_band": "85–100",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "排队等着办一件不想办的事，队伍慢得让人开始走神的时候。",
+      "artist_oneliner": "Zero 7——伦敦二人组，Sia 早期献声，downtempo 里最柔的一支。",
+      "why": "她懒懒地问一句「你什么都不想改变吗」，问完也不催你答。合成器和弦乐糊成一层暖雾，节拍轻到几乎不在，日常的倦怠成了温柔的抵抗。",
+      "fit_score": 86,
+      "source": "RateYourMusic",
+      "source_url": "https://rateyourmusic.com/artist/zero_7",
+      "added_date": "2026-07-29",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c0/09/c8/c009c808-ffc7-77b6-1355-92fc6c120af9/885012034942.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c2/b9/50/c2b95071-4206-4875-f774-85ff0401b2f7/mzaf_12633368570281423141.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/in-the-waiting-line/1814440892?i=1814441080&uo=4"
+    },
+    {
+      "id": "apple:428844587",
+      "title": "The Jeweler",
+      "artist": "Pearls Before Swine",
+      "artist_display": "Pearls Before Swine",
+      "title_display": "The Jeweler",
+      "artist_key": "pearlsbeforeswine",
+      "title_key": "thejeweler",
+      "version": "",
+      "album_key": "theuseofashes",
+      "apple_track_id": "428844587",
+      "apple_collection_id": "428844585",
+      "legacy_ids": [],
+      "year": "1970",
+      "album": "The Use of Ashes",
+      "genres": [
+        "Psychedelic Folk",
+        "Chamber Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "温柔",
+        "怀旧"
+      ],
+      "production_tags": [
+        "warm",
+        "vintage warmth"
+      ],
+      "instrumentation": [
+        "celeste",
+        "acoustic guitar"
+      ],
+      "vocal_style": "含糊温柔男声",
+      "bpm_band": "70–90",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "深夜整理旧物，翻到一件舍不得扔又用不上的小东西的时候",
+      "artist_oneliner": "佛州迷幻民谣团，主脑Tom Rapp说话大舌头、偏用它唱最柔软句子的那一个",
+      "why": "钢片琴似的音色一点点撒下来，他含糊着唱一个珠宝匠在打磨石头。珍惜这件事被写得很慢、很具体，慢到你会想起某个人。",
+      "fit_score": 86,
+      "source": "Aquarium Drunkard",
+      "source_url": "https://aquariumdrunkard.com/tag/pearls-before-swine/",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/23/9c/ab/mzi.lbhdupbl.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/0b/c4/47/0bc447bc-2a5b-5e1f-4398-a94525a211d6/mzaf_5789277564617919075.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/the-jeweler/428844585?i=428844587&uo=4"
+    },
+    {
+      "id": "apple:1882646015",
+      "title": "lust",
+      "artist": "Rei Harakami",
+      "artist_display": "Rei Harakami",
+      "title_display": "lust",
+      "artist_key": "reiharakami",
+      "title_key": "lust",
+      "version": "",
+      "album_key": "lust",
+      "apple_track_id": "1882646015",
+      "apple_collection_id": "1882646010",
+      "legacy_ids": [],
+      "year": "2005",
+      "album": "Lust",
+      "genres": [
+        "Organic Electronic",
+        "Downtempo"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "细碎",
+        "催眠"
+      ],
+      "production_tags": [
+        "切碎节拍",
+        "缓起伏低音"
+      ],
+      "instrumentation": [
+        "合成器",
+        "采样器",
+        "电子节拍"
+      ],
+      "vocal_style": "器乐无人声",
+      "bpm_band": "84–100",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "失眠的凌晨四点，窗外开始有一点点亮、还不想承认天要亮了的时候。",
+      "artist_oneliner": "京都的电子音乐人，把数码节拍切碎又捂软、像呼吸一样铺开的那一个。",
+      "why": "节拍被剁得很碎，落下来是软的，像雨点砸在塑料棚上。底下一条低音缓慢起伏兜着，听到第三分钟，呼吸就跟着它走了。",
+      "fit_score": 86,
+      "source": "Pitchfork",
+      "source_url": "https://pitchfork.com/reviews/albums/rei-harakami-lust",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/11/7c/1e/117c1ed9-d696-efa4-ae95-8075e19b63c3/4988044020696.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e1/2e/07/e12e0792-4e22-827f-3527-9eeddab29ef8/mzaf_579739428651505163.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/lust/1882646010?i=1882646015&uo=4"
+    },
+    {
+      "id": "apple:642243746",
+      "title": "Bringing Home the Ashes",
+      "artist": "The Wild Swans",
+      "artist_display": "The Wild Swans",
+      "title_display": "Bringing Home the Ashes",
+      "artist_key": "thewildswans",
+      "title_key": "bringinghometheashes",
+      "version": "",
+      "album_key": "bringinghometheashes",
+      "apple_track_id": "642243746",
+      "apple_collection_id": "642243733",
+      "legacy_ids": [],
+      "year": "1988",
+      "album": "Bringing Home the Ashes",
+      "genres": [
+        "Jangle Pop",
+        "Dream Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "澎湃",
+        "怀乡"
+      ],
+      "production_tags": [
+        "chiming guitar",
+        "reverb"
+      ],
+      "instrumentation": [
+        "electric guitar",
+        "bass",
+        "drums",
+        "keyboards"
+      ],
+      "vocal_style": "高亢清亮的男声",
+      "bpm_band": "120–140",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "傍晚站在渡轮甲板尾部,看城市的轮廓在身后一点点缩小的那阵。",
+      "artist_oneliner": "利物浦班子,把 Teardrop Explodes 的迷幻余温擦亮成大教堂式吉他流行的那一支。",
+      "why": "吉他挂满混响，一片片荡开像空旷里的钟。带骨灰回家这件事，他把嗓子拔到最高处去唱，哀伤被托成一种发光的东西。",
+      "fit_score": 86,
+      "source": "Bandcamp Daily",
+      "source_url": "https://daily.bandcamp.com/features/wild-swans-liverpool",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/d9/45/f1/d945f13b-7f7b-9883-3340-a0ccc53f4245/603497921980.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/cf/82/86/cf82865f-d390-b87f-e015-1d753dea3633/mzaf_17833878905639698460.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/bringing-home-the-ashes/642243733?i=642243746&uo=4"
+    },
+    {
+      "id": "apple:724922935",
+      "title": "Sometime Later",
+      "artist": "Alpha",
+      "artist_display": "Alpha",
+      "title_display": "Sometime Later",
+      "artist_key": "alpha",
+      "title_key": "sometimelater",
+      "version": "",
+      "album_key": "comefromheaven",
+      "apple_track_id": "724922935",
+      "apple_collection_id": "724922214",
+      "legacy_ids": [],
+      "year": "1997",
+      "album": "Come from Heaven",
+      "genres": [
+        "Trip-Hop",
+        "Downtempo"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "阴郁",
+        "松弛"
+      ],
+      "production_tags": [
+        "弦乐编排",
+        "soft compression"
+      ],
+      "instrumentation": [
+        "弦乐",
+        "鼓刷",
+        "低音贝斯"
+      ],
+      "vocal_style": "低沉男声，气声贴地",
+      "bpm_band": "70–90",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "傍晚雨刚停透，站阳台没开灯看楼下水洼把路灯揉碎的那阵",
+      "artist_oneliner": "布里斯托 trip-hop 的 Melankolic 一脉，Massive Attack 厂牌里最擅长把弦乐写成落地窗雨痕的那对。",
+      "why": "鼓刷扫过去像擦一块湿地板。慢弦从底下托着，人声压得几乎贴着地平线，不催不赶，到后面像窗外的雨自己走成了节拍。",
+      "fit_score": 86,
+      "source": "Wikipedia",
+      "source_url": "https://en.wikipedia.org/wiki/Alpha_(British_band)",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/54/1f/6a/541f6a35-b07a-7201-e5d4-d2073d49851e/00724384483456.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/a2/3c/15/a23c15fb-3c13-6b02-f752-60b15c576e3a/mzaf_14040459040549699773.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/sometime-later/724922214?i=724922935&uo=4"
+    },
+    {
+      "id": "apple:452971560",
+      "title": "Below It",
+      "artist": "Peter Broderick",
+      "artist_display": "Peter Broderick",
+      "title_display": "Below It",
+      "artist_key": "peterbroderick",
+      "title_key": "belowit",
+      "version": "",
+      "album_key": "float",
+      "apple_track_id": "452971560",
+      "apple_collection_id": "452971460",
+      "legacy_ids": [],
+      "year": "2008",
+      "album": "Float",
+      "genres": [
+        "post-classical",
+        "ambient folk"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "木质感",
+        "空气感"
+      ],
+      "production_tags": [
+        "felt piano",
+        "layered strings",
+        "close mic"
+      ],
+      "instrumentation": [
+        "piano",
+        "violin",
+        "glockenspiel"
+      ],
+      "vocal_style": "纯器乐",
+      "bpm_band": "80–100",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "清晨薄雾里独自散步，草叶上的露水打湿裤脚的时候。",
+      "artist_oneliner": "Peter Broderick——俄勒冈多面手，一人拉起小提琴、弹起钢琴叠成一整个室内乐。",
+      "why": "钢琴先落下一个动机，小提琴和钟琴一层层贴上去，雾被光顶开一个口子。精致，但每一层都带着清晨的潮气，一点不冷。",
+      "fit_score": 86,
+      "source": "Pitchfork",
+      "source_url": "https://pitchfork.com/artists/peter-broderick",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/a3/3c/10/mzi.xnssytlp.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/f2/1b/ce/f21bce62-54ea-d474-e691-f0e34c99f446/mzaf_5822938924762042614.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/below-it/452971460?i=452971560&uo=4"
+    },
+    {
+      "id": "apple:1478654732",
+      "title": "Elastic Girl",
+      "artist": "Kahimi Karie",
+      "artist_display": "Kahimi Karie",
+      "title_display": "Elastic Girl",
+      "artist_key": "kahimikarie",
+      "title_key": "elasticgirl",
+      "version": "",
+      "album_key": "myfirstkarie",
+      "apple_track_id": "1478654732",
+      "apple_collection_id": "1478654731",
+      "legacy_ids": [],
+      "year": "1995",
+      "album": "My First Karie",
+      "genres": [
+        "Shibuya-kei",
+        "Chamber Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "冷淡",
+        "精致"
+      ],
+      "production_tags": [
+        "鼓机",
+        "复古叠录"
+      ],
+      "instrumentation": [
+        "贝斯",
+        "鼓机",
+        "键盘"
+      ],
+      "vocal_style": "法语念白女声",
+      "bpm_band": "96–110",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "傍晚一个人换衣服出门前，对着镜子扣最后一颗扣子的时候。",
+      "artist_oneliner": "涩谷系的气声歌姬，把法式冷淡念白唱进日本室内流行的那一位。",
+      "why": "节拍器一样的鼓机上，码着弹簧似的贝斯，弹一下缩一下。她的念白飘在最上面，冷淡得像在念别人的日记。",
+      "fit_score": 86,
+      "source": "Pitchfork",
+      "source_url": "https://pitchfork.com/reviews/albums/kahimi-karie",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/9c/3d/f6/9c3df627-1ef7-ef73-63e8-92ef18e3495d/4538182839706_cov.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/db/05/47/db0547a6-72b2-6ac0-10fe-86f50768f91a/mzaf_3559100887640458134.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/elastic-girl/1478654731?i=1478654732&uo=4"
+    },
+    {
+      "id": "apple:1569056041",
+      "title": "At It Again",
+      "artist": "Slow Pulp",
+      "artist_display": "Slow Pulp",
+      "title_display": "At It Again",
+      "artist_key": "slowpulp",
+      "title_key": "atitagain",
+      "version": "",
+      "album_key": "bigday",
+      "apple_track_id": "1569056041",
+      "apple_collection_id": "1569056037",
+      "legacy_ids": [],
+      "year": "2021",
+      "album": "Big Day",
+      "genres": [
+        "Dream Pop",
+        "Slacker Rock"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "慵懒",
+        "毛糙"
+      ],
+      "production_tags": [
+        "lo-fi吉他",
+        "倦意人声"
+      ],
+      "instrumentation": [
+        "电吉他",
+        "贝斯",
+        "鼓"
+      ],
+      "vocal_style": "女声，倦怠",
+      "bpm_band": "90–110",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "睡到中午醒来、还赖在皱巴巴被子里不想起的时候。",
+      "artist_oneliner": "芝加哥人，把 dream pop 掺进一点乡村慵懒和噪音的那支。",
+      "why": "吉他懒懒地垂着，时不时冒一点毛刺，女声带着倦意贴着走。不追求漂亮，那种没睡醒的松垮像揉皱的被单，听着反而放松。",
+      "fit_score": 86,
+      "source": "Stereogum",
+      "source_url": "https://www.stereogum.com/slow-pulp-big-day",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5a/53/e5/5a53e557-514d-b132-a855-631d98b16c92/12978.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e4/aa/9b/e4aa9bd2-c32b-e1b8-e0cf-b9969a3bf872/mzaf_680611750120218593.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/at-it-again-again/1569056037?i=1569056041&uo=4"
+    },
+    {
+      "id": "apple:429802753",
+      "title": "The First Picture of You",
+      "artist": "The Lotus Eaters",
+      "artist_display": "The Lotus Eaters",
+      "title_display": "The First Picture of You",
+      "artist_key": "thelotuseaters",
+      "title_key": "thefirstpictureofyou",
+      "version": "",
+      "album_key": "nosenseofsin",
+      "apple_track_id": "429802753",
+      "apple_collection_id": "429802544",
+      "legacy_ids": [],
+      "year": "2009",
+      "album": "No Sense of Sin",
+      "genres": [
+        "Jangle Pop",
+        "Dream Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "清澈",
+        "初见"
+      ],
+      "production_tags": [
+        "chiming guitar",
+        "spacious reverb"
+      ],
+      "instrumentation": [
+        "electric guitar",
+        "bass",
+        "drums",
+        "synth"
+      ],
+      "vocal_style": "清澈温柔的男声",
+      "bpm_band": "110–125",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "晒得发烫的午后,把一张刚洗出来的照片举到阳光下看的那一下。",
+      "artist_oneliner": "利物浦二人组,把叮咚吉他浸进夏日阳光、只留下一首完美单曲的那一支。",
+      "why": "吉他一颗颗掉在水面上，亮得冒热气。唱到关于你的第一张照片时毫无防备，整首像张过曝的旧相片，晃眼。",
+      "fit_score": 86,
+      "source": "Pitchfork",
+      "source_url": "https://pitchfork.com/features/lists-and-guides/best-jangle-pop",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/b0/b3/3e/b0b33e24-d435-ffd8-0910-24371fcb8308/mzi.zfnsgvjb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/45/3b/8c/453b8cba-3866-a0ab-4656-3cc2799c2e0a/mzaf_3886674945111357505.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/the-first-picture-of-you/429802544?i=429802753&uo=4"
+    },
+    {
+      "id": "apple:6779285827",
+      "title": "Time Is the Enemy",
+      "artist": "Quantic",
+      "artist_display": "Quantic",
+      "title_display": "Time Is the Enemy",
+      "artist_key": "quantic",
+      "title_key": "timeistheenemy",
+      "version": "",
+      "album_key": "the5thexotic",
+      "apple_track_id": "6779285827",
+      "apple_collection_id": "6779285502",
+      "legacy_ids": [],
+      "year": "2001",
+      "album": "The 5th Exotic",
+      "genres": [
+        "Downtempo",
+        "Nu-Jazz"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "明亮",
+        "暖"
+      ],
+      "production_tags": [
+        "复古录音",
+        "live乐队感"
+      ],
+      "instrumentation": [
+        "贝斯",
+        "弦乐",
+        "铜管"
+      ],
+      "vocal_style": "器乐为主",
+      "bpm_band": "95–115",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "周末大扫除、窗子全开、拖把在地上来回推的那个上午",
+      "artist_oneliner": "英国制作人 Will Holland，后来搬去哥伦比亚、把拉美律动拌进 downtempo 的那个多面手。",
+      "why": "拨弦贝斯打着轻快的散拍，弦乐和铜管一层层压上来，暖烘烘的。老派的那种愉快，阴天放这首，天像自己晴了半边。",
+      "fit_score": 86,
+      "source": "Wikipedia",
+      "source_url": "https://en.wikipedia.org/wiki/Quantic_(musician)",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/7a/37/dc7a37a3-fd84-787d-56cb-7154583ae2b8/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e8/9a/28/e89a2896-a96c-e4ef-0550-fa1b64196d4a/mzaf_9146381878421504278.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/time-is-the-enemy/6779285502?i=6779285827&uo=4"
+    },
+    {
+      "id": "apple:1280774767",
+      "title": "Avalanche",
+      "artist": "Boogarins",
+      "artist_display": "Boogarins",
+      "title_display": "Avalanche",
+      "artist_key": "boogarins",
+      "title_key": "avalanche",
+      "version": "",
+      "album_key": "asplantasquecuram",
+      "apple_track_id": "1280774767",
+      "apple_collection_id": "1280774751",
+      "legacy_ids": [],
+      "year": "2015",
+      "album": "As Plantas Que Curam",
+      "genres": [
+        "Psychedelic Pop",
+        "Dream Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "怀旧又现代",
+        "空气感"
+      ],
+      "production_tags": [
+        "tape saturation",
+        "reverb空间设计"
+      ],
+      "instrumentation": [
+        "guitar",
+        "organ",
+        "drums"
+      ],
+      "vocal_style": "男声，飘忽和声",
+      "bpm_band": "95–115",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "盛夏午后躺在草地上抬头看树叶晃，晃着晃着眼皮就重了的时候。",
+      "artist_oneliner": "戈亚尼亚迷幻二人组，把tropicália的迷醉重新泡进卧室磁带的毛边里。",
+      "why": "磁带把吉他压出一层暖糊，回声叠着回声，声音一直在往下沉。人声飘忽地跟着，旋律其实清清楚楚、只是裹在雾里；副歌吉他忽然亮起来，像云缝漏下一道光。",
+      "fit_score": 86,
+      "source": "Bandcamp Daily",
+      "source_url": "https://daily.bandcamp.com/features/boogarins",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/ac/7f/49/ac7f4954-3e8e-aab7-f19b-670f687bba98/191773674755.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/55/58/54/555854d4-e650-ee94-f3c8-83806741d4ff/mzaf_7586510539625714519.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/avalanche/1280774751?i=1280774767&uo=4"
+    },
+    {
+      "id": "apple:424139274",
+      "title": "Time and Tide",
+      "artist": "Basia",
+      "artist_display": "Basia",
+      "title_display": "Time and Tide",
+      "artist_key": "basia",
+      "title_key": "timeandtide",
+      "version": "",
+      "album_key": "timeandtide",
+      "apple_track_id": "424139274",
+      "apple_collection_id": "424139256",
+      "legacy_ids": [],
+      "year": "1986",
+      "album": "Time and Tide",
+      "genres": [
+        "Sophisti-pop",
+        "Latin Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "温暖",
+        "轻盈"
+      ],
+      "production_tags": [
+        "polished production",
+        "latin percussion"
+      ],
+      "instrumentation": [
+        "piano",
+        "bass",
+        "latin percussion",
+        "synth"
+      ],
+      "vocal_style": "清亮灵动的女声",
+      "bpm_band": "100–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "晴天开窗擦地,湿抹布过处地板反着光的那半小时。",
+      "artist_oneliner": "从 Matt Bianco 单飞的波兰裔女声,把巴西节奏和英伦流行焊成一体的那一位。",
+      "why": "打击乐在脚边跑成一串小碎步，人声跳在上面，一次都没落地。轻是真的轻，副歌那句关于时间流逝的提醒也是真的。",
+      "fit_score": 86,
+      "source": "Bandcamp Daily",
+      "source_url": "https://daily.bandcamp.com/features/basia-sophisti-pop",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f1/f4/29/f1f42981-0b0d-7305-92fa-e46b1e64c4cb/mzi.ofecilqu.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/bd/3d/d5/bd3dd570-fcef-4643-071b-6ef1846a27fa/mzaf_9002866223884312389.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/time-and-tide/424139256?i=424139274&uo=4"
+    },
+    {
+      "id": "apple:905056524",
+      "title": "Soon It Will Be Cold Enough to Build Fires",
+      "artist": "Emancipator",
+      "artist_display": "Emancipator",
+      "title_display": "Soon It Will Be Cold Enough to Build Fires",
+      "artist_key": "emancipator",
+      "title_key": "soonitwillbecoldenoughtobuildfires",
+      "version": "",
+      "album_key": "soonitwillbecoldenough",
+      "apple_track_id": "905056524",
+      "apple_collection_id": "905056226",
+      "legacy_ids": [],
+      "year": "2006",
+      "album": "Soon It Will Be Cold Enough",
+      "genres": [
+        "Downtempo",
+        "Instrumental Hip-Hop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "清冷",
+        "辽阔"
+      ],
+      "production_tags": [
+        "弦乐采样",
+        "hip-hop鼓"
+      ],
+      "instrumentation": [
+        "小提琴",
+        "鼓机",
+        "贝斯"
+      ],
+      "vocal_style": "器乐为主",
+      "bpm_band": "85–100",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "深秋傍晚山路上开车、暖气刚开始热起来的那阵",
+      "artist_oneliner": "波特兰制作人 Doug Appling，十九岁就把小提琴采样铺进 downtempo beat 的美国人。",
+      "why": "弦乐采样在 hip-hop 鼓上一圈圈盘旋，像雪落在还没结冰的水面。全程没有一处催你，中间走神也不要紧。",
+      "fit_score": 86,
+      "source": "Wikipedia",
+      "source_url": "https://en.wikipedia.org/wiki/Emancipator_(musician)",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/7d/11/0c/7d110c9d-6844-36be-75d9-126c792a10d1/859713069510_cover.tif/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/8d/8a/f9/8d8af9f2-14fe-fe1d-a679-9a68b08f6475/mzaf_1815826835556489229.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/soon-it-will-be-cold-enough-to-build-fires/905056226?i=905056524&uo=4"
+    },
+    {
+      "id": "apple:311195466",
+      "title": "Katy Song",
+      "artist": "Red House Painters",
+      "artist_display": "Red House Painters",
+      "title_display": "Katy Song",
+      "artist_key": "redhousepainters",
+      "title_key": "katysong",
+      "version": "",
+      "album_key": "redhousepainters",
+      "apple_track_id": "311195466",
+      "apple_collection_id": "311195427",
+      "legacy_ids": [],
+      "year": "1993",
+      "album": "Red House Painters (Rollercoaster)",
+      "genres": [
+        "slowcore",
+        "ambient folk"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "雨天",
+        "有人味"
+      ],
+      "production_tags": [
+        "reverb guitar",
+        "sparse arrangement",
+        "close mic"
+      ],
+      "instrumentation": [
+        "electric guitar",
+        "bass"
+      ],
+      "vocal_style": "深情男声，缓慢",
+      "bpm_band": "60–80",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "异地恋熬不下去、终于承认要结束的那个雨夜。",
+      "artist_oneliner": "Red House Painters——Mark Kozelek，把心碎拉成八分钟、每一秒都不肯快进。",
+      "why": "吉他裹着混响一步一步磨，一段没指望的思念被拖到你以为不会结束。最后那句「没有你我该怎么办」落地，屋里安静得胸口发闷。",
+      "fit_score": 86,
+      "source": "RateYourMusic",
+      "source_url": "https://rateyourmusic.com/artist/red_house_painters",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/db/31/d5/db31d53d-8352-5aa2-3b90-743a8a58b0b0/5014436300882.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/9e/d9/d9/9ed9d97f-c11d-2b11-27e0-54a7b23c90b3/mzaf_17717852993235532896.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/katy-song/311195427?i=311195466&uo=4"
+    },
+    {
+      "id": "apple:81974679",
+      "title": "Sprout and the Bean",
+      "artist": "Joanna Newsom",
+      "artist_display": "Joanna Newsom",
+      "title_display": "Sprout and the Bean",
+      "artist_key": "joannanewsom",
+      "title_key": "sproutandthebean",
+      "version": "",
+      "album_key": "themilkeyedmender",
+      "apple_track_id": "81974679",
+      "apple_collection_id": "81974708",
+      "legacy_ids": [],
+      "year": "2004",
+      "album": "The Milk-Eyed Mender",
+      "genres": [
+        "Freak Folk",
+        "Chamber Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "童话",
+        "开阔"
+      ],
+      "production_tags": [
+        "clean",
+        "warm"
+      ],
+      "instrumentation": [
+        "harp",
+        "violin"
+      ],
+      "vocal_style": "奇特多变女声",
+      "bpm_band": "90–110",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "早上醒了不想起，盯着天花板反复权衡一件小事的时候",
+      "artist_oneliner": "加州竖琴唱作人，把民谣写成童话又不腻的那一个",
+      "why": "竖琴一串串落下来，像水珠敲在石头上。她小声反复问该走还是该睡，问题很小；后半段小提琴漫进来，把这点小事撑成一片开阔。",
+      "fit_score": 86,
+      "source": "Aquarium Drunkard",
+      "source_url": "https://aquariumdrunkard.com/tag/joanna-newsom/",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/y2005/m10/d05/h21/mzi.sirizned.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/6f/df/ad/6fdfad08-b90f-42d1-05fd-058a56d425bc/mzaf_11839657211688794576.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/sprout-and-the-bean/81974708?i=81974679&uo=4"
+    },
+    {
+      "id": "apple:6789836870",
+      "title": "After the Moment",
+      "artist": "Craft Spells",
+      "artist_display": "Craft Spells",
+      "title_display": "After the Moment",
+      "artist_key": "craftspells",
+      "title_key": "afterthemoment",
+      "version": "",
+      "album_key": "idlelabor",
+      "apple_track_id": "6789836870",
+      "apple_collection_id": "6789836711",
+      "legacy_ids": [],
+      "year": "2011",
+      "album": "Idle Labor",
+      "genres": [
+        "Dream Pop",
+        "Indietronica"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "忧郁",
+        "律动"
+      ],
+      "production_tags": [
+        "合成器",
+        "舞拍鼓组"
+      ],
+      "instrumentation": [
+        "合成器",
+        "贝斯",
+        "电吉他"
+      ],
+      "vocal_style": "男声，忧郁",
+      "bpm_band": "120–140",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "深夜一个人在房间来回踱步、又不知道要去哪的时候。",
+      "artist_oneliner": "加州斯托克顿人，卧室里一个人把 new wave 做成 dream pop 的那位。",
+      "why": "你想跟着晃肩膀，词里全是没说出口的失落。合成器和贝斯打着轻快的舞拍，吉他撒一层碎点，人声那点忧郁一直没散。",
+      "fit_score": 86,
+      "source": "Pitchfork",
+      "source_url": "https://pitchfork.com/reviews/albums/15267-idle-labor/",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7b/58/88/7b5888d1-f79f-9142-6d12-8c76fcb41bb6/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d4/ab/24/d4ab2497-3fff-b4d3-3303-cb7c2b9013ae/mzaf_15449011565428938642.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/after-the-moment/6789836711?i=6789836870&uo=4"
+    },
+    {
+      "id": "apple:1795103086",
+      "title": "Mumble",
+      "artist": "Whirr",
+      "artist_display": "Whirr",
+      "title_display": "Mumble",
+      "artist_key": "whirr",
+      "title_key": "mumble",
+      "version": "",
+      "album_key": "sway",
+      "apple_track_id": "1795103086",
+      "apple_collection_id": "1795103061",
+      "legacy_ids": [],
+      "year": "2014",
+      "album": "Sway",
+      "genres": [
+        "Shoegaze",
+        "Dream Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "厚重",
+        "朦胧"
+      ],
+      "production_tags": [
+        "厚吉他墙",
+        "低保真人声"
+      ],
+      "instrumentation": [
+        "电吉他",
+        "贝斯",
+        "鼓"
+      ],
+      "vocal_style": "男声，埋没含混",
+      "bpm_band": "90–110",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "雾天清晨窗外一片灰白、赖床不想动弹的时候。",
+      "artist_oneliner": "旧金山湾区人，把 shoegaze 的吉他墙砌得又厚又慢的那支。",
+      "why": "吉他一层压一层，厚得几乎透不过气，人声被埋到最底下只剩含混的轮廓。一句听清的歌词都不给你，就用这堵墙慢慢把你按住。",
+      "fit_score": 86,
+      "source": "Stereogum",
+      "source_url": "https://www.stereogum.com/whirr-sway",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/25/82/99/2582990a-f356-dfac-aa7b-dc84c8e4077a/199066802502.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/68/65/f3/6865f319-deeb-8ba9-65f5-a44d22d092c4/mzaf_10328602667740370830.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/mumble/1795103061?i=1795103086&uo=4"
+    },
+    {
+      "id": "apple:1338638899",
+      "title": "Through The Deep",
+      "artist": "The fin.",
+      "artist_display": "The fin.",
+      "title_display": "Through The Deep",
+      "artist_key": "thefin",
+      "title_key": "throughthedeep",
+      "version": "",
+      "album_key": "there",
+      "apple_track_id": "1338638899",
+      "apple_collection_id": "1338638509",
+      "legacy_ids": [],
+      "year": "2018",
+      "album": "There",
+      "genres": [
+        "Dream Pop",
+        "Indie Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "漂浮",
+        "安静"
+      ],
+      "production_tags": [
+        "chorus 吉他",
+        "圆润贝斯"
+      ],
+      "instrumentation": [
+        "吉他",
+        "贝斯",
+        "合成器"
+      ],
+      "vocal_style": "英文轻声男声",
+      "bpm_band": "98–114",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "游泳池闭馆前最后一个人，仰躺在水面上听水声闷闷灌进耳朵的时候。",
+      "artist_oneliner": "神户的 dream pop 团，把吉他调成水波质感、用英文唱的那一支。",
+      "why": "吉他挂着 chorus 荡来荡去，一整首都浮着不肯落。尾奏一层层褪去，声音退光之后剩下的那点安静，才是这首歌真正的落点。",
+      "fit_score": 86,
+      "source": "Bandcamp Daily",
+      "source_url": "https://daily.bandcamp.com/features/the-fin",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/90/4f/bb/904fbb7a-d354-451a-3f72-0c2eb6002cd4/dj.mfuozhln.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/de/1b/8c/de1b8c2c-a87d-6634-09a5-2e7f6d8d6a0f/mzaf_1902694042099693316.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/through-the-deep/1338638509?i=1338638899&uo=4"
+    },
+    {
+      "id": "apple:1609674335",
+      "title": "Cool Dry Place",
+      "artist": "Katy Kirby",
+      "artist_display": "Katy Kirby",
+      "title_display": "Cool Dry Place",
+      "artist_key": "katykirby",
+      "title_key": "cooldryplace",
+      "version": "",
+      "album_key": "cooldryplace",
+      "apple_track_id": "1609674335",
+      "apple_collection_id": "1609673952",
+      "legacy_ids": [],
+      "year": "2020",
+      "album": "Cool Dry Place",
+      "genres": [
+        "Indie Folk",
+        "Bedroom Pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "安静",
+        "不安分"
+      ],
+      "production_tags": [
+        "clean吉他",
+        "突转失真"
+      ],
+      "instrumentation": [
+        "木吉他",
+        "电吉他",
+        "鼓"
+      ],
+      "vocal_style": "女声忽近忽远",
+      "bpm_band": "75–95",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "整理房间整理到一半坐在地上发呆，东西堆了一地也不想收的时候。",
+      "artist_oneliner": "德州Katy Kirby，从教会唱诗背景里长出、擅长突然拐弯的indie folk。",
+      "why": "主歌安静到接近耳语，吉他 clean 得发脆，声音忽近忽远。某一句突然多出一层失真，或者调子拐个弯，像平路上踩空一格——安静里藏着机关。",
+      "fit_score": 86,
+      "source": "Pitchfork",
+      "source_url": "https://pitchfork.com/reviews/albums/katy-kirby-cool-dry-place/",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/18/ab/7a/18ab7a89-d205-3edc-e840-62f45a0c8660/30566.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/8c/6c/4c/8c6c4cbe-3891-f4e9-3b5e-fdab89a0509e/mzaf_7118292377790575718.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/cool-dry-place/1609673952?i=1609674335&uo=4"
+    },
+    {
+      "id": "apple:1348421616",
+      "title": "Cloud Corner",
+      "artist": "Marisa Anderson",
+      "artist_display": "Marisa Anderson",
+      "title_display": "Cloud Corner",
+      "artist_key": "marisaanderson",
+      "title_key": "cloudcorner",
+      "version": "",
+      "album_key": "cloudcorner",
+      "apple_track_id": "1348421616",
+      "apple_collection_id": "1348421377",
+      "legacy_ids": [],
+      "year": "2018",
+      "album": "Cloud Corner",
+      "genres": [
+        "Ambient Folk",
+        "American Primitive"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "旷野",
+        "空镜"
+      ],
+      "production_tags": [
+        "滑音吉他",
+        "自然回响"
+      ],
+      "instrumentation": [
+        "电吉他"
+      ],
+      "vocal_style": "纯器乐无人声",
+      "bpm_band": "65–85",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "自驾穿过荒漠停在路边，熄了火站在车旁看远山的那几分钟。",
+      "artist_oneliner": "波特兰Marisa Anderson，把美式primitive吉他弹出西部旷野空镜的器乐手。",
+      "why": "一把电吉他绕着简单的动机反复走，滑音带着淡淡的回响，像镜头缓缓扫过一片空地。没有鼓，没有词，全靠旋律自己往前推；听得见空气里的尘土。",
+      "fit_score": 86,
+      "source": "Bandcamp Daily",
+      "source_url": "https://daily.bandcamp.com/features/marisa-anderson-cloud-corner",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2d/b0/50/2db05010-6522-6d90-536f-234545b37da0/466_3000-300dpi.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/2b/8c/9c/2b8c9cce-fac6-bb09-9591-69d8f7e4dce4/mzaf_9257574820954883513.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/cloud-corner/1348421377?i=1348421616&uo=4"
+    },
+    {
+      "id": "apple:1800769494",
+      "title": "Failure",
+      "artist": "A Sunny Day in Glasgow",
+      "artist_display": "A Sunny Day in Glasgow",
+      "title_display": "Failure",
+      "artist_key": "asunnydayinglasgow",
+      "title_key": "failure",
+      "version": "",
+      "album_key": "ashesgrammar",
+      "apple_track_id": "1800769494",
+      "apple_collection_id": "1800769244",
+      "legacy_ids": [],
+      "year": "2009",
+      "album": "Ashes Grammar",
+      "genres": [
+        "Dream Pop",
+        "Shoegaze"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "斑斓",
+        "碎裂"
+      ],
+      "production_tags": [
+        "人声切片",
+        "宽stereo"
+      ],
+      "instrumentation": [
+        "电吉他",
+        "采样",
+        "鼓"
+      ],
+      "vocal_style": "多女声，碎片化",
+      "bpm_band": "110–130",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "坐在开着的洗衣机前发呆、看衣物一圈圈转晕的时候。",
+      "artist_oneliner": "费城人，把 shoegaze 剪碎再拼成万花筒的那支多女声团。",
+      "why": "人声被切成碎光，在左右耳之间跳来跳去，一句完整歌词都抓不住。你以为要散架了，一条旋律线始终穿在中间没断。",
+      "fit_score": 86,
+      "source": "Pitchfork",
+      "source_url": "https://pitchfork.com/reviews/albums/a-sunny-day-in-glasgow-ashes-grammar/",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/07/81/4f/07814f13-713a-36d2-fc91-c9234512d074/artwork.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a6/8d/27/a68d2735-42e6-46c5-6293-b2679252da35/mzaf_15428085818141003890.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/failure/1800769244?i=1800769494&uo=4"
+    }
+  ]
+}

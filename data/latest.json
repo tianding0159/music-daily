@@ -1,35 +1,37 @@
 {
-  "date": "2026-07-31",
-  "issue_no": 4,
-  "playlist_title": "潮湿黄昏，木吉他慢慢走（07.31）",
+  "date": "2026-08-01",
+  "issue_no": 5,
+  "playlist_title": "耳朵先安静，人才跟上（08.01）",
   "tracks_brief": [
     {
-      "title": "Over the Pond",
-      "artist": "The Album Leaf"
+      "title": "A Walk",
+      "artist": "Tycho"
     },
     {
-      "title": "Alena",
-      "artist": "Yumi Zouma"
+      "title": "Fantastic Man",
+      "artist": "William Onyeabor"
     },
     {
-      "title": "Bags",
-      "artist": "Clairo"
+      "title": "Arthur",
+      "artist": "Kelly Lee Owens"
     },
     {
-      "title": "The Moon",
-      "artist": "The Microphones"
+      "title": "Old Friends",
+      "artist": "Pinegrove"
     },
     {
-      "title": "County Line",
-      "artist": "Cass McCombs"
+      "title": "La Perla",
+      "artist": "Sofia Kourtesis"
     },
     {
-      "title": "Young, Latin and Proud",
-      "artist": "Helado Negro"
+      "title": "Everyday",
+      "artist": "Vetiver"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true
 }
