@@ -145,20 +145,20 @@ body.go .deckbox .disc{animation:spin-up 2.2s linear forwards}
 .deckbox .disc .vlbl{display:none}
 /* 中心纸标签：按传统黑胶排版——上弧走艺名、中间横排、下弧走厂牌与转速。
    挂在【不自转】的 .dwrap 上：挂 .disc 会跟着转，转到下半圈字就是倒的。 */
-.deckbox .dwrap>.lbl{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+.deckbox .disc>.lbl{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
   width:37%; aspect-ratio:1; border-radius:50%; z-index:3; pointer-events:none;
   background:radial-gradient(circle at 50% 42%, #fbf7ec 0 62%, #f0e8d6 100%);
   box-shadow:0 0 0 1px rgba(0,0,0,.16), inset 0 0 12px rgba(120,100,60,.14)}
-.deckbox .dwrap>.lbl svg{position:absolute; inset:0; width:100%; height:100%;
+.deckbox .disc>.lbl svg{position:absolute; inset:0; width:100%; height:100%;
   shape-rendering:geometricPrecision}
-.deckbox .dwrap>.lbl text{font-family:var(--mono); fill:#2a2318;
+.deckbox .disc>.lbl text{font-family:var(--mono); fill:#2a2318;
   text-rendering:geometricPrecision}
-.deckbox .dwrap>.lbl .arc{font-size:4.6px; letter-spacing:.62px}
-.deckbox .dwrap>.lbl .arc.lo{font-size:3.5px; letter-spacing:.5px; fill:#6b5f47}
-.deckbox .dwrap>.lbl .mid{font-size:5.6px; letter-spacing:.5px; font-weight:700}
-.deckbox .dwrap>.lbl .sub{font-size:3.4px; letter-spacing:.7px; fill:#6b5f47}
+.deckbox .disc>.lbl .arc{font-size:4.6px; letter-spacing:.62px}
+.deckbox .disc>.lbl .arc.lo{font-size:3.5px; letter-spacing:.5px; fill:#6b5f47}
+.deckbox .disc>.lbl .mid{font-size:5.6px; letter-spacing:.5px; font-weight:700}
+.deckbox .disc>.lbl .sub{font-size:3.4px; letter-spacing:.7px; fill:#6b5f47}
 /* 主轴孔 */
-.deckbox .dwrap>.lbl::after{content:""; position:absolute; left:50%; top:50%;
+.deckbox .disc>.lbl::after{content:""; position:absolute; left:50%; top:50%;
   width:7%; aspect-ratio:1; transform:translate(-50%,-50%); border-radius:50%;
   background:#151515; box-shadow:inset 0 0 0 1px rgba(0,0,0,.5)}
 /* 唱臂：停机位；点下之后落到外圈并停住 */
@@ -183,31 +183,35 @@ body.go .deckbox .deck{animation:needle-hit .36s ease-out .74s both}
 .rail b{color:var(--ink); font-weight:700; letter-spacing:.04em}
 .rail .vs b{color:var(--green-d)}
 
-/* ── 落针钮：一枚有厚度的机械键。不发光——靠体积、材质、按下的位移。 ── */
+/* ── 落针钮：TE 风格。TE 的按键语言 =（从其生产 CSS 实抓）
+   ① 只用 100/300 两个字重，从不 400/700 ——「细」是招牌
+   ② letter-spacing 一律 normal，不加 tracking
+   ③ 文案小写
+   ④ 纯色块、2px 极小圆角、不做拟物渐变与厚度阴影
+   ⑤ 一枚橙色圆点做状态指示（TE 的标志性做法） ── */
 .pw{position:relative; z-index:2; appearance:none; cursor:pointer; opacity:0;
-  display:inline-flex; align-items:center; gap:13px;
-  padding:14px 24px 14px 18px; border:1px solid #2a2620; border-radius:3px;
-  font-family:var(--mono); font-size:var(--fs-15); letter-spacing:.2em;
-  text-transform:uppercase; color:#f2efe8; font-weight:400;
-  background:linear-gradient(#3d3831 0%, #2a2620 52%, #201d18 100%);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.22), inset 0 -1px 0 rgba(0,0,0,.5),
-    0 4px 0 #16130f, 0 9px 16px -6px rgba(15,14,18,.5);
+  display:inline-flex; align-items:center; gap:11px;
+  padding:15px 22px; border:none; border-radius:2px;
+  background:var(--ink); color:var(--paper);
+  font-family:var(--sans); font-size:var(--fs-20); font-weight:300;
+  letter-spacing:normal; text-transform:lowercase; line-height:1.1;
   animation:fade-up .5s ease-out .6s both;
-  transition:transform .09s, box-shadow .09s, background .18s}
-.pw:hover{background:linear-gradient(#464038 0%, #302b24 52%, #24211b 100%)}
-.pw:active,.pw.down{transform:translateY(4px);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.14), inset 0 -1px 0 rgba(0,0,0,.5),
-    0 0 0 #16130f, 0 3px 7px -4px rgba(15,14,18,.5)}
-.pw:focus-visible{outline:2px solid var(--ink); outline-offset:4px}
-.pw .ndl{width:19px; height:19px; flex:none; position:relative}
-.pw .ndl::before{content:""; position:absolute; left:11px; top:1px; width:2px; height:13px;
-  background:linear-gradient(#e8e4dc,#9c968c); border-radius:1px;
-  transform:rotate(24deg); transform-origin:top center}
-.pw .ndl::after{content:""; position:absolute; left:4px; bottom:1px; width:6px; height:6px;
-  border-radius:50%; background:#d9d4ca; box-shadow:0 0 0 1px rgba(0,0,0,.4)}
-.pw .dot{width:6px; height:6px; border-radius:50%; flex:none; margin-left:3px;
-  background:#7a5a2a; transition:background .18s, box-shadow .18s}
-.pw:hover .dot,.pw.down .dot{background:var(--orange); box-shadow:0 0 7px rgba(240,90,36,.7)}}
+  transition:background .15s, opacity .15s}
+.pw:hover{background:#2a2620}
+.pw:active,.pw.down{background:#3a352d}
+.pw:focus-visible{outline:2px solid var(--ink); outline-offset:3px}
+/* 键面左侧橙点 = TE 的状态指示语言；按下/hover 时点亮成实心 */
+.pw .dot{width:8px; height:8px; border-radius:50%; flex:none;
+  background:transparent; box-shadow:inset 0 0 0 1.5px var(--orange);
+  transition:background .15s}
+.pw:hover .dot,.pw.down .dot{background:var(--orange)}
+/* 右侧一条极细的进度轨，按下后从左到右走完 —— 呼应 TE 面板上的刻度条 */
+.pw .trk{width:26px; height:1px; flex:none; background:rgba(245,245,245,.28);
+  position:relative; margin-left:2px}
+.pw .trk::after{content:""; position:absolute; left:0; top:0; height:100%; width:0;
+  background:var(--orange)}
+.pw.down .trk::after{animation:trk-run 2.2s linear forwards}
+@keyframes trk-run{to{width:100%}}}
 
 .tip{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
   letter-spacing:.1em; position:relative; z-index:2;
@@ -300,9 +304,9 @@ def build_html(n_issues: int, n_tracks: int, n_moods: int, latest_date: str,
 
   <div class="deckbox tt">
     <div class="deck">
-      <div class="dwrap"><div class="disc"></div>
+      <div class="dwrap"><div class="disc">
         <span class="lbl">{_vinyl_label(n_issues, latest_date)}</span>
-      </div>
+      </div></div>
       <div class="arm"><i></i><b></b></div>
     </div>
     <span class="led"></span>
@@ -316,7 +320,7 @@ def build_html(n_issues: int, n_tracks: int, n_moods: int, latest_date: str,
   </div>
 
   <button class="pw" id="pw" type="button">
-    <span class="ndl"></span>drop the needle<span class="dot"></span></button>
+    <span class="dot"></span>drop the needle<span class="trk"></span></button>
   <div class="tip">点一下 · 或按 <kbd>space</kbd> / <kbd>enter</kbd> 进入今日精选</div>
   <div class="foot">© {year} MUSIC DAILY · PERSONAL USE · COVER &amp; PREVIEW VIA PUBLIC MUSIC API</div>
 </div>

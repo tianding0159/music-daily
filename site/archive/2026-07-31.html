@@ -171,15 +171,18 @@ a{color:inherit; text-decoration:none}
 /* 规格条 */
 .spec{border:1px solid var(--g300); font-family:var(--mono);
   font-size:var(--fs-10); text-transform:uppercase; color:var(--g600);
-  display:grid; grid-template-columns:repeat(4,1fr); align-items:stretch}
+  /* 前三格是短单值，genres 是 6 个流派的长串，给它更宽的列：
+     等分下它要折 5 行、把整条撑到 127px；给 2fr 后 2 行就排完，另外三格不再空一大片。
+     不用省略号——这一格本来就是给人看全流派构成的。 */
+  display:grid; grid-template-columns:1fr 1fr 1fr 2.2fr; align-items:stretch}
 /* 各格：内容顶部对齐 + 同一行高，四格自然等高等齐；genres 长串照常折行，
    折出来的行也和其它格共用同一条基线网格（line-height 一致）。 */
 .spec div{padding:10px 14px; border-right:1px solid var(--g100); min-width:0;
   display:flex; align-items:flex-start; gap:7px; line-height:1.65}
 .spec div:last-child{border-right:none}
 .spec b{color:var(--ink); font-weight:700; letter-spacing:.02em; min-width:0;
-  /* 最多两行：genres 有 6 个流派，任其折行会把整条撑到 127px、另外三格空一大片 */
-  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+  /* genres 要看完整，不截断 —— 这一格本来就是给人看全流派构成的 */
+  overflow-wrap:anywhere}
 
 /* 分区标题 */
 .sect{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; letter-spacing:.14em;
