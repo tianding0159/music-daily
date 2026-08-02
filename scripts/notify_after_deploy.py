@@ -17,6 +17,14 @@ from pathlib import Path
 DATA = Path(__file__).resolve().parent.parent / "data"
 
 
+def _daily_url(base: str) -> str:
+    """日报本体的 URL。index.html 是开机自检落地页，标记不在那儿。"""
+    b = base.rstrip("/")
+    if b.endswith(".html"):
+        b = b.rsplit("/", 1)[0]
+    return b + "/daily.html"
+
+
 def _http_ok(url: str) -> tuple[bool, str]:
     for attempt in range(6):  # Pages 部署后有传播延迟
         try:
@@ -37,11 +45,12 @@ def main() -> int:
     if not url or url.startswith("file://"):
         print("❌ 未提供有效的已部署 URL（PAGES_URL 未配置）——绝不使用本地 file://。")
         return 3
-    ok, detail = _http_ok(url)
+    check = _daily_url(url)
+    ok, detail = _http_ok(check)
     if not ok:
-        print(f"❌ 部署校验失败：{url} → {detail}（不发送微信）")
+        print(f"❌ 部署校验失败：{check} → {detail}（不发送微信）")
         return 1
-    print(f"✅ 部署校验通过：{url}")
+    print(f"✅ 部署校验通过：{check}")
 
     latest = json.loads((DATA / "latest.json").read_text(encoding="utf-8")) if (DATA / "latest.json").exists() else {}
     if latest.get("fresh_build") is False:
@@ -49,7 +58,7 @@ def main() -> int:
         return 0
     import push_wechat  # 延迟导入
     tracks = latest.get("tracks_brief", [])
-    title, desp = push_wechat.build_desp(latest.get("date", ""), url, tracks, warn=latest.get("low_pool_warn"))
+    title, desp = push_wechat.build_desp(latest.get("date", ""), check, tracks, warn=latest.get("low_pool_warn"))
     if push_wechat.push(title, desp):
         print("✅ 微信推送成功")
     else:

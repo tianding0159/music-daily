@@ -170,10 +170,15 @@ a{color:inherit; text-decoration:none}
 /* 规格条 */
 .spec{border:1px solid var(--g300); border-bottom:none; font-family:var(--mono);
   font-size:var(--fs-10); text-transform:uppercase; color:var(--g600);
-  display:grid; grid-template-columns:repeat(4,1fr)}
-.spec div{padding:9px 14px; border-right:1px solid var(--g100)}
+  /* 前三格按内容取宽，genres 吃剩余空间：四等分会把 6 个流派的长串挤成参差的两三行 */
+  display:grid; grid-template-columns:auto auto auto minmax(0,1fr); align-items:stretch}
+.spec div{padding:9px 14px; border-right:1px solid var(--g100);
+  display:flex; align-items:baseline; gap:7px; min-width:0}
 .spec div:last-child{border-right:none}
-.spec b{color:var(--ink); font-weight:700}
+.spec b{color:var(--ink); font-weight:700; letter-spacing:.02em}
+/* genres 那格：长串单行排列，超出用省略号，不折成参差的多行 */
+.spec .gl{display:flex; align-items:baseline; gap:7px; min-width:0; flex:1}
+.spec .gl b{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0}
 
 /* 分区标题 */
 .sect{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; letter-spacing:.14em;
@@ -298,6 +303,47 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
   .grid{grid-template-columns:1fr}
   .hero{align-items:flex-start}
   .m-main{flex-direction:row}
+  .spec{grid-template-columns:repeat(2,1fr)}
+  .spec div:nth-child(2n){border-right:none}
+  .spec div:nth-child(-n+2){border-bottom:1px solid var(--g100)}
+}
+
+/* ── 竖屏（手机）适配：以 iPhone 390×844 为基准 ──
+   问题都是实测出来的，不是猜的：①logo「MUSIC DAILY」被折成两行
+   ②顶栏右侧 serial 三段挤成两排 ③规格条四列在 390 下每格都折行、genres 那格压成竖带
+   ④大数字与右侧说明断开 ⑤卡片内封面+文字并排太挤 */
+@media(max-width:520px){
+  .wrap{padding-inline:16px}
+  /* 顶栏：logo 不许折行，右侧信息只留最要紧的两段 */
+  .nav .wrap{height:52px}
+  .brand{font-size:14px; gap:8px; white-space:nowrap; flex:none}
+  .brand .sq{width:11px; height:11px}
+  .nav .serial{gap:10px; flex-wrap:nowrap; font-size:9px; overflow:hidden}
+  .nav .serial>*:nth-child(n+3){display:none}   /* 只留前两段，别挤成两排 */
+  /* Hero：大数字与说明并成一行，别各占一块 */
+  .hero{padding:20px 0 14px; gap:12px; align-items:flex-end}
+  .hero .h-l h1{font-size:34px}
+  .hero .h-l .en{margin-top:7px; font-size:9px; letter-spacing:.04em}
+  .hero .h-r{line-height:1.5; font-size:9px}
+  .hero .h-r .big{font-size:30px; display:inline-block; margin-right:6px}
+  /* 规格条：四列改单列，genres 长串不再被压成竖带 */
+  .spec{grid-template-columns:1fr}
+  .spec div{border-right:none; border-bottom:1px solid var(--g100); padding:8px 12px;
+    display:flex; justify-content:space-between; gap:10px}
+  .spec div:last-child{border-bottom:none}
+  .spec b{text-align:right}
+  /* 工具按钮：一行放不下就整行铺满，别半截换行 */
+  .tools{gap:7px}
+  .tools .tbtn{flex:1 1 calc(50% - 4px); justify-content:center; padding:9px 8px; font-size:10px}
+  /* 卡片：封面与文字改上下叠，封面横铺（竖屏并排 130px 封面太憋） */
+  .m-main{flex-direction:column !important; gap:12px; padding:12px 12px 0}
+  .m-main .art{width:100%; aspect-ratio:16/10}
+  .m-top{padding:10px 12px}
+  .body{padding:0 12px 12px}
+  /* LCD：猫和跑马灯在窄屏共存，缩小猫舞台 */
+  .lcd .row1{min-height:40px; padding:7px 12px; gap:7px}
+  .lcd .cat-wrap{transform:scale(.85); transform-origin:center bottom}
+  footer{flex-direction:column; gap:6px; text-align:center}
 }
 @media(prefers-reduced-motion:reduce){
   .mod{opacity:1; transform:none; transition:none}
@@ -305,6 +351,79 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
   .pose{opacity:0}
   .p-stand{opacity:1}
   html{scroll-behavior:auto}
+}
+
+/* ── 封面放大 + 艺人详情 ── */
+#lb{position:fixed; inset:0; z-index:2000; display:none; padding:clamp(14px,4vw,40px);
+  align-items:center; justify-content:center}
+#lb.on{display:flex}
+#lb .veil{position:absolute; inset:0; background:rgba(10,9,12,.86);
+  backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px);
+  animation:lb-veil .26s ease-out both}
+@keyframes lb-veil{from{opacity:0}to{opacity:1}}
+#lb .sheet{position:relative; z-index:1; width:min(880px,100%); max-height:92svh;
+  display:grid; grid-template-columns:minmax(0,300px) minmax(0,1fr);
+  background:var(--paper); border:1px solid var(--g1000); overflow:hidden;
+  animation:lb-in .38s cubic-bezier(.16,1,.3,1) both}
+@keyframes lb-in{from{opacity:0; transform:translateY(14px) scale(.965)}
+  to{opacity:1; transform:none}}
+/* 左：大图。方形，底部压一条铭牌 */
+#lb .big{position:relative; background:var(--ink); aspect-ratio:1; overflow:hidden}
+#lb .big img{width:100%; height:100%; object-fit:cover; display:block;
+  animation:lb-img .5s cubic-bezier(.2,1,.3,1) both}
+@keyframes lb-img{from{opacity:0; transform:scale(1.06)}to{opacity:1; transform:none}}
+#lb .big .ph{width:100%; height:100%; display:grid; place-items:center;
+  font-family:var(--mono); font-size:64px; color:var(--g900); background:var(--g1000)}
+#lb .big .yr{position:absolute; left:0; right:0; bottom:0; padding:9px 13px;
+  font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.1em;
+  text-transform:uppercase; color:var(--white);
+  background:linear-gradient(transparent,rgba(0,0,0,.78) 40%);
+  display:flex; justify-content:space-between; gap:10px}
+/* 右：详情 */
+#lb .info{padding:clamp(18px,2.6vw,28px); overflow:auto; display:flex; flex-direction:column}
+#lb .kicker{font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.16em;
+  text-transform:uppercase; color:var(--g600); display:flex; align-items:center; gap:9px}
+#lb .kicker::after{content:""; flex:1; height:1px; background:var(--g200)}
+#lb h3{font-size:clamp(26px,3.4vw,36px); font-weight:100; line-height:1.24;
+  letter-spacing:-.015em; margin-top:11px; text-transform:lowercase;
+  padding-bottom:.1em; overflow:visible}
+#lb .ar{font-family:var(--mono); font-size:var(--fs-15); text-transform:uppercase;
+  letter-spacing:.1em; color:var(--g900); margin-top:5px}
+#lb .meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
+  margin-top:11px; line-height:1.7}
+#lb .tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:12px}
+#lb .tags span{font-family:var(--mono); font-size:9px; letter-spacing:.06em;
+  text-transform:uppercase; border:1px solid var(--g200); padding:3px 7px; color:var(--g900)}
+#lb .sec{margin-top:16px}
+#lb .sec .lb-t{font-family:var(--mono); font-size:9px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--orange); margin-bottom:5px}
+#lb .sec p{font-size:var(--fs-20); font-weight:300; line-height:1.62}
+#lb .sec.mono p{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); line-height:1.75}
+#lb .lb-links{display:flex; flex-wrap:wrap; gap:7px; margin-top:auto; padding-top:20px}
+#lb .lb-links a{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
+  letter-spacing:.06em; border:1px solid var(--g300); padding:8px 13px; color:var(--ink);
+  transition:background .15s, border-color .15s}
+#lb .lb-links a:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
+#lb .x{position:absolute; right:0; top:0; z-index:3; width:42px; height:42px;
+  border:none; border-left:1px solid var(--g200); border-bottom:1px solid var(--g200);
+  background:var(--paper); color:var(--ink); cursor:pointer; font-family:var(--mono);
+  font-size:16px; line-height:1; transition:background .15s}
+#lb .x:hover{background:var(--ink); color:var(--white)}
+/* 封面可点：给个手型 + 悬停微亮 + 右下角放大镜提示 */
+.cover-zoom{cursor:zoom-in}
+.cover-zoom::after{content:"⤢"; position:absolute; right:6px; bottom:6px; z-index:2;
+  width:20px; height:20px; display:grid; place-items:center; font-size:11px;
+  background:rgba(15,14,18,.72); color:#fff; opacity:0; transition:opacity .18s;
+  pointer-events:none}
+.cover-zoom:hover::after{opacity:1}
+@media(max-width:720px){
+  #lb .sheet{grid-template-columns:1fr; max-height:88svh; overflow:auto}
+  #lb .big{aspect-ratio:16/11}
+  #lb .info{padding:16px}
+  #lb h3{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  #lb .veil,#lb .sheet,#lb .big img{animation:none}
 }
 </style>
 </head>
@@ -316,7 +435,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 <main class="wrap">
   <div class="hero"><div class="h-l"><h1 class="lc">往期</h1>
     <div class="en">archive · all issues</div></div>
-    <div class="h-r"><span class="big">06</span>issues<br><a href="../index.html" style="border-bottom:1px solid var(--g300)">← 最新一期</a></div>
+    <div class="h-r"><span class="big">06</span>issues<br><a href="../daily.html" style="border-bottom:1px solid var(--g300)">← 最新一期</a></div>
   </div>
   <div class="arc">
     <a href="2026-08-02.html"><span class="d">2026-08-02</span><span class="no">issue 006 / 30首</span><span class="t">有点甜，但克制着（08.02）</span></a>

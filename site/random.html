@@ -171,10 +171,15 @@ a{color:inherit; text-decoration:none}
 /* 规格条 */
 .spec{border:1px solid var(--g300); border-bottom:none; font-family:var(--mono);
   font-size:var(--fs-10); text-transform:uppercase; color:var(--g600);
-  display:grid; grid-template-columns:repeat(4,1fr)}
-.spec div{padding:9px 14px; border-right:1px solid var(--g100)}
+  /* 前三格按内容取宽，genres 吃剩余空间：四等分会把 6 个流派的长串挤成参差的两三行 */
+  display:grid; grid-template-columns:auto auto auto minmax(0,1fr); align-items:stretch}
+.spec div{padding:9px 14px; border-right:1px solid var(--g100);
+  display:flex; align-items:baseline; gap:7px; min-width:0}
 .spec div:last-child{border-right:none}
-.spec b{color:var(--ink); font-weight:700}
+.spec b{color:var(--ink); font-weight:700; letter-spacing:.02em}
+/* genres 那格：长串单行排列，超出用省略号，不折成参差的多行 */
+.spec .gl{display:flex; align-items:baseline; gap:7px; min-width:0; flex:1}
+.spec .gl b{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0}
 
 /* 分区标题 */
 .sect{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; letter-spacing:.14em;
@@ -299,6 +304,47 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
   .grid{grid-template-columns:1fr}
   .hero{align-items:flex-start}
   .m-main{flex-direction:row}
+  .spec{grid-template-columns:repeat(2,1fr)}
+  .spec div:nth-child(2n){border-right:none}
+  .spec div:nth-child(-n+2){border-bottom:1px solid var(--g100)}
+}
+
+/* ── 竖屏（手机）适配：以 iPhone 390×844 为基准 ──
+   问题都是实测出来的，不是猜的：①logo「MUSIC DAILY」被折成两行
+   ②顶栏右侧 serial 三段挤成两排 ③规格条四列在 390 下每格都折行、genres 那格压成竖带
+   ④大数字与右侧说明断开 ⑤卡片内封面+文字并排太挤 */
+@media(max-width:520px){
+  .wrap{padding-inline:16px}
+  /* 顶栏：logo 不许折行，右侧信息只留最要紧的两段 */
+  .nav .wrap{height:52px}
+  .brand{font-size:14px; gap:8px; white-space:nowrap; flex:none}
+  .brand .sq{width:11px; height:11px}
+  .nav .serial{gap:10px; flex-wrap:nowrap; font-size:9px; overflow:hidden}
+  .nav .serial>*:nth-child(n+3){display:none}   /* 只留前两段，别挤成两排 */
+  /* Hero：大数字与说明并成一行，别各占一块 */
+  .hero{padding:20px 0 14px; gap:12px; align-items:flex-end}
+  .hero .h-l h1{font-size:34px}
+  .hero .h-l .en{margin-top:7px; font-size:9px; letter-spacing:.04em}
+  .hero .h-r{line-height:1.5; font-size:9px}
+  .hero .h-r .big{font-size:30px; display:inline-block; margin-right:6px}
+  /* 规格条：四列改单列，genres 长串不再被压成竖带 */
+  .spec{grid-template-columns:1fr}
+  .spec div{border-right:none; border-bottom:1px solid var(--g100); padding:8px 12px;
+    display:flex; justify-content:space-between; gap:10px}
+  .spec div:last-child{border-bottom:none}
+  .spec b{text-align:right}
+  /* 工具按钮：一行放不下就整行铺满，别半截换行 */
+  .tools{gap:7px}
+  .tools .tbtn{flex:1 1 calc(50% - 4px); justify-content:center; padding:9px 8px; font-size:10px}
+  /* 卡片：封面与文字改上下叠，封面横铺（竖屏并排 130px 封面太憋） */
+  .m-main{flex-direction:column !important; gap:12px; padding:12px 12px 0}
+  .m-main .art{width:100%; aspect-ratio:16/10}
+  .m-top{padding:10px 12px}
+  .body{padding:0 12px 12px}
+  /* LCD：猫和跑马灯在窄屏共存，缩小猫舞台 */
+  .lcd .row1{min-height:40px; padding:7px 12px; gap:7px}
+  .lcd .cat-wrap{transform:scale(.85); transform-origin:center bottom}
+  footer{flex-direction:column; gap:6px; text-align:center}
 }
 @media(prefers-reduced-motion:reduce){
   .mod{opacity:1; transform:none; transition:none}
@@ -325,15 +371,15 @@ body{padding-bottom:76px}
 #roll{flex:0 0 auto; min-width:clamp(160px,26vw,260px); border:none; cursor:pointer; position:relative;
   background:var(--ink); color:var(--white); font-family:var(--mono); font-size:var(--fs-20);
   text-transform:uppercase; letter-spacing:.08em; padding:14px 24px; display:flex; overflow:hidden;
-  align-items:baseline; justify-content:center; gap:13px; min-height:72px;
+  align-items:center; justify-content:center; gap:13px; min-height:72px;
   transition:background .2s, transform .1s}
 #roll:hover{background:var(--g1000)}
 #roll:active{transform:scale(.985)}
 #roll.rolling{background:var(--green-d)}
 #roll .k{font-size:var(--fs-10); color:var(--g300); letter-spacing:.06em; position:relative; z-index:1;
-  /* #roll 用 align-items:baseline，但 mono 小号字的基线盒比 .lab 略高，补 2px 压平 */
-  top:2px}
-#roll .lab{position:relative; z-index:1}
+  /* 按钮已改 align-items:center，三个不同字号的元素靠中线共线，不再需要逐个 top 补偿 */
+  line-height:1}
+#roll .lab{position:relative; z-index:1; line-height:1}
 /* 按下时从中心荡开的波纹 */
 #roll::after{content:""; position:absolute; left:50%; top:50%; width:34px; height:34px;
   border-radius:50%; border:1px solid rgba(255,255,255,.5);
@@ -366,8 +412,12 @@ body{padding-bottom:76px}
 
 .hint{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:8px}
 .hint b{color:var(--ink); font-weight:400}
-.hint kbd{border:1px solid var(--g300); padding:1px 6px; background:var(--white);
-  display:inline-block; line-height:1.4; vertical-align:middle; position:relative; top:-1px}
+.hint kbd{border:1px solid var(--g300); background:var(--white); vertical-align:middle;
+  /* 文字在方框正中：inline-flex 居中 + line-height:1，别靠 padding 和 line-height 凑
+     （之前外框 22.2px、line-height 18.2px，余量上下不等，字就偏上了） */
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:1.9em; height:1.55em; padding:0 .45em; line-height:1;
+  position:relative; top:-.05em}
 
 /* 单张大卡 */
 .card{border:1px solid var(--g300); background:var(--paper); margin-top:var(--sp-md);
@@ -607,6 +657,43 @@ body.has-basket{padding-bottom:134px}
   #roll{flex:1 1 100%; min-width:0}
   .fsel{flex:1 1 50%}
 }
+
+/* ── 竖屏（手机）适配，基准 iPhone 390×844 ──
+   实测问题：①三个筛选各占一整行，光筛选就吃掉半屏 ②「另起一首」按钮 72px 偏高
+   ③the pick 里封面 232px 与右侧文字并排，两边都憋 ④hint 一行字折成三行 */
+@media(max-width:520px){
+  .wrap{padding-inline:16px}
+  .nav .wrap{height:52px}
+  .brand{font-size:14px; gap:8px; white-space:nowrap; flex:none}
+  .brand .sq{width:11px; height:11px}
+  .nav .serial{gap:10px; flex-wrap:nowrap; font-size:9px; overflow:hidden}
+  .nav .serial>*:nth-child(n+3){display:none}
+  .hero{padding:20px 0 14px; gap:12px}
+  .hero .h-l h1{font-size:34px}
+  .hero .h-r .big{font-size:30px; display:inline-block; margin-right:6px}
+  /* 筛选：改 grid 两列（mood/genre 并排、decade 跨两列）。
+     不能用 flex:1 1 50% —— 实测父级 min-width:0 后 .fsel 被压成 1px 宽，
+     select 文字整个挤没、只剩 ::after 的 ▾ 箭头。grid 显式分列才稳。 */
+  .filters{display:grid; grid-template-columns:1fr 1fr; min-width:0; flex:none; width:100%}
+  .fsel{min-width:0; border-bottom:1px solid var(--g100)}
+  .fsel:nth-child(2){border-right:none}
+  .fsel:nth-child(3){grid-column:1 / -1; border-right:none; border-bottom:none}
+  .fsel select{min-height:56px; padding:20px 26px 6px 12px; font-size:13px}
+  .fsel .lbl{left:12px; top:6px}
+  #roll{min-height:58px; padding:12px 16px; gap:10px; font-size:14px; width:100%}
+  #roll .dice{width:26px; height:26px}
+  .hint{font-size:9px; line-height:1.9}
+  /* the pick：封面横铺在上、文字在下，别在 390px 里硬并排 */
+  .card .c-main{flex-direction:column; gap:14px; padding:14px}
+  .card .big-art{width:100%; max-width:none; aspect-ratio:1}
+  .card .c-hd{min-width:0}
+  .card .c-title{font-size:26px}
+  .card .c-links{gap:6px}
+  .card .c-links>*{flex:1 1 calc(50% - 3px); justify-content:center; text-align:center}
+  .recent{grid-template-columns:1fr}
+  #basket{bottom:70px; padding:8px 14px}
+  footer{flex-direction:column; gap:6px; text-align:center}
+}
 @media(prefers-reduced-motion:reduce){
   .card,.card.in,.card .big-art .cover,.card.in .c-title,.card.in .c-artist,.card.in .c-meta,
   .card.in .tags,.card.in .c-one,.card.in .c-why,.card.in .c-scene,.card.in .c-links,
@@ -621,6 +708,79 @@ body.has-basket{padding-bottom:134px}
   #roll.rolling .dice{animation:none}
   #roll.rolling .dice .vinyl{animation:none}
 }
+
+/* ── 封面放大 + 艺人详情 ── */
+#lb{position:fixed; inset:0; z-index:2000; display:none; padding:clamp(14px,4vw,40px);
+  align-items:center; justify-content:center}
+#lb.on{display:flex}
+#lb .veil{position:absolute; inset:0; background:rgba(10,9,12,.86);
+  backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px);
+  animation:lb-veil .26s ease-out both}
+@keyframes lb-veil{from{opacity:0}to{opacity:1}}
+#lb .sheet{position:relative; z-index:1; width:min(880px,100%); max-height:92svh;
+  display:grid; grid-template-columns:minmax(0,300px) minmax(0,1fr);
+  background:var(--paper); border:1px solid var(--g1000); overflow:hidden;
+  animation:lb-in .38s cubic-bezier(.16,1,.3,1) both}
+@keyframes lb-in{from{opacity:0; transform:translateY(14px) scale(.965)}
+  to{opacity:1; transform:none}}
+/* 左：大图。方形，底部压一条铭牌 */
+#lb .big{position:relative; background:var(--ink); aspect-ratio:1; overflow:hidden}
+#lb .big img{width:100%; height:100%; object-fit:cover; display:block;
+  animation:lb-img .5s cubic-bezier(.2,1,.3,1) both}
+@keyframes lb-img{from{opacity:0; transform:scale(1.06)}to{opacity:1; transform:none}}
+#lb .big .ph{width:100%; height:100%; display:grid; place-items:center;
+  font-family:var(--mono); font-size:64px; color:var(--g900); background:var(--g1000)}
+#lb .big .yr{position:absolute; left:0; right:0; bottom:0; padding:9px 13px;
+  font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.1em;
+  text-transform:uppercase; color:var(--white);
+  background:linear-gradient(transparent,rgba(0,0,0,.78) 40%);
+  display:flex; justify-content:space-between; gap:10px}
+/* 右：详情 */
+#lb .info{padding:clamp(18px,2.6vw,28px); overflow:auto; display:flex; flex-direction:column}
+#lb .kicker{font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.16em;
+  text-transform:uppercase; color:var(--g600); display:flex; align-items:center; gap:9px}
+#lb .kicker::after{content:""; flex:1; height:1px; background:var(--g200)}
+#lb h3{font-size:clamp(26px,3.4vw,36px); font-weight:100; line-height:1.24;
+  letter-spacing:-.015em; margin-top:11px; text-transform:lowercase;
+  padding-bottom:.1em; overflow:visible}
+#lb .ar{font-family:var(--mono); font-size:var(--fs-15); text-transform:uppercase;
+  letter-spacing:.1em; color:var(--g900); margin-top:5px}
+#lb .meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
+  margin-top:11px; line-height:1.7}
+#lb .tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:12px}
+#lb .tags span{font-family:var(--mono); font-size:9px; letter-spacing:.06em;
+  text-transform:uppercase; border:1px solid var(--g200); padding:3px 7px; color:var(--g900)}
+#lb .sec{margin-top:16px}
+#lb .sec .lb-t{font-family:var(--mono); font-size:9px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--orange); margin-bottom:5px}
+#lb .sec p{font-size:var(--fs-20); font-weight:300; line-height:1.62}
+#lb .sec.mono p{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); line-height:1.75}
+#lb .lb-links{display:flex; flex-wrap:wrap; gap:7px; margin-top:auto; padding-top:20px}
+#lb .lb-links a{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
+  letter-spacing:.06em; border:1px solid var(--g300); padding:8px 13px; color:var(--ink);
+  transition:background .15s, border-color .15s}
+#lb .lb-links a:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
+#lb .x{position:absolute; right:0; top:0; z-index:3; width:42px; height:42px;
+  border:none; border-left:1px solid var(--g200); border-bottom:1px solid var(--g200);
+  background:var(--paper); color:var(--ink); cursor:pointer; font-family:var(--mono);
+  font-size:16px; line-height:1; transition:background .15s}
+#lb .x:hover{background:var(--ink); color:var(--white)}
+/* 封面可点：给个手型 + 悬停微亮 + 右下角放大镜提示 */
+.cover-zoom{cursor:zoom-in}
+.cover-zoom::after{content:"⤢"; position:absolute; right:6px; bottom:6px; z-index:2;
+  width:20px; height:20px; display:grid; place-items:center; font-size:11px;
+  background:rgba(15,14,18,.72); color:#fff; opacity:0; transition:opacity .18s;
+  pointer-events:none}
+.cover-zoom:hover::after{opacity:1}
+@media(max-width:720px){
+  #lb .sheet{grid-template-columns:1fr; max-height:88svh; overflow:auto}
+  #lb .big{aspect-ratio:16/11}
+  #lb .info{padding:16px}
+  #lb h3{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  #lb .veil,#lb .sheet,#lb .big img{animation:none}
+}
 </style>
 </head>
 <body>
@@ -628,7 +788,7 @@ body.has-basket{padding-bottom:134px}
   <div class="wrap">
     <div class="brand"><span class="sq"></span>MUSIC DAILY</div>
     <div class="serial"><span>mode <b>shuffle</b></span><span>pool <b>856</b></span>
-      <span><a href="index.html" style="border-bottom:1px solid var(--g300)">← 今日精选</a></span></div>
+      <span><a href="daily.html" style="border-bottom:1px solid var(--g300)">← 今日精选</a></span></div>
   </div>
 </nav>
 
@@ -674,7 +834,7 @@ body.has-basket{padding-bottom:134px}
 
   <footer>
     <span>MUSIC DAILY · shuffle</span>
-    <span><a href="index.html" style="border-bottom:1px solid var(--g300)">今日精选 →</a></span>
+    <span><a href="daily.html" style="border-bottom:1px solid var(--g300)">今日精选 →</a></span>
     <span>cover &amp; preview via public music api · personal use</span>
   </footer>
 </main>
@@ -705,6 +865,24 @@ body.has-basket{padding-bottom:134px}
   <span id="np-time" class="mono">0:00 / 0:00</span>
 </div>
 
+<div id="lb" role="dialog" aria-modal="true" aria-label="专辑详情">
+  <div class="veil" data-close></div>
+  <div class="sheet">
+    <button class="x" type="button" data-close aria-label="关闭">✕</button>
+    <div class="big" id="lb-big"></div>
+    <div class="info">
+      <div class="kicker" id="lb-kick">album</div>
+      <h3 id="lb-title"></h3>
+      <div class="ar" id="lb-artist"></div>
+      <div class="meta" id="lb-meta"></div>
+      <div class="tags" id="lb-tags"></div>
+      <div class="sec" id="lb-one-w"><div class="lb-t">artist</div><p id="lb-one"></p></div>
+      <div class="sec" id="lb-why-w"><div class="lb-t">why</div><p id="lb-why"></p></div>
+      <div class="sec mono" id="lb-scene-w"><div class="lb-t">use</div><p id="lb-scene"></p></div>
+      <div class="lb-links" id="lb-links"></div>
+    </div>
+  </div>
+</div>
 <script>const TAGMAP={"late night": "late night", "城市夜晚": "late night", "夜色": "late night", "都市": "late night", "深夜": "late night", "夜晚": "late night", "都会夜晚": "late night", "都市夜晚": "late night", "深夜独处": "late night", "夜色游荡": "late night", "午夜电台": "late night", "夜车": "late night", "夏夜": "late night", "雨夜": "late night", "失眠": "late night", "深夜出租车": "late night", "城市霓虹": "late night", "城市": "late night", "都市漫游": "late night", "漫游": "late night", "city night": "late night", "nocturnal": "late night", "独居": "late night", "summer dusk": "summer dusk", "夏天傍晚": "summer dusk", "城市黄昏": "summer dusk", "黄昏": "summer dusk", "夏天": "summer dusk", "夏日": "summer dusk", "twilight": "summer dusk", "dusky": "summer dusk", "海岛清晨": "summer dusk", "清晨": "summer dusk", "sunlit": "summer dusk", "室内午后": "summer dusk", "tropical": "summer dusk", "巴西暖阳": "summer dusk", "rainy": "rainy", "雨天": "rainy", "潮湿": "rainy", "闷热": "rainy", "迷雾": "rainy", "雾气": "rainy", "烟雾感": "rainy", "wide open": "wide open", "辽阔": "wide open", "空旷": "wide open", "开阔": "wide open", "壮阔": "wide open", "旷野": "wide open", "荒凉": "wide open", "spacious": "wide open", "空镜": "wide open", "澎湃": "wide open", "浩大": "wide open", "wintry": "wintry", "清冷": "wintry", "阴冷": "wintry", "寒意": "wintry", "冷": "wintry", "冷调": "wintry", "冷淡": "wintry", "冷静性感": "wintry", "cool": "wintry", "autumnal": "wintry", "褪色": "wintry", "微凉": "wintry", "airy": "airy", "空气感": "airy", "轻盈": "airy", "轻": "airy", "清透": "airy", "轻飘": "airy", "轻柔": "airy", "breezy": "airy", "清爽": "airy", "清澈": "airy", "aqueous": "airy", "素净": "airy", "grainy": "grainy", "颗粒感": "grainy", "粗粝": "grainy", "粗糙": "grainy", "糙": "grainy", "毛糙": "grainy", "刺": "grainy", "刺眼": "grainy", "尖锐": "grainy", "锋利": "grainy", "暗刺": "grainy", "碎裂": "grainy", "woody": "woody", "木质感": "woody", "古朴": "woody", "朴素": "woody", "简朴": "woody", "古老": "woody", "生活感": "woody", "市井": "woody", "hazy": "hazy", "朦胧": "hazy", "柔焦": "hazy", "恍惚": "hazy", "出神": "hazy", "眩晕": "hazy", "梦游": "hazy", "浮游": "hazy", "褪色照片": "hazy", "floating": "floating", "漂浮": "floating", "悬浮": "floating", "失重": "floating", "飘": "floating", "飘渺": "floating", "浮游感": "floating", "weightless": "floating", "轻飘飘": "floating", "shimmering": "shimmering", "斑斓": "shimmering", "璀璨": "shimmering", "数码微光": "shimmering", "光滑": "shimmering", "luminous": "shimmering", "清晰": "shimmering", "organic": "organic", "有机质地": "organic", "organic electronic": "organic", "有机电子": "organic", "lush": "lush", "层叠合声": "lush", "繁而不乱": "lush", "厚重": "lush", "绵长": "lush", "结实": "lush", "沉重": "lush", "沉": "lush", "下沉": "lush", "低沉": "lush", "深沉": "lush", "圆钝": "lush", "绕梁": "lush", "tender": "tender", "温柔": "tender", "柔": "tender", "柔软": "tender", "温和": "tender", "温润": "tender", "温厚": "tender", "gentle": "tender", "抚慰": "tender", "慰藉": "tender", "安抚": "tender", "母性温暖": "tender", "疗愈": "tender", "治愈": "tender", "和解": "tender", "释然": "tender", "知足": "tender", "warm": "warm", "暖": "warm", "温暖": "warm", "温热": "warm", "有体温": "warm", "cozy": "warm", "闲适": "warm", "自在": "warm", "孤独里有暖": "warm", "80s 暖调": "warm", "sweet": "sweet", "甜": "sweet", "甜润": "sweet", "甜美": "sweet", "温甜": "sweet", "可爱": "sweet", "playful": "sweet", "俏皮": "sweet", "奇趣": "sweet", "童话": "sweet", "带点幽默": "sweet", "自嘲幽默": "sweet", "自嘲": "sweet", "讥诮": "sweet", "痞": "sweet", "melancholy": "melancholy", "忧郁": "melancholy", "阴郁": "melancholy", "阴翳": "melancholy", "伤感": "melancholy", "哀伤": "melancholy", "怅然": "melancholy", "细腻感伤": "melancholy", "微苦": "melancholy", "苦涩": "melancholy", "melancholic": "melancholy", "gently melancholic": "melancholy", "wistful": "melancholy", "朦胧忧伤": "melancholy", "温柔忧郁": "melancholy", "沮丧": "melancholy", "压抑": "melancholy", "隐痛": "melancholy", "克制哀伤": "melancholy", "柔中带伤": "melancholy", "叹息": "melancholy", "心碎": "melancholy", "懊悔": "melancholy", "无望": "melancholy", "委屈": "melancholy", "认命": "melancholy", "投降": "melancholy", "不悲的告别": "melancholy", "缺一角": "melancholy", "疲惫": "melancholy", "倦": "melancholy", "孤寂": "melancholy", "孤独": "melancholy", "乡愁": "melancholy", "怀乡": "melancholy", "自慰": "melancholy", "longing": "longing", "思念": "longing", "眷恋": "longing", "向往": "longing", "追忆": "longing", "yearning": "longing", "单恋": "longing", "暧昧": "longing", "期待": "longing", "恳求": "longing", "恳切": "longing", "热切": "longing", "深情": "longing", "缠绵": "longing", "浪漫": "longing", "初见": "longing", "羞涩": "longing", "青涩": "longing", "嫉妒": "longing", "悬着": "longing", "向往感": "longing", "fragile": "fragile", "脆弱": "fragile", "颤抖脆弱": "fragile", "delicate": "fragile", "细腻": "fragile", "细碎": "fragile", "轻薄": "fragile", "restrained": "restrained", "克制": "restrained", "精致但不炫技": "restrained", "精致不炫技": "restrained", "精致": "restrained", "精致克制": "restrained", "understated": "restrained", "隐忍": "restrained", "体面": "restrained", "庄重": "restrained", "庄严": "restrained", "ritualistic": "restrained", "冷静": "restrained", "平淡": "restrained", "从容": "restrained", "笃定": "restrained", "坦荡": "restrained", "清醒": "restrained", "疏离": "restrained", "优雅": "restrained", "贵气": "restrained", "内收": "restrained", "introspective": "introspective", "内省": "introspective", "自省": "introspective", "reflective": "introspective", "contemplative": "introspective", "沉静": "introspective", "宁静": "introspective", "安静": "introspective", "静谧": "introspective", "serene": "introspective", "hushed": "introspective", "静水深流": "introspective", "缓慢": "introspective", "出世": "introspective", "nostalgic": "nostalgic", "怀旧又现代": "nostalgic", "怀旧但现代": "nostalgic", "怀旧": "nostalgic", "复古": "nostalgic", "旧梦": "nostalgic", "童年记忆": "nostalgic", "80s 光泽": "nostalgic", "60s 幽灵": "nostalgic", "VHS复古": "nostalgic", "vhs复古": "nostalgic", "复古摩登": "nostalgic", "文艺": "nostalgic", "hopeful": "hopeful", "昂扬": "hopeful", "打气": "hopeful", "明亮": "hopeful", "雀跃": "hopeful", "欣快": "hopeful", "兴头": "hopeful", "骄": "hopeful", "骄傲": "hopeful", "有力": "hopeful", "坚持": "hopeful", "倔强": "hopeful", "温柔倔强": "hopeful", "执拗": "hopeful", "逞强": "hopeful", "决绝": "hopeful", "复活感": "hopeful", "自由": "hopeful", "少年气": "hopeful", "青春": "hopeful", "天真": "hopeful", "真挚": "hopeful", "诚恳": "hopeful", "clear-eyed": "hopeful", "restless": "restless", "躁动": "restless", "不安": "restless", "焦躁": "restless", "慌乱": "restless", "急促": "restless", "紧绷": "restless", "暗涌": "restless", "涌动": "restless", "不安分": "restless", "奔逃": "restless", "克制愤怒": "restless", "慌": "restless", "张力": "restless", "爆发": "restless", "sensual": "sensual", "性感": "sensual", "sultry": "sensual", "微醺": "sensual", "黏着": "sensual", "黏糊": "sensual", "黏腻": "sensual", "滚烫": "sensual", "炽热": "sensual", "野": "sensual", "冲": "sensual", "慵懒的清醒": "sensual", "耳语": "sensual", "dreamlike": "dreamlike", "梦幻": "dreamlike", "dreamy": "dreamlike", "梦境": "dreamlike", "迷幻": "dreamlike", "otherworldly": "dreamlike", "神秘": "dreamlike", "怪诞": "dreamlike", "诡趣": "dreamlike", "催眠": "dreamlike", "hypnotic": "dreamlike", "迷幻温柔": "dreamlike", "童话感": "dreamlike", "intimate": "intimate", "亲密": "intimate", "私密": "intimate", "私语": "intimate", "cinematic": "cinematic", "电影感": "cinematic", "叙事": "cinematic", "空镜感": "cinematic", "画面感": "cinematic", "unhurried": "unhurried", "松弛": "unhurried", "慵懒": "unhurried", "laid-back": "unhurried", "舒展": "unhurried", "缓慢舒展": "unhurried", "温吞": "unhurried", "摇曳": "unhurried", "黏": "unhurried", "upbeat": "upbeat", "轻快": "upbeat", "明快": "upbeat", "欢快": "upbeat", "清新": "upbeat", "热闹": "upbeat", "摇摆": "upbeat", "律动": "upbeat", "带劲": "upbeat", "sunny": "upbeat", "奔跑": "upbeat", "飞驰": "upbeat", "爽": "upbeat", "欢腾": "upbeat", "human": "human", "有人味": "human", "人声在场": "human", "有人声": "human", "人味": "human", "elegant": "elegant", "繁复精致": "elegant", "考究": "elegant", "精密": "elegant"};
 const tgm=(x)=>TAGMAP[x]||TAGMAP[String(x).toLowerCase()]||x;
 const KNOB=["#0071bb", "#006837", "#f05a24", "#fab413", "#b81d13", "#0f0e12"];
@@ -752,6 +930,17 @@ function match(t){
 }
 function pool(){return POOL.filter(match)}
 
+// 浮层要用的 data-*（与日报 _lb_data 同一套字段，浮层组件是共用的）
+function lbData(t){
+  const A=(k,v)=>' data-'+k+'="'+String(v==null?'':v).replace(/&/g,'&amp;').replace(/"/g,'&quot;')+'"';
+  const tags=[].concat((t.genres||[]).slice(0,3),(t.mood_tags||[]).slice(0,3)).map(tgm).join('|');
+  return A('cover',t.c)+A('title',t.title)+A('artist',t.artist)+A('year',t.year)
+       +A('album',t.album)+A('bpm',t.bpm_band||'')+A('tags',tags)
+       +A('one',t.artist_oneliner||'')+A('why',t.why||'')+A('scene',t.scene||'')
+       +A('apple',t.a||'')+A('spotify','https://open.spotify.com/search/'
+         +encodeURIComponent((t.title||'')+' '+(t.artist||'')));
+}
+
 function render(t){
   const art=t.c?('<img class="cover" src="'+t.c+'" alt="">')
                 :('<div class="cover ph">'+((t.artist||'?')[0]||'?').toUpperCase()+'</div>');
@@ -773,7 +962,9 @@ function render(t){
   card.className='card';
   card.innerHTML='<div class="c-top"><span class="c-no">pick \u00b7 '+String(seen.length).padStart(3,'0')+' / '+pool().length+'</span>'
     +'<span class="c-tag"><span class="m-code" style="background:'+knob(g0)+'">'+g0+'</span></span></div>'
-    +'<div class="c-main"><div class="big-art">'+art+pb+'</div>'
+    +'<div class="c-main"><div class="big-art cover-zoom" role="button" tabindex="0"'
+    +' aria-label="\u770b\u5927\u56fe\u4e0e\u8be6\u60c5"'
+    +lbData(t)+'>'+art+pb+'</div>'
     +'<div class="c-hd"><div class="c-title lc">'+t.title+'</div>'
     +'<div class="c-artist">'+t.artist+'</div><div class="c-meta">'+meta+'</div>'
     +'<div class="tags" style="margin-top:10px">'+tags+'</div>'
@@ -899,6 +1090,65 @@ document.addEventListener('keydown',(e)=>{
   if(e.code==='Space'){e.preventDefault();const b=$('#roll');b.classList.remove('ping');void b.offsetWidth;b.classList.add('ping');roll();}
   else if(e.key==='p'||e.key==='P'){if(cur)toggle(cur);}
 });
+</script>
+<script>
+(function(){
+  var lb=document.getElementById('lb'); if(!lb) return;
+  var $=function(i){return document.getElementById(i)};
+  var last=null;
+
+  // iTunes 缩略图按既定命名规则换更大尺寸；非 iTunes 的 URL 原样返回
+  function big(u){ return u ? u.replace(/\/(\d+)x(\d+)(bb)?\.(jpg|png)/i, '/600x600bb.$4') : ''; }
+
+  function esc(s){ var d=document.createElement('div'); d.textContent=s==null?'':s; return d.innerHTML; }
+
+  function open(d){
+    last=document.activeElement;
+    $('lb-big').innerHTML = d.cover
+      ? '<img src="'+esc(big(d.cover))+'" alt="">'
+      : '<div class="ph">'+esc((d.artist||'?').slice(0,1).toUpperCase())+'</div>';
+    if(d.year || d.album){
+      $('lb-big').insertAdjacentHTML('beforeend',
+        '<div class="yr"><span>'+esc(d.album||'')+'</span><span>'+esc(d.year||'')+'</span></div>');
+    }
+    $('lb-title').textContent = d.title||'';
+    $('lb-artist').textContent = d.artist||'';
+    var m=[]; if(d.year) m.push(d.year); if(d.album) m.push(d.album); if(d.bpm) m.push(d.bpm);
+    $('lb-meta').textContent = m.join(' / ');
+    $('lb-tags').innerHTML = (d.tags||'').split('|').filter(Boolean)
+      .map(function(t){return '<span>'+esc(t)+'</span>'}).join('');
+    [['one','lb-one'],['why','lb-why'],['scene','lb-scene']].forEach(function(p){
+      var v=d[p[0]]||'';
+      $(p[1]).textContent=v;
+      $(p[1]+'-w').style.display = v ? '' : 'none';   // 该段没内容就整块收起
+    });
+    var lk=[];
+    if(d.apple)   lk.push('<a href="'+esc(d.apple)+'" target="_blank" rel="noopener">apple music ↗</a>');
+    if(d.spotify) lk.push('<a href="'+esc(d.spotify)+'" target="_blank" rel="noopener">spotify ↗</a>');
+    if(d.netease) lk.push('<a href="'+esc(d.netease)+'" target="_blank" rel="noopener">netease ↗</a>');
+    $('lb-links').innerHTML = lk.join('');
+    lb.classList.add('on');
+    document.body.style.overflow='hidden';
+    lb.querySelector('.x').focus();
+  }
+  function close(){
+    lb.classList.remove('on');
+    document.body.style.overflow='';
+    if(last && last.focus) last.focus();
+  }
+
+  document.addEventListener('click', function(e){
+    if(e.target.closest('[data-close]')){ close(); return; }
+    // 点播放键不开浮层
+    if(e.target.closest('.pbtn')) return;
+    var h=e.target.closest('.big-art'); if(!h) return;
+    var d=h.dataset; if(!d.title && !d.cover) return;
+    e.preventDefault(); open(d);
+  });
+  addEventListener('keydown', function(e){
+    if(e.key==='Escape' && lb.classList.contains('on')) close();
+  });
+})();
 </script>
 </body>
 </html>

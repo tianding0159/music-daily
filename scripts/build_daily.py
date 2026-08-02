@@ -25,6 +25,7 @@ import netease
 import picker as selector
 import push_wechat
 import render_grid
+import render_landing
 import render_random
 
 RENDERERS = {"grid": render_grid}
@@ -114,6 +115,12 @@ def _backfill_snapshots(history: dict, pool: list[dict], skip_date: str = "",
         _write_snapshot(date, i, "grid", picks, title, netease.build_text(picks, title))
 
 
+def _n_eligible() -> int:
+    """池里合格曲目数（落地页自检要显示，与随机页同一口径）。"""
+    pool = _load_json(DATA / "pool.json", [])
+    return sum(1 for t in pool if selector.is_eligible(t)[0])
+
+
 def _rebuild_site() -> None:
     """清空 archive，从所有 issue 快照全量重建 archive/*.html 与最新一期 index.html。"""
     arch = SITE / "archive"
@@ -135,8 +142,15 @@ def _rebuild_site() -> None:
         (arch / "index.html").write_text(idx, encoding="utf-8")
         latest = snaps[-1]
         r = RENDERERS.get(latest.get("theme", "grid"), render_grid)
-        (SITE / "index.html").write_text(
+        # 日报本体在 daily.html；index.html 让给开机自检落地页（站点入口）
+        (SITE / "daily.html").write_text(
             r.build_html(latest["date"], latest["tracks"], latest["issue_no"], latest["netease_text"]),
+            encoding="utf-8")
+        import mood_vocab
+        (SITE / "index.html").write_text(
+            render_landing.build_html(
+                n_issues=len(snaps), n_tracks=_n_eligible(), n_moods=len(mood_vocab.CANON),
+                latest_date=latest["date"], playlist_title=latest.get("playlist_title", "")),
             encoding="utf-8")
 
 

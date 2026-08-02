@@ -171,10 +171,15 @@ a{color:inherit; text-decoration:none}
 /* 规格条 */
 .spec{border:1px solid var(--g300); border-bottom:none; font-family:var(--mono);
   font-size:var(--fs-10); text-transform:uppercase; color:var(--g600);
-  display:grid; grid-template-columns:repeat(4,1fr)}
-.spec div{padding:9px 14px; border-right:1px solid var(--g100)}
+  /* 前三格按内容取宽，genres 吃剩余空间：四等分会把 6 个流派的长串挤成参差的两三行 */
+  display:grid; grid-template-columns:auto auto auto minmax(0,1fr); align-items:stretch}
+.spec div{padding:9px 14px; border-right:1px solid var(--g100);
+  display:flex; align-items:baseline; gap:7px; min-width:0}
 .spec div:last-child{border-right:none}
-.spec b{color:var(--ink); font-weight:700}
+.spec b{color:var(--ink); font-weight:700; letter-spacing:.02em}
+/* genres 那格：长串单行排列，超出用省略号，不折成参差的多行 */
+.spec .gl{display:flex; align-items:baseline; gap:7px; min-width:0; flex:1}
+.spec .gl b{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0}
 
 /* 分区标题 */
 .sect{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; letter-spacing:.14em;
@@ -299,6 +304,47 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
   .grid{grid-template-columns:1fr}
   .hero{align-items:flex-start}
   .m-main{flex-direction:row}
+  .spec{grid-template-columns:repeat(2,1fr)}
+  .spec div:nth-child(2n){border-right:none}
+  .spec div:nth-child(-n+2){border-bottom:1px solid var(--g100)}
+}
+
+/* ── 竖屏（手机）适配：以 iPhone 390×844 为基准 ──
+   问题都是实测出来的，不是猜的：①logo「MUSIC DAILY」被折成两行
+   ②顶栏右侧 serial 三段挤成两排 ③规格条四列在 390 下每格都折行、genres 那格压成竖带
+   ④大数字与右侧说明断开 ⑤卡片内封面+文字并排太挤 */
+@media(max-width:520px){
+  .wrap{padding-inline:16px}
+  /* 顶栏：logo 不许折行，右侧信息只留最要紧的两段 */
+  .nav .wrap{height:52px}
+  .brand{font-size:14px; gap:8px; white-space:nowrap; flex:none}
+  .brand .sq{width:11px; height:11px}
+  .nav .serial{gap:10px; flex-wrap:nowrap; font-size:9px; overflow:hidden}
+  .nav .serial>*:nth-child(n+3){display:none}   /* 只留前两段，别挤成两排 */
+  /* Hero：大数字与说明并成一行，别各占一块 */
+  .hero{padding:20px 0 14px; gap:12px; align-items:flex-end}
+  .hero .h-l h1{font-size:34px}
+  .hero .h-l .en{margin-top:7px; font-size:9px; letter-spacing:.04em}
+  .hero .h-r{line-height:1.5; font-size:9px}
+  .hero .h-r .big{font-size:30px; display:inline-block; margin-right:6px}
+  /* 规格条：四列改单列，genres 长串不再被压成竖带 */
+  .spec{grid-template-columns:1fr}
+  .spec div{border-right:none; border-bottom:1px solid var(--g100); padding:8px 12px;
+    display:flex; justify-content:space-between; gap:10px}
+  .spec div:last-child{border-bottom:none}
+  .spec b{text-align:right}
+  /* 工具按钮：一行放不下就整行铺满，别半截换行 */
+  .tools{gap:7px}
+  .tools .tbtn{flex:1 1 calc(50% - 4px); justify-content:center; padding:9px 8px; font-size:10px}
+  /* 卡片：封面与文字改上下叠，封面横铺（竖屏并排 130px 封面太憋） */
+  .m-main{flex-direction:column !important; gap:12px; padding:12px 12px 0}
+  .m-main .art{width:100%; aspect-ratio:16/10}
+  .m-top{padding:10px 12px}
+  .body{padding:0 12px 12px}
+  /* LCD：猫和跑马灯在窄屏共存，缩小猫舞台 */
+  .lcd .row1{min-height:40px; padding:7px 12px; gap:7px}
+  .lcd .cat-wrap{transform:scale(.85); transform-origin:center bottom}
+  footer{flex-direction:column; gap:6px; text-align:center}
 }
 @media(prefers-reduced-motion:reduce){
   .mod{opacity:1; transform:none; transition:none}
@@ -306,6 +352,79 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
   .pose{opacity:0}
   .p-stand{opacity:1}
   html{scroll-behavior:auto}
+}
+
+/* ── 封面放大 + 艺人详情 ── */
+#lb{position:fixed; inset:0; z-index:2000; display:none; padding:clamp(14px,4vw,40px);
+  align-items:center; justify-content:center}
+#lb.on{display:flex}
+#lb .veil{position:absolute; inset:0; background:rgba(10,9,12,.86);
+  backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px);
+  animation:lb-veil .26s ease-out both}
+@keyframes lb-veil{from{opacity:0}to{opacity:1}}
+#lb .sheet{position:relative; z-index:1; width:min(880px,100%); max-height:92svh;
+  display:grid; grid-template-columns:minmax(0,300px) minmax(0,1fr);
+  background:var(--paper); border:1px solid var(--g1000); overflow:hidden;
+  animation:lb-in .38s cubic-bezier(.16,1,.3,1) both}
+@keyframes lb-in{from{opacity:0; transform:translateY(14px) scale(.965)}
+  to{opacity:1; transform:none}}
+/* 左：大图。方形，底部压一条铭牌 */
+#lb .big{position:relative; background:var(--ink); aspect-ratio:1; overflow:hidden}
+#lb .big img{width:100%; height:100%; object-fit:cover; display:block;
+  animation:lb-img .5s cubic-bezier(.2,1,.3,1) both}
+@keyframes lb-img{from{opacity:0; transform:scale(1.06)}to{opacity:1; transform:none}}
+#lb .big .ph{width:100%; height:100%; display:grid; place-items:center;
+  font-family:var(--mono); font-size:64px; color:var(--g900); background:var(--g1000)}
+#lb .big .yr{position:absolute; left:0; right:0; bottom:0; padding:9px 13px;
+  font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.1em;
+  text-transform:uppercase; color:var(--white);
+  background:linear-gradient(transparent,rgba(0,0,0,.78) 40%);
+  display:flex; justify-content:space-between; gap:10px}
+/* 右：详情 */
+#lb .info{padding:clamp(18px,2.6vw,28px); overflow:auto; display:flex; flex-direction:column}
+#lb .kicker{font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.16em;
+  text-transform:uppercase; color:var(--g600); display:flex; align-items:center; gap:9px}
+#lb .kicker::after{content:""; flex:1; height:1px; background:var(--g200)}
+#lb h3{font-size:clamp(26px,3.4vw,36px); font-weight:100; line-height:1.24;
+  letter-spacing:-.015em; margin-top:11px; text-transform:lowercase;
+  padding-bottom:.1em; overflow:visible}
+#lb .ar{font-family:var(--mono); font-size:var(--fs-15); text-transform:uppercase;
+  letter-spacing:.1em; color:var(--g900); margin-top:5px}
+#lb .meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
+  margin-top:11px; line-height:1.7}
+#lb .tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:12px}
+#lb .tags span{font-family:var(--mono); font-size:9px; letter-spacing:.06em;
+  text-transform:uppercase; border:1px solid var(--g200); padding:3px 7px; color:var(--g900)}
+#lb .sec{margin-top:16px}
+#lb .sec .lb-t{font-family:var(--mono); font-size:9px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--orange); margin-bottom:5px}
+#lb .sec p{font-size:var(--fs-20); font-weight:300; line-height:1.62}
+#lb .sec.mono p{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); line-height:1.75}
+#lb .lb-links{display:flex; flex-wrap:wrap; gap:7px; margin-top:auto; padding-top:20px}
+#lb .lb-links a{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
+  letter-spacing:.06em; border:1px solid var(--g300); padding:8px 13px; color:var(--ink);
+  transition:background .15s, border-color .15s}
+#lb .lb-links a:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
+#lb .x{position:absolute; right:0; top:0; z-index:3; width:42px; height:42px;
+  border:none; border-left:1px solid var(--g200); border-bottom:1px solid var(--g200);
+  background:var(--paper); color:var(--ink); cursor:pointer; font-family:var(--mono);
+  font-size:16px; line-height:1; transition:background .15s}
+#lb .x:hover{background:var(--ink); color:var(--white)}
+/* 封面可点：给个手型 + 悬停微亮 + 右下角放大镜提示 */
+.cover-zoom{cursor:zoom-in}
+.cover-zoom::after{content:"⤢"; position:absolute; right:6px; bottom:6px; z-index:2;
+  width:20px; height:20px; display:grid; place-items:center; font-size:11px;
+  background:rgba(15,14,18,.72); color:#fff; opacity:0; transition:opacity .18s;
+  pointer-events:none}
+.cover-zoom:hover::after{opacity:1}
+@media(max-width:720px){
+  #lb .sheet{grid-template-columns:1fr; max-height:88svh; overflow:auto}
+  #lb .big{aspect-ratio:16/11}
+  #lb .info{padding:16px}
+  #lb h3{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  #lb .veil,#lb .sheet,#lb .big img{animation:none}
 }
 </style>
 </head>
@@ -333,7 +452,8 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 
   <div class="spec">
     <div>sort <b>melody-first</b></div><div>bpm <b>70–120</b></div>
-    <div>tracks <b>30</b></div><div>genres <b>ambient folk · bedroom pop · downtempo · dream pop · freak folk · indie folk</b></div>
+    <div>tracks <b>30</b></div>
+    <div class="gl">genres <b>ambient folk · bedroom pop · downtempo · dream pop · freak folk · indie folk</b></div>
   </div>
 
   <div class="tools">
@@ -355,7 +475,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/46/be/ed/46beed8a-5d0f-1077-cbeb-aace15e69f44/cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/fc/42/ed/fc42ed54-f3c4-f5a0-f5be-43c9b3fb2215/mzaf_1338879779032740875.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/46/be/ed/46beed8a-5d0f-1077-cbeb-aace15e69f44/cover.jpg/600x600bb.jpg" data-title="A Walk" data-artist="Tycho" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/46/be/ed/46beed8a-5d0f-1077-cbeb-aace15e69f44/cover.jpg/600x600bb.jpg" data-title="A Walk" data-artist="Tycho" data-year="2011" data-album="Dive" data-bpm="110-120 bpm" data-tags="organic|downtempo|ambient pop|summer dusk|airy|unhurried" data-one="Scott Hansen——先做海报再做音乐，编曲也像排版一样留边距。" data-why="全曲没有一句人声，「迈开步子往前走」这件事照样讲得明明白白。琶音一颗颗往前铺，吉他在高处描出一条黄昏的轮廓线。" data-scene="六点骑车下坡，路灯一盏盏跟着亮起来。" data-apple="https://music.apple.com/us/album/a-walk/679251532?i=679251628&amp;uo=4" data-spotify="https://open.spotify.com/search/A%20Walk%20Tycho"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/46/be/ed/46beed8a-5d0f-1077-cbeb-aace15e69f44/cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/fc/42/ed/fc42ed54-f3c4-f5a0-f5be-43c9b3fb2215/mzaf_1338879779032740875.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/46/be/ed/46beed8a-5d0f-1077-cbeb-aace15e69f44/cover.jpg/600x600bb.jpg" data-title="A Walk" data-artist="Tycho" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">A Walk</div>
           <div class="artist">Tycho</div>
@@ -381,7 +501,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/40/3f/25/403f25f9-8944-14b3-96e3-1ce643733aea/dj.avftodws.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/4d/de/cf/4ddecf4b-d687-49d5-d2b9-a09fb501d8da/mzaf_11605663425041732952.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/40/3f/25/403f25f9-8944-14b3-96e3-1ce643733aea/dj.avftodws.jpg/600x600bb.jpg" data-title="Fantastic Man" data-artist="William Onyeabor" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/40/3f/25/403f25f9-8944-14b3-96e3-1ce643733aea/dj.avftodws.jpg/600x600bb.jpg" data-title="Fantastic Man" data-artist="William Onyeabor" data-year="1979" data-album="Body &amp; Soul" data-bpm="105–120 bpm" data-tags="organic|funk|late night|nostalgic" data-one="尼日利亚的神秘商人，自购合成器在家做出超前时代的非洲电子放克。" data-why="老合成器配鼓机搭出一段天真上头的放克，男女一唱一和。土法炼钢，前卫得吓人，快乐得毫无防备——David Byrne 专门为他建了厂牌。" data-scene="半夜在房间跟着节奏乱晃，把白天的事一件件甩掉。" data-apple="https://music.apple.com/us/album/fantastic-man/708418132?i=708418258&amp;uo=4" data-spotify="https://open.spotify.com/search/Fantastic%20Man%20William%20Onyeabor"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/40/3f/25/403f25f9-8944-14b3-96e3-1ce643733aea/dj.avftodws.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/4d/de/cf/4ddecf4b-d687-49d5-d2b9-a09fb501d8da/mzaf_11605663425041732952.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/40/3f/25/403f25f9-8944-14b3-96e3-1ce643733aea/dj.avftodws.jpg/600x600bb.jpg" data-title="Fantastic Man" data-artist="William Onyeabor" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Fantastic Man</div>
           <div class="artist">William Onyeabor</div>
@@ -407,7 +527,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/66/6c/68/666c6826-31f9-3106-9224-981a40084e58/cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a1/97/a9/a197a9a4-aee5-7e2f-6b6e-f34c35425ecd/mzaf_3456700036919949474.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/66/6c/68/666c6826-31f9-3106-9224-981a40084e58/cover.jpg/600x600bb.jpg" data-title="Arthur" data-artist="Kelly Lee Owens" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/66/6c/68/666c6826-31f9-3106-9224-981a40084e58/cover.jpg/600x600bb.jpg" data-title="Arthur" data-artist="Kelly Lee Owens" data-year="2017" data-album="Kelly Lee Owens" data-bpm="110–125 bpm" data-tags="organic|dream pop|airy|late night" data-one="威尔士制作人，techno 的匀速脉搏底下藏一层气声人声的雾。" data-why="合成器一下一下匀速脉动，人声薄薄地贴在上面。这是写给一位逝者的歌，舞曲的脉搏底下压着化不开的温柔，越走越轻。" data-scene="从告别式出来还不想回家，跟着节拍一直往前走的那段路。" data-apple="https://music.apple.com/us/album/arthur/1499159807?i=1499159817&amp;uo=4" data-spotify="https://open.spotify.com/search/Arthur%20Kelly%20Lee%20Owens"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/66/6c/68/666c6826-31f9-3106-9224-981a40084e58/cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a1/97/a9/a197a9a4-aee5-7e2f-6b6e-f34c35425ecd/mzaf_3456700036919949474.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/66/6c/68/666c6826-31f9-3106-9224-981a40084e58/cover.jpg/600x600bb.jpg" data-title="Arthur" data-artist="Kelly Lee Owens" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Arthur</div>
           <div class="artist">Kelly Lee Owens</div>
@@ -433,7 +553,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/23/d0/97/23d09729-1e91-54ef-e8dc-61152b696cde/cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/6c/3a/9f/6c3a9fd6-1aaa-fa2c-5ecb-8ab3366423cf/mzaf_13139435139650956206.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/23/d0/97/23d09729-1e91-54ef-e8dc-61152b696cde/cover.jpg/600x600bb.jpg" data-title="Old Friends" data-artist="Pinegrove" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/23/d0/97/23d09729-1e91-54ef-e8dc-61152b696cde/cover.jpg/600x600bb.jpg" data-title="Old Friends" data-artist="Pinegrove" data-year="2016" data-album="Cardinal" data-bpm="110–130 bpm" data-tags="indie rock|midwest emo|human|woody" data-one="新泽西乐队，把 emo 的直白搭在乡村吉他的颤音上。" data-why="吉他叮当里带着乡村的一点颤音，他唱得毫不修饰。「我该对老朋友更好一点」——成年后友情的疏远和自责，被说得太直白了。" data-scene="翻通讯录翻到一个名字，停住，又划了过去。" data-apple="https://music.apple.com/us/album/old-friends/1496548232?i=1496548233&amp;uo=4" data-spotify="https://open.spotify.com/search/Old%20Friends%20Pinegrove"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/23/d0/97/23d09729-1e91-54ef-e8dc-61152b696cde/cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/6c/3a/9f/6c3a9fd6-1aaa-fa2c-5ecb-8ab3366423cf/mzaf_13139435139650956206.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/23/d0/97/23d09729-1e91-54ef-e8dc-61152b696cde/cover.jpg/600x600bb.jpg" data-title="Old Friends" data-artist="Pinegrove" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Old Friends</div>
           <div class="artist">Pinegrove</div>
@@ -459,7 +579,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ff/b1/1b/ffb11b00-8edc-ee96-c6ce-e5b4c489ed61/5054429143287.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/bb/a9/8e/bba98e06-07ff-58da-61a2-57b2efc0e853/mzaf_17098899823394457580.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ff/b1/1b/ffb11b00-8edc-ee96-c6ce-e5b4c489ed61/5054429143287.png/600x600bb.jpg" data-title="La Perla" data-artist="Sofia Kourtesis" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ff/b1/1b/ffb11b00-8edc-ee96-c6ce-e5b4c489ed61/5054429143287.png/600x600bb.jpg" data-title="La Perla" data-artist="Sofia Kourtesis" data-year="2021" data-album="Madres" data-bpm="105–120 bpm" data-tags="organic|downtempo|tender|late night" data-one="秘鲁裔柏林制作人，家庭录音和街头噪音缝进舞曲的缝隙里。" data-why="合成器一层层往上叠，亮得像日出前那道天。人声被剪碎当乐器用，反复吐同一个音节；节奏偏快也不砸，缝里全是呼吸——想跳舞，又想哭一下。" data-scene="散场后留下来跳最后一支，天开始亮，脚酸得站不稳。" data-apple="https://music.apple.com/us/album/la-perla/1549099882?i=1549099883&amp;uo=4" data-spotify="https://open.spotify.com/search/La%20Perla%20Sofia%20Kourtesis"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ff/b1/1b/ffb11b00-8edc-ee96-c6ce-e5b4c489ed61/5054429143287.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/bb/a9/8e/bba98e06-07ff-58da-61a2-57b2efc0e853/mzaf_17098899823394457580.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ff/b1/1b/ffb11b00-8edc-ee96-c6ce-e5b4c489ed61/5054429143287.png/600x600bb.jpg" data-title="La Perla" data-artist="Sofia Kourtesis" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">La Perla</div>
           <div class="artist">Sofia Kourtesis</div>
@@ -485,7 +605,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ea/cb/59/eacb59cb-38ac-e760-b99f-f7f6cc1e10d9/mzi.heetyiit.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/5e/eb/8d/5eeb8d61-3e08-ad81-39e2-0fd3284fe396/mzaf_3277810971264756280.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ea/cb/59/eacb59cb-38ac-e760-b99f-f7f6cc1e10d9/mzi.heetyiit.jpg/600x600bb.jpg" data-title="Everyday" data-artist="Vetiver" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ea/cb/59/eacb59cb-38ac-e760-b99f-f7f6cc1e10d9/mzi.heetyiit.jpg/600x600bb.jpg" data-title="Everyday" data-artist="Vetiver" data-year="2009" data-album="Thing of the Past" data-bpm="95–115 bpm" data-tags="ambient folk|chamber pop|summer dusk|woody" data-one="旧金山的 Andy Cabic，freak folk 磨圆成家常的指弹民谣。" data-why="指弹的暖是实打实的，乐队只在旁边托一把。「想每天都和你在一起」这种朴素愿望没加半点修饰，反而站得住。" data-scene="傍晚两人在阳台择菜，话不多，风把塑料袋吹响。" data-apple="https://music.apple.com/us/album/everyday/304173782?i=304173817&amp;uo=4" data-spotify="https://open.spotify.com/search/Everyday%20Vetiver"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ea/cb/59/eacb59cb-38ac-e760-b99f-f7f6cc1e10d9/mzi.heetyiit.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/5e/eb/8d/5eeb8d61-3e08-ad81-39e2-0fd3284fe396/mzaf_3277810971264756280.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ea/cb/59/eacb59cb-38ac-e760-b99f-f7f6cc1e10d9/mzi.heetyiit.jpg/600x600bb.jpg" data-title="Everyday" data-artist="Vetiver" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Everyday</div>
           <div class="artist">Vetiver</div>
@@ -511,7 +631,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2c/60/a8/2c60a8e1-a606-8376-ece2-0c37f22d1cda/859702026777_cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/85/8b/11/858b1123-dbb6-8be9-f56e-0636d96adc19/mzaf_9006855834414497709.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2c/60/a8/2c60a8e1-a606-8376-ece2-0c37f22d1cda/859702026777_cover.jpg/600x600bb.jpg" data-title="Hey Moon" data-artist="Molly Nilsson" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2c/60/a8/2c60a8e1-a606-8376-ece2-0c37f22d1cda/859702026777_cover.jpg/600x600bb.jpg" data-title="Hey Moon" data-artist="Molly Nilsson" data-year="2009" data-album="These Things Take Time" data-bpm="85–105 bpm" data-tags="dream pop|art pop|late night|tender" data-one="瑞典 DIY 音乐人：最简陋的合成器，最孤独的浪漫。" data-why="合成器和鼓机糙得像卧室 demo，人声低哑。她对着月亮说只有你陪我熬夜，音质越糙，独居的孤独越真。" data-scene="对着窗外的月亮说了句话，屋里没有别人回应。" data-apple="https://music.apple.com/us/album/hey-moon/328823641?i=328823657&amp;uo=4" data-spotify="https://open.spotify.com/search/Hey%20Moon%20Molly%20Nilsson"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2c/60/a8/2c60a8e1-a606-8376-ece2-0c37f22d1cda/859702026777_cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/85/8b/11/858b1123-dbb6-8be9-f56e-0636d96adc19/mzaf_9006855834414497709.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2c/60/a8/2c60a8e1-a606-8376-ece2-0c37f22d1cda/859702026777_cover.jpg/600x600bb.jpg" data-title="Hey Moon" data-artist="Molly Nilsson" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Hey Moon</div>
           <div class="artist">Molly Nilsson</div>
@@ -537,7 +657,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/14/98/89/14988981-b18a-5925-7577-3af77fd40765/63354.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/66/2a/db/662adb19-a334-ec3a-8743-ee5d774b2357/mzaf_11283357753393550398.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/14/98/89/14988981-b18a-5925-7577-3af77fd40765/63354.jpg/600x600bb.jpg" data-title="Mono no Aware" data-artist="Great Grandpa" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/14/98/89/14988981-b18a-5925-7577-3af77fd40765/63354.jpg/600x600bb.jpg" data-title="Mono no Aware" data-artist="Great Grandpa" data-year="2019" data-album="Four of Arrows" data-bpm="95–115 bpm" data-tags="indie rock|dream pop|human|airy" data-one="西雅图五人组，安静段落一直憋着，末段才一次性放开。" data-why="吉他一层层叠上去，人声从压着唱到彻底放开。借日语「物哀」写美好易逝，编曲从安静涨到辽阔，把那份珍惜托得很高。" data-scene="傍晚阳台风大，看云一点点被吹散，没进屋。" data-apple="https://music.apple.com/us/album/mono-no-aware/1505802262?i=1505802362&amp;uo=4" data-spotify="https://open.spotify.com/search/Mono%20no%20Aware%20Great%20Grandpa"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/14/98/89/14988981-b18a-5925-7577-3af77fd40765/63354.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/66/2a/db/662adb19-a334-ec3a-8743-ee5d774b2357/mzaf_11283357753393550398.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/14/98/89/14988981-b18a-5925-7577-3af77fd40765/63354.jpg/600x600bb.jpg" data-title="Mono no Aware" data-artist="Great Grandpa" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Mono no Aware</div>
           <div class="artist">Great Grandpa</div>
@@ -563,7 +683,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/85/f9/53/85f95394-f496-2db8-599a-cb649d9ade42/likeababy.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/2e/a7/c5/2ea7c516-9e4b-f524-23c0-ed2bd098f9e1/mzaf_3815096031235896395.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/85/f9/53/85f95394-f496-2db8-599a-cb649d9ade42/likeababy.jpg/600x600bb.jpg" data-title="Your Cocoon" data-artist="Jerry Paper" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/85/f9/53/85f95394-f496-2db8-599a-cb649d9ade42/likeababy.jpg/600x600bb.jpg" data-title="Your Cocoon" data-artist="Jerry Paper" data-year="2018" data-album="Like a Baby" data-bpm="95–115 bpm" data-tags="bedroom pop|organic|unhurried|nostalgic" data-one="Lucas Nathan 的化名，复古软摇滚和存在主义的迷惘调成一杯温吞。" data-why="他劝你缩回自己的茧里歇一会儿，语气松得像没打算叫醒你。底下复古合成器荡来荡去，一张陷下去的旧沙发。" data-scene="把自己裹进被子里，决定今天谁也不见。" data-apple="https://music.apple.com/us/album/your-cocoon/1414714102?i=1414714104&amp;uo=4" data-spotify="https://open.spotify.com/search/Your%20Cocoon%20Jerry%20Paper"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/85/f9/53/85f95394-f496-2db8-599a-cb649d9ade42/likeababy.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/2e/a7/c5/2ea7c516-9e4b-f524-23c0-ed2bd098f9e1/mzaf_3815096031235896395.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/85/f9/53/85f95394-f496-2db8-599a-cb649d9ade42/likeababy.jpg/600x600bb.jpg" data-title="Your Cocoon" data-artist="Jerry Paper" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Your Cocoon</div>
           <div class="artist">Jerry Paper</div>
@@ -589,7 +709,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c0/09/c8/c009c808-ffc7-77b6-1355-92fc6c120af9/885012034942.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c2/b9/50/c2b95071-4206-4875-f774-85ff0401b2f7/mzaf_12633368570281423141.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c0/09/c8/c009c808-ffc7-77b6-1355-92fc6c120af9/885012034942.png/600x600bb.jpg" data-title="In the Waiting Line" data-artist="Zero 7" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c0/09/c8/c009c808-ffc7-77b6-1355-92fc6c120af9/885012034942.png/600x600bb.jpg" data-title="In the Waiting Line" data-artist="Zero 7" data-year="2001" data-album="Simple Things" data-bpm="85–100 bpm" data-tags="downtempo|organic|airy|unhurried" data-one="伦敦二人组，录音棚助理出身，第一张专辑把还没出名的 Sia 请来当主唱。" data-why="她懒懒地问一句「你什么都不想改变吗」，问完也不催你答。合成器和弦乐糊成一层暖雾，节拍轻到几乎不在，日常的倦怠成了温柔的抵抗。" data-scene="排队办一件不想办的事，前面还有七个人，你开始数天花板的灯管。" data-apple="https://music.apple.com/us/album/in-the-waiting-line/1814440892?i=1814441080&amp;uo=4" data-spotify="https://open.spotify.com/search/In%20the%20Waiting%20Line%20Zero%207"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c0/09/c8/c009c808-ffc7-77b6-1355-92fc6c120af9/885012034942.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c2/b9/50/c2b95071-4206-4875-f774-85ff0401b2f7/mzaf_12633368570281423141.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c0/09/c8/c009c808-ffc7-77b6-1355-92fc6c120af9/885012034942.png/600x600bb.jpg" data-title="In the Waiting Line" data-artist="Zero 7" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">In the Waiting Line</div>
           <div class="artist">Zero 7</div>
@@ -615,7 +735,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music/23/9c/ab/mzi.lbhdupbl.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/0b/c4/47/0bc447bc-2a5b-5e1f-4398-a94525a211d6/mzaf_5789277564617919075.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/23/9c/ab/mzi.lbhdupbl.jpg/600x600bb.jpg" data-title="The Jeweler" data-artist="Pearls Before Swine" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/23/9c/ab/mzi.lbhdupbl.jpg/600x600bb.jpg" data-title="The Jeweler" data-artist="Pearls Before Swine" data-year="1970" data-album="The Use of Ashes" data-bpm="70–90 bpm" data-tags="psychedelic folk|chamber pop|tender|nostalgic" data-one="佛州迷幻民谣团，主脑 Tom Rapp 口齿天生含混，偏拿这毛病去唱最柔软的句子。" data-why="钢片琴似的音色一点点撒下来，他含糊着唱一个珠宝匠在打磨石头。珍惜这件事被写得很慢、很具体，慢到你会想起某个人。" data-scene="旧物整理到第半箱，翻出一件舍不得扔又用不上的小东西，捏在手里没放下" data-apple="https://music.apple.com/us/album/the-jeweler/428844585?i=428844587&amp;uo=4" data-spotify="https://open.spotify.com/search/The%20Jeweler%20Pearls%20Before%20Swine"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music/23/9c/ab/mzi.lbhdupbl.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/0b/c4/47/0bc447bc-2a5b-5e1f-4398-a94525a211d6/mzaf_5789277564617919075.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/23/9c/ab/mzi.lbhdupbl.jpg/600x600bb.jpg" data-title="The Jeweler" data-artist="Pearls Before Swine" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">The Jeweler</div>
           <div class="artist">Pearls Before Swine</div>
@@ -641,7 +761,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/11/7c/1e/117c1ed9-d696-efa4-ae95-8075e19b63c3/4988044020696.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e1/2e/07/e12e0792-4e22-827f-3527-9eeddab29ef8/mzaf_579739428651505163.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/11/7c/1e/117c1ed9-d696-efa4-ae95-8075e19b63c3/4988044020696.png/600x600bb.jpg" data-title="lust" data-artist="Rei Harakami" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/11/7c/1e/117c1ed9-d696-efa4-ae95-8075e19b63c3/4988044020696.png/600x600bb.jpg" data-title="lust" data-artist="Rei Harakami" data-year="2005" data-album="Lust" data-bpm="84–100 bpm" data-tags="organic|downtempo|fragile|dreamlike" data-one="已故的京都制作人，数码节拍被他剁碎又捂软。" data-why="节拍被剁得很碎，落下来是软的，像雨点砸在塑料棚上。底下一条低音缓慢起伏兜着，听到第三分钟，呼吸就跟着它走了。" data-scene="凌晨四点窗外开始发灰，你还没承认天要亮。" data-apple="https://music.apple.com/us/album/lust/1882646010?i=1882646015&amp;uo=4" data-spotify="https://open.spotify.com/search/lust%20Rei%20Harakami"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/11/7c/1e/117c1ed9-d696-efa4-ae95-8075e19b63c3/4988044020696.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e1/2e/07/e12e0792-4e22-827f-3527-9eeddab29ef8/mzaf_579739428651505163.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/11/7c/1e/117c1ed9-d696-efa4-ae95-8075e19b63c3/4988044020696.png/600x600bb.jpg" data-title="lust" data-artist="Rei Harakami" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">lust</div>
           <div class="artist">Rei Harakami</div>
@@ -667,7 +787,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/d9/45/f1/d945f13b-7f7b-9883-3340-a0ccc53f4245/603497921980.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/cf/82/86/cf82865f-d390-b87f-e015-1d753dea3633/mzaf_17833878905639698460.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/d9/45/f1/d945f13b-7f7b-9883-3340-a0ccc53f4245/603497921980.jpg/600x600bb.jpg" data-title="Bringing Home the Ashes" data-artist="The Wild Swans" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/d9/45/f1/d945f13b-7f7b-9883-3340-a0ccc53f4245/603497921980.jpg/600x600bb.jpg" data-title="Bringing Home the Ashes" data-artist="The Wild Swans" data-year="1988" data-album="Bringing Home the Ashes" data-bpm="120–140 bpm" data-tags="jangle pop|dream pop|wide open|melancholy" data-one="利物浦班子，Teardrop Explodes 的迷幻余温擦成大教堂式的吉他。" data-why="吉他挂满混响，一片片荡开像空旷里的钟。带骨灰回家这件事，他把嗓子拔到最高处去唱，哀伤被托成一种发光的东西。" data-scene="渡轮甲板尾部，城市轮廓在身后一点点缩成一条线。" data-apple="https://music.apple.com/us/album/bringing-home-the-ashes/642243733?i=642243746&amp;uo=4" data-spotify="https://open.spotify.com/search/Bringing%20Home%20the%20Ashes%20The%20Wild%20Swans"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/d9/45/f1/d945f13b-7f7b-9883-3340-a0ccc53f4245/603497921980.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/cf/82/86/cf82865f-d390-b87f-e015-1d753dea3633/mzaf_17833878905639698460.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/d9/45/f1/d945f13b-7f7b-9883-3340-a0ccc53f4245/603497921980.jpg/600x600bb.jpg" data-title="Bringing Home the Ashes" data-artist="The Wild Swans" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Bringing Home the Ashes</div>
           <div class="artist">The Wild Swans</div>
@@ -693,7 +813,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/54/1f/6a/541f6a35-b07a-7201-e5d4-d2073d49851e/00724384483456.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/a2/3c/15/a23c15fb-3c13-6b02-f752-60b15c576e3a/mzaf_14040459040549699773.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/54/1f/6a/541f6a35-b07a-7201-e5d4-d2073d49851e/00724384483456.jpg/600x600bb.jpg" data-title="Sometime Later" data-artist="Alpha" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/54/1f/6a/541f6a35-b07a-7201-e5d4-d2073d49851e/00724384483456.jpg/600x600bb.jpg" data-title="Sometime Later" data-artist="Alpha" data-year="1997" data-album="Come from Heaven" data-bpm="70–90 bpm" data-tags="trip-hop|downtempo|melancholy|unhurried" data-one="布里斯托 trip-hop 一脉的 Alpha，把弦乐写得像窗玻璃上的水痕。" data-why="鼓刷扫过去像擦一块湿地板。慢弦从底下托着，人声压得几乎贴着地平线，不催不赶，到后面像窗外的雨自己走成了节拍。" data-scene="雨天午后不想出门，泡了茶坐在窗边看车灯划过" data-apple="https://music.apple.com/us/album/sometime-later/724922214?i=724922935&amp;uo=4" data-spotify="https://open.spotify.com/search/Sometime%20Later%20Alpha"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/54/1f/6a/541f6a35-b07a-7201-e5d4-d2073d49851e/00724384483456.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/a2/3c/15/a23c15fb-3c13-6b02-f752-60b15c576e3a/mzaf_14040459040549699773.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/54/1f/6a/541f6a35-b07a-7201-e5d4-d2073d49851e/00724384483456.jpg/600x600bb.jpg" data-title="Sometime Later" data-artist="Alpha" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Sometime Later</div>
           <div class="artist">Alpha</div>
@@ -719,7 +839,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music/a3/3c/10/mzi.xnssytlp.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/f2/1b/ce/f21bce62-54ea-d474-e691-f0e34c99f446/mzaf_5822938924762042614.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/a3/3c/10/mzi.xnssytlp.jpg/600x600bb.jpg" data-title="Below It" data-artist="Peter Broderick" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/a3/3c/10/mzi.xnssytlp.jpg/600x600bb.jpg" data-title="Below It" data-artist="Peter Broderick" data-year="2008" data-album="Float" data-bpm="80–100 bpm" data-tags="post-classical|ambient folk|woody|airy" data-one="俄勒冈多面手，小提琴、钢琴、钟琴一个人叠出整个室内乐。" data-why="钢琴先落下一个动机，小提琴和钟琴一层层贴上去，雾被光顶开一个口子。精致，但每一层都带着清晨的潮气，一点不冷。" data-scene="露水重的草地上走一圈，裤脚湿到小腿。" data-apple="https://music.apple.com/us/album/below-it/452971460?i=452971560&amp;uo=4" data-spotify="https://open.spotify.com/search/Below%20It%20Peter%20Broderick"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music/a3/3c/10/mzi.xnssytlp.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/f2/1b/ce/f21bce62-54ea-d474-e691-f0e34c99f446/mzaf_5822938924762042614.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/a3/3c/10/mzi.xnssytlp.jpg/600x600bb.jpg" data-title="Below It" data-artist="Peter Broderick" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Below It</div>
           <div class="artist">Peter Broderick</div>
@@ -745,7 +865,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/9c/3d/f6/9c3df627-1ef7-ef73-63e8-92ef18e3495d/4538182839706_cov.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/db/05/47/db0547a6-72b2-6ac0-10fe-86f50768f91a/mzaf_3559100887640458134.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/9c/3d/f6/9c3df627-1ef7-ef73-63e8-92ef18e3495d/4538182839706_cov.jpg/600x600bb.jpg" data-title="Elastic Girl" data-artist="Kahimi Karie" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/9c/3d/f6/9c3df627-1ef7-ef73-63e8-92ef18e3495d/4538182839706_cov.jpg/600x600bb.jpg" data-title="Elastic Girl" data-artist="Kahimi Karie" data-year="1995" data-album="My First Karie" data-bpm="96–110 bpm" data-tags="shibuya-kei|chamber pop|wintry|restrained" data-one="日本歌手，用法语念白当乐器，音量始终压在鼓机之下。" data-why="节拍器一样的鼓机上，码着弹簧似的贝斯，弹一下缩一下。她的念白飘在最上面，冷淡得像在念别人的日记。" data-scene="出门前对着镜子扣最后一颗扣子，扣了两遍。" data-apple="https://music.apple.com/us/album/elastic-girl/1478654731?i=1478654732&amp;uo=4" data-spotify="https://open.spotify.com/search/Elastic%20Girl%20Kahimi%20Karie"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/9c/3d/f6/9c3df627-1ef7-ef73-63e8-92ef18e3495d/4538182839706_cov.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/db/05/47/db0547a6-72b2-6ac0-10fe-86f50768f91a/mzaf_3559100887640458134.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/9c/3d/f6/9c3df627-1ef7-ef73-63e8-92ef18e3495d/4538182839706_cov.jpg/600x600bb.jpg" data-title="Elastic Girl" data-artist="Kahimi Karie" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Elastic Girl</div>
           <div class="artist">Kahimi Karie</div>
@@ -771,7 +891,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5a/53/e5/5a53e557-514d-b132-a855-631d98b16c92/12978.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e4/aa/9b/e4aa9bd2-c32b-e1b8-e0cf-b9969a3bf872/mzaf_680611750120218593.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5a/53/e5/5a53e557-514d-b132-a855-631d98b16c92/12978.jpg/600x600bb.jpg" data-title="At It Again" data-artist="Slow Pulp" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5a/53/e5/5a53e557-514d-b132-a855-631d98b16c92/12978.jpg/600x600bb.jpg" data-title="At It Again" data-artist="Slow Pulp" data-year="2021" data-album="Big Day" data-bpm="90–110 bpm" data-tags="dream pop|slacker rock|unhurried|grainy" data-one="威斯康星出身、落在芝加哥的四人组，吉他垂着，人声带倦。" data-why="吉他懒懒地垂着，时不时冒一点毛刺，女声带着倦意贴着走。不追求漂亮，那种没睡醒的松垮像揉皱的被单，听着反而放松。" data-scene="睡到中午，被子皱成一团，你还不打算起。" data-apple="https://music.apple.com/us/album/at-it-again-again/1569056037?i=1569056041&amp;uo=4" data-spotify="https://open.spotify.com/search/At%20It%20Again%20Slow%20Pulp"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5a/53/e5/5a53e557-514d-b132-a855-631d98b16c92/12978.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e4/aa/9b/e4aa9bd2-c32b-e1b8-e0cf-b9969a3bf872/mzaf_680611750120218593.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5a/53/e5/5a53e557-514d-b132-a855-631d98b16c92/12978.jpg/600x600bb.jpg" data-title="At It Again" data-artist="Slow Pulp" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">At It Again</div>
           <div class="artist">Slow Pulp</div>
@@ -797,7 +917,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/b0/b3/3e/b0b33e24-d435-ffd8-0910-24371fcb8308/mzi.zfnsgvjb.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/45/3b/8c/453b8cba-3866-a0ab-4656-3cc2799c2e0a/mzaf_3886674945111357505.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/b0/b3/3e/b0b33e24-d435-ffd8-0910-24371fcb8308/mzi.zfnsgvjb.jpg/600x600bb.jpg" data-title="The First Picture of You" data-artist="The Lotus Eaters" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/b0/b3/3e/b0b33e24-d435-ffd8-0910-24371fcb8308/mzi.zfnsgvjb.jpg/600x600bb.jpg" data-title="The First Picture of You" data-artist="The Lotus Eaters" data-year="2009" data-album="No Sense of Sin" data-bpm="110–125 bpm" data-tags="jangle pop|dream pop|airy|longing" data-one="利物浦二人组——一辈子只留下一首完美单曲，吉他亮得冒热气。" data-why="吉他一颗颗掉在水面上，亮得冒热气。唱到关于你的第一张照片时毫无防备，整首像张过曝的旧相片，晃眼。" data-scene="刚洗出来的照片举到太阳底下，边角还有点烫手。" data-apple="https://music.apple.com/us/album/the-first-picture-of-you/429802544?i=429802753&amp;uo=4" data-spotify="https://open.spotify.com/search/The%20First%20Picture%20of%20You%20The%20Lotus%20Eaters"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/b0/b3/3e/b0b33e24-d435-ffd8-0910-24371fcb8308/mzi.zfnsgvjb.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/45/3b/8c/453b8cba-3866-a0ab-4656-3cc2799c2e0a/mzaf_3886674945111357505.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/b0/b3/3e/b0b33e24-d435-ffd8-0910-24371fcb8308/mzi.zfnsgvjb.jpg/600x600bb.jpg" data-title="The First Picture of You" data-artist="The Lotus Eaters" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">The First Picture of You</div>
           <div class="artist">The Lotus Eaters</div>
@@ -823,7 +943,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/7a/37/dc7a37a3-fd84-787d-56cb-7154583ae2b8/cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e8/9a/28/e89a2896-a96c-e4ef-0550-fa1b64196d4a/mzaf_9146381878421504278.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/7a/37/dc7a37a3-fd84-787d-56cb-7154583ae2b8/cover.jpg/600x600bb.jpg" data-title="Time Is the Enemy" data-artist="Quantic" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/7a/37/dc7a37a3-fd84-787d-56cb-7154583ae2b8/cover.jpg/600x600bb.jpg" data-title="Time Is the Enemy" data-artist="Quantic" data-year="2001" data-album="The 5th Exotic" data-bpm="95–115 bpm" data-tags="downtempo|nu-jazz|hopeful|warm" data-one="英国的 Will Holland，一个人拿真乐器复刻六十年代的乐队编制。" data-why="拨弦贝斯打着轻快的散拍，弦乐和铜管一层层压上来，暖烘烘的。老派的那种愉快，阴天放这首，天像自己晴了半边。" data-scene="阴天早上出门买菜，走到半路云散了" data-apple="https://music.apple.com/us/album/time-is-the-enemy/6779285502?i=6779285827&amp;uo=4" data-spotify="https://open.spotify.com/search/Time%20Is%20the%20Enemy%20Quantic"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/7a/37/dc7a37a3-fd84-787d-56cb-7154583ae2b8/cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e8/9a/28/e89a2896-a96c-e4ef-0550-fa1b64196d4a/mzaf_9146381878421504278.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/7a/37/dc7a37a3-fd84-787d-56cb-7154583ae2b8/cover.jpg/600x600bb.jpg" data-title="Time Is the Enemy" data-artist="Quantic" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Time Is the Enemy</div>
           <div class="artist">Quantic</div>
@@ -849,7 +969,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/ac/7f/49/ac7f4954-3e8e-aab7-f19b-670f687bba98/191773674755.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/55/58/54/555854d4-e650-ee94-f3c8-83806741d4ff/mzaf_7586510539625714519.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/ac/7f/49/ac7f4954-3e8e-aab7-f19b-670f687bba98/191773674755.jpg/600x600bb.jpg" data-title="Avalanche" data-artist="Boogarins" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/ac/7f/49/ac7f4954-3e8e-aab7-f19b-670f687bba98/191773674755.jpg/600x600bb.jpg" data-title="Avalanche" data-artist="Boogarins" data-year="2015" data-album="As Plantas Que Curam" data-bpm="95–115 bpm" data-tags="psychedelic pop|dream pop|nostalgic|airy" data-one="来自巴西内陆戈亚尼亚的迷幻乐队，磁带压出的暖糊是他们的底色。" data-why="磁带把吉他压出一层暖糊，回声叠着回声，声音一直在往下沉。人声飘忽地跟着，旋律其实清清楚楚、只是裹在雾里；副歌吉他忽然亮起来，像云缝漏下一道光。" data-scene="躺在草地上看树叶晃，晃着晃着眼皮先合上了。" data-apple="https://music.apple.com/us/album/avalanche/1280774751?i=1280774767&amp;uo=4" data-spotify="https://open.spotify.com/search/Avalanche%20Boogarins"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/ac/7f/49/ac7f4954-3e8e-aab7-f19b-670f687bba98/191773674755.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/55/58/54/555854d4-e650-ee94-f3c8-83806741d4ff/mzaf_7586510539625714519.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/ac/7f/49/ac7f4954-3e8e-aab7-f19b-670f687bba98/191773674755.jpg/600x600bb.jpg" data-title="Avalanche" data-artist="Boogarins" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Avalanche</div>
           <div class="artist">Boogarins</div>
@@ -875,7 +995,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f1/f4/29/f1f42981-0b0d-7305-92fa-e46b1e64c4cb/mzi.ofecilqu.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/bd/3d/d5/bd3dd570-fcef-4643-071b-6ef1846a27fa/mzaf_9002866223884312389.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f1/f4/29/f1f42981-0b0d-7305-92fa-e46b1e64c4cb/mzi.ofecilqu.jpg/600x600bb.jpg" data-title="Time and Tide" data-artist="Basia" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f1/f4/29/f1f42981-0b0d-7305-92fa-e46b1e64c4cb/mzi.ofecilqu.jpg/600x600bb.jpg" data-title="Time and Tide" data-artist="Basia" data-year="1986" data-album="Time and Tide" data-bpm="100–120 bpm" data-tags="sophisti-pop|latin pop|warm|airy" data-one="波兰裔女声，从 Matt Bianco 单飞，巴西节奏焊进英伦流行。" data-why="打击乐在脚边跑成一串小碎步，人声跳在上面，一次都没落地。轻是真的轻，副歌那句关于时间流逝的提醒也是真的。" data-scene="开窗擦地板，抹布过处一路反光，脚底还是湿的。" data-apple="https://music.apple.com/us/album/time-and-tide/424139256?i=424139274&amp;uo=4" data-spotify="https://open.spotify.com/search/Time%20and%20Tide%20Basia"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f1/f4/29/f1f42981-0b0d-7305-92fa-e46b1e64c4cb/mzi.ofecilqu.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/bd/3d/d5/bd3dd570-fcef-4643-071b-6ef1846a27fa/mzaf_9002866223884312389.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f1/f4/29/f1f42981-0b0d-7305-92fa-e46b1e64c4cb/mzi.ofecilqu.jpg/600x600bb.jpg" data-title="Time and Tide" data-artist="Basia" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Time and Tide</div>
           <div class="artist">Basia</div>
@@ -901,7 +1021,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/7d/11/0c/7d110c9d-6844-36be-75d9-126c792a10d1/859713069510_cover.tif/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/8d/8a/f9/8d8af9f2-14fe-fe1d-a679-9a68b08f6475/mzaf_1815826835556489229.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/7d/11/0c/7d110c9d-6844-36be-75d9-126c792a10d1/859713069510_cover.tif/600x600bb.jpg" data-title="Soon It Will Be Cold Enough to Build Fires" data-artist="Emancipator" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/7d/11/0c/7d110c9d-6844-36be-75d9-126c792a10d1/859713069510_cover.tif/600x600bb.jpg" data-title="Soon It Will Be Cold Enough to Build Fires" data-artist="Emancipator" data-year="2006" data-album="Soon It Will Be Cold Enough" data-bpm="85–100 bpm" data-tags="downtempo|instrumental hip-hop|wintry|wide open" data-one="波特兰的 Doug Appling，把弦乐采样铺成一片能走很远的雪原。" data-why="弦乐采样在 hip-hop 鼓上一圈圈盘旋，像雪落在还没结冰的水面。全程没有一处催你，中间走神也不要紧。" data-scene="入冬第一场雪的清早，出门前站在楼道口哈了口气" data-apple="https://music.apple.com/us/album/soon-it-will-be-cold-enough-to-build-fires/905056226?i=905056524&amp;uo=4" data-spotify="https://open.spotify.com/search/Soon%20It%20Will%20Be%20Cold%20Enough%20to%20Build%20Fires%20Emancipator"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/7d/11/0c/7d110c9d-6844-36be-75d9-126c792a10d1/859713069510_cover.tif/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/8d/8a/f9/8d8af9f2-14fe-fe1d-a679-9a68b08f6475/mzaf_1815826835556489229.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/7d/11/0c/7d110c9d-6844-36be-75d9-126c792a10d1/859713069510_cover.tif/600x600bb.jpg" data-title="Soon It Will Be Cold Enough to Build Fires" data-artist="Emancipator" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Soon It Will Be Cold Enough to Build Fires</div>
           <div class="artist">Emancipator</div>
@@ -927,7 +1047,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/db/31/d5/db31d53d-8352-5aa2-3b90-743a8a58b0b0/5014436300882.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/9e/d9/d9/9ed9d97f-c11d-2b11-27e0-54a7b23c90b3/mzaf_17717852993235532896.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/db/31/d5/db31d53d-8352-5aa2-3b90-743a8a58b0b0/5014436300882.png/600x600bb.jpg" data-title="Katy Song" data-artist="Red House Painters" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/db/31/d5/db31d53d-8352-5aa2-3b90-743a8a58b0b0/5014436300882.png/600x600bb.jpg" data-title="Katy Song" data-artist="Red House Painters" data-year="1993" data-album="Red House Painters (Rollercoaster)" data-bpm="60–80 bpm" data-tags="slowcore|ambient folk|rainy|human" data-one="Mark Kozelek 的乐队，心碎拉成八分钟，一秒都不许快进。" data-why="吉他裹着混响一步一步磨，一段没指望的思念被拖到你以为不会结束。最后那句「没有你我该怎么办」落地，屋里安静得胸口发闷。" data-scene="异地熬到尽头，终于在电话里承认要结束。" data-apple="https://music.apple.com/us/album/katy-song/311195427?i=311195466&amp;uo=4" data-spotify="https://open.spotify.com/search/Katy%20Song%20Red%20House%20Painters"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/db/31/d5/db31d53d-8352-5aa2-3b90-743a8a58b0b0/5014436300882.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/9e/d9/d9/9ed9d97f-c11d-2b11-27e0-54a7b23c90b3/mzaf_17717852993235532896.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/db/31/d5/db31d53d-8352-5aa2-3b90-743a8a58b0b0/5014436300882.png/600x600bb.jpg" data-title="Katy Song" data-artist="Red House Painters" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Katy Song</div>
           <div class="artist">Red House Painters</div>
@@ -953,7 +1073,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music/y2005/m10/d05/h21/mzi.sirizned.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/6f/df/ad/6fdfad08-b90f-42d1-05fd-058a56d425bc/mzaf_11839657211688794576.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/y2005/m10/d05/h21/mzi.sirizned.jpg/600x600bb.jpg" data-title="Sprout and the Bean" data-artist="Joanna Newsom" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/y2005/m10/d05/h21/mzi.sirizned.jpg/600x600bb.jpg" data-title="Sprout and the Bean" data-artist="Joanna Newsom" data-year="2004" data-album="The Milk-Eyed Mender" data-bpm="90–110 bpm" data-tags="freak folk|chamber pop|sweet|wide open" data-one="受过古典竖琴训练的加州人，把民谣写成童话，却每次都在最甜的地方塞一根刺。" data-why="竖琴一串串落下来，像水珠敲在石头上。她小声反复问该走还是该睡，问题很小；后半段小提琴漫进来，把这点小事撑成一片开阔。" data-scene="醒了不想起，盯着天花板反复权衡一件其实不重要的小事" data-apple="https://music.apple.com/us/album/sprout-and-the-bean/81974708?i=81974679&amp;uo=4" data-spotify="https://open.spotify.com/search/Sprout%20and%20the%20Bean%20Joanna%20Newsom"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music/y2005/m10/d05/h21/mzi.sirizned.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/6f/df/ad/6fdfad08-b90f-42d1-05fd-058a56d425bc/mzaf_11839657211688794576.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/y2005/m10/d05/h21/mzi.sirizned.jpg/600x600bb.jpg" data-title="Sprout and the Bean" data-artist="Joanna Newsom" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Sprout and the Bean</div>
           <div class="artist">Joanna Newsom</div>
@@ -979,7 +1099,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7b/58/88/7b5888d1-f79f-9142-6d12-8c76fcb41bb6/cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d4/ab/24/d4ab2497-3fff-b4d3-3303-cb7c2b9013ae/mzaf_15449011565428938642.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7b/58/88/7b5888d1-f79f-9142-6d12-8c76fcb41bb6/cover.jpg/600x600bb.jpg" data-title="After the Moment" data-artist="Craft Spells" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7b/58/88/7b5888d1-f79f-9142-6d12-8c76fcb41bb6/cover.jpg/600x600bb.jpg" data-title="After the Moment" data-artist="Craft Spells" data-year="2011" data-album="Idle Labor" data-bpm="120–140 bpm" data-tags="dream pop|indietronica|melancholy|upbeat" data-one="加州斯托克顿的 Justin Vallesteros，一个人在卧室复刻 new wave 的舞拍。" data-why="你想跟着晃肩膀，词里全是没说出口的失落。合成器和贝斯打着轻快的舞拍，吉他撒一层碎点，人声那点忧郁一直没散。" data-scene="在房间里从这头走到那头，走了半小时。" data-apple="https://music.apple.com/us/album/after-the-moment/6789836711?i=6789836870&amp;uo=4" data-spotify="https://open.spotify.com/search/After%20the%20Moment%20Craft%20Spells"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7b/58/88/7b5888d1-f79f-9142-6d12-8c76fcb41bb6/cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d4/ab/24/d4ab2497-3fff-b4d3-3303-cb7c2b9013ae/mzaf_15449011565428938642.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7b/58/88/7b5888d1-f79f-9142-6d12-8c76fcb41bb6/cover.jpg/600x600bb.jpg" data-title="After the Moment" data-artist="Craft Spells" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">After the Moment</div>
           <div class="artist">Craft Spells</div>
@@ -1005,7 +1125,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/25/82/99/2582990a-f356-dfac-aa7b-dc84c8e4077a/199066802502.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/68/65/f3/6865f319-deeb-8ba9-65f5-a44d22d092c4/mzaf_10328602667740370830.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/25/82/99/2582990a-f356-dfac-aa7b-dc84c8e4077a/199066802502.jpg/600x600bb.jpg" data-title="Mumble" data-artist="Whirr" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/25/82/99/2582990a-f356-dfac-aa7b-dc84c8e4077a/199066802502.jpg/600x600bb.jpg" data-title="Mumble" data-artist="Whirr" data-year="2014" data-album="Sway" data-bpm="90–110 bpm" data-tags="shoegaze|dream pop|lush|hazy" data-one="旧金山湾区人，吉他墙砌得慢而厚，人声只留一层轮廓。" data-why="吉他一层压一层，厚得几乎透不过气，人声被埋到最底下只剩含混的轮廓。一句听清的歌词都不给你，就用这堵墙慢慢把你按住。" data-scene="窗外一片灰白，赖在床上把手伸出被子又缩回去。" data-apple="https://music.apple.com/us/album/mumble/1795103061?i=1795103086&amp;uo=4" data-spotify="https://open.spotify.com/search/Mumble%20Whirr"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/25/82/99/2582990a-f356-dfac-aa7b-dc84c8e4077a/199066802502.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/68/65/f3/6865f319-deeb-8ba9-65f5-a44d22d092c4/mzaf_10328602667740370830.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/25/82/99/2582990a-f356-dfac-aa7b-dc84c8e4077a/199066802502.jpg/600x600bb.jpg" data-title="Mumble" data-artist="Whirr" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Mumble</div>
           <div class="artist">Whirr</div>
@@ -1031,7 +1151,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/90/4f/bb/904fbb7a-d354-451a-3f72-0c2eb6002cd4/dj.mfuozhln.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/de/1b/8c/de1b8c2c-a87d-6634-09a5-2e7f6d8d6a0f/mzaf_1902694042099693316.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/90/4f/bb/904fbb7a-d354-451a-3f72-0c2eb6002cd4/dj.mfuozhln.jpg/600x600bb.jpg" data-title="Through The Deep" data-artist="The fin." aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/90/4f/bb/904fbb7a-d354-451a-3f72-0c2eb6002cd4/dj.mfuozhln.jpg/600x600bb.jpg" data-title="Through The Deep" data-artist="The fin." data-year="2018" data-album="There" data-bpm="98–114 bpm" data-tags="dream pop|indie pop|floating|introspective" data-one="神户人，吉他挂满 chorus，一整首都浮着不肯落地。" data-why="吉他挂着 chorus 荡来荡去，一整首都浮着不肯落。尾奏一层层褪去，声音退光之后剩下的那点安静，才是这首歌真正的落点。" data-scene="泳池闭馆前最后一个人，仰躺着让水声灌满耳朵。" data-apple="https://music.apple.com/us/album/through-the-deep/1338638509?i=1338638899&amp;uo=4" data-spotify="https://open.spotify.com/search/Through%20The%20Deep%20The%20fin."><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/90/4f/bb/904fbb7a-d354-451a-3f72-0c2eb6002cd4/dj.mfuozhln.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/de/1b/8c/de1b8c2c-a87d-6634-09a5-2e7f6d8d6a0f/mzaf_1902694042099693316.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/90/4f/bb/904fbb7a-d354-451a-3f72-0c2eb6002cd4/dj.mfuozhln.jpg/600x600bb.jpg" data-title="Through The Deep" data-artist="The fin." aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Through The Deep</div>
           <div class="artist">The fin.</div>
@@ -1057,7 +1177,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/18/ab/7a/18ab7a89-d205-3edc-e840-62f45a0c8660/30566.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/8c/6c/4c/8c6c4cbe-3891-f4e9-3b5e-fdab89a0509e/mzaf_7118292377790575718.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/18/ab/7a/18ab7a89-d205-3edc-e840-62f45a0c8660/30566.jpg/600x600bb.jpg" data-title="Cool Dry Place" data-artist="Katy Kirby" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/18/ab/7a/18ab7a89-d205-3edc-e840-62f45a0c8660/30566.jpg/600x600bb.jpg" data-title="Cool Dry Place" data-artist="Katy Kirby" data-year="2020" data-album="Cool Dry Place" data-bpm="75–95 bpm" data-tags="indie folk|bedroom pop|introspective|restless" data-one="德州人，教会唱诗班里长出来的嗓子——安静的旋律里总藏一个急转弯。" data-why="主歌安静到接近耳语，吉他 clean 得发脆，声音忽近忽远。某一句突然多出一层失真，或者调子拐个弯，像平路上踩空一格——安静里藏着机关。" data-scene="房间收拾到一半坐在地板上，东西堆一地，谁也不想动。" data-apple="https://music.apple.com/us/album/cool-dry-place/1609673952?i=1609674335&amp;uo=4" data-spotify="https://open.spotify.com/search/Cool%20Dry%20Place%20Katy%20Kirby"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/18/ab/7a/18ab7a89-d205-3edc-e840-62f45a0c8660/30566.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/8c/6c/4c/8c6c4cbe-3891-f4e9-3b5e-fdab89a0509e/mzaf_7118292377790575718.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/18/ab/7a/18ab7a89-d205-3edc-e840-62f45a0c8660/30566.jpg/600x600bb.jpg" data-title="Cool Dry Place" data-artist="Katy Kirby" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Cool Dry Place</div>
           <div class="artist">Katy Kirby</div>
@@ -1083,7 +1203,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2d/b0/50/2db05010-6522-6d90-536f-234545b37da0/466_3000-300dpi.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/2b/8c/9c/2b8c9cce-fac6-bb09-9591-69d8f7e4dce4/mzaf_9257574820954883513.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2d/b0/50/2db05010-6522-6d90-536f-234545b37da0/466_3000-300dpi.jpg/600x600bb.jpg" data-title="Cloud Corner" data-artist="Marisa Anderson" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2d/b0/50/2db05010-6522-6d90-536f-234545b37da0/466_3000-300dpi.jpg/600x600bb.jpg" data-title="Cloud Corner" data-artist="Marisa Anderson" data-year="2018" data-album="Cloud Corner" data-bpm="65–85 bpm" data-tags="ambient folk|american primitive|wide open" data-one="波特兰的器乐吉他手，滑音一拉就是一片没人的旷野。" data-why="一把电吉他绕着简单的动机反复走，滑音带着淡淡的回响，像镜头缓缓扫过一片空地。没有鼓，没有词，全靠旋律自己往前推；听得见空气里的尘土。" data-scene="熄了火站在车边，看远处山脊的轮廓被晒得发白。" data-apple="https://music.apple.com/us/album/cloud-corner/1348421377?i=1348421616&amp;uo=4" data-spotify="https://open.spotify.com/search/Cloud%20Corner%20Marisa%20Anderson"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2d/b0/50/2db05010-6522-6d90-536f-234545b37da0/466_3000-300dpi.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/2b/8c/9c/2b8c9cce-fac6-bb09-9591-69d8f7e4dce4/mzaf_9257574820954883513.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2d/b0/50/2db05010-6522-6d90-536f-234545b37da0/466_3000-300dpi.jpg/600x600bb.jpg" data-title="Cloud Corner" data-artist="Marisa Anderson" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Cloud Corner</div>
           <div class="artist">Marisa Anderson</div>
@@ -1109,7 +1229,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
         </span>
       </div>
       <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/07/81/4f/07814f13-713a-36d2-fc91-c9234512d074/artwork.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a6/8d/27/a68d2735-42e6-46c5-6293-b2679252da35/mzaf_15428085818141003890.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/07/81/4f/07814f13-713a-36d2-fc91-c9234512d074/artwork.jpg/600x600bb.jpg" data-title="Failure" data-artist="A Sunny Day in Glasgow" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/07/81/4f/07814f13-713a-36d2-fc91-c9234512d074/artwork.jpg/600x600bb.jpg" data-title="Failure" data-artist="A Sunny Day in Glasgow" data-year="2009" data-album="Ashes Grammar" data-bpm="110–130 bpm" data-tags="dream pop|shoegaze|shimmering|grainy" data-one="费城人，团名骗人：人声被剪成碎片在左右耳之间弹。" data-why="人声被切成碎光，在左右耳之间跳来跳去，一句完整歌词都抓不住。你以为要散架了，一条旋律线始终穿在中间没断。" data-scene="洗衣机滚筒转到第几圈你已经数丢了。" data-apple="https://music.apple.com/us/album/failure/1800769244?i=1800769494&amp;uo=4" data-spotify="https://open.spotify.com/search/Failure%20A%20Sunny%20Day%20in%20Glasgow"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/07/81/4f/07814f13-713a-36d2-fc91-c9234512d074/artwork.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a6/8d/27/a68d2735-42e6-46c5-6293-b2679252da35/mzaf_15428085818141003890.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/07/81/4f/07814f13-713a-36d2-fc91-c9234512d074/artwork.jpg/600x600bb.jpg" data-title="Failure" data-artist="A Sunny Day in Glasgow" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
         <div class="hd">
           <div class="title lc">Failure</div>
           <div class="artist">A Sunny Day in Glasgow</div>
@@ -1192,6 +1312,24 @@ Failure - A Sunny Day in Glasgow</pre>
   <span id="np-time" class="mono">0:00 / 0:00</span>
 </div>
 
+<div id="lb" role="dialog" aria-modal="true" aria-label="专辑详情">
+  <div class="veil" data-close></div>
+  <div class="sheet">
+    <button class="x" type="button" data-close aria-label="关闭">✕</button>
+    <div class="big" id="lb-big"></div>
+    <div class="info">
+      <div class="kicker" id="lb-kick">album</div>
+      <h3 id="lb-title"></h3>
+      <div class="ar" id="lb-artist"></div>
+      <div class="meta" id="lb-meta"></div>
+      <div class="tags" id="lb-tags"></div>
+      <div class="sec" id="lb-one-w"><div class="lb-t">artist</div><p id="lb-one"></p></div>
+      <div class="sec" id="lb-why-w"><div class="lb-t">why</div><p id="lb-why"></p></div>
+      <div class="sec mono" id="lb-scene-w"><div class="lb-t">use</div><p id="lb-scene"></p></div>
+      <div class="lb-links" id="lb-links"></div>
+    </div>
+  </div>
+</div>
 <script>
 // LCD boot 打字机
 const boot=document.getElementById('boot'), BOOT=boot?boot.dataset.text:'';
@@ -1280,6 +1418,65 @@ function copyNC(){const t=document.getElementById('nc-text').innerText;
 function copyFav(){var t=document.getElementById('fav-text').innerText;
   navigator.clipboard.writeText(t).then(function(){var b=document.getElementById('fav-copy'),o=b.innerText;
     b.innerText='copied ✓';setTimeout(function(){b.innerText=o;},1600);});}
+</script>
+<script>
+(function(){
+  var lb=document.getElementById('lb'); if(!lb) return;
+  var $=function(i){return document.getElementById(i)};
+  var last=null;
+
+  // iTunes 缩略图按既定命名规则换更大尺寸；非 iTunes 的 URL 原样返回
+  function big(u){ return u ? u.replace(/\/(\d+)x(\d+)(bb)?\.(jpg|png)/i, '/600x600bb.$4') : ''; }
+
+  function esc(s){ var d=document.createElement('div'); d.textContent=s==null?'':s; return d.innerHTML; }
+
+  function open(d){
+    last=document.activeElement;
+    $('lb-big').innerHTML = d.cover
+      ? '<img src="'+esc(big(d.cover))+'" alt="">'
+      : '<div class="ph">'+esc((d.artist||'?').slice(0,1).toUpperCase())+'</div>';
+    if(d.year || d.album){
+      $('lb-big').insertAdjacentHTML('beforeend',
+        '<div class="yr"><span>'+esc(d.album||'')+'</span><span>'+esc(d.year||'')+'</span></div>');
+    }
+    $('lb-title').textContent = d.title||'';
+    $('lb-artist').textContent = d.artist||'';
+    var m=[]; if(d.year) m.push(d.year); if(d.album) m.push(d.album); if(d.bpm) m.push(d.bpm);
+    $('lb-meta').textContent = m.join(' / ');
+    $('lb-tags').innerHTML = (d.tags||'').split('|').filter(Boolean)
+      .map(function(t){return '<span>'+esc(t)+'</span>'}).join('');
+    [['one','lb-one'],['why','lb-why'],['scene','lb-scene']].forEach(function(p){
+      var v=d[p[0]]||'';
+      $(p[1]).textContent=v;
+      $(p[1]+'-w').style.display = v ? '' : 'none';   // 该段没内容就整块收起
+    });
+    var lk=[];
+    if(d.apple)   lk.push('<a href="'+esc(d.apple)+'" target="_blank" rel="noopener">apple music ↗</a>');
+    if(d.spotify) lk.push('<a href="'+esc(d.spotify)+'" target="_blank" rel="noopener">spotify ↗</a>');
+    if(d.netease) lk.push('<a href="'+esc(d.netease)+'" target="_blank" rel="noopener">netease ↗</a>');
+    $('lb-links').innerHTML = lk.join('');
+    lb.classList.add('on');
+    document.body.style.overflow='hidden';
+    lb.querySelector('.x').focus();
+  }
+  function close(){
+    lb.classList.remove('on');
+    document.body.style.overflow='';
+    if(last && last.focus) last.focus();
+  }
+
+  document.addEventListener('click', function(e){
+    if(e.target.closest('[data-close]')){ close(); return; }
+    // 点播放键不开浮层
+    if(e.target.closest('.pbtn')) return;
+    var h=e.target.closest('.art'); if(!h) return;
+    var d=h.dataset; if(!d.title && !d.cover) return;
+    e.preventDefault(); open(d);
+  });
+  addEventListener('keydown', function(e){
+    if(e.key==='Escape' && lb.classList.contains('on')) close();
+  });
+})();
 </script>
 </body>
 </html>

@@ -2,14 +2,11 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0f0e12">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MUSIC DAILY</title>
 <meta name="description" content="每日精选 30 首 · melody-first · mood-first · production-first">
-<title>MUSIC DAILY · md-30 · 2026-08-02</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23f05a24%22/%3E%3Crect%20x%3D%225%22%20y%3D%225%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22none%22%20stroke%3D%22%230f0e12%22%20stroke-width%3D%222%22/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#0f0e12">
+<link rel="preload" href="daily.html" as="document">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -171,10 +168,15 @@ a{color:inherit; text-decoration:none}
 /* 规格条 */
 .spec{border:1px solid var(--g300); border-bottom:none; font-family:var(--mono);
   font-size:var(--fs-10); text-transform:uppercase; color:var(--g600);
-  display:grid; grid-template-columns:repeat(4,1fr)}
-.spec div{padding:9px 14px; border-right:1px solid var(--g100)}
+  /* 前三格按内容取宽，genres 吃剩余空间：四等分会把 6 个流派的长串挤成参差的两三行 */
+  display:grid; grid-template-columns:auto auto auto minmax(0,1fr); align-items:stretch}
+.spec div{padding:9px 14px; border-right:1px solid var(--g100);
+  display:flex; align-items:baseline; gap:7px; min-width:0}
 .spec div:last-child{border-right:none}
-.spec b{color:var(--ink); font-weight:700}
+.spec b{color:var(--ink); font-weight:700; letter-spacing:.02em}
+/* genres 那格：长串单行排列，超出用省略号，不折成参差的多行 */
+.spec .gl{display:flex; align-items:baseline; gap:7px; min-width:0; flex:1}
+.spec .gl b{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0}
 
 /* 分区标题 */
 .sect{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; letter-spacing:.14em;
@@ -299,6 +301,47 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
   .grid{grid-template-columns:1fr}
   .hero{align-items:flex-start}
   .m-main{flex-direction:row}
+  .spec{grid-template-columns:repeat(2,1fr)}
+  .spec div:nth-child(2n){border-right:none}
+  .spec div:nth-child(-n+2){border-bottom:1px solid var(--g100)}
+}
+
+/* ── 竖屏（手机）适配：以 iPhone 390×844 为基准 ──
+   问题都是实测出来的，不是猜的：①logo「MUSIC DAILY」被折成两行
+   ②顶栏右侧 serial 三段挤成两排 ③规格条四列在 390 下每格都折行、genres 那格压成竖带
+   ④大数字与右侧说明断开 ⑤卡片内封面+文字并排太挤 */
+@media(max-width:520px){
+  .wrap{padding-inline:16px}
+  /* 顶栏：logo 不许折行，右侧信息只留最要紧的两段 */
+  .nav .wrap{height:52px}
+  .brand{font-size:14px; gap:8px; white-space:nowrap; flex:none}
+  .brand .sq{width:11px; height:11px}
+  .nav .serial{gap:10px; flex-wrap:nowrap; font-size:9px; overflow:hidden}
+  .nav .serial>*:nth-child(n+3){display:none}   /* 只留前两段，别挤成两排 */
+  /* Hero：大数字与说明并成一行，别各占一块 */
+  .hero{padding:20px 0 14px; gap:12px; align-items:flex-end}
+  .hero .h-l h1{font-size:34px}
+  .hero .h-l .en{margin-top:7px; font-size:9px; letter-spacing:.04em}
+  .hero .h-r{line-height:1.5; font-size:9px}
+  .hero .h-r .big{font-size:30px; display:inline-block; margin-right:6px}
+  /* 规格条：四列改单列，genres 长串不再被压成竖带 */
+  .spec{grid-template-columns:1fr}
+  .spec div{border-right:none; border-bottom:1px solid var(--g100); padding:8px 12px;
+    display:flex; justify-content:space-between; gap:10px}
+  .spec div:last-child{border-bottom:none}
+  .spec b{text-align:right}
+  /* 工具按钮：一行放不下就整行铺满，别半截换行 */
+  .tools{gap:7px}
+  .tools .tbtn{flex:1 1 calc(50% - 4px); justify-content:center; padding:9px 8px; font-size:10px}
+  /* 卡片：封面与文字改上下叠，封面横铺（竖屏并排 130px 封面太憋） */
+  .m-main{flex-direction:column !important; gap:12px; padding:12px 12px 0}
+  .m-main .art{width:100%; aspect-ratio:16/10}
+  .m-top{padding:10px 12px}
+  .body{padding:0 12px 12px}
+  /* LCD：猫和跑马灯在窄屏共存，缩小猫舞台 */
+  .lcd .row1{min-height:40px; padding:7px 12px; gap:7px}
+  .lcd .cat-wrap{transform:scale(.85); transform-origin:center bottom}
+  footer{flex-direction:column; gap:6px; text-align:center}
 }
 @media(prefers-reduced-motion:reduce){
   .mod{opacity:1; transform:none; transition:none}
@@ -307,979 +350,183 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
   .p-stand{opacity:1}
   html{scroll-behavior:auto}
 }
+
+html,body{height:100%}
+body{background:var(--ink); color:var(--white); overflow:hidden;
+  font-family:var(--sans); -webkit-font-smoothing:antialiased}
+.stage{min-height:100%; min-height:100svh; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:clamp(18px,3.4vh,34px);
+  padding:clamp(18px,4vw,40px); position:relative}
+/* 背景：极淡的等距网格 + 一道缓慢扫过的绿光，暗示机器在运转 */
+.stage::before{content:""; position:absolute; inset:0; pointer-events:none; opacity:.5;
+  background:
+    linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px) 0 0/100% 34px,
+    linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px) 0 0/34px 100%;
+  mask-image:radial-gradient(ellipse 78% 62% at 50% 46%, #000 30%, transparent 100%)}
+.stage::after{content:""; position:absolute; left:-30%; top:0; width:26%; height:100%;
+  pointer-events:none; opacity:.5;
+  background:linear-gradient(90deg, transparent, rgba(0,166,81,.09) 45%, transparent);
+  animation:sweep 9s ease-in-out infinite}
+@keyframes sweep{0%{transform:translateX(0)}100%{transform:translateX(560%)}}
+
+/* 顶部铭牌 */
+.plate{display:flex; align-items:center; gap:10px; font-family:var(--mono);
+  font-size:var(--fs-10); letter-spacing:.16em; text-transform:uppercase;
+  color:var(--g500); position:relative; z-index:2;
+  animation:fade-up .5s ease-out both}
+.plate .sq{width:11px; height:11px; background:var(--orange)}
+.plate b{color:var(--white); font-weight:400; letter-spacing:.1em}
+
+/* LCD 自检屏 */
+.scr{width:min(560px,100%); border:1px solid var(--g1000); background:#08110c;
+  position:relative; z-index:2; animation:fade-up .55s ease-out .08s both;
+  box-shadow:0 0 0 1px rgba(0,166,81,.1), 0 26px 60px -30px rgba(0,166,81,.4)}
+.scr .bar{display:flex; align-items:center; gap:8px; padding:8px 14px;
+  border-bottom:1px solid #12241a; font-family:var(--mono); font-size:9px;
+  letter-spacing:.14em; text-transform:uppercase; color:#2f6b4a}
+.scr .bar .dot{width:6px; height:6px; border-radius:50%; background:var(--green);
+  box-shadow:0 0 7px var(--green); animation:pulse 1.6s steps(1) infinite}
+@keyframes pulse{50%{opacity:.3}}
+.scr .bar .rt{margin-left:auto; letter-spacing:.1em}
+.scr .body{padding:16px 16px 12px; font-family:var(--mono); font-size:var(--fs-15);
+  color:var(--green); line-height:2.05; min-height:210px; position:relative}
+/* 自检每行：左标签 · 中间点线 · 右值。点线用 repeating-linear 画，不用手打 ... */
+.ln{display:flex; align-items:baseline; gap:9px; opacity:0; transform:translateX(-6px)}
+.ln.on{animation:ln-in .28s ease-out forwards}
+@keyframes ln-in{to{opacity:1; transform:none}}
+.ln .t{color:#3f8f66}
+.ln .dots{flex:1; height:1px; align-self:center; opacity:.34;
+  background:repeating-linear-gradient(90deg,currentColor 0 2px,transparent 2px 6px)}
+.ln .v{color:var(--green); font-weight:400}
+.ln .v.warn{color:var(--yellow,#fab413)}
+.ln.done .v::after{content:" ✓"; color:#2f6b4a}
+.cur{display:inline-block; width:.55em; background:var(--green); animation:blink .5s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+/* 猫从屏幕右侧外跑进来，停在最后一行右边抬头 */
+/* 猫：直接挂 .lcd 类复用日报那 14 条填色/动画规则（背景透明化即可） */
+.scr .cat{position:absolute; right:14px; bottom:6px; width:58px; height:40px;
+  background:transparent; border:none; margin:0; opacity:0;
+  animation:cat-enter .6s cubic-bezier(.2,.9,.3,1) 2.5s forwards}
+@keyframes cat-enter{from{opacity:0; transform:translateX(52px)}to{opacity:1; transform:none}}
+.scr .cat .cat-wrap{width:100%; height:40px; margin:0}
+.scr .cat .pose{right:2px}
+
+/* POWER 方钮 */
+.pw{position:relative; z-index:2; appearance:none; border:1px solid var(--green-d);
+  background:transparent; color:var(--white); cursor:pointer; font-family:var(--mono);
+  font-size:var(--fs-20); letter-spacing:.3em; text-transform:uppercase;
+  padding:17px 42px 17px 46px; opacity:0;
+  animation:fade-up .5s ease-out 3s both, breathe 2.6s ease-in-out 3.5s infinite;
+  transition:background .18s, border-color .18s, letter-spacing .25s}
+.pw:hover{background:rgba(0,166,81,.12); border-color:var(--green); letter-spacing:.36em}
+.pw:active{transform:scale(.985)}
+.pw:focus-visible{outline:2px solid var(--green); outline-offset:3px}
+@keyframes breathe{0%,100%{box-shadow:0 0 0 0 rgba(0,166,81,0)}
+  50%{box-shadow:0 0 30px -4px rgba(0,166,81,.55)}}
+/* 钮内左侧的电源符号 */
+.pw::before{content:""; position:absolute; left:20px; top:50%; width:11px; height:11px;
+  margin-top:-5.5px; border:1.6px solid currentColor; border-radius:50%;
+  clip-path:polygon(0 32%,100% 32%,100% 100%,0 100%)}
+.pw::after{content:""; position:absolute; left:24.6px; top:50%; width:1.6px; height:8px;
+  margin-top:-9px; background:currentColor}
+
+.tip{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
+  letter-spacing:.1em; position:relative; z-index:2;
+  animation:fade-up .5s ease-out 3.2s both}
+.tip kbd{border:1px solid var(--g900); display:inline-flex; align-items:center;
+  justify-content:center; min-width:1.9em; height:1.55em; padding:0 .45em;
+  line-height:1; color:var(--g300); vertical-align:middle; position:relative; top:-.05em}
+.foot{position:absolute; left:0; right:0; bottom:14px; text-align:center;
+  font-family:var(--mono); font-size:9px; letter-spacing:.1em; color:#3a3a3a; z-index:2}
+@keyframes fade-up{from{opacity:0; transform:translateY(9px)}to{opacity:1; transform:none}}
+
+/* 离场：屏幕先横向收成一条线再整体炸白，然后跳转 */
+body.go .scr{animation:collapse .42s cubic-bezier(.7,0,.84,0) forwards}
+body.go .plate,body.go .pw,body.go .tip,body.go .foot{animation:none; opacity:0;
+  transition:opacity .2s}
+@keyframes collapse{
+  55%{transform:scaleY(.02); opacity:1}
+  70%{transform:scaleY(.02) scaleX(1.04); opacity:1}
+  100%{transform:scaleY(.02) scaleX(1.5); opacity:0}}
+body.go::after{content:""; position:fixed; inset:0; background:var(--white);
+  opacity:0; z-index:99; animation:flash .34s ease-in .3s forwards; pointer-events:none}
+@keyframes flash{to{opacity:1}}
+
+@media(max-width:520px){
+  .stage{gap:20px; padding:20px 16px}
+  .scr .body{font-size:13px; line-height:1.95; min-height:190px; padding:13px 13px 10px}
+  .pw{font-size:14px; padding:15px 30px 15px 40px; letter-spacing:.24em}
+  .tip{font-size:9px; text-align:center; line-height:2}
+}
+@media(prefers-reduced-motion:reduce){
+  .stage::after,.scr .bar .dot,.cur{animation:none}
+  .ln{opacity:1; transform:none}
+  .plate,.scr,.pw,.tip,.foot{animation:none; opacity:1}
+  .scr .cat{opacity:1; animation:none}
+  .pw{box-shadow:none}
+  body.go .scr{animation:none; opacity:0}
+}
 </style>
 </head>
 <body>
-<nav class="nav">
-  <div class="wrap">
-    <div class="brand"><span class="sq"></span>MUSIC DAILY</div>
-    <div class="serial"><span>model <b>md-30</b></span><span>issue <b>006</b></span><span>date <b>2026.08.02</b></span></div>
-  </div>
-</nav>
+<div class="stage">
+  <div class="plate"><span class="sq"></span><b>music daily</b> · md-30</div>
 
-<main class="wrap">
-  <div class="hero">
-    <div class="h-l">
-      <h1 class="lc">今日精选</h1>
-      <div class="en">today's selection · daily music report</div>
+  <div class="scr">
+    <div class="bar"><span class="dot"></span><span>self-check</span>
+      <span class="rt">issue 006</span></div>
+    <div class="body">
+      <div class="ln"><span class="t">boot</span><span class="dots"></span><span class="v ">md-30</span></div><div class="ln"><span class="t">pool</span><span class="dots"></span><span class="v ">856 tracks</span></div><div class="ln"><span class="t">melody-first</span><span class="dots"></span><span class="v ">ok</span></div><div class="ln"><span class="t">mood index</span><span class="dots"></span><span class="v ">32 tags</span></div><div class="ln"><span class="t">archive</span><span class="dots"></span><span class="v ">6 issues</span></div><div class="ln"><span class="t">visitors</span><span class="dots"></span><span class="v warn"><span id="vis">—</span></span></div><div class="ln"><span class="t">latest</span><span class="dots"></span><span class="v ">2026-08-02</span></div>
+      <div class="ln"><span class="t">&gt;</span><span class="v">有点甜，但克制着（08.02）<span class="cur">&nbsp;</span></span></div>
+      <div class="cat lcd"><div class="cat-wrap"><svg class="cat pose p-stand" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="12" width="2" height="2"/><rect x="17" y="10" width="2" height="2"/><rect x="18" y="9" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="12" width="10" height="4"/><rect x="4" y="16" width="3" height="2"/><rect x="11" y="16" width="3" height="2"/></g><g class="fur2"><rect x="10" y="12" width="4" height="2"/></g><g class="pad"><rect x="4" y="16" width="3" height="1"/><rect x="11" y="16" width="3" height="1"/></g></svg><svg class="cat pose p-sit" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="14" width="3" height="2"/><rect x="18" y="12" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="11" width="10" height="5"/><rect x="3" y="13" width="12" height="3"/></g><g class="pad"><rect x="5" y="15" width="2" height="1"/><rect x="11" y="15" width="2" height="1"/></g></svg><svg class="cat pose p-stretch" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="18" y="5" width="2" height="2"/><rect x="19" y="3" width="2" height="2"/></g><g class="fur"><rect x="2" y="2" width="3" height="2"/><rect x="8" y="1" width="3" height="2"/><rect x="1" y="3" width="11" height="5"/><rect x="0" y="5" width="14" height="4"/><rect x="13" y="4" width="6" height="6"/><rect x="1" y="9" width="3" height="2"/><rect x="14" y="10" width="3" height="3"/></g><g class="fur2"><rect x="13" y="4" width="6" height="2"/></g><g class="cat-eyes"><rect x="2" y="5" width="3" height="1"/></g><rect class="nose" x="0" y="6" width="1" height="1"/><g class="pad"><rect x="1" y="10" width="3" height="1"/></g></svg><svg class="cat pose p-lick" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="14" width="3" height="2"/><rect x="18" y="13" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="11" width="10" height="5"/><rect x="8" y="8" width="3" height="5"/></g><g class="pad"><rect x="8" y="8" width="3" height="1"/><rect x="5" y="15" width="2" height="1"/></g></svg><svg class="cat pose p-sleep" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="17" y="15" width="3" height="1"/><rect x="19" y="14" width="2" height="1"/></g><g class="fur"><rect x="3" y="6" width="3" height="2"/><rect x="12" y="6" width="3" height="2"/><rect x="2" y="7" width="14" height="7"/><rect x="1" y="9" width="16" height="5"/><rect x="14" y="11" width="5" height="4"/></g><g class="fur2"><rect x="3" y="6" width="3" height="2"/><rect x="12" y="9" width="4" height="3"/></g><g class="cat-eyes"><rect x="4" y="10" width="3" height="1"/><rect x="11" y="10" width="3" height="1"/></g><rect class="nose" x="8" y="11" width="2" height="1"/><rect class="blush" x="2" y="11" width="2" height="1"/><g class="zzz"><rect x="17" y="4" width="3" height="1"/><rect x="19" y="5" width="1" height="1"/><rect x="17" y="6" width="3" height="1"/></g></svg></div></div>
     </div>
-    <div class="h-r"><span class="big">30</span>tracks / daily<br>2026.08.02</div>
   </div>
 
-  <div class="lcd">
-    <div class="row1"><span class="dot"></span><span id="boot" data-text="system ready — 30 tracks loaded · melody-first · mood-first · production-first"></span><div class="cat-wrap"><div class="cat-move"><svg class="cat pose p-stand" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="12" width="2" height="2"/><rect x="17" y="10" width="2" height="2"/><rect x="18" y="9" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="12" width="10" height="4"/><rect x="4" y="16" width="3" height="2"/><rect x="11" y="16" width="3" height="2"/></g><g class="fur2"><rect x="10" y="12" width="4" height="2"/></g><g class="pad"><rect x="4" y="16" width="3" height="1"/><rect x="11" y="16" width="3" height="1"/></g></svg><svg class="cat pose p-sit" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="14" width="3" height="2"/><rect x="18" y="12" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="11" width="10" height="5"/><rect x="3" y="13" width="12" height="3"/></g><g class="pad"><rect x="5" y="15" width="2" height="1"/><rect x="11" y="15" width="2" height="1"/></g></svg><svg class="cat pose p-stretch" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="18" y="5" width="2" height="2"/><rect x="19" y="3" width="2" height="2"/></g><g class="fur"><rect x="2" y="2" width="3" height="2"/><rect x="8" y="1" width="3" height="2"/><rect x="1" y="3" width="11" height="5"/><rect x="0" y="5" width="14" height="4"/><rect x="13" y="4" width="6" height="6"/><rect x="1" y="9" width="3" height="2"/><rect x="14" y="10" width="3" height="3"/></g><g class="fur2"><rect x="13" y="4" width="6" height="2"/></g><g class="cat-eyes"><rect x="2" y="5" width="3" height="1"/></g><rect class="nose" x="0" y="6" width="1" height="1"/><g class="pad"><rect x="1" y="10" width="3" height="1"/></g></svg><svg class="cat pose p-lick" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="14" width="3" height="2"/><rect x="18" y="13" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="11" width="10" height="5"/><rect x="8" y="8" width="3" height="5"/></g><g class="pad"><rect x="8" y="8" width="3" height="1"/><rect x="5" y="15" width="2" height="1"/></g></svg><svg class="cat pose p-sleep" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="17" y="15" width="3" height="1"/><rect x="19" y="14" width="2" height="1"/></g><g class="fur"><rect x="3" y="6" width="3" height="2"/><rect x="12" y="6" width="3" height="2"/><rect x="2" y="7" width="14" height="7"/><rect x="1" y="9" width="16" height="5"/><rect x="14" y="11" width="5" height="4"/></g><g class="fur2"><rect x="3" y="6" width="3" height="2"/><rect x="12" y="9" width="4" height="3"/></g><g class="cat-eyes"><rect x="4" y="10" width="3" height="1"/><rect x="11" y="10" width="3" height="1"/></g><rect class="nose" x="8" y="11" width="2" height="1"/><rect class="blush" x="2" y="11" width="2" height="1"/><g class="zzz"><rect x="17" y="4" width="3" height="1"/><rect x="19" y="5" width="1" height="1"/><rect x="17" y="6" width="3" height="1"/></g></svg></div><span class="prop bowl"><svg viewBox="0 0 14 8" shape-rendering="crispEdges" aria-hidden="true"><rect class="fish" x="4" y="0" width="4" height="1"/><rect class="fish" x="3" y="1" width="1" height="1"/><rect class="fish" x="8" y="1" width="1" height="1"/><rect class="food" x="3" y="2" width="8" height="1"/><rect x="1" y="3" width="12" height="1"/><rect x="2" y="4" width="10" height="3"/></svg></span><span class="prop ball"><svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><rect x="1" y="1" width="6" height="6"/><rect class="hl" x="1" y="1" width="2" height="2"/><rect class="yarn" x="3" y="2" width="1" height="4"/><rect class="yarn" x="2" y="4" width="4" height="1"/></svg></span></div></div>
-    <div class="ticker"><span class="track"><b>01</b> Stick to My Side <i>—</i> Pantha du Prince<i>·</i><b>02</b> Bless the Telephone <i>—</i> Labi Siffre<i>·</i><b>03</b> Cola <i>—</i> Arlo Parks<i>·</i><b>04</b> Somewhere <i>—</i> Luby Sparks<i>·</i><b>05</b> Yolcu <i>—</i> Altın Gün<i>·</i><b>06</b> Bobby <i>—</i> Alex G<i>·</i><b>07</b> Natural Blue <i>—</i> Julie Byrne<i>·</i><b>08</b> Felicidade <i>—</i> Marcelo Jeneci<i>·</i><b>09</b> Human <i>—</i> Molly Sarlé<i>·</i><b>10</b> Town to Town <i>—</i> Microdisney<i>·</i><b>11</b> You&#x27;re the Best Thing <i>—</i> The Style Council<i>·</i><b>12</b> Don&#x27;t Weigh Down the Light <i>—</i> Meg Baird<i>·</i><b>13</b> Focus <i>—</i> H.E.R.<i>·</i><b>14</b> Sometimes There&#x27;s Blood <i>—</i> Gwenifer Raymond<i>·</i><b>15</b> Drive That Fast <i>—</i> Kitchens of Distinction<i>·</i><b>16</b> Looking for Linda <i>—</i> Hue and Cry<i>·</i><b>17</b> Sink Into the Floor <i>—</i> Feng Suave<i>·</i><b>18</b> The Birds Outside Sang <i>—</i> Florist<i>·</i><b>19</b> Soul Sista <i>—</i> Bilal<i>·</i><b>20</b> The Waves <i>—</i> Tamaryn<i>·</i><b>21</b> Thank You <i>—</i> The Pale Fountains<i>·</i><b>22</b> Ghostwriter <i>—</i> Rjd2<i>·</i><b>23</b> Diamond Heart <i>—</i> Marissa Nadler<i>·</i><b>24</b> Bright as Yellow <i>—</i> The Innocence Mission<i>·</i><b>25</b> Chimacum Rain <i>—</i> Linda Perhacs<i>·</i><b>26</b> SAYONARA <i>—</i> Sakerock<i>·</i><b>27</b> Wavygravy <i>—</i> Flyying Colours<i>·</i><b>28</b> Dirty Laundry <i>—</i> Bitter:Sweet<i>·</i><b>29</b> Love Survive <i>—</i> Michael Nau<i>·</i><b>30</b> Kalimba <i>—</i> Mr. Scruff<i>·</i><b>01</b> Stick to My Side <i>—</i> Pantha du Prince<i>·</i><b>02</b> Bless the Telephone <i>—</i> Labi Siffre<i>·</i><b>03</b> Cola <i>—</i> Arlo Parks<i>·</i><b>04</b> Somewhere <i>—</i> Luby Sparks<i>·</i><b>05</b> Yolcu <i>—</i> Altın Gün<i>·</i><b>06</b> Bobby <i>—</i> Alex G<i>·</i><b>07</b> Natural Blue <i>—</i> Julie Byrne<i>·</i><b>08</b> Felicidade <i>—</i> Marcelo Jeneci<i>·</i><b>09</b> Human <i>—</i> Molly Sarlé<i>·</i><b>10</b> Town to Town <i>—</i> Microdisney<i>·</i><b>11</b> You&#x27;re the Best Thing <i>—</i> The Style Council<i>·</i><b>12</b> Don&#x27;t Weigh Down the Light <i>—</i> Meg Baird<i>·</i><b>13</b> Focus <i>—</i> H.E.R.<i>·</i><b>14</b> Sometimes There&#x27;s Blood <i>—</i> Gwenifer Raymond<i>·</i><b>15</b> Drive That Fast <i>—</i> Kitchens of Distinction<i>·</i><b>16</b> Looking for Linda <i>—</i> Hue and Cry<i>·</i><b>17</b> Sink Into the Floor <i>—</i> Feng Suave<i>·</i><b>18</b> The Birds Outside Sang <i>—</i> Florist<i>·</i><b>19</b> Soul Sista <i>—</i> Bilal<i>·</i><b>20</b> The Waves <i>—</i> Tamaryn<i>·</i><b>21</b> Thank You <i>—</i> The Pale Fountains<i>·</i><b>22</b> Ghostwriter <i>—</i> Rjd2<i>·</i><b>23</b> Diamond Heart <i>—</i> Marissa Nadler<i>·</i><b>24</b> Bright as Yellow <i>—</i> The Innocence Mission<i>·</i><b>25</b> Chimacum Rain <i>—</i> Linda Perhacs<i>·</i><b>26</b> SAYONARA <i>—</i> Sakerock<i>·</i><b>27</b> Wavygravy <i>—</i> Flyying Colours<i>·</i><b>28</b> Dirty Laundry <i>—</i> Bitter:Sweet<i>·</i><b>29</b> Love Survive <i>—</i> Michael Nau<i>·</i><b>30</b> Kalimba <i>—</i> Mr. Scruff<i>·</i></span></div>
-  </div>
-
-  <div class="spec">
-    <div>sort <b>melody-first</b></div><div>bpm <b>70–120</b></div>
-    <div>tracks <b>30</b></div><div>genres <b>ambient folk · american primitive · bedroom pop · chamber folk · downtempo · dream pop</b></div>
-  </div>
-
-  <div class="tools">
-    <button class="tbtn" id="fav-only" type="button"><span id="fav-lb">♥ 只看收藏</span> <span id="fav-n">0</span></button>
-    <button class="tbtn line" id="fav-export" type="button">导出收藏</button>
-    <a class="tbtn line" href="archive/index.html">往期 archive ↗</a>
-    <a class="tbtn line" href="random.html">听点别的 shuffle ↗</a>
-  </div>
-
-  <div class="sect">tracklist</div>
-  <div class="grid">
-    
-    <article class="mod" data-k="Stick to My Side - Pantha du Prince">
-      <div class="m-top">
-        <span class="m-num">01</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#0f0e12">organic electronic</span>
-          <button class="heart" type="button" data-k="Stick to My Side - Pantha du Prince" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c7/23/13/c7231317-78ae-2941-838c-bf2a48da1842/4066004885315_3000.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6c/7e/5a/6c7e5aa0-2cd4-cf3e-66bb-1f14e28f1a14/mzaf_15929406988269626953.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c7/23/13/c7231317-78ae-2941-838c-bf2a48da1842/4066004885315_3000.jpg/600x600bb.jpg" data-title="Stick to My Side" data-artist="Pantha du Prince" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Stick to My Side</div>
-          <div class="artist">Pantha du Prince</div>
-          <div class="meta">2010 / Black Noise<span class="bpm" style="--bc:#fab413">115–130 bpm</span></div>
-          <div class="tags"><span class="tag">minimal electronica</span><span class="tag">airy</span><span class="tag">grainy</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">德国制作人，往极简 techno 里挂满管钟和铃铛的那一位。</div>
-        <div class="why">一串铃铛似的音色挂在节拍上闪，Panda Bear 的人声浮起来，很淡。techno 的律动混进林子里的空气，亮得像清晨从叶缝漏下来的光。</div>
-        <div class="scene"><span class="k">use ▸</span> 林子里的土路上慢跑，露水把裤脚沾湿了一截。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/stick-to-my-side/1876588516?i=1876588872&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Stick%20to%20My%20Side%20Pantha%20du%20Prince" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Stick%20to%20My%20Side%20Pantha%20du%20Prince" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://pitchfork.com/artists/pantha-du-prince" target="_blank" rel="noopener">Pitchfork</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Bless the Telephone - Labi Siffre">
-      <div class="m-top">
-        <span class="m-num">02</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#f05a24">ambient folk</span>
-          <button class="heart" type="button" data-k="Bless the Telephone - Labi Siffre" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7c/8b/6d/7c8b6d24-899c-b0d3-100a-fa639bb25bb1/5032698676842.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/76/66/12/76661229-ef3b-c5b2-345f-6c7035110888/mzaf_17313795988473387156.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7c/8b/6d/7c8b6d24-899c-b0d3-100a-fa639bb25bb1/5032698676842.jpg/600x600bb.jpg" data-title="Bless the Telephone" data-artist="Labi Siffre" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Bless the Telephone</div>
-          <div class="artist">Labi Siffre</div>
-          <div class="meta">1971 / The Singer and the Song<span class="bpm" style="--bc:#006837">85–105 bpm</span></div>
-          <div class="tags"><span class="tag">neo soul</span><span class="tag">tender</span><span class="tag">human</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">英国的民谣灵魂歌者，两分钟一把木吉他就说完一件小事。</div>
-        <div class="why">两分钟，一把木吉他，一个轻得快散掉的嗓子。他感谢电话把你的声音送得这么近，小到不能再小的一件事被唱得干净。</div>
-        <div class="scene"><span class="k">use ▸</span> 挂了电话还举着手机，站到楼道感应灯自己灭掉。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/bless-the-telephone/955672655?i=955672687&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Bless%20the%20Telephone%20Labi%20Siffre" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Bless%20the%20Telephone%20Labi%20Siffre" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://rateyourmusic.com/artist/labi_siffre" target="_blank" rel="noopener">RateYourMusic</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Cola - Arlo Parks">
-      <div class="m-top">
-        <span class="m-num">03</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#006837">bedroom pop</span>
-          <button class="heart" type="button" data-k="Cola - Arlo Parks" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/56/12/67/56126741-d721-f1bd-61a9-00aa08fc0ae6/804076025932.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/84/09/5f/84095f6d-31ef-61d9-2d58-0137a8dfefbe/mzaf_18153771628561948760.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/56/12/67/56126741-d721-f1bd-61a9-00aa08fc0ae6/804076025932.jpg/600x600bb.jpg" data-title="Cola" data-artist="Arlo Parks" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Cola</div>
-          <div class="artist">Arlo Parks</div>
-          <div class="meta">2018 / Super Sad Generation<span class="bpm" style="--bc:#006837">90–110 bpm</span></div>
-          <div class="tags"><span class="tag">neo soul</span><span class="tag">summer dusk</span><span class="tag">human</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">南伦敦的诗人歌者，念白滑进旋律时几乎听不见接缝。</div>
-        <div class="why">可乐、汗、夏天，她把一段单向的迷恋写成一串具体的东西。人声在说和唱之间来回滑，语气一柔，心碎也显得体面。</div>
-        <div class="scene"><span class="k">use ▸</span> 夏天公交末排，可乐罐出汗，他坐在前排没回头。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/cola/1440805509?i=1440805734&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Cola%20Arlo%20Parks" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Cola%20Arlo%20Parks" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://pitchfork.com/artists/arlo-parks" target="_blank" rel="noopener">Pitchfork</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Somewhere - Luby Sparks">
-      <div class="m-top">
-        <span class="m-num">04</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#0071bb">dream pop</span>
-          <button class="heart" type="button" data-k="Somewhere - Luby Sparks" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/77/89/c9/7789c93f-f438-d8d0-0dca-d51cd24d9efb/4538182841129.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/58/47/64/58476419-294b-dfde-4705-062397f4d383/mzaf_5825208173045204853.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/77/89/c9/7789c93f-f438-d8d0-0dca-d51cd24d9efb/4538182841129.png/600x600bb.jpg" data-title="Somewhere" data-artist="Luby Sparks" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Somewhere</div>
-          <div class="artist">Luby Sparks</div>
-          <div class="meta">2019 / Luby Sparks<span class="bpm" style="--bc:#fab413">116–132 bpm</span></div>
-          <div class="tags"><span class="tag">shoegaze</span><span class="tag">wintry</span><span class="tag">hazy</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">东京的年轻团，贝斯顶在最前，八十年代英伦独立的冷被弹亮。</div>
-        <div class="why">整首歌被一层亮闪闪的噪音雾罩着，贝斯在里头顶着往前跑。女声冷冷地飘在上面，像挤在地铁里想一件跟眼前无关的事。</div>
-        <div class="scene"><span class="k">use ▸</span> 换乘通道里逆着人流走，耳机盖过报站声。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/somewhere/1479417323?i=1479417447&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Somewhere%20Luby%20Sparks" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Somewhere%20Luby%20Sparks" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://daily.bandcamp.com/features/luby-sparks" target="_blank" rel="noopener">Bandcamp Daily</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Yolcu - Altın Gün">
-      <div class="m-top">
-        <span class="m-num">05</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#006837">psychedelic</span>
-          <button class="heart" type="button" data-k="Yolcu - Altın Gün" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/1d/8f/4b/1d8f4b26-53bb-3007-d6ac-15e45abacb13/393.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/f4/76/d7/f476d7dd-51da-a683-43b5-87dbb80486fc/mzaf_8196880428607081973.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/1d/8f/4b/1d8f4b26-53bb-3007-d6ac-15e45abacb13/393.jpg/600x600bb.jpg" data-title="Yolcu" data-artist="Altın Gün" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Yolcu</div>
-          <div class="artist">Altın Gün</div>
-          <div class="meta">2019 / Gece<span class="bpm" style="--bc:#fab413">100–120 bpm</span></div>
-          <div class="tags"><span class="tag">organic</span><span class="tag">late night</span><span class="tag">grainy</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">阿姆斯特丹的组合，土耳其主唱配荷兰节奏组，电萨兹直接插进放克。</div>
-        <div class="why">电萨兹弹的是东方音阶，合成器和放克贝斯直接把它拽进迪斯科。一首古老的安纳托利亚民谣，在夜里的舞池上活了第二回。</div>
-        <div class="scene"><span class="k">use ▸</span> 夜班大巴跨省，窗外只剩零星灯火，你半睡着，身体跟着路面晃。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/yolcu/1456045490?i=1456045494&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Yolcu%20Alt%C4%B1n%20G%C3%BCn" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Yolcu%20Alt%C4%B1n%20G%C3%BCn" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://altingun.bandcamp.com" target="_blank" rel="noopener">Bandcamp Daily</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Bobby - Alex G">
-      <div class="m-top">
-        <span class="m-num">06</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#006837">bedroom pop</span>
-          <button class="heart" type="button" data-k="Bobby - Alex G" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/24/57/d4/2457d41f-0a0f-b8a7-600d-74902d14cb3e/887828039869.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1f/0a/1c/1f0a1c91-1734-f501-ac60-0a77aa741eda/mzaf_9308628945498250259.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/24/57/d4/2457d41f-0a0f-b8a7-600d-74902d14cb3e/887828039869.png/600x600bb.jpg" data-title="Bobby" data-artist="Alex G" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Bobby</div>
-          <div class="artist">Alex G</div>
-          <div class="meta">2017 / Rocket<span class="bpm" style="--bc:#fab413">100-110 bpm</span></div>
-          <div class="tags"><span class="tag">indie rock</span><span class="tag">ambient folk</span><span class="tag">woody</span><span class="tag">human</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">费城的 Alex Giannascoli，录音留着糙，是给人味腾的地方。</div>
-        <div class="why">提琴拉出毛边，男女对唱也留着没修干净的呼吸。旋律本身工整得站得住脚，lo-fi 的糙不是遮丑，是把人味留在了里面。</div>
-        <div class="scene"><span class="k">use ▸</span> 趴在木地板上晒太阳，看灰尘在光柱里翻。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/bobby/1207995257?i=1207995432&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Bobby%20Alex%20G" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Bobby%20Alex%20G" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · Rocket / 乐评好评</div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Natural Blue - Julie Byrne">
-      <div class="m-top">
-        <span class="m-num">07</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#f05a24">ambient folk</span>
-          <button class="heart" type="button" data-k="Natural Blue - Julie Byrne" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/34/9a/73/349a73cf-dddc-5b7c-bb6a-2f8e249d15c2/5060168043832.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/56/bd/e8/56bde8d5-f763-22ed-e673-efa34bd1d5cc/mzaf_12457341581488564608.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/34/9a/73/349a73cf-dddc-5b7c-bb6a-2f8e249d15c2/5060168043832.jpg/600x600bb.jpg" data-title="Natural Blue" data-artist="Julie Byrne" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Natural Blue</div>
-          <div class="artist">Julie Byrne</div>
-          <div class="meta">2017 / Not Even Happiness<span class="bpm" style="--bc:#006837">70–120 bpm</span></div>
-          <div class="tags"><span class="tag">dream pop</span><span class="tag">chamber pop</span><span class="tag">airy</span><span class="tag">tender</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">美国民谣里专写夜路的行吟者——指弹搭骨架，嗓子像雾漫过来把边缘泡软。</div>
-        <div class="why">人声像雾一样漫过来，把指弹吉他搭好的骨架边缘泡软。Juno的pad在背后铺成一片，folk的实和dream pop的空各占一半。</div>
-        <div class="scene"><span class="k">use ▸</span> 旷野上没有路灯，熄掉远光抬起头，全是星星。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/natural-blue/1641478117?i=1641478121&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Natural%20Blue%20Julie%20Byrne" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Natural%20Blue%20Julie%20Byrne" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://en.wikipedia.org/wiki/Julie_Byrne" target="_blank" rel="noopener">MusicBrainz + Wikipedia</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Felicidade - Marcelo Jeneci">
-      <div class="m-top">
-        <span class="m-num">08</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#006837">mpb</span>
-          <button class="heart" type="button" data-k="Felicidade - Marcelo Jeneci" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/54/5d/83/545d832b-94c7-0bbe-23ff-3ec168e7b4f2/0.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/98/0b/2d/980b2d3f-16c8-6af1-eea6-01bbae94119a/mzaf_14222239285319067217.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/54/5d/83/545d832b-94c7-0bbe-23ff-3ec168e7b4f2/0.jpg/600x600bb.jpg" data-title="Felicidade" data-artist="Marcelo Jeneci" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Felicidade</div>
-          <div class="artist">Marcelo Jeneci</div>
-          <div class="meta">2010 / Feito pra Acabar<span class="bpm" style="--bc:#006837">80–100 bpm</span></div>
-          <div class="tags"><span class="tag">chamber pop</span><span class="tag">tender</span><span class="tag">nostalgic</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">圣保罗的唱作兼编曲人，手风琴一进来就给都市MPB上了层旧照片的黄。</div>
-        <div class="why">手风琴一拉，整首歌染上旧照片的黄，钢琴在旁边稳稳托着。他唱「幸福」唱得敦厚；副歌弦乐涌上来那一下，甜里掺着清醒——专辑名就叫《为结束而作》。</div>
-        <div class="scene"><span class="k">use ▸</span> 喜宴散场，服务生开始叠椅子，你还赖在原位不肯走。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/felicidade/1896350724?i=6767032241&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Felicidade%20Marcelo%20Jeneci" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Felicidade%20Marcelo%20Jeneci" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://daily.bandcamp.com/features/marcelo-jeneci" target="_blank" rel="noopener">Bandcamp Daily</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Human - Molly Sarlé">
-      <div class="m-top">
-        <span class="m-num">09</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#f05a24">ambient folk</span>
-          <button class="heart" type="button" data-k="Human - Molly Sarlé" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7f/49/8d/7f498d32-95f9-e943-8498-98eec121b30c/720841236702_Cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview114/v4/22/db/54/22db5428-a8de-bb5c-2a0a-9ef2ac3a716e/mzaf_3091451391506722427.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7f/49/8d/7f498d32-95f9-e943-8498-98eec121b30c/720841236702_Cover.jpg/600x600bb.jpg" data-title="Human" data-artist="Molly Sarlé" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Human</div>
-          <div class="artist">Molly Sarlé</div>
-          <div class="meta">2019 / Karaoke Angel<span class="bpm" style="--bc:#006837">90–110 bpm</span></div>
-          <div class="tags"><span class="tag">chamber folk</span><span class="tag">human</span><span class="tag">tender</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">Mountain Man 三人和声里的一把嗓子，独唱时格外从容。</div>
-        <div class="why">「做个人本来就会犯错」，唱得平静从容，没有一点自我惩罚的味道。吉他干净，节奏松，像有人轻轻拍了下你的肩。</div>
-        <div class="scene"><span class="k">use ▸</span> 早晨刷牙抬头看镜子，对自己点了下头。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/human/1450539520?i=1450539521&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Human%20Molly%20Sarl%C3%A9" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Human%20Molly%20Sarl%C3%A9" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://mollysarle.bandcamp.com" target="_blank" rel="noopener">Bandcamp Daily</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Town to Town - Microdisney">
-      <div class="m-top">
-        <span class="m-num">10</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#fab413">sophisti-pop</span>
-          <button class="heart" type="button" data-k="Town to Town - Microdisney" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/11/67/cc/1167cc83-5292-6391-9a15-a5f362c6a685/22UMGIM24328.rgb.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/50/51/39/505139d9-de38-6c32-e9ac-894aa5bcf260/mzaf_9430883376033623610.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/11/67/cc/1167cc83-5292-6391-9a15-a5f362c6a685/22UMGIM24328.rgb.jpg/600x600bb.jpg" data-title="Town to Town" data-artist="Microdisney" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Town to Town</div>
-          <div class="artist">Microdisney</div>
-          <div class="meta">1986 / Crooked Mile<span class="bpm" style="--bc:#fab413">95–115 bpm</span></div>
-          <div class="tags"><span class="tag">jangle pop</span><span class="tag">restrained</span><span class="tag">grainy</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">科克郡二人组：旋律甜成流行金曲，糖纸剥开是一片薄刀。</div>
-        <div class="why">钢琴和吉他把编曲擦得锃亮，甜得几乎像流行金曲。听清歌词才发现里头全是对城市的冷嘲——糖纸剥开是一片薄刀。</div>
-        <div class="scene"><span class="k">use ▸</span> 大巴刚出城，路灯一盏盏往后退，你数到第七盏就停了。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/town-to-town/1618352891?i=1618352903&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Town%20to%20Town%20Microdisney" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Town%20to%20Town%20Microdisney" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://www.theguardian.com/music/microdisney" target="_blank" rel="noopener">The Guardian</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="You&#x27;re the Best Thing - The Style Council">
-      <div class="m-top">
-        <span class="m-num">11</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#fab413">sophisti-pop</span>
-          <button class="heart" type="button" data-k="You&#x27;re the Best Thing - The Style Council" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/27/cc/59/27cc5933-c06d-ff27-3263-d64837040e70/20UMGIM50913.rgb.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/11/df/3a/11df3a02-d8b4-401a-8100-89d277015130/mzaf_9468117762834562575.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/27/cc/59/27cc5933-c06d-ff27-3263-d64837040e70/20UMGIM50913.rgb.jpg/600x600bb.jpg" data-title="You&#x27;re the Best Thing" data-artist="The Style Council" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">You&#x27;re the Best Thing</div>
-          <div class="artist">The Style Council</div>
-          <div class="meta">2020 / Café Bleu<span class="bpm" style="--bc:#006837">90–110 bpm</span></div>
-          <div class="tags"><span class="tag">neo soul</span><span class="tag">summer dusk</span><span class="tag">unhurried</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">Paul Weller 拆了 The Jam 之后组的班子，换上电钢琴和软铜管，气得老乐迷跳脚。</div>
-        <div class="why">就是一句直白的「你是最好的」，没有半点心机。电钢琴摇着，人声软得像刚睡醒，甜得毫无负担。</div>
-        <div class="scene"><span class="k">use ▸</span> 咖啡在壶里咕嘟，你跟着哼，脚在地砖上打拍子。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/youre-the-best-thing/1529602288?i=1529603746&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/You%27re%20the%20Best%20Thing%20The%20Style%20Council" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=You%27re%20the%20Best%20Thing%20The%20Style%20Council" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://rateyourmusic.com/artist/the_style_council" target="_blank" rel="noopener">RateYourMusic</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Don&#x27;t Weigh Down the Light - Meg Baird">
-      <div class="m-top">
-        <span class="m-num">12</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#f05a24">ambient folk</span>
-          <button class="heart" type="button" data-k="Don&#x27;t Weigh Down the Light - Meg Baird" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/b4/6a/aa/b46aaa36-1f1e-a4ac-4ad0-72b9c9b5b214/781484063223.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/87/8c/07/878c0783-d2b1-1bee-56df-34822cb960b5/mzaf_7799735931665908179.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/b4/6a/aa/b46aaa36-1f1e-a4ac-4ad0-72b9c9b5b214/781484063223.png/600x600bb.jpg" data-title="Don&#x27;t Weigh Down the Light" data-artist="Meg Baird" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Don&#x27;t Weigh Down the Light</div>
-          <div class="artist">Meg Baird</div>
-          <div class="meta">2015 / Don&#x27;t Weigh Down the Light<span class="bpm" style="--bc:#0071bb">70–90 bpm</span></div>
-          <div class="tags"><span class="tag">chamber folk</span><span class="tag">wintry</span><span class="tag">wide open</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">费城Espers出身的女声，指弹清冷，音尾在长混响里迟迟不落地。</div>
-        <div class="why">指弹一颗一颗落得清楚，她的声音在长混响里飘，像在一间空屋子唱歌。旋律往上够的时候，尾巴迟迟不肯落地；清冷，一点不冷漠。</div>
-        <div class="scene"><span class="k">use ▸</span> 屋里还没别人，光脚站在木地板上等咖啡滴完。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/dont-weigh-down-the-light/982332350?i=982332940&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Don%27t%20Weigh%20Down%20the%20Light%20Meg%20Baird" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Don%27t%20Weigh%20Down%20the%20Light%20Meg%20Baird" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://daily.bandcamp.com/features/meg-baird" target="_blank" rel="noopener">Bandcamp Daily</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Focus - H.E.R.">
-      <div class="m-top">
-        <span class="m-num">13</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#006837">neo soul</span>
-          <button class="heart" type="button" data-k="Focus - H.E.R." aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/27/40/34/274034b3-42d9-ba59-b22c-dc4f57672ee0/886446799513.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/82/f5/2b/82f52b11-fa97-29eb-26fd-c01289cd854e/mzaf_8611129255464452437.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/27/40/34/274034b3-42d9-ba59-b22c-dc4f57672ee0/886446799513.jpg/600x600bb.jpg" data-title="Focus" data-artist="H.E.R." aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Focus</div>
-          <div class="artist">H.E.R.</div>
-          <div class="meta">2016 / H.E.R. Volume 1<span class="bpm" style="--bc:#006837">80–100 bpm</span></div>
-          <div class="tags"><span class="tag">quiet alternative</span><span class="tag">late night</span><span class="tag">tender</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">出道时刻意匿名的 R&amp;B 创作者——气声始终贴着耳朵不肯抬高。</div>
-        <div class="why">气声一直贴着耳朵，反复求你把注意力放过来。键盘暖，节拍轻，被忽略的委屈唱得克制，克制里带点撩。</div>
-        <div class="scene"><span class="k">use ▸</span> 同一张沙发上坐着，对方的眼睛一直没离开屏幕。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/focus/1294890052?i=1294890800&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Focus%20H.E.R." target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Focus%20H.E.R." target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://pitchfork.com/artists/her" target="_blank" rel="noopener">Pitchfork</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Sometimes There&#x27;s Blood - Gwenifer Raymond">
-      <div class="m-top">
-        <span class="m-num">14</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#006837">american primitive</span>
-          <button class="heart" type="button" data-k="Sometimes There&#x27;s Blood - Gwenifer Raymond" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/56/af/25/56af2569-8455-f70a-3373-261fe1601324/192641108587_Cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/a7/e6/1f/a7e61fd8-5470-d9c6-a0d4-0ff7ec6442cc/mzaf_4609248554066319693.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/56/af/25/56af2569-8455-f70a-3373-261fe1601324/192641108587_Cover.jpg/600x600bb.jpg" data-title="Sometimes There&#x27;s Blood" data-artist="Gwenifer Raymond" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Sometimes There&#x27;s Blood</div>
-          <div class="artist">Gwenifer Raymond</div>
-          <div class="meta">2017 / You Never Were Much of a Dancer<span class="bpm" style="--bc:#fab413">100–120 bpm</span></div>
-          <div class="tags"><span class="tag">ambient folk</span><span class="tag">melancholy</span><span class="tag">restless</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">威尔士的器乐指弹手，十指在钢弦上滚出哥特式的速度。</div>
-        <div class="why">十指在钢弦上滚成一片密不透风的音瀑，快，而且不乱。底下压着一股阴郁的调子往前冲；一个字都没有，紧绷全从指尖蹦出来——技术很凶，凶的是情绪。</div>
-        <div class="scene"><span class="k">use ▸</span> 暴雨砸了一整夜的窗，你坐在客厅里始终没开灯。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/sometimes-theres-blood/1387758344?i=1387758503&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Sometimes%20There%27s%20Blood%20Gwenifer%20Raymond" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Sometimes%20There%27s%20Blood%20Gwenifer%20Raymond" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://daily.bandcamp.com/features/gwenifer-raymond" target="_blank" rel="noopener">Bandcamp Daily</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Drive That Fast - Kitchens of Distinction">
-      <div class="m-top">
-        <span class="m-num">15</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#0071bb">dream pop</span>
-          <button class="heart" type="button" data-k="Drive That Fast - Kitchens of Distinction" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/ca/c8/4b/cac84bbe-76e9-98a4-70f5-13dcbdbc0a05/5016958092030.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/19/9f/65/199f65a4-bb9c-8ec2-b9fb-ec5c1d3b8ce2/mzaf_10706858386584823710.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/ca/c8/4b/cac84bbe-76e9-98a4-70f5-13dcbdbc0a05/5016958092030.png/600x600bb.jpg" data-title="Drive That Fast" data-artist="Kitchens of Distinction" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Drive That Fast</div>
-          <div class="artist">Kitchens of Distinction</div>
-          <div class="meta">1991 / Strange Free World<span class="bpm" style="--bc:#f05a24">120–140 bpm</span></div>
-          <div class="tags"><span class="tag">shoegaze</span><span class="tag">wide open</span><span class="tag">hopeful</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">伦敦三人组：吉他手只铺光不弹音符，主唱自己在底下弹贝斯。</div>
-        <div class="why">吉他不弹音符，只铺一整片流动的光，贝斯在底下沉稳地跑。“开快点”被唱成临终告白，声音越推越高，最后整个人被自己的吉他淹没。</div>
-        <div class="scene"><span class="k">use ▸</span> 把车窗全摇下来，风大到听不清自己在喊什么。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/drive-that-fast/1726661007?i=1726661016&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Drive%20That%20Fast%20Kitchens%20of%20Distinction" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Drive%20That%20Fast%20Kitchens%20of%20Distinction" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://pitchfork.com/reviews/albums/kitchens-of-distinction-strange-free-world/" target="_blank" rel="noopener">Pitchfork</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Looking for Linda - Hue and Cry">
-      <div class="m-top">
-        <span class="m-num">16</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#fab413">sophisti-pop</span>
-          <button class="heart" type="button" data-k="Looking for Linda - Hue and Cry" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/aa/05/b2/aa05b2d7-f3ee-7f07-971f-e0a05b1039f6/00077778673453.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/bf/02/2e/bf022e75-f912-3140-623b-ed41d58a0b36/mzaf_13700214272404556062.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/aa/05/b2/aa05b2d7-f3ee-7f07-971f-e0a05b1039f6/00077778673453.jpg/600x600bb.jpg" data-title="Looking for Linda" data-artist="Hue and Cry" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Looking for Linda</div>
-          <div class="artist">Hue and Cry</div>
-          <div class="meta">1988 / Remote<span class="bpm" style="--bc:#fab413">105–120 bpm</span></div>
-          <div class="tags"><span class="tag">blue-eyed soul</span><span class="tag">late night</span><span class="tag">restless</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">苏格兰 Kane 兄弟：灵魂流行的光鲜外壳，里头裹着政治火气。</div>
-        <div class="why">铜管一进来就把 groove 擦得锃亮，脚先动起来。等你听清词——一个女人连夜逃离婚姻——舞曲的光就有点扎人。</div>
-        <div class="scene"><span class="k">use ▸</span> 站台上一个人拖着行李往末班车快步走，没回头。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/looking-for-linda/724322149?i=724322650&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Looking%20for%20Linda%20Hue%20and%20Cry" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Looking%20for%20Linda%20Hue%20and%20Cry" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://www.allmusic.com/artist/hue-and-cry" target="_blank" rel="noopener">AllMusic</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Sink Into the Floor - Feng Suave">
-      <div class="m-top">
-        <span class="m-num">17</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#006837">bedroom pop</span>
-          <button class="heart" type="button" data-k="Sink Into the Floor - Feng Suave" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/79/b0/5c/79b05cd8-449d-6b2f-affb-ab7a62135e9b/7317.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7b/ea/3b/7bea3bd7-0245-220c-4f2e-768ed6e5c27b/mzaf_13450318951153809886.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/79/b0/5c/79b05cd8-449d-6b2f-affb-ab7a62135e9b/7317.jpg/600x600bb.jpg" data-title="Sink Into the Floor" data-artist="Feng Suave" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Sink Into the Floor</div>
-          <div class="artist">Feng Suave</div>
-          <div class="meta">2017 / Feng Suave<span class="bpm" style="--bc:#006837">85–105 bpm</span></div>
-          <div class="tags"><span class="tag">psychedelic pop</span><span class="tag">unhurried</span><span class="tag">grainy</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">阿姆斯特丹二人组，把 70 年代软摇滚的键盘泡到快要滴水。</div>
-        <div class="why">复古键盘黏成一团,人声懒到快化在拍子里。“只想瘫着、沉进地板”的丧被做得好听,连不肯起身这件事都变得有理。</div>
-        <div class="scene"><span class="k">use ▸</span> 外卖盒还在茶几上，人已经从沙发滑到地毯，不打算起来。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/sink-into-the-floor/1884291318?i=1884291686&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Sink%20Into%20the%20Floor%20Feng%20Suave" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Sink%20Into%20the%20Floor%20Feng%20Suave" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://fengsuave.bandcamp.com" target="_blank" rel="noopener">Bandcamp Daily</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="The Birds Outside Sang - Florist">
-      <div class="m-top">
-        <span class="m-num">18</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#006837">bedroom pop</span>
-          <button class="heart" type="button" data-k="The Birds Outside Sang - Florist" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/89/e6/46/89e64656-3f5c-f12a-b7da-683dac7204e9/811774024624.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f0/76/c2/f076c2e7-3870-a6ca-0f2a-52cf962f35c2/mzaf_14731886309167580882.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/89/e6/46/89e64656-3f5c-f12a-b7da-683dac7204e9/811774024624.jpg/600x600bb.jpg" data-title="The Birds Outside Sang" data-artist="Florist" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">The Birds Outside Sang</div>
-          <div class="artist">Florist</div>
-          <div class="meta">2016 / The Birds Outside Sang<span class="bpm" style="--bc:#0071bb">70–90 bpm</span></div>
-          <div class="tags"><span class="tag">indie folk</span><span class="tag">fragile</span><span class="tag">introspective</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">纽约 bedroom 民谣团，Emily Sprague 在一场车祸养伤期间写完这张，声音小得像怕吵到隔壁。</div>
-        <div class="why">她的声音小到要贴着耳朵才听得清，吉他在旁边轻轻拨，合成器薄薄浮一层。越安静，那份脆弱越藏不住。</div>
-        <div class="scene"><span class="k">use ▸</span> 发烧躺着，窗外鸟叫得很清楚，起身喝水的力气还得攒一会儿</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/the-birds-outside-sang/1505804338?i=1505804494&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/The%20Birds%20Outside%20Sang%20Florist" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=The%20Birds%20Outside%20Sang%20Florist" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://pitchfork.com/reviews/albums/22083-the-birds-outside-sang/" target="_blank" rel="noopener">Pitchfork</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Soul Sista - Bilal">
-      <div class="m-top">
-        <span class="m-num">19</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#f05a24">neo-soul</span>
-          <button class="heart" type="button" data-k="Soul Sista - Bilal" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/5b/09/fd/5b09fd33-6fa9-1ad9-c862-fb001cd64fd7/00606949311025.rgb.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/bd/58/1c/bd581c62-88a0-a0aa-23c4-0c252839b7de/mzaf_4982047026295820003.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/5b/09/fd/5b09fd33-6fa9-1ad9-c862-fb001cd64fd7/00606949311025.rgb.jpg/600x600bb.jpg" data-title="Soul Sista" data-artist="Bilal" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Soul Sista</div>
-          <div class="artist">Bilal</div>
-          <div class="meta">2001 / 1st Born Second<span class="bpm" style="--bc:#006837">85–100 bpm</span></div>
-          <div class="tags"><span class="tag">quiet alternative r&amp;b</span><span class="tag">sweet</span><span class="tag">longing</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">费城人，茱莉亚学院训练过，假声能一脚踩空掉进沙哑真声。</div>
-        <div class="why">Bilal 一会儿飘上假声、一会儿摔回胸腔，像在你面前现编一段情话。J Dilla 味的鼓点在底下懒懒晃，痞和深情同时在场。</div>
-        <div class="scene"><span class="k">use ▸</span> 停在路边等人，车窗摇下一半，胳膊搭在窗框上。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/soul-sista/1443567239?i=1443567494&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Soul%20Sista%20Bilal" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Soul%20Sista%20Bilal" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://pitchfork.com/" target="_blank" rel="noopener">Pitchfork</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="The Waves - Tamaryn">
-      <div class="m-top">
-        <span class="m-num">20</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#0071bb">dream pop</span>
-          <button class="heart" type="button" data-k="The Waves - Tamaryn" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/5b/93/19/5b931975-37ac-5750-2f50-7752980ed85b/859735892226_cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d1/7c/b4/d17cb441-5a49-2155-202a-bbbbdd0901f6/mzaf_17615753572654718940.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/5b/93/19/5b931975-37ac-5750-2f50-7752980ed85b/859735892226_cover.jpg/600x600bb.jpg" data-title="The Waves" data-artist="Tamaryn" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">The Waves</div>
-          <div class="artist">Tamaryn</div>
-          <div class="meta">2010 / The Waves<span class="bpm" style="--bc:#006837">90–110 bpm</span></div>
-          <div class="tags"><span class="tag">shoegaze</span><span class="tag">restless</span><span class="tag">dreamlike</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">新西兰出生、纽约成团的暗色女声，吉他一波涌上来又退回去。</div>
-        <div class="why">吉他一波涌上来又退下去，来回不停。Tamaryn 的女声低而缓，贴在浪底不动，整首不急着去哪，就让你陷在那个潮里。</div>
-        <div class="scene"><span class="k">use ▸</span> 涨潮把脚踝一次次没过去，你没往后退。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/the-waves/6771783460?i=6771783461&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/The%20Waves%20Tamaryn" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=The%20Waves%20Tamaryn" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://www.stereogum.com/tamaryn-the-waves" target="_blank" rel="noopener">Stereogum</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Thank You - The Pale Fountains">
-      <div class="m-top">
-        <span class="m-num">21</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#f05a24">jangle pop</span>
-          <button class="heart" type="button" data-k="Thank You - The Pale Fountains" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music/f2/d3/b8/mzi.kpoaqdjs.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/b8/f4/fc/b8f4fc55-6a40-3b0e-96a8-56fad8261b47/mzaf_7837413438187046961.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/f2/d3/b8/mzi.kpoaqdjs.jpg/600x600bb.jpg" data-title="Thank You" data-artist="The Pale Fountains" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Thank You</div>
-          <div class="artist">The Pale Fountains</div>
-          <div class="meta">1995 / Thank You<span class="bpm" style="--bc:#fab413">110–130 bpm</span></div>
-          <div class="tags"><span class="tag">sophisti-pop</span><span class="tag">hopeful</span><span class="tag">melancholy</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">利物浦少年帮，Arthur Lee 那套铜管和波萨诺瓦一起塞进英伦吉他流行。</div>
-        <div class="why">小号从吉他缝里探出头，像有人推开一扇临街的窗。主唱把失恋唱得飘飘的，副歌多铺一层弦乐，甜里渗出没说出口的委屈。</div>
-        <div class="scene"><span class="k">use ▸</span> 初夏骑车下坡，风从袖口灌进来，手不敢捏刹车。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/thank-you/134138606?i=134139823&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Thank%20You%20The%20Pale%20Fountains" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Thank%20You%20The%20Pale%20Fountains" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://daily.bandcamp.com/lists/pale-fountains" target="_blank" rel="noopener">Bandcamp Daily</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Ghostwriter - Rjd2">
-      <div class="m-top">
-        <span class="m-num">22</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#fab413">instrumental hip-hop</span>
-          <button class="heart" type="button" data-k="Ghostwriter - Rjd2" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/86/3c/00/863c00b5-aa72-326c-3f4e-7ba392751645/mzi.oroyqugj.tif/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/8d/c0/68/8dc06850-9b36-acdb-2312-d3140a967ec6/mzaf_17363255274891434757.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/86/3c/00/863c00b5-aa72-326c-3f4e-7ba392751645/mzi.oroyqugj.tif/600x600bb.jpg" data-title="Ghostwriter" data-artist="Rjd2" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Ghostwriter</div>
-          <div class="artist">Rjd2</div>
-          <div class="meta">2002 / Deadringer<span class="bpm" style="--bc:#006837">90–105 bpm</span></div>
-          <div class="tags"><span class="tag">downtempo</span><span class="tag">hopeful</span><span class="tag">nostalgic</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">俄亥俄的 Rjd2，把灵魂乐旧唱片堆成一堵能爆开的墙。</div>
-        <div class="why">灵魂乐女声被抛上来又收回去，铜管在后面越堆越高。爆开那一下，像一整支乐队从旧唱片里站直了身子。</div>
-        <div class="scene"><span class="k">use ▸</span> 电影开场前十分钟，灯还亮着，你已经坐直了</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/ghostwriter/335220471?i=335220620&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Ghostwriter%20Rjd2" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Ghostwriter%20Rjd2" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://en.wikipedia.org/wiki/RJD2" target="_blank" rel="noopener">Wikipedia</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Diamond Heart - Marissa Nadler">
-      <div class="m-top">
-        <span class="m-num">23</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#0071bb">gothic folk</span>
-          <button class="heart" type="button" data-k="Diamond Heart - Marissa Nadler" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/20/ad/6f/20ad6faa-fdfe-0037-a4c5-37b2c80abf8a/859735606342_cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/89/aa/74/89aa7457-6d94-7436-1232-bf6d3cfe1ff0/mzaf_12998716936408146853.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/20/ad/6f/20ad6faa-fdfe-0037-a4c5-37b2c80abf8a/859735606342_cover.jpg/600x600bb.jpg" data-title="Diamond Heart" data-artist="Marissa Nadler" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Diamond Heart</div>
-          <div class="artist">Marissa Nadler</div>
-          <div class="meta">2007 / Songs III: Bird on the Water<span class="bpm" style="--bc:#0071bb">70–90 bpm</span></div>
-          <div class="tags"><span class="tag">dream pop</span><span class="tag">floating</span><span class="tag">melancholy</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">波士顿哥特民谣女声，混响尾巴放得比人声还长，后来还去给黑金属唱片客座。</div>
-        <div class="why">分解和弦缓缓荡开，她的嗓音裹在长混响里飘着不落。唱失去的人时不哭不喊，只让声音一点点淡出，像照片边角在发黄。</div>
-        <div class="scene"><span class="k">use ▸</span> 翻到一张再也联系不上的人的照片，指头捏着相纸边角一直没松</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/diamond-heart/1487091894?i=1487091896&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Diamond%20Heart%20Marissa%20Nadler" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Diamond%20Heart%20Marissa%20Nadler" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://pitchfork.com/artists/23158-marissa-nadler/" target="_blank" rel="noopener">Pitchfork</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Bright as Yellow - The Innocence Mission">
-      <div class="m-top">
-        <span class="m-num">24</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#0071bb">chamber folk</span>
-          <button class="heart" type="button" data-k="Bright as Yellow - The Innocence Mission" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d9/d4/03/d9d4030f-6a19-13af-35a3-6e4b9545350b/00602567822417.rgb.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9f/45/40/9f4540d0-e505-2bdd-2576-7aa479a35c9f/mzaf_6463265071205231346.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d9/d4/03/d9d4030f-6a19-13af-35a3-6e4b9545350b/00602567822417.rgb.jpg/600x600bb.jpg" data-title="Bright as Yellow" data-artist="The Innocence Mission" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Bright as Yellow</div>
-          <div class="artist">The Innocence Mission</div>
-          <div class="meta">1995 / Glow<span class="bpm" style="--bc:#006837">80–100 bpm</span></div>
-          <div class="tags"><span class="tag">dream pop</span><span class="tag">hopeful</span><span class="tag">restrained</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">Karen与Don Peris的宾州小乐队，一副童音般的气嗓，从不使劲。</div>
-        <div class="why">琶音清亮地铺开，Karen Peris 的嗓音轻得随时会飘走。那句 bright as yellow 她唱得异常笃定，全程没使劲——明亮是自己长出来的。</div>
-        <div class="scene"><span class="k">use ▸</span> 风把窗帘鼓起来又放下，光在手背上来回扫。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/bright-as-yellow/1434892914?i=1434892929&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Bright%20as%20Yellow%20The%20Innocence%20Mission" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Bright%20as%20Yellow%20The%20Innocence%20Mission" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://aquariumdrunkard.com/innocence-mission-glow/" target="_blank" rel="noopener">Aquarium Drunkard</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Chimacum Rain - Linda Perhacs">
-      <div class="m-top">
-        <span class="m-num">25</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#006837">psychedelic</span>
-          <button class="heart" type="button" data-k="Chimacum Rain - Linda Perhacs" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/40/cf/af/40cfaf4b-1e58-a252-672a-98df9a5dff7c/00602537885794.rgb.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/64/c1/47/64c147fc-a260-309b-3e32-9cac9c9284da/mzaf_5741727990467919100.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/40/cf/af/40cfaf4b-1e58-a252-672a-98df9a5dff7c/00602537885794.rgb.jpg/600x600bb.jpg" data-title="Chimacum Rain" data-artist="Linda Perhacs" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Chimacum Rain</div>
-          <div class="artist">Linda Perhacs</div>
-          <div class="meta">1970 / Parallelograms<span class="bpm" style="--bc:#006837">75–95 bpm</span></div>
-          <div class="tags"><span class="tag">ambient folk</span><span class="tag">rainy</span><span class="tag">airy</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">洛杉矶的牙科助理，业余录过唯一一张唱片，后来成了迷幻民谣的地下圣物。</div>
-        <div class="why">人声叠成好几层，雨像从不同方向同时落下来。吉他只有几个和弦，空间铺得极深——业余录的东西，听着像从云里传下来。</div>
-        <div class="scene"><span class="k">use ▸</span> 躲在屋檐下等雨停，鞋尖已经湿了一圈，雨丝斜着扫过对面的墙。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/chimacum-rain/1443772850?i=1443772857&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Chimacum%20Rain%20Linda%20Perhacs" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Chimacum%20Rain%20Linda%20Perhacs" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://rateyourmusic.com/artist/linda_perhacs" target="_blank" rel="noopener">RateYourMusic</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="SAYONARA - Sakerock">
-      <div class="m-top">
-        <span class="m-num">26</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#f05a24">soft post-rock</span>
-          <button class="heart" type="button" data-k="SAYONARA - Sakerock" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f8/df/98/f8df98b4-428b-1bc2-45b6-41fbc9d7c673/4571597250872.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ac/ab/e4/acabe48b-f415-ab9a-384e-bd35d24e9bb9/mzaf_4710798324715748988.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f8/df/98/f8df98b4-428b-1bc2-45b6-41fbc9d7c673/4571597250872.png/600x600bb.jpg" data-title="SAYONARA" data-artist="Sakerock" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">SAYONARA</div>
-          <div class="artist">Sakerock</div>
-          <div class="meta">2015 / MUDA<span class="bpm" style="--bc:#006837">88–104 bpm</span></div>
-          <div class="tags"><span class="tag">jazz pop</span><span class="tag">warm</span><span class="tag">melancholy</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">星野源出道时的那支东京器乐团，主角是长号和马林巴。</div>
-        <div class="why">长号慢吞吞地把主旋律唱完，马林巴在旁边敲出木头的暖。写的是告别，一点不悲——挥手的时候还笑着，说回头见。</div>
-        <div class="scene"><span class="k">use ▸</span> 东西都搬空了，回头看一眼再把门锁上。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/sayonara/1585824130?i=1585824140&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/SAYONARA%20Sakerock" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=SAYONARA%20Sakerock" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://daily.bandcamp.com/features/sakerock" target="_blank" rel="noopener">Bandcamp Daily</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Wavygravy - Flyying Colours">
-      <div class="m-top">
-        <span class="m-num">27</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#f05a24">shoegaze</span>
-          <button class="heart" type="button" data-k="Wavygravy - Flyying Colours" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music1/v4/f8/d8/95/f8d895de-c163-1fd0-28d4-c713838f6684/cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a7/02/23/a7022357-07b6-8bbe-991b-df435dd2c9a6/mzaf_13800399256263617472.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music1/v4/f8/d8/95/f8d895de-c163-1fd0-28d4-c713838f6684/cover.jpg/600x600bb.jpg" data-title="Wavygravy" data-artist="Flyying Colours" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Wavygravy</div>
-          <div class="artist">Flyying Colours</div>
-          <div class="meta">2013 / Flyying Colours<span class="bpm" style="--bc:#fab413">110–130 bpm</span></div>
-          <div class="tags"><span class="tag">dream pop</span><span class="tag">unhurried</span><span class="tag">sweet</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">墨尔本人，吉他带一点走音的晃，男女和声始终贴着。</div>
-        <div class="why">吉他带着轻微的摇晃，像看东西时眼睛没对上焦。男女人声柔柔叠在一起，整首不吵，一层温甜的雾慢慢晃着你。</div>
-        <div class="scene"><span class="k">use ▸</span> 光柱里的灰尘飘着，你盯着看忘了要去干嘛。</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/wavygravy/987580915?i=987580995&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Wavygravy%20Flyying%20Colours" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Wavygravy%20Flyying%20Colours" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://www.stereogum.com/flyying-colours-ep" target="_blank" rel="noopener">Stereogum</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Dirty Laundry - Bitter:Sweet">
-      <div class="m-top">
-        <span class="m-num">28</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#fab413">trip-hop</span>
-          <button class="heart" type="button" data-k="Dirty Laundry - Bitter:Sweet" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music/29/92/ed/mzi.qkjhiols.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/87/14/9a/87149aad-26ce-633d-58f0-b39c8d2a11ba/mzaf_4091060707574716397.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/29/92/ed/mzi.qkjhiols.jpg/600x600bb.jpg" data-title="Dirty Laundry" data-artist="Bitter:Sweet" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Dirty Laundry</div>
-          <div class="artist">Bitter:Sweet</div>
-          <div class="meta">2006 / The Mating Game<span class="bpm" style="--bc:#006837">85–100 bpm</span></div>
-          <div class="tags"><span class="tag">downtempo</span><span class="tag">late night</span><span class="tag">sensual</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">洛杉矶二人组，一把烟嗓配四十年代大乐队采样，拼出来像一部没拍成的侦探片配乐。</div>
-        <div class="why">弦乐和铜管采样摆出老电影的排场，她低哑着数落一地脏衣服。华丽底下压着的是不耐烦，性感也是这股不耐烦给的。</div>
-        <div class="scene"><span class="k">use ▸</span> 客人走光的凌晨，你端着剩下半杯酒在客厅转圈，脚边一堆没洗的衣服</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/dirty-laundry/168461080?i=168461090&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Dirty%20Laundry%20Bitter%3ASweet" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Dirty%20Laundry%20Bitter%3ASweet" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://en.wikipedia.org/wiki/Bitter:Sweet" target="_blank" rel="noopener">Wikipedia</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Love Survive - Michael Nau">
-      <div class="m-top">
-        <span class="m-num">29</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#006837">bedroom pop</span>
-          <button class="heart" type="button" data-k="Love Survive - Michael Nau" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/fb/53/d6/fb53d65b-b6d4-0a26-78e3-277ee27a6c7d/656605350561.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/d6/67/75/d6677552-f2b6-ddfe-ba9c-4aff1bab66c2/mzaf_17400558011262237756.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/fb/53/d6/fb53d65b-b6d4-0a26-78e3-277ee27a6c7d/656605350561.jpg/600x600bb.jpg" data-title="Love Survive" data-artist="Michael Nau" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Love Survive</div>
-          <div class="artist">Michael Nau</div>
-          <div class="meta">2016 / Mowing<span class="bpm" style="--bc:#006837">90–110 bpm</span></div>
-          <div class="tags"><span class="tag">indie folk</span><span class="tag">tender</span><span class="tag">wintry</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">马里兰人，Cotton Jones 的主脑，录音里那点走音的磁带味是他故意留下的。</div>
-        <div class="why">钢琴和吉他晃晃悠悠不肯站稳，他嗓音软得像放旧了的磁带，边上还有毛。爱活下来了这句，被他唱得半信半疑。</div>
-        <div class="scene"><span class="k">use ▸</span> 开车出门时雨刚停，雨刷关掉，玻璃上还挂着一层水珠</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/love-survive/1156656696?i=1156656925&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Love%20Survive%20Michael%20Nau" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Love%20Survive%20Michael%20Nau" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://pitchfork.com/reviews/albums/21789-mowing/" target="_blank" rel="noopener">Pitchfork</a></div>
-      </div>
-    </article>
-
-    <article class="mod" data-k="Kalimba - Mr. Scruff">
-      <div class="m-top">
-        <span class="m-num">30</span>
-        <span style="display:flex; align-items:center">
-          <span class="m-code" style="background:#0f0e12">downtempo</span>
-          <button class="heart" type="button" data-k="Kalimba - Mr. Scruff" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
-        </span>
-      </div>
-      <div class="m-main">
-        <div class="art"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/61/26/94/61269409-8281-305a-7941-99b085732fae/5021392252391.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f6/c0/4b/f6c04b80-f65d-7977-0b1c-86a49d14a453/mzaf_16115219455009606849.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/61/26/94/61269409-8281-305a-7941-99b085732fae/5021392252391.png/600x600bb.jpg" data-title="Kalimba" data-artist="Mr. Scruff" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
-        <div class="hd">
-          <div class="title lc">Kalimba</div>
-          <div class="artist">Mr. Scruff</div>
-          <div class="meta">2008 / Ninja Tuna<span class="bpm" style="--bc:#006837">95–110 bpm</span></div>
-          <div class="tags"><span class="tag">electronica</span><span class="tag">upbeat</span><span class="tag">hopeful</span></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="one">曼彻斯特的 Mr. Scruff，一边卖茶一边把拇指琴做成舞池上的玻璃珠。</div>
-        <div class="why">拇指琴的音一颗颗蹦出来，圆得像玻璃珠掉在桌面上。底鼓踩得憨，简单到孩子气，脑袋不知不觉就点起来。</div>
-        <div class="scene"><span class="k">use ▸</span> 周末早晨煎蛋，锅里滋滋响，脚在地上打拍子</div>
-        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/kalimba/416305303?i=416305328&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Kalimba%20Mr.%20Scruff" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Kalimba%20Mr.%20Scruff" target="_blank" rel="noopener">netease ↗</a></div>
-        <div class="src">src · <a href="https://en.wikipedia.org/wiki/Mr._Scruff" target="_blank" rel="noopener">Wikipedia</a></div>
-      </div>
-    </article>
-  </div>
-
-  <section class="export">
-    <div class="h">data export · 网易云导入 <span>format: title - artist</span></div>
-    <div class="in">
-      <p>复制下列清单 → 网易云 App「新建歌单 → 导入」，第一行会作为歌单名自动创建。</p>
-      <pre id="nc-text">有点甜，但克制着（08.02）
-Stick to My Side - Pantha du Prince
-Bless the Telephone - Labi Siffre
-Cola - Arlo Parks
-Somewhere - Luby Sparks
-Yolcu - Altın Gün
-Bobby - Alex G
-Natural Blue - Julie Byrne
-Felicidade - Marcelo Jeneci
-Human - Molly Sarlé
-Town to Town - Microdisney
-You&#x27;re the Best Thing - The Style Council
-Don&#x27;t Weigh Down the Light - Meg Baird
-Focus - H.E.R.
-Sometimes There&#x27;s Blood - Gwenifer Raymond
-Drive That Fast - Kitchens of Distinction
-Looking for Linda - Hue and Cry
-Sink Into the Floor - Feng Suave
-The Birds Outside Sang - Florist
-Soul Sista - Bilal
-The Waves - Tamaryn
-Thank You - The Pale Fountains
-Ghostwriter - Rjd2
-Diamond Heart - Marissa Nadler
-Bright as Yellow - The Innocence Mission
-Chimacum Rain - Linda Perhacs
-SAYONARA - Sakerock
-Wavygravy - Flyying Colours
-Dirty Laundry - Bitter:Sweet
-Love Survive - Michael Nau
-Kalimba - Mr. Scruff</pre>
-      <button class="btn solid" id="nc-btn" onclick="copyNC()" style="margin-top:12px">复制歌单 / copy</button>
-    </div>
-  </section>
-
-  <section class="export" id="fav-box" style="display:none">
-    <div class="h">我收藏的 · 网易云导入 <span>存在此浏览器 · 跨期累计</span></div>
-    <div class="in">
-      <p>你在各期点 ♥ 收藏的曲目（本浏览器）。复制 → 网易云「新建歌单 → 导入」。</p>
-      <pre id="fav-text"></pre>
-      <button class="btn solid" id="fav-copy" onclick="copyFav()" style="margin-top:12px">复制收藏 / copy</button>
-    </div>
-  </section>
-
-  <footer>
-    <span>MUSIC DAILY · md-30 · issue 006</span>
-    <span>updated 08:00 cst</span>
-    <span>cover &amp; preview via public music api · personal use</span>
-  </footer>
-</main>
-
-<div id="np" aria-live="polite">
-  <img id="np-cover" alt="">
-  <div id="np-meta"><div id="np-title" class="lc"></div><div id="np-artist"></div></div>
-  <button id="np-prev" class="np-btn" type="button" aria-label="上一首"><svg viewBox="0 0 12 10" aria-hidden="true"><rect x="1" y="1" width="2" height="8"/><path d="M11 1 L4 5 L11 9 Z"/></svg></button>
-  <button id="np-toggle" class="np-btn" type="button" aria-label="播放/暂停"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button>
-  <button id="np-next" class="np-btn" type="button" aria-label="下一首"><svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 1 L8 5 L1 9 Z"/><rect x="9" y="1" width="2" height="8"/></svg></button>
-  <div id="np-bar"><div id="np-fill"></div></div>
-  <span id="np-time" class="mono">0:00 / 0:00</span>
+  <button class="pw" id="pw" type="button">power</button>
+  <div class="tip">点一下 · 或按 <kbd>space</kbd> / <kbd>enter</kbd> 进入今日精选</div>
+  <div class="foot">© 2026 MUSIC DAILY · PERSONAL USE · COVER &amp; PREVIEW VIA PUBLIC MUSIC API</div>
 </div>
-
-<script>
-// LCD boot 打字机
-const boot=document.getElementById('boot'), BOOT=boot?boot.dataset.text:'';
-if(boot){let i=0;boot.textContent='';(function type(){if(i<=BOOT.length){boot.innerHTML=BOOT.slice(0,i)+'<span class="cur">▋</span>';i++;setTimeout(type,26);}else{boot.textContent=BOOT;}})();}
-
-// 卡片分级进场（渐进增强：默认可见，仅 JS 正常时启用进场动画，避免 JS 出错整页空白）
-if('IntersectionObserver' in window){
-  document.body.classList.add('anim');
-  const io=new IntersectionObserver((es)=>{es.forEach((e,k)=>{if(e.isIntersecting){const el=e.target;
-    setTimeout(()=>el.classList.add('in'),(el.dataset.d||0)*1);io.unobserve(el);}});},{threshold:.12});
-  document.querySelectorAll('.mod').forEach((m,k)=>{m.dataset.d=(k%6)*70;io.observe(m);});
-}
-
-function copyNC(){const t=document.getElementById('nc-text').innerText;
-  navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('nc-btn'),o=b.innerText;
-    b.innerText='copied ✓';setTimeout(()=>b.innerText=o,1600);});}
-
-// 30s 试听：单例 audio + 底部条；整期贯穿(自动续播/上一首/下一首)、键盘、切歌互斥（iTunes 公开 previewUrl，仅预览非整曲）
+<script>const HITURL='https://abacus.jasoncameron.dev/hit/tianding0159-music-daily/landing';
 (function(){
-  var au=new Audio(), cur=null;
-  var btns=[].slice.call(document.querySelectorAll('.pbtn'));
-  var np=document.getElementById('np'), C=document.getElementById('np-cover'),
-      T=document.getElementById('np-title'), A=document.getElementById('np-artist'),
-      BAR=document.getElementById('np-bar'), FILL=document.getElementById('np-fill'),
-      TIME=document.getElementById('np-time'), TOG=document.getElementById('np-toggle'),
-      PREV=document.getElementById('np-prev'), NEXT=document.getElementById('np-next');
-  function fmt(s){if(!isFinite(s)||s<0)s=0;s=Math.floor(s);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
-  function mark(on){if(cur)cur.classList.toggle('playing',on);if(np)np.classList.toggle('playing',on);}
-  au.addEventListener('timeupdate',function(){if(au.duration&&FILL){FILL.style.width=(au.currentTime/au.duration*100)+'%';TIME.textContent=fmt(au.currentTime)+' / '+fmt(au.duration);}});
-  au.addEventListener('play',function(){mark(true);});
-  au.addEventListener('pause',function(){mark(false);});
-  au.addEventListener('ended',function(){mark(false);if(FILL)FILL.style.width='0%';step(1);});
-  function load(b){var src=b.dataset.src;if(!src)return;
-    if(cur)cur.classList.remove('playing');
-    au.src=src;cur=b;
-    if(C)C.src=b.dataset.cover||'';if(T)T.textContent=b.dataset.title||'';if(A)A.textContent=b.dataset.artist||'';
-    if(np)np.classList.add('on');au.play();}
-  function playCard(b){if(cur===b){if(au.paused)au.play();else au.pause();return;}load(b);}
-  function step(d){if(!btns.length)return;var i=cur?btns.indexOf(cur):-1;var j=i+d;
-    if(j<0)j=btns.length-1;if(j>=btns.length)j=0;load(btns[j]);}
-  btns.forEach(function(b){b.addEventListener('click',function(){playCard(b);});});
-  if(TOG)TOG.addEventListener('click',function(){if(!cur){if(btns[0])load(btns[0]);return;}if(au.paused)au.play();else au.pause();});
-  if(PREV)PREV.addEventListener('click',function(){step(-1);});
-  if(NEXT)NEXT.addEventListener('click',function(){step(1);});
-  if(BAR)BAR.addEventListener('click',function(e){if(!au.duration)return;var r=BAR.getBoundingClientRect();au.currentTime=(e.clientX-r.left)/r.width*au.duration;});
-  document.addEventListener('keydown',function(e){var tag=(e.target.tagName||'').toLowerCase();if(tag==='input'||tag==='textarea')return;
-    if(e.code==='Space'){e.preventDefault();if(!cur){if(btns[0])load(btns[0]);}else if(au.paused)au.play();else au.pause();}
-    else if(e.key==='ArrowRight'){step(1);}else if(e.key==='ArrowLeft'){step(-1);}});
-})();
+  var LINES = document.querySelectorAll('.ln');
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var i = 0;
+  function step(){
+    if(i >= LINES.length) return;
+    var el = LINES[i++];
+    el.classList.add('on');
+    setTimeout(function(){ el.classList.add('done'); }, 190);
+    setTimeout(step, 330);
+  }
+  if(reduce){ LINES.forEach(function(l){ l.classList.add('on','done'); }); }
+  else { setTimeout(step, 260); }
 
-// heart 收藏：localStorage 跨期累计 + 只看收藏 + 导出网易云
-(function(){
-  var KEY='md_hearts';
-  function ld(){try{return JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){return [];}}
-  function sv(a){try{localStorage.setItem(KEY,JSON.stringify(a));}catch(e){}}
-  var hearts=ld(), nEl=document.getElementById('fav-n');
-  function applyFilter(){var on=document.body.classList.contains('fav-mode');
-    document.querySelectorAll('.mod').forEach(function(m){if(m.classList.contains('fill'))return;
-      m.classList.toggle('hidden', on && hearts.indexOf(m.dataset.k)<0);});}
-  function pageHits(){var n=0;document.querySelectorAll('.mod').forEach(function(m){
-    if(!m.classList.contains('fill') && m.dataset.k && hearts.indexOf(m.dataset.k)>=0)n++;});return n;}
-  function refresh(){document.querySelectorAll('.heart').forEach(function(h){h.classList.toggle('on',hearts.indexOf(h.dataset.k)>=0);});
-    if(nEl)nEl.textContent=pageHits();}   /* 数本页命中，不数跨期总收藏——按钮做的是本页筛选 */
-  document.querySelectorAll('.heart').forEach(function(h){h.addEventListener('click',function(){
-    var k=h.dataset.k,i=hearts.indexOf(k);if(i>=0)hearts.splice(i,1);else hearts.push(k);sv(hearts);refresh();applyFilter();});});
-  var only=document.getElementById('fav-only');
-  /* 只改 label 文本，不用 innerHTML 整体替换 —— 那会把 #fav-n 换成新节点，
-     JS 手里的 nEl 变成游离引用，之后 refresh() 全写进空气里。 */
-  var lbEl=document.getElementById('fav-lb');
-  function hint(msg){if(!lbEl)return; var o=lbEl.textContent; lbEl.textContent=msg;
-    if(nEl)nEl.style.display='none';
-    setTimeout(function(){lbEl.textContent=o;if(nEl)nEl.style.display='';refresh();},1900);}
-  if(only)only.addEventListener('click',function(){
-    if(!document.body.classList.contains('fav-mode') && pageHits()===0){
-      /* 判「本页有没有命中」而不是「有没有收藏过」：只在往期收藏过时，本页筛完是空的 */
-      hint(hearts.length ? '本期没有收藏 · 往期 ARCHIVE 里有 '+hearts.length+' 首'
-                         : '还没收藏 · 点卡片右上角 ♥'); return;}
-    document.body.classList.toggle('fav-mode');
-    only.classList.toggle('active',document.body.classList.contains('fav-mode'));applyFilter();});
-  var exp=document.getElementById('fav-export'), box=document.getElementById('fav-box'), txt=document.getElementById('fav-text');
-  if(exp)exp.addEventListener('click',function(){
-    txt.textContent=hearts.length?('我收藏的 · MUSIC DAILY（含往期，共 '+hearts.length+' 首）\n'+hearts.join('\n')):'（还没有收藏。点每首右上角的 heart 即可）';
-    box.style.display='block';box.scrollIntoView({behavior:'smooth'});});
-  refresh();
+  // 访客计数：Abacus /hit 自增并返回当前值。第三方挂了就留 "—"，绝不挡入场。
+  var slot = document.getElementById('vis');
+  if(slot){
+    fetch(HITURL, {cache:'no-store'})
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(d){
+        var n = d && (d.value != null ? d.value : d.count);
+        if(n == null) return;
+        slot.textContent = String(n).padStart(5,'0');
+        slot.parentElement.classList.remove('warn');
+      })
+      .catch(function(){});
+  }
+
+  var going = false;
+  function go(){
+    if(going) return; going = true;
+    try{ sessionStorage.setItem('md_entered','1'); }catch(e){}
+    document.body.classList.add('go');
+    setTimeout(function(){ location.href = 'daily.html'; }, reduce ? 60 : 660);
+  }
+  document.getElementById('pw').addEventListener('click', go);
+  addEventListener('keydown', function(e){
+    if(e.key === ' ' || e.key === 'Enter'){ e.preventDefault(); go(); }
+  });
 })();
-function copyFav(){var t=document.getElementById('fav-text').innerText;
-  navigator.clipboard.writeText(t).then(function(){var b=document.getElementById('fav-copy'),o=b.innerText;
-    b.innerText='copied ✓';setTimeout(function(){b.innerText=o;},1600);});}
 </script>
 </body>
 </html>

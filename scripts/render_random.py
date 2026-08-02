@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import json
 
+from lightbox import LIGHTBOX_CSS, LIGHTBOX_HTML, lightbox_js
 from render_grid import (CSS, ICON_CAT, ICON_BOWL, ICON_BALL, ICON_PLAY, ICON_PAUSE,
                          ICON_HEART, KNOB, TAG_MAP, _esc)
 
@@ -50,15 +51,15 @@ body{padding-bottom:76px}
 #roll{flex:0 0 auto; min-width:clamp(160px,26vw,260px); border:none; cursor:pointer; position:relative;
   background:var(--ink); color:var(--white); font-family:var(--mono); font-size:var(--fs-20);
   text-transform:uppercase; letter-spacing:.08em; padding:14px 24px; display:flex; overflow:hidden;
-  align-items:baseline; justify-content:center; gap:13px; min-height:72px;
+  align-items:center; justify-content:center; gap:13px; min-height:72px;
   transition:background .2s, transform .1s}
 #roll:hover{background:var(--g1000)}
 #roll:active{transform:scale(.985)}
 #roll.rolling{background:var(--green-d)}
 #roll .k{font-size:var(--fs-10); color:var(--g300); letter-spacing:.06em; position:relative; z-index:1;
-  /* #roll 用 align-items:baseline，但 mono 小号字的基线盒比 .lab 略高，补 2px 压平 */
-  top:2px}
-#roll .lab{position:relative; z-index:1}
+  /* 按钮已改 align-items:center，三个不同字号的元素靠中线共线，不再需要逐个 top 补偿 */
+  line-height:1}
+#roll .lab{position:relative; z-index:1; line-height:1}
 /* 按下时从中心荡开的波纹 */
 #roll::after{content:""; position:absolute; left:50%; top:50%; width:34px; height:34px;
   border-radius:50%; border:1px solid rgba(255,255,255,.5);
@@ -91,8 +92,12 @@ body{padding-bottom:76px}
 
 .hint{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:8px}
 .hint b{color:var(--ink); font-weight:400}
-.hint kbd{border:1px solid var(--g300); padding:1px 6px; background:var(--white);
-  display:inline-block; line-height:1.4; vertical-align:middle; position:relative; top:-1px}
+.hint kbd{border:1px solid var(--g300); background:var(--white); vertical-align:middle;
+  /* 文字在方框正中：inline-flex 居中 + line-height:1，别靠 padding 和 line-height 凑
+     （之前外框 22.2px、line-height 18.2px，余量上下不等，字就偏上了） */
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:1.9em; height:1.55em; padding:0 .45em; line-height:1;
+  position:relative; top:-.05em}
 
 /* 单张大卡 */
 .card{border:1px solid var(--g300); background:var(--paper); margin-top:var(--sp-md);
@@ -332,6 +337,43 @@ body.has-basket{padding-bottom:134px}
   #roll{flex:1 1 100%; min-width:0}
   .fsel{flex:1 1 50%}
 }
+
+/* ── 竖屏（手机）适配，基准 iPhone 390×844 ──
+   实测问题：①三个筛选各占一整行，光筛选就吃掉半屏 ②「另起一首」按钮 72px 偏高
+   ③the pick 里封面 232px 与右侧文字并排，两边都憋 ④hint 一行字折成三行 */
+@media(max-width:520px){
+  .wrap{padding-inline:16px}
+  .nav .wrap{height:52px}
+  .brand{font-size:14px; gap:8px; white-space:nowrap; flex:none}
+  .brand .sq{width:11px; height:11px}
+  .nav .serial{gap:10px; flex-wrap:nowrap; font-size:9px; overflow:hidden}
+  .nav .serial>*:nth-child(n+3){display:none}
+  .hero{padding:20px 0 14px; gap:12px}
+  .hero .h-l h1{font-size:34px}
+  .hero .h-r .big{font-size:30px; display:inline-block; margin-right:6px}
+  /* 筛选：改 grid 两列（mood/genre 并排、decade 跨两列）。
+     不能用 flex:1 1 50% —— 实测父级 min-width:0 后 .fsel 被压成 1px 宽，
+     select 文字整个挤没、只剩 ::after 的 ▾ 箭头。grid 显式分列才稳。 */
+  .filters{display:grid; grid-template-columns:1fr 1fr; min-width:0; flex:none; width:100%}
+  .fsel{min-width:0; border-bottom:1px solid var(--g100)}
+  .fsel:nth-child(2){border-right:none}
+  .fsel:nth-child(3){grid-column:1 / -1; border-right:none; border-bottom:none}
+  .fsel select{min-height:56px; padding:20px 26px 6px 12px; font-size:13px}
+  .fsel .lbl{left:12px; top:6px}
+  #roll{min-height:58px; padding:12px 16px; gap:10px; font-size:14px; width:100%}
+  #roll .dice{width:26px; height:26px}
+  .hint{font-size:9px; line-height:1.9}
+  /* the pick：封面横铺在上、文字在下，别在 390px 里硬并排 */
+  .card .c-main{flex-direction:column; gap:14px; padding:14px}
+  .card .big-art{width:100%; max-width:none; aspect-ratio:1}
+  .card .c-hd{min-width:0}
+  .card .c-title{font-size:26px}
+  .card .c-links{gap:6px}
+  .card .c-links>*{flex:1 1 calc(50% - 3px); justify-content:center; text-align:center}
+  .recent{grid-template-columns:1fr}
+  #basket{bottom:70px; padding:8px 14px}
+  footer{flex-direction:column; gap:6px; text-align:center}
+}
 @media(prefers-reduced-motion:reduce){
   .card,.card.in,.card .big-art .cover,.card.in .c-title,.card.in .c-artist,.card.in .c-meta,
   .card.in .tags,.card.in .c-one,.card.in .c-why,.card.in .c-scene,.card.in .c-links,
@@ -418,6 +460,17 @@ function match(t){
 }
 function pool(){return POOL.filter(match)}
 
+// 浮层要用的 data-*（与日报 _lb_data 同一套字段，浮层组件是共用的）
+function lbData(t){
+  const A=(k,v)=>' data-'+k+'="'+String(v==null?'':v).replace(/&/g,'&amp;').replace(/"/g,'&quot;')+'"';
+  const tags=[].concat((t.genres||[]).slice(0,3),(t.mood_tags||[]).slice(0,3)).map(tgm).join('|');
+  return A('cover',t.c)+A('title',t.title)+A('artist',t.artist)+A('year',t.year)
+       +A('album',t.album)+A('bpm',t.bpm_band||'')+A('tags',tags)
+       +A('one',t.artist_oneliner||'')+A('why',t.why||'')+A('scene',t.scene||'')
+       +A('apple',t.a||'')+A('spotify','https://open.spotify.com/search/'
+         +encodeURIComponent((t.title||'')+' '+(t.artist||'')));
+}
+
 function render(t){
   const art=t.c?('<img class="cover" src="'+t.c+'" alt="">')
                 :('<div class="cover ph">'+((t.artist||'?')[0]||'?').toUpperCase()+'</div>');
@@ -439,7 +492,9 @@ function render(t){
   card.className='card';
   card.innerHTML='<div class="c-top"><span class="c-no">pick \\u00b7 '+String(seen.length).padStart(3,'0')+' / '+pool().length+'</span>'
     +'<span class="c-tag"><span class="m-code" style="background:'+knob(g0)+'">'+g0+'</span></span></div>'
-    +'<div class="c-main"><div class="big-art">'+art+pb+'</div>'
+    +'<div class="c-main"><div class="big-art cover-zoom" role="button" tabindex="0"'
+    +' aria-label="\\u770b\\u5927\\u56fe\\u4e0e\\u8be6\\u60c5"'
+    +lbData(t)+'>'+art+pb+'</div>'
     +'<div class="c-hd"><div class="c-title lc">'+t.title+'</div>'
     +'<div class="c-artist">'+t.artist+'</div><div class="c-meta">'+meta+'</div>'
     +'<div class="tags" style="margin-top:10px">'+tags+'</div>'
@@ -592,14 +647,14 @@ def build_html(n_total: int) -> str:
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
-<style>{CSS}{EXTRA_CSS}</style>
+<style>{CSS}{EXTRA_CSS}{LIGHTBOX_CSS}</style>
 </head>
 <body>
 <nav class="nav">
   <div class="wrap">
     <div class="brand"><span class="sq"></span>MUSIC DAILY</div>
     <div class="serial"><span>mode <b>shuffle</b></span><span>pool <b>{n_total}</b></span>
-      <span><a href="index.html" style="border-bottom:1px solid var(--g300)">← 今日精选</a></span></div>
+      <span><a href="daily.html" style="border-bottom:1px solid var(--g300)">← 今日精选</a></span></div>
   </div>
 </nav>
 
@@ -645,7 +700,7 @@ def build_html(n_total: int) -> str:
 
   <footer>
     <span>MUSIC DAILY · shuffle</span>
-    <span><a href="index.html" style="border-bottom:1px solid var(--g300)">今日精选 →</a></span>
+    <span><a href="daily.html" style="border-bottom:1px solid var(--g300)">今日精选 →</a></span>
     <span>cover &amp; preview via public music api · personal use</span>
   </footer>
 </main>
@@ -676,6 +731,8 @@ def build_html(n_total: int) -> str:
   <span id="np-time" class="mono">0:00 / 0:00</span>
 </div>
 
+{LIGHTBOX_HTML}
 <script>{js}</script>
+<script>{lightbox_js('.big-art')}</script>
 </body>
 </html>"""

@@ -279,10 +279,15 @@ a{color:inherit; text-decoration:none}
 /* 规格条 */
 .spec{border:1px solid var(--g300); border-bottom:none; font-family:var(--mono);
   font-size:var(--fs-10); text-transform:uppercase; color:var(--g600);
-  display:grid; grid-template-columns:repeat(4,1fr)}
-.spec div{padding:9px 14px; border-right:1px solid var(--g100)}
+  /* 前三格按内容取宽，genres 吃剩余空间：四等分会把 6 个流派的长串挤成参差的两三行 */
+  display:grid; grid-template-columns:auto auto auto minmax(0,1fr); align-items:stretch}
+.spec div{padding:9px 14px; border-right:1px solid var(--g100);
+  display:flex; align-items:baseline; gap:7px; min-width:0}
 .spec div:last-child{border-right:none}
-.spec b{color:var(--ink); font-weight:700}
+.spec b{color:var(--ink); font-weight:700; letter-spacing:.02em}
+/* genres 那格：长串单行排列，超出用省略号，不折成参差的多行 */
+.spec .gl{display:flex; align-items:baseline; gap:7px; min-width:0; flex:1}
+.spec .gl b{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0}
 
 /* 分区标题 */
 .sect{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; letter-spacing:.14em;
@@ -407,6 +412,47 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
   .grid{grid-template-columns:1fr}
   .hero{align-items:flex-start}
   .m-main{flex-direction:row}
+  .spec{grid-template-columns:repeat(2,1fr)}
+  .spec div:nth-child(2n){border-right:none}
+  .spec div:nth-child(-n+2){border-bottom:1px solid var(--g100)}
+}
+
+/* ── 竖屏（手机）适配：以 iPhone 390×844 为基准 ──
+   问题都是实测出来的，不是猜的：①logo「MUSIC DAILY」被折成两行
+   ②顶栏右侧 serial 三段挤成两排 ③规格条四列在 390 下每格都折行、genres 那格压成竖带
+   ④大数字与右侧说明断开 ⑤卡片内封面+文字并排太挤 */
+@media(max-width:520px){
+  .wrap{padding-inline:16px}
+  /* 顶栏：logo 不许折行，右侧信息只留最要紧的两段 */
+  .nav .wrap{height:52px}
+  .brand{font-size:14px; gap:8px; white-space:nowrap; flex:none}
+  .brand .sq{width:11px; height:11px}
+  .nav .serial{gap:10px; flex-wrap:nowrap; font-size:9px; overflow:hidden}
+  .nav .serial>*:nth-child(n+3){display:none}   /* 只留前两段，别挤成两排 */
+  /* Hero：大数字与说明并成一行，别各占一块 */
+  .hero{padding:20px 0 14px; gap:12px; align-items:flex-end}
+  .hero .h-l h1{font-size:34px}
+  .hero .h-l .en{margin-top:7px; font-size:9px; letter-spacing:.04em}
+  .hero .h-r{line-height:1.5; font-size:9px}
+  .hero .h-r .big{font-size:30px; display:inline-block; margin-right:6px}
+  /* 规格条：四列改单列，genres 长串不再被压成竖带 */
+  .spec{grid-template-columns:1fr}
+  .spec div{border-right:none; border-bottom:1px solid var(--g100); padding:8px 12px;
+    display:flex; justify-content:space-between; gap:10px}
+  .spec div:last-child{border-bottom:none}
+  .spec b{text-align:right}
+  /* 工具按钮：一行放不下就整行铺满，别半截换行 */
+  .tools{gap:7px}
+  .tools .tbtn{flex:1 1 calc(50% - 4px); justify-content:center; padding:9px 8px; font-size:10px}
+  /* 卡片：封面与文字改上下叠，封面横铺（竖屏并排 130px 封面太憋） */
+  .m-main{flex-direction:column !important; gap:12px; padding:12px 12px 0}
+  .m-main .art{width:100%; aspect-ratio:16/10}
+  .m-top{padding:10px 12px}
+  .body{padding:0 12px 12px}
+  /* LCD：猫和跑马灯在窄屏共存，缩小猫舞台 */
+  .lcd .row1{min-height:40px; padding:7px 12px; gap:7px}
+  .lcd .cat-wrap{transform:scale(.85); transform-origin:center bottom}
+  footer{flex-direction:column; gap:6px; text-align:center}
 }
 @media(prefers-reduced-motion:reduce){
   .mod{opacity:1; transform:none; transition:none}
@@ -525,6 +571,7 @@ def _spsearch(track: dict) -> str:
 # 展示层 tag 归一。mood 的受控词表 SSOT 在 scripts/mood_vocab.py（32 个英文词），
 # 这里只做「历史写法 → 受控词」的转发，不再自己维护一份同义词表（那会和词表漂移）。
 # genres 已在 pool 里归一为小写，CSS 负责转大写显示。
+from lightbox import LIGHTBOX_CSS, LIGHTBOX_HTML, lightbox_js  # noqa: E402
 from mood_vocab import ALIASES as _MOOD_ALIASES  # noqa: E402
 
 TAG_MAP = dict(_MOOD_ALIASES)
@@ -558,6 +605,24 @@ def _bpm(track: dict) -> tuple[str, str]:
     return f"{b} bpm", BPM_TIERS[-1][2]
 
 
+def _lb_data(track: dict) -> str:
+    """浮层要用的 data-*，挂在封面容器上（点封面任意处都能开，不只是图片本身）。"""
+    bpm, _c = _bpm(track)
+    tags = "|".join(_tag(x) for x in
+                    list(track.get("genres") or [])[:3] + list(track.get("mood_tags") or [])[:3])
+    return (f' data-cover="{_esc(track.get("_cover") or track.get("artwork") or "")}"'
+            f' data-title="{_esc(track.get("title", ""))}"'
+            f' data-artist="{_esc(track.get("artist", ""))}"'
+            f' data-year="{_esc(str(track.get("year", "")))}"'
+            f' data-album="{_esc(track.get("album", ""))}"'
+            f' data-bpm="{_esc(bpm)}" data-tags="{_esc(tags)}"'
+            f' data-one="{_esc(track.get("artist_oneliner", ""))}"'
+            f' data-why="{_esc(track.get("why", ""))}"'
+            f' data-scene="{_esc(track.get("scene", ""))}"'
+            f' data-apple="{_esc(track.get("_apple") or "")}"'
+            f' data-spotify="{_esc(_spsearch(track))}"')
+
+
 def _art(track: dict) -> str:
     art = track.get("_cover") or track.get("artwork") or ""
     if art:
@@ -569,7 +634,8 @@ def _art(track: dict) -> str:
             f'data-cover="{_esc(art)}" data-title="{_esc(track.get("title",""))}" '
             f'data-artist="{_esc(track.get("artist",""))}" aria-label="试听 30 秒">'
             f'{ICON_PLAY}{ICON_PAUSE}</button>') if prev else ""
-    return f'<div class="art">{cover}{pbtn}</div>'
+    return (f'<div class="art cover-zoom" role="button" tabindex="0"'
+            f' aria-label="看大图与详情"{_lb_data(track)}>{cover}{pbtn}</div>')
 
 
 def _mod(track: dict, idx: int) -> str:
@@ -650,7 +716,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
-<style>{CSS}</style>
+<style>{CSS}{LIGHTBOX_CSS}</style>
 </head>
 <body>
 <nav class="nav">
@@ -676,7 +742,8 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
 
   <div class="spec">
     <div>sort <b>melody-first</b></div><div>bpm <b>70–120</b></div>
-    <div>tracks <b>{n:02d}</b></div><div>genres <b>{genre_line or '—'}</b></div>
+    <div>tracks <b>{n:02d}</b></div>
+    <div class="gl">genres <b>{genre_line or '—'}</b></div>
   </div>
 
   <div class="tools">
@@ -726,7 +793,9 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
   <span id="np-time" class="mono">0:00 / 0:00</span>
 </div>
 
+{LIGHTBOX_HTML}
 <script>{js}</script>
+<script>{lightbox_js('.art')}</script>
 </body>
 </html>"""
 
@@ -754,7 +823,7 @@ def build_archive_index(issues: list[dict]) -> str:
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
-<style>{CSS}</style>
+<style>{CSS}{LIGHTBOX_CSS}</style>
 </head>
 <body>
 <nav class="nav"><div class="wrap">
@@ -764,7 +833,7 @@ def build_archive_index(issues: list[dict]) -> str:
 <main class="wrap">
   <div class="hero"><div class="h-l"><h1 class="lc">往期</h1>
     <div class="en">archive · all issues</div></div>
-    <div class="h-r"><span class="big">{len(issues):02d}</span>issues<br><a href="../index.html" style="border-bottom:1px solid var(--g300)">← 最新一期</a></div>
+    <div class="h-r"><span class="big">{len(issues):02d}</span>issues<br><a href="../daily.html" style="border-bottom:1px solid var(--g300)">← 最新一期</a></div>
   </div>
   <div class="arc">
     {rows}
