@@ -1,12 +1,13 @@
-"""把 pool.json 里的三段文案回填进已生成的 issue 快照。
+"""把 pool.json 里的文案与分类标签回填进已生成的 issue 快照。
 
 为什么需要它：快照(data/issues/*.json)是不可变的——build_daily 当天生成后就复用，
 所以池里改了文案，已发布的往期页不会自己更新。之前手动回填过一次，
 结果 rebase 从远端带下来两期新快照又漏了（08-01 / 08-02 全 30 首停在旧文案）。
 一次性脚本必然重复漏，故固化成可重跑工具 + 接进测试。
 
-只回填文案三段（artist_oneliner / why / scene），不动选曲、不动 issue_no、不动日期——
-快照的「哪天发了哪 30 首」这个事实仍然不可变，改的只是同一首歌的描述文字。
+只回填描述性字段（文案三段 + mood_tags / genres），不动选曲、不动 issue_no、不动日期——
+快照的「哪天发了哪 30 首」这个事实仍然不可变，改的只是同一首歌的描述与标签。
+标签也必须跟：池里把 mood_tags 归一成受控英文词后，快照不跟就会继续显示旧中文 tag。
 netease_text 里嵌了歌单文本，也跟着重建。
 
 用法：
@@ -25,7 +26,9 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 POOL = ROOT / "data" / "pool.json"
 ISSUES = ROOT / "data" / "issues"
-FIELDS = ("artist_oneliner", "why", "scene")
+# 文案三段 + 分类标签。标签也要跟——快照存的是当天那版 mood_tags/genres，
+# 池里归一后（357 个中英杂项 → 32 个受控英文词）快照不会自己跟上，日报页会继续显示旧中文 tag。
+FIELDS = ("artist_oneliner", "why", "scene", "mood_tags", "genres")
 
 
 def scan() -> tuple[list[tuple[str, int, int]], int]:

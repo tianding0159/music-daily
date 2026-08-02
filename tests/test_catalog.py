@@ -24,7 +24,7 @@ import validate_candidates as vc  # noqa: E402
 def _good_cand(**over):
     t = {"title": "So Many Details", "artist": "Toro y Moi", "year": "2013",
          "album": "Anything in Return", "genres": ["indietronica", "dream pop"],
-         "mood_tags": ["城市夜晚", "颗粒感"], "production_tags": ["soft compression"],
+         "mood_tags": ["late night", "grainy"], "production_tags": ["soft compression"],
          "instrumentation": ["synth"], "vocal_style": "气声", "bpm_band": "90–100",
          "has_melody": True, "familiarity": "likely-unheard",
          "scene": "深夜末班地铁靠窗，玻璃把你映成陌生人的那十分钟",
@@ -159,7 +159,7 @@ def test_blacklist_never_relaxed_and_melody_required():
 
 def _ok_track(**over):
     t = {"id": "t1", "title": "T", "artist": "A", "year": "2020", "album": "Al",
-         "genres": ["dream pop"], "mood_tags": ["温柔"], "has_melody": True,
+         "genres": ["dream pop"], "mood_tags": ["tender"], "has_melody": True,
          "familiarity": "likely-unheard", "fit_score": 80, "bpm_band": "70–120",
          "source_url": "https://example.com/a", "source": "bandcamp",
          "production_tags": ["tape"], "instrumentation": ["guitar"], "vocal_style": "soft",
@@ -217,6 +217,26 @@ def test_validate_candidates_rejects_bad_copy():
     errs = vc.validate_track(_ok_track(artist_oneliner="一个慵懒的歌手，声音很治愈。"))
     assert any("黑名单" in e for e in errs), errs
     assert not vc.validate_track(_ok_track()), vc.validate_track(_ok_track())
+
+
+def test_mood_vocab_is_controlled_and_pool_conforms():
+    """mood_tags 必须全部落在受控英文词表内，且候选校验用 CANON 而非别名表做准入。
+
+    别名表(ALIASES)是给历史数据兼容用的，若拿它当白名单，「缺一角」「圆钝」这些
+    正要淘汰的旧写法反而会被放行——踩过一次，故固化。
+    """
+    import mood_vocab
+
+    assert all(m.isascii() for m in mood_vocab.CANON), "受控词须全英文"
+    pool = json.loads((ROOT / "data" / "pool.json").read_text(encoding="utf-8"))
+    bad = {m for t in pool for m in (t.get("mood_tags") or []) if m not in mood_vocab.CANON}
+    assert not bad, f"池里有 {len(bad)} 个表外 mood: {sorted(bad)[:8]}"
+    # 别名表里的旧写法必须被候选校验拦下（不能因在 ALIASES 里就放行）
+    legacy = next(a for c, alts in mood_vocab.CANON.items() for a in alts if a not in mood_vocab.CANON)
+    t = _ok_track()
+    t["mood_tags"] = [legacy]
+    assert any("受控英文词" in e for e in vc.validate_track(t)), \
+        f"旧写法 {legacy!r} 应被拦下，却放行了"
 
 
 def test_snapshots_copy_in_sync_with_pool():

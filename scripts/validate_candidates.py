@@ -12,6 +12,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import copy_check  # noqa: E402
+import mood_vocab  # noqa: E402
 
 FAMILIARITY = {"likely-unheard", "possibly-known", "classic-known"}
 REQUIRED = ["title", "artist", "year", "album", "genres", "mood_tags", "production_tags",
@@ -61,6 +62,16 @@ def validate_track(t: dict) -> list[str]:
         errs.append("scene 是功能标签(如通勤/放松)，需具体场景")
     if len(scene) < 6:
         errs.append("scene 过短")
+    # mood_tags 必须落在受控英文词表内（SSOT: scripts/mood_vocab.py）。
+    # 不拦的后果：每批候选各写一套同义词，池里 mood 类别会重新散开——
+    # 曾散到 357 类、250+ 只出现一次，筛选下拉和多样性配额双双失效。
+    # 注意用 CANON 而非 canon()：别名表是给历史数据做兼容的，不能当准入白名单——
+    # 否则「缺一角」「圆钝」这些正是要淘汰的旧写法会因为在别名表里而被放行。
+    # 新候选必须直接写受控词本身。
+    bad_moods = [m for m in (t.get("mood_tags") or []) if m not in mood_vocab.CANON]
+    if bad_moods:
+        errs.append(f"mood_tags 须直接用受控英文词: {bad_moods}"
+                    f"（可选 {len(mood_vocab.CANON)} 个，见 scripts/mood_vocab.py CANON）")
     # 文案口径（与 healthcheck 同一个 copy_check，口径只有一份）：
     # 单条能查的两项 —— 黑名单词、圣经范例句被原样抄。
     # 占比类指标要整批才有意义，放在 validate_batch。

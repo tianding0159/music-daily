@@ -76,9 +76,19 @@ def score(track: dict) -> float:
     return float(track.get("fit_score", 60)) + 4.0 * float(track.get("genre_stars", 3))
 
 
+def _canon_mood(m: str) -> str:
+    """气质名归一到受控词表（SSOT: scripts/mood_vocab.py）。
+
+    不归一的后果：同义写法在多样性算法眼里是不同气质，一期里挑三首同气质的歌
+    还以为凑够了反差。池里曾有 357 个 mood 写法，收敛后是 32 个受控英文词。
+    """
+    import mood_vocab
+    return _norm(mood_vocab.canon(m) or m)
+
+
 def _primary_mood(track: dict) -> str:
     moods = track.get("mood_tags") or ["其他"]
-    return _norm(moods[0])
+    return _canon_mood(moods[0])
 
 
 # 动态反差：识别"上扬/groove/明快"曲，避免整期全是软调（温柔/木质/松弛）

@@ -13,15 +13,15 @@
       "year": "2018",
       "album": "Show Me How",
       "genres": [
-        "Dream Pop",
-        "Bedroom Pop",
-        "Indietronica"
+        "dream pop",
+        "bedroom pop",
+        "indietronica"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "温柔",
-        "松弛",
-        "空气感"
+        "tender",
+        "unhurried",
+        "airy"
       ],
       "production_tags": [
         "soft compression",
@@ -66,15 +66,15 @@
       "year": "2017",
       "album": "New Energy",
       "genres": [
-        "Organic Electronic",
-        "Ambient Pop",
-        "Downtempo"
+        "organic electronic",
+        "ambient pop",
+        "downtempo"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "空气感",
-        "松弛",
-        "精致"
+        "airy",
+        "unhurried",
+        "restrained"
       ],
       "production_tags": [
         "granular",
@@ -118,15 +118,15 @@
       "year": "1977",
       "album": "Sunshower",
       "genres": [
-        "City Pop",
-        "Sophisti-pop",
-        "Jazz Pop"
+        "city pop",
+        "sophisti-pop",
+        "jazz pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "城市夜晚",
-        "精致",
-        "怀旧但现代"
+        "late night",
+        "restrained",
+        "nostalgic"
       ],
       "production_tags": [
         "analog warmth",
@@ -171,14 +171,14 @@
       "year": "2003",
       "album": "Veneer",
       "genres": [
-        "Ambient Folk",
-        "Indie Folk"
+        "ambient folk",
+        "indie folk"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "木质感",
-        "温柔",
-        "有人味"
+        "woody",
+        "tender",
+        "human"
       ],
       "production_tags": [
         "analog warmth",
@@ -221,15 +221,15 @@
       "year": "2010",
       "album": "Crooks & Lovers",
       "genres": [
-        "Indietronica",
-        "Downtempo",
-        "Electro-acoustic"
+        "indietronica",
+        "downtempo",
+        "electro-acoustic"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "颗粒感",
-        "城市夜晚",
-        "空气感"
+        "grainy",
+        "late night",
+        "airy"
       ],
       "production_tags": [
         "granular",
@@ -275,14 +275,14 @@
       "year": "1983",
       "album": "Timely!!",
       "genres": [
-        "City Pop",
-        "Jazz Pop"
+        "city pop",
+        "jazz pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "夏天傍晚",
-        "松弛",
-        "怀旧但现代"
+        "summer dusk",
+        "unhurried",
+        "nostalgic"
       ],
       "production_tags": [
         "analog warmth",
@@ -334,11 +334,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "怀旧",
-        "夏夜",
-        "慵懒",
-        "VHS复古",
-        "城市霓虹"
+        "nostalgic",
+        "late night",
+        "unhurried"
       ],
       "production_tags": [
         "tape saturation",
@@ -389,11 +387,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "疗愈",
-        "漂浮",
-        "都市漫游",
-        "抚慰",
-        "静水深流"
+        "tender",
+        "floating",
+        "late night"
       ],
       "production_tags": [
         "saxophone",
@@ -444,10 +440,8 @@
       "genre_stars": 5,
       "mood_tags": [
         "tender",
-        "cozy",
-        "wistful",
         "warm",
-        "laid-back"
+        "melancholy"
       ],
       "production_tags": [
         "lo-fi",
@@ -498,11 +492,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "松弛",
-        "木质感",
-        "organic",
-        "空气感",
-        "夏天"
+        "unhurried",
+        "woody",
+        "organic"
       ],
       "production_tags": [
         "nylon guitar",
@@ -554,11 +546,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "sunny",
-        "breezy",
-        "nostalgic",
-        "playful",
-        "weightless"
+        "upbeat",
+        "airy",
+        "nostalgic"
       ],
       "production_tags": [
         "vintage synths",
@@ -602,17 +592,15 @@
       "year": "2021",
       "album": "Sensational",
       "genres": [
-        "quiet alternative R&B",
+        "quiet alternative r&b",
         "leftfield pop",
         "downtempo"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "cool",
-        "nocturnal",
-        "intimate",
-        "sultry",
-        "understated"
+        "wintry",
+        "late night",
+        "intimate"
       ],
       "production_tags": [
         "2-step garage groove",
@@ -656,18 +644,16 @@
       "year": "2023",
       "album": "Erotic Probiotic 2",
       "genres": [
-        "quiet alternative R&B",
+        "quiet alternative r&b",
         "indietronica",
         "dream pop",
         "leftfield pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "怀旧又现代",
-        "城市夜晚",
-        "温柔倔强",
-        "80s 暖调",
-        "孤独里有暖"
+        "nostalgic",
+        "late night",
+        "hopeful"
       ],
       "production_tags": [
         "卧室 synth",
@@ -717,11 +703,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "旧梦",
-        "褪色照片",
-        "60s 幽灵",
-        "朦胧忧伤",
-        "午夜电台"
+        "nostalgic",
+        "hazy",
+        "melancholy"
       ],
       "production_tags": [
         "tape saturation",
@@ -771,10 +755,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "明快",
-        "城市",
-        "复古摩登",
-        "轻盈"
+        "upbeat",
+        "late night",
+        "nostalgic"
       ],
       "production_tags": [
         "jangle guitar",
@@ -822,10 +805,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "城市黄昏",
-        "松弛",
-        "温柔",
-        "生活感"
+        "summer dusk",
+        "unhurried",
+        "tender"
       ],
       "production_tags": [
         "clean guitar",
@@ -873,11 +855,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "hypnotic",
-        "otherworldly",
-        "delicate",
-        "ritualistic",
-        "shimmering"
+        "dreamlike",
+        "fragile",
+        "restrained"
       ],
       "production_tags": [
         "granular processing",
@@ -921,14 +901,14 @@
       "year": "1998",
       "album": "Mezzanine",
       "genres": [
-        "Trip-Hop",
-        "Downtempo"
+        "trip-hop",
+        "downtempo"
       ],
       "genre_stars": 4,
       "mood_tags": [
-        "雨天",
-        "城市夜晚",
-        "温柔"
+        "rainy",
+        "late night",
+        "tender"
       ],
       "production_tags": [
         "analog warmth",
@@ -979,10 +959,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "夏日",
-        "青春",
-        "慵懒",
-        "怀旧"
+        "summer dusk",
+        "hopeful",
+        "unhurried"
       ],
       "production_tags": [
         "jangle guitar",
@@ -1030,10 +1009,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "都会夜晚",
-        "慵懒",
-        "复古",
-        "微醺"
+        "late night",
+        "unhurried",
+        "nostalgic"
       ],
       "production_tags": [
         "DX7 synth",
@@ -1077,16 +1055,14 @@
       "album": "Green Twins",
       "genres": [
         "neo soul",
-        "quiet alternative R&B",
+        "quiet alternative r&b",
         "psychedelic pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "朦胧",
-        "慵懒",
-        "烟雾感",
-        "深夜",
-        "迷幻温柔"
+        "hazy",
+        "unhurried",
+        "rainy"
       ],
       "production_tags": [
         "hazy reverb",
@@ -1130,15 +1106,15 @@
       "year": "2017",
       "album": "Process",
       "genres": [
-        "Neo Soul",
-        "Quiet Alternative R&B",
-        "Chamber Pop"
+        "neo soul",
+        "quiet alternative r&b",
+        "chamber pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "温柔",
-        "有人味",
-        "雨天"
+        "tender",
+        "human",
+        "rainy"
       ],
       "production_tags": [
         "felt piano",
@@ -1182,14 +1158,14 @@
       "year": "1990",
       "album": "Heaven or Las Vegas",
       "genres": [
-        "Dream Pop",
-        "Ambient Pop"
+        "dream pop",
+        "ambient pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "空气感",
-        "温柔",
-        "怀旧但现代"
+        "airy",
+        "tender",
+        "nostalgic"
       ],
       "production_tags": [
         "reverb space",
@@ -1234,15 +1210,15 @@
       "year": "2018",
       "album": "Negro Swan",
       "genres": [
-        "Neo Soul",
-        "Leftfield Pop",
-        "Quiet Alternative R&B"
+        "neo soul",
+        "leftfield pop",
+        "quiet alternative r&b"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "城市夜晚",
-        "温柔",
-        "精致"
+        "late night",
+        "tender",
+        "restrained"
       ],
       "production_tags": [
         "soft compression",
@@ -1287,14 +1263,14 @@
       "year": "1970",
       "album": "Bryter Layter",
       "genres": [
-        "Ambient Folk",
-        "Chamber Pop"
+        "ambient folk",
+        "chamber pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "木质感",
-        "温柔",
-        "怀旧但现代"
+        "woody",
+        "tender",
+        "nostalgic"
       ],
       "production_tags": [
         "analog warmth",
@@ -1339,15 +1315,15 @@
       "year": "2010",
       "album": "Lucky Shiner",
       "genres": [
-        "Organic Electronic",
-        "IDM",
-        "Downtempo"
+        "organic electronic",
+        "idm",
+        "downtempo"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "颗粒感",
-        "空气感",
-        "松弛"
+        "grainy",
+        "airy",
+        "unhurried"
       ],
       "production_tags": [
         "granular",
@@ -1391,14 +1367,14 @@
       "year": "1980",
       "album": "Ride On Time",
       "genres": [
-        "City Pop",
-        "Sophisti-pop"
+        "city pop",
+        "sophisti-pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "夏天傍晚",
-        "城市夜晚",
-        "怀旧但现代"
+        "summer dusk",
+        "late night",
+        "nostalgic"
       ],
       "production_tags": [
         "analog warmth",
@@ -1450,10 +1426,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "怀旧",
-        "空气感",
-        "城市夜晚",
-        "温柔"
+        "nostalgic",
+        "airy",
+        "late night"
       ],
       "production_tags": [
         "层叠合成器",
@@ -1503,10 +1478,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "松弛",
-        "城市夜晚",
-        "电影感",
-        "木质感"
+        "unhurried",
+        "late night",
+        "cinematic"
       ],
       "production_tags": [
         "analog warmth",
@@ -1558,11 +1532,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "怀旧又现代",
-        "空气感",
-        "梦幻",
-        "夏天傍晚",
-        "有人味"
+        "nostalgic",
+        "airy",
+        "dreamlike"
       ],
       "production_tags": [
         "synth pad",

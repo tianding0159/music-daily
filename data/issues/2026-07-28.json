@@ -13,15 +13,15 @@
       "year": "2009",
       "album": "Ambivalence Avenue",
       "genres": [
-        "Folktronica",
-        "Organic Electronic",
-        "Indietronica"
+        "folktronica",
+        "organic electronic",
+        "indietronica"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "木质感",
-        "颗粒感",
-        "夏天傍晚"
+        "woody",
+        "grainy",
+        "summer dusk"
       ],
       "production_tags": [
         "tape saturation",
@@ -66,15 +66,15 @@
       "year": "1996",
       "album": "空中キャンプ",
       "genres": [
-        "Dream Pop",
-        "Dub",
-        "Japanese Indie Pop"
+        "dream pop",
+        "dub",
+        "japanese indie pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "温柔",
-        "城市夜晚",
-        "怀旧但现代"
+        "tender",
+        "late night",
+        "nostalgic"
       ],
       "production_tags": [
         "reverb space",
@@ -120,15 +120,15 @@
       "year": "2015",
       "album": "Obscure Ride",
       "genres": [
-        "Japanese Indie Pop",
-        "Neo Soul",
-        "City Pop"
+        "japanese indie pop",
+        "neo soul",
+        "city pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "夏天傍晚",
-        "城市夜晚",
-        "松弛"
+        "summer dusk",
+        "late night",
+        "unhurried"
       ],
       "production_tags": [
         "warm bass",
@@ -174,15 +174,15 @@
       "year": "2001",
       "album": "Point",
       "genres": [
-        "Shibuya-kei",
-        "Art Pop",
-        "Ambient Pop"
+        "shibuya-kei",
+        "art pop",
+        "ambient pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "空气感",
-        "精致",
-        "颗粒感"
+        "airy",
+        "restrained",
+        "grainy"
       ],
       "production_tags": [
         "field recording",
@@ -227,14 +227,14 @@
       "year": "1984",
       "album": "Variety",
       "genres": [
-        "City Pop",
-        "Sophisti-pop"
+        "city pop",
+        "sophisti-pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "城市夜晚",
-        "怀旧但现代",
-        "精致"
+        "late night",
+        "nostalgic",
+        "restrained"
       ],
       "production_tags": [
         "analog warmth",
@@ -279,15 +279,15 @@
       "year": "2007",
       "album": "Ma Fleur",
       "genres": [
-        "Jazz Pop",
-        "Chamber Pop",
-        "Downtempo"
+        "jazz pop",
+        "chamber pop",
+        "downtempo"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "雨天",
-        "温柔",
-        "有人味"
+        "rainy",
+        "tender",
+        "human"
       ],
       "production_tags": [
         "felt piano",
@@ -332,15 +332,15 @@
       "year": "2002",
       "album": "Finally We Are No One",
       "genres": [
-        "Folktronica",
-        "Indietronica",
-        "Ambient Pop"
+        "folktronica",
+        "indietronica",
+        "ambient pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "颗粒感",
-        "空气感",
-        "怀旧但现代"
+        "grainy",
+        "airy",
+        "nostalgic"
       ],
       "production_tags": [
         "glitch",
@@ -386,15 +386,15 @@
       "year": "1998",
       "album": "Music Has the Right to Children",
       "genres": [
-        "IDM",
-        "Downtempo",
-        "Hypnagogic Pop"
+        "idm",
+        "downtempo",
+        "hypnagogic pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "怀旧但现代",
-        "颗粒感",
-        "松弛"
+        "nostalgic",
+        "grainy",
+        "unhurried"
       ],
       "production_tags": [
         "tape saturation",
@@ -439,15 +439,15 @@
       "year": "2016",
       "album": "Skiptracing",
       "genres": [
-        "Psychedelic Pop",
-        "Jazz Pop",
-        "Sophisti-pop"
+        "psychedelic pop",
+        "jazz pop",
+        "sophisti-pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "松弛",
-        "怀旧但现代",
-        "城市夜晚"
+        "unhurried",
+        "nostalgic",
+        "late night"
       ],
       "production_tags": [
         "analog warmth",
@@ -492,15 +492,15 @@
       "year": "1991",
       "album": "This Year's Girl",
       "genres": [
-        "Shibuya-kei",
-        "Jazz Pop",
-        "Art Pop"
+        "shibuya-kei",
+        "jazz pop",
+        "art pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "精致",
-        "怀旧但现代",
-        "松弛"
+        "restrained",
+        "nostalgic",
+        "unhurried"
       ],
       "production_tags": [
         "analog warmth",
@@ -546,16 +546,15 @@
       "album": "Whole Numbers Play the Basics",
       "genres": [
         "ambient pop",
-        "IDM(melodic)",
+        "idm(melodic)",
         "downtempo",
         "hypnagogic pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "怀旧",
-        "空气感",
-        "夏天傍晚",
-        "松弛"
+        "nostalgic",
+        "airy",
+        "summer dusk"
       ],
       "production_tags": [
         "tape saturation",
@@ -598,18 +597,16 @@
       "year": "1999",
       "album": "Scope",
       "genres": [
-        "IDM",
+        "idm",
         "glitch",
         "folktronica",
         "nu jazz"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "精致不炫技",
-        "颗粒感",
-        "organic electronic",
-        "有人味",
-        "松弛"
+        "restrained",
+        "grainy",
+        "organic"
       ],
       "production_tags": [
         "subtle glitch",
@@ -659,11 +656,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "有人味",
-        "松弛",
-        "organic electronic",
-        "温柔",
-        "怀旧又现代"
+        "human",
+        "unhurried",
+        "organic"
       ],
       "production_tags": [
         "live band",
@@ -712,11 +707,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "朦胧",
-        "夜色",
-        "内省",
-        "数码微光",
-        "温柔忧郁"
+        "hazy",
+        "late night",
+        "introspective"
       ],
       "production_tags": [
         "woozy guitar",
@@ -767,11 +760,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "aqueous",
-        "nocturnal",
-        "hazy",
-        "city night",
-        "floating"
+        "airy",
+        "late night",
+        "hazy"
       ],
       "production_tags": [
         "dub delay",
@@ -815,7 +806,7 @@
       "year": "2022",
       "album": "Estrela Acesa",
       "genres": [
-        "MPB",
+        "mpb",
         "modern bossa",
         "chamber pop",
         "tropicália"
@@ -823,10 +814,8 @@
       "genre_stars": 5,
       "mood_tags": [
         "sensual",
-        "dusky",
-        "warm",
-        "intimate",
-        "sunlit"
+        "summer dusk",
+        "warm"
       ],
       "production_tags": [
         "nylon guitar",
@@ -875,10 +864,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "静谧",
-        "木质感",
-        "清晨",
-        "organic"
+        "introspective",
+        "woody",
+        "summer dusk"
       ],
       "production_tags": [
         "felt piano",
@@ -923,16 +911,15 @@
       "album": "Sim Sim Sim",
       "genres": [
         "tropicália",
-        "MPB",
+        "mpb",
         "chamber pop",
         "psychedelic pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "怀旧又现代",
-        "温柔",
-        "夏天",
-        "松弛"
+        "nostalgic",
+        "tender",
+        "summer dusk"
       ],
       "production_tags": [
         "nylon guitar",
@@ -983,11 +970,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "可爱",
-        "怀旧又现代",
-        "松弛",
-        "精致不炫技",
-        "有人味"
+        "sweet",
+        "nostalgic",
+        "unhurried"
       ],
       "production_tags": [
         "vintage Casio",
@@ -1037,11 +1022,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "童年记忆",
-        "静谧",
-        "雾气",
-        "脆弱",
-        "室内午后"
+        "nostalgic",
+        "introspective",
+        "rainy"
       ],
       "production_tags": [
         "felt piano",
@@ -1091,11 +1074,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "hushed",
+        "introspective",
         "intimate",
-        "wintry",
-        "dreamy",
-        "fragile"
+        "wintry"
       ],
       "production_tags": [
         "lo-fi",
@@ -1146,10 +1127,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "雨夜",
-        "温柔",
-        "怀旧",
-        "内省"
+        "late night",
+        "tender",
+        "nostalgic"
       ],
       "production_tags": [
         "clean/jangle guitar",
@@ -1193,15 +1173,13 @@
       "genres": [
         "jazz pop",
         "indie",
-        "quiet alternative R&B"
+        "quiet alternative r&b"
       ],
       "genre_stars": 5,
       "mood_tags": [
         "tender",
-        "melancholic",
-        "warm",
-        "reflective",
-        "rainy"
+        "melancholy",
+        "warm"
       ],
       "production_tags": [
         "live jazz band",
@@ -1252,11 +1230,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "yearning",
-        "twilight",
-        "hopeful",
-        "hazy",
-        "spacious"
+        "longing",
+        "summer dusk",
+        "hopeful"
       ],
       "production_tags": [
         "tape saturation",
@@ -1306,10 +1282,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "城市黄昏",
-        "温柔",
-        "清新",
-        "微苦"
+        "summer dusk",
+        "tender",
+        "upbeat"
       ],
       "production_tags": [
         "chorus/jangle guitar",
@@ -1357,11 +1332,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "contemplative",
-        "autumnal",
-        "floating",
-        "warm",
-        "gently melancholic"
+        "introspective",
+        "wintry",
+        "floating"
       ],
       "production_tags": [
         "string arrangement",
@@ -1406,16 +1379,14 @@
       "album": "Remember Your North Star",
       "genres": [
         "neo soul",
-        "quiet alternative R&B",
+        "quiet alternative r&b",
         "jazz pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "慵懒",
-        "夏天傍晚",
-        "松弛",
-        "带点幽默",
-        "自在"
+        "unhurried",
+        "summer dusk",
+        "sweet"
       ],
       "production_tags": [
         "broken beat",
@@ -1466,11 +1437,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "都市",
-        "慵懒",
-        "自嘲幽默",
-        "松弛",
-        "夜色游荡"
+        "late night",
+        "unhurried",
+        "sweet"
       ],
       "production_tags": [
         "saxophone",
@@ -1520,11 +1489,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "serene",
-        "luminous",
-        "longing",
-        "spacious",
-        "gentle"
+        "introspective",
+        "shimmering",
+        "longing"
       ],
       "production_tags": [
         "felt piano",
@@ -1574,10 +1541,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "都会夜晚",
-        "温暖",
-        "舒展",
-        "从容"
+        "late night",
+        "warm",
+        "unhurried"
       ],
       "production_tags": [
         "warm bass groove",

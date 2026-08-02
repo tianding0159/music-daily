@@ -522,19 +522,16 @@ def _spsearch(track: dict) -> str:
     return f"https://open.spotify.com/search/{q}"
 
 
-# 展示层 tag 归一：策展时写的口语/英文/同义变体，统一成得体的中文短词（不改 pool 原数据）
-TAG_MAP = {
-    "有人味": "人声在场", "organic": "有机质地", "organic electronic": "有机电子",
-    "warm": "温暖", "精致但不炫技": "精致克制", "精致不炫技": "精致克制", "精致": "精致克制",
-    "怀旧但现代": "怀旧又现代", "怀旧": "怀旧又现代",
-    "都市": "城市夜晚", "夜色": "城市夜晚", "深夜": "城市夜晚",
-    "柔": "温柔", "暖": "温暖", "甜": "甜润", "私密": "亲密",
-    "内收": "内省", "缓慢生长": "缓慢舒展", "微凉": "清冷", "静谧": "安静",
-}
+# 展示层 tag 归一。mood 的受控词表 SSOT 在 scripts/mood_vocab.py（32 个英文词），
+# 这里只做「历史写法 → 受控词」的转发，不再自己维护一份同义词表（那会和词表漂移）。
+# genres 已在 pool 里归一为小写，CSS 负责转大写显示。
+from mood_vocab import ALIASES as _MOOD_ALIASES  # noqa: E402
+
+TAG_MAP = dict(_MOOD_ALIASES)
 
 
 def _tag(x: str) -> str:
-    """展示用 tag：归一 + 去掉英文原样混入。"""
+    """展示用 tag：归一到受控英文词；表外的原样返回（不硬凑中文）。"""
     x = str(x or "").strip()
     return TAG_MAP.get(x, TAG_MAP.get(x.lower(), x))
 

@@ -27,8 +27,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "空气感",
-        "颗粒感"
+        "airy",
+        "grainy"
       ],
       "production_tags": [
         "bell tones",
@@ -77,8 +77,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "温柔",
-        "有人味"
+        "tender",
+        "human"
       ],
       "production_tags": [
         "fingerpicked guitar",
@@ -125,8 +125,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "夏天傍晚",
-        "有人味"
+        "summer dusk",
+        "human"
       ],
       "production_tags": [
         "lo-fi beat",
@@ -170,13 +170,13 @@
       "year": "2019",
       "album": "Luby Sparks",
       "genres": [
-        "Dream Pop",
-        "Shoegaze"
+        "dream pop",
+        "shoegaze"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "清冷",
-        "出神"
+        "wintry",
+        "hazy"
       ],
       "production_tags": [
         "顶前贝斯",
@@ -223,8 +223,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "城市夜晚",
-        "颗粒感"
+        "late night",
+        "grainy"
       ],
       "production_tags": [
         "analog synth",
@@ -259,15 +259,15 @@
       "year": "2017",
       "album": "Rocket",
       "genres": [
-        "Bedroom Pop",
-        "Indie Rock",
-        "Ambient Folk"
+        "bedroom pop",
+        "indie rock",
+        "ambient folk"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "木质感",
-        "有人味",
-        "松弛"
+        "woody",
+        "human",
+        "unhurried"
       ],
       "production_tags": [
         "lo-fi",
@@ -319,10 +319,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "空气感",
-        "温柔",
-        "怀旧又现代",
-        "亲密"
+        "airy",
+        "tender",
+        "nostalgic"
       ],
       "production_tags": [
         "fingerstyle guitar",
@@ -375,13 +374,13 @@
       "year": "2010",
       "album": "Feito pra Acabar",
       "genres": [
-        "MPB",
-        "Chamber Pop"
+        "mpb",
+        "chamber pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "温柔",
-        "怀旧又现代"
+        "tender",
+        "nostalgic"
       ],
       "production_tags": [
         "analog warmth",
@@ -428,8 +427,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "有人味",
-        "温柔"
+        "human",
+        "tender"
       ],
       "production_tags": [
         "clean guitar",
@@ -472,13 +471,13 @@
       "year": "1986",
       "album": "Crooked Mile",
       "genres": [
-        "Sophisti-pop",
-        "Jangle Pop"
+        "sophisti-pop",
+        "jangle pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "优雅",
-        "暗刺"
+        "restrained",
+        "grainy"
       ],
       "production_tags": [
         "polished production",
@@ -525,8 +524,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "夏天傍晚",
-        "松弛"
+        "summer dusk",
+        "unhurried"
       ],
       "production_tags": [
         "electric piano",
@@ -570,13 +569,13 @@
       "year": "2015",
       "album": "Don't Weigh Down the Light",
       "genres": [
-        "Ambient Folk",
-        "Chamber Folk"
+        "ambient folk",
+        "chamber folk"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "清冷",
-        "空旷"
+        "wintry",
+        "wide open"
       ],
       "production_tags": [
         "长混响",
@@ -622,8 +621,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "城市夜晚",
-        "温柔"
+        "late night",
+        "tender"
       ],
       "production_tags": [
         "warm keys",
@@ -667,13 +666,13 @@
       "year": "2017",
       "album": "You Never Were Much of a Dancer",
       "genres": [
-        "American Primitive",
-        "Ambient Folk"
+        "american primitive",
+        "ambient folk"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "阴郁",
-        "紧绷"
+        "melancholy",
+        "restless"
       ],
       "production_tags": [
         "高速指弹",
@@ -713,13 +712,13 @@
       "year": "1991",
       "album": "Strange Free World",
       "genres": [
-        "Dream Pop",
-        "Shoegaze"
+        "dream pop",
+        "shoegaze"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "辽阔",
-        "决绝"
+        "wide open",
+        "hopeful"
       ],
       "production_tags": [
         "和弦踏板",
@@ -761,13 +760,13 @@
       "year": "1988",
       "album": "Remote",
       "genres": [
-        "Sophisti-pop",
-        "Blue-eyed Soul"
+        "sophisti-pop",
+        "blue-eyed soul"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "都市",
-        "奔逃"
+        "late night",
+        "restless"
       ],
       "production_tags": [
         "polished production",
@@ -815,8 +814,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "松弛",
-        "颗粒感"
+        "unhurried",
+        "grainy"
       ],
       "production_tags": [
         "warm keys",
@@ -860,13 +859,13 @@
       "year": "2016",
       "album": "The Birds Outside Sang",
       "genres": [
-        "Bedroom Pop",
-        "Indie Folk"
+        "bedroom pop",
+        "indie folk"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "脆弱",
-        "静谧"
+        "fragile",
+        "introspective"
       ],
       "production_tags": [
         "bedroom lo-fi",
@@ -908,12 +907,12 @@
       "album": "1st Born Second",
       "genres": [
         "neo-soul",
-        "quiet alternative R&B"
+        "quiet alternative r&b"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "痞",
-        "深情"
+        "sweet",
+        "longing"
       ],
       "production_tags": [
         "J Dilla 味松鼓",
@@ -955,13 +954,13 @@
       "year": "2010",
       "album": "The Waves",
       "genres": [
-        "Dream Pop",
-        "Shoegaze"
+        "dream pop",
+        "shoegaze"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "暗涌",
-        "催眠"
+        "restless",
+        "dreamlike"
       ],
       "production_tags": [
         "浪涌吉他",
@@ -1003,13 +1002,13 @@
       "year": "1995",
       "album": "Thank You",
       "genres": [
-        "Jangle Pop",
-        "Sophisti-pop"
+        "jangle pop",
+        "sophisti-pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "少年气",
-        "微苦"
+        "hopeful",
+        "melancholy"
       ],
       "production_tags": [
         "clean guitar",
@@ -1051,13 +1050,13 @@
       "year": "2002",
       "album": "Deadringer",
       "genres": [
-        "Instrumental Hip-Hop",
-        "Downtempo"
+        "instrumental hip-hop",
+        "downtempo"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "昂扬",
-        "怀旧"
+        "hopeful",
+        "nostalgic"
       ],
       "production_tags": [
         "灵魂乐采样",
@@ -1099,13 +1098,13 @@
       "year": "2007",
       "album": "Songs III: Bird on the Water",
       "genres": [
-        "Gothic Folk",
-        "Dream Pop"
+        "gothic folk",
+        "dream pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "飘渺",
-        "哀伤"
+        "floating",
+        "melancholy"
       ],
       "production_tags": [
         "长混响",
@@ -1145,13 +1144,13 @@
       "year": "1995",
       "album": "Glow",
       "genres": [
-        "Chamber Folk",
-        "Dream Pop"
+        "chamber folk",
+        "dream pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "明亮",
-        "笃定"
+        "hopeful",
+        "restrained"
       ],
       "production_tags": [
         "清亮琶音",
@@ -1198,8 +1197,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "雨天",
-        "空气感"
+        "rainy",
+        "airy"
       ],
       "production_tags": [
         "layered vocal",
@@ -1241,13 +1240,13 @@
       "year": "2015",
       "album": "MUDA",
       "genres": [
-        "Soft Post-rock",
-        "Jazz Pop"
+        "soft post-rock",
+        "jazz pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "暖",
-        "不悲的告别"
+        "warm",
+        "melancholy"
       ],
       "production_tags": [
         "长号主旋律",
@@ -1289,13 +1288,13 @@
       "year": "2013",
       "album": "Flyying Colours",
       "genres": [
-        "Shoegaze",
-        "Dream Pop"
+        "shoegaze",
+        "dream pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "摇曳",
-        "温甜"
+        "unhurried",
+        "sweet"
       ],
       "production_tags": [
         "晃动吉他",
@@ -1337,13 +1336,13 @@
       "year": "2006",
       "album": "The Mating Game",
       "genres": [
-        "Trip-Hop",
-        "Downtempo"
+        "trip-hop",
+        "downtempo"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "夜色",
-        "性感"
+        "late night",
+        "sensual"
       ],
       "production_tags": [
         "复古大乐队采样",
@@ -1385,13 +1384,13 @@
       "year": "2016",
       "album": "Mowing",
       "genres": [
-        "Bedroom Pop",
-        "Indie Folk"
+        "bedroom pop",
+        "indie folk"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "柔软",
-        "褪色"
+        "tender",
+        "wintry"
       ],
       "production_tags": [
         "cassette texture",
@@ -1432,13 +1431,13 @@
       "year": "2008",
       "album": "Ninja Tuna",
       "genres": [
-        "Downtempo",
-        "Electronica"
+        "downtempo",
+        "electronica"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "轻快",
-        "天真"
+        "upbeat",
+        "hopeful"
       ],
       "production_tags": [
         "拇指琴采样",

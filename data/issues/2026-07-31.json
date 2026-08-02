@@ -13,15 +13,15 @@
       "year": "2004",
       "album": "In a Safe Place",
       "genres": [
-        "Ambient Pop",
-        "Post-rock",
-        "Electro-acoustic"
+        "ambient pop",
+        "post-rock",
+        "electro-acoustic"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "空气感",
-        "怀旧但现代",
-        "温柔"
+        "airy",
+        "nostalgic",
+        "tender"
       ],
       "production_tags": [
         "reverb space",
@@ -66,15 +66,15 @@
       "year": "2014",
       "album": "Yumi Zouma EP",
       "genres": [
-        "Dream Pop",
-        "Indie Pop",
-        "Sophisti-pop"
+        "dream pop",
+        "indie pop",
+        "sophisti-pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "夏天傍晚",
-        "怀旧但现代",
-        "温柔"
+        "summer dusk",
+        "nostalgic",
+        "tender"
       ],
       "production_tags": [
         "analog warmth",
@@ -119,14 +119,14 @@
       "year": "2019",
       "album": "Immunity",
       "genres": [
-        "Bedroom Pop",
-        "Indie Pop"
+        "bedroom pop",
+        "indie pop"
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "温柔",
-        "有人味",
-        "夏天傍晚"
+        "tender",
+        "human",
+        "summer dusk"
       ],
       "production_tags": [
         "soft compression",
@@ -185,8 +185,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "木质感",
-        "空气感"
+        "woody",
+        "airy"
       ],
       "production_tags": [
         "home recording",
@@ -235,8 +235,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "城市夜晚",
-        "有人味"
+        "late night",
+        "human"
       ],
       "production_tags": [
         "electric piano",
@@ -285,8 +285,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "松弛",
-        "有人味"
+        "unhurried",
+        "human"
       ],
       "production_tags": [
         "soft synth",
@@ -334,8 +334,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "雨天",
-        "城市夜晚"
+        "rainy",
+        "late night"
       ],
       "production_tags": [
         "reverb guitar",
@@ -384,8 +384,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "有人味",
-        "颗粒感"
+        "human",
+        "grainy"
       ],
       "production_tags": [
         "clean-to-dist guitar",
@@ -433,8 +433,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "怀旧又现代",
-        "有人味"
+        "nostalgic",
+        "human"
       ],
       "production_tags": [
         "accordion",
@@ -476,11 +476,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "空气感",
-        "夏天傍晚",
-        "木质感",
-        "温柔",
-        "怀旧又现代"
+        "airy",
+        "summer dusk",
+        "woody"
       ],
       "production_tags": [
         "felt piano",
@@ -537,8 +535,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "夏天傍晚",
-        "木质感"
+        "summer dusk",
+        "woody"
       ],
       "production_tags": [
         "reverb guitar",
@@ -579,11 +577,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "温柔",
-        "怀旧",
-        "层叠合声",
-        "巴西暖阳",
-        "细腻感伤"
+        "tender",
+        "nostalgic",
+        "lush"
       ],
       "production_tags": [
         "nylon guitar",
@@ -641,8 +637,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "木质感",
-        "温柔"
+        "woody",
+        "tender"
       ],
       "production_tags": [
         "fingerpicked guitar",
@@ -690,8 +686,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "城市夜晚",
-        "松弛"
+        "late night",
+        "unhurried"
       ],
       "production_tags": [
         "vintage synth",
@@ -740,8 +736,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "松弛",
-        "有人味"
+        "unhurried",
+        "human"
       ],
       "production_tags": [
         "lo-fi warmth",
@@ -789,8 +785,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "雨天",
-        "城市夜晚"
+        "rainy",
+        "late night"
       ],
       "production_tags": [
         "synth pad",
@@ -838,8 +834,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "有人味",
-        "木质感"
+        "human",
+        "woody"
       ],
       "production_tags": [
         "clean guitar",
@@ -887,8 +883,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "怀旧又现代",
-        "精致但不炫技"
+        "nostalgic",
+        "restrained"
       ],
       "production_tags": [
         "polished synth",
@@ -930,11 +926,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "空气感",
-        "松弛",
-        "organic electronic",
-        "可爱",
-        "木质感"
+        "airy",
+        "unhurried",
+        "organic"
       ],
       "production_tags": [
         "Juno/analog synth",
@@ -991,8 +985,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "夏天傍晚",
-        "松弛"
+        "summer dusk",
+        "unhurried"
       ],
       "production_tags": [
         "nylon guitar",
@@ -1041,8 +1035,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "温柔",
-        "有人味"
+        "tender",
+        "human"
       ],
       "production_tags": [
         "lush strings",
@@ -1091,8 +1085,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "木质感",
-        "有人味"
+        "woody",
+        "human"
       ],
       "production_tags": [
         "fingerpicked guitar",
@@ -1140,8 +1134,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "城市夜晚",
-        "颗粒感"
+        "late night",
+        "grainy"
       ],
       "production_tags": [
         "field recording",
@@ -1182,11 +1176,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "松弛",
-        "夏天傍晚",
-        "亲密",
-        "自省",
-        "缓慢"
+        "unhurried",
+        "summer dusk",
+        "intimate"
       ],
       "production_tags": [
         "clean guitar",
@@ -1244,8 +1236,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "雨天",
-        "有人味"
+        "rainy",
+        "human"
       ],
       "production_tags": [
         "warm band",
@@ -1294,8 +1286,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "有人味",
-        "城市夜晚"
+        "human",
+        "late night"
       ],
       "production_tags": [
         "clean guitar",
@@ -1343,8 +1335,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "怀旧又现代",
-        "有人味"
+        "nostalgic",
+        "human"
       ],
       "production_tags": [
         "clean guitar",
@@ -1393,8 +1385,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "空气感",
-        "有人味"
+        "airy",
+        "human"
       ],
       "production_tags": [
         "layered synth",
@@ -1443,8 +1435,8 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "夏天傍晚",
-        "松弛"
+        "summer dusk",
+        "unhurried"
       ],
       "production_tags": [
         "warm strings",
@@ -1486,11 +1478,9 @@
       ],
       "genre_stars": 5,
       "mood_tags": [
-        "温柔",
-        "怀旧又现代",
-        "木质感",
-        "精致不炫技",
-        "松弛"
+        "tender",
+        "nostalgic",
+        "woody"
       ],
       "production_tags": [
         "sampling",
