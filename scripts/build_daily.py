@@ -121,6 +121,28 @@ def _n_eligible() -> int:
     return sum(1 for t in pool if selector.is_eligible(t)[0])
 
 
+def _artist_ctx(pool: list[dict]) -> dict[str, dict]:
+    """每位艺人的浮层上下文：bio（来自 data/artists.json）+ 年代跨度 + 本站收录曲目。
+
+    bio 缺失不影响其它字段——artists.json 是逐步补齐的，缺的那位浮层就只少一段。
+    """
+    import collections
+    bios = {a["artist"]: a.get("bio", "")
+            for a in _load_json(DATA / "artists.json", [])}
+    by: dict[str, list[dict]] = collections.defaultdict(list)
+    for t in pool:
+        by[t.get("artist", "")].append(t)
+    out: dict[str, dict] = {}
+    for a, ts in by.items():
+        yrs = sorted(str(t.get("year", "")) for t in ts if t.get("year"))
+        out[a] = {
+            "bio": bios.get(a, ""),
+            "years": (yrs[0] if yrs[0] == yrs[-1] else f"{yrs[0]}–{yrs[-1]}") if yrs else "",
+            "inpool": [t.get("title", "") for t in ts][:8],
+        }
+    return out
+
+
 def _rebuild_site() -> None:
     """清空 archive，从所有 issue 快照全量重建 archive/*.html 与最新一期 index.html。"""
     arch = SITE / "archive"
@@ -130,6 +152,8 @@ def _rebuild_site() -> None:
     arch.mkdir(parents=True, exist_ok=True)
     snaps = sorted((json.loads(p.read_text(encoding="utf-8")) for p in ISSUES.glob("*.json")),
                    key=lambda s: s["date"])
+    # 浮层的艺人上下文按全池算（不只当期），这样「本站收录」能列出该艺人的全部曲目
+    render_grid.ARTIST_CTX = _artist_ctx(_load_json(DATA / "pool.json", []))
     for s in snaps:
         r = RENDERERS.get(s.get("theme", "grid"), render_grid)
         html = r.build_html(s["date"], s["tracks"], s["issue_no"], s["netease_text"], archive_href="index.html", random_href="../random.html")

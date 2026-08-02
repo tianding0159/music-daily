@@ -14,6 +14,7 @@ from __future__ import annotations
 import json
 
 from lightbox import LIGHTBOX_CSS, LIGHTBOX_HTML, lightbox_js
+from netease_open import NETEASE_OPEN_JS
 from render_grid import (CSS, ICON_CAT, ICON_BOWL, ICON_BALL, ICON_PLAY, ICON_PAUSE,
                          ICON_HEART, KNOB, TAG_MAP, _esc)
 
@@ -486,7 +487,8 @@ function render(t){
   const on=hearts.indexOf(t.title+' - '+t.artist)>=0?' on':'';
   const links=(t.a?'<a class="btn solid" href="'+t.a+'" target="_blank" rel="noopener">listen</a>':'')
     +'<a class="btn line" href="https://open.spotify.com/search/'+encodeURIComponent(t.title+' '+t.artist)+'" target="_blank" rel="noopener">spotify \\u2197</a>'
-    +'<a class="btn line" href="https://music.163.com/#/search/m/?s='+encodeURIComponent(t.title+' '+t.artist)+'" target="_blank" rel="noopener">netease \\u2197</a>'
+    +'<a class="btn line" href="https://music.163.com/#/search/m/?s='+encodeURIComponent(t.title+' '+t.artist)+'" target="_blank" rel="noopener"'
+    +' data-nc="'+String(t.title+' '+t.artist).replace(/"/g,'&quot;')+'">netease \\u266b</a>'
     +'<button class="heart'+on+'" id="chz" type="button" data-k="'+(t.title+' - '+t.artist).replace(/"/g,'&quot;')+'" aria-label="\\u6536\\u85cf">'+HEART+'</button>';
   const card=$('#card');
   card.className='card';
@@ -734,5 +736,6 @@ def build_html(n_total: int) -> str:
 {LIGHTBOX_HTML}
 <script>{js}</script>
 <script>{lightbox_js('.big-art')}</script>
+<script>{NETEASE_OPEN_JS}</script>
 </body>
 </html>"""

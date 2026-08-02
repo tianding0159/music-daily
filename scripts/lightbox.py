@@ -151,17 +151,28 @@ def lightbox_js(trigger_sel: str) -> str:
       $('lb-big').insertAdjacentHTML('beforeend',
         '<div class="yr"><span>'+esc(d.album||'')+'</span><span>'+esc(d.year||'')+'</span></div>');
     }
-    $('lb-title').textContent = d.title||'';
+    // 主体是音乐人：大标题放艺人名，副行放年代跨度与流派
     $('lb-artist').textContent = d.artist||'';
-    var m=[]; if(d.year) m.push(d.year); if(d.album) m.push(d.album); if(d.bpm) m.push(d.bpm);
-    $('lb-meta').textContent = m.join(' / ');
+    var sub=[]; if(d.years) sub.push(d.years); else if(d.year) sub.push(d.year);
+    if(d.g0) sub.push(d.g0);
+    $('lb-sub').textContent = sub.join(' · ');
     $('lb-tags').innerHTML = (d.tags||'').split('|').filter(Boolean)
       .map(function(t){return '<span>'+esc(t)+'</span>'}).join('');
-    [['one','lb-one'],['why','lb-why'],['scene','lb-scene']].forEach(function(p){
+    // 本站收录该艺人的其它曲目（当前这首标 cur）
+    var inp=(d.inpool||'').split('|').filter(Boolean);
+    $('lb-inpool').innerHTML = inp.map(function(x){
+      var cur = x===d.title ? ' class="cur"' : '';
+      return '<a href="?t='+encodeURIComponent(x)+'"'+cur+'>'+esc(x)+'</a>';
+    }).join('');
+    $('lb-inpool-w').style.display = inp.length>1 ? '' : 'none';
+    // 这一首（次要块）
+    $('lb-trkname').textContent = [d.title, d.album, d.year, d.bpm].filter(Boolean).join(' · ');
+    [['bio','lb-bio'],['one','lb-one'],['why','lb-why'],['scene','lb-scene']].forEach(function(p){
       var v=d[p[0]]||'';
       $(p[1]).textContent=v;
-      $(p[1]+'-w').style.display = v ? '' : 'none';   // 该段没内容就整块收起
+      var w=$(p[1]+'-w'); if(w) w.style.display = v ? '' : 'none';   // 该段没内容就整块收起
     });
+    $('lb-trk-w').style.display = (d.why||d.scene) ? '' : 'none';
     var lk=[];
     if(d.apple)   lk.push('<a href="'+esc(d.apple)+'" target="_blank" rel="noopener">apple music ↗</a>');
     if(d.spotify) lk.push('<a href="'+esc(d.spotify)+'" target="_blank" rel="noopener">spotify ↗</a>');

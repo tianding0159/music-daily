@@ -571,6 +571,7 @@ def _spsearch(track: dict) -> str:
 # 这里只做「历史写法 → 受控词」的转发，不再自己维护一份同义词表（那会和词表漂移）。
 # genres 已在 pool 里归一为小写，CSS 负责转大写显示。
 from lightbox import LIGHTBOX_CSS, LIGHTBOX_HTML, lightbox_js  # noqa: E402
+from netease_open import NETEASE_OPEN_JS  # noqa: E402
 from mood_vocab import ALIASES as _MOOD_ALIASES  # noqa: E402
 
 TAG_MAP = dict(_MOOD_ALIASES)
@@ -604,17 +605,30 @@ def _bpm(track: dict) -> tuple[str, str]:
     return f"{b} bpm", BPM_TIERS[-1][2]
 
 
-def _lb_data(track: dict) -> str:
-    """浮层要用的 data-*，挂在封面容器上（点封面任意处都能开，不只是图片本身）。"""
+ARTIST_CTX: dict[str, dict] = {}   # {artist: {bio, years, inpool}}，由 build_daily 注入
+
+
+def _lb_data(track: dict, artist_ctx: dict | None = None) -> str:
+    """浮层要用的 data-*，挂在封面容器上（点封面任意处都能开，不只是图片本身）。
+
+    artist_ctx：该艺人的上下文 {bio, years, inpool}。浮层以音乐人为主体，
+    所以 bio 是正文；曲目自身的 why/scene 降级成次要块。
+    """
     bpm, _c = _bpm(track)
     tags = "|".join(_tag(x) for x in
                     list(track.get("genres") or [])[:3] + list(track.get("mood_tags") or [])[:3])
+    ctx = artist_ctx or {}
+    g0 = (track.get("genres") or [""])[0]
     return (f' data-cover="{_esc(track.get("_cover") or track.get("artwork") or "")}"'
             f' data-title="{_esc(track.get("title", ""))}"'
             f' data-artist="{_esc(track.get("artist", ""))}"'
             f' data-year="{_esc(str(track.get("year", "")))}"'
+            f' data-years="{_esc(ctx.get("years", ""))}"'
+            f' data-g0="{_esc(g0)}"'
             f' data-album="{_esc(track.get("album", ""))}"'
             f' data-bpm="{_esc(bpm)}" data-tags="{_esc(tags)}"'
+            f' data-bio="{_esc(ctx.get("bio", ""))}"'
+            f' data-inpool="{_esc("|".join(ctx.get("inpool", [])))}"'
             f' data-one="{_esc(track.get("artist_oneliner", ""))}"'
             f' data-why="{_esc(track.get("why", ""))}"'
             f' data-scene="{_esc(track.get("scene", ""))}"'
@@ -634,7 +648,8 @@ def _art(track: dict) -> str:
             f'data-artist="{_esc(track.get("artist",""))}" aria-label="试听 30 秒">'
             f'{ICON_PLAY}{ICON_PAUSE}</button>') if prev else ""
     return (f'<div class="art cover-zoom" role="button" tabindex="0"'
-            f' aria-label="看大图与详情"{_lb_data(track)}>{cover}{pbtn}</div>')
+            f' aria-label="看大图与详情"{_lb_data(track, ARTIST_CTX.get(track.get("artist", "")))}>'
+            f'{cover}{pbtn}</div>')
 
 
 def _mod(track: dict, idx: int) -> str:
@@ -645,7 +660,10 @@ def _mod(track: dict, idx: int) -> str:
     if track.get("_apple"):
         links.append(f'<a class="btn solid" href="{_esc(track["_apple"])}" target="_blank" rel="noopener">listen</a>')
     links.append(f'<a class="btn line" href="{_spsearch(track)}" target="_blank" rel="noopener">spotify ↗</a>')
-    links.append(f'<a class="btn line" href="{_ncsearch(track)}" target="_blank" rel="noopener">netease ↗</a>')
+    # data-nc 交给 netease_open.js 唤起本机 App；href 保留为无 JS 时的降级
+    _ncq = f'{track.get("title", "")} {track.get("artist", "")}'.strip()
+    links.append(f'<a class="btn line" href="{_ncsearch(track)}" target="_blank" rel="noopener"'
+                 f' data-nc="{_esc(_ncq)}">netease ♫</a>')
     src = ""
     if track.get("source"):
         s = _esc(track["source"])
@@ -794,6 +812,7 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
 {LIGHTBOX_HTML}
 <script>{js}</script>
 <script>{lightbox_js('.art')}</script>
+<script>{NETEASE_OPEN_JS}</script>
 </body>
 </html>"""
 
