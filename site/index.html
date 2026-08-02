@@ -549,9 +549,14 @@ body.go .deckbox .deck{animation:needle-hit .36s ease-out .74s both}
 .pw:active .knob{transform:translateY(1px)}
 .pw.down .knob{box-shadow:inset 0 0 0 1px rgba(255,255,255,.2), 0 0 0 3px rgba(240,90,36,.18)}
 .pw.down .knob::after{background:var(--orange)}
-/* 键右侧一条极细刻度轨，按下后 2.2s 走完（呼应 TE 面板刻度） */
-.pw .trk{width:34px; height:1px; flex:none; background:rgba(245,245,245,.2);
-  position:relative}
+/* 键右侧一条极细刻度轨，按下后 2.2s 走完（呼应 TE 面板刻度）。
+   两处对齐讲究：
+   ① 长度 22px = 圆钮直径，左右两端形成呼应，不是随手取的数
+   ② 轨要对齐字形的【视觉中心】，不是文字盒中心。canvas measureText 实测
+      "start" 在 14px 下 ascent=10、descent=0（t 有升部、无降部），
+      字形视觉中心比 16px 文字盒的几何中心高 2px。所以轨上移 2px。 */
+.pw .trk{width:22px; height:1px; flex:none; background:rgba(245,245,245,.2);
+  position:relative; top:-1px}
 .pw .trk::after{content:""; position:absolute; left:0; top:0; height:100%; width:0;
   background:var(--orange)}
 .pw.down .trk::after{animation:trk-run 2.2s linear forwards}
