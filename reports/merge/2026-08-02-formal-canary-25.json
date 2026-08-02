@@ -1,0 +1,20 @@
+{
+  "input": 25,
+  "schema_valid": 25,
+  "exact_match": 25,
+  "acceptable_match": 0,
+  "duplicates": 0,
+  "version_mismatch": 0,
+  "artist_mismatch": 0,
+  "album_mismatch": 0,
+  "not_found": 0,
+  "blacklist": 0,
+  "transient_error": 0,
+  "added": 25,
+  "quarantined": 0,
+  "run_id": "2026-08-02-formal-canary-25",
+  "candidates": [
+    "2026-08-02-formal-canary-25.json"
+  ],
+  "generated_at": "2026-08-02T23:58:51+08:00"
+}
