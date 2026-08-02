@@ -219,6 +219,26 @@ def test_validate_candidates_rejects_bad_copy():
     assert not vc.validate_track(_ok_track()), vc.validate_track(_ok_track())
 
 
+def test_snapshots_copy_in_sync_with_pool():
+    """已生成的 issue 快照，三段文案必须与 pool.json 一致。
+
+    快照不可变、只在生成当天写一次，所以池里改了文案，往期页会永远停在旧版。
+    手动回填过一次就漏过一次（rebase 从远端带下来两期新快照，全 30 首停在旧文案，
+    线上日报页还挂着 13 处已被判为 AI 味的「…的时候。」）。
+    这条测试让滞后自己报警，不靠人记得跑 tools/refresh_snapshot_copy.py。
+    """
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "refresh_snapshot_copy", ROOT / "tools" / "refresh_snapshot_copy.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    lag, total = mod.scan()
+    assert not lag, (
+        f"{len(lag)} 期快照文案滞后于 pool.json（共 {total} 处）："
+        f"{[d for d, _, _ in lag]}；跑 python3 tools/refresh_snapshot_copy.py --apply")
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]
     passed, failed = 0, []
