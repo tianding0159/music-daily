@@ -118,11 +118,12 @@ body{background:var(--paper); color:var(--ink); overflow:hidden;
   animation:sweep 11s ease-in-out infinite}
 @keyframes sweep{0%{transform:translateX(0)}100%{transform:translateX(560%)}}
 
-.plate{display:flex; align-items:center; gap:10px; font-family:var(--mono);
-  font-size:var(--fs-10); letter-spacing:.16em; text-transform:uppercase;
+/* 铭牌：与日报同一套字体（--sans + 极细）。TE 规范只用 100/300，从不 400/700。 */
+.plate{display:flex; align-items:center; gap:10px; font-family:var(--sans);
+  font-size:var(--fs-15); font-weight:300; letter-spacing:.02em; text-transform:lowercase;
   color:var(--g600); position:relative; z-index:2; animation:fade-up .5s ease-out both}
-.plate .sq{width:11px; height:11px; background:var(--orange)}
-.plate b{color:var(--ink); font-weight:400; letter-spacing:.1em}
+.plate .sq{width:10px; height:10px; background:var(--orange)}
+.plate b{color:var(--ink); font-weight:300; letter-spacing:.02em}
 
 /* ── 唱盘：容器挂 .tt 继承 render_random 那套几何 ── */
 /* 底座：真唱机是「盘在上、控制条在下」，容器不再是正方——
@@ -135,11 +136,14 @@ body{background:var(--paper); color:var(--ink); overflow:hidden;
    这里用更高特异性覆盖掉它，改回「宽度撑满 + aspect-ratio 定高」。 */
 .deckbox.tt{container-type:normal}
 .deckbox.tt .deck{width:100%; height:auto; aspect-ratio:1; max-height:none; margin:0 auto}
+/* 控制条：border-top 会参与 align-items:center 的居中计算，使内容整体下沉 1px；
+   加之它贴在底座最下沿、上方无等量留白，视觉上更显低。用 padding-bottom 比
+   padding-top 多 2px 把内容顶到光学中心（实测方式：量文字盒 cy 与条中线之差）。 */
 .ctlbar{position:absolute; left:0; right:0; bottom:0; height:62px; z-index:6;
-  display:flex; align-items:center; gap:14px; padding:0 20px;
-  border-top:1px solid rgba(255,255,255,.07)}
-.ctlbar .rpm{margin-left:auto; font-family:var(--mono); font-size:9px;
-  letter-spacing:.14em; color:rgba(255,255,255,.32)}
+  box-sizing:border-box; display:flex; align-items:center; gap:14px;
+  padding:0 20px 1px; border-top:1px solid rgba(255,255,255,.07)}
+.ctlbar .rpm{margin-left:auto; font-family:var(--sans); font-size:10px; font-weight:300;
+  letter-spacing:.02em; text-transform:lowercase; color:rgba(255,255,255,.34)}
 /* 唱盘自带的转速标记与电源灯本来是绝对定位在盘面角上的，现在归到控制条 */
 .deckbox.tt::after{content:none}
 .deckbox .ctlbar .led{position:static; flex:none; margin:0}
@@ -190,13 +194,13 @@ body.go .deckbox .deck{animation:needle-hit .36s ease-out .74s both}
 
 /* 铭牌行：期号 / 曲目数 / 访客数 —— 访客计数就在这儿 */
 .rail{position:relative; z-index:2; display:flex; border:1px solid var(--g300);
-  background:var(--white);
-  font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
-  letter-spacing:.1em; animation:fade-up .5s ease-out .5s both}
+  background:var(--white); font-family:var(--sans); font-size:var(--fs-10);
+  font-weight:300; text-transform:lowercase; letter-spacing:.02em;
+  animation:fade-up .5s ease-out .42s both}
 .rail div{padding:9px 15px; border-right:1px solid var(--g100); color:var(--g600);
   display:flex; align-items:baseline; gap:7px; white-space:nowrap}
 .rail div:last-child{border-right:none}
-.rail b{color:var(--ink); font-weight:700; letter-spacing:.04em}
+.rail b{color:var(--ink); font-weight:300; letter-spacing:.02em}
 .rail .vs b{color:var(--green-d)}
 
 /* ── START 键：集成在唱盘底座的控制条上（真唱机就长这样）──
@@ -232,14 +236,16 @@ body.go .deckbox .deck{animation:needle-hit .36s ease-out .74s both}
 .pw.down .trk::after{animation:trk-run 2.2s linear forwards}
 @keyframes trk-run{to{width:100%}}
 
-.tip{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
-  letter-spacing:.1em; position:relative; z-index:2;
+.tip{font-family:var(--sans); font-size:var(--fs-10); font-weight:300; color:var(--g600);
+  letter-spacing:.02em; position:relative; z-index:2;
   animation:fade-up .5s ease-out .85s both}
-.tip kbd{border:1px solid var(--g300); background:var(--white); display:inline-flex; align-items:center;
+.tip kbd{border:1px solid var(--g300); background:var(--white); font-family:var(--mono);
+  font-size:.92em; display:inline-flex; align-items:center;
   justify-content:center; min-width:1.9em; height:1.55em; padding:0 .45em;
   line-height:1; color:var(--g900); vertical-align:middle; position:relative; top:-.05em}
 .foot{position:absolute; left:0; right:0; bottom:13px; text-align:center;
-  font-family:var(--mono); font-size:9px; letter-spacing:.1em; color:var(--g300); z-index:2}
+  font-family:var(--sans); font-size:9px; font-weight:300; letter-spacing:.02em;
+  text-transform:lowercase; color:var(--g300); z-index:2}
 @keyframes fade-up{from{opacity:0; transform:translateY(9px)}to{opacity:1; transform:none}}
 
 /* 离场：画面往前推 + 白闪 */
