@@ -60,6 +60,23 @@ LIGHTBOX_CSS = """
   text-transform:uppercase; color:var(--orange); margin-bottom:5px}
 #lb .sec p{font-size:var(--fs-20); font-weight:300; line-height:1.62}
 #lb .sec.mono p{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); line-height:1.75}
+/* bio 是主体，字号比别的段大一档 */
+#lb #lb-bio{font-size:var(--fs-20); font-weight:300; line-height:1.72}
+#lb .sec#lb-bio-w{margin-top:14px}
+/* 本站收录的曲目：可点，跳到那一首 */
+#lb .pool{display:flex; flex-wrap:wrap; gap:5px}
+#lb .pool a{font-family:var(--mono); font-size:9px; letter-spacing:.04em;
+  border:1px solid var(--g200); padding:4px 8px; color:var(--g900); background:var(--white);
+  transition:background .14s, color .14s}
+#lb .pool a:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
+#lb .pool a.cur{background:var(--ink); color:var(--white); border-color:var(--ink)}
+/* 「这一首」降级成次要块：加左边线、字号收小 */
+#lb .sec.trk{border-left:2px solid var(--g200); padding-left:11px; margin-top:18px}
+#lb .sec.trk .tk{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
+  letter-spacing:.06em; color:var(--ink); margin-bottom:5px}
+#lb .sec.trk p{font-size:var(--fs-15); line-height:1.6; color:var(--g900)}
+#lb .sec.trk p.sc{font-family:var(--mono); font-size:9px; color:var(--g600);
+  margin-top:6px; line-height:1.7}
 #lb .lb-links{display:flex; flex-wrap:wrap; gap:7px; margin-top:auto; padding-top:20px}
 #lb .lb-links a{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
   letter-spacing:.06em; border:1px solid var(--g300); padding:8px 13px; color:var(--ink);
@@ -94,14 +111,18 @@ LIGHTBOX_HTML = """<div id="lb" role="dialog" aria-modal="true" aria-label="专�
     <button class="x" type="button" data-close aria-label="关闭">✕</button>
     <div class="big" id="lb-big"></div>
     <div class="info">
-      <div class="kicker" id="lb-kick">album</div>
-      <h3 id="lb-title"></h3>
-      <div class="ar" id="lb-artist"></div>
-      <div class="meta" id="lb-meta"></div>
+      <div class="kicker" id="lb-kick">artist</div>
+      <h3 id="lb-artist"></h3>
+      <div class="ar" id="lb-sub"></div>
       <div class="tags" id="lb-tags"></div>
-      <div class="sec" id="lb-one-w"><div class="lb-t">artist</div><p id="lb-one"></p></div>
-      <div class="sec" id="lb-why-w"><div class="lb-t">why</div><p id="lb-why"></p></div>
-      <div class="sec mono" id="lb-scene-w"><div class="lb-t">use</div><p id="lb-scene"></p></div>
+      <div class="sec" id="lb-bio-w"><p id="lb-bio"></p></div>
+      <div class="sec" id="lb-one-w"><div class="lb-t">在音乐地图上</div><p id="lb-one"></p></div>
+      <div class="sec" id="lb-inpool-w"><div class="lb-t">本站收录</div>
+        <div class="pool" id="lb-inpool"></div></div>
+      <div class="sec trk" id="lb-trk-w"><div class="lb-t">这一首</div>
+        <p class="tk" id="lb-trkname"></p>
+        <p id="lb-why"></p>
+        <p class="sc" id="lb-scene"></p></div>
       <div class="lb-links" id="lb-links"></div>
     </div>
   </div>
