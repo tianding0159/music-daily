@@ -455,9 +455,25 @@ body{background:var(--paper); color:var(--ink); overflow:hidden;
 .plate b{color:var(--ink); font-weight:400; letter-spacing:.1em}
 
 /* ── 唱盘：容器挂 .tt 继承 render_random 那套几何 ── */
-.deckbox{position:relative; z-index:2; width:min(420px,78vw); aspect-ratio:1;
+/* 底座：真唱机是「盘在上、控制条在下」，容器不再是正方——
+   上半 1:1 转盘区，下方留一条 62px 控制条放 START 键、转速标记、电源灯。 */
+.deckbox{position:relative; z-index:2; width:min(420px,78vw);
   animation:fade-up .6s cubic-bezier(.16,1,.3,1) .1s both}
-.deckbox.tt{position:relative; inset:auto; display:grid; place-items:center;
+/* .deck 塌成 0×0 的真因（实测）：切片里的 @supports 块给 .tt .deck 设了
+   height:min(100cqw,100cqh)，而落地页的 .deckbox 此刻高度由子元素决定 → 100cqh = 0
+   → deck 高 0 → 容器还是 0，成了容器查询的循环依赖。
+   这里用更高特异性覆盖掉它，改回「宽度撑满 + aspect-ratio 定高」。 */
+.deckbox.tt{container-type:normal}
+.deckbox.tt .deck{width:100%; height:auto; aspect-ratio:1; max-height:none; margin:0 auto}
+.ctlbar{position:absolute; left:0; right:0; bottom:0; height:62px; z-index:6;
+  display:flex; align-items:center; gap:14px; padding:0 20px;
+  border-top:1px solid rgba(255,255,255,.07)}
+.ctlbar .rpm{margin-left:auto; font-family:var(--mono); font-size:9px;
+  letter-spacing:.14em; color:rgba(255,255,255,.32)}
+/* 唱盘自带的转速标记与电源灯本来是绝对定位在盘面角上的，现在归到控制条 */
+.deckbox.tt::after{content:none}
+.deckbox .ctlbar .led{position:static; flex:none; margin:0}
+.deckbox.tt{position:relative; inset:auto; display:block; padding-bottom:62px;
   background:var(--ink); overflow:visible; border:1px solid var(--g200); border-radius:2px;
   box-shadow:0 20px 46px -24px rgba(15,14,18,.5);
   animation:fade-up .6s cubic-bezier(.16,1,.3,1) .1s both}
@@ -513,35 +529,33 @@ body.go .deckbox .deck{animation:needle-hit .36s ease-out .74s both}
 .rail b{color:var(--ink); font-weight:700; letter-spacing:.04em}
 .rail .vs b{color:var(--green-d)}
 
-/* ── 落针钮：TE 风格。TE 的按键语言 =（从其生产 CSS 实抓）
-   ① 只用 100/300 两个字重，从不 400/700 ——「细」是招牌
-   ② letter-spacing 一律 normal，不加 tracking
-   ③ 文案小写
-   ④ 纯色块、2px 极小圆角、不做拟物渐变与厚度阴影
-   ⑤ 一枚橙色圆点做状态指示（TE 的标志性做法） ── */
-.pw{position:relative; z-index:2; appearance:none; cursor:pointer; opacity:0;
-  display:inline-flex; align-items:center; gap:11px;
-  padding:15px 22px; border:none; border-radius:2px;
-  background:var(--ink); color:var(--paper);
-  font-family:var(--sans); font-size:var(--fs-20); font-weight:300;
+/* ── START 键：集成在唱盘底座的控制条上（真唱机就长这样）──
+   TE 语言：一枚小圆钮 + 旁边刻字，极细小写，橙色只用在状态上。 */
+.pw{appearance:none; border:none; background:none; cursor:pointer; padding:0;
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--sans); font-size:var(--fs-15); font-weight:300;
   letter-spacing:normal; text-transform:lowercase; line-height:1.1;
-  animation:fade-up .5s ease-out .6s both;
-  transition:background .15s, opacity .15s}
-.pw:hover{background:#2a2620}
-.pw:active,.pw.down{background:#3a352d}
-.pw:focus-visible{outline:2px solid var(--ink); outline-offset:3px}
-/* 键面左侧橙点 = TE 的状态指示语言；按下/hover 时点亮成实心 */
-.pw .dot{width:8px; height:8px; border-radius:50%; flex:none;
-  background:transparent; box-shadow:inset 0 0 0 1.5px var(--orange);
-  transition:background .15s}
-.pw:hover .dot,.pw.down .dot{background:var(--orange)}
-/* 右侧一条极细的进度轨，按下后从左到右走完 —— 呼应 TE 面板上的刻度条 */
-.pw .trk{width:26px; height:1px; flex:none; background:rgba(245,245,245,.28);
-  position:relative; margin-left:2px}
+  color:rgba(245,245,245,.7); transition:color .16s}
+.pw:hover{color:#f5f5f5}
+.pw:focus-visible{outline:1px solid rgba(255,255,255,.5); outline-offset:5px}
+/* 圆钮：待机是橙色描边空心，hover 半亮，按下实心并留一圈光 */
+.pw .knob{width:22px; height:22px; border-radius:50%; flex:none; position:relative;
+  background:#211e19; box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),
+    0 1px 2px rgba(0,0,0,.5); transition:box-shadow .16s, transform .1s}
+.pw .knob::after{content:""; position:absolute; left:50%; top:50%; width:7px; height:7px;
+  margin:-3.5px 0 0 -3.5px; border-radius:50%;
+  box-shadow:inset 0 0 0 1.4px var(--orange); transition:background .16s, box-shadow .16s}
+.pw:hover .knob::after{background:rgba(240,90,36,.45)}
+.pw:active .knob{transform:translateY(1px)}
+.pw.down .knob{box-shadow:inset 0 0 0 1px rgba(255,255,255,.2), 0 0 0 3px rgba(240,90,36,.18)}
+.pw.down .knob::after{background:var(--orange)}
+/* 键右侧一条极细刻度轨，按下后 2.2s 走完（呼应 TE 面板刻度） */
+.pw .trk{width:34px; height:1px; flex:none; background:rgba(245,245,245,.2);
+  position:relative}
 .pw .trk::after{content:""; position:absolute; left:0; top:0; height:100%; width:0;
   background:var(--orange)}
 .pw.down .trk::after{animation:trk-run 2.2s linear forwards}
-@keyframes trk-run{to{width:100%}}}
+@keyframes trk-run{to{width:100%}}
 
 .tip{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
   letter-spacing:.1em; position:relative; z-index:2;
@@ -591,7 +605,12 @@ body.go::after{content:""; position:fixed; inset:0; background:var(--paper);
       </div></div>
       <div class="arm"><i></i><b></b></div>
     </div>
-    <span class="led"></span>
+    <div class="ctlbar">
+      <button class="pw" id="pw" type="button">
+        <span class="knob"></span>start<span class="trk"></span></button>
+      <span class="rpm">33⅓ rpm</span>
+      <span class="led"></span>
+    </div>
   </div>
 
   <div class="rail">
@@ -601,9 +620,7 @@ body.go::after{content:""; position:fixed; inset:0; background:var(--paper);
     <div>2026.08.02</div>
   </div>
 
-  <button class="pw" id="pw" type="button">
-    <span class="dot"></span>drop the needle<span class="trk"></span></button>
-  <div class="tip">点一下 · 或按 <kbd>space</kbd> / <kbd>enter</kbd> 进入今日精选</div>
+  <div class="tip">按下 start · 或敲 <kbd>space</kbd> / <kbd>enter</kbd> 落针进今日精选</div>
   <div class="foot">© 2026 MUSIC DAILY · PERSONAL USE · COVER &amp; PREVIEW VIA PUBLIC MUSIC API</div>
 </div>
 <script>const HITURL='https://abacus.jasoncameron.dev/hit/tianding0159-music-daily/landing';
