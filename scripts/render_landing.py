@@ -210,6 +210,9 @@ body.go .deckbox .deck{animation:needle-hit .36s ease-out .74s both}
   font-family:var(--sans); font-size:var(--fs-15); font-weight:300;
   letter-spacing:normal; text-transform:lowercase; line-height:1.1;
   color:rgba(245,245,245,.7); transition:color .16s}
+/* start 的字母主体比圆钮低 1.25px：小写词没有降部、x-height 堆在文字盒下半部，
+   几何居中时视觉上就是偏低。按像素实测量出的差值上移。 */
+.pw .t{position:relative; top:-.5px}
 .pw:hover{color:#f5f5f5}
 .pw:focus-visible{outline:1px solid rgba(255,255,255,.5); outline-offset:5px}
 /* 圆钮：待机是橙色描边空心，hover 半亮，按下实心并留一圈光 */
@@ -230,7 +233,9 @@ body.go .deckbox .deck{animation:needle-hit .36s ease-out .74s both}
       "start" 在 14px 下 ascent=10、descent=0（t 有升部、无降部），
       字形视觉中心比 16px 文字盒的几何中心高 2px。所以轨上移 2px。 */
 .pw .trk{width:22px; height:1px; flex:none; background:rgba(245,245,245,.2);
-  position:relative; top:-1px}
+  /* 轨对齐圆钮的几何中线（flex align-items:center 已保证），不再补偿——
+     补偿量本是为了对齐旧的文字盒中线，文字上移后就不需要了 */
+  position:relative; top:0}
 .pw .trk::after{content:""; position:absolute; left:0; top:0; height:100%; width:0;
   background:var(--orange)}
 .pw.down .trk::after{animation:trk-run 2.2s linear forwards}
@@ -336,7 +341,7 @@ def build_html(n_issues: int, n_tracks: int, n_moods: int, latest_date: str,
     </div>
     <div class="ctlbar">
       <button class="pw" id="pw" type="button">
-        <span class="knob"></span>start<span class="trk"></span></button>
+        <span class="knob"></span><span class="t">start</span><span class="trk"></span></button>
       <span class="rpm">33⅓ rpm</span>
       <span class="led"></span>
     </div>
