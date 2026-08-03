@@ -259,6 +259,24 @@ def main() -> int:
             print("inbox/bios/ 下没有待导入文件，跳过")
             return 0
         print(f"目录模式：{len(files)} 个文件待导入\n")
+
+        # 孤儿 manifest 检测：目录里有 *_manifest.json，但按命名规则配不上任何主文件
+        # —— 这是命名手滑的确定信号，后果是 SHA 校验被【静默跳过】而其余全绿。
+        # 「护栏缺席」和「护栏通过」长得一模一样，所以这里必须硬失败而不是继续。
+        stems = {f.stem for f in files}
+        orphans = [m for m in sorted(inbox.glob("*_manifest.json"))
+                   if m.name[:-len("_manifest.json")] not in stems]
+        if orphans:
+            print("❌ 有 manifest 配不上主文件（SHA 校验会被静默跳过）：")
+            for m in orphans:
+                want = m.name[:-len("_manifest.json")] + ".json"
+                print(f"   {m.name}")
+                print(f"     → 它在找 {want}，但目录里没有这个文件")
+            print(f"   目录里的主文件：{sorted(f.name for f in files)}")
+            print("   manifest 必须命名为「主文件名去掉 .json」+ _manifest.json")
+            print("   例：artist_bios_batch06.json → artist_bios_batch06_manifest.json")
+            return 2
+
         rc = 0
         for f in files:
             man = f.with_name(f.stem + "_manifest.json")
@@ -268,7 +286,9 @@ def main() -> int:
                     sha = json.loads(man.read_text(encoding="utf-8")).get("sha256")
                 except Exception as e:
                     print(f"⚠️ {man.name} 解析失败：{e}")
-            print(f"── {f.name}" + (f"（manifest sha {sha[:12]}…）" if sha else "（无 manifest）"))
+            print(f"── {f.name}" + (f"（manifest sha {sha[:12]}…）" if sha
+                                      else "  ⚠️ 无 manifest —— 跳过 SHA 校验，"
+                                           "传输损坏只能靠编码检测兜底"))
             r = _one(f, sha, do_apply=args.apply, force=args.force)
             print()
             rc = rc or r
