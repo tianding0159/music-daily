@@ -17,10 +17,10 @@
 |---|--:|
 | 曲池 | **1169** 首 |
 | 池内艺人 | **1084** 位 |
-| 已写简介 | **799** 位（覆盖 73.7%）|
-| 待写 | **285** 位 |
-| confidence | high 771 · low 28 |
-| bio 长度 | 104–220 字（均 162）|
+| 已写简介 | **934** 位（覆盖 86.2%）|
+| 待写 | **150** 位 |
+| confidence | high 890 · low 44 |
+| bio 长度 | 104–220 字（均 164）|
 | 含未翻译地名 | 0 条 ✅ |
 
 ### 已导入批次
@@ -44,11 +44,14 @@
 | `artist_bios_batch13b_50_ascii.json` | 50 |
 | `artist_bios_batch13c_50_ascii.json` | 50 |
 | `artist_bios_batch14c_50_ascii.json` | 50 |
+| `artist_bios_batch15a_50_ascii.json` | 50 |
+| `artist_bios_batch15b_50_ascii.json` | 50 |
+| `artist_bios_batch15c_35_ascii.json` | 35 |
 | `artist_bios_placefix_21_rewrite_ascii.json` | 21 |
 
 ## 三、已写清单（这些别再写）
 
-<details><summary>展开 799 位</summary>
+<details><summary>展开 934 位</summary>
 
 ```
 1010benja  4hero  79.5  A Sunny Day in Glasgow
@@ -239,18 +242,52 @@ Softcult  Solange  Sondre Lerche  Songs: Ohia
 Sons of Kemet  Sophie Hutchings  Spangle call Lilli line  Sparklehorse
 Squirrel Flower  St Germain  Stan Getz & Charlie Byrd  Standing on the Corner
 Steely Dan  Stella Donnelly  Stereolab  Steve Gunn
-Steve Hauschildt  Steve Lacy  Teebs  The Clientele
-The High Llamas  The Innocence Mission  The Orchids  The Sea and Cake
-The fin.  Tim Bernardes  Tim Buckley  Tomberlin
-Tourist  VIDEOTAPEMUSIC  Vetiver  Visible Cloaks
-Willie Hutch  Woo  Woods  Ximena Sariñana
-Xênia França  Yasuaki Shimizu  Yasuha  Yaya Bey
-Yeasayer  Yebba  Yellow Days  Yo La Tengo
-Yogee New Waves  Young Marble Giants  Yu Su  Yumi Zouma
-Yussef Dayes  Yussef Kamaal  Yves Jarvis  Zero 7
-cero  girl in red  gomes the hitman (ゴメス・ザ・ヒットマン)  haruka nakamura
-mxmtoon  múm  never young beach  serpentwithfeet
-toe  Étienne Daho  Ólafur Arnalds
+Steve Hauschildt  Steve Lacy  Teebs  The Boys with the Perpetual Nervousness
+The Brand New Heavies  The Cardigans  The Chairs  The Chi-Lites
+The Chills  The Cinematic Orchestra  The Clean  The Clientele
+The Cool Greenhouse  The Delfonics  The Dramatics  The Dream Syndicate
+The Durutti Column  The Feelies  The Field  The Field Mice
+The Goon Sax  The High Llamas  The Incredible String Band  The Innocence Mission
+The Isley Brothers  The June Brides  The Loft  The Lotus Eaters
+The Main Ingredient  The Meters  The Microphones  The Moments
+The Monochrome Set  The Notwist  The Ocean Blue  The Orchids
+The Pains of Being Pure at Heart  The Pale Fountains  The Paradise Bangkok Molam International Band  The Pearlfishers
+The Postal Service  The Promise Ring  The Radio Dept.  The Railway Children
+The Rain Parade  The Reds, Pinks and Purples  The Sea Urchins  The Sea and Cake
+The Servants  The Smashing Times  The Softies  The Stroppies
+The Style Council  The Stylistics  The Sundays  The Tallest Man on Earth
+The Telephone Numbers  The Telescopes  The Three O'Clock  The Trash Can Sinatras
+The Umbrellas  The Wake  The War on Drugs  The Weather Prophets
+The Weather Station  The Wedding Present  The Wild Swans  The Wolfhounds
+The Zenmenn  The fin.  Thee Sacred Souls  Thievery Corporation
+This Is the Kit  This Mortal Coil  Tim Bernardes  Tim Buckley
+Tim Hardin  Tim Maia  Timmy Thomas  Tinariwen
+Tiny Ruins  Tirzah  Toco  Todd Terje
+Tohru Aizawa Quartet  Told Slant  Tom Misch  Tom Zé
+Tomberlin  Tomoko Aran  Tord Gustavsen Trio  Toro y Moi
+Tortoise  Tourist  Towa Tei  Trembling Blue Stars
+Tricky  Tulipa Ruiz  Tunng  Turnover
+Tuxedo  Tycho  Ulla  Ulrich Schnauss
+Ulrika Spacek  Unknown Mortal Orchestra  VIDEOTAPEMUSIC  Vampire Weekend
+Vanishing Twin  Vansire  Vashti Bunyan  Vetiver
+Vince Guaraldi  Virginia Astley  Visible Cloaks  Wanda Sá
+Wang Wen  Washed Out  Water From Your Eyes  Waxahatchee
+Wayne Shorter  Wednesday  Wes Montgomery  Weyes Blood
+Whirr  White Flowers  Whitney  Widowspeak
+Wild Nothing  Wild Pink  William Bell  William Onyeabor
+William Tyler  Willie Hutch  Winter  Wombo
+Woo  Woods  Ximena Sariñana  Xênia França
+Yasuaki Shimizu  Yasuha  Yaya Bey  Yazmin Lacey
+Yeasayer  Yebba  Yellow Days  Yin Yin
+Yo La Tengo  Yogee New Waves  Young Marble Giants  Yowler
+Yoyo Sham  Yu Ching  Yu Su  Yukika
+Yumi Zouma  Yussef Dayes  Yussef Kamaal  Yves Jarvis
+Zero 7  Zhaoze  advantage Lucy  cero
+deary  dosii  girl in red  gomes the hitman (ゴメス・ザ・ヒットマン)
+haruka nakamura  maya ongaku  mxmtoon  múm
+never young beach  serpentwithfeet  toe  µ-Ziq
+Étienne Daho  Ólafur Arnalds  五条人  王榆鈞
+甜約翰 Sweet John  陳建年
 ```
 
 </details>
