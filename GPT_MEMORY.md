@@ -9,7 +9,7 @@
 
 1. 读本文件的**「三、已写清单」**，确认你要写的艺人还没被写过
 2. 读**「四、待写队列」**，从队首取 30–50 位（已按重要度排好序）
-3. 扫一眼**「六、已经踩过的坑」**
+3. 扫一眼**「七、已经踩过的坑」**
 
 ## 二、当前状态
 
@@ -17,11 +17,11 @@
 |---|--:|
 | 曲池 | **1169** 首 |
 | 池内艺人 | **1084** 位 |
-| 已写简介 | **174** 位（覆盖 16.1%）|
-| 待写 | **910** 位 |
-| confidence | high 172 · low 2 |
-| bio 长度 | 104–196 字（均 147）|
-| 含未翻译地名 | 18 条 —— **待修，见坑 #3** |
+| 已写简介 | **274** 位（覆盖 25.3%）|
+| 待写 | **810** 位 |
+| confidence | high 271 · low 3 |
+| bio 长度 | 104–196 字（均 148）|
+| 含未翻译地名 | 21 条 —— **见「五、待修名单」** |
 
 ### 已导入批次
 
@@ -31,10 +31,13 @@
 | `artist_bios_batch03_30_ascii.json` | 30 |
 | `artist_bios_batch04_50_ascii.json` | 50 |
 | `artist_bios_batch05_50_ascii.json` | 50 |
+| `artist_bios_batch05_rewrite_18_ascii.json` | 18 |
+| `artist_bios_batch06_rewrite_50_ascii.json` | 50 |
+| `artist_bios_batch07_50_ascii.json` | 50 |
 
 ## 三、已写清单（这些别再写）
 
-<details><summary>展开 174 位</summary>
+<details><summary>展开 274 位</summary>
 
 ```
 1010benja  4hero  79.5  A Sunny Day in Glasgow
@@ -53,8 +56,33 @@ Anna Tivel  Anne Briggs  Anne Müller  Another Sunny Day
 Anri  Antena  Antibalas  Antônio Carlos Jobim
 Aoife Nessa Frances  Apparat  April March  Aretha Franklin
 Arlo Parks  Arooj Aftab  Arovane  Arthur Russell
-Arthur Verocai  Arushi Jain  Asobi Seksu  Bedhead
-Bibio  Casino Versus Japan  Codeine  Colleen
+Arthur Verocai  Arushi Jain  Asobi Seksu  Astrid Sonne
+Ata Kak  Aztec Camera  Azymuth  BADBADNOTGOOD
+BMX Bandits  Babehoven  Baden Powell  Bala Desejo
+Balmorhea  Bananagun  Basia  Beabadoobee
+Beach Bunny  Beach Fossils  Beach House  Bedhead
+Bedouine  Beirut  Belle and Sebastian  Ben Lukas Boysen
+Bennie Maupin  Bent  Berhana  Bert Jansch
+Beto Guedes  Beverly Glenn-Copeland  Bibio  Biche
+Bilal  Bill Callahan  Bill Evans  Bill Fay
+Bill LaBounty  Bill Withers  Bing & Ruth  Bitter:Sweet
+Blockhead  Blonde Redhead  Blood Orange  Bloodstone
+Blue Lab Beats  Blue Lake  Blue Magic  Blueboy
+Blushing  Boards of Canada  Bob James  Bobbi Humphrey
+Bobby Caldwell  Bobby Hutcherson  Bobby Womack  Bola
+Bonnie 'Prince' Billy  Bonny Light Horseman  Bonobo  Boogarins
+Booker T. & the M.G.'s  Boozoo Bajou  Boy Pablo  Boz Scaggs
+Brenda Russell  Brian Eno  Bridget St John  Broadcast
+Bruno Berle  Bruno Pernadas  Built to Spill  Burial
+Buscabulla  C Duncan  Caetano Veloso  Cal Tjader
+Camera Obscura  Camila Moreno  Cande y Paulo  Care
+Caribou  Carla dal Forno  Casino Versus Japan  Casiopea
+Cass McCombs  Cassandra Jenkins  Cate Le Bon  Cecile Believe
+Change  Chapterhouse  Charlotte Dos Santos  Charlotte Gainsbourg
+Cheatahs  Chicha Libre  China Crisis  Chinese Football
+Chip Wickham  Chocolat  Chris Cohen  Christian Löffler
+Christoph Berg  Cicada  Cindy  Cindy Lee
+Claire Rousay  Clairo  Codeine  Colleen
 Danny Wilson  Drugdealer  Duster  Duval Timothy
 El Michels Affair  Emma-Jean Thackray  Erika de Casier  Fennesz
 Flipper's Guitar  Florist  Four Tet  Gold Panda
@@ -90,24 +118,53 @@ múm  never young beach  serpentwithfeet  toe
 完整清单见 [`data/artists_todo.json`](data/artists_todo.json)。**接下来这 60 位优先**：
 
 ```
-Astrid Sonne  Ata Kak  Aztec Camera  Azymuth
-BADBADNOTGOOD  BMX Bandits  Babehoven  Baden Powell
-Bala Desejo  Balmorhea  Bananagun  Basia
-Beabadoobee  Beach Bunny  Beach Fossils  Beach House
-Bedouine  Beirut  Belle and Sebastian  Ben Lukas Boysen
-Bennie Maupin  Bent  Berhana  Bert Jansch
-Beto Guedes  Beverly Glenn-Copeland  Biche  Bilal
-Bill Callahan  Bill Evans  Bill Fay  Bill LaBounty
-Bill Withers  Bing & Ruth  Bitter:Sweet  Blockhead
-Blonde Redhead  Blood Orange  Bloodstone  Blue Lab Beats
-Blue Lake  Blue Magic  Blueboy  Blushing
-Boards of Canada  Bob James  Bobbi Humphrey  Bobby Caldwell
-Bobby Hutcherson  Bobby Womack  Bola  Bonnie 'Prince' Billy
-Bonny Light Horseman  Bonobo  Boogarins  Booker T. & the M.G.'s
-Boozoo Bajou  Boy Pablo  Boz Scaggs  Brenda Russell
+Clarissa Connelly  Cleo Sol  Close Lobsters  Cocteau Twins
+Cola  Common Holly  Connan Mockasin  Connie Converse
+Cornelius  Corridor  Cortex  Cory Hanson
+Crackazat  Craft Spells  Cranes  Crumb
+Cuco  Curtis Mayfield  Cut Worms  Cuushe
+Cymande  Cymbals  Céu  DIIV
+DSPS  Damien Jurado  Dana Gavanski  Daniel Caesar
+Dawn Richard & Spencer Zahn  Dawuna  Dayglow  Deacon Blue
+Dead Can Dance  Dear Nora  Deca Joins  Deeper
+Deerhunter  Della Zyr  Delvon Lamarr Organ Trio  Deniece Williams
+Destroyer  Devendra Banhart  Devin Morrison  Dialect
+Dip in the Pool  Dirty Projectors  Discovery Zone  Djavan
+Do Make Say Think  Domenico Lancellotti  Domenique Dumont  Dominguinhos
+Don Friedman  Donald Byrd  Donny Hathaway  Dora Morelenbaum
+Dorothy Ashby  Draag  Drop Nineteens  Ducks Ltd.
 ```
 
-## 五、补库仍偏缺的方向
+## 五、待修名单（地名没翻译，优先修这些）
+
+这些已入库的 bio 里有未翻译的英文地名。**只改地名，其余别动**；
+人名 / 厂牌名 / 专辑名 / 乐队名保留英文是对的。
+
+```
+1010benja  ←  Kansas City、Tulsa
+Adrianne Lenker  ←  Indianapolis
+Ahmad Jamal  ←  Pittsburgh
+Al Green  ←  Arkansas
+Alvvays  ←  Cape Breton
+Ana Frango Elétrico  ←  Rio
+Animal Collective  ←  Baltimore
+Ann Peebles  ←  Memphis
+Anna St. Louis  ←  Los Angeles、Kansas City
+Anna Tivel  ←  Portland
+Aretha Franklin  ←  Detroit、Memphis
+Arooj Aftab  ←  Lahore
+Arthur Russell  ←  Iowa
+Bedhead  ←  Texas
+Joanna Newsom  ←  California
+John Martyn  ←  Glasgow
+Josephine Foster  ←  Colorado
+Juana Molina  ←  Buenos Aires
+Kadhja Bonet  ←  Los Angeles
+Kahimi Karie  ←  Paris
+The Orchids  ←  Glasgow
+```
+
+## 六、补库仍偏缺的方向
 
 （写 bio 用不到这节，做补库时看）
 
@@ -121,7 +178,7 @@ Boozoo Bajou  Boy Pablo  Boz Scaggs  Brenda Russell
 
 领地划分与检索策略见 [`GPT_TERRITORIES.md`](GPT_TERRITORIES.md)。
 
-## 六、已经踩过的坑（每条都真实发生过，别再犯）
+## 七、已经踩过的坑（每条都真实发生过，别再犯）
 
 1. **编码**：第一批 30 位 bio 在传输中损坏，90% 汉字不可复原、整批作废。
    通道吞掉了 `0x80–0x9F` 区间的字节（「加拿大」的 `e5 8a a0 e6 8b bf` 变成 `e5 20 e6 bf`）。
@@ -142,7 +199,7 @@ Boozoo Bajou  Boy Pablo  Boz Scaggs  Brenda Russell
 5. **质量批间漂移**：单看每批都合规，连起来看才发现 batch05 明显退步。
    → **每批交付时附自查数字**（见下方交付清单），让漂移可见。
 
-## 七、交付清单（每批照做）
+## 八、交付清单（每批照做）
 
 ```python
 import json, hashlib
@@ -171,7 +228,7 @@ json.dump({'file': 'batchNN.json', 'count': len(data), 'sha256': sha},
 两个文件一起传到仓库 `inbox/bios/`，CI 自动核 SHA → 校验 → 导入 → 重建 → 部署。
 **任一条不合格就整批拒绝**，文件留在原地等修正，不会污染数据。
 
-## 八、其它文档
+## 九、其它文档
 
 | 文档 | 什么时候看 |
 |---|---|
