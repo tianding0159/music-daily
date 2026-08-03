@@ -60,7 +60,22 @@ def _norm(s: str) -> str:
 def check_encoding(raw: str) -> list[str]:
     """在解析前先看文本有没有编码损坏——这类问题必须让上游重发，不能硬修。"""
     errs = []
-    hits = [m for m in MOJIBAKE_MARKS if m in raw]
+    # 判据不能只看「有没有 å æ ã」——葡语 João / 法语 Cécile / 西语 Almoço 都含变音字母，
+    # healthcheck 第一版就这么误报了 3 处。真 mojibake 的特征是这些字符【连续成串】
+    # （一个汉字坏掉变成 2-3 个连续拉丁扩展字符），正常人名里它们总被 ASCII 包着。
+    def _run3(v: str) -> bool:
+        run = 0
+        for ch in v:
+            o = ord(ch)
+            if 0xA0 <= o <= 0xFF or o in (0x2019, 0x201C, 0x201D):
+                run += 1
+                if run >= 3:
+                    return True
+            else:
+                run = 0
+        return False
+
+    hits = [m for m in MOJIBAKE_MARKS if m in raw] if _run3(raw) else []
     if hits:
         # 数一下有多少个「E0-EF 开头但续字节残缺」的序列，估损坏规模
         b = raw.encode("latin-1", errors="replace")

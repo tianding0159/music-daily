@@ -24,6 +24,29 @@ CANON = ["artist_key", "title_key", "version", "album_key", "legacy_ids"]
 N_PER_ISSUE = 30
 
 
+def _looks_mojibake(v: str) -> bool:
+    """判断是不是 UTF-8 被当 cp1252 解读的残迹。
+
+    **不能只看有没有 å æ ã 这些字符** —— 葡语人名 João Gilberto / Nara Leão、
+    法语 Cécile、西语 Almoço 里的变音字母都是合法内容，第一版就这么误报了 3 处。
+    真 mojibake 的特征是这些字符【连续成串】出现（一个汉字坏掉会变成 2-3 个连续的
+    拉丁扩展字符），而正常外语人名里它们总是被 ASCII 字母包着、不会扎堆。
+    """
+    if not v:
+        return False
+    run = 0
+    for ch in v:
+        o = ord(ch)
+        # 拉丁扩展 + 常见 mojibake 落点区间
+        if 0xA0 <= o <= 0xFF or o in (0x2019, 0x201C, 0x201D):
+            run += 1
+            if run >= 3:          # 连续 3 个即判定
+                return True
+        else:
+            run = 0
+    return False
+
+
 def main() -> int:
     p0: list[str] = []
     warn: list[str] = []
@@ -91,6 +114,24 @@ def main() -> int:
     print("copy: ", json.dumps({k: c_m[k] for k in (
         "blacklist_hits", "example_verbatim", "oneliner_dash_pct",
         "scene_top_tail_pct", "scene_timeword_pct") if k in c_m}, ensure_ascii=False))
+    # 文本完整性：真乱码 vs 真外语/真变音字母。三次误判修正后的判据见 _looks_mojibake。
+    # 真外语（韩/日/西里尔/阿拉伯…）是合法内容，Della Zyr、SE SO NEON 这类韩国艺人
+    # 的曲名本来就是韩文；而 mojibake 残迹（å æ ï¼）、U+FFFD 替换字符、
+    # 裸 C1 控制符（0x80-0x9F）才是真损坏，必须拦。
+    import unicodedata
+    bad_text = []
+    for t in pool:
+        for f in ("title", "artist", "album", "artist_oneliner", "why", "scene"):
+            v = str(t.get(f) or "")
+            if "\ufffd" in v:
+                bad_text.append(f"{t.get('id')}·{f}·U+FFFD 替换字符")
+            elif any(0x80 <= ord(c) <= 0x9F for c in v):
+                bad_text.append(f"{t.get('id')}·{f}·裸 C1 控制符")
+            elif _looks_mojibake(v):
+                bad_text.append(f"{t.get('id')}·{f}·mojibake 残迹")
+    if bad_text:
+        p0.append(f"文本损坏 {len(bad_text)} 处：{bad_text[:3]}")
+
     # 媒体（封面/试听/版本正确性，见 media_check.py）
     try:
         mrep = media_check.audit()
