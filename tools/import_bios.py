@@ -40,6 +40,17 @@ MOJIBAKE_MARKS = ("å", "æ", "ã", "ï¼", "â", "ä", "è", "é", "ç", "ð")
 ALLOWED_KEYS = {"artist", "bio", "confidence"}      # 恰好这三个，多一个都拒
 ALLOWED_CONF = {"high", "low"}                     # 只这两档
 
+# 正文里该用中文的常见英文地名。2026-08-03 batch05 有 44% 的条目写「来自 Virginia」
+# 「Brooklyn 词曲作者」「进入 Nashville」——中英混搭正是站内明确否掉的写法，
+# 而同一批人在 batch02 里写的是「弗吉尼亚州夏洛茨维尔」「常驻布鲁克林」。
+# 人名/厂牌/专辑名保留英文是对的，地名不是。
+EN_PLACES = ("Virginia", "Brooklyn", "Nashville", "Texas", "California", "London",
+             "Tokyo", "Chicago", "Berlin", "Paris", "Melbourne", "Toronto", "Glasgow",
+             "Seattle", "Portland", "Detroit", "New York", "Los Angeles", "Manchester",
+             "Bristol", "Copenhagen", "Stockholm", "Oslo", "Dublin", "Amsterdam",
+             "Barcelona", "Lisbon", "Montreal", "Vancouver", "Philadelphia", "Boston",
+             "Atlanta", "Houston", "Denver", "Austin", "Kansas City", "New Orleans")
+
 MIN_LEN, MAX_LEN = 60, 220
 MAX_DASH_PCT = 20
 MAX_HEAD_PCT = 30          # 同一批里最高频开头句式（前 6 字）
@@ -152,6 +163,10 @@ def audit(rows: list[dict]) -> dict:
         nb = _norm(bio)
         if ol and len(ol) >= 8 and ol in nb:
             rep["warn"].append(f"{tag}：bio 整段包含了 oneliner 原文（应写新信息，不是扩写）")
+        pl = [x for x in EN_PLACES
+              if re.search(r"(?<![A-Za-z])" + re.escape(x) + r"(?![A-Za-z])", bio)]
+        if pl:
+            rep["warn"].append(f"{tag}：地名没翻译 {pl}（人名/厂牌保留英文没问题，地名要用中文）")
         if not (MIN_LEN <= len(bio) <= MAX_LEN):
             rep["warn"].append(f"{tag}：长度 {len(bio)} 字（期望 {MIN_LEN}–{MAX_LEN}）")
         if a in existing and _norm(existing[a]) == nb:
