@@ -1,0 +1,13 @@
+{
+  "file": "artist_bios_placefix_21_rewrite_ascii.json",
+  "count": 21,
+  "mode": "location_only_rewrite",
+  "expected_updates": 21,
+  "expected_net_new": 0,
+  "high_confidence": 21,
+  "low_confidence": 0,
+  "encoding": "ASCII-only JSON with Unicode escapes",
+  "specified_location_hits_after": 0,
+  "non_location_changes": 0,
+  "sha256": "1179445c78d3a1b2c76be372b4ff1c3c9f97e7d4113bd5ab9966d4b97ac877a2"
+}
