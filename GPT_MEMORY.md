@@ -17,10 +17,10 @@
 |---|--:|
 | 曲池 | **1169** 首 |
 | 池内艺人 | **1084** 位 |
-| 已写简介 | **324** 位（覆盖 29.9%）|
-| 待写 | **760** 位 |
-| confidence | high 320 · low 4 |
-| bio 长度 | 104–196 字（均 148）|
+| 已写简介 | **424** 位（覆盖 39.1%）|
+| 待写 | **660** 位 |
+| confidence | high 415 · low 9 |
+| bio 长度 | 104–207 字（均 152）|
 | 含未翻译地名 | 21 条 —— **见「五、待修名单」** |
 
 ### 已导入批次
@@ -35,10 +35,12 @@
 | `artist_bios_batch06_rewrite_50_ascii.json` | 50 |
 | `artist_bios_batch07_50_ascii.json` | 50 |
 | `artist_bios_batch08_50_ascii.json` | 50 |
+| `artist_bios_batch09_50_ascii.json` | 50 |
+| `artist_bios_batch10_50_ascii.json` | 50 |
 
 ## 三、已写清单（这些别再写）
 
-<details><summary>展开 324 位</summary>
+<details><summary>展开 424 位</summary>
 
 ```
 1010benja  4hero  79.5  A Sunny Day in Glasgow
@@ -96,10 +98,35 @@ Deacon Blue  Dead Can Dance  Dear Nora  Deca Joins
 Deeper  Deerhunter  Della Zyr  Delvon Lamarr Organ Trio
 Deniece Williams  Destroyer  Devendra Banhart  Devin Morrison
 Dialect  Dip in the Pool  Dirty Projectors  Discovery Zone
-Djavan  Do Make Say Think  Domenico Lancellotti  Drugdealer
-Duster  Duval Timothy  El Michels Affair  Emma-Jean Thackray
-Erika de Casier  Fennesz  Flipper's Guitar  Florist
-Four Tet  Gold Panda  Hand Habits  Hatchie
+Djavan  Do Make Say Think  Domenico Lancellotti  Domenique Dumont
+Dominguinhos  Don Friedman  Donald Byrd  Donny Hathaway
+Dora Morelenbaum  Dorothy Ashby  Draag  Drop Nineteens
+Drugdealer  Ducks Ltd.  Ducktails  Dummy
+Dur-Dur Band  Durand Jones & The Indications  Duster  Dustin O'Halloran
+Duval Timothy  Dwele  Dâm-Funk  Ebo Taylor
+Ed Maverick  Eddie Kendricks  Edu Lobo  Efterklang
+El Michels Affair  El Ten Eleven  Ela Minus  Elis Regina
+Elliott Smith  Emahoy Tsege Mariam Gebru  Emancipator  Emily A. Sprague
+Emily King  Emilíana Torrini  Emitt Rhodes  Emma-Jean Thackray
+En Attendant Ana  Enchantment  Erik Truffaz  Erika de Casier
+Erin Rae  Erkin Koray  Erland Cooper  Esbjörn Svensson Trio
+Espers  Esthero  Everything but the Girl  Explosions in the Sky
+Ezra Collective  FKJ  Fabiano do Nascimento  Fabrizio Paterlini
+Fana Hues  Father John Misty  Faye Webster  Fazerdaze
+Federico Albanese  Fela Kuti  Felt  Feng Suave
+Fennesz  Field Medic  Fievel Is Glauque  Fishmans
+Fleet Foxes  Flipper's Guitar  Floating Points  Florist
+Flyying Colours  For Against  Four Tet  Francis Bebey
+Frankie Cosmos  Frankie Rose  Françoise Hardy  Fred Neil
+Freddie Hubbard  Free Nationals  Fruit Bats  Fumio Itabashi
+GDJYB 雞蛋蒸肉餅  Gabriel Garzón-Montano  Gal Costa  Galaxie 500
+Gary Bartz  Gary Higgins  Gaussian Curve  Gaye Su Akyol
+Gene Clark  Georgia Anne Muldrow  Ghost Woman  Gia Margaret
+Gigi Masin  Gil Scott-Heron  Gilberto Gil  Ginger Root
+Global Communication  GoGo Penguin  Gold Panda  Goldfrapp
+Goldmund  Grandaddy  Grant Green  Great Grandpa
+Green-House  Greg Haines  Gregor  Gregory Alan Isakov
+Grizzly Bear  Groove Armada  Hand Habits  Hatchie
 Ivy  Jamila Woods  Joanna Newsom  John Martyn
 Josephine Foster  Juana Molina  Kadhja Bonet  Kahimi Karie
 Kaitlyn Aurelia Smith  Kate Bollinger  Katie Von Schleicher  Katy Kirby
@@ -131,21 +158,21 @@ serpentwithfeet  toe  Étienne Daho  Ólafur Arnalds
 完整清单见 [`data/artists_todo.json`](data/artists_todo.json)。**接下来这 60 位优先**：
 
 ```
-Domenique Dumont  Dominguinhos  Don Friedman  Donald Byrd
-Donny Hathaway  Dora Morelenbaum  Dorothy Ashby  Draag
-Drop Nineteens  Ducks Ltd.  Ducktails  Dummy
-Dur-Dur Band  Durand Jones & The Indications  Dustin O'Halloran  Dwele
-Dâm-Funk  Ebo Taylor  Ed Maverick  Eddie Kendricks
-Edu Lobo  Efterklang  El Ten Eleven  Ela Minus
-Elis Regina  Elliott Smith  Emahoy Tsege Mariam Gebru  Emancipator
-Emily A. Sprague  Emily King  Emilíana Torrini  Emitt Rhodes
-En Attendant Ana  Enchantment  Erik Truffaz  Erin Rae
-Erkin Koray  Erland Cooper  Esbjörn Svensson Trio  Espers
-Esthero  Everything but the Girl  Explosions in the Sky  Ezra Collective
-FKJ  Fabiano do Nascimento  Fabrizio Paterlini  Fana Hues
-Father John Misty  Faye Webster  Fazerdaze  Federico Albanese
-Fela Kuti  Felt  Feng Suave  Field Medic
-Fievel Is Glauque  Fishmans  Fleet Foxes  Floating Points
+Grouper  Gus Dapperton  Gwenifer Raymond  H. Hawkline
+H.E.R.  HTRK  Hailu Mergia  Haley Heynderickx
+Hammock  Hana Vu  Hania Rani  Hank Mobley
+Hannah Frances  Harmonia  Harvey Sutherland  Hatis Noit
+Hauschka  Heavenly  Helado Negro  Helena Deland
+Helios  Herbie Hancock  Hermanos Gutiérrez  Hiatus Kaiyote
+Hideki Kaji  Hildur Guðnadóttir  Hinako Omori  Hiperson
+Hiroshi Suzuki  Hiroshi Yoshimura  Hiss Golden Messenger  Hitsujibungaku
+Holiday Ghosts  Homecomings  Homeshake  Hooverphonic
+Horsegirl  Hot Chip  Hovvdy  Hue and Cry
+I Mean Us  Ichiko Aoba (青葉市子)  Ida  Idaho
+Idris Muhammad  Incognito  Inoyama Land  Iron & Wine
+Isan  Itasca  Jabu  Jacco Gardner
+Jacqueline Taïeb  Jaga Jazzist  Jake Xerxes Fussell  Jalen Ngonda
+Jamie xx  Jan Garbarek  Jan Johansson  Jane Weaver
 ```
 
 ## 五、待修名单（地名没翻译，优先修这些）
