@@ -17,9 +17,9 @@
 |---|--:|
 | 曲池 | **1169** 首 |
 | 池内艺人 | **1084** 位 |
-| 已写简介 | **274** 位（覆盖 25.3%）|
-| 待写 | **810** 位 |
-| confidence | high 271 · low 3 |
+| 已写简介 | **324** 位（覆盖 29.9%）|
+| 待写 | **760** 位 |
+| confidence | high 320 · low 4 |
 | bio 长度 | 104–196 字（均 148）|
 | 含未翻译地名 | 21 条 —— **见「五、待修名单」** |
 
@@ -34,10 +34,11 @@
 | `artist_bios_batch05_rewrite_18_ascii.json` | 18 |
 | `artist_bios_batch06_rewrite_50_ascii.json` | 50 |
 | `artist_bios_batch07_50_ascii.json` | 50 |
+| `artist_bios_batch08_50_ascii.json` | 50 |
 
 ## 三、已写清单（这些别再写）
 
-<details><summary>展开 274 位</summary>
+<details><summary>展开 324 位</summary>
 
 ```
 1010benja  4hero  79.5  A Sunny Day in Glasgow
@@ -82,33 +83,45 @@ Change  Chapterhouse  Charlotte Dos Santos  Charlotte Gainsbourg
 Cheatahs  Chicha Libre  China Crisis  Chinese Football
 Chip Wickham  Chocolat  Chris Cohen  Christian Löffler
 Christoph Berg  Cicada  Cindy  Cindy Lee
-Claire Rousay  Clairo  Codeine  Colleen
-Danny Wilson  Drugdealer  Duster  Duval Timothy
-El Michels Affair  Emma-Jean Thackray  Erika de Casier  Fennesz
-Flipper's Guitar  Florist  Four Tet  Gold Panda
-Hand Habits  Hatchie  Ivy  Jamila Woods
-Joanna Newsom  John Martyn  Josephine Foster  Juana Molina
-Kadhja Bonet  Kahimi Karie  Kaitlyn Aurelia Smith  Kate Bollinger
-Katie Von Schleicher  Katy Kirby  Khruangbin  Kim Sawol
-L'Rain  Library Tapes  Lloyd Cole and the Commotions  Loraine James
-Luedji Luna  Marissa Nadler  Melody's Echo Chamber  Men I Trust
-Nap Eyes  Okay Kaya  Patrice Rushen  Photay
-Plaid  Puma Blue  Rachika Nayar  Ravyn Lenae
-Red House Painters  Rei Harakami  Round Table  Rubel
-Sam Prekop  Seam  Sessa  Silvana Estrada
-Skullcrusher  Slow Pulp  Sondre Lerche  Songs: Ohia
-Squirrel Flower  Teebs  The Clientele  The High Llamas
-The Innocence Mission  The Orchids  The Sea and Cake  The fin.
-Tim Bernardes  Tim Buckley  Tomberlin  Tourist
-VIDEOTAPEMUSIC  Vetiver  Visible Cloaks  Willie Hutch
-Woo  Woods  Ximena Sariñana  Xênia França
-Yasuaki Shimizu  Yasuha  Yaya Bey  Yeasayer
-Yebba  Yellow Days  Yo La Tengo  Yogee New Waves
-Young Marble Giants  Yu Su  Yumi Zouma  Yussef Dayes
-Yussef Kamaal  Yves Jarvis  Zero 7  cero
-girl in red  gomes the hitman (ゴメス・ザ・ヒットマン)  haruka nakamura  mxmtoon
-múm  never young beach  serpentwithfeet  toe
-Étienne Daho  Ólafur Arnalds
+Claire Rousay  Clairo  Clarissa Connelly  Cleo Sol
+Close Lobsters  Cocteau Twins  Codeine  Cola
+Colleen  Common Holly  Connan Mockasin  Connie Converse
+Cornelius  Corridor  Cortex  Cory Hanson
+Crackazat  Craft Spells  Cranes  Crumb
+Cuco  Curtis Mayfield  Cut Worms  Cuushe
+Cymande  Cymbals  Céu  DIIV
+DSPS  Damien Jurado  Dana Gavanski  Daniel Caesar
+Danny Wilson  Dawn Richard & Spencer Zahn  Dawuna  Dayglow
+Deacon Blue  Dead Can Dance  Dear Nora  Deca Joins
+Deeper  Deerhunter  Della Zyr  Delvon Lamarr Organ Trio
+Deniece Williams  Destroyer  Devendra Banhart  Devin Morrison
+Dialect  Dip in the Pool  Dirty Projectors  Discovery Zone
+Djavan  Do Make Say Think  Domenico Lancellotti  Drugdealer
+Duster  Duval Timothy  El Michels Affair  Emma-Jean Thackray
+Erika de Casier  Fennesz  Flipper's Guitar  Florist
+Four Tet  Gold Panda  Hand Habits  Hatchie
+Ivy  Jamila Woods  Joanna Newsom  John Martyn
+Josephine Foster  Juana Molina  Kadhja Bonet  Kahimi Karie
+Kaitlyn Aurelia Smith  Kate Bollinger  Katie Von Schleicher  Katy Kirby
+Khruangbin  Kim Sawol  L'Rain  Library Tapes
+Lloyd Cole and the Commotions  Loraine James  Luedji Luna  Marissa Nadler
+Melody's Echo Chamber  Men I Trust  Nap Eyes  Okay Kaya
+Patrice Rushen  Photay  Plaid  Puma Blue
+Rachika Nayar  Ravyn Lenae  Red House Painters  Rei Harakami
+Round Table  Rubel  Sam Prekop  Seam
+Sessa  Silvana Estrada  Skullcrusher  Slow Pulp
+Sondre Lerche  Songs: Ohia  Squirrel Flower  Teebs
+The Clientele  The High Llamas  The Innocence Mission  The Orchids
+The Sea and Cake  The fin.  Tim Bernardes  Tim Buckley
+Tomberlin  Tourist  VIDEOTAPEMUSIC  Vetiver
+Visible Cloaks  Willie Hutch  Woo  Woods
+Ximena Sariñana  Xênia França  Yasuaki Shimizu  Yasuha
+Yaya Bey  Yeasayer  Yebba  Yellow Days
+Yo La Tengo  Yogee New Waves  Young Marble Giants  Yu Su
+Yumi Zouma  Yussef Dayes  Yussef Kamaal  Yves Jarvis
+Zero 7  cero  girl in red  gomes the hitman (ゴメス・ザ・ヒットマン)
+haruka nakamura  mxmtoon  múm  never young beach
+serpentwithfeet  toe  Étienne Daho  Ólafur Arnalds
 ```
 
 </details>
@@ -118,21 +131,21 @@ múm  never young beach  serpentwithfeet  toe
 完整清单见 [`data/artists_todo.json`](data/artists_todo.json)。**接下来这 60 位优先**：
 
 ```
-Clarissa Connelly  Cleo Sol  Close Lobsters  Cocteau Twins
-Cola  Common Holly  Connan Mockasin  Connie Converse
-Cornelius  Corridor  Cortex  Cory Hanson
-Crackazat  Craft Spells  Cranes  Crumb
-Cuco  Curtis Mayfield  Cut Worms  Cuushe
-Cymande  Cymbals  Céu  DIIV
-DSPS  Damien Jurado  Dana Gavanski  Daniel Caesar
-Dawn Richard & Spencer Zahn  Dawuna  Dayglow  Deacon Blue
-Dead Can Dance  Dear Nora  Deca Joins  Deeper
-Deerhunter  Della Zyr  Delvon Lamarr Organ Trio  Deniece Williams
-Destroyer  Devendra Banhart  Devin Morrison  Dialect
-Dip in the Pool  Dirty Projectors  Discovery Zone  Djavan
-Do Make Say Think  Domenico Lancellotti  Domenique Dumont  Dominguinhos
-Don Friedman  Donald Byrd  Donny Hathaway  Dora Morelenbaum
-Dorothy Ashby  Draag  Drop Nineteens  Ducks Ltd.
+Domenique Dumont  Dominguinhos  Don Friedman  Donald Byrd
+Donny Hathaway  Dora Morelenbaum  Dorothy Ashby  Draag
+Drop Nineteens  Ducks Ltd.  Ducktails  Dummy
+Dur-Dur Band  Durand Jones & The Indications  Dustin O'Halloran  Dwele
+Dâm-Funk  Ebo Taylor  Ed Maverick  Eddie Kendricks
+Edu Lobo  Efterklang  El Ten Eleven  Ela Minus
+Elis Regina  Elliott Smith  Emahoy Tsege Mariam Gebru  Emancipator
+Emily A. Sprague  Emily King  Emilíana Torrini  Emitt Rhodes
+En Attendant Ana  Enchantment  Erik Truffaz  Erin Rae
+Erkin Koray  Erland Cooper  Esbjörn Svensson Trio  Espers
+Esthero  Everything but the Girl  Explosions in the Sky  Ezra Collective
+FKJ  Fabiano do Nascimento  Fabrizio Paterlini  Fana Hues
+Father John Misty  Faye Webster  Fazerdaze  Federico Albanese
+Fela Kuti  Felt  Feng Suave  Field Medic
+Fievel Is Glauque  Fishmans  Fleet Foxes  Floating Points
 ```
 
 ## 五、待修名单（地名没翻译，优先修这些）
