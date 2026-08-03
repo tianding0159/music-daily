@@ -240,6 +240,15 @@ def audit(rows: list[dict]) -> dict:
             continue
         if "让人" in bio or "令人" in bio:
             rep["p0"].append(f"{tag}：出现「让人/令人」")
+
+        # 汉字之间夹空格 —— placefix 那批的残留：把英文地名换成中文时，
+        # 原英文两侧的空格没一起删（「出生于 Tulsa，」→「出生于 塔尔萨，」）。
+        # 判据严格限定汉字—空格—汉字：中英之间的空格是全库一致的风格，不管。
+        cjk_sp = re.findall(r"[一-鿿] +[一-鿿]", bio)
+        if cjk_sp:
+            rep["p0"].append(
+                f"{tag}：汉字之间有多余空格 {cjk_sp[:4]}"
+                "（换词时原英文两侧的空格要一起删；中英之间的空格是对的，别动）")
             continue
 
         # 头号失败模式：bio 只是 oneliner 的扩写
