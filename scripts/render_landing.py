@@ -212,7 +212,7 @@ body.go .deckbox .deck{animation:needle-hit .36s ease-out .74s both}
   color:rgba(245,245,245,.7); transition:color .16s}
 /* start 的字母主体比圆钮低 1.25px：小写词没有降部、x-height 堆在文字盒下半部，
    几何居中时视觉上就是偏低。按像素实测量出的差值上移。 */
-.pw .t{position:relative; top:-.5px}
+.pw .t{position:relative; top:-1.62px}
 .pw:hover{color:#f5f5f5}
 .pw:focus-visible{outline:1px solid rgba(255,255,255,.5); outline-offset:5px}
 /* 圆钮：待机是橙色描边空心，hover 半亮，按下实心并留一圈光 */
@@ -326,6 +326,13 @@ def build_html(n_issues: int, n_tracks: int, n_moods: int, latest_date: str,
 <meta name="description" content="每日精选 30 首 · melody-first · mood-first · production-first">
 <meta name="theme-color" content="#f5f5f5">
 <link rel="preload" href="daily.html" as="document">
+<!-- 字体必须在这里引 —— GRID_CSS 里只是【声明】 --sans:"Inter" / --mono:"Space Mono"，
+     声明不等于加载。2026-08-03 之前本页漏了这三行，变量与日报完全一致却回退到
+     Helvetica/Arial 渲染，看起来就是「开启页字体和日报不一致」。
+     引法与 render_grid.py / render_random.py 保持逐字相同。 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
 <style>{GRID_CSS}{_turntable_css()}{LANDING_CSS}</style>
 </head>
 <body>
