@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import collections
+import hashlib
 import json
 import re
 import sys
@@ -29,6 +30,12 @@ ARTISTS = ROOT / "data" / "artists.json"
 # 站内文案黑名单（从 style_bible 解析，与 copy_check 同一口径）+ bio 专属的通稿词
 EXTRA_BANNED = ("才华横溢", "独树一帜", "不可多得", "灵魂人物", "音乐鬼才",
                 "无可替代", "享誉", "广受好评", "备受赞誉", "无需多言")
+
+# UTF-8 被按 cp1252/latin-1 解读后的典型残迹。2026-08-03 第一批 30 位就这么坏的：
+# 「加拿大」的 e5 8a a0 e6 8b bf 到我手里成了 e5 20 e6 bf —— 0x80-0x9F 区间的字节
+# 被传输通道吞掉，90% 汉字不可复原。这些字符在正常中文文案里几乎不可能出现，
+# 一旦出现就是编码坏了，必须让上游重发（而不是我这边硬猜着修）。
+MOJIBAKE_MARKS = ("å", "æ", "ã", "ï¼", "â", "ä", "è", "é", "ç", "ð")
 
 ALLOWED_KEYS = {"artist", "bio", "confidence"}      # 恰好这三个，多一个都拒
 ALLOWED_CONF = {"high", "low"}                     # 只这两档
@@ -48,6 +55,29 @@ def _banned_words() -> set[str]:
 
 def _norm(s: str) -> str:
     return re.sub(r"[\s，。、·,.\-—…]+", "", str(s or ""))
+
+
+def check_encoding(raw: str) -> list[str]:
+    """在解析前先看文本有没有编码损坏——这类问题必须让上游重发，不能硬修。"""
+    errs = []
+    hits = [m for m in MOJIBAKE_MARKS if m in raw]
+    if hits:
+        # 数一下有多少个「E0-EF 开头但续字节残缺」的序列，估损坏规模
+        b = raw.encode("latin-1", errors="replace")
+        i = broken = ok = 0
+        while i < len(b):
+            if 0xE0 <= b[i] <= 0xEF:
+                if i + 2 < len(b) and 0x80 <= b[i + 1] <= 0xBF and 0x80 <= b[i + 2] <= 0xBF:
+                    ok += 1; i += 3
+                else:
+                    broken += 1; i += 1
+            else:
+                i += 1
+        pct = round(100 * broken / max(ok + broken, 1))
+        errs.append(f"文本编码已损坏（残迹字符 {hits[:5]}，约 {pct}% 的汉字序列残缺）。"
+                    f"这是 UTF-8 被当 cp1252 解读、0x80-0x9F 字节被吞造成的，**不可复原**。"
+                    f"请让上游改用 json.dumps(..., ensure_ascii=True) 重发（纯 ASCII 不会坏）。")
+    return errs
 
 
 def audit(rows: list[dict]) -> dict:
@@ -162,10 +192,28 @@ def main() -> int:
     ap.add_argument("src", help="GPT 产出的 JSON（数组）")
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--force", action="store_true", help="有 warn 也写盘（P0 仍拒）")
+    ap.add_argument("--sha", help="上游声明的 SHA-256，核对文件是否在传输中被改动")
     args = ap.parse_args()
 
+    raw = Path(args.src).read_text(encoding="utf-8")
+
+    # ① SHA-256 核对（GPT 会随文件给 manifest；纯 ASCII 文件哈希对上=一个字没变）
+    if args.sha:
+        got = hashlib.sha256(raw.encode("utf-8")).hexdigest()
+        if got != args.sha.strip().lower():
+            print(f"❌ SHA-256 不符\n   声明 {args.sha.strip().lower()}\n   实际 {got}")
+            print("   文件在传输中被改动过，请让上游重发")
+            return 2
+        print(f"✓ SHA-256 核对通过 {got[:16]}…")
+
+    # ② 编码损坏检测（在 json.loads 之前——坏文本也可能是合法 JSON）
+    enc_errs = check_encoding(raw)
+    if enc_errs:
+        print("❌ " + enc_errs[0])
+        return 2
+
     try:
-        rows = json.loads(Path(args.src).read_text(encoding="utf-8"))
+        rows = json.loads(raw)
     except Exception as e:
         print(f"❌ 无法解析 {args.src}：{e}")
         return 2
