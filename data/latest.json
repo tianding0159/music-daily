@@ -1,35 +1,37 @@
 {
-  "date": "2026-08-02",
-  "issue_no": 6,
-  "playlist_title": "有点甜，但克制着（08.02）",
+  "date": "2026-08-03",
+  "issue_no": 7,
+  "playlist_title": "夜色很稠，节拍很轻（08.03）",
   "tracks_brief": [
     {
-      "title": "Stick to My Side",
-      "artist": "Pantha du Prince"
+      "title": "Peacekeeper",
+      "artist": "1010benja"
     },
     {
-      "title": "Bless the Telephone",
-      "artist": "Labi Siffre"
+      "title": "Mother Maybe",
+      "artist": "Kadhja Bonet"
     },
     {
-      "title": "Cola",
-      "artist": "Arlo Parks"
+      "title": "TOKYO SNIPER",
+      "artist": "Ryusenkei"
     },
     {
-      "title": "Somewhere",
-      "artist": "Luby Sparks"
+      "title": "Blue Lagoon",
+      "artist": "Masayoshi Takanaka"
     },
     {
-      "title": "Yolcu",
-      "artist": "Altın Gün"
+      "title": "Holy",
+      "artist": "Jamila Woods"
     },
     {
-      "title": "Bobby",
-      "artist": "Alex G"
+      "title": "Existe Uma Voz",
+      "artist": "Rogê"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true
 }
