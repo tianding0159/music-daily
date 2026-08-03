@@ -17,10 +17,10 @@
 |---|--:|
 | 曲池 | **1169** 首 |
 | 池内艺人 | **1084** 位 |
-| 已写简介 | **749** 位（覆盖 69.1%）|
-| 待写 | **335** 位 |
-| confidence | high 722 · low 27 |
-| bio 长度 | 104–220 字（均 161）|
+| 已写简介 | **799** 位（覆盖 73.7%）|
+| 待写 | **285** 位 |
+| confidence | high 771 · low 28 |
+| bio 长度 | 104–220 字（均 162）|
 | 含未翻译地名 | 0 条 ✅ |
 
 ### 已导入批次
@@ -43,11 +43,12 @@
 | `artist_bios_batch13a_50_ascii.json` | 50 |
 | `artist_bios_batch13b_50_ascii.json` | 50 |
 | `artist_bios_batch13c_50_ascii.json` | 50 |
+| `artist_bios_batch14c_50_ascii.json` | 50 |
 | `artist_bios_placefix_21_rewrite_ascii.json` | 21 |
 
 ## 三、已写清单（这些别再写）
 
-<details><summary>展开 749 位</summary>
+<details><summary>展开 799 位</summary>
 
 ```
 1010benja  4hero  79.5  A Sunny Day in Glasgow
@@ -224,20 +225,32 @@ Nuno Canavarro  OOHYO  Ochre  Office Culture
 Okay Kaya  Patrice Rushen  Photay  Plaid
 Puma Blue  Rachika Nayar  Ravyn Lenae  Red House Painters
 Rei Harakami  Round Table  Rubel  Sam Prekop
-Seam  Sessa  Silvana Estrada  Skullcrusher
-Slow Pulp  Sondre Lerche  Songs: Ohia  Squirrel Flower
-Teebs  The Clientele  The High Llamas  The Innocence Mission
-The Orchids  The Sea and Cake  The fin.  Tim Bernardes
-Tim Buckley  Tomberlin  Tourist  VIDEOTAPEMUSIC
-Vetiver  Visible Cloaks  Willie Hutch  Woo
-Woods  Ximena Sariñana  Xênia França  Yasuaki Shimizu
-Yasuha  Yaya Bey  Yeasayer  Yebba
-Yellow Days  Yo La Tengo  Yogee New Waves  Young Marble Giants
-Yu Su  Yumi Zouma  Yussef Dayes  Yussef Kamaal
-Yves Jarvis  Zero 7  cero  girl in red
-gomes the hitman (ゴメス・ザ・ヒットマン)  haruka nakamura  mxmtoon  múm
-never young beach  serpentwithfeet  toe  Étienne Daho
-Ólafur Arnalds
+Say She She  Say Sue Me  Saya Gray  Scritti Politti
+Sea Oleena  Seam  Sean Nicholas Savage  Sebastian Plano
+Secos & Molhados  Seefeel  Selda Bağcan  Sen Morimoto
+Serge Gainsbourg  Sessa  Shack  Sharon Van Etten
+Shigeto  Shin Hae Gyeong  Shuggie Otis  Shugo Tokumaru
+SiR  Sibylle Baier  Sigur Rós  Silica Gel
+Silva  Silvana Estrada  Sin Fang  Six Organs of Admittance
+Sixto Rodriguez  Skullcrusher  Slow Pulp  Slowdive
+Smino  Smoke City  Snail Mail  Sneaker Pimps
+Snoh Aalegra  Sobs  Soccer Mommy  Sofia Kourtesis
+Softcult  Solange  Sondre Lerche  Songs: Ohia
+Sons of Kemet  Sophie Hutchings  Spangle call Lilli line  Sparklehorse
+Squirrel Flower  St Germain  Stan Getz & Charlie Byrd  Standing on the Corner
+Steely Dan  Stella Donnelly  Stereolab  Steve Gunn
+Steve Hauschildt  Steve Lacy  Teebs  The Clientele
+The High Llamas  The Innocence Mission  The Orchids  The Sea and Cake
+The fin.  Tim Bernardes  Tim Buckley  Tomberlin
+Tourist  VIDEOTAPEMUSIC  Vetiver  Visible Cloaks
+Willie Hutch  Woo  Woods  Ximena Sariñana
+Xênia França  Yasuaki Shimizu  Yasuha  Yaya Bey
+Yeasayer  Yebba  Yellow Days  Yo La Tengo
+Yogee New Waves  Young Marble Giants  Yu Su  Yumi Zouma
+Yussef Dayes  Yussef Kamaal  Yves Jarvis  Zero 7
+cero  girl in red  gomes the hitman (ゴメス・ザ・ヒットマン)  haruka nakamura
+mxmtoon  múm  never young beach  serpentwithfeet
+toe  Étienne Daho  Ólafur Arnalds
 ```
 
 </details>
