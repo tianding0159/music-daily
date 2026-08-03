@@ -17,10 +17,10 @@
 |---|--:|
 | 曲池 | **1169** 首 |
 | 池内艺人 | **1084** 位 |
-| 已写简介 | **499** 位（覆盖 46.0%）|
-| 待写 | **585** 位 |
-| confidence | high 487 · low 12 |
-| bio 长度 | 104–220 字（均 157）|
+| 已写简介 | **599** 位（覆盖 55.3%）|
+| 待写 | **485** 位 |
+| confidence | high 581 · low 18 |
+| bio 长度 | 104–220 字（均 159）|
 | 含未翻译地名 | 0 条 ✅ |
 
 ### 已导入批次
@@ -38,11 +38,13 @@
 | `artist_bios_batch09_50_ascii.json` | 50 |
 | `artist_bios_batch10_50_ascii.json` | 50 |
 | `artist_bios_batch11_75_ascii.json` | 75 |
+| `artist_bios_batch12a_50_ascii.json` | 50 |
+| `artist_bios_batch12b_50_ascii.json` | 50 |
 | `artist_bios_placefix_21_rewrite_ascii.json` | 21 |
 
 ## 三、已写清单（这些别再写）
 
-<details><summary>展开 499 位</summary>
+<details><summary>展开 599 位</summary>
 
 ```
 1010benja  4hero  79.5  A Sunny Day in Glasgow
@@ -145,14 +147,39 @@ Isan  Itasca  Ivy  Jabu
 Jacco Gardner  Jacqueline Taïeb  Jaga Jazzist  Jake Xerxes Fussell
 Jalen Ngonda  Jamie xx  Jamila Woods  Jan Garbarek
 Jan Johansson  Jane Weaver  Japan  Japanese Breakfast
-Jards Macalé  Jay Som  Jazzanova  Jeanines
-Jeff Parker  Jefre Cantu-Ledesma  Jega  Jenevieve
-Jerry Paper  Jessica Pratt  Jessy Lanza  Jesu
-Jill Scott  Joanna Newsom  John Martyn  Josephine Foster
-Juana Molina  Kadhja Bonet  Kahimi Karie  Kaitlyn Aurelia Smith
-Kate Bollinger  Katie Von Schleicher  Katy Kirby  Khruangbin
-Kim Sawol  L'Rain  Library Tapes  Lloyd Cole and the Commotions
-Loraine James  Luedji Luna  Marissa Nadler  Melody's Echo Chamber
+Jards Macalé  Jay Som  Jazzanova  Jean Carne
+Jeanines  Jeff Parker  Jefre Cantu-Ledesma  Jega
+Jenevieve  Jerry Paper  Jessica Pratt  Jessy Lanza
+Jesu  Jill Scott  Jim O'Rourke  Jimmy Giuffre
+Jimmy Smith  Jitwam  Joanna Newsom  Joanne Robertson
+Joe Armon-Jones  Joe Hisaishi  John Also Bennett  John Fahey
+John Martyn  John Metcalfe  Jolie Holland  Jonah Yano
+Jonnine  Jordan Rakei  Jorge Ben  Jorja Smith
+Joseph Shabason  Josephine Foster  José González  Joy Crookes
+Joyce  João Donato  João Gilberto  Juana Molina
+Judee Sill  Julia Holter  Julia Jacklin  Julia Kent
+Julianna Barwick  Julie Byrne  Juniore  Jóhann Jóhannsson
+KIRINJI  Kadhja Bonet  Kahimi Karie  Kaho Nakamura
+Kaidi Tatham  Kaitlyn Aurelia Smith  Kama Aina  Kamasi Washington
+Kaoru Akimoto (秋元薫)  Karen Dalton  Kate Bollinger  Kate Bush
+Katie Von Schleicher  Katy J Pearson  Katy Kirby  Keith Jarrett
+Kelela  Kelly Lee Owens  Kenny Burrell  Kettel
+Kevin Ayers  Kevin Krauter  Kevin Morby  Khotin
+Khruangbin  Kiasmos  Kicell  Kiefer
+Kiln  Kim Oki  Kim Sawol  Kings of Convenience
+Kirinji  Kit Sebastian  Kitchens of Distinction  Kohsuke Mine
+Kokoroko  Koop  Kruder & Dorfmeister  Kurt Vile
+L'Impératrice  L'Rain  La Femme  La Luz
+Labi Siffre  Lady Wray  Lala Lala  Lali Puna
+Lamb  Lamp  Lang Lee  Laura Marling
+Lee Morgan  Lemon Jelly  Leon Bridges  Leon Ware
+Leroy Hutson  Levitation Room  Lewsberg  Lianne La Havas
+Library Tapes  Lido Pimienta  Lightheaded  Lilys
+Linda Perhacs  Lindstrøm  Liniker  Little Dragon
+Lloyd Cole and the Commotions  Local Natives  Loess  Logg
+Loma  Lomelda  Lone  Long Beard
+Lonnie Liston Smith  Loose Ends  Loraine James  Los Bitchos
+Los Destellos  Luedji Luna  Marissa Nadler  Melody's Echo Chamber
 Men I Trust  Nap Eyes  Okay Kaya  Patrice Rushen
 Photay  Plaid  Puma Blue  Rachika Nayar
 Ravyn Lenae  Red House Painters  Rei Harakami  Round Table
@@ -179,21 +206,21 @@ toe  Étienne Daho  Ólafur Arnalds
 完整清单见 [`data/artists_todo.json`](data/artists_todo.json)。**接下来这 60 位优先**：
 
 ```
-Jean Carne  Jim O'Rourke  Jimmy Giuffre  Jimmy Smith
-Jitwam  Joanne Robertson  Joe Armon-Jones  Joe Hisaishi
-John Also Bennett  John Fahey  John Metcalfe  Jolie Holland
-Jonah Yano  Jonnine  Jordan Rakei  Jorge Ben
-Jorja Smith  Joseph Shabason  José González  Joy Crookes
-Joyce  João Donato  João Gilberto  Judee Sill
-Julia Holter  Julia Jacklin  Julia Kent  Julianna Barwick
-Julie Byrne  Juniore  Jóhann Jóhannsson  KIRINJI
-Kaho Nakamura  Kaidi Tatham  Kama Aina  Kamasi Washington
-Kaoru Akimoto (秋元薫)  Karen Dalton  Kate Bush  Katy J Pearson
-Keith Jarrett  Kelela  Kelly Lee Owens  Kenny Burrell
-Kettel  Kevin Ayers  Kevin Krauter  Kevin Morby
-Khotin  Kiasmos  Kicell  Kiefer
-Kiln  Kim Oki  Kings of Convenience  Kirinji
-Kit Sebastian  Kitchens of Distinction  Kohsuke Mine  Kokoroko
+Los Ángeles Negros  Loscil  Louis Philippe  Low
+Luby Sparks  Lucid Express  Lucid Fall  Lucky Old Sun (ラッキーオールドサン)
+Luke Howard  Luke Sanger  Lush  Lusine
+LÜCY  Lô Borges  M. Geddes Gengras  M. Sage
+MJ Lenderman  ML Buch  MRCY  Mabe Fratti
+Mac Ayres  Mac DeMarco  Mahalia  Maisha
+Makaya McCraven  Malibu  Mallu Magalhães  Mamalarky
+Mamerico  Mammal Hands  Manami Kakudo  Mandalay
+Maple Glider  Marcelo Camelo  Marcelo Jeneci  Marcos Valle
+Marden Hill  Maria BC  Mariah  Marika Hackman
+Marina Herlop  Marine Girls  Marisa Anderson  Marisa Monte
+Mariya Takeuchi  Marker Starling  Marlena Shaw  Marlon Williams
+Marvin Gaye  Mary Lattimore  Masakatsu Takagi  Masayoshi Fujita
+Masayoshi Takanaka  Masego  Massage  Massive Attack
+Maston  Matt Bianco  Matthew Halsall  Max Richter
 ```
 
 ## 六、补库仍偏缺的方向
