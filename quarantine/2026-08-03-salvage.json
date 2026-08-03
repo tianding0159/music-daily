@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Summertime In San Jose",
+    "artist": "HICKSVILLE",
+    "reason": "version_mismatch",
+    "matched": "Summertime In San Jose (Album Mix)",
+    "matched_artist": "Hicksville"
+  },
+  {
+    "title": "九月の歌 / September Song",
+    "artist": "Yumbo",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "Every Morning of the World",
+    "artist": "Summer Lei",
+    "reason": "not_found",
+    "matched": "",
+    "matched_artist": ""
+  },
+  {
+    "title": "永和",
+    "artist": "Shallow Levée",
+    "reason": "artist_mismatch",
+    "matched": "永和",
+    "matched_artist": "淺堤"
+  }
+]

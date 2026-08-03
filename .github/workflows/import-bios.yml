@@ -88,6 +88,12 @@ jobs:
           fi
           echo "tests + healthcheck 全绿"
 
+      - name: 刷新 GPT 台账（GPT_MEMORY.md + artists_todo.json）
+        # GPT 每开新对话就失忆，靠这份台账知道「已写过谁 / 接下来写谁」。
+        # 必须自动重生成——手写的状态文档一定会过期，然后 GPT 照着旧清单重复写
+        # （batch05 覆盖 batch02 那 16 位就是这么来的）。
+        run: python3 tools/gen_gpt_memory.py
+
       - name: 归档已导入的输入文件 + 提交
         run: |
           set -e
@@ -99,7 +105,7 @@ jobs:
             [ -e "$f" ] && git mv "$f" "inbox/bios/done/$(basename "$f")" 2>/dev/null \
               || mv "$f" "inbox/bios/done/$(basename "$f")"
           done
-          git add data/artists.json site/ inbox/ 2>/dev/null || true
+          git add data/artists.json data/artists_todo.json GPT_MEMORY.md site/ inbox/ 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "无变更（全部重复或为空），跳过提交"
           else

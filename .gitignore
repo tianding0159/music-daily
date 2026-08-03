@@ -6,3 +6,6 @@ data/discover_leads.json
 # 前端验证用的临时探针页（注入脚本后的 site/*.html 副本）
 site/_*.html
 
+
+# 脚本自动生成的本地快照备份（派生物，无限增长，不进版本库）
+.backup/

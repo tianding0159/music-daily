@@ -200,7 +200,32 @@ def audit(rows: list[dict]) -> dict:
                            f"（上限 {MAX_HEAD_PCT}%）——换开头")
     if dup_bio:
         rep["p0"].append(f"批内有 {dup_bio} 条 bio 完全相同")
+
+    # 覆盖检测：同名艺人已有 bio 且内容不同 —— 必须显式确认，不能静默发生。
+    # 2026-08-03 batch05 覆盖了 batch02 里 16 位的更好版本（地名没翻译），
+    # CI 8 步全绿、零拒收，是靠事后手算「输入 160 − 净增 112 = 覆盖 48」才发现的。
+    # 护栏只管「有没有违规」，管不了「新版是不是比旧版差」，所以这里只能拦下来让人判断。
+    prev = dict(_SEEN)
+    if ARTISTS.exists():
+        for a in json.loads(ARTISTS.read_text(encoding="utf-8")):
+            prev.setdefault(a["artist"], a["bio"])
+    ov = [r["artist"] for r in rep["ok"]
+          if r["artist"] in prev and prev[r["artist"]].strip() != r["bio"].strip()]
+    if ov:
+        rep["warn"].append(
+            f"覆盖 {len(ov)} 位已有简介且内容不同：{ov[:8]}"
+            + (f" …共 {len(ov)}" if len(ov) > 8 else "")
+            + "。**先比对两版质量再决定**——旧版可能更好（batch05 就是这样）。"
+            "确认新版更好再加 --force")
+        rep["overwrites"] = ov
+    for r in rep["ok"]:
+        _SEEN[r["artist"]] = r["bio"]
     return rep
+
+
+# 一次运行内已写过的 artist → bio。用于检测「同一批次里多个文件互相覆盖」，
+# 这种情况在体检模式（未写盘）下无法从 artists.json 看出来。
+_SEEN: dict[str, str] = {}
 
 
 def apply(rows: list[dict]) -> int:
@@ -302,10 +327,16 @@ def _one(path: Path, sha: str | None, do_apply: bool, force: bool) -> int:
         print("\n（体检模式，未写盘；加 --apply 导入）")
         return 0
 
+    before = (len(json.loads(ARTISTS.read_text(encoding="utf-8")))
+              if ARTISTS.exists() else 0)
     n, total = apply(rep["ok"])
     pool_artists = len({t.get("artist") for t in json.loads(POOL.read_text(encoding="utf-8"))})
     print(f"\n✅ 导入 {n} 条 → data/artists.json 共 {total} 位 "
           f"（池内艺人 {pool_artists} 位，覆盖 {100*total/pool_artists:.1f}%）")
+    # 数字对账：输入 − 净增 = 覆盖数。不闭合说明有意料外的覆盖，必须查。
+    net, dup = total - before, n - (total - before)
+    print(f"   对账：输入 {n} − 净增 {net} = 覆盖 {dup} 位"
+          + ("（无覆盖 ✓）" if dup == 0 else "  ← 已在上方 warn 列出"))
     print("   接着跑：python3 -c \"import sys;sys.path.insert(0,'scripts');"
           "import build_daily;build_daily._rebuild_site()\"")
     return 0
