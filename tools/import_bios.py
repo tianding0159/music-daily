@@ -1,0 +1,192 @@
+"""导入 GPT 写的艺人简介 → data/artists.json。
+
+分工：GPT 写 bio，这边负责校验与落盘。校验项都是真踩过的坑：
+  · artist 对不上池 → 这条 bio 永远不会被任何页面用到，静默浪费
+  · bio 只是 oneliner 的扩写 → 放大页等于没提供新信息（这是本任务的头号失败模式）
+  · 黑名单词 / 「让人·令人」/ 破折号模板 / 开头句式集中度 → 站内文案统一口径
+  · 与已有 bio 重复 → 同一段话套在不同艺人身上
+
+用法：
+  python3 tools/import_bios.py <gpt产出.json>            # 只体检，不写盘
+  python3 tools/import_bios.py <gpt产出.json> --apply    # 校验通过后合并进 artists.json
+  python3 tools/import_bios.py <gpt产出.json> --apply --force   # 有 warn 也写（P0 仍拒）
+"""
+from __future__ import annotations
+
+import argparse
+import collections
+import json
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "scripts"))
+
+POOL = ROOT / "data" / "pool.json"
+ARTISTS = ROOT / "data" / "artists.json"
+
+# 站内文案黑名单（从 style_bible 解析，与 copy_check 同一口径）+ bio 专属的通稿词
+EXTRA_BANNED = ("才华横溢", "独树一帜", "不可多得", "灵魂人物", "音乐鬼才",
+                "无可替代", "享誉", "广受好评", "备受赞誉", "无需多言")
+
+MIN_LEN, MAX_LEN = 60, 220
+MAX_DASH_PCT = 20
+MAX_HEAD_PCT = 30          # 同一批里最高频开头句式（前 6 字）
+
+
+def _banned_words() -> set[str]:
+    try:
+        import copy_check
+        return set(copy_check.blacklist()) | set(EXTRA_BANNED)
+    except Exception:
+        return set(EXTRA_BANNED)
+
+
+def _norm(s: str) -> str:
+    return re.sub(r"[\s，。、·,.\-—…]+", "", str(s or ""))
+
+
+def audit(rows: list[dict]) -> dict:
+    pool = json.loads(POOL.read_text(encoding="utf-8"))
+    pool_artists = {t.get("artist", "") for t in pool}
+    oneliners = {t.get("artist", ""): t.get("artist_oneliner", "") for t in pool}
+    existing = {a["artist"]: a.get("bio", "")
+                for a in (json.loads(ARTISTS.read_text(encoding="utf-8"))
+                          if ARTISTS.exists() else [])}
+    banned = _banned_words()
+
+    rep: dict = {"input": len(rows), "p0": [], "warn": [], "ok": [],
+                 "metrics": {}, "skipped": []}
+    seen: set[str] = set()
+    bios: list[str] = []
+
+    for r in rows:
+        a = str(r.get("artist", "")).strip()
+        bio = str(r.get("bio", "")).strip()
+        tag = a or "<空 artist>"
+
+        if not a or not bio:
+            rep["p0"].append(f"{tag}：artist 或 bio 为空")
+            continue
+        if a not in pool_artists:
+            # 池里没这位 = 这条 bio 永远用不上
+            rep["p0"].append(f"{tag}：池里查无此艺人（拼写不一致？）")
+            continue
+        if a in seen:
+            rep["p0"].append(f"{tag}：本批内重复")
+            continue
+        seen.add(a)
+
+        hit = [w for w in banned if w in bio]
+        if hit:
+            rep["p0"].append(f"{tag}：黑名单词 {hit}")
+            continue
+        if "让人" in bio or "令人" in bio:
+            rep["p0"].append(f"{tag}：出现「让人/令人」")
+            continue
+
+        # 头号失败模式：bio 只是 oneliner 的扩写
+        ol = _norm(oneliners.get(a, ""))
+        nb = _norm(bio)
+        if ol and len(ol) >= 8 and ol in nb:
+            rep["warn"].append(f"{tag}：bio 整段包含了 oneliner 原文（应写新信息，不是扩写）")
+        if not (MIN_LEN <= len(bio) <= MAX_LEN):
+            rep["warn"].append(f"{tag}：长度 {len(bio)} 字（期望 {MIN_LEN}–{MAX_LEN}）")
+        if a in existing and _norm(existing[a]) == nb:
+            rep["skipped"].append(f"{tag}：与已有 bio 相同，跳过")
+            continue
+
+        bios.append(bio)
+        rep["ok"].append(r)
+
+    # 批级指标
+    n = max(len(bios), 1)
+    dash = sum(1 for b in bios if "——" in b or "—" in b)
+    heads = collections.Counter(b[:6] for b in bios)
+    dup_bio = sum(c - 1 for c in collections.Counter(map(_norm, bios)).values() if c > 1)
+    top_head = heads.most_common(1)[0] if heads else ("", 0)
+    rep["metrics"] = {
+        "accepted": len(bios),
+        "dash_pct": round(100 * dash / n, 1),
+        "top_head": top_head[0], "top_head_pct": round(100 * top_head[1] / n, 1),
+        "len_min": min((len(b) for b in bios), default=0),
+        "len_max": max((len(b) for b in bios), default=0),
+        "len_avg": round(sum(len(b) for b in bios) / n),
+        "dup_bio": dup_bio,
+        "low_conf": sum(1 for r in rep["ok"] if r.get("confidence") == "low"),
+    }
+    if len(bios) >= 10 and rep["metrics"]["dash_pct"] > MAX_DASH_PCT:
+        rep["warn"].append(f"破折号同位语占 {rep['metrics']['dash_pct']}%（上限 {MAX_DASH_PCT}%）——模板复读")
+    # 占比类指标在小样本上没意义：2 条里 1 条就占 50%，会把每批小样都误拦
+    if len(bios) >= 10 and rep["metrics"]["top_head_pct"] > MAX_HEAD_PCT:
+        rep["warn"].append(f"开头句式「{top_head[0]}」占 {rep['metrics']['top_head_pct']}%"
+                           f"（上限 {MAX_HEAD_PCT}%）——换开头")
+    if dup_bio:
+        rep["p0"].append(f"批内有 {dup_bio} 条 bio 完全相同")
+    return rep
+
+
+def apply(rows: list[dict]) -> int:
+    existing = (json.loads(ARTISTS.read_text(encoding="utf-8"))
+                if ARTISTS.exists() else [])
+    by = {a["artist"]: a for a in existing}
+    n = 0
+    for r in rows:
+        by[r["artist"]] = {"artist": r["artist"], "bio": r["bio"].strip(),
+                           "confidence": r.get("confidence", "high")}
+        n += 1
+    out = sorted(by.values(), key=lambda a: a["artist"])
+    ARTISTS.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    return n, len(out)
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("src", help="GPT 产出的 JSON（数组）")
+    ap.add_argument("--apply", action="store_true")
+    ap.add_argument("--force", action="store_true", help="有 warn 也写盘（P0 仍拒）")
+    args = ap.parse_args()
+
+    try:
+        rows = json.loads(Path(args.src).read_text(encoding="utf-8"))
+    except Exception as e:
+        print(f"❌ 无法解析 {args.src}：{e}")
+        return 2
+    if not isinstance(rows, list):
+        print("❌ 顶层必须是数组")
+        return 2
+
+    rep = audit(rows)
+    m = rep["metrics"]
+    print(f"=== import_bios === 输入 {rep['input']} 条 → 可接受 {m['accepted']} 条")
+    print(f"  长度 {m['len_min']}–{m['len_max']} 字（均 {m['len_avg']}）· low confidence {m['low_conf']}")
+    print(f"  破折号 {m['dash_pct']}% · 最高频开头「{m['top_head']}」{m['top_head_pct']}%")
+    for x in rep["skipped"]:
+        print(f"  [skip] {x}")
+    for x in rep["warn"]:
+        print(f"  [warn] {x}")
+    for x in rep["p0"]:
+        print(f"  [P0]   {x}")
+
+    if rep["p0"]:
+        print(f"\n❌ {len(rep['p0'])} 项 P0，拒绝写盘（这些条目本来也用不上）")
+        return 1
+    if rep["warn"] and not args.force and args.apply:
+        print(f"\n⚠️ {len(rep['warn'])} 项告警。确认可接受就加 --force 写盘")
+        return 1
+    if not args.apply:
+        print("\n（体检模式，未写盘；加 --apply 导入）")
+        return 0
+
+    n, total = apply(rep["ok"])
+    pool_artists = len({t.get("artist") for t in json.loads(POOL.read_text(encoding="utf-8"))})
+    print(f"\n✅ 导入 {n} 条 → data/artists.json 共 {total} 位 "
+          f"（池内艺人 {pool_artists} 位，覆盖 {100*total/pool_artists:.1f}%）")
+    print("   接着跑：python3 -c \"import sys;sys.path.insert(0,'scripts');"
+          "import build_daily;build_daily._rebuild_site()\"")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
