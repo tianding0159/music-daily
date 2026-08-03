@@ -17,10 +17,10 @@
 |---|--:|
 | 曲池 | **1169** 首 |
 | 池内艺人 | **1084** 位 |
-| 已写简介 | **599** 位（覆盖 55.3%）|
-| 待写 | **485** 位 |
-| confidence | high 581 · low 18 |
-| bio 长度 | 104–220 字（均 159）|
+| 已写简介 | **749** 位（覆盖 69.1%）|
+| 待写 | **335** 位 |
+| confidence | high 722 · low 27 |
+| bio 长度 | 104–220 字（均 161）|
 | 含未翻译地名 | 0 条 ✅ |
 
 ### 已导入批次
@@ -40,11 +40,14 @@
 | `artist_bios_batch11_75_ascii.json` | 75 |
 | `artist_bios_batch12a_50_ascii.json` | 50 |
 | `artist_bios_batch12b_50_ascii.json` | 50 |
+| `artist_bios_batch13a_50_ascii.json` | 50 |
+| `artist_bios_batch13b_50_ascii.json` | 50 |
+| `artist_bios_batch13c_50_ascii.json` | 50 |
 | `artist_bios_placefix_21_rewrite_ascii.json` | 21 |
 
 ## 三、已写清单（这些别再写）
 
-<details><summary>展开 599 位</summary>
+<details><summary>展开 749 位</summary>
 
 ```
 1010benja  4hero  79.5  A Sunny Day in Glasgow
@@ -179,24 +182,62 @@ Linda Perhacs  Lindstrøm  Liniker  Little Dragon
 Lloyd Cole and the Commotions  Local Natives  Loess  Logg
 Loma  Lomelda  Lone  Long Beard
 Lonnie Liston Smith  Loose Ends  Loraine James  Los Bitchos
-Los Destellos  Luedji Luna  Marissa Nadler  Melody's Echo Chamber
-Men I Trust  Nap Eyes  Okay Kaya  Patrice Rushen
-Photay  Plaid  Puma Blue  Rachika Nayar
-Ravyn Lenae  Red House Painters  Rei Harakami  Round Table
-Rubel  Sam Prekop  Seam  Sessa
-Silvana Estrada  Skullcrusher  Slow Pulp  Sondre Lerche
-Songs: Ohia  Squirrel Flower  Teebs  The Clientele
-The High Llamas  The Innocence Mission  The Orchids  The Sea and Cake
-The fin.  Tim Bernardes  Tim Buckley  Tomberlin
-Tourist  VIDEOTAPEMUSIC  Vetiver  Visible Cloaks
-Willie Hutch  Woo  Woods  Ximena Sariñana
-Xênia França  Yasuaki Shimizu  Yasuha  Yaya Bey
-Yeasayer  Yebba  Yellow Days  Yo La Tengo
-Yogee New Waves  Young Marble Giants  Yu Su  Yumi Zouma
-Yussef Dayes  Yussef Kamaal  Yves Jarvis  Zero 7
-cero  girl in red  gomes the hitman (ゴメス・ザ・ヒットマン)  haruka nakamura
-mxmtoon  múm  never young beach  serpentwithfeet
-toe  Étienne Daho  Ólafur Arnalds
+Los Destellos  Los Ángeles Negros  Loscil  Louis Philippe
+Low  Luby Sparks  Lucid Express  Lucid Fall
+Lucky Old Sun (ラッキーオールドサン)  Luedji Luna  Luke Howard  Luke Sanger
+Lush  Lusine  LÜCY  Lô Borges
+M. Geddes Gengras  M. Sage  MJ Lenderman  ML Buch
+MRCY  Mabe Fratti  Mac Ayres  Mac DeMarco
+Mahalia  Maisha  Makaya McCraven  Malibu
+Mallu Magalhães  Mamalarky  Mamerico  Mammal Hands
+Manami Kakudo  Mandalay  Maple Glider  Marcelo Camelo
+Marcelo Jeneci  Marcos Valle  Marden Hill  Maria BC
+Mariah  Marika Hackman  Marina Herlop  Marine Girls
+Marisa Anderson  Marisa Monte  Marissa Nadler  Mariya Takeuchi
+Marker Starling  Marlena Shaw  Marlon Williams  Marvin Gaye
+Mary Lattimore  Masakatsu Takagi  Masayoshi Fujita  Masayoshi Takanaka
+Masego  Massage  Massive Attack  Maston
+Matt Bianco  Matthew Halsall  Max Richter  Maze
+Mazzy Star  McCoy Tyner  Mdou Moctar  Meaningful Stone
+Medicine  Meg Baird  Mega Bog  Mei Ehara
+Mei Semones  Melenas  Melody's Echo Chamber  Men I Trust
+Menahan Street Band  Mercury Rev  Metronomy  Michael Chapman
+Michael Franks  Michael Henderson  Michael Kiwanuka  Michael Nau
+Michael Seyer  Michael White  Microdisney  Mid-Air Thief
+Mild High Club  Mildlife  Milton Nascimento  Milton Wright
+Minako Yoshida (吉田美奈子)  Mineral  Minnie Riperton  Minyo Crusaders
+Misha Panfilov Sound Combo  Mitski  Mndsgn  Moin
+Mojave 3  Molly Burch  Molly Drake  Molly Lewis
+Molly Nilsson  Molly Sarlé  Monnone Alone  Mono
+Moonchild  Moonface  Morcheeba  Moses Boyd
+Moses Sumney  Mount Eerie  Mount Kimbie  Mr. Scruff
+Mtume  Mulatu Astatke  Musiq Soulchild  My Little Airport
+Myriam Gendron  Nabihah Iqbal  Nadia Reid  Nagisa Ni Te
+Nailah Hunter  Nala Sinephro  Nao  Nap Eyes
+Nara Leão  Nation of Language  Neal Francis  Ned Doheny
+Neon Indian  Nick Drake  Nick Hakim  Nick Waterhouse
+Nicola Conte  Nicola Cruz  Nicolas Jaar  Nightmares on Wax
+Nils Frahm  Nilüfer Yanya  No Joy  Nobukazu Takemura
+Norman Connors  Nothing  Nourished by Time  Novos Baianos
+Nu Genea  Nubiyan Twist  Nubya Garcia  Nujabes
+Nuno Canavarro  OOHYO  Ochre  Office Culture
+Okay Kaya  Patrice Rushen  Photay  Plaid
+Puma Blue  Rachika Nayar  Ravyn Lenae  Red House Painters
+Rei Harakami  Round Table  Rubel  Sam Prekop
+Seam  Sessa  Silvana Estrada  Skullcrusher
+Slow Pulp  Sondre Lerche  Songs: Ohia  Squirrel Flower
+Teebs  The Clientele  The High Llamas  The Innocence Mission
+The Orchids  The Sea and Cake  The fin.  Tim Bernardes
+Tim Buckley  Tomberlin  Tourist  VIDEOTAPEMUSIC
+Vetiver  Visible Cloaks  Willie Hutch  Woo
+Woods  Ximena Sariñana  Xênia França  Yasuaki Shimizu
+Yasuha  Yaya Bey  Yeasayer  Yebba
+Yellow Days  Yo La Tengo  Yogee New Waves  Young Marble Giants
+Yu Su  Yumi Zouma  Yussef Dayes  Yussef Kamaal
+Yves Jarvis  Zero 7  cero  girl in red
+gomes the hitman (ゴメス・ザ・ヒットマン)  haruka nakamura  mxmtoon  múm
+never young beach  serpentwithfeet  toe  Étienne Daho
+Ólafur Arnalds
 ```
 
 </details>
@@ -206,21 +247,21 @@ toe  Étienne Daho  Ólafur Arnalds
 完整清单见 [`data/artists_todo.json`](data/artists_todo.json)。**接下来这 60 位优先**：
 
 ```
-Los Ángeles Negros  Loscil  Louis Philippe  Low
-Luby Sparks  Lucid Express  Lucid Fall  Lucky Old Sun (ラッキーオールドサン)
-Luke Howard  Luke Sanger  Lush  Lusine
-LÜCY  Lô Borges  M. Geddes Gengras  M. Sage
-MJ Lenderman  ML Buch  MRCY  Mabe Fratti
-Mac Ayres  Mac DeMarco  Mahalia  Maisha
-Makaya McCraven  Malibu  Mallu Magalhães  Mamalarky
-Mamerico  Mammal Hands  Manami Kakudo  Mandalay
-Maple Glider  Marcelo Camelo  Marcelo Jeneci  Marcos Valle
-Marden Hill  Maria BC  Mariah  Marika Hackman
-Marina Herlop  Marine Girls  Marisa Anderson  Marisa Monte
-Mariya Takeuchi  Marker Starling  Marlena Shaw  Marlon Williams
-Marvin Gaye  Mary Lattimore  Masakatsu Takagi  Masayoshi Fujita
-Masayoshi Takanaka  Masego  Massage  Massive Attack
-Maston  Matt Bianco  Matthew Halsall  Max Richter
+Ogurusu Norihide  Omar  Omni  Onipa
+Opal  Oracle Sisters  Orange Juice  Orchestra Baobab
+Os Mutantes  Oscar Jerome  Otis Redding  Otto A Totland
+Owen  Owen Pallett  Ozora Kimijima (君島大空)  PACKS
+Pale Saints  Panda Bear  Pantha du Prince  Papercuts
+Parannoul  Partner Look  Pat Metheny Group  Patricia Wolf
+Paul Desmond  Pavement  Peach Pit  Pearl & The Oysters
+Pearl Charles  Pearls Before Swine  Peel Dream Magazine  Penguin Cafe Orchestra
+Perfume Genius  Perila  Peter Broderick  Pharoah Sanders
+Phoebe Bridgers  Phosphorescent  Phyllis Hyman  Pia Fraus
+Piana  Pinback  Pinegrove  Pizzicato Five
+Polo & Pan  Poolside  Poppy Ackroyd  Portico Quartet
+Portishead  Prawn  Predawn  Prefab Sprout
+Proem  Quantic  Quivers  Rachel Grimes
+Rahill  Ralph Towner  Ramsey Lewis  Raphael Saadiq
 ```
 
 ## 六、补库仍偏缺的方向
