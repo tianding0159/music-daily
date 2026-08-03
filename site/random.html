@@ -19,7 +19,11 @@
   --blue:#0071bb; --green:#00a651; --green-d:#006837; --orange:#f05a24;
   --red:#b81d13; --yellow:#fab413;
   --sans:"Inter","Noto Sans SC","Helvetica Neue",Arial,sans-serif;
-  --mono:"Space Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+  /* Space Mono 不含汉字。栈里必须显式给中文字体，否则中文落到【操作系统默认】——
+     Windows 是雅黑、Linux 可能是文泉驿，同一页在不同机器上长得不一样。
+     2026-08-03 实测（CDP getPlatformFontsForNode）：页面 44 处中文都在这条栈上，
+     全部走了系统回退。Noto Sans SC 本来已在 --sans 里引过，复用不增加网络请求。 */
+  --mono:"Space Mono","JetBrains Mono","Noto Sans SC",ui-monospace,Menlo,monospace;
   --fs-10:clamp(11px,.92vw,13px); --fs-15:clamp(12px,1.1vw,15px);
   --fs-20:clamp(15px,1.5vw,20px); --fs-25:clamp(19px,2.1vw,27px);
   --fs-30:clamp(23px,2.7vw,36px); --fs-40:clamp(34px,5vw,68px);
@@ -915,6 +919,7 @@ const HEART="<svg class=\"i-heart\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><
 
 const $=(s)=>document.querySelector(s);
 let POOL=[], seen=[], cur=null, recent=[];
+let ARTISTS={};   // 艺人上下文侧表，artists.min.json 加载后填充
 const au=new Audio();
 const np=$('#np'), NC=$('#np-cover'), NT=$('#np-title'), NA=$('#np-artist'),
       NBAR=$('#np-bar'), NFILL=$('#np-fill'), NTIME=$('#np-time'), NTOG=$('#np-toggle');
@@ -957,8 +962,13 @@ function pool(){return POOL.filter(match)}
 function lbData(t){
   const A=(k,v)=>' data-'+k+'="'+String(v==null?'':v).replace(/&/g,'&amp;').replace(/"/g,'&quot;')+'"';
   const tags=[].concat((t.genres||[]).slice(0,3),(t.mood_tags||[]).slice(0,3)).map(tgm).join('|');
+  // 艺人上下文来自侧表 ARTISTS（bio / 年代 / 本站收录），日报是内联注入，
+  // 这里走网络加载。漏了这三项的话浮层只剩曲目信息、没有音乐人简介 —— 2026-08-03 修。
+  const ac=(ARTISTS&&ARTISTS[t.artist])||{};
   return A('cover',t.c)+A('title',t.title)+A('artist',t.artist)+A('year',t.year)
+       +A('years',ac.y||'')+A('g0',(t.genres||[''])[0])
        +A('album',t.album)+A('bpm',t.bpm_band||'')+A('tags',tags)
+       +A('bio',ac.b||'')+A('inpool',(ac.i||[]).join('|'))
        +A('one',t.artist_oneliner||'')+A('why',t.why||'')+A('scene',t.scene||'')
        +A('apple',t.a||'')+A('spotify','https://open.spotify.com/search/'
          +encodeURIComponent((t.title||'')+' '+(t.artist||'')));
@@ -1077,6 +1087,9 @@ function fill(sel,items,label){
   el.innerHTML='<option value="">'+label+'</option>'+items.map(x=>'<option value="'+x[0]+'">'+x[1]+'</option>').join('');
   el.addEventListener('change',()=>{ seen=[]; lcd('filter set \u00b7 '+pool().length+' tracks in play'); });
 }
+
+fetch('artists.min.json').then(r=>r.ok?r.json():{}).then(d=>{ARTISTS=d||{}})
+  .catch(()=>{});   // 拿不到只是浮层少一段简介，不能拖垮主流程
 
 fetch('pool.min.json').then(r=>r.json()).then(d=>{
   POOL=d;

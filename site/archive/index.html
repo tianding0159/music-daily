@@ -18,7 +18,11 @@
   --blue:#0071bb; --green:#00a651; --green-d:#006837; --orange:#f05a24;
   --red:#b81d13; --yellow:#fab413;
   --sans:"Inter","Noto Sans SC","Helvetica Neue",Arial,sans-serif;
-  --mono:"Space Mono","JetBrains Mono",ui-monospace,Menlo,monospace;
+  /* Space Mono 不含汉字。栈里必须显式给中文字体，否则中文落到【操作系统默认】——
+     Windows 是雅黑、Linux 可能是文泉驿，同一页在不同机器上长得不一样。
+     2026-08-03 实测（CDP getPlatformFontsForNode）：页面 44 处中文都在这条栈上，
+     全部走了系统回退。Noto Sans SC 本来已在 --sans 里引过，复用不增加网络请求。 */
+  --mono:"Space Mono","JetBrains Mono","Noto Sans SC",ui-monospace,Menlo,monospace;
   --fs-10:clamp(11px,.92vw,13px); --fs-15:clamp(12px,1.1vw,15px);
   --fs-20:clamp(15px,1.5vw,20px); --fs-25:clamp(19px,2.1vw,27px);
   --fs-30:clamp(23px,2.7vw,36px); --fs-40:clamp(34px,5vw,68px);

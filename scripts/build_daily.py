@@ -201,6 +201,13 @@ def _build_random(pool: list[dict], use_itunes: bool) -> int:
         t["_cover"], t["_preview"], t["_apple"] = m.get("c", ""), m.get("p", ""), m.get("a", "")
     SITE.mkdir(parents=True, exist_ok=True)
     (SITE / "pool.min.json").write_text(render_random.build_pool_json(items), encoding="utf-8")
+    # 艺人上下文侧表：随机页浮层的 bio / 年代 / 本站收录都从这里取。
+    # 日报是把 ARTIST_CTX 内联进 HTML，随机页数据是异步加载的，所以单独出一份。
+    # 漏了这一步 = 点封面看不到音乐人简介（2026-08-03 就是这么漏的）。
+    _bios = {a["artist"]: a.get("bio", "")
+             for a in _load_json(DATA / "artists.json", [])}
+    (SITE / "artists.min.json").write_text(
+        render_random.build_artist_json(items, _bios), encoding="utf-8")
     (SITE / "random.html").write_text(render_random.build_html(len(items)), encoding="utf-8")
     return len(items)
 

@@ -34,6 +34,36 @@ def build_pool_json(pool: list[dict]) -> str:
     return json.dumps(out, ensure_ascii=False, separators=(",", ":"))
 
 
+def build_artist_json(pool: list[dict], bios: dict[str, str]) -> str:
+    """艺人上下文侧表 {artist: {b:bio, y:年代跨度, i:[本站收录曲名]}}。
+
+    为什么单独一张表而不是塞进每首曲子：1169 首里同一位艺人常有多首，
+    bio 有一两百字，逐曲重复会把 pool.min.json 撑大好几倍。
+    浮层按 artist 名查这张表即可。
+
+    与日报的 _artist_ctx 是同一套语义（bio / years / inpool），
+    只是键名压短了 —— 这张表要走网络，日报是内联在 HTML 里的。
+    """
+    import collections
+    by: dict[str, list[dict]] = collections.defaultdict(list)
+    for t in pool:
+        by[t.get("artist", "")].append(t)
+    out: dict[str, dict] = {}
+    for a, ts in by.items():
+        yrs = sorted(str(t.get("year", "")) for t in ts if t.get("year"))
+        e = {}
+        if bios.get(a):
+            e["b"] = bios[a]
+        if yrs:
+            e["y"] = yrs[0] if yrs[0] == yrs[-1] else f"{yrs[0]}\u2013{yrs[-1]}"
+        titles = [t.get("title", "") for t in ts][:8]
+        if len(titles) > 1:
+            e["i"] = titles
+        if e:
+            out[a] = e
+    return json.dumps(out, ensure_ascii=False, separators=(",", ":"))
+
+
 EXTRA_CSS = """
 /* ── 随机页专属 ───────────────────────────────────────────── */
 body{padding-bottom:76px}
@@ -423,6 +453,7 @@ ICON_DICE = (
 JS = """
 const $=(s)=>document.querySelector(s);
 let POOL=[], seen=[], cur=null, recent=[];
+let ARTISTS={};   // 艺人上下文侧表，artists.min.json 加载后填充
 const au=new Audio();
 const np=$('#np'), NC=$('#np-cover'), NT=$('#np-title'), NA=$('#np-artist'),
       NBAR=$('#np-bar'), NFILL=$('#np-fill'), NTIME=$('#np-time'), NTOG=$('#np-toggle');
@@ -465,8 +496,13 @@ function pool(){return POOL.filter(match)}
 function lbData(t){
   const A=(k,v)=>' data-'+k+'="'+String(v==null?'':v).replace(/&/g,'&amp;').replace(/"/g,'&quot;')+'"';
   const tags=[].concat((t.genres||[]).slice(0,3),(t.mood_tags||[]).slice(0,3)).map(tgm).join('|');
+  // 艺人上下文来自侧表 ARTISTS（bio / 年代 / 本站收录），日报是内联注入，
+  // 这里走网络加载。漏了这三项的话浮层只剩曲目信息、没有音乐人简介 —— 2026-08-03 修。
+  const ac=(ARTISTS&&ARTISTS[t.artist])||{};
   return A('cover',t.c)+A('title',t.title)+A('artist',t.artist)+A('year',t.year)
+       +A('years',ac.y||'')+A('g0',(t.genres||[''])[0])
        +A('album',t.album)+A('bpm',t.bpm_band||'')+A('tags',tags)
+       +A('bio',ac.b||'')+A('inpool',(ac.i||[]).join('|'))
        +A('one',t.artist_oneliner||'')+A('why',t.why||'')+A('scene',t.scene||'')
        +A('apple',t.a||'')+A('spotify','https://open.spotify.com/search/'
          +encodeURIComponent((t.title||'')+' '+(t.artist||'')));
@@ -585,6 +621,9 @@ function fill(sel,items,label){
   el.innerHTML='<option value="">'+label+'</option>'+items.map(x=>'<option value="'+x[0]+'">'+x[1]+'</option>').join('');
   el.addEventListener('change',()=>{ seen=[]; lcd('filter set \\u00b7 '+pool().length+' tracks in play'); });
 }
+
+fetch('artists.min.json').then(r=>r.ok?r.json():{}).then(d=>{ARTISTS=d||{}})
+  .catch(()=>{});   // 拿不到只是浮层少一段简介，不能拖垮主流程
 
 fetch('pool.min.json').then(r=>r.json()).then(d=>{
   POOL=d;

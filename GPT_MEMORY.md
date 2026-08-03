@@ -21,7 +21,7 @@
 | 待写 | **585** 位 |
 | confidence | high 487 · low 12 |
 | bio 长度 | 104–220 字（均 157）|
-| 含未翻译地名 | 21 条 —— **见「五、待修名单」** |
+| 含未翻译地名 | 0 条 ✅ |
 
 ### 已导入批次
 
@@ -38,6 +38,7 @@
 | `artist_bios_batch09_50_ascii.json` | 50 |
 | `artist_bios_batch10_50_ascii.json` | 50 |
 | `artist_bios_batch11_75_ascii.json` | 75 |
+| `artist_bios_placefix_21_rewrite_ascii.json` | 21 |
 
 ## 三、已写清单（这些别再写）
 
@@ -193,35 +194,6 @@ Kettel  Kevin Ayers  Kevin Krauter  Kevin Morby
 Khotin  Kiasmos  Kicell  Kiefer
 Kiln  Kim Oki  Kings of Convenience  Kirinji
 Kit Sebastian  Kitchens of Distinction  Kohsuke Mine  Kokoroko
-```
-
-## 五、待修名单（地名没翻译，优先修这些）
-
-这些已入库的 bio 里有未翻译的英文地名。**只改地名，其余别动**；
-人名 / 厂牌名 / 专辑名 / 乐队名保留英文是对的。
-
-```
-1010benja  ←  Kansas City、Tulsa
-Adrianne Lenker  ←  Indianapolis
-Ahmad Jamal  ←  Pittsburgh
-Al Green  ←  Arkansas
-Alvvays  ←  Cape Breton
-Ana Frango Elétrico  ←  Rio
-Animal Collective  ←  Baltimore
-Ann Peebles  ←  Memphis
-Anna St. Louis  ←  Los Angeles、Kansas City
-Anna Tivel  ←  Portland
-Aretha Franklin  ←  Detroit、Memphis
-Arooj Aftab  ←  Lahore
-Arthur Russell  ←  Iowa
-Bedhead  ←  Texas
-Joanna Newsom  ←  California
-John Martyn  ←  Glasgow
-Josephine Foster  ←  Colorado
-Juana Molina  ←  Buenos Aires
-Kadhja Bonet  ←  Los Angeles
-Kahimi Karie  ←  Paris
-The Orchids  ←  Glasgow
 ```
 
 ## 六、补库仍偏缺的方向
