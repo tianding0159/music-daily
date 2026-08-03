@@ -69,10 +69,9 @@ def _batches():
     return out
 
 
-EN_PLACES = ("Virginia", "Brooklyn", "Nashville", "Texas", "California", "London",
-             "Tokyo", "Chicago", "Berlin", "Paris", "Melbourne", "Toronto", "Glasgow",
-             "Seattle", "Portland", "Detroit", "New York", "Los Angeles", "Manchester",
-             "Bristol", "Copenhagen", "Stockholm", "Oslo")
+# 判据直接复用导入器，不在这里另造一份 —— 两套标准必然漂移
+sys.path.insert(0, str(ROOT / "tools"))
+from import_bios import EN_PLACES, _place_hit  # noqa: E402
 
 
 def build() -> str:
@@ -96,9 +95,12 @@ def build() -> str:
                  or "器乐" in (t.get("vocal_style") or ""))
 
     # bio 质量现状
-    bad_place = [a["artist"] for a in arts
-                 if any(re.search(r"(?<![A-Za-z])" + re.escape(x) + r"(?![A-Za-z])", a["bio"])
-                        for x in EN_PLACES)]
+    def _bad(a):
+        # 判据完全走导入器的 _place_hit —— 别在这里重写一份，会漂移
+        aw = {w.lower() for w in re.findall(r"[A-Za-z]+", a["artist"])}
+        return [x for x in EN_PLACES
+                if _place_hit(a["bio"], x) and not set(x.lower().split()) <= aw]
+    bad_place = {a["artist"]: _bad(a) for a in arts if _bad(a)}
     L = [len(a["bio"]) for a in arts] or [0]
     conf = collections.Counter(a.get("confidence") for a in arts)
 
@@ -117,7 +119,7 @@ def build() -> str:
         "",
         "1. 读本文件的**「三、已写清单」**，确认你要写的艺人还没被写过",
         "2. 读**「四、待写队列」**，从队首取 30–50 位（已按重要度排好序）",
-        "3. 扫一眼**「六、已经踩过的坑」**",
+        "3. 扫一眼**「七、已经踩过的坑」**",
         "",
         "## 二、当前状态",
         "",
@@ -129,7 +131,7 @@ def build() -> str:
         f"| 待写 | **{len(todo)}** 位 |",
         f"| confidence | high {conf.get('high',0)} · low {conf.get('low',0)} |",
         f"| bio 长度 | {min(L)}–{max(L)} 字（均 {sum(L)//len(L)}）|",
-        f"| 含未翻译地名 | {len(bad_place)} 条 —— **待修，见坑 #3** |" if bad_place
+        f"| 含未翻译地名 | {len(bad_place)} 条 —— **见「五、待修名单」** |" if bad_place
         else "| 含未翻译地名 | 0 条 ✅ |",
         "",
         "### 已导入批次",
@@ -157,9 +159,25 @@ def build() -> str:
     lines += ["  ".join(todo_ranked[i:i+4]) for i in range(0, min(60, len(todo_ranked)), 4)]
     lines += ["```", ""]
 
+    # 待修名单 —— 这一节是这次翻车的直接补丁：
+    # 2026-08-03 我跟 GPT 说「batch05 那 50 条地名要重写」（按批次），
+    # 结果 GPT 重写的 18 条里只有 6 条真有问题，而真正的问题条目散落在多个批次。
+    # 教训：**给待修任务永远给精确名单，不给批次范围。**
+    if bad_place:
+        lines += [
+            "## 五、待修名单（地名没翻译，优先修这些）",
+            "",
+            "这些已入库的 bio 里有未翻译的英文地名。**只改地名，其余别动**；",
+            "人名 / 厂牌名 / 专辑名 / 乐队名保留英文是对的。",
+            "",
+            "```",
+        ]
+        lines += [f"{a}  ←  {'、'.join(p)}" for a, p in sorted(bad_place.items())]
+        lines += ["```", ""]
+
     # 补库缺口
     lines += [
-        "## 五、补库仍偏缺的方向",
+        "## 六、补库仍偏缺的方向",
         "",
         "（写 bio 用不到这节，做补库时看）",
         "",
@@ -175,10 +193,10 @@ def build() -> str:
         "",
         "领地划分与检索策略见 [`GPT_TERRITORIES.md`](GPT_TERRITORIES.md)。",
         "",
-        "## 六、" + LESSONS.split("### ", 1)[1].split("\n", 1)[0],
+        "## 七、" + LESSONS.split("### ", 1)[1].split("\n", 1)[0],
         "",
         LESSONS.split("\n", 1)[1].split("\n", 1)[1],
-        "## 七、交付清单（每批照做）",
+        "## 八、交付清单（每批照做）",
         "",
         "```python",
         "import json, hashlib",
@@ -207,7 +225,7 @@ def build() -> str:
         "两个文件一起传到仓库 `inbox/bios/`，CI 自动核 SHA → 校验 → 导入 → 重建 → 部署。",
         "**任一条不合格就整批拒绝**，文件留在原地等修正，不会污染数据。",
         "",
-        "## 八、其它文档",
+        "## 九、其它文档",
         "",
         "| 文档 | 什么时候看 |",
         "|---|---|",

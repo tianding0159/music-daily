@@ -44,12 +44,96 @@ ALLOWED_CONF = {"high", "low"}                     # 只这两档
 # 「Brooklyn 词曲作者」「进入 Nashville」——中英混搭正是站内明确否掉的写法，
 # 而同一批人在 batch02 里写的是「弗吉尼亚州夏洛茨维尔」「常驻布鲁克林」。
 # 人名/厂牌/专辑名保留英文是对的，地名不是。
-EN_PLACES = ("Virginia", "Brooklyn", "Nashville", "Texas", "California", "London",
-             "Tokyo", "Chicago", "Berlin", "Paris", "Melbourne", "Toronto", "Glasgow",
-             "Seattle", "Portland", "Detroit", "New York", "Los Angeles", "Manchester",
-             "Bristol", "Copenhagen", "Stockholm", "Oslo", "Dublin", "Amsterdam",
-             "Barcelona", "Lisbon", "Montreal", "Vancouver", "Philadelphia", "Boston",
-             "Atlanta", "Houston", "Denver", "Austin", "Kansas City", "New Orleans")
+# 常见英文地名。**这是低召回的检查——地名是开放集合，固定词表必然漏。**
+# 2026-08-03 实测：这份表只抓到 20 条，而 GPT 重写时实际翻掉了 14 个不同地名，
+# 其中 Dundee / San Jose / Vienna / Brisbane / Freetown 都不在当时的表里。
+# 所以别拿它的命中数当「问题总数」——它是拦截线（高精度），不是普查工具。
+# 普查用下面的 place_candidates()（高召回、需人判断）。
+EN_PLACES = (
+    # 美国
+    "Virginia", "Brooklyn", "Nashville", "Texas", "California", "New York", "Los Angeles",
+    "Chicago", "Seattle", "Portland", "Detroit", "Boston", "Baltimore", "Philadelphia",
+    "Memphis", "Atlanta", "Denver", "Austin", "Miami", "Houston", "San Jose",
+    "San Francisco", "Kansas City", "Tulsa", "Indianapolis", "Pittsburgh", "Arkansas",
+    "Iowa", "Colorado", "Ohio", "Michigan", "Georgia", "Oregon", "Minneapolis",
+    "New Orleans", "Manhattan", "Queens", "Oakland", "Louisville", "Richmond",
+    # 英国 / 爱尔兰
+    "London", "Manchester", "Bristol", "Glasgow", "Dundee", "Edinburgh", "Leeds",
+    "Liverpool", "Sheffield", "Birmingham", "Brighton", "Dublin", "Belfast", "Cardiff",
+    # 欧陸
+    "Berlin", "Paris", "Vienna", "Copenhagen", "Stockholm", "Oslo", "Helsinki",
+    "Amsterdam", "Rotterdam", "Brussels", "Lisbon", "Madrid", "Barcelona", "Milan",
+    "Rome", "Reykjavik", "Warsaw", "Prague", "Budapest", "Zurich", "Geneva",
+    "Denmark", "Portugal", "Sweden", "Norway", "Iceland", "Finland",
+    # 亚太 / 其他
+    "Tokyo", "Kyoto", "Osaka", "Seoul", "Taipei", "Hong Kong", "Shanghai", "Beijing",
+    "Melbourne", "Sydney", "Brisbane", "Perth", "Auckland", "Wellington",
+    "Toronto", "Montreal", "Vancouver", "Cape Breton",
+    "Lagos", "Nairobi", "Johannesburg", "Cairo", "Lahore", "Karachi", "Mumbai",
+    "Freetown", "Sierra Leone", "Buenos Aires", "Rio", "Sao Paulo", "Bogota",
+    "Santiago", "Lima", "Havana", "Kingston", "Beirut", "Istanbul", "Tel Aviv",
+)
+
+# 位置词——地名几乎总跟在这些词后面。用于「候选」普查（高召回）。
+_PLACE_CTX = r"(?:来自|生于|出生于|常驻|定居|移居|旅居|成长于|活跃于|在|于)"
+_PLACE_PAT = re.compile(_PLACE_CTX + r"\s*([A-Z][A-Za-z]*(?:[ \-\'][A-Z][A-Za-z]*)*)")
+# 跟在这些词后面的拉丁词是厂牌 / 乐队 / 专辑，不是地名，排除
+_NOT_PLACE_HEAD = re.compile(
+    r"(?:签入|签给|签约|由|经|厂牌|发行|加入|组建|成立|名义|专辑|单曲|EP|合作|参与|师从)\s*$")
+# 明显不是地名的实体后缀（学校 / 厂牌 / 节日 / 场地）
+_NOT_PLACE_TAIL = re.compile(
+    r"(?:Records?|Recordings?|Tapes|Sound|Music|University|College|School|Institute|"
+    r"Conservatory|Festival|Theory|Club|Studios?|Group|Band|Orchestra|Ensemble|SNL)$")
+
+
+# 地名后面跟这些词，说明它是机构 / 厂牌 / 专辑名的一部分，不是在指地点。
+# 2026-08-03 「Manhattan School of Music」被判成地名没翻译，就是缺这道排除。
+_INSTITUTION_TAIL = re.compile(
+    r"^\s+(?:School|University|College|Conservatory|Institute|Academy|Symphony|"
+    r"Philharmonic|Records?|Recordings?|Sound|Sounds|Music|Festival|Museum|"
+    r"Public|City\b|Times|Post|Review|Magazine)")
+
+
+# 地名后紧跟一个大写拉丁词 = 它其实是人名的名（Georgia Hubley、Paris Hilton、
+# Austin Peralta）。2026-08-03 Yo La Tengo 的鼓手 Georgia Hubley 被判成「地名
+# Georgia 没翻译」，而那条 bio 里真正没翻的 Hoboken 反倒不在词表里 —— 词表法在
+# 人名 / 地名同形上必然出错，这也是它只能当拦截线、不能当普查工具的原因之一。
+_PERSON_TAIL = re.compile(r"^\s+[A-Z][a-z]+")
+# 地名【前面】紧挨一个大写拉丁词 = 它是姓（Alex Leeds、Jack London、Kevin Berlin）。
+# _PERSON_TAIL 只能看后面，看不见这种。Slow Pulp 的贝斯手 Alex Leeds 就这么被误报成 Leeds。
+_PERSON_HEAD = re.compile(r"[A-Z][a-z]+\s+$")
+
+
+def _place_hit(bio: str, x: str) -> bool:
+    """地名是否真的在「指地点」——排除机构名首词、人名的名这两种同形情况。"""
+    for m in re.finditer(r"(?<![A-Za-z])" + re.escape(x) + r"(?![A-Za-z])", bio):
+        tail, head = bio[m.end():], bio[:m.start()]
+        if (_INSTITUTION_TAIL.match(tail) or _PERSON_TAIL.match(tail)
+                or _PERSON_HEAD.search(head[-20:])):
+            continue
+        return True
+    return False
+
+
+def place_candidates(bio: str) -> list[str]:
+    """疑似未翻译地名（**高召回、需人判断**）。
+
+    厂牌 / 乐队 / 学校也会跟在「来自」「在」后面，这里只能靠语境词和后缀排掉一部分,
+    剩下的必须人看。**不要把它接成拦截条件**——2026-08-03 实测误报率约 6 成
+    （Sub Pop / Flying Nun / Massive Attack / UCLA / Bandcamp 全被它捞出来）。
+    与 mojibake 检测误报葡语人名是同一类错：开放集合上做判定，宁可交人判断。
+    """
+    out = []
+    for m in _PLACE_PAT.finditer(bio):
+        tok = m.group(1)
+        if _NOT_PLACE_HEAD.search(bio[:m.start()][-14:]):
+            continue
+        if _NOT_PLACE_TAIL.search(tok):
+            continue
+        if len(tok) < 3:                      # St / Le 之类的碎片
+            continue
+        out.append(tok)
+    return out
 
 MIN_LEN, MAX_LEN = 60, 220
 MAX_DASH_PCT = 20
@@ -163,10 +247,20 @@ def audit(rows: list[dict]) -> dict:
         nb = _norm(bio)
         if ol and len(ol) >= 8 and ol in nb:
             rep["warn"].append(f"{tag}：bio 整段包含了 oneliner 原文（应写新信息，不是扩写）")
+        # 艺人名本身包含的词不算地名 —— 乐队 Beirut、A Sunny Day in Glasgow、
+        # Casino Versus Japan 都以地名为名，把它们的名字翻成中文才是错的。
+        # 2026-08-03 把 Beirut 加进词表后立刻误报了这支乐队，故加这道排除。
+        aw = {w.lower() for w in re.findall(r"[A-Za-z]+", a)}
         pl = [x for x in EN_PLACES
-              if re.search(r"(?<![A-Za-z])" + re.escape(x) + r"(?![A-Za-z])", bio)]
+              if _place_hit(bio, x) and not set(x.lower().split()) <= aw]
         if pl:
             rep["warn"].append(f"{tag}：地名没翻译 {pl}（人名/厂牌保留英文没问题，地名要用中文）")
+        # 词表之外的疑似地名——只提示不拦截（误报约 6 成，见 place_candidates docstring）
+        cand = [x for x in place_candidates(bio)
+                if x not in pl and not set(x.lower().split()) <= aw]
+        if cand:
+            rep.setdefault("info", []).append(
+                f"{tag}：疑似地名 {cand}（若真是地名请翻译；厂牌/乐队/学校/节日保留英文是对的）")
         if not (MIN_LEN <= len(bio) <= MAX_LEN):
             rep["warn"].append(f"{tag}：长度 {len(bio)} 字（期望 {MIN_LEN}–{MAX_LEN}）")
         if a in existing and _norm(existing[a]) == nb:
@@ -249,6 +343,8 @@ def main() -> int:
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--force", action="store_true", help="有 warn 也写盘（P0 仍拒）")
     ap.add_argument("--sha", help="上游声明的 SHA-256，核对文件是否在传输中被改动")
+    ap.add_argument("--archive", action="store_true",
+                    help="目录模式：把通过的输入文件搬到 inbox/bios/done/（CI 用）")
     args = ap.parse_args()
 
     # 目录模式（CI）：处理 inbox/bios/*.json，每个文件自动找同名 _manifest.json 取 sha
@@ -277,7 +373,12 @@ def main() -> int:
             print("   例：artist_bios_batch06.json → artist_bios_batch06_manifest.json")
             return 2
 
-        rc = 0
+        # 【按文件隔离，不连坐】——每个文件是一次独立投递，一批要人工确认
+        # 不该堵住其它干净批次。2026-08-03 踩过：batch05_rewrite 需 --force，
+        # 旧代码 `rc = rc or r` 让整个 run 非零退出、干净的 batch06/07 已写入的
+        # 结果被一并丢弃；此后每传新批次都被它重新连坐一次。
+        # 数据完整性由「单文件内整批拒绝」保证，跨文件原子性没有必要。
+        applied, held = [], []
         for f in files:
             man = f.with_name(f.stem + "_manifest.json")
             sha = None
@@ -291,8 +392,32 @@ def main() -> int:
                                            "传输损坏只能靠编码检测兜底"))
             r = _one(f, sha, do_apply=args.apply, force=args.force)
             print()
-            rc = rc or r
-        return rc
+            (applied if r == 0 else held).append((f, man, r))
+
+        print("=" * 60)
+        if applied:
+            print(f"✅ 通过 {len(applied)} 个文件：" + "、".join(f.name for f, _, _ in applied))
+        if held:
+            print(f"⏸️  留在 inbox 等修正 {len(held)} 个：")
+            for f, _, r in held:
+                why = {1: "有 P0 或需 --force 确认", 2: "SHA / 编码 / 解析问题"}.get(r, f"rc={r}")
+                print(f"     {f.name} —— {why}（原因见上方该文件的报告）")
+            print("   它们不影响上面已通过的文件。修好重传，或确认无误后用 --force。")
+
+        # 归档：只搬已通过的，留下的下次还能重跑。CI 用 --archive。
+        if args.apply and args.archive and applied:
+            done = inbox / "done"
+            done.mkdir(parents=True, exist_ok=True)
+            for f, man, _ in applied:
+                f.rename(done / f.name)
+                if man.exists():
+                    man.rename(done / man.name)
+            print(f"   已归档 {len(applied)} 个文件到 inbox/bios/done/")
+
+        # 有文件通过就 0（让 CI 继续走重建 / 测试 / 提交）；一个都没通过才非零
+        if applied:
+            return 0
+        return max((r for _, _, r in held), default=1)
 
     return _one(Path(args.src), args.sha, do_apply=args.apply, force=args.force)
 
@@ -332,6 +457,8 @@ def _one(path: Path, sha: str | None, do_apply: bool, force: bool) -> int:
     print(f"  破折号 {m['dash_pct']}% · 最高频开头「{m['top_head']}」{m['top_head_pct']}%")
     for x in rep["skipped"]:
         print(f"  [skip] {x}")
+    for x in rep.get("info", []):
+        print(f"  [info] {x}")
     for x in rep["warn"]:
         print(f"  [warn] {x}")
     for x in rep["p0"]:
