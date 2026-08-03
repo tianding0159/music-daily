@@ -16,6 +16,7 @@ from __future__ import annotations
 import json
 import random
 import re
+import unicodedata
 import time
 import urllib.error
 import urllib.parse
@@ -48,7 +49,15 @@ def _strip_parens(s: str) -> str:
 
 
 def _key(s: str) -> str:
-    return re.sub(r"[^0-9a-z一-鿿぀-ヿ]+", "", _strip_parens(s or "").lower())
+    """归一化成可比较的键：先剥重音，再只留数字/拉丁小写/中日文字。
+
+    必须先 NFKD 剥重音再过滤——否则带重音的字符会被整个删掉：
+    「María」→ 'mara'（í 消失）而 iTunes 返回的「Maria」→ 'maria'，两边永远比不上。
+    这正是 Khruangbin - María También 这类曲子一直 not_found、页面只显示首字母的原因。
+    """
+    t = unicodedata.normalize("NFKD", _strip_parens(s or ""))
+    t = "".join(c for c in t if not unicodedata.combining(c))   # 去掉重音记号
+    return re.sub(r"[^0-9a-z一-鿿぀-ヿ]+", "", t.lower())
 
 
 def _versions(s: str) -> set[str]:
@@ -57,8 +66,24 @@ def _versions(s: str) -> set[str]:
 
 
 # ── 纯逻辑：分类（可离线单测）────────────────────────────────────────────────
+def _artist_keys(s: str) -> set[str]:
+    """艺人名的可接受写法集合。
+
+    池里不少日系艺人写成「Ozora Kimijima (君島大空)」这种「拉丁名 (原文名)」，
+    而 iTunes 只返回其中一种（多半是原文名）。只比完整串会永远 artist_mismatch，
+    所以括号内外都算数。
+    """
+    s = str(s or "")
+    keys = {_key(s)}
+    if "(" in s and ")" in s:
+        keys.add(_key(s.split("(", 1)[0]))
+        keys.add(_key(s.split("(", 1)[1].rsplit(")", 1)[0]))
+    return {k for k in keys if k}
+
+
 def classify(cand_artist: str, cand_title: str, results: list[dict]) -> tuple[str, dict | None]:
     ca, ct = _key(cand_artist), _key(cand_title)
+    ca_set = _artist_keys(cand_artist)
     cver = _versions(cand_title)
     saw_ver = saw_artist = None
     for r in results:
@@ -67,8 +92,8 @@ def classify(cand_artist: str, cand_title: str, results: list[dict]) -> tuple[st
         if _key(tn) != ct:            # 主标题（去版本括号）必须一致
             continue
         extra = _versions(tn) - cver  # 结果多出的版本词
-        artist_exact = ra == ca
-        artist_sub = len(ca) >= 4 and (ca in ra or ra in ca)
+        artist_exact = ra in ca_set
+        artist_sub = any(len(k) >= 4 and (k in ra or ra in k) for k in ca_set)
         if (artist_exact or artist_sub) and not extra:
             return ("exact_match" if artist_exact else "acceptable_match", r)
         if (artist_exact or artist_sub) and extra:

@@ -239,6 +239,45 @@ def test_mood_vocab_is_controlled_and_pool_conforms():
         f"旧写法 {legacy!r} 应被拦下，却放行了"
 
 
+def test_key_strips_accents():
+    """_key 必须先剥重音再过滤，否则带重音的字符会被整个删掉。
+
+    「María」旧实现 → 'mara'（í 消失），而 iTunes 返回的「Maria」→ 'maria'，
+    两边永远比不上 —— Khruangbin - María También 等曲子因此长期 not_found、
+    页面只显示艺人首字母。
+    """
+    import itunes
+    assert itunes._key("María También") == itunes._key("Maria También")
+    assert itunes._key("Björk") == itunes._key("Bjork")
+    assert itunes._key("Sigur Rós") == itunes._key("Sigur Ros")
+    assert itunes._key("日本語") == "日本語"          # 中日文不受影响
+
+
+def test_artist_keys_accepts_both_scripts():
+    """「拉丁名 (原文名)」写法的艺人，括号内外任一都该算命中。"""
+    import itunes
+    ks = itunes._artist_keys("Ozora Kimijima (君島大空)")
+    assert itunes._key("Ozora Kimijima") in ks
+    assert itunes._key("君島大空") in ks
+    assert itunes._artist_keys("Khruangbin") == {"khruangbin"}
+
+
+def test_media_only_accepts_verified_matches():
+    """页面展示的媒体，来源 status 必须在 itunes.ACCEPT 内。
+
+    只看「有没有 artwork」就采纳会把错版本/错艺人放上页面 —— 库里真出现过 5 首
+    （Ride On Time 匹到别人的同名曲、两首落到 Remaster/Live 版）。
+    """
+    import itunes
+    import media_check
+    assert "exact_match" in itunes.ACCEPT and "acceptable_match" in itunes.ACCEPT
+    assert "version_mismatch" not in itunes.ACCEPT
+    assert "artist_mismatch" not in itunes.ACCEPT
+    rep = media_check.audit()
+    assert not rep["bad_status"], f"页面挂着非 ACCEPT 的媒体：{rep['bad_status'][:3]}"
+    assert not rep["missing_entry"], f"media 表缺记录：{len(rep['missing_entry'])} 首"
+
+
 def test_snapshots_copy_in_sync_with_pool():
     """已生成的 issue 快照，三段文案必须与 pool.json 一致。
 

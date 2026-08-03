@@ -14,6 +14,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import copy_check  # noqa: E402
+import media_check  # noqa: E402
 import picker  # noqa: E402
 
 DATA = Path(__file__).resolve().parent.parent / "data"
@@ -90,6 +91,26 @@ def main() -> int:
     print("copy: ", json.dumps({k: c_m[k] for k in (
         "blacklist_hits", "example_verbatim", "oneliner_dash_pct",
         "scene_top_tail_pct", "scene_timeword_pct") if k in c_m}, ensure_ascii=False))
+    # 媒体（封面/试听/版本正确性，见 media_check.py）
+    try:
+        mrep = media_check.audit()
+        n = max(mrep["pool"], 1)
+        print("media:", json.dumps({
+            "no_cover": len(mrep["no_cover"]), "no_preview": len(mrep["no_preview"]),
+            "bad_status": len(mrep["bad_status"]), "missing_entry": len(mrep["missing_entry"]),
+            "cover_pct": round(100 * (n - len(mrep["no_cover"]) - len(mrep["missing_entry"])) / n, 1),
+        }, ensure_ascii=False))
+        # 展示了非 ACCEPT 的匹配 = 页面上挂着错版本/错艺人，属 P0
+        if mrep["bad_status"]:
+            p0.append(f"媒体来源非 ACCEPT（错版本/错艺人）{len(mrep['bad_status'])} 首："
+                      f"{mrep['bad_status'][:3]}")
+        if mrep["missing_entry"]:
+            p0.append(f"media 表缺记录 {len(mrep['missing_entry'])} 首（从未查过封面）")
+        if mrep["no_cover"]:
+            warn.append(f"{len(mrep['no_cover'])} 首无封面（页面显示艺人首字母）"
+                        f"——跑 python3 scripts/media_check.py --refresh 重查")
+    except Exception as e:
+        warn.append(f"媒体体检跳过：{type(e).__name__}: {e}")
     for w in warn:
         print("  [warn]", w)
     for e in p0:
