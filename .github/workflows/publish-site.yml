@@ -1,0 +1,97 @@
+name: Publish Site
+
+# 纯发布：把仓库里现成的 site/ 推上 GitHub Pages。不选曲、不写快照、不发微信。
+#
+# 为什么要这个 workflow（2026-08-03 踩的坑）：
+# 部署 Pages 的动作**只存在于 daily.yml 里**，而 daily.yml 刻意「只由定时或手动
+# 触发」（与候选合并解耦，避免普通 push 重建当期、重发微信）。结果是：
+#   - import-bios.yml 导入了 700 多条艺人简介 → 只 commit 进仓库
+#   - 我修的字体加载 / 随机页 bio / 落针白光 / 离场动效 → 也只 commit 进仓库
+# 全都没上线。用户看到的一直是凌晨 03:05 那次日报部署的版本，所以「白光依旧存在」
+# —— 东西早修好了，只是没发出去。
+#
+# 判据很简单：**改了 site/ 或改了会重建 site/ 的渲染器，就该重新发布。**
+# 这条链路不碰数据、不发通知，所以每次 push 跑都是安全的。
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "scripts/render_*.py"
+      - "scripts/lightbox.py"
+      - "scripts/build_daily.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# group 必须与 daily.yml 一致才真的串行 —— 同 group 字符串跨 workflow 生效，
+# 不同 group 只是各自内部串行、彼此照样能同时 deploy（写这文件时就先写错过一次，
+# 注释说"串行"而 group 其实不同，属于「注释声称的一致性不是一致性」）。
+# 不 cancel-in-progress：中途取消可能留下半截部署。
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # 发布前确认 site/ 不是空的 —— 空目录也能成功部署，会把线上站点清掉，
+      # 而且失败得很安静（部署"成功"、页面 404）。
+      - name: 检查 site/ 有内容
+        run: |
+          set -e
+          for f in index.html daily.html random.html; do
+            [ -s "site/$f" ] || { echo "::error::site/$f 缺失或为空，拒绝发布"; exit 1; }
+          done
+          echo "site/ 共 $(find site -type f | wc -l) 个文件"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: 部署到 GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
+
+      # 部署完真去抓一次，确认线上拿到的是这次的内容而不是缓存的旧版。
+      # 只验"页面活着 + 含本次构建的标记"，不验具体样式（那是前端的事）。
+      - name: 抓线上页面确认已生效
+        run: |
+          set -e
+          URL="${{ steps.deploy.outputs.page_url }}"
+          echo "部署地址 $URL"
+          for i in 1 2 3 4 5 6; do
+            code=$(curl -s -o /tmp/live.html -w '%{http_code}' "${URL}index.html" || true)
+            if [ "$code" = "200" ] && [ -s /tmp/live.html ]; then
+              echo "第 $i 次抓取 200，$(wc -c < /tmp/live.html) 字节"
+              # 与仓库里的 index.html 比对字节数，差太多说明拿到的是缓存旧版
+              want=$(wc -c < site/index.html); got=$(wc -c < /tmp/live.html)
+              d=$(( want > got ? want - got : got - want ))
+              if [ "$d" -lt 200 ]; then echo "与仓库版本一致（差 ${d} 字节）"; exit 0; fi
+              echo "字节数差 ${d}（仓库 ${want} / 线上 ${got}），可能是 CDN 缓存，等一下再试"
+            else
+              echo "第 $i 次 HTTP ${code}"
+            fi
+            sleep 20
+          done
+          echo "::warning::线上内容与仓库版本仍不一致，可能是 CDN 缓存未刷新，稍后自行确认"
+
+      - name: 摘要
+        if: always()
+        run: |
+          {
+            echo "## 站点发布"
+            echo ""
+            echo "- 地址：${{ steps.deploy.outputs.page_url }}"
+            echo "- 提交：\`${{ github.sha }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -16,7 +16,10 @@ permissions:
   id-token: write
 
 concurrency:
-  group: daily-music
+  # 与 publish-site.yml 共用一个 group —— 同 group 跨 workflow 也串行，
+  # 避免两条链路同时 deploy 到 github-pages 互相覆盖。
+  # 这个 group 同时仍然拦住「四个 cron 槽位彼此重叠」（原 daily-music 的作用）。
+  group: pages-deploy
   cancel-in-progress: false
 
 jobs:
