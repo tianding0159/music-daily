@@ -30,6 +30,9 @@ ARTISTS = ROOT / "data" / "artists.json"
 EXTRA_BANNED = ("才华横溢", "独树一帜", "不可多得", "灵魂人物", "音乐鬼才",
                 "无可替代", "享誉", "广受好评", "备受赞誉", "无需多言")
 
+ALLOWED_KEYS = {"artist", "bio", "confidence"}      # 恰好这三个，多一个都拒
+ALLOWED_CONF = {"high", "low"}                     # 只这两档
+
 MIN_LEN, MAX_LEN = 60, 220
 MAX_DASH_PCT = 20
 MAX_HEAD_PCT = 30          # 同一批里最高频开头句式（前 6 字）
@@ -68,6 +71,19 @@ def audit(rows: list[dict]) -> dict:
 
         if not a or not bio:
             rep["p0"].append(f"{tag}：artist 或 bio 为空")
+            continue
+        # 合同收紧（GPT 建议）：多余字段会被静默吞掉，等于契约有洞
+        extra = set(r.keys()) - ALLOWED_KEYS
+        if extra:
+            rep["p0"].append(f"{tag}：多余字段 {sorted(extra)}（只允许 artist/bio/confidence）")
+            continue
+        missing = ALLOWED_KEYS - set(r.keys())
+        if missing:
+            rep["p0"].append(f"{tag}：缺字段 {sorted(missing)}（三个键必须齐）")
+            continue
+        conf = r.get("confidence")
+        if conf not in ALLOWED_CONF:
+            rep["p0"].append(f"{tag}：confidence 非法 {conf!r}（只能 high / low）")
             continue
         if a not in pool_artists:
             # 池里没这位 = 这条 bio 永远用不上
@@ -134,7 +150,7 @@ def apply(rows: list[dict]) -> int:
     n = 0
     for r in rows:
         by[r["artist"]] = {"artist": r["artist"], "bio": r["bio"].strip(),
-                           "confidence": r.get("confidence", "high")}
+                           "confidence": r["confidence"]}
         n += 1
     out = sorted(by.values(), key=lambda a: a["artist"])
     ARTISTS.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")

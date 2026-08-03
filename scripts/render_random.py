@@ -476,7 +476,12 @@ function render(t){
   const art=t.c?('<img class="cover" src="'+t.c+'" alt="">')
                 :('<div class="cover ph">'+((t.artist||'?')[0]||'?').toUpperCase()+'</div>');
   const pb=t.p?('<button class="pbtn" id="cpb" type="button" aria-label="\\u8bd5\\u542c 30 \\u79d2">'+PLAY+PAUSE+'</button>'):'';
-  const g0=(t.genres||['\\u2014'])[0];
+  // badge 优先显示当前筛选中的那个流派。否则筛 dream pop 时，主标签是别的流派的曲子
+  // 会显示成「folktronica」「bedroom pop」，看着像筛选串味了（实测 151 首里 74 首如此）
+  const gsel=$('#f-genre').value;
+  const glist=(t.genres||['\\u2014']);
+  const g0=(gsel&&glist.some(x=>x.toLowerCase()===gsel))
+    ? glist.find(x=>x.toLowerCase()===gsel) : glist[0];
   const tags=[].concat((t.genres||[]).slice(1,3),(t.mood_tags||[]).slice(0,2))
     .map(x=>'<span class="tag">'+tgm(x)+'</span>').join('');
   const bpmC=(bb)=>{const n=String(bb||'').match(/\\d+/g); if(!n)return '';
@@ -588,9 +593,12 @@ fetch('pool.min.json').then(r=>r.json()).then(d=>{
   d.forEach(t=>{(t.mood_tags||[]).forEach(m=>{const k=tgm(m);mc[k]=(mc[k]||0)+1});
     (t.genres||[]).forEach(g=>{g=g.toLowerCase();gc[g]=(gc[g]||0)+1});
     const y=parseInt(t.year||'0',10); if(y){const k=Math.floor(y/10)*10; dc[k]=(dc[k]||0)+1}});
-  const top=(o,n)=>Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,n).map(([k,v])=>[k,k+' ('+v+')']);
-  fill('#f-mood',top(mc,14),'\\u5168\\u90e8\\u5fc3\\u60c5');
-  fill('#f-genre',top(gc,18),'\\u5168\\u90e8\\u6d41\\u6d3e');
+  // 全部列出、按曲目数降序（曾只取 top18，池里 220 类流派有 202 类选不到）；
+  // 只出现 1 次的长尾也保留——用户就是要靠它捞冷门
+  const top=(o,n)=>Object.entries(o).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]))
+    .map(([k,v])=>[k,k+' ('+v+')']);
+  fill('#f-mood',top(mc),'\\u5168\\u90e8\\u5fc3\\u60c5');
+  fill('#f-genre',top(gc),'\\u5168\\u90e8\\u6d41\\u6d3e');
   fill('#f-decade',Object.keys(dc).sort().map(k=>[k,k+'s ('+dc[k]+')']),'\\u5168\\u90e8\\u5e74\\u4ee3');
   lcd(POOL.length+' tracks loaded \\u00b7 hit space or press the button — one pick at a time');
   const q=new URLSearchParams(location.search).get('t');
