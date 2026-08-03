@@ -229,15 +229,15 @@ def main() -> int:
                 except Exception as e:
                     print(f"⚠️ {man.name} 解析失败：{e}")
             print(f"── {f.name}" + (f"（manifest sha {sha[:12]}…）" if sha else "（无 manifest）"))
-            r = _one(f, sha, apply=args.apply, force=args.force)
+            r = _one(f, sha, do_apply=args.apply, force=args.force)
             print()
             rc = rc or r
         return rc
 
-    return _one(Path(args.src), args.sha, apply=args.apply, force=args.force)
+    return _one(Path(args.src), args.sha, do_apply=args.apply, force=args.force)
 
 
-def _one(path: Path, sha: str | None, apply: bool, force: bool) -> int:
+def _one(path: Path, sha: str | None, do_apply: bool, force: bool) -> int:
     """处理单个文件。返回 0=通过 / 1=有 P0 或 warn 未放行 / 2=编码或 SHA 问题。"""
     raw = path.read_text(encoding="utf-8")
 
@@ -280,10 +280,10 @@ def _one(path: Path, sha: str | None, apply: bool, force: bool) -> int:
     if rep["p0"]:
         print(f"\n❌ {len(rep['p0'])} 项 P0，拒绝写盘（这些条目本来也用不上）")
         return 1
-    if rep["warn"] and not force and apply:
+    if rep["warn"] and not force and do_apply:
         print(f"\n⚠️ {len(rep['warn'])} 项告警。确认可接受就加 --force 写盘")
         return 1
-    if not apply:
+    if not do_apply:
         print("\n（体检模式，未写盘；加 --apply 导入）")
         return 0
 
