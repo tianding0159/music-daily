@@ -14,6 +14,8 @@ name: Import Artist Bios
 on:
   push:
     branches: [main]
+    # 只在投递口有新文件时跑。改导入器/校验逻辑本身不触发（那时用 workflow_dispatch
+    # 手动跑一次验证——2026-08-03 修 bug 后就因为这条没自动重跑，得手动触发才验到）
     paths: ["inbox/bios/*.json"]
   workflow_dispatch:
     inputs:

@@ -40,11 +40,6 @@
   "confidence": "high"
  },
  {
-  "artist": "Cornelius",
-  "bio": "这是一条用于验证 CI 端到端链路的占位简介，长度刻意做到六十字以上以通过长度校验，内容不含黑名单词，也不复述任何已有的一句话简介。导入成功后会被真实内容覆盖。",
-  "confidence": "low"
- },
- {
   "artist": "Danny Wilson",
   "bio": "Danny Wilson 由 Dundee 的 Gary Clark、弟弟 Kit Clark 与 Ged Grimes 在1984年组建，团名取自 Frank Sinatra 电影。三人签入 Virgin 后于1987年发行首专，《Mary's Prayer》次年升至英国单曲榜第三位。第二张《Bebop Moptop》后乐队结束，Gary Clark 转向幕后写歌。",
   "confidence": "high"
