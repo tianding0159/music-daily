@@ -1,0 +1,15 @@
+{
+  "file": "artist_bios_batch04_50_ascii.json",
+  "count": 50,
+  "high_confidence": 50,
+  "low_confidence": 0,
+  "encoding": "ASCII-only JSON with Unicode escapes",
+  "length_min": 111,
+  "length_max": 160,
+  "length_avg": 146,
+  "over_160": 0,
+  "dash_pct": 0.0,
+  "top_head": "Anna B",
+  "top_head_pct": 4.0,
+  "sha256": "132c35eb02cf5663911df002bb00f6def4275bac8abac02cf64ee9b92f1cd7d1"
+}

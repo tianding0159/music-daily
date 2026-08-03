@@ -1,0 +1,15 @@
+{
+  "file": "artist_bios_batch03_30_ascii.json",
+  "count": 30,
+  "high_confidence": 30,
+  "low_confidence": 0,
+  "encoding": "ASCII-only JSON with Unicode escapes",
+  "length_min": 129,
+  "length_max": 160,
+  "length_avg": 147,
+  "over_160": 0,
+  "dash_pct": 0.0,
+  "top_head": "Songs:",
+  "top_head_pct": 3.3,
+  "sha256": "1bef67f263dc6620b84b7fa997ce12b5676f84026d534cbe82aa384129731bc5"
+}

@@ -1,0 +1,19 @@
+{
+  "file": "artist_bios_batch05_50_ascii.json",
+  "range": "Codeine -> Photay",
+  "count": 50,
+  "high_confidence": 50,
+  "low_confidence": 0,
+  "encoding": "ASCII-only JSON with Unicode escapes",
+  "length_min": 120,
+  "length_max": 160,
+  "length_avg": 147,
+  "over_160": 0,
+  "banned_hits": 0,
+  "dash_pct": 0.0,
+  "top_head": "Codein",
+  "top_head_pct": 2.0,
+  "duplicate_artists": 0,
+  "duplicate_bios": 0,
+  "sha256": "e63135290ee0eec4e3d5654a540afa8cbf5411dae24c66ca2bf2793986cc144f"
+}
