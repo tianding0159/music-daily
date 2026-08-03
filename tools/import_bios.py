@@ -204,19 +204,48 @@ def apply(rows: list[dict]) -> int:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("src", help="GPT 产出的 JSON（数组）")
+    ap.add_argument("src", nargs="?", default=None,
+                    help="GPT 产出的 JSON（数组）；省略则处理 inbox/bios/ 下所有 .json")
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--force", action="store_true", help="有 warn 也写盘（P0 仍拒）")
     ap.add_argument("--sha", help="上游声明的 SHA-256，核对文件是否在传输中被改动")
     args = ap.parse_args()
 
-    raw = Path(args.src).read_text(encoding="utf-8")
+    # 目录模式（CI）：处理 inbox/bios/*.json，每个文件自动找同名 _manifest.json 取 sha
+    if args.src is None:
+        inbox = ROOT / "inbox" / "bios"
+        files = sorted(f for f in inbox.glob("*.json") if not f.name.endswith("_manifest.json"))
+        if not files:
+            print("inbox/bios/ 下没有待导入文件，跳过")
+            return 0
+        print(f"目录模式：{len(files)} 个文件待导入\n")
+        rc = 0
+        for f in files:
+            man = f.with_name(f.stem + "_manifest.json")
+            sha = None
+            if man.exists():
+                try:
+                    sha = json.loads(man.read_text(encoding="utf-8")).get("sha256")
+                except Exception as e:
+                    print(f"⚠️ {man.name} 解析失败：{e}")
+            print(f"── {f.name}" + (f"（manifest sha {sha[:12]}…）" if sha else "（无 manifest）"))
+            r = _one(f, sha, apply=args.apply, force=args.force)
+            print()
+            rc = rc or r
+        return rc
+
+    return _one(Path(args.src), args.sha, apply=args.apply, force=args.force)
+
+
+def _one(path: Path, sha: str | None, apply: bool, force: bool) -> int:
+    """处理单个文件。返回 0=通过 / 1=有 P0 或 warn 未放行 / 2=编码或 SHA 问题。"""
+    raw = path.read_text(encoding="utf-8")
 
     # ① SHA-256 核对（GPT 会随文件给 manifest；纯 ASCII 文件哈希对上=一个字没变）
-    if args.sha:
+    if sha:
         got = hashlib.sha256(raw.encode("utf-8")).hexdigest()
-        if got != args.sha.strip().lower():
-            print(f"❌ SHA-256 不符\n   声明 {args.sha.strip().lower()}\n   实际 {got}")
+        if got != sha.strip().lower():
+            print(f"❌ SHA-256 不符\n   声明 {sha.strip().lower()}\n   实际 {got}")
             print("   文件在传输中被改动过，请让上游重发")
             return 2
         print(f"✓ SHA-256 核对通过 {got[:16]}…")
@@ -230,7 +259,7 @@ def main() -> int:
     try:
         rows = json.loads(raw)
     except Exception as e:
-        print(f"❌ 无法解析 {args.src}：{e}")
+        print(f"❌ 无法解析 {path.name}：{e}")
         return 2
     if not isinstance(rows, list):
         print("❌ 顶层必须是数组")
@@ -251,10 +280,10 @@ def main() -> int:
     if rep["p0"]:
         print(f"\n❌ {len(rep['p0'])} 项 P0，拒绝写盘（这些条目本来也用不上）")
         return 1
-    if rep["warn"] and not args.force and args.apply:
+    if rep["warn"] and not force and apply:
         print(f"\n⚠️ {len(rep['warn'])} 项告警。确认可接受就加 --force 写盘")
         return 1
-    if not args.apply:
+    if not apply:
         print("\n（体检模式，未写盘；加 --apply 导入）")
         return 0
 

@@ -5,3 +5,4 @@ data/discover_leads.json
 
 # 前端验证用的临时探针页（注入脚本后的 site/*.html 副本）
 site/_*.html
+

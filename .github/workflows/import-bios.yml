@@ -1,0 +1,128 @@
+name: Import Artist Bios
+
+# 把 GPT 写好的艺人简介 JSON 传到 inbox/bios/（GitHub 网页 Add file 即可），本 workflow：
+# SHA-256 核对 → 编码损坏检测 → schema/合同校验 → 文案口径校验 → 写入 data/artists.json
+# → 重建页面 → 提交。
+#
+# 「保证不出错」靠三点，缺一不可：
+#   ① 任何 P0（artist 对不上池 / 多余或缺字段 / confidence 非法 / 黑名单词 /
+#      让人令人 / 批内重复 / SHA 不符 / 编码损坏）→ 脚本非零退出 → 后续步骤全部跳过，
+#      data/artists.json 一个字都不会被改，输入文件原样留在 inbox/ 等修正。
+#   ② 导入后立刻跑 healthcheck + 全量测试；任一失败 → 用 git checkout 回滚全部改动再退出，
+#      绝不把坏数据提交上去。
+#   ③ 成功才 commit，且把导入过的输入文件移到 inbox/bios/done/ 归档（避免下次重复处理）。
+on:
+  push:
+    branches: [main]
+    paths: ["inbox/bios/*.json"]
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "有 warn 也写盘（P0 仍拒）"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: import-bios
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15          # 纯本地校验，不联网，很快；给足余量
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 记录导入前状态（供失败时回滚与对账）
+        id: before
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib
+          p = pathlib.Path("data/artists.json")
+          n = len(json.loads(p.read_text(encoding="utf-8"))) if p.exists() else 0
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"count={n}\n")
+          print(f"导入前 artists.json：{n} 位")
+          PY
+
+      - name: 体检（SHA + 编码 + 合同 + 文案口径）——任一 P0 即失败，不写盘
+        run: python3 tools/import_bios.py
+
+      - name: 导入并重建页面
+        run: |
+          set -e
+          python3 tools/import_bios.py --apply ${{ inputs.force && '--force' || '' }}
+          python3 -c "import sys;sys.path.insert(0,'scripts');import build_daily;build_daily._rebuild_site()"
+          python3 - <<'PY'
+          import json, sys
+          sys.path.insert(0, "scripts")
+          import picker, render_random
+          pool = json.load(open("data/pool.json", encoding="utf-8"))
+          media = json.load(open("data/pool_media.json", encoding="utf-8"))
+          items = [dict(t) for t in pool if picker.is_eligible(t)[0]]
+          for t in items:
+              m = media.get(t["id"], {})
+              t["_cover"], t["_preview"], t["_apple"] = m.get("c",""), m.get("p",""), m.get("a","")
+          open("site/pool.min.json","w",encoding="utf-8").write(render_random.build_pool_json(items))
+          open("site/random.html","w",encoding="utf-8").write(render_random.build_html(len(items)))
+          print(f"重建完成（{len(items)} 首）")
+          PY
+
+      - name: 导入后必须仍然全绿——不绿就回滚，绝不提交坏数据
+        run: |
+          set +e
+          python3 tests/test_catalog.py; T=$?
+          python3 scripts/healthcheck.py;  H=$?
+          if [ $T -ne 0 ] || [ $H -ne 0 ]; then
+            echo "::error::导入后 tests=$T healthcheck=$H —— 回滚全部改动"
+            git checkout -- data/ site/
+            exit 1
+          fi
+          echo "tests + healthcheck 全绿"
+
+      - name: 归档已导入的输入文件 + 提交
+        run: |
+          set -e
+          git config user.name "music-daily-bot"
+          git config user.email "actions@users.noreply.github.com"
+          mkdir -p inbox/bios/done
+          shopt -s nullglob
+          for f in inbox/bios/*.json; do
+            [ -e "$f" ] && git mv "$f" "inbox/bios/done/$(basename "$f")" 2>/dev/null \
+              || mv "$f" "inbox/bios/done/$(basename "$f")"
+          done
+          git add data/artists.json site/ inbox/ 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "无变更（全部重复或为空），跳过提交"
+          else
+            N=$(python3 -c "import json;print(len(json.load(open('data/artists.json',encoding='utf-8'))))")
+            git commit -m "chore: 导入艺人简介 → ${N} 位（导入前 ${{ steps.before.outputs.count }} 位）"
+            git push
+          fi
+
+      - name: 摘要
+        if: always()
+        run: |
+          {
+            echo "## 艺人简介导入"
+            echo ""
+            if [ -f data/artists.json ]; then
+              python3 - <<'PY'
+          import collections, json
+          a = json.load(open("data/artists.json", encoding="utf-8"))
+          pool = json.load(open("data/pool.json", encoding="utf-8"))
+          n_art = len({t.get("artist") for t in pool})
+          c = collections.Counter(x.get("confidence") for x in a)
+          print(f"- 已有简介 **{len(a)}** 位 / 池内艺人 {n_art} 位（覆盖 {100*len(a)/n_art:.1f}%）")
+          print(f"- confidence：high {c.get('high',0)} · low {c.get('low',0)}")
+          L = [len(x["bio"]) for x in a]
+          print(f"- bio 长度 {min(L)}–{max(L)} 字（均 {sum(L)//len(L)}）")
+          PY
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -6,7 +6,7 @@
 
 | 你要做的事 | 先读 | 再读 |
 |---|---|---|
-| **补库**（找新曲目） | [`GPT_CATCHUP.md`](GPT_CATCHUP.md) — 规则变更 | [`GPT_VOICE.md`](GPT_VOICE.md) — 怎么写文案 |
+| **补库**（找新曲目） | [`GPT_CATCHUP.md`](GPT_CATCHUP.md) — 导入硬规则 | [`GPT_TERRITORIES.md`](GPT_TERRITORIES.md) — 20 个领地搜索策略<br>[`GPT_VOICE.md`](GPT_VOICE.md) — 怎么写文案 |
 | **写艺人简介** | [`GPT_ARTIST_BIOS.md`](GPT_ARTIST_BIOS.md) — 任务书 | [`GPT_VOICE.md`](GPT_VOICE.md) — 用语口径 |
 
 补充材料（需要时再看）：
@@ -24,8 +24,14 @@
 
 ## 交付
 
-产出JSON直接发给Claude，他跑校验管线后把体检报告发回来，被拒的会逐条说原因。
-也可以自己放进repo的 `candidates/` 目录（仅补库），CI会自动处理。
+**中文务必 `ensure_ascii=True`（写成 `\uXXXX`）并随附 SHA-256** —— 上一批 bio 就是没这么做，
+传输中被吞掉 `0x80-0x9F` 字节、90% 汉字不可复原、整批作废。
+
+- **艺人简介** → 传仓库 `inbox/bios/`（GitHub 网页 Add file 即可）。CI 自动核 SHA、校验、
+  导入、重建、部署；任一环节不过就**整批拒绝并保留文件等修正**，不会污染数据。
+  详见 [`inbox/bios/README.md`](inbox/bios/README.md)。
+- **补库候选** → 传 `candidates/` 目录，CI 自动验真去重入库。
+- 也可以直接发给 Claude，他跑校验管线后把体检报告发回来，被拒的会逐条说原因。
 
 ## 当前状态（2026-08-03）
 
