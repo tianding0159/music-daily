@@ -1,162 +1,717 @@
 [
  {
+  "artist": "1010benja",
+  "bio": "1010benja 本名 Benjamin Lyman，出生于 Tulsa，后来以 Kansas City 为工作基地。他2017年发行首支商业单曲，曾短暂与英国厂牌 Young 合作，并长期减少公开露面。2024年由 Three Six Zero Recordings 推出首张专辑《Ten Total》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "4hero",
+  "bio": "4hero 的核心是伦敦制作人 Marc Mac 与 Dego，两人于1989年参与创办 Reinforced Records。厂牌首张发行就是《Rising Son》，随后成为英国 jungle 与 drum and bass 的早期据点。1998年的《Two Pages》获水星音乐奖提名。",
+  "confidence": "high"
+ },
+ {
+  "artist": "79.5",
+  "bio": "79.5 是纽约词曲作者 Kate Mattison 领导的乐队，阵容围绕多位女声、Rhodes、长笛和节奏组展开。Big Crown Records 于2018年发行首专《Predictions》，Leon Michels 担任制作人。唱片主要由全乐队同步演奏并录入模拟磁带。",
+  "confidence": "high"
+ },
+ {
+  "artist": "A Sunny Day in Glasgow",
+  "bio": "A Sunny Day in Glasgow 是费城实验流行乐队，最初由 Ben Daniels 与双胞胎姐妹 Lauren、Robin Daniels 构成核心。2007年的首专结合家庭录音、合成器与剪接人声。姐妹离队后阵容继续变化，2009年发行《Ashes Grammar》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "A.R. Kane",
+  "bio": "A.R. Kane 由东伦敦好友 Alex Ayuli 与 Rudy Tambala 于1985年底组建。1987年的《Lollita》由 Robin Guthrie 制作。两人也作为 M/A/R/R/S 成员参与英国冠军单曲《Pump Up the Volume》，首专《69》于1988年发行。",
+  "confidence": "high"
+ },
+ {
+  "artist": "ADOY",
+  "bio": "ADOY 是首尔合成器流行乐队，成员包括 Juhwan Oh、Zee、Dayoung Jeong 与 Geunchang Park。2017年的首张 EP《CATNIP》多次登上韩国独立唱片销售榜，并获得韩国大众音乐奖提名。乐队随后以《LOVE》《VIVID》等作品展开亚洲巡演。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Abdullah Ibrahim",
+  "bio": "Abdullah Ibrahim 本名 Adolph Johannes Brand，1934年生于开普敦，母亲与祖母都在教堂弹琴。他曾与 Hugh Masekela 等人组成 The Jazz Epistles，流亡欧洲后得到 Duke Ellington 帮助录制唱片。1968年皈依伊斯兰并改名，2026年去世。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Ada Lea",
+  "bio": "Ada Lea 是蒙特利尔音乐人兼视觉艺术家 Alexandra Levy 的创作名义。一次关系结束后，她连续一百八十天画画并写日记，这些材料进入2019年由 Saddle Creek 发行的首专。2021年的第二张专辑获得 Polaris Music Prize 长名单提名。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Adorable",
+  "bio": "Adorable 是考文垂四人乐队，部分成员此前以 The Candy Thieves 名义活动。1992年他们结识 Creation Records 创办人 Alan McGee，随后《Sunshine Smile》登上英国独立榜首。首专《Against Perfection》于1993年发行，第二张唱片后停止活动。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Adrianne Lenker",
+  "bio": "Adrianne Lenker 1991年生于 Indianapolis，少年时期已写歌和录制个人作品，后来获奖学金进入 Berklee 学习。她与 Buck Meek 合作后共同组建 Big Thief，并成为主要写作者。2020年的《songs》和《instrumentals》在木屋内以模拟设备录成。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Ahmad Jamal",
+  "bio": "Ahmad Jamal 本名 Frederick Russell Jones，1930年生于 Pittsburgh，三岁开始弹琴，十四岁加入当地音乐家工会。1950年皈依伊斯兰后改用现名，并以钢琴三重奏发展对停顿和动态的控制。1958年《At the Pershing》中的《Poinciana》成为代表录音。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Air",
+  "bio": "Air 由 Versailles 的中学同学 Nicolas Godin 与 Jean-Benoît Dunckel 组成，前者学习建筑，后者曾任数学教师。两人1995年开始合作，1998年首专《Moon Safari》取得国际成功。随后他们为《The Virgin Suicides》创作配乐。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Akira Kosemura",
+  "bio": "Akira Kosemura 1985年生于东京，仍在大学就读时便于2007年发行首张个人专辑《It's On Everything》。同年他创办 Schole Records，也出版其他作曲者的作品与免费刊物。其创作横跨钢琴、弦乐、合成器和现场采声，并延伸到影视与游戏配乐。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Al Green",
+  "bio": "Al Green 1946年生于 Arkansas 农场，童年与兄弟组成福音组合，1967年凭《Back Up Train》获得早期成绩。1969年前后他与制作人 Willie Mitchell 合作并签入 Hi Records。1970年代末他受按立成为牧师，随后长期转向福音音乐。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Alabaster DePlume",
+  "bio": "Alabaster DePlume 是伦敦萨克斯手、诗人与表演者 Angus Fairbairn 的艺名。他长期参与 Total Refreshment Centre 社群，并以开放排练组织演出。2020年的《To Cy & Lee》由 International Anthem 发行。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Alasdair Roberts",
+  "bio": "Alasdair Roberts 是苏格兰歌手、吉他手和传统民谣研究者，九十年代先以 Appendix Out 活动。1995年他把样带寄给 Will Oldham，随后与 Drag City 建立长期合作。个人作品一边改编古老民谣，一边写作新的叙事歌曲。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Aldous Harding",
+  "bio": "Aldous Harding 本名 Hannah Sian Topp，来自新西兰 Lyttelton。她早期在 Flying Nun 体系发行唱片，之后签入4AD，并与制作人 John Parish 连续合作。《Party》《Designer》和《Warm Chris》记录了她在角色化演唱与舞台表演上的变化。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Alela Diane",
+  "bio": "Alela Diane 在加州 Nevada City 的音乐家庭长大，父母都会演奏，她从学校合唱团开始唱歌。2004年她自行录制并发行《The Pirate's Gospel》，两年后由 Holocene Music 重发。此后她长期往返家庭生活与巡演，作品多围绕亲属、迁徙和记忆。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Alex G",
+  "bio": "Alex G 本名 Alexander Giannascoli，来自费城郊区，少年时期已用家中设备录歌。他先在 Bandcamp 连续发布作品，2014年的《DSU》由 Orchid Tapes 推向更广听众。2015年签入 Domino 后，他仍保留独立录音和多乐器演奏的工作方式。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Alex Isley",
+  "bio": "Alex Isley 是 Isley Brothers 吉他手 Ernie Isley 的女儿，在 UCLA 学习爵士并接受声乐训练。她于2012年自行发行《The Love/Art Memoirs》，随后逐步建立个人目录。她与制作人 Jack Dine 长期合作，也为其他 R&B 音乐人参与写作和和声。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Alexandra Stréliski",
+  "bio": "Alexandra Stréliski 出生于巴黎，在蒙特利尔成长，是以钢琴为核心的作曲家。她在广告行业工作期间自行完成2010年首专《Pianoscope》，作品后来被影视项目采用。2018年的《INSCAPE》由 Secret City 发行，并在加拿大获得广泛传播。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Alfa Mist",
+  "bio": "Alfa Mist 来自东伦敦 Newham，最初从 hip-hop 采样和节拍制作进入音乐，之后自学钢琴。他以个人厂牌 Sekito 发行2017年的《Antiphon》，并把即兴爵士与说唱制作方法放在同一编制里。2021年他签入 Anti- 并推出《Bring Backs》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Ali Farka Touré",
+  "bio": "Ali Farka Touré 1939年生于马里北部，来自 Songhai 社群，成年后长期居住在 Niafunké。他把当地弦乐传统与电吉他结合，八十年代开始通过 World Circuit 面向国际发行。1994年与 Ry Cooder 合作的《Talking Timbuktu》获得格莱美奖。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Alice Coltrane",
+  "bio": "Alice Coltrane 本名 Alice McLeod，1937年生于底特律，早年学习古典钢琴并进入当地爵士圈。她加入 John Coltrane 乐队后转向竖琴和更开放的编制，随后在 Impulse! 发行多张个人专辑。七十年代移居加州后，她创办 Vedantic Center 和道场。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Allegra Krieger",
+  "bio": "Allegra Krieger 是常驻纽约的词曲作者，早年在餐馆、农场和服务业工作，同时持续写歌。2023年她经历唐人街公寓火灾，随后把失去住所和个人物品的经验写入新作。2024年的《Art of the Unseen Infinity Machine》由 Double Double Whammy 发行。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Allen Toussaint",
+  "bio": "Allen Toussaint 1938年生于新奥尔良，是钢琴手、词曲作者、编曲者和制作人。他为 Lee Dorsey、Irma Thomas、Ernie K-Doe 等人写歌，并参与建立 Minit、Sansu 等当地唱片体系。1998年他入选摇滚名人堂，2015年在巡演期间去世。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Alpha",
+  "bio": "Alpha 是布里斯托制作人 Corin Dingley 与 Andy Jenks 建立的项目，最初签在 Massive Attack 创办的 Melankolic 厂牌。1997年的首专《Come from Heaven》是该厂牌早期代表发行之一。组合后来逐渐由 Dingley 主导，并持续推出录音室作品。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Altın Gün",
+  "bio": "Altın Gün 由荷兰贝斯手 Jasper Verhulst 在一次土耳其旅行后于阿姆斯特丹组建，成员来自荷兰与土耳其。乐队重编安纳托利亚民歌，把 bağlama、电吉他、合成器和节奏组放进同一套编制。2019年的《Gece》获得格莱美最佳世界音乐专辑提名。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Alvvays",
+  "bio": "Alvvays 是以 Molly Rankin 与 Alec O'Hanley 为核心的加拿大乐队，早期成员在多伦多集合。Rankin 出生于 Cape Breton 音乐家庭。2014年同名首专由 Chad VanGaalen 参与制作，之后推出《Antisocialites》和《Blue Rev》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Amber Mark",
+  "bio": "Amber Mark 青少年时期随母亲在迈阿密、印度和柏林等地生活，后来定居纽约。母亲去世后，她把哀悼过程写成2017年的《3:33am》EP，并在其中使用家庭录音与手鼓。2022年首张专辑《Three Dimensions Deep》扩展到完整乐队和电子制作。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Ambrosia",
+  "bio": "Ambrosia 于1970年在南加州组成，原始成员包括 David Pack、Joe Puerta、Burleigh Drummond 和 Christopher North。乐队早期结合和声流行与前卫摇滚，Alan Parsons 参与过制作。1980年的《One Eighty》收录多支美国榜单热门歌曲。",
+  "confidence": "high"
+ },
+ {
+  "artist": "American Football",
+  "bio": "American Football 于1997年在伊利诺伊州 Urbana 组成，成员为 Mike Kinsella、Steve Holmes 和 Steve Lamos。乐队在 Polyvinyl 发行一张 EP 和1999年同名专辑后很快解散。2014年重组后，他们继续以同名方式编号发行第二、第三张专辑。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Amiina",
+  "bio": "Amiina 最初是雷克雅未克的女子弦乐四重奏，成员在音乐学院相识。她们从1999年前后开始为 Sigur Rós 的现场演出和录音提供弦乐，之后加入音乐盒、锯琴、键盘和打击乐。2007年首张专辑《Kurr》发行后，阵容又扩充了男乐手。",
+  "confidence": "high"
+ },
+ {
   "artist": "Ana Frango Elétrico",
-  "bio": "本名 Ana Faria Fainguelernt，1997年生于里约热内卢，艺名来自同学对其姓氏的误读。16岁时她与同学组建 Almoço Nu，2018年发行首专《Mormaço Queima》。第二张专辑获拉丁格莱美提名，她后来还制作了 Bala Desejo 的《Sim Sim Sim》。",
+  "bio": "Ana Frango Elétrico 1997年生于 Rio de Janeiro，是词曲作者、制作人、诗人与视觉艺术创作者。2018年首专《Mormaço Queima》之后，《Little Electric Chicken Heart》获得巴西 APCA 年度突破艺人肯定。她也为同代音乐人制作与编曲。",
   "confidence": "high"
  },
  {
   "artist": "Ana Roxanne",
-  "bio": "出生于奥克兰的菲律宾裔音乐人，成长在天主教家庭，早年参加学校与教堂合唱团。她学过爵士、古典与印度斯坦唱法，随后在 Mills College 开始使用模拟合成器。私人录制的 EP《~~~》于2019年正式发行，2020年的《Because of a Flower》讨论其双性身份。",
+  "bio": "Ana Roxanne 是菲律宾裔美国作曲者，童年在加州教会合唱团演唱，之后学习爵士与声乐。她先自行发行 EP《~~~》，2019年由 Leaving Records 重发。2020年的《Because of a Flower》转由 Kranky 推出，以多轨人声和电子处理组织整张唱片。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Anastasia Coope",
+  "bio": "Anastasia Coope 是纽约音乐人和视觉艺术家，主要使用多轨人声、自制打击与家庭录音。2023年她发行由 Liars 主脑 Angus Andrew 推动的单曲《Tough Sun》。2024年首张专辑《Darning Woman》由 Jagjaguwar 发行，录音保留了大量声部拼接。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Anaïs Mitchell",
+  "bio": "Anaïs Mitchell 在佛蒙特州农场长大，是词曲作者、音乐剧作者和 Bonny Light Horseman 成员。她把希腊神话改写成民谣歌剧《Hadestown》，先于2010年发行概念专辑，后来搬上百老汇。该剧获得托尼奖后，她于2022年发行同名个人专辑。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Andrew Bird",
+  "bio": "Andrew Bird 1973年生于伊利诺伊州 Lake Forest，四岁开始接受 Suzuki 小提琴训练，后来就读 Northwestern。他曾参与 Squirrel Nut Zippers，并在九十年代末建立 Bowl of Fire。个人演出中，他长期使用循环踏板叠加小提琴、吉他和口哨。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Andy Shauf",
+  "bio": "Andy Shauf 来自加拿大 Saskatchewan 小镇 Estevan，成长于教会和家庭音乐环境。他能演奏吉他、钢琴、鼓、贝斯与单簧管，常在录音中包办多数声部。2016年的《The Party》以同一场聚会中的人物为线索，之后《The Neon Skyline》继续采用叙事专辑结构。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Angel Olsen",
+  "bio": "Angel Olsen 1987年生于 St. Louis，在芝加哥活动。她曾为 Bonnie \"Prince\" Billy 演唱和声，随后发行《Half Way Home》。2013年签入 Jagjaguwar，并与 John Congleton 完成《Burn Your Fire for No Witness》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Angela Bofill",
+  "bio": "Angela Bofill 1954年生于纽约 Bronx，父亲来自古巴，母亲来自波多黎各。她在 Manhattan School of Music 学习，并进入纽约拉丁与爵士乐队演唱。1978年首专《Angie》由 GRP 发行，Dave Grusin 与 Larry Rosen 参与制作。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Angie Stone",
+  "bio": "Angie Stone 本名 Angela Brown，1961年生于南卡罗来纳 Columbia，从教会合唱团开始唱歌。七十年代末她加入女子说唱组 The Sequence，并在 Sugar Hill Records 发行作品。九十年代转向 R&B 后，她于1999年推出个人首专《Black Diamond》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Animal Collective",
+  "bio": "Animal Collective 的核心成员 Avey Tare、Panda Bear、Geologist 和 Deakin 青少年时期在 Baltimore 相识。四人按项目灵活组合，并于2003年前后固定使用团名。2009年的《Merriweather Post Pavilion》由三名成员完成。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Anjimile",
+  "bio": "Anjimile 本名 Anjimile Chithambo，是在波士顿音乐圈起步的马拉维裔美国词曲作者。戒酒、宗教经验和跨性别身份进入2020年首专《Giver Taker》的写作。2021年签入4AD后，他于2023年发行第二张专辑《The King》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Ann Peebles",
+  "bio": "Ann Peebles 1947年生于 St. Louis，童年随家族福音组合演唱，1968年在 Memphis 俱乐部被发现。她随后签入 Hi Records，与 Willie Mitchell 长期合作。1973年的《I Can't Stand the Rain》由她与 Don Bryant 等人共同写成。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Anna B Savage",
+  "bio": "Anna B Savage 是英国词曲作者，成年后长期在都柏林生活。她与 William Doyle 完成2021年首专《A Common Turn》。2023年的《in|FLUX》由 Mike Lindsay 制作，2025年推出《You & i are Earth》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Anna Burch",
+  "bio": "Anna Burch 是底特律词曲作者，早期在 Frontier Ruckus 与 Failed Flowers 演奏。样带获得 Polyvinyl 注意后，她于2018年发行《Quit the Curse》。2020年的《If You're Dreaming》由 Sam Evian 参与制作。",
   "confidence": "high"
  },
  {
   "artist": "Anna St. Louis",
-  "bio": "Anna St. Louis 在堪萨斯城长大，青年时期画画并参加朋克乐队，之后去费城读艺术学校。搬到洛杉矶后，她自学吉他并在卧室录音，2017年由 Mare Records 发行《First Songs》。首张正式专辑由 Kevin Morby 与 Kyle Thomas 制作，2023年推出《In the Air》。",
+  "bio": "Anna St. Louis 来自 Kansas City，搬到 Los Angeles 后开始集中写歌。家庭录音《First Songs》由 Woodsist 与 Mare 发行。2018年的《If Only There Was a River》由 Kevin Morby 和 Kyle Thomas 制作。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Anna Tivel",
+  "bio": "Anna Tivel 在华盛顿州乡村长大，后来以 Portland 为基地写作和演出。她的歌曲常围绕旅途中观察到的人物展开，并与制作人 Shane Leonard 多次合作。Fluff & Gravy Records 发行了《Small Believer》《The Question》和《Outsiders》等专辑。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Anne Briggs",
+  "bio": "Anne Briggs 1944年生于英格兰 Nottinghamshire，十几岁进入英国民谣复兴圈，并参加 Ewan MacColl 组织的演出。她把《Blackwaterside》等传统曲目传给同代吉他手，包括 Bert Jansch。1971年发行两张主要个人专辑后，她很快退出职业演出。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Anne Müller",
+  "bio": "Anne Müller 是常驻柏林的大提琴手和作曲家，长期为 Nils Frahm、Ólafur Arnalds 与 Agnes Obel 等人的唱片和巡演演奏。她与 Frahm 合作的《7fingers》把大提琴送入电子处理链。2019年首张个人专辑《Heliopause》由 Erased Tapes 发行。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Another Sunny Day",
+  "bio": "Another Sunny Day 是英国音乐人 Harvey Williams 的个人项目，他包办主要写作与演奏。项目从1988年起在 Sarah Records 连续发行单曲，其中多首于1992年汇成《London Weekend》。Williams 后来也参与 The Field Mice 等团体。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Anri",
+  "bio": "Anri 本名川嶋栄子，1961年生于神奈川县，1978年以《オリビアを聴きながら》出道。八十年代她与角松敏生等制作人合作，把放克、爵士和海滨流行带入个人唱片。1983年的《Timely!!》成为其城市流行时期的代表专辑。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Antena",
+  "bio": "Antena 是 Isabelle Antena、Sylvain Fasy 与 Pascale Moiroud 组成的比利时组合，签在 Les Disques du Crépuscule。1982年的《Camino del Sol》结合 bossa nova、鼓机与极简电子。组合结束后 Isabelle 继续个人活动。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Antibalas",
+  "bio": "Antibalas 由 Martín Perna 于1998年前后在纽约组建，最初名为 Conjunto Antibalas。大编制成员与 Daptone、Dap-Kings 等团队长期交叉，也曾参与百老汇音乐剧《Fela!》。2012年同名专辑在 Daptone 的 House of Soul 录音室完成。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Antônio Carlos Jobim",
+  "bio": "Antônio Carlos Jobim 1927年生于里约，是作曲家和编曲者。1956年他与 Vinicius de Moraes 合作《Orfeu da Conceição》，随后成为 bossa nova 核心写作者。他也与 João Gilberto、Stan Getz 和 Frank Sinatra 录音。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Aoife Nessa Frances",
+  "bio": "Aoife Nessa Frances 是都柏林词曲作者，2020年发行《Land of No Junction》。疫情期间她在 Clare 乡间写作，随后与 Brendan Jenkinson、Brendan Doherty 前往 Kerry 录音。《Protector》于2022年由 Partisan 发行。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Apparat",
+  "bio": "Apparat 是德国音乐人 Sascha Ring 的主要名义，他九十年代末进入柏林电子音乐场景。除个人作品外，他与 Modeselektor 组成 Moderat，并共同发行多张专辑。2011年的《The Devil's Walk》由 Mute 发行，此后他也持续为电影、电视和舞台创作配乐。",
+  "confidence": "high"
+ },
+ {
+  "artist": "April March",
+  "bio": "April March 本名 Elinor Blake，是美国歌手、词曲作者和动画师，曾参与《Pee-wee's Playhouse》与《Ren & Stimpy》制作。她九十年代开始录制英法双语流行作品。《Chick Habit》后来被 Quentin Tarantino 用于《Death Proof》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Aretha Franklin",
+  "bio": "Aretha Franklin 1942年生于 Memphis，在父亲 C. L. Franklin 位于 Detroit 的教会中长大并开始演唱。她先为 Columbia 录音，1967年转入 Atlantic 后连续推出多支代表作。1987年她成为首位进入摇滚名人堂的女性音乐人。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Arlo Parks",
+  "bio": "Arlo Parks 本名 Anaïs Oluwatoyin Estelle Marinho，在伦敦西部成长，少年时期开始写诗和歌曲。2018年首支单曲《Cola》发行后，她签入 Transgressive。2021年首专《Collapsed in Sunbeams》获得英国水星音乐奖。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Arooj Aftab",
+  "bio": "Arooj Aftab 出生于沙特阿拉伯，在 Lahore 长大，之后前往 Berklee College of Music 学习音乐制作与工程。她在纽约从事音频工作并于2015年发行首专。2021年的《Vulture Prince》收录《Mohabbat》，该曲为她赢得格莱美最佳全球音乐表演奖。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Arovane",
+  "bio": "Arovane 是德国电子音乐人 Uwe Zahn 的主要名义，他九十年代开始在柏林周边发行作品。2000年的《Tides》由 City Centre Offices 推出，把细碎节拍与钢琴、海岸采声结合。2004年《Lilies》后他一度停止公开发行，2013年以《ve palor》回归。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Arthur Russell",
+  "bio": "Arthur Russell 1951年生于 Iowa，1973年搬到纽约，是大提琴手、作曲者和录音实验者。他一面参与 The Kitchen 的前卫音乐活动，一面以 Dinosaur L、Loose Joints 等名义制作迪斯科。1992年去世后，大量未发表磁带由 Audika 等厂牌整理发行。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Arthur Verocai",
+  "bio": "Arthur Verocai 1945年生于里约热内卢，六十年代末开始为巴西歌手担任编曲、指挥和吉他手。1972年同名专辑发行时销量有限，后来因被 hip-hop 制作人采样而重新受到关注。2007年他与 Far Out Recordings 合作推出第二张个人专辑《Encore》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Arushi Jain",
+  "bio": "Arushi Jain 出生于印度，童年学习 Hindustani 古典声乐，后来在 Stanford 接触计算机音乐与模块合成器。2021年她在 Leaving Records 发行《Under the Lilac Sky》，六首作品按日落时段的 raga 构思。2024年推出《Delight》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Asobi Seksu",
+  "bio": "Asobi Seksu 是纽约乐队，核心成员为日裔美籍主唱 Yuki Chikudate 与吉他手 James Hanna。2004年同名首专自行发行，2006年的《Citrus》扩大了他们的听众。乐队以英语和日语写歌，之后签入 Polyvinyl 并发行《Hush》《Fluorescence》。",
   "confidence": "high"
  },
  {
   "artist": "Bedhead",
-  "bio": "Matt 与 Bubba Kadane 兄弟在德州长大，1992年以五人编制完成 Bedhead 的首场演出。首支单曲《Bedside Table》得到 King Coffey 注意，乐队随即签入他的 Trance Syndicate 厂牌。1994至1998年间他们发行三张专辑，解散后兄弟二人另组 The New Year。",
+  "bio": "Bedhead 于1991年在 Texas 组成，核心是兄弟 Matt 与 Bubba Kadane，阵容中常有三把吉他同时工作。乐队在 Trance Syndicate 发行三张专辑，成员分居不同城市后于1998年结束活动。Numero Group 后来把完整录音整理为盒装全集。",
   "confidence": "high"
  },
  {
   "artist": "Bibio",
-  "bio": "Bibio 是英格兰西米德兰兹音乐人 Stephen Wilkinson 的个人计划，早期作品以木吉他、模拟合成器和野外录音为主。2009年转入 Warp 后，《Ambivalence Avenue》吸收了 J Dilla、巴西音乐与七十年代电视配乐。此后他在《Phantom Brickworks》等项目中继续处理环境录音与吉他。",
+  "bio": "Bibio 是英国多乐器演奏者 Stephen Wilkinson 的个人名义。他早期把指弹吉他、野外录音和磁带处理带进 Mush Records 的作品，2009年签入 Warp 后发行《Ambivalence Avenue》。此后他仍在电子制作、民谣录音与放克编曲之间切换。",
   "confidence": "high"
  },
  {
   "artist": "Casino Versus Japan",
-  "bio": "Casino Versus Japan 是美国电子音乐人 Erik Kowalski 的主要录音名义，他出生于 Lexington，长期在密尔沃基工作。早期他还用 Radiogate 之名制作实验电子，随后转向这个项目。2002年的《Whole Numbers Play the Basics》集中呈现了他的旋律电子与失真鼓点。",
-  "confidence": "low"
+  "bio": "Casino Versus Japan 是 Milwaukee 制作人 Erik Kowalski 的个人项目。他曾以 Radiogate 活动，并在 Atomic Records 工作。《Go Hawaii》之后，2002年在 Carpark 发行《Whole Numbers Play the Basics》。",
+  "confidence": "high"
  },
  {
   "artist": "Codeine",
-  "bio": "纽约三人组，1989 年由 Stephen Immerwahr 与 Chris Brokaw 组建，签在 Sub Pop。鼓点被刻意拖到极慢，贝斯先写、吉他后填，这套做法后来被叫作 slowcore。1990 年的《Frigid Stars LP》是这一脉的起点。",
+  "bio": "Codeine 于1989年在纽约组成，成员包括 Stephen Immerwahr、John Engle 与 Chris Brokaw。乐队在 Sub Pop 发行《Frigid Stars》和《The White Birch》，1994年解散。2012年因 Numero Group 整理全集而重聚。",
   "confidence": "high"
  },
  {
   "artist": "Colleen",
-  "bio": "Colleen 是法国作曲家 Cécile Schott 的个人计划，她常先为每张唱片设定严格的乐器边界。她做过全由音乐盒、袖珍合成器或巴洛克弦乐器构成的专辑，2015年的《Captain of None》以高音维奥尔琴和人声为核心。近年她转向 Moog Matriarch，并尝试场地再扩声录制。",
+  "bio": "Colleen 是法国作曲者 Cécile Schott 的个人名义。2003年首专《Everyone Alive Wants Answers》以唱片采样和循环构成，随后她逐步减少现成素材，改用古提琴、吉他与自制电子系统。她长期独自完成演奏、录音和现场结构。",
   "confidence": "high"
  },
  {
   "artist": "Danny Wilson",
-  "bio": "Danny Wilson 由 Dundee 的 Gary Clark、弟弟 Kit Clark 与 Ged Grimes 在1984年组建，团名取自 Frank Sinatra 电影。三人签入 Virgin 后于1987年发行首专，《Mary's Prayer》次年升至英国单曲榜第三位。第二张《Bebop Moptop》后乐队结束，Gary Clark 转向幕后写歌。",
+  "bio": "Danny Wilson 是来自 Dundee 的苏格兰三人组，由兄弟 Gary、Kit Clark 与 Ged Grimes 组成。签入 Virgin 后，他们于1987年发行《Meet Danny Wilson》，其中《Mary's Prayer》成为热门单曲。第二张专辑之后，组合于1989年结束。",
   "confidence": "high"
  },
  {
   "artist": "Drugdealer",
-  "bio": "Drugdealer 是洛杉矶写作者 Michael Collins 主导的乐队计划，2016年发行首张专辑《The End of Comedy》。他常把主唱位置交给 Weyes Blood、Jackson MacIntosh 等朋友。2019年转入 Mexican Summer，2022年的《Hiding in Plain Sight》由他承担更多主唱。",
+  "bio": "Drugdealer 是 Los Angeles 音乐人 Michael Collins 在 Salvia Plath 之后建立的项目。2016年《The End of Comedy》由 Mexican Summer 发行，并邀请 Weyes Blood、Ariel Pink 等歌手参与。后续唱片仍以客座主唱组织。",
   "confidence": "high"
  },
  {
   "artist": "Duster",
-  "bio": "Duster 于1996年前后在加州圣何塞由 Clay Parton 与 Canaan Dove Amber 组建，Jason Albertini 随后加入。乐队用四轨机和旧磁带完成《Stratosphere》与《Contemporary Movement》，2000年后长期停摆。2018年重组，Numero Group 随后整理了其早期录音。",
+  "bio": "Duster 于1996年在 San Jose 组成，成员包括 Clay Parton、Canaan Dove Amber 与 Jason Albertini。1998年的《Stratosphere》由 Up Records 发行，乐队在2000年前后暂停。Numero Group 整理旧作后，他们于2018年重聚。",
   "confidence": "high"
  },
  {
   "artist": "Duval Timothy",
-  "bio": "Duval Timothy 是往返伦敦与弗里敦工作的音乐人、视觉艺术家与出版者。2011至2016年间他与朋友经营饮食项目 The Groundnut，之后在塞拉利昂学习织布，并建立个人厂牌 Carrying Colour。钢琴专辑《Brown Loop》与《Help》都同时延伸到摄影、装帧和身份议题。",
+  "bio": "Duval Timothy 是往返 London 与 Freetown 的音乐人、视觉艺术家和设计者。他把钢琴录音、谈话采样与环境声放在同一结构中，并以个人平台 Carrying Colour 发行作品。该平台名称来自他在 Sierra Leone 学习织布后延伸出的跨媒介实践。",
   "confidence": "high"
  },
  {
   "artist": "El Michels Affair",
-  "bio": "El Michels Affair 由纽约多乐器手兼制作人 Leon Michels 领导，他16岁时已在唱片名单中留下演奏署名。项目首专《Sounding Out the City》于2005年发行，后来因担任 Wu-Tang 成员的现场乐队而发展出《Enter the 37th Chamber》。Michels 还参与创办 Big Crown Records。",
+  "bio": "El Michels Affair 是制作人兼多乐器手 Leon Michels 主导的纽约乐团。2005年《Sounding Out the City》确立其器乐灵魂乐编制，随后以现场乐器重写 Wu-Tang Clan 曲目。Michels 也共同创办 Big Crown Records。",
   "confidence": "high"
  },
  {
   "artist": "Emma-Jean Thackray",
-  "bio": "Emma-Jean Thackray 1989年生于利兹，兼任小号手、作曲者、制作人、DJ 与电台主持。她从《Walrus》《Ley Lines》等 EP 起步，2021年首专《Yellow》登上英国爵士与布鲁斯专辑榜首。2025年的《Weirdo》大部分演唱、演奏与制作由她本人完成。",
+  "bio": "Emma-Jean Thackray 是英国小号手、制作人、歌手与 DJ，录音中常亲自处理鼓、键盘和混音。她在2020年创办 Movementt 厂牌，并与 Warp 合作发行作品。2021年首张专辑《Yellow》登上英国爵士与布鲁斯专辑榜首位。",
   "confidence": "high"
  },
  {
   "artist": "Erika de Casier",
-  "bio": "Erika de Casier 出生于葡萄牙，在丹麦长大并以哥本哈根为创作基地。她自己写作和制作2019年首专《Essentials》，通过个人厂牌 Independent Jeep Music 发行。2021年的《Sensational》是她加入4AD后的首张唱片，她也曾为 NewJeans 等流行艺人参与写作。",
+  "bio": "Erika de Casier 出生于 Portugal，在 Denmark 长大并进入 Copenhagen 的制作圈。她于2019年通过个人厂牌 Independent Jeep Music 自行发行《Essentials》。这张唱片促成她与4AD 签约，第二张专辑《Sensational》于2021年推出。",
   "confidence": "high"
  },
  {
   "artist": "Fennesz",
-  "bio": "Christian Fennesz 是常驻维也纳的奥地利吉他手与电子音乐人，早年受过吉他和民族音乐学训练。九十年代进入维也纳电子场景后，他把电吉他接入电脑处理，1997年的《Hotel Paral.lel》获得 Prix Ars Electronica。2001年的《Endless Summer》进一步确立其方法。",
+  "bio": "Fennesz 是 Vienna 吉他手与电子音乐人 Christian Fennesz 的主要名义。1997年的《Hotel Paral.lel》由 Mego 发行，他把电吉他送入电脑处理而不抹去弦声。2001年《Endless Summer》和2004年《Venice》进一步确立其个人录音方法。",
   "confidence": "high"
  },
  {
   "artist": "Flipper's Guitar",
-  "bio": "Flipper's Guitar 由小山田圭吾与小沢健二从旧团 Lollipop Sonic 中重组而成，1989年起以双人编制活动。三张专辑先后吸收英国吉他流行、Beach Boys、爵士、采样与独立舞曲。组合结束后，小山田以 Cornelius 继续创作，小沢健二展开个人生涯，这批作品成为涩谷系的重要源头。",
+  "bio": "Flipper's Guitar 源自 Tokyo 乐队 Lollipop Sonic，1989年缩编为小山田圭吾与小沢健二二人组。他们发行《Three Cheers for Our Side》《Camera Talk》和《Doctor Head's World Tower》后，于1991年解散。",
   "confidence": "high"
  },
  {
   "artist": "Florist",
-  "bio": "Florist 起于纽约州奥尔巴尼的 DIY 圈，核心写作者 Emily Sprague 同时也以个人名义制作环境电子。2012年的严重自行车事故使她长期休养，之后写下乐队早期作品。2019年的《Emily Alone》几乎由 Sprague 独自完成，2022年同名专辑则让完整成员重新共同录音。",
+  "bio": "Florist 由 Emily Sprague 与 Rick Spataro、Jonnie Baker、Felix Walworth 在纽约州建立。Sprague 遭遇交通事故并康复期间完成的歌曲，构成2016年首专《The Birds Outside Sang》。原始四人后来重新合流，录制2022年的同名专辑。",
   "confidence": "high"
  },
  {
   "artist": "Four Tet",
-  "bio": "Four Tet 是伦敦制作人 Kieran Hebden 的主要化名，他九十年代先以吉他手身份加入后摇三人组 Fridge。2001年的《Pause》和2003年的《Rounds》用唱片采样、手工节拍与原声乐器建立个人路径。此后他与爵士鼓手 Steve Reid 连续录音，也为 Omar Souleyman、Neneh Cherry 制作唱片。",
+  "bio": "Four Tet 是英国制作人 Kieran Hebden 的个人名义。他先在后摇乐队 Fridge 演奏，1997年开始以 Four Tet 发行作品。2003年的《Rounds》由 Domino 推出，之后他创办 Text Records，并持续进行独立发行、混音与现场电子演出。",
   "confidence": "high"
  },
  {
   "artist": "Gold Panda",
-  "bio": "Gold Panda 是伦敦制作人 Derwin Dicker 自2009年开始使用的名字。2010年首专《Lucky Shiner》以旅行记忆和采样片段构成，《You》后来被 Charli XCX 取样。2016年的《Good Luck and Do Your Best》继续以日本旅行为线索，在俱乐部节拍与短小器乐之间切换。",
+  "bio": "Gold Panda 是英国制作人 Derwin Dicker 的个人项目，早年通过采样器和旧唱片建立作品。2010年首专《Lucky Shiner》获得英国《卫报》首专奖，随后他与 City Slang 长期合作。沉寂数年后，2022年的《The Work》恢复了完整专辑发行。",
   "confidence": "high"
  },
  {
   "artist": "Hand Habits",
-  "bio": "Hand Habits 是吉他手 Meg Duffy 自2012年前后开始经营的写作计划，最早形成于纽约州奥尔巴尼的 DIY 圈。Duffy 长期为 Kevin Morby 巡演，也在 Weyes Blood、The War on Drugs 与 William Tyler 的唱片中演奏。2021年的《Fun House》由 SASAMI 制作。",
+  "bio": "Hand Habits 是吉他手兼词曲作者 Meg Duffy 的个人项目。Duffy 曾担任 Kevin Morby 巡演乐手，2017年由 Woodsist 发行《Wildly Idle》。转入 Saddle Creek 后，他们推出《placeholder》和由 Sasami 制作的《Fun House》。",
   "confidence": "high"
  },
  {
   "artist": "Hatchie",
-  "bio": "Hatchie 是布里斯班音乐人 Harriette Pilbeam 的个人计划，她此前在 Babaganouj 担任贝斯手与主唱。2017年单曲《Try》经 Triple J 播放后获得关注，随后推出《Sugar & Spice》EP 与2019年首专《Keepsake》。她在2021年签入 Secretly Canadian，次年发行第二张专辑。",
+  "bio": "Hatchie 是 Brisbane 音乐人 Harriette Pilbeam 的创作名义。她此前参与当地乐队 Babaganouj 与 Go Violets，2018年发行 EP《Sugar & Spice》。2019年首专《Keepsake》进入澳大利亚专辑榜前三十，之后签入 Secretly Canadian。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Ivy",
+  "bio": "Ivy 于1994年在 New York 组成，成员是法国歌手 Dominique Durand、Andy Chase 与 Adam Schlesinger。Chase 最初通过报纸广告结识 Schlesinger，二人随后邀请没有职业演唱经历的 Durand 加入。乐队在个人项目之间持续录制了多张专辑。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Jamila Woods",
+  "bio": "Jamila Woods 是 Chicago 诗人、歌手和教育工作者，曾在 Brown University 学习 Africana Studies 与戏剧表演。她先与 Owen Hill 组成 M&O，随后展开个人创作。2016年《HEAVN》先免费发布，翌年由 Jagjaguwar 扩充发行。",
   "confidence": "high"
  },
  {
   "artist": "Joanna Newsom",
-  "bio": "Joanna Newsom 1982年生于加州内华达城一带，童年先学钢琴，七岁转学竖琴，后来吸收西非与委内瑞拉竖琴技法。Will Oldham 与 Cat Power 早期邀请她暖场，Drag City 于2004年发行首专。2006年的《Ys》由 Van Dyke Parks 配器，2010年推出三碟《Have One on Me》。",
+  "bio": "Joanna Newsom 在 California 的 Nevada City 长大，七岁开始学习竖琴。她于2002年自行发行两张 EP，随后签入 Drag City。2004年推出《The Milk-Eyed Mender》，之后与 Van Dyke Parks 合作完成《Ys》。",
   "confidence": "high"
  },
  {
   "artist": "John Martyn",
-  "bio": "John Martyn 本名 Iain David McGeachy，1948年出生于轻歌剧演员家庭，在格拉斯哥民谣俱乐部起步。1967年签入 Island Records 后，他把爵士节奏与 Echoplex 磁带延迟带入木吉他演出。1973年的《Solid Air》与低音提琴手 Danny Thompson 合作，标题曲写给 Nick Drake。",
+  "bio": "John Martyn 本名 Iain David McGeachy，1948年出生，在 Glasgow 附近长大。他于1967年签入 Island Records，随后把 Echoplex 延迟器接入木吉他。1973年的《Solid Air》由 Danny Thompson 等人参与，是其民谣、爵士与电声实验的交点。",
   "confidence": "high"
  },
  {
   "artist": "Josephine Foster",
-  "bio": "Josephine Foster 1974年生于科罗拉多，15岁时已在木屋教堂演唱赞美诗，后来接受古典声乐训练。二十多岁进入芝加哥边缘摇滚与自由爵士圈，随后在西班牙乡村生活十余年。她的自制唱片把早期美国民谣布鲁斯、艺术歌曲与 Tin Pan Alley 曲目放在一起。",
+  "bio": "Josephine Foster 来自 Colorado，早年接受古典声乐训练，原本计划进入歌剧领域，后来转向自行写作和小型录音。她既以个人名义发行作品，也曾组建 Born Heller、The Supposed 等项目，并与西班牙吉他手 Victor Herrero 长期合作。",
   "confidence": "high"
  },
  {
   "artist": "Juana Molina",
-  "bio": "Juana Molina 出生于布宜诺斯艾利斯，父亲是探戈歌手 Horacio Molina，母亲是演员 Chunchuna Villafañe。1976年政变后全家流亡巴黎六年，她回国后先凭模仿表演进入电视，并拥有自己的喜剧节目。离开电视后，她从1996年的《Rara》重新开始音乐生涯，逐步转向吉他与循环器。",
+  "bio": "Juana Molina 出生于 Buenos Aires，九十年代先凭电视喜剧节目成为阿根廷公众人物。她在事业高峰离开电视，转而专注音乐，1996年发行首专《Rara》。2000年的《Segundo》开始使用循环、吉他和电子设备，也打开了国际巡演路线。",
   "confidence": "high"
  },
  {
   "artist": "Kadhja Bonet",
-  "bio": "Kadhja Bonet 在加州音乐家庭长大，父亲是歌剧演员，母亲也从事音乐，她从小学习小提琴、中提琴与乐理。读电影专业后，她重新回到音乐，自学吉他和录音，并亲自写作、编曲和制作2016年的《The Visitor》。2018年的《Childqueen》中，多数声部与乐器仍由她一人完成。",
+  "bio": "Kadhja Bonet 是 Los Angeles 作曲者、歌手和多乐器演奏者，录音中的弦乐编排与多数乐器由她亲自完成。她先于2015年自行推出《The Visitor》，翌年由 Fat Possum 与 Fresh Selects 重发。第二张专辑《Childqueen》于2018年发行。",
   "confidence": "high"
  },
  {
   "artist": "Kahimi Karie",
-  "bio": "Kahimi Karie 1968年生于栃木县，九十年代初原本从事音乐摄影，后来在小山田圭吾推动下开始录音。1995年的《My First Karie》等作品由 Trattoria 系统发行，她也与 Pizzicato Five、Katerine 及 Momus 合作。九十年代末她移居巴黎，并把唱片带到北美市场。",
+  "bio": "Kahimi Karie 是日本歌手，九十年代初在小山田圭吾推动下开始录音，多支早期作品由其 Trattoria 厂牌发行。她也与 Momus、Philippe Katerine 等欧洲作者合作，并在 Paris 居住多年。进入二十一世纪后，她逐渐转向爵士与实验编制。",
   "confidence": "high"
  },
  {
   "artist": "Kaitlyn Aurelia Smith",
-  "bio": "Kaitlyn Aurelia Smith 在华盛顿州 Orcas Island 长大，后进入 Berklee 学习作曲与声音工程。毕业返乡务农时，邻居借给她一套 Buchla 100，促使她结束原先的民谣组合并专注合成器。2015年的《Euclid》主要用 Buchla Music Easel 完成，之后她与 Suzanne Ciani 合作。",
+  "bio": "Kaitlyn Aurelia Smith 在美国 Pacific Northwest 长大，接受作曲与声音工程训练。她接触 Buchla 100 模块合成器后，以此完成多张个人作品，包括2016年的《EARS》和2017年的《The Kid》。她也与合成器先驱 Suzanne Ciani 合作《Sunergy》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Kate Bollinger",
+  "bio": "Kate Bollinger 来自 Virginia，是词曲作者、乐手与影像导演。她在 Charlottesville 学习电影期间开始录歌，2017年发布 EP《Key West》。2022年加入 Ghostly International，2024年推出首张完整专辑。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Katie Von Schleicher",
+  "bio": "Katie Von Schleicher 是 Brooklyn 词曲作者，也曾在 Ba Da Bing Records 工作。她把2015年的《Bleaksploitation》用四轨磁带机在家中录成，厂牌最初以盒式磁带发行。2017年的《Shitty Hits》继续采用逐层叠录，并扩大到完整乐队编制。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Katy Kirby",
+  "bio": "Katy Kirby 在 Texas 长大，早年于教会环境中接触演唱，后来进入 Nashville 独立音乐圈。2021年首专《Cool Dry Place》由 Keeled Scales 发行。2023年她签入 ANTI-，第二张《Blue Raspberry》于2024年推出。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Khruangbin",
+  "bio": "Khruangbin 是 Houston 三人组，成员为 Laura Lee Ochoa、Mark Speer 与 Donald Johnson。Speer 与 Johnson 先在教会乐队合作，之后邀请 Ochoa 加入。团名取自泰语“飞机”，早期作品从泰国放克唱片出发，也吸收 dub、surf 与中东流行。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Kim Sawol",
+  "bio": "Kim Sawol 是韩国民谣作者，2012年开始在 Seoul 的 Hongdae 俱乐部演出。她于2013年与 Kim Haewon 组成二人组合，EP《Secret》获得韩国大众音乐奖新人和民谣专辑奖。个人首专《Suzanne》随后再次获得该奖项的民谣专辑肯定。",
+  "confidence": "high"
+ },
+ {
+  "artist": "L'Rain",
+  "bio": "L'Rain 是 Brooklyn 音乐人、策展人与多乐器手 Taja Cheek 的项目。2017年同名首专把家庭录音、乐队即兴与声音拼贴并置。签入 Mexican Summer 后，她于2021年发行《Fatigue》，长期合作成员包括 Andrew Lappin 与 Ben Chapoteau-Katz。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Library Tapes",
+  "bio": "Library Tapes 于2004年在瑞典 Gävle 由 David Wenngren 与 Per Jardsell 建立。前两张专辑由二人完成，Jardsell 离开后成为 Wenngren 的个人项目。他此后以钢琴、磁带噪声和弦乐为核心，并邀请 Peter Broderick 等人合作。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Lloyd Cole and the Commotions",
+  "bio": "Lloyd Cole and the Commotions 于1982年在 Glasgow 组成，当时 Cole 正在 Glasgow University 学习英语与哲学。1984年首专《Rattlesnakes》由 Polydor 发行，歌词大量使用文学和电影指涉。组合完成三张专辑后于1989年解散。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Loraine James",
+  "bio": "Loraine James 在 North London 的 Enfield 长大，童年学习钢琴，后来转向电脑制作。她于2017年自行发行《Detail》，2019年的《For You and I》使她加入 Hyperdub。除本名作品外，她也以 Whatever The Weather 发行更偏环境电子的专辑。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Luedji Luna",
+  "bio": "Luedji Luna 出生于 Salvador, Bahia，是歌手、词曲作者与社会活动参与者。她移居 São Paulo 后，把迁徙、黑人女性经验和非洲离散写入2017年《Um Corpo no Mundo》。2020年的《Bom Mesmo É Estar Debaixo D'Água》扩展到爵士编制。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Marissa Nadler",
+  "bio": "Marissa Nadler 来自 Massachusetts，是词曲作者和画家。她在 Rhode Island School of Design 完成插画与艺术教育学位后，于2004年发行《Ballads of Living and Dying》。2014年的《July》由 Sacred Bones 发行。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Melody's Echo Chamber",
+  "bio": "Melody's Echo Chamber 是法国音乐人 Melody Prochet 的个人项目。她受过古典训练，也参与过 My Bee's Garden。2012年她前往 Perth，与 Kevin Parker 录制同名首专；2018年的《Bon Voyage》与 Dungen 成员合作。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Men I Trust",
+  "bio": "Men I Trust 于2014年由 Dragos Chiriac 与 Jessy Caron 在 Quebec 组成，两人相识于 Laval University。歌手 Emmanuelle Proulx 于2015年成为固定成员。乐队长期独立运营，《Oncle Jazz》主要在乡间住宅录制。",
   "confidence": "high"
  },
  {
   "artist": "Nap Eyes",
-  "bio": "加拿大新斯科舍省乐队，2011年前后在哈利法克斯成形，核心写作者是 Nigel Chapman。Chapman 平日在实验室从事生物化学研究，歌词常把细胞、磁场与日常焦虑放在一起。乐队早期习惯现场录进磁带、尽量不加叠录，后来分别与 Paradise of Bachelors、Jagjaguwar 合作。",
+  "bio": "Nap Eyes 于2011年前后在加拿大 Halifax 组成，核心写作者是 Nigel Chapman。他把科学、宗教和日常犹疑写进近乎口语的歌词，乐队则保留现场同期录音的松动。2015年起，Paradise of Bachelors 陆续发行他们的专辑。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Okay Kaya",
+  "bio": "Okay Kaya 本名 Kaya Wilkins，出生于 New Jersey，在 Oslo 外的半岛长大。她少年时期从参与黑金属乐队的哥哥们那里学习吉他，之后移居 New York。2019年签入 Jagjaguwar 后，她发行《Watch This Liquid Pour Itself》和《SAP》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Patrice Rushen",
+  "bio": "Patrice Rushen 1954年生于 Los Angeles，三岁开始学习古典钢琴，大学期间签入 Prestige 录制爵士专辑。转入 Elektra 后，她结合爵士、R&B 与流行写作，1982年的《Straight from the Heart》收录《Forget Me Nots》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Photay",
+  "bio": "Photay 是 New York 制作人 Evan Shornstein 的个人名义。他在 SUNY Purchase 就读期间前往 Guinea 学习手鼓与 balafon，把复合节奏带回创作。2014年同名 EP 由 Astro Nautico 发行，之后与 Mexican Summer 合作。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Plaid",
+  "bio": "Plaid 由英国电子音乐人 Ed Handley 与 Andy Turner 组成，两人早期与 Ken Downie 共同构成 The Black Dog。九十年代中期他们退出三人组，专注 Plaid，并在1997年由 Warp 发行《Not for Threes》。除了专辑与现场演出，他们还为电影《Tekkonkinkreet》等项目创作配乐。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Puma Blue",
+  "bio": "Puma Blue 是伦敦词曲作者 Jacob Allen 的个人名义，他早期通过当地 open mic 演出和卧室录音积累作品。2017年的《Swum Baby》与2018年的《Blood Loss》两张 EP 建立其乐队编制。2021年首专《In Praise of Shadows》由 Allen 自行制作，之后他在亚特兰大完成《Holy Waters》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Rachika Nayar",
+  "bio": "Rachika Nayar 是布鲁克林作曲者和吉他手，拥有印度裔与跨性别身份。她先录制吉他，再通过软件切片、延展和重新编排，2021年在 NNA Tapes 发行首专《Our Hands Against the Dusk》。2022年的《Heaven Come Crashing》加入更强的节拍与人声合作，并由 NNA Tapes 继续发行。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Ravyn Lenae",
+  "bio": "Ravyn Lenae 出生于芝加哥南区，在 Chicago High School for the Arts 学习古典音乐，同时进入当地说唱与灵魂乐圈。她十六岁发行《Moon Shoes》EP，随后加入 Monte Booker、Smino 周围的 Zero Fatigue 团队。2022年首专《HYPNOS》之后，她与制作人 Dahi 完成《Bird's Eye》。",
   "confidence": "high"
  },
  {
   "artist": "Red House Painters",
-  "bio": "旧金山四人组，主脑 Mark Kozelek 来自俄亥俄，一开始把私人日记式的歌寄给 American Music Club 的 Mark Eitzel，由他推荐给 4AD。厂牌连出四张同名或近乎同名的专辑，1996 年的《Songs for a Blue Guitar》转向电吉他。",
+  "bio": "Red House Painters 由 Mark Kozelek 于八十年代末在旧金山组建。乐队把样带寄给4AD 后，厂牌先于1992年发行《Down Colorful Hill》，再推出两张同名专辑。1996年的《Songs for a Blue Guitar》转入新的发行体系，也成为原阵容后期代表作。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Rei Harakami",
+  "bio": "Rei Harakami 1970年生于广岛，后来长期居住在京都。他主要依靠 Roland SC-88Pro 音源和硬盘录音设备制作，1998年发行首专《Unrest》。除个人唱片外，他也为矢野显子、UA 等歌手制作或重混，并与矢野显子组成 yanokami；2011年因脑出血去世。",
+  "confidence": "low"
+ },
+ {
+  "artist": "Round Table",
+  "bio": "Round Table 由北川胜利与伊藤利惠子组成，两人在大学爵士研究会相识，1993年开始活动。1997年独立发行《World's End》，次年以《Feelin' Groovy》主流出道。2002年至2012年间，他们与客席歌手 Nino 以 Round Table featuring Nino 名义为《Chobits》《ARIA》等动画创作歌曲。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Rubel",
+  "bio": "Rubel Brisolla Rodrigues 1991年生于巴西 Volta Redonda，曾在里约热内卢天主教大学学习传播。赴美国交换期间，他在宿舍录制首专《Pearl》，其中歌曲经网络传播后受到关注。2018年的《Casas》加入 samba、说唱采样及 Emicida 等客席，之后他又制作双专辑《As Palavras》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Sam Prekop",
+  "bio": "Sam Prekop 出生于伦敦、在芝加哥长大，先后参与 Shrimp Boat 与 The Sea and Cake，并长期为后者担任主唱和吉他手。1999年首张个人专辑由 Jim O'Rourke 制作。2010年的《Old Punch Card》转向模块合成器，之后《The Republic》《Comma》等作品继续发展电子创作。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Seam",
+  "bio": "Seam 于1991年在北卡罗来纳 Chapel Hill 组成，最初成员包括前 Bitch Magnet 的 Sooyoung Park、Lexi Mitchell，以及 Superchunk 的 Mac McCaughan。Park 是各时期唯一不变的成员，乐队后来迁往芝加哥并多次更换阵容。三张主要专辑由 Homestead 与 Touch and Go 发行，2000年前后停止活动。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Sessa",
+  "bio": "Sessa 是圣保罗音乐人 Sérgio Sayeg 的创作名义，他曾担任纽约巴西乐队 Garotas Suecas 的吉他手，并与 Yonatan Gat 合作。2019年首专《Grandeza》以尼龙弦、低音提琴和女声合唱为核心。疫情后他返回巴西生活，2022年推出第二张专辑《Estrela Acesa》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Silvana Estrada",
+  "bio": "Silvana Estrada 1997年生于墨西哥韦拉克鲁斯州 Coatepec，父母都是制作乐器的工匠。她学习过爵士，并把委内瑞拉 cuatro 作为主要伴奏乐器。早期与 Charlie Hunter 合作后，她在 Glassnote 发行2022年专辑《Marchita》，同年获得拉丁格莱美最佳新人奖。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Skullcrusher",
+  "bio": "Skullcrusher 是 Helen Ballentine 的创作名义，她在纽约州长大，大学学习视觉艺术，毕业后一度在洛杉矶从事画廊工作。2019年她写下第一首歌《Places/Plans》，2020年由 Secretly Canadian 发行同名 EP。2022年首专《Quiet the Room》延伸了家庭记忆与成长主题。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Slow Pulp",
+  "bio": "Slow Pulp 的前身由 Henry Stoehr、Alex Leeds 与 Teddy Mathews 在威斯康星州麦迪逊学生时期组建，Emily Massey 后来加入并逐渐承担主唱和写作。成员迁往芝加哥后，2020年发行首专《Moveys》，制作过程经历家庭疾病和疫情。2023年的《Yard》转入 Anti- 发行。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Sondre Lerche",
+  "bio": "Sondre Lerche 1982年生于挪威卑尔根，十几岁时已在当地俱乐部演出，并与制作人 H.P. Gundersen 合作。19岁发行首专《Faces Down》，很快进入欧美市场。此后他写作爵士取向专辑、电影《Dan in Real Life》配乐及多张独立流行唱片，并长期往返挪威与纽约。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Songs: Ohia",
+  "bio": "Songs: Ohia 是俄亥俄词曲作者 Jason Molina 自九十年代中期使用的名义，录音阵容随作品更换。Will Oldham 于1996年发行其首支单曲，Secretly Canadian 次年推出同名首专。2003年后，他把主要乐队名改为 Magnolia Electric Co.。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Squirrel Flower",
+  "bio": "Squirrel Flower 是 Ella O'Connor Williams 童年起使用的名字，她1996年出生于古典、爵士与蓝调音乐家庭。她小时候加入 Boston Children's Chorus，并自学吉他和乐理。Polyvinyl 于2020年发行首专《I Was Born Swimming》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Teebs",
+  "bio": "Teebs 本名 Mtendere Mandowa，是洛杉矶制作人兼画家，早期活跃于 Low End Theory 社群。Brainfeeder 于2010年发行首专《Ardour》，之后推出《Estara》和《Anicca》。他还与 Prefuse 73 组成 Sons of Morning。",
+  "confidence": "high"
+ },
+ {
+  "artist": "The Clientele",
+  "bio": "The Clientele 的成员少年时便在英格兰 Hampshire 一起排练，核心为 Alasdair MacLean、James Hornsey 与 Mark Keen。早期单曲在2000年汇成《Suburban Light》。乐队随后长期与 Merge Records 合作，并在2023年发行新专辑。",
+  "confidence": "high"
+ },
+ {
+  "artist": "The High Llamas",
+  "bio": "The High Llamas 由爱尔兰音乐人 Sean O'Hagan 在 Microdisney 解散后于伦敦建立。1994年的《Gideon Gaye》和1996年的《Hawaii》大量使用钢琴、弦乐与铜管。O'Hagan 同期也长期为 Stereolab 演奏、配器和参与制作。",
+  "confidence": "high"
+ },
+ {
+  "artist": "The Innocence Mission",
+  "bio": "The Innocence Mission 成于宾州 Lancaster，Karen Peris、Don Peris 与 Mike Bitts 在高中相识。乐队1989年由 A&M 发行首专，九十年代后转向家庭录音。1999年的《Birds of My Neighborhood》收录《Lakes of Canada》。",
   "confidence": "high"
  },
  {
   "artist": "The Orchids",
-  "bio": "格拉斯哥 Penilee 的五人乐队，1985年由 John Scally、Chris Quinn 等人组建。首张唱片是 Sha-la-la 厂牌的软胶片《From This Day》，之后在 Sarah Records 连发六支单曲和三张专辑。停摆十年后，他们于2004年重组并继续发行新作。",
+  "bio": "The Orchids 是1986年在 Glasgow 组成的独立流行乐队，也是 Sarah Records 最早签下的团体之一。他们为该厂牌发行六支单曲和三张专辑，九十年代中期暂停活动。2004年重组后，原成员继续录音并推出新的长篇作品。",
+  "confidence": "high"
+ },
+ {
+  "artist": "The Sea and Cake",
+  "bio": "The Sea and Cake 于1994年在芝加哥组成，成员来自 Shrimp Boat、The Coctails 与 Tortoise。核心为 Sam Prekop、Archer Prewitt、Eric Claridge 和 John McEntire。团名源自对《The C in Cake》的误听。",
+  "confidence": "high"
+ },
+ {
+  "artist": "The fin.",
+  "bio": "The fin. 于2012年在神户以四人编制成立，现以 Yuto Uchino 与 Kaoru Nakazawa 为核心。Uchino 负责主要词曲，并亲自完成录音、混音和制作。乐队2014年发行《Days With Uncertainty》，2016年迁往英国活动。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Tim Bernardes",
+  "bio": "Tim Bernardes 1991年生于圣保罗，父亲是音乐人 Maurício Pereira。他是三人乐队 O Terno 的主唱、吉他手和主要写作者，也承担编曲与制作。2017年推出个人首专《Recomeçar》，2022年发行《Mil Coisas Invisíveis》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Tim Buckley",
+  "bio": "Tim Buckley 1947年出生于华盛顿特区，在南加州长大，十九岁便签入 Elektra 并发行首专。他的唱片从民谣摇滚逐步转向爵士、放克与自由即兴，《Happy Sad》《Lorca》和《Starsailor》记录了这段变化。Buckley 于1975年去世，年仅二十八岁。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Tomberlin",
+  "bio": "Tomberlin 本名 Sarah Beth Tomberlin，出生于佛罗里达，在父亲担任浸信会牧师的伊利诺伊乡镇长大。她把一批歌曲上传 Bandcamp，Saddle Creek 于2018年重发《At Weddings》。Alex G 制作了2020年的《Projections》EP。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Tourist",
+  "bio": "Tourist 是伦敦制作人 William Phillips 的录音名义，他自学钢琴，早期曾以 Little Loud 在网络发布作品。2012年的同名 EP 开启这一项目。他因参与创作 Sam Smith 的《Stay with Me》获得2015年格莱美年度歌曲奖，首专《U》于次年发行。",
+  "confidence": "high"
+ },
+ {
+  "artist": "VIDEOTAPEMUSIC",
+  "bio": "VIDEOTAPEMUSIC 是东京音乐与影像制作人的个人项目，2009年前后开始活动。他从旧货店和停业录像店收集 VHS，把对白、背景音乐和画面剪成新的声音与影像。其专辑包括《The Secret Life of VIDEOTAPEMUSIC》和《Revisit》。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Vetiver",
+  "bio": "Vetiver 是 Andy Cabic 在旧金山建立的乐队，2004年首专邀请 Devendra Banhart、Hope Sandoval 与 Joanna Newsom 参与。Cabic 后来与 Banhart 创办 Gnomonsong。2009年的《Tight Knit》是转入 Sub Pop 后的首张唱片。",
+  "confidence": "high"
+ },
+ {
+  "artist": "Visible Cloaks",
+  "bio": "Visible Cloaks 是波特兰音乐人 Spencer Doran 与 Ryan Carlile 的双人项目。RVNG Intl. 于2017年发行《Reassemblage》和《Lex》，两人使用虚拟乐器与翻译软件构建作品。Doran 还策划了日本环境音乐选集《Kankyō Ongaku》。",
   "confidence": "high"
  },
  {
@@ -272,6 +827,11 @@
  {
   "artist": "gomes the hitman (ゴメス・ザ・ヒットマン)",
   "bio": "1993 年在东京外国语大学的音乐社团里成团，1999 年经 BMG JAPAN 正式出道。核心是主唱兼吉他的山田稔明，他长期单飞并给别的歌手写歌；贝斯手须藤俊明来自噪音团 Melt-Banana，履历和这支乐队的音量完全对不上。",
+  "confidence": "high"
+ },
+ {
+  "artist": "haruka nakamura",
+  "bio": "haruka nakamura 是常驻东京的作曲家、制作人和多乐器演奏者，2008年发行首张专辑《grace》。他的录音组合钢琴、木吉他、口风琴、合唱与现场采声，也持续为电影和舞台项目配乐。2021年推出《Nujabes PRAY Reflections》。",
   "confidence": "high"
  },
  {
