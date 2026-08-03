@@ -17,10 +17,10 @@
 |---|--:|
 | 曲池 | **1169** 首 |
 | 池内艺人 | **1084** 位 |
-| 已写简介 | **424** 位（覆盖 39.1%）|
-| 待写 | **660** 位 |
-| confidence | high 415 · low 9 |
-| bio 长度 | 104–207 字（均 152）|
+| 已写简介 | **499** 位（覆盖 46.0%）|
+| 待写 | **585** 位 |
+| confidence | high 487 · low 12 |
+| bio 长度 | 104–220 字（均 157）|
 | 含未翻译地名 | 21 条 —— **见「五、待修名单」** |
 
 ### 已导入批次
@@ -37,10 +37,11 @@
 | `artist_bios_batch08_50_ascii.json` | 50 |
 | `artist_bios_batch09_50_ascii.json` | 50 |
 | `artist_bios_batch10_50_ascii.json` | 50 |
+| `artist_bios_batch11_75_ascii.json` | 75 |
 
 ## 三、已写清单（这些别再写）
 
-<details><summary>展开 424 位</summary>
+<details><summary>展开 499 位</summary>
 
 ```
 1010benja  4hero  79.5  A Sunny Day in Glasgow
@@ -126,29 +127,48 @@ Gigi Masin  Gil Scott-Heron  Gilberto Gil  Ginger Root
 Global Communication  GoGo Penguin  Gold Panda  Goldfrapp
 Goldmund  Grandaddy  Grant Green  Great Grandpa
 Green-House  Greg Haines  Gregor  Gregory Alan Isakov
-Grizzly Bear  Groove Armada  Hand Habits  Hatchie
-Ivy  Jamila Woods  Joanna Newsom  John Martyn
-Josephine Foster  Juana Molina  Kadhja Bonet  Kahimi Karie
-Kaitlyn Aurelia Smith  Kate Bollinger  Katie Von Schleicher  Katy Kirby
-Khruangbin  Kim Sawol  L'Rain  Library Tapes
-Lloyd Cole and the Commotions  Loraine James  Luedji Luna  Marissa Nadler
-Melody's Echo Chamber  Men I Trust  Nap Eyes  Okay Kaya
-Patrice Rushen  Photay  Plaid  Puma Blue
-Rachika Nayar  Ravyn Lenae  Red House Painters  Rei Harakami
-Round Table  Rubel  Sam Prekop  Seam
-Sessa  Silvana Estrada  Skullcrusher  Slow Pulp
-Sondre Lerche  Songs: Ohia  Squirrel Flower  Teebs
-The Clientele  The High Llamas  The Innocence Mission  The Orchids
-The Sea and Cake  The fin.  Tim Bernardes  Tim Buckley
-Tomberlin  Tourist  VIDEOTAPEMUSIC  Vetiver
-Visible Cloaks  Willie Hutch  Woo  Woods
-Ximena Sariñana  Xênia França  Yasuaki Shimizu  Yasuha
-Yaya Bey  Yeasayer  Yebba  Yellow Days
-Yo La Tengo  Yogee New Waves  Young Marble Giants  Yu Su
-Yumi Zouma  Yussef Dayes  Yussef Kamaal  Yves Jarvis
-Zero 7  cero  girl in red  gomes the hitman (ゴメス・ザ・ヒットマン)
-haruka nakamura  mxmtoon  múm  never young beach
-serpentwithfeet  toe  Étienne Daho  Ólafur Arnalds
+Grizzly Bear  Groove Armada  Grouper  Gus Dapperton
+Gwenifer Raymond  H. Hawkline  H.E.R.  HTRK
+Hailu Mergia  Haley Heynderickx  Hammock  Hana Vu
+Hand Habits  Hania Rani  Hank Mobley  Hannah Frances
+Harmonia  Harvey Sutherland  Hatchie  Hatis Noit
+Hauschka  Heavenly  Helado Negro  Helena Deland
+Helios  Herbie Hancock  Hermanos Gutiérrez  Hiatus Kaiyote
+Hideki Kaji  Hildur Guðnadóttir  Hinako Omori  Hiperson
+Hiroshi Suzuki  Hiroshi Yoshimura  Hiss Golden Messenger  Hitsujibungaku
+Holiday Ghosts  Homecomings  Homeshake  Hooverphonic
+Horsegirl  Hot Chip  Hovvdy  Hue and Cry
+I Mean Us  Ichiko Aoba (青葉市子)  Ida  Idaho
+Idris Muhammad  Incognito  Inoyama Land  Iron & Wine
+Isan  Itasca  Ivy  Jabu
+Jacco Gardner  Jacqueline Taïeb  Jaga Jazzist  Jake Xerxes Fussell
+Jalen Ngonda  Jamie xx  Jamila Woods  Jan Garbarek
+Jan Johansson  Jane Weaver  Japan  Japanese Breakfast
+Jards Macalé  Jay Som  Jazzanova  Jeanines
+Jeff Parker  Jefre Cantu-Ledesma  Jega  Jenevieve
+Jerry Paper  Jessica Pratt  Jessy Lanza  Jesu
+Jill Scott  Joanna Newsom  John Martyn  Josephine Foster
+Juana Molina  Kadhja Bonet  Kahimi Karie  Kaitlyn Aurelia Smith
+Kate Bollinger  Katie Von Schleicher  Katy Kirby  Khruangbin
+Kim Sawol  L'Rain  Library Tapes  Lloyd Cole and the Commotions
+Loraine James  Luedji Luna  Marissa Nadler  Melody's Echo Chamber
+Men I Trust  Nap Eyes  Okay Kaya  Patrice Rushen
+Photay  Plaid  Puma Blue  Rachika Nayar
+Ravyn Lenae  Red House Painters  Rei Harakami  Round Table
+Rubel  Sam Prekop  Seam  Sessa
+Silvana Estrada  Skullcrusher  Slow Pulp  Sondre Lerche
+Songs: Ohia  Squirrel Flower  Teebs  The Clientele
+The High Llamas  The Innocence Mission  The Orchids  The Sea and Cake
+The fin.  Tim Bernardes  Tim Buckley  Tomberlin
+Tourist  VIDEOTAPEMUSIC  Vetiver  Visible Cloaks
+Willie Hutch  Woo  Woods  Ximena Sariñana
+Xênia França  Yasuaki Shimizu  Yasuha  Yaya Bey
+Yeasayer  Yebba  Yellow Days  Yo La Tengo
+Yogee New Waves  Young Marble Giants  Yu Su  Yumi Zouma
+Yussef Dayes  Yussef Kamaal  Yves Jarvis  Zero 7
+cero  girl in red  gomes the hitman (ゴメス・ザ・ヒットマン)  haruka nakamura
+mxmtoon  múm  never young beach  serpentwithfeet
+toe  Étienne Daho  Ólafur Arnalds
 ```
 
 </details>
@@ -158,21 +178,21 @@ serpentwithfeet  toe  Étienne Daho  Ólafur Arnalds
 完整清单见 [`data/artists_todo.json`](data/artists_todo.json)。**接下来这 60 位优先**：
 
 ```
-Grouper  Gus Dapperton  Gwenifer Raymond  H. Hawkline
-H.E.R.  HTRK  Hailu Mergia  Haley Heynderickx
-Hammock  Hana Vu  Hania Rani  Hank Mobley
-Hannah Frances  Harmonia  Harvey Sutherland  Hatis Noit
-Hauschka  Heavenly  Helado Negro  Helena Deland
-Helios  Herbie Hancock  Hermanos Gutiérrez  Hiatus Kaiyote
-Hideki Kaji  Hildur Guðnadóttir  Hinako Omori  Hiperson
-Hiroshi Suzuki  Hiroshi Yoshimura  Hiss Golden Messenger  Hitsujibungaku
-Holiday Ghosts  Homecomings  Homeshake  Hooverphonic
-Horsegirl  Hot Chip  Hovvdy  Hue and Cry
-I Mean Us  Ichiko Aoba (青葉市子)  Ida  Idaho
-Idris Muhammad  Incognito  Inoyama Land  Iron & Wine
-Isan  Itasca  Jabu  Jacco Gardner
-Jacqueline Taïeb  Jaga Jazzist  Jake Xerxes Fussell  Jalen Ngonda
-Jamie xx  Jan Garbarek  Jan Johansson  Jane Weaver
+Jean Carne  Jim O'Rourke  Jimmy Giuffre  Jimmy Smith
+Jitwam  Joanne Robertson  Joe Armon-Jones  Joe Hisaishi
+John Also Bennett  John Fahey  John Metcalfe  Jolie Holland
+Jonah Yano  Jonnine  Jordan Rakei  Jorge Ben
+Jorja Smith  Joseph Shabason  José González  Joy Crookes
+Joyce  João Donato  João Gilberto  Judee Sill
+Julia Holter  Julia Jacklin  Julia Kent  Julianna Barwick
+Julie Byrne  Juniore  Jóhann Jóhannsson  KIRINJI
+Kaho Nakamura  Kaidi Tatham  Kama Aina  Kamasi Washington
+Kaoru Akimoto (秋元薫)  Karen Dalton  Kate Bush  Katy J Pearson
+Keith Jarrett  Kelela  Kelly Lee Owens  Kenny Burrell
+Kettel  Kevin Ayers  Kevin Krauter  Kevin Morby
+Khotin  Kiasmos  Kicell  Kiefer
+Kiln  Kim Oki  Kings of Convenience  Kirinji
+Kit Sebastian  Kitchens of Distinction  Kohsuke Mine  Kokoroko
 ```
 
 ## 五、待修名单（地名没翻译，优先修这些）
