@@ -50,28 +50,42 @@ ALLOWED_CONF = {"high", "low"}                     # 只这两档
 # 所以别拿它的命中数当「问题总数」——它是拦截线（高精度），不是普查工具。
 # 普查用下面的 place_candidates()（高召回、需人判断）。
 EN_PLACES = (
-    # 美国
-    "Virginia", "Brooklyn", "Nashville", "Texas", "California", "New York", "Los Angeles",
-    "Chicago", "Seattle", "Portland", "Detroit", "Boston", "Baltimore", "Philadelphia",
-    "Memphis", "Atlanta", "Denver", "Austin", "Miami", "Houston", "San Jose",
-    "San Francisco", "Kansas City", "Tulsa", "Indianapolis", "Pittsburgh", "Arkansas",
-    "Iowa", "Colorado", "Ohio", "Michigan", "Georgia", "Oregon", "Minneapolis",
-    "New Orleans", "Manhattan", "Queens", "Oakland", "Louisville", "Richmond",
-    # 英国 / 爱尔兰
-    "London", "Manchester", "Bristol", "Glasgow", "Dundee", "Edinburgh", "Leeds",
-    "Liverpool", "Sheffield", "Birmingham", "Brighton", "Dublin", "Belfast", "Cardiff",
-    # 欧陸
-    "Berlin", "Paris", "Vienna", "Copenhagen", "Stockholm", "Oslo", "Helsinki",
-    "Amsterdam", "Rotterdam", "Brussels", "Lisbon", "Madrid", "Barcelona", "Milan",
-    "Rome", "Reykjavik", "Warsaw", "Prague", "Budapest", "Zurich", "Geneva",
-    "Denmark", "Portugal", "Sweden", "Norway", "Iceland", "Finland",
-    # 亚太 / 其他
-    "Tokyo", "Kyoto", "Osaka", "Seoul", "Taipei", "Hong Kong", "Shanghai", "Beijing",
-    "Melbourne", "Sydney", "Brisbane", "Perth", "Auckland", "Wellington",
-    "Toronto", "Montreal", "Vancouver", "Cape Breton",
-    "Lagos", "Nairobi", "Johannesburg", "Cairo", "Lahore", "Karachi", "Mumbai",
-    "Freetown", "Sierra Leone", "Buenos Aires", "Rio", "Sao Paulo", "Bogota",
-    "Santiago", "Lima", "Havana", "Kingston", "Beirut", "Istanbul", "Tel Aviv",
+    "Aarhus", "Accra", "Adelaide", "Alabama", "Alaska", "Algiers", "Amsterdam", "Antwerp",
+    "Argentina", "Arizona", "Arkansas", "Asuncion", "Atlanta", "Auckland", "Austin",
+    "Australia", "Austria", "Bahia", "Baltimore", "Bangalore", "Barcelona", "Beijing",
+    "Beirut", "Belfast", "Belgium", "Bergen", "Berlin", "Bilbao", "Birmingham", "Bogota",
+    "Bologna", "Boston", "Brighton", "Brisbane", "Bristol", "Brooklyn", "Brussels",
+    "Budapest", "Buenos Aires", "Busan", "Cairo", "Calgary", "California", "Canada",
+    "Cape Breton", "Cardiff", "Casablanca", "Chengdu", "Chennai", "Chicago", "Chile",
+    "Christchurch", "Cologne", "Colombia", "Colombo", "Colorado", "Connecticut",
+    "Copenhagen", "Curitiba", "Delaware", "Delhi", "Denmark", "Denver", "Detroit", "Dhaka",
+    "Dresden", "Dublin", "Dundee", "Dunedin", "Edinburgh", "England", "Ethiopia",
+    "Finland", "Florence", "Florida", "Frankfurt", "Freetown", "Fukuoka", "Geneva",
+    "Georgia", "Ghana", "Ghent", "Glasgow", "Gothenburg", "Greece", "Guangzhou", "Halifax",
+    "Hamburg", "Havana", "Hawaii", "Helsinki", "Hobart", "Hong Kong", "Houston", "Iceland",
+    "Idaho", "Illinois", "Indiana", "Indianapolis", "Indonesia", "Iowa", "Ireland",
+    "Israel", "Istanbul", "Johannesburg", "Kampala", "Kansas", "Kansas City", "Karachi",
+    "Kathmandu", "Kentucky", "Kiev", "Kingston", "Kinshasa", "Krakow", "Kyoto", "Lagos",
+    "Lahore", "Leeds", "Leipzig", "Lima", "Lisbon", "Liverpool", "London", "Los Angeles",
+    "Louisiana", "Louisville", "Madrid", "Maine", "Malaysia", "Malmo", "Manchester",
+    "Manhattan", "Marrakech", "Maryland", "Massachusetts", "Melbourne", "Memphis",
+    "Mexico", "Miami", "Michigan", "Milan", "Minneapolis", "Minnesota", "Mississippi",
+    "Missouri", "Montana", "Montevideo", "Montreal", "Mumbai", "Munich", "Nagoya",
+    "Nairobi", "Naples", "Nashville", "Nebraska", "Netherlands", "Nevada", "New Hampshire",
+    "New Jersey", "New Mexico", "New Orleans", "New York", "New Zealand", "Nigeria",
+    "North Carolina", "North Dakota", "Norway", "Oakland", "Odessa", "Ohio", "Oklahoma",
+    "Oregon", "Osaka", "Oslo", "Ottawa", "Paris", "Pennsylvania", "Perth", "Peru",
+    "Philadelphia", "Philippines", "Pittsburgh", "Poland", "Portland", "Porto", "Portugal",
+    "Prague", "Quebec", "Queens", "Quito", "Recife", "Reykjavik", "Rhode Island",
+    "Richmond", "Riga", "Rio", "Rome", "Rotterdam", "Salvador", "San Francisco",
+    "San Jose", "Santiago", "Sao Paulo", "Sapporo", "Scotland", "Seattle", "Senegal",
+    "Seoul", "Seville", "Shanghai", "Sheffield", "Shenzhen", "Sierra Leone",
+    "South Carolina", "South Dakota", "Stockholm", "Sweden", "Switzerland", "Sydney",
+    "Taipei", "Tallinn", "Tbilisi", "Tel Aviv", "Tennessee", "Texas", "Thailand", "Tokyo",
+    "Toronto", "Tulsa", "Tunis", "Turin", "Utah", "Valencia", "Vancouver", "Vermont",
+    "Victoria", "Vienna", "Vietnam", "Vilnius", "Virginia", "Wales", "Warsaw",
+    "Washington", "Wellington", "West Virginia", "Winnipeg", "Wisconsin", "Wyoming",
+    "Yerevan", "Zurich"
 )
 
 # 位置词——地名几乎总跟在这些词后面。用于「候选」普查（高召回）。
@@ -105,6 +119,20 @@ _PERSON_HEAD = re.compile(r"[A-Z][a-z]+\s+$")
 # 「乐团 Oregon」「乐队 Chicago」—— 地名当团名用，前面有身份词点明。
 # 2026-08-03 batch14b 的 Ralph Towner 就这么被拦：他是乐团 Oregon 的创始成员，
 # 那条 bio 里真正的地名（华盛顿州、维也纳）早就译成中文了。
+# 机构名把地名放在【后面】的形态：「Royal Conservatoire of Scotland」
+# 「University of Michigan」—— _INSTITUTION_TAIL 只看后缀，看不见这种。
+# 2026-08-04 实测：扩地名词表时 C Duncan 的校名被误判成「Scotland 没翻译」。
+_INSTITUTION_HEAD = re.compile(
+    r"(?:School|University|College|Conservatoire|Conservatory|Institute|Academy|"
+    r"Symphony|Philharmonic|Orchestra|Museum|Library|Bank|Government|Council)"
+    r"\s+of\s+$")
+# 地名后面紧跟音乐术语 = 它是流派 / 场景名，不是在指地点：
+# 「Dunedin sound」「Manchester scene」。与 _INSTITUTION_TAIL 的 Sound 有重叠，
+# 但那条要求首字母大写、这条管小写。
+_SCENE_TAIL = re.compile(
+    r"^\s+(?:sound|scene|school|movement|wave|revival|underground|circuit|"
+    r"techno|house|trip-hop|hip-hop|jazz|folk|punk|pop|soul)\b")
+
 _BAND_HEAD = re.compile(r"(乐团|乐队|组合|团体|小组|厂牌|唱片公司|品牌)\s*$")
 
 
@@ -134,8 +162,10 @@ def _place_hit(bio: str, x: str) -> bool:
     for m in re.finditer(r"(?<![A-Za-z])" + re.escape(x) + r"(?![A-Za-z])", bio):
         tail, head = bio[m.end():], bio[:m.start()]
         if (_INSTITUTION_TAIL.match(tail) or _PERSON_TAIL.match(tail)
+                or _SCENE_TAIL.match(tail)
                 or _PERSON_HEAD.search(head[-20:])
                 or _BAND_HEAD.search(head[-12:])
+                or _INSTITUTION_HEAD.search(head[-40:])
                 or _in_title(bio, m.start(), m.end())):
             continue
         return True
