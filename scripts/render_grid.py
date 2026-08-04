@@ -133,6 +133,23 @@ CSS = """
    用 !important 表达「这是硬约束」，比给每个组件类打 :not([hidden]) 补丁可靠。 */
 [hidden]{display:none !important}
 :root{
+  /* ── iOS 安全区 ──────────────────────────────────────────────
+     四页都声明了 viewport-fit=cover（这是让 env() 返回非零的前提，
+     同时也意味着内容真的会铺到刘海/home 条底下）。此前一处 safe-area
+     都没用，加到主屏 standalone 打开时实测（iPhone 14 Pro，顶 59px / 底 34px）：
+       · 顶栏 nav 高 53px，整条【完全埋在】刘海下，不是压掉一角
+       · 吸底播放器 76px 被 home 条压掉 34px，播放键点不到
+       · 浮层关闭键距顶 52px < 59px，浮层【关不掉】——这条最严重
+     浏览器里 env() 一律是 0，所以加它对普通网页零影响，纯粹是补 standalone。
+     fallback 写 0px 而不是省略：老 Safari 不认 env() 时整条声明会被丢弃。 */
+  --sat:env(safe-area-inset-top, 0px);
+  --sar:env(safe-area-inset-right, 0px);
+  --sab:env(safe-area-inset-bottom, 0px);
+  --sal:env(safe-area-inset-left, 0px);
+  /* 播放器实际占位高度 = 自身高度 + 底部安全区。随机页的篮子要叠在它上方，
+     此前两处各写死 76px（#np 的 height 与 #basket 的 bottom），
+     加了安全区就会错位 —— 抽成变量，一处改两处跟。 */
+  --np-h:76px;
   --white:#fff; --paper:#f5f5f5; --ink:#0f0e12;
   --g100:#e5e5e5; --g200:#ccc; --g300:#b2b2b2; --g500:#a1a7af;
   --g600:#767676; --g900:#4d4d4d; --g1000:#272727;
@@ -182,15 +199,22 @@ html{scroll-behavior:smooth}
 body{font-family:var(--sans); font-weight:300; color:var(--ink); background:var(--paper);
   line-height:1.5; letter-spacing:0; -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility; font-feature-settings:"kern" 1,"liga" 1;
-  padding-bottom:76px; overscroll-behavior-y:none}
+  padding-bottom:calc(var(--np-h) + var(--sab)); overscroll-behavior-y:none}
 a{color:inherit; text-decoration:none}
 .mono{font-family:var(--mono)}
-.wrap{max-width:1160px; margin:0 auto; padding-inline:var(--sp-xl)}
+/* 左右吃 inset：横屏时刘海在侧边，纸白内容会被切掉一条。
+   顶部不用管 —— .nav 已经加了 padding-top，.wrap 被它自然推下去；
+   在这里再加一次会变成双倍留白。 */
+.wrap{max-width:1160px; margin:0 auto;
+  padding-left:calc(var(--sp-xl) + var(--sal)); padding-right:calc(var(--sp-xl) + var(--sar))}
 .lc{text-transform:lowercase}
 
 /* 顶部铭牌导航 */
+/* padding-top 而不是 margin/top 位移：底色要一直铺到屏幕最上沿（刘海区也是黑的，
+   与 --ink 同色，视觉上连成一体），只把【内容】推到安全区以下。
+   用 margin 会在刘海区留出一条纸白，反而更难看。 */
 .nav{position:sticky; top:0; z-index:1000; background:var(--ink); color:var(--white);
-  border-bottom:1px solid var(--g1000)}
+  border-bottom:1px solid var(--g1000); padding-top:var(--sat)}
 .nav .wrap{height:clamp(52px,7vw,66px); display:flex; align-items:center; justify-content:space-between}
 .brand{display:flex; align-items:center; gap:10px; font-size:var(--fs-20); font-weight:100; letter-spacing:.01em}
 .brand .sq{width:14px; height:14px; background:var(--orange)}
@@ -389,8 +413,14 @@ a{color:inherit; text-decoration:none}
 .pbtn.playing .i-play{display:none}
 .pbtn.playing .i-pause{display:block}
 /* 底部 now-playing 条：封面键触发后浮现，显当前曲/进度/播放暂停，与封面键联动 */
+/* height 保持 76px（内容区不变），额外用 padding-bottom 吃掉 home 条，
+   box-sizing:border-box 下总高变成 76+sab、内容仍居中在上面那 76px 里。
+   左右也吃 inset：横屏时刘海会在侧边。 */
 #np{position:fixed; left:0; right:0; bottom:0; z-index:1200; display:none; align-items:center; gap:clamp(8px,1.2vw,14px);
-  background:var(--ink); color:var(--white); border-top:1px solid var(--g1000); height:76px; padding:0 clamp(16px,4vw,52px)}
+  background:var(--ink); color:var(--white); border-top:1px solid var(--g1000);
+  height:calc(var(--np-h) + var(--sab)); padding:0 clamp(16px,4vw,52px) var(--sab);
+  padding-left:calc(clamp(16px,4vw,52px) + var(--sal));
+  padding-right:calc(clamp(16px,4vw,52px) + var(--sar))}
 #np.on{display:flex}
 #np-cover{width:52px; height:52px; flex:none; object-fit:cover; background:var(--g1000)}
 #np-meta{flex:none; width:clamp(110px,20vw,240px); min-width:0}

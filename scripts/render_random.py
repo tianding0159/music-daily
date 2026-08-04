@@ -66,7 +66,9 @@ def build_artist_json(pool: list[dict], bios: dict[str, str]) -> str:
 
 EXTRA_CSS = """
 /* ── 随机页专属 ───────────────────────────────────────────── */
-body{padding-bottom:76px}
+/* 给吸底播放器让位。派生自 --np-h 并加底部安全区，
+   否则 standalone 下最后一张卡被播放器压住。 */
+body{padding-bottom:calc(var(--np-h, 76px) + var(--sab, 0px))}
 .dice-wrap{border:1px solid var(--g300); background:var(--paper); margin-top:var(--sp-md);
   display:flex; flex-wrap:wrap; align-items:stretch}
 .filters{display:flex; flex-wrap:wrap; gap:0; flex:1; min-width:260px}
@@ -310,9 +312,15 @@ body{padding-bottom:76px}
   font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:var(--sp-xl)}
 
 /* 今晚的篮子：临时收藏浮条（贴在 now-playing 条上方；空时不显示）*/
-#basket{position:fixed; left:0; right:0; bottom:76px; z-index:1150; display:none;
+/* bottom 跟着播放器的【实际占位高度】走（--np-h + 底部安全区），
+   此前写死 76px = 只等于播放器自身高度。播放器一加安全区就会盖住篮子下沿。
+   两处硬编码同一个数字是这次要一起收掉的东西。 */
+#basket{position:fixed; left:0; right:0;
+  bottom:calc(var(--np-h, 76px) + var(--sab, 0px)); z-index:1150; display:none;
   background:var(--white); border-top:1px solid var(--g300); border-bottom:1px solid var(--g100);
-  padding:10px clamp(16px,4vw,52px); align-items:center; gap:clamp(8px,1.4vw,16px);
+  padding:10px calc(clamp(16px,4vw,52px) + var(--sar, 0px))
+          10px calc(clamp(16px,4vw,52px) + var(--sal, 0px));
+  align-items:center; gap:clamp(8px,1.4vw,16px);
   transform:translateY(100%); transition:transform .3s cubic-bezier(.22,1.2,.36,1)}
 #basket.on{display:flex; transform:none}
 #basket .bk-paw{width:22px; height:20px; flex:none; image-rendering:pixelated}
@@ -332,10 +340,13 @@ body{padding-bottom:76px}
   color:var(--white); flex:none; transition:opacity .2s}
 #basket .bk-btn.line{background:transparent; color:var(--ink)}
 #basket .bk-btn:hover{opacity:.7}
-body.has-basket{padding-bottom:134px}
+/* 原 134 = 播放器 76 + 篮子 58，两个数都硬编码。改成派生 + 安全区。 */
+body.has-basket{padding-bottom:calc(var(--np-h, 76px) + 58px + var(--sab, 0px))}
 @media(max-width:720px){
   #basket .bk-list{display:none}
-  #basket{gap:8px; padding:9px 16px}
+  /* 覆盖 padding 必须带上左右 inset，否则窄屏（最需要安全区的那批设备）丢保护 */
+  #basket{gap:8px;
+    padding:9px calc(16px + var(--sar, 0px)) 9px calc(16px + var(--sal, 0px))}
 }
 
 /* 导出面板（临时篮子）*/
@@ -402,7 +413,10 @@ body.has-basket{padding-bottom:134px}
   .card .c-links{gap:6px}
   .card .c-links>*{flex:1 1 calc(50% - 3px); justify-content:center; text-align:center}
   .recent{grid-template-columns:1fr}
-  #basket{bottom:70px; padding:8px 14px}
+  /* 原写 bottom:70px —— 播放器【从没】在窄屏改过高度（一直 76px），
+     这个 70 是不一致的旧值，篮子下沿被播放器盖住 6px。改为跟 --np-h 联动。 */
+  #basket{bottom:calc(var(--np-h, 76px) + var(--sab, 0px));
+    padding:8px calc(14px + var(--sar, 0px)) 8px calc(14px + var(--sal, 0px))}
   footer{flex-direction:column; gap:6px; text-align:center}
 }
 @media(prefers-reduced-motion:reduce){

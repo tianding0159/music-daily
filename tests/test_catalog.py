@@ -672,6 +672,43 @@ def test_maskable_icon_respects_safe_zone():
     assert checked >= 1, ("manifest 里没有任何 maskable 图标被检查到 —— "
                           "要么声明丢了，要么这个测试空转了")
 
+def test_safe_area_not_dropped_by_overrides():
+    """贴屏边元素的 padding/bottom，在媒体查询里被覆盖时必须带上 inset。
+
+    简写 `padding:` 会【整条替换】前面写好的四行 calc()，于是窄屏
+    （也就是手机 —— 最需要安全区的那批设备）反而丢掉保护。这类漂移
+    静态可查，而浏览器验证只覆盖我恰好测到的那个视口宽度。
+
+    实测踩过：393px 视口命中 max-width:560px 媒体查询，那里的 #basket
+    覆盖了基础规则 —— 撤掉基础规则的联动，浏览器测试照样全绿（假绿）。
+    """
+    import re
+    # 贴屏边、需要安全区的选择器
+    EDGE = (".nav", "#np", "#basket", "#lb", ".stage", ".wrap")
+    problems = []
+    for src in ("render_grid.py", "render_random.py", "render_landing.py", "lightbox.py"):
+        text = (ROOT / "scripts" / src).read_text(encoding="utf-8")
+        for m in re.finditer(r"^\s*([#.][\w-]+)\s*\{([^}]*)\}", text, re.M):
+            sel, body = m.group(1), m.group(2)
+            if sel not in EDGE:
+                continue
+            line_no = text[:m.start()].count("\n") + 1
+            # 声明了会影响贴边距离的属性，就得同时出现 safe-area 变量
+            touches_edge = re.search(r"\b(padding|padding-top|padding-bottom|"
+                                     r"padding-left|padding-right|bottom|top)\s*:", body)
+            if not touches_edge:
+                continue
+            if "--sa" in body or "safe-area" in body:
+                continue
+            # top:0 / bottom:0 这类纯定位锚点不算（由 padding 让位），
+            # 只在它声明了【非零的】间距时才要求带 inset
+            vals = re.findall(r"\b(?:padding[\w-]*|bottom|top)\s*:\s*([^;]+)", body)
+            if all(v.strip() in ("0", "0px", "auto") for v in vals):
+                continue
+            problems.append(f"{src}:{line_no} {sel} 声明了间距却没带 safe-area 变量：{vals}")
+    assert not problems, ("这些贴屏边规则会丢掉安全区保护：\n  " + "\n  ".join(problems))
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]
     passed, failed = 0, []

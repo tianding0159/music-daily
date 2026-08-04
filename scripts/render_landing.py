@@ -82,9 +82,16 @@ body{background:var(--paper); color:var(--ink); overflow:hidden;
   font-family:var(--sans); font-weight:300; line-height:1.5; letter-spacing:0;
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   font-feature-settings:"kern" 1,"liga" 1}
+/* 落地页是整屏 flex 居中，没有 nav 兜底，四边都要自己吃 inset。
+   实测这一页原本是安全的（唱机居中、离边很远），但铭牌行与 rail 在小屏 +
+   横屏下会贴近边缘，且 100svh 在 standalone 下就是含安全区的全屏高度。 */
 .stage{min-height:100%; min-height:100svh; display:flex; flex-direction:column;
   align-items:center; justify-content:center; gap:clamp(16px,3vh,30px);
-  padding:clamp(16px,4vw,38px); position:relative}
+  padding:calc(clamp(16px,4vw,38px) + var(--sat, 0px))
+          calc(clamp(16px,4vw,38px) + var(--sar, 0px))
+          calc(clamp(16px,4vw,38px) + var(--sab, 0px))
+          calc(clamp(16px,4vw,38px) + var(--sal, 0px));
+  position:relative}
 /* 背景：极淡网格 + 一道缓慢扫过的绿光 */
 .stage::before{content:""; position:absolute; inset:0; pointer-events:none; opacity:.45;
   background:
@@ -302,7 +309,11 @@ body.go::after{content:""; position:fixed; inset:0; background:var(--paper);
 @keyframes flash{to{opacity:1}}
 
 @media(max-width:520px){
-  .stage{gap:16px; padding:18px 14px}
+  /* 覆盖 padding 时必须把 inset 一起带上 —— 简写 padding 会整条替换掉
+     上面那四行 calc()，窄屏（也就是手机，最需要安全区的那批设备）反而丢掉保护。 */
+  .stage{gap:16px;
+    padding:calc(18px + var(--sat, 0px)) calc(14px + var(--sar, 0px))
+            calc(18px + var(--sab, 0px)) calc(14px + var(--sal, 0px))}
   .deckbox{width:min(320px,84vw)}
   .rail{font-size:9px; flex-wrap:wrap}
   .rail div{padding:7px 11px; gap:6px}

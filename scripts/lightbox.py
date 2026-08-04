@@ -15,7 +15,15 @@ from __future__ import annotations
 
 LIGHTBOX_CSS = """
 /* ── 封面放大 + 艺人详情 ── */
-#lb{position:fixed; inset:0; z-index:2000; display:none; padding:clamp(14px,4vw,40px);
+/* 四边都要加安全区：实测 iPhone 14 Pro standalone 下，.sheet 距顶 52px
+   而刘海是 59px —— 贴在 .sheet 右上角的关闭键整个埋在刘海底下，【浮层关不掉】。
+   这比顶栏被埋严重得多（顶栏只是看不见，浮层是操作不了）。
+   变量在 render_grid 的 :root 里定义，本文件的样式注入同一个文档，直接继承。 */
+#lb{position:fixed; inset:0; z-index:2000; display:none;
+  padding:calc(clamp(14px,4vw,40px) + var(--sat, 0px))
+          calc(clamp(14px,4vw,40px) + var(--sar, 0px))
+          calc(clamp(14px,4vw,40px) + var(--sab, 0px))
+          calc(clamp(14px,4vw,40px) + var(--sal, 0px));
   align-items:center; justify-content:center}
 #lb.on{display:flex}
 #lb .veil{position:absolute; inset:0; background:rgba(10,9,12,.86);
