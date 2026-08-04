@@ -55,8 +55,20 @@ def _latest_report() -> dict | None:
 
 
 def main() -> int:
-    rc = int(sys.argv[1]) if len(sys.argv) > 1 else 0
-    title_base, advice = RC_MEANING.get(rc, (f"补库异常退出（rc={rc}）", "看一下 Actions 日志。"))
+    # 解析必须永不抛错：本脚本在 CI 里由 if: always() 调用，职责就是
+    # 「连失败也要发出通知」。如果 steps.merge.outputs.rc 因为上游步骤没跑完
+    # 而是空串（或有人手动传了 --help），旧代码会 ValueError 崩掉 ——
+    # 那就变成「失败时通知器自己也失败」，最该发声的时候彻底哑掉。
+    arg = sys.argv[1] if len(sys.argv) > 1 else "0"
+    try:
+        rc = int(str(arg).strip() or "0")
+    except ValueError:
+        print(f"[notify_merge] 退出码参数无法解析：{arg!r}，按「异常」处理")
+        rc = -1
+    title_base, advice = RC_MEANING.get(
+        rc, (f"补库异常退出（rc={rc}）",
+             "退出码不在已知列表里，看一下 Actions 日志。"
+             if rc >= 0 else "连退出码都没拿到，说明上游步骤异常中断，看 Actions 日志。"))
 
     lines = []
     try:
