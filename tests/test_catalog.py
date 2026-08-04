@@ -298,6 +298,33 @@ def test_snapshots_copy_in_sync_with_pool():
         f"{[d for d, _, _ in lag]}；跑 python3 tools/refresh_snapshot_copy.py --apply")
 
 
+def test_media_adoption_uses_accept_not_found():
+    """采纳封面/试听的判据必须是 status ∈ itunes.ACCEPT，不能是 found。
+
+    这个 bug 在本项目出现过【四次】（media_check 一次、build_daily 三处），
+    所以固化成测试。根子：itunes.lookup 拿不到 exact/acceptable 时会退回
+    best_nonexact（version_mismatch / artist_mismatch）而 found 仍为真 ——
+    用 found 采纳等于把别人的歌挂上封面和试听。实测缓存 1297 条里 44 条命中，
+    含 bigthief|paul 这类 artist_mismatch。
+
+    检法：扫源码里所有「用 info/ent 的 found 做条件、随后取 artwork/preview」
+    的地方，要求同一个条件里必须一起出现 ACCEPT。
+    """
+    import re
+    for rel in ["scripts/build_daily.py", "scripts/media_check.py"]:
+        src = (ROOT / rel).read_text(encoding="utf-8")
+        for m in re.finditer(r"^[^\n#]*\bif\b[^\n]*\bfound\b[^\n]*$", src, re.M):
+            line = m.group(0)
+            ln = src[:m.start()].count("\n") + 1
+            # 取该 if 之后一小段，看是否真的在采纳媒体字段
+            after = src[m.end():m.end() + 260]
+            adopts = any(k in line + after for k in ('"artwork"', '"preview"', '"apple_url"'))
+            if adopts:
+                assert "ACCEPT" in line, (
+                    f"{rel}:{ln} 用 found 采纳媒体但没查 ACCEPT —— "
+                    f"会把 version_mismatch / artist_mismatch 的结果当成命中：\n    {line.strip()}")
+
+
 def test_workflows_commit_what_scripts_write():
     """每个 workflow 跑的脚本（含它调用的模块）会写的 data/*.json，都必须在 git add 里。
 

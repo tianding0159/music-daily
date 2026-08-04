@@ -60,7 +60,11 @@ jobs:
 
       - name: 导入并重建页面
         run: |
-          set -e
+          # pipefail 不能少：`set -e` 只看管道【最后一个】命令的退出码，
+          # 而这里最后一个是 tee（永远成功）—— 少了它，import_bios 返回非零
+          # （一个文件都没通过）也会被吞掉，照常往下重建页面并提交。
+          # 2026-08-04 审计抓到：加 tee 的同一天就把硬失败护栏降成了绿灯日志行。
+          set -eo pipefail
           python3 tools/import_bios.py --apply --archive \
             ${{ inputs.force && '--force' || '' }} | tee /tmp/import.log
           # 留守文件抬成 GitHub 注解，否则埋在日志里没人看见

@@ -50,7 +50,12 @@ def enrich(tracks: list[dict], use_itunes: bool) -> tuple[list[dict], list[str]]
     cache = itunes.load_cache() if use_itunes else {}
     for t in tracks:
         info = itunes.lookup(t["artist"], t["title"], cache) if use_itunes else {"found": False}
-        if info.get("found"):
+        # 判据是 status ∈ ACCEPT，不是 found —— lookup 在拿不到 exact/acceptable 时
+        # 会退回 best_nonexact（version_mismatch / artist_mismatch）并且 found 仍为真。
+        # 用 found 采纳等于把别人的歌挂上封面和试听：实测缓存 1297 条里有 44 条
+        # 命中这种情况，含 bigthief|paul 这类 artist_mismatch。
+        # media_check.py 早就用对了判据，这里是同一个 bug 的漏网处（2026-08-04 审计）。
+        if info.get("found") and info.get("status") in itunes.ACCEPT:
             t["_cover"], t["_preview"], t["_apple"] = info["artwork"], info["preview"], info["apple_url"]
         else:
             t["_cover"], t["_preview"], t["_apple"] = t.get("cover_url", ""), "", ""
@@ -192,7 +197,8 @@ def _build_random(pool: list[dict], use_itunes: bool) -> int:
         for t in todo[:_MEDIA_BUDGET]:
             info = itunes.lookup(t["artist"], t["title"], cache)
             media[t["id"]] = ({"c": info["artwork"], "p": info["preview"], "a": info["apple_url"]}
-                              if info.get("found") else {"c": "", "p": "", "a": ""})
+                              if info.get("found") and info.get("status") in itunes.ACCEPT
+                              else {"c": "", "p": "", "a": ""})   # 判据同 enrich()：ACCEPT 才采纳
         itunes.save_cache(cache)
         MEDIA.write_text(json.dumps(media, ensure_ascii=False), encoding="utf-8")
         print(f"🎧 媒体增量补 {min(len(todo), _MEDIA_BUDGET)} 首（剩 {max(0, len(todo) - _MEDIA_BUDGET)} 首下次继续）")
