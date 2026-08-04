@@ -193,9 +193,19 @@ a{color:inherit; text-decoration:none}
 .lcd .pose .blush{fill:var(--orange); opacity:.42}
 .lcd .pose .pad rect{fill:#ffffff}
 .lcd .pose .zzz rect{fill:#9c9282}
-.lcd .pose .cat-eyes{transform-box:fill-box; transform-origin:center; animation:cat-blink 2.2s infinite}
+/* SVG 元素上的 transform 动画【默认不走合成器】：浏览器每帧都要重算
+   fill-box 的边界 → 每帧一次 layout。实测（CDP Performance + 逐条暂停二分）：
+   daily 页 1.5 秒内 91 次 layout，暂停 cat-wag 后降到 1 次 —— 一条尾巴动画
+   贡献了几乎全部 layout。cat-eyes 同构，一起处理。
+   加 will-change + translateZ 把它们各自提成独立合成层，transform 就只在
+   合成器线程插值、不再回到主线程做布局。旁边的 .cat-move 早就这么写了，
+   这两条是漏的。 */
+.lcd .pose .cat-eyes{transform-box:fill-box; transform-origin:center;
+  animation:cat-blink 2.2s infinite;
+  will-change:transform; backface-visibility:hidden; transform:translateZ(0)}
 .lcd .pose .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
-  animation:cat-wag .42s ease-in-out infinite alternate}
+  animation:cat-wag .42s ease-in-out infinite alternate;
+  will-change:transform; backface-visibility:hidden; transform:translateZ(0)}
 /* 走位（整只猫在舞台上来回） */
 .lcd .cat-move{position:absolute; inset:0; animation:cat-travel 20s cubic-bezier(.5,0,.5,1) infinite;
   will-change:transform; backface-visibility:hidden; transform:translateZ(0)}
