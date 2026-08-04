@@ -20,17 +20,31 @@
 
 ```
 data/     pool.json(候选池) · history.json(去重记录) · itunes_cache.json(封面缓存)
+          artists.json(艺人简介) · issues/YYYY-MM-DD.json(每期快照)
 docs/     profile.md(口味依据) · style_bible.md(文案文风规范)
 scripts/  build_daily.py(主编排) · picker.py(选曲) · itunes.py(封面/试听)
-          render_grid.py(网页皮肤·工业风) · netease.py · push_wechat.py
-site/     index.html(最新一期) · archive/YYYY-MM-DD.html(存档)  ← GitHub Pages 发布目录
-.github/workflows/daily.yml   定时/推送触发的构建与部署
+          render_landing.py(落地页) · render_grid.py(日报) · render_random.py(随机页)
+          lightbox.py(封面浮层) · netease.py · push_wechat.py
+tools/    make_icons.py(生成 PWA 图标) · check_site_assets.sh(发布前非空守卫)
+          healthcheck 等自查脚本见 scripts/
+site/     ← GitHub Pages 发布目录
+          index.html   落地页（黑胶上机，点「drop the needle」进日报）
+          daily.html   最新一期
+          random.html  从全池随机抽一首
+          archive/YYYY-MM-DD.html + archive/index.html  往期
+          manifest.webmanifest · icon-{192,512,180,maskable-512}.png
+                       PWA 资源：加到手机主屏后有图标、全屏无地址栏。
+                       【静态签入，不由任何脚本重新生成】——误删后页面照开、
+                       只是静默少几个请求，所以 check_site_assets.sh 点名守它们。
+.github/workflows/
+          daily.yml         每日定时构建 + 部署（含非空守卫）
+          publish-site.yml  从 data/ 离线重建 site/ 并部署（修正产物滞后）
 ```
 
 ## 本地运行（先看效果）
 
 ```bash
-python3 scripts/build_daily.py --theme grid --date 2026-07-28   # 生成 site/index.html
+python3 scripts/build_daily.py --theme grid --date 2026-07-28   # 生成 site/ 全套页面
 python3 -m http.server -d site 8899                           # 浏览器开 localhost:8899
 # 可选：--push 发微信；--no-itunes 离线跳过封面查询
 ```

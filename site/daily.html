@@ -37,6 +37,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+/* hidden 是 HTML 语义属性（同时把元素从无障碍树摘除），必须是硬约束。
+   靠 UA 样式表的 [hidden]{display:none} 顶不住：任何组件类只要声明 display
+   就把它盖掉 —— 实测 .tbtn{display:inline-flex} 让分享按钮的「没有 share 也
+   没有 clipboard 就别显示」门禁完全失效（JS 关掉时按钮照样占 74×36px、
+   点了毫无反应；微信内置 webview 正是这种环境）。
+   用 !important 表达「这是硬约束」，比给每个组件类打 :not([hidden]) 补丁可靠。 */
+[hidden]{display:none !important}
 :root{
   --white:#fff; --paper:#f5f5f5; --ink:#0f0e12;
   --g100:#e5e5e5; --g200:#ccc; --g300:#b2b2b2; --g500:#a1a7af;
@@ -70,14 +77,18 @@ html{scroll-behavior:smooth}
   outline-offset:2px;
   border-radius:1px;   /* 方角站点上给焦点环一点点圆，避免看着像边框错位 */
 }
-/* 深色底上（LCD 屏、浮层、唱盘控制条）橙色对比不足，改用亮描边 + 橙内圈：
-   两层保证在任何底色上都可见。 */
+/* 深色底上（LCD 屏、唱盘控制条）橙色对比不足，改用亮描边 + 橙外圈。
+   **浮层不在这一类**：它的 .sheet 与 .x 都是 var(--paper) 浅底 ——
+   把亮描边画在同色底上等于隐形，而外扩的橙环又被 .sheet 的 overflow:hidden
+   裁掉（.x 贴在右上角），实测橙色只剩左下两边、成了个 L 形拐角。
+   浅底就用默认那条橙描边，它本来就够。 */
 .lcd :focus-visible,
-#lb :focus-visible,
 .deckbox :focus-visible{
   outline-color:#f5f5f5;
   box-shadow:0 0 0 4px var(--orange);
 }
+/* 浮层的关闭键贴着 .sheet 右上角，向外扩会被裁 —— 内缩画。 */
+#lb .x:focus-visible{outline-offset:-3px}
 /* 封面这类大块可聚焦区域，焦点环贴边会被 overflow 裁掉 —— 内缩画 */
 .cover-zoom:focus-visible{outline-offset:-3px}
 body{font-family:var(--sans); font-weight:300; color:var(--ink); background:var(--paper);
@@ -1470,7 +1481,7 @@ function copyNC(){const t=document.getElementById('nc-text').innerText;
   // 【同一次失败的两条上报路径】，谁后到谁就会覆盖前一条的措辞。连锁跳到上限时
   // 后到的偏偏是笼统那条：「连续几首都无法试听，先停一下」被盖成「这首暂时无法
   // 试听」—— 用户会以为只是这首坏、还能换一首点，其实整条播放已经停了。
-  var failed = {}, autoStep = 0, gen = 0, reported = 0;
+  var failed = {}, autoStep = 0, gen = 0, reported = 0, skipNote = 0;
   function noteFail(b, why){
     if(!b) return;
     b.classList.remove('playing');
@@ -1485,17 +1496,31 @@ function copyNC(){const t=document.getElementById('nc-text').innerText;
     if(TIME) TIME.textContent = '';
     if(FILL) FILL.style.width = '0%';
   }
+  // dead 是【这一刻取不到音源】的快照，不是永久判决 —— 一次隧道/电梯里的网络
+  // 抖动会连锁标死 6 首，网络恢复后它们仍然灰着、划着 ×、读屏念「暂时无法试听」，
+  // 整个会话都洗不掉。所以真的播出声（playing 事件）就必须撤销。
+  function unFail(b){
+    if(!b || !b.classList.contains('dead')) return;
+    b.classList.remove('dead');
+    b.setAttribute('aria-label', '试听 30 秒');
+    b.removeAttribute('title');
+    delete failed[b.dataset.src || ''];
+  }
   au.addEventListener('error', function(){
     var b = cur;
     reported = gen;               // 认领本代次，别让 play() 的拒绝再复述一遍
     noteFail(b, '音源失效');
     mark(false);
-    say('这首暂时无法试听，已跳到下一首');
-    // 防死循环：一次连锁跳跃最多 5 次，全坏就停下并说清楚
-    if(autoStep < 5){ autoStep++; step(1); }
+    // 【不在这里 say】——下面 step(1) 会同步走到 load()，把 LCD 改成下一首的曲名，
+    // 两次写入在同一个宏任务里相隔不到 1ms，浏览器根本画不出中间那帧。
+    // 提示要交给 load() 在设好新曲名【之后】显示，见 load() 里的 skipNote。
+    if(autoStep < 5){ autoStep++; skipNote = 1; step(1); }
     else { autoStep = 0; say('连续几首都无法试听，先停一下'); }
   });
-  au.addEventListener('playing', function(){ autoStep = 0; });
+  au.addEventListener('playing', function(){
+    autoStep = 0;
+    unFail(cur);                  // 真出声了，撤销之前的失败判定
+  });
 
   function load(b){var src=b.dataset.src;
     if(!src){ noteFail(b, '没有试听源'); say('这首没有试听源'); return; }
@@ -1504,6 +1529,9 @@ function copyNC(){const t=document.getElementById('nc-text').innerText;
     au.src=src;cur=b;
     if(C)C.src=b.dataset.cover||'';if(T)T.textContent=b.dataset.title||'';if(A)A.textContent=b.dataset.artist||'';
     if(np)np.classList.add('on');
+    // 自动跳曲的说明必须在【设好新曲名之后】追加，否则会被上面那行覆盖掉、
+    // 用户看到的就是"点了第 1 首、第 2 首在放、零解释"。
+    if(skipNote){ skipNote = 0; if(A) A.textContent = '上一首取不到音源，已自动跳到这首'; }
     // play() 返回 Promise：被浏览器策略拦下（未交互）或音源解不开时会 reject。
     // 不接的话按钮永远停在 playing，这正是「点了没反应」的来源。
     var pr = au.play();
@@ -1521,14 +1549,34 @@ function copyNC(){const t=document.getElementById('nc-text').innerText;
     });
   }
   function playCard(b){if(cur===b){if(au.paused)au.play();else au.pause();return;}load(b);}
-  function step(d){if(!btns.length)return;var i=cur?btns.indexOf(cur):-1;var j=i+d;
-    if(j<0)j=btns.length-1;if(j>=btns.length)j=0;load(btns[j]);}
+  function step(d){
+    if(!btns.length) return;
+    var i = cur ? btns.indexOf(cur) : -1;
+    // 跳过【已知坏链】：failed 此前只写不读，于是自动续播会一头撞进刚标死的那几首，
+    // 白白连锁跳 5 次。最多绕一整圈；整圈都坏就退回原始行为（让 error 分支去收尾，
+    // 不然这里会成死循环）。unFail() 会把恢复的曲子从 failed 里删掉，自动重新纳入。
+    for(var k = 1; k <= btns.length; k++){
+      var j = (i + d * k) % btns.length;
+      if(j < 0) j += btns.length;
+      if(!failed[btns[j].dataset.src || '']){ load(btns[j]); return; }
+    }
+    var j0 = i + d;
+    if(j0 < 0) j0 = btns.length - 1;
+    if(j0 >= btns.length) j0 = 0;
+    load(btns[j0]);
+  }
   btns.forEach(function(b){b.addEventListener('click',function(){playCard(b);});});
   if(TOG)TOG.addEventListener('click',function(){if(!cur){if(btns[0])load(btns[0]);return;}if(au.paused)au.play();else au.pause();});
   if(PREV)PREV.addEventListener('click',function(){step(-1);});
   if(NEXT)NEXT.addEventListener('click',function(){step(1);});
   if(BAR)BAR.addEventListener('click',function(e){if(!au.duration)return;var r=BAR.getBoundingClientRect();au.currentTime=(e.clientX-r.left)/r.width*au.duration;});
   document.addEventListener('keydown',function(e){var tag=(e.target.tagName||'').toLowerCase();if(tag==='input'||tag==='textarea')return;
+    // 浮层开着时让位：这些快捷键挂在 document 上，而 inert 只挡指针与焦点、
+    // **挡不住 document 级的键盘事件**。实测浮层里按空格：浮层不关，反而在它
+    // 背后开始放歌（左右键还能切背景曲目），而焦点明明停在关闭键上。
+    // 模态期间键盘应当只属于模态。
+    var lbx = document.getElementById('lb');
+    if(lbx && lbx.classList.contains('on')) return;
     if(e.code==='Space'){e.preventDefault();if(!cur){if(btns[0])load(btns[0]);}else if(au.paused)au.play();else au.pause();}
     else if(e.key==='ArrowRight'){step(1);}else if(e.key==='ArrowLeft'){step(-1);}});
 })();

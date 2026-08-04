@@ -22,6 +22,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+/* hidden 是 HTML 语义属性（同时把元素从无障碍树摘除），必须是硬约束。
+   靠 UA 样式表的 [hidden]{display:none} 顶不住：任何组件类只要声明 display
+   就把它盖掉 —— 实测 .tbtn{display:inline-flex} 让分享按钮的「没有 share 也
+   没有 clipboard 就别显示」门禁完全失效（JS 关掉时按钮照样占 74×36px、
+   点了毫无反应；微信内置 webview 正是这种环境）。
+   用 !important 表达「这是硬约束」，比给每个组件类打 :not([hidden]) 补丁可靠。 */
+[hidden]{display:none !important}
 :root{
   --white:#fff; --paper:#f5f5f5; --ink:#0f0e12;
   --g100:#e5e5e5; --g200:#ccc; --g300:#b2b2b2; --g500:#a1a7af;
@@ -55,14 +62,18 @@ html{scroll-behavior:smooth}
   outline-offset:2px;
   border-radius:1px;   /* 方角站点上给焦点环一点点圆，避免看着像边框错位 */
 }
-/* 深色底上（LCD 屏、浮层、唱盘控制条）橙色对比不足，改用亮描边 + 橙内圈：
-   两层保证在任何底色上都可见。 */
+/* 深色底上（LCD 屏、唱盘控制条）橙色对比不足，改用亮描边 + 橙外圈。
+   **浮层不在这一类**：它的 .sheet 与 .x 都是 var(--paper) 浅底 ——
+   把亮描边画在同色底上等于隐形，而外扩的橙环又被 .sheet 的 overflow:hidden
+   裁掉（.x 贴在右上角），实测橙色只剩左下两边、成了个 L 形拐角。
+   浅底就用默认那条橙描边，它本来就够。 */
 .lcd :focus-visible,
-#lb :focus-visible,
 .deckbox :focus-visible{
   outline-color:#f5f5f5;
   box-shadow:0 0 0 4px var(--orange);
 }
+/* 浮层的关闭键贴着 .sheet 右上角，向外扩会被裁 —— 内缩画。 */
+#lb .x:focus-visible{outline-offset:-3px}
 /* 封面这类大块可聚焦区域，焦点环贴边会被 overflow 裁掉 —— 内缩画 */
 .cover-zoom:focus-visible{outline-offset:-3px}
 body{font-family:var(--sans); font-weight:300; color:var(--ink); background:var(--paper);

@@ -527,10 +527,28 @@ def test_publish_guard_covers_static_assets():
     根因同 artists.min.json 那次（守卫清单没跟上新增产物）。这里把「清单」与
     「页面真实引用」对账，而不是再手写一份清单等它漂移。
     """
-    wf = (ROOT / ".github/workflows/publish-site.yml").read_text(encoding="utf-8")
-    m = re.search(r"for f in ((?:[^\n]*\\\n)*[^\n]*); do", wf)
-    assert m, "publish-site.yml 里找不到非空守卫的 for 清单"
-    guarded = set(m.group(1).replace("\\\n", " ").split())
+    # 清单的唯一来源是 tools/check_site_assets.sh（两个 workflow 都调它）。
+    guard = (ROOT / "tools/check_site_assets.sh").read_text(encoding="utf-8")
+    guarded = set()
+    for blk in re.findall(r"^(?:PRODUCTS|STATIC)=\(\n(.*?)^\)", guard, re.M | re.S):
+        guarded |= {ln.strip() for ln in blk.splitlines()
+                    if ln.strip() and not ln.strip().startswith("#")}
+    assert guarded, "check_site_assets.sh 里没解析出清单，测试本身失效了"
+
+    # 守卫必须真的被每条部署链路调用 —— daily.yml 此前一道守卫都没有，
+    # 而它才是每天自动跑的那条（自动化路径没人在旁边看着，更需要）。
+    for wf_name in ("publish-site.yml", "daily.yml"):
+        wf = (ROOT / ".github/workflows" / wf_name).read_text(encoding="utf-8")
+        if "upload-pages-artifact" not in wf:
+            continue                        # 不部署的 workflow 不要求
+        # 判据必须是【真的调用】，不能是"文中出现" —— publish-site.yml 里有一行
+        # 注释也提到这个脚本名，`in wf` 会被注释满足，于是拿掉真实调用照样绿
+        # （这条假绿是负向验证逮出来的）。所以只认非注释行里的 run: 调用。
+        called = any(
+            "check_site_assets.sh" in ln and not ln.lstrip().startswith("#")
+            for ln in wf.splitlines())
+        assert called, (f"{wf_name} 会部署 site/ 却没调 tools/check_site_assets.sh"
+                        f"（注释里提到不算）")
 
     # 页面真实引用的静态资源从【渲染器源码】抓，不从产物 HTML 抓——
     # 产物可能滞后，渲染器才是这件事的来源。

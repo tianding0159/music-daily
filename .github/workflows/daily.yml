@@ -64,6 +64,11 @@ jobs:
             echo "::error::回写重试 5 次仍失败"; exit 1
           fi
 
+      # 每日自动跑的这条链路此前【一道守卫都没有】，直接打包就部署 ——
+      # 自动化路径没保护比手动路径没保护更贵（没人在旁边看着）。
+      - name: 检查 site/ 有内容
+        run: ./tools/check_site_assets.sh
+
       - name: 打包 site/ 为 Pages 制品
         uses: actions/upload-pages-artifact@v3
         with:
