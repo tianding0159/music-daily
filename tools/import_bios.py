@@ -217,9 +217,16 @@ def check_encoding(raw: str) -> list[str]:
     return errs
 
 
-def audit(rows: list[dict]) -> dict:
+def audit(rows: list[dict], extra_artists: set[str] | None = None) -> dict:
+    """校验一批 bio。
+
+    extra_artists：**本批同时入库、但此刻还没写进 pool.json 的艺人**。
+    专用通道（inbox/bios）是「先有曲目、后补 bio」，池里一定已有这位艺人；
+    而补库通道（candidates）是曲目和 bio 同一批到达，校验发生在写盘之前，
+    池里还没有 —— 不传这个集合的话，新艺人会被「池里查无此艺人」全部误杀。
+    """
     pool = json.loads(POOL.read_text(encoding="utf-8"))
-    pool_artists = {t.get("artist", "") for t in pool}
+    pool_artists = {t.get("artist", "") for t in pool} | (extra_artists or set())
     oneliners = {t.get("artist", ""): t.get("artist_oneliner", "") for t in pool}
     existing = {a["artist"]: a.get("bio", "")
                 for a in (json.loads(ARTISTS.read_text(encoding="utf-8"))
@@ -253,7 +260,7 @@ def audit(rows: list[dict]) -> dict:
             rep["p0"].append(f"{tag}：confidence 非法 {conf!r}（只能 high / low）")
             continue
         if a not in pool_artists:
-            # 池里没这位 = 这条 bio 永远用不上
+            # 池里没这位、本批也没带这位的曲目 = 这条 bio 永远用不上
             rep["p0"].append(f"{tag}：池里查无此艺人（拼写不一致？）")
             continue
         if a in seen:
@@ -358,10 +365,14 @@ def audit(rows: list[dict]) -> dict:
 _SEEN: dict[str, str] = {}
 
 
+def load_artists() -> list[dict]:
+    """读 data/artists.json —— 唯一读取口，供本模块与 merge_candidates 共用。"""
+    return (json.loads(ARTISTS.read_text(encoding="utf-8"))
+            if ARTISTS.exists() else [])
+
+
 def apply(rows: list[dict]) -> int:
-    existing = (json.loads(ARTISTS.read_text(encoding="utf-8"))
-                if ARTISTS.exists() else [])
-    by = {a["artist"]: a for a in existing}
+    by = {a["artist"]: a for a in load_artists()}
     n = 0
     for r in rows:
         by[r["artist"]] = {"artist": r["artist"], "bio": r["bio"].strip(),

@@ -81,21 +81,46 @@ def _load_pool() -> list[dict]:
     return json.loads((DATA / "pool.json").read_text(encoding="utf-8"))
 
 
-def parse_candidates(text: str) -> list[dict]:
-    """容忍代码围栏 / 外层对象，抽出曲目数组。"""
+def _load_json_lenient(text: str):
+    """容忍代码围栏 / 弯引号，返回解析后的对象或数组。"""
     t = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.M).strip()
     # 容错：LLM/聊天常把直引号变成弯引号，会让 JSON 解析失败——归一化回直引号
-    t = t.translate(str.maketrans({"“": '"', "”": '"', "‘": "'", "’": "'"}))
+    t = t.translate(str.maketrans({"\u201c": '"', "\u201d": '"',
+                                   "\u2018": "'", "\u2019": "'"}))
     try:
-        v = json.loads(t)
+        return json.loads(t)
     except json.JSONDecodeError:
-        i, j = t.find("["), t.rfind("]")
-        if i < 0 or j < 0:
-            return []
-        v = json.loads(t[i:j + 1])
+        pass
+    for op, cl in (("{", "}"), ("[", "]")):
+        i, j = t.find(op), t.rfind(cl)
+        if i >= 0 and j > i:
+            try:
+                return json.loads(t[i:j + 1])
+            except json.JSONDecodeError:
+                continue
+    return None
+
+
+def parse_candidates(text: str) -> list[dict]:
+    """抽出曲目数组。兼容三种外形：裸数组 / {"tracks":[...]} / {"items":[...]}。"""
+    v = _load_json_lenient(text)
     if isinstance(v, dict):
         v = v.get("tracks") or v.get("items") or []
     return v if isinstance(v, list) else []
+
+
+def parse_artists(text: str) -> list[dict]:
+    """抽出同一份文件里的艺人简介数组（新格式）。
+
+    2026-08-03 起补库与写 bio 合成一次交付：候选文件顶层是对象，
+    `tracks` 放曲目、`artists` 放这批新艺人的简介，用户只上传一次。
+    裸数组（旧格式）读到的 artists 为空 —— 那种文件里的艺人必须早已在库。
+    """
+    v = _load_json_lenient(text)
+    if isinstance(v, dict):
+        a = v.get("artists") or v.get("bios") or []
+        return a if isinstance(a, list) else []
+    return []
 
 
 _FAM_ADJ = {"likely-unheard": 6, "possibly-known": 0, "classic-known": -5}
@@ -206,6 +231,61 @@ def _step_summary(md: str) -> None:
             f.write(md + "\n")
 
 
+def _apply_bios(bios: list[dict], added_artists: set[str],
+                write: bool = True) -> tuple[int, str]:
+    """校验并写入本批附带的艺人简介。返回 (退出码, 报告文本)，0 = 通过。
+
+    两件事，缺一不可：
+    ① **覆盖**：入库曲目的艺人若不在 artists.json，本批必须给它 bio。
+       不强制的话覆盖率会从 100% 悄悄下滑，而且是静默的（页面只是少一段字）。
+    ② **质量**：bio 本身的校验【整个委托给 import_bios.audit()】——
+       SHA/编码不在这层（同一文件已随候选一起校验过），但合同、黑名单、
+       让人令人、地名、汉字间空格、覆盖已有内容等判据必须与专用通道完全一致。
+       在这里重写一份必然与那边漂移（见 memory parallel-paths-drift-silently）。
+    """
+    sys.path.insert(0, str(ROOT / "tools"))
+    import import_bios                                   # noqa: PLC0415
+
+    have = {a["artist"] for a in import_bios.load_artists()}
+    given = {b.get("artist", "") for b in bios if isinstance(b, dict)}
+    missing = sorted(a for a in added_artists if a and a not in have and a not in given)
+
+    out = []
+    if bios:
+        rep = import_bios.audit(bios, extra_artists=added_artists)
+        m = rep["metrics"]
+        out.append(f"艺人简介 {rep['input']} 条 → 可接受 {m['accepted']} 条"
+                   f"（长度 {m['len_min']}–{m['len_max']}，low conf {m['low_conf']}）")
+        out += [f"  [skip] {x}" for x in rep["skipped"]]
+        out += [f"  [warn] {x}" for x in rep["warn"]]
+        out += [f"  [P0]   {x}" for x in rep["p0"]]
+        if rep["p0"]:
+            return 1, "\n".join(out)
+        if rep["warn"]:
+            out.append("  ↑ 有告警，本批不写盘。修好重传（补库通道不提供 --force，"
+                       "因为它同时会动 pool，风险面比纯 bio 通道大）。")
+            return 1, "\n".join(out)
+
+    if missing:
+        out.append(f"❌ {len(missing)} 位新艺人没有简介 —— 本批必须一起给："
+                   f"\n     " + "\n     ".join(missing))
+        out.append("   （规则：入库曲目的艺人不在库里，就要在同一份文件的 "
+                   "\"artists\" 里带上简介）")
+        return 1, "\n".join(out)
+
+    if bios and not write:
+        out.append(f"（--dry-run，未写盘；将写入 {len(rep['ok'])} 条简介）")
+        return 0, "\n".join(out)
+    if bios:
+        n, total = import_bios.apply(rep["ok"])
+        pa = len({t.get("artist") for t in _load_pool()})
+        out.append(f"✅ 写入简介 {n} 条 → 共 {total} 位（池内艺人 {pa} 位，"
+                   f"覆盖 {100*total/max(pa,1):.1f}%）")
+    elif added_artists:
+        out.append(f"本批 {len(added_artists)} 位艺人都已有简介，无需新增 ✓")
+    return 0, "\n".join(out)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("files", nargs="*", help="候选 JSON 文件；留空=处理 candidates/*.json")
@@ -225,10 +305,13 @@ def main() -> int:
         return 0
 
     cands: list[dict] = []
+    bios: list[dict] = []
     for p in paths:
-        got = parse_candidates(p.read_text(encoding="utf-8"))
-        print(f"读入 {p.name}: {len(got)} 条")
+        txt = p.read_text(encoding="utf-8")
+        got, gb = parse_candidates(txt), parse_artists(txt)
+        print(f"读入 {p.name}: 曲目 {len(got)} 条" + (f" · 艺人简介 {len(gb)} 条" if gb else ""))
         cands += got
+        bios += gb
 
     pool = _load_pool()
     before = len(pool)
@@ -244,6 +327,25 @@ def main() -> int:
         print("❌ transient_error（网络/限流）：整批 fail-closed——不写盘、不删候选，下次重试。")
         _step_summary("### ⚠️ merge FAILED (transient_error) — 候选保留待重试\n\n" + line)
         return 2
+
+    # ── 艺人简介：与曲目同一次交付、同一个文件 ────────────────────────
+    # 判据：**真正入库的曲目里，凡艺人不在 artists.json，就必须在本文件里带 bio**。
+    # 缺一条就整批不写盘 —— 否则覆盖率会从 100% 悄悄掉下来，而且掉了没人会发现
+    # （页面上只是少一段简介，不报错，属于典型的静默退化）。
+    # bio 内容校验完全委托 import_bios.audit()，不在这里另造判据（两套必然漂移）。
+    #
+    # 位置刻意放在 --dry-run 之前：体检模式必须能验出「新艺人缺 bio」，
+    # 否则本地 --dry-run 全绿、传上去才被拒，白跑一趟。
+    # dry-run 下只报告不写盘（_apply_bios 收到 write=False）。
+    added_artists = {t.get("artist", "") for t in pool[before:]}
+    if added_artists or bios:
+        rc, msg = _apply_bios(bios, added_artists, write=not args.dry_run)
+        print(msg)
+        if rc:
+            print("❌ 艺人简介不合格：不写盘、不删候选，修好重传。")
+            _step_summary("### ⚠️ merge FAILED（艺人简介）— 候选保留待修正\n\n"
+                          + line + "\n\n```\n" + msg + "\n```")
+            return 3
 
     if args.dry_run:
         print("(--dry-run，未写盘)")

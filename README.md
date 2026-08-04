@@ -48,7 +48,7 @@ python3 -m http.server -d site 8899                           # 浏览器开 loc
 ## 运维与授权
 
 - 运维手册（节奏 / 合并 / 回滚 / canary / 库存指标，事实源）：见 [`docs/operations.md`](docs/operations.md)。
-- 用ChatGPT补库：见 [`REPLENISH_PROMPT.md`](REPLENISH_PROMPT.md)。
+- 用ChatGPT补库：见 [`GPT_WEEKLY.md`](GPT_WEEKLY.md)（曲目 + 艺人简介一次交付，含可直接粘给 GPT 的指令）。
 - 授权：**代码MIT**（`LICENSE`）；**口味画像 / 文案 / 曲库等内容保留所有权利**（`CONTENT_LICENSE.md`）。
 - 页面不内嵌音频，仅官方播放页外链；封面来自iTunes/Apple公开接口，无官方合作关系。
 

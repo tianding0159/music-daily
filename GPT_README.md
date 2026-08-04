@@ -18,7 +18,7 @@
 补充材料（需要时再看）：
 - [`docs/profile.md`](docs/profile.md) — 用户口味画像（选曲唯一依据）
 - [`docs/style_bible.md`](docs/style_bible.md) — 文风完整规范（`GPT_VOICE.md` 是它的操作版）
-- [`REPLENISH_PROMPT.md`](REPLENISH_PROMPT.md) — 补库原始提示词（与 `GPT_CATCHUP.md` 冲突时**以catchup为准**）
+- [`GPT_WEEKLY.md`](GPT_WEEKLY.md) — **每周补库的运行入口**（曲目 + 艺人简介一次交付）
 - [`data/artists_todo.json`](data/artists_todo.json) — 待写简介的艺人清单（按本站收录曲目数降序，每次导入后自动刷新）
 
 ## 最容易踩的四条
