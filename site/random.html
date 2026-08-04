@@ -8,7 +8,7 @@
 <title>MUSIC DAILY · shuffle · 今天听点别的</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%230f0e12%22/%3E%3Crect%20x%3D%225%22%20y%3D%225%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22none%22%20stroke%3D%22%23f05a24%22%20stroke-width%3D%222%22/%3E%3C/svg%3E">
 <!-- PWA：加到手机主屏后有真图标、全屏无地址栏、启动闪屏。
-      前缀让 archive/ 子目录也能取到根目录的资源。
+     子目录页面用相对上级前缀取根目录的资源。
      只做 manifest 不做 Service Worker —— 这个站每天出新刊，SW 的缓存失效
      写不对就会让用户看到昨天的日报【而且他不知道】，那类静默失效的代价
      远大于「离线翻往期」的收益。 -->
@@ -1281,7 +1281,18 @@ document.addEventListener('keydown',(e)=>{
     e.preventDefault(); open(d, h);
   });
   addEventListener('keydown', function(e){
-    if(e.key==='Escape' && lb.classList.contains('on')) close();
+    if(e.key==='Escape' && lb.classList.contains('on')){ close(); return; }
+    if(lb.classList.contains('on')) return;      // 浮层已开，下面只管"打开"
+    // 封面卡片声明了 role="button" + tabindex="0"，那就必须响应 Enter / Space ——
+    // 原生 <button> 自带这个行为，用 div 扮演按钮就得自己补齐。
+    // 之前只绑了 click：键盘用户能聚焦到封面（还能看到焦点环），按下去毫无反应，
+    // 于是那个焦点环和浮层里的焦点 trap 对他们全是白做的。
+    if(e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+    var h = e.target.closest && e.target.closest('.big-art');
+    if(!h) return;
+    var d = h.dataset; if(!d.title && !d.cover) return;
+    e.preventDefault();                           // Space 默认会滚动页面
+    open(d, h);
   });
 })();
 </script>

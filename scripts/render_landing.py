@@ -22,7 +22,7 @@ import datetime as dt
 import re
 
 from render_grid import CSS as GRID_CSS
-from render_grid import _esc
+from render_grid import SITE_URL, _esc
 from render_random import EXTRA_CSS as RANDOM_CSS
 
 COUNTER_NS = "tianding0159-music-daily"
@@ -358,6 +358,18 @@ def build_html(n_issues: int, n_tracks: int, latest_date: str) -> str:
     year = dt.datetime.now(dt.timezone.utc).year
     md = latest_date.replace("-", ".") if latest_date else ""
 
+    # 根 URL 是最常被分享的那个（daily.html 的 og:url 也指向它），
+    # 之前这一页一个 OG 标签都没有 —— 分享出去抓不到卡片，是个空链接。
+    # 这里的 OG 描述的是【整个站】，与日报每期各自的 OG 分工：
+    # 分享根 URL = "这是个什么站"，分享某期 = "这期有哪些歌"。
+    # n_tracks 是【曲池总量】（页面铭牌上标的就是 pool N），不是每期首数 ——
+    # 写成"每天 1169 首"是个一眼假的数字，而 OG 描述恰恰发到站外、
+    # 没有上下文兜底。每期首数不在本函数入参里，就不硬凑。
+    og_desc = (f"melody-first · mood-first · production-first。"
+               f"曲池 {n_tracks} 首，已出 {n_issues} 期，最新 {md}。" if n_issues else
+               "每天一批歌，melody-first · mood-first · production-first。")
+    og_img = SITE_URL + "icon-512.png"
+
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -366,6 +378,16 @@ def build_html(n_issues: int, n_tracks: int, latest_date: str) -> str:
 <title>MUSIC DAILY</title>
 <meta name="description" content="每日精选 30 首 · melody-first · mood-first · production-first">
 <meta name="theme-color" content="#f5f5f5">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MUSIC DAILY">
+<meta property="og:title" content="MUSIC DAILY · 每日精选">
+<meta property="og:description" content="{_esc(og_desc)}">
+<meta property="og:url" content="{SITE_URL}">
+<meta property="og:image" content="{og_img}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MUSIC DAILY · 每日精选">
+<meta name="twitter:description" content="{_esc(og_desc)}">
+<meta name="twitter:image" content="{og_img}">
 <link rel="preload" href="daily.html" as="document">
 <!-- PWA。本页是 manifest 的 start_url —— 从主屏图标点进来先看到这一屏，
      再落针进日报，跟真开唱机的顺序一致。 -->

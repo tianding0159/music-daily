@@ -699,7 +699,7 @@ def build_html(n_total: int) -> str:
 <title>MUSIC DAILY · shuffle · 今天听点别的</title>
 <link rel="icon" href="{favicon}">
 <!-- PWA：加到手机主屏后有真图标、全屏无地址栏、启动闪屏。
-     {up} 前缀让 archive/ 子目录也能取到根目录的资源。
+     子目录页面用相对上级前缀取根目录的资源。
      只做 manifest 不做 Service Worker —— 这个站每天出新刊，SW 的缓存失效
      写不对就会让用户看到昨天的日报【而且他不知道】，那类静默失效的代价
      远大于「离线翻往期」的收益。 -->

@@ -223,7 +223,18 @@ def lightbox_js(trigger_sel: str) -> str:
     e.preventDefault(); open(d, h);
   });
   addEventListener('keydown', function(e){
-    if(e.key==='Escape' && lb.classList.contains('on')) close();
+    if(e.key==='Escape' && lb.classList.contains('on')){ close(); return; }
+    if(lb.classList.contains('on')) return;      // 浮层已开，下面只管"打开"
+    // 封面卡片声明了 role="button" + tabindex="0"，那就必须响应 Enter / Space ——
+    // 原生 <button> 自带这个行为，用 div 扮演按钮就得自己补齐。
+    // 之前只绑了 click：键盘用户能聚焦到封面（还能看到焦点环），按下去毫无反应，
+    // 于是那个焦点环和浮层里的焦点 trap 对他们全是白做的。
+    if(e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+    var h = e.target.closest && e.target.closest('SEL');
+    if(!h) return;
+    var d = h.dataset; if(!d.title && !d.cover) return;
+    e.preventDefault();                           // Space 默认会滚动页面
+    open(d, h);
   });
 })();
 """.replace("SEL", trigger_sel)

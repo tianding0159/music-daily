@@ -534,21 +534,95 @@ def test_publish_guard_covers_static_assets():
 
     # 页面真实引用的静态资源从【渲染器源码】抓，不从产物 HTML 抓——
     # 产物可能滞后，渲染器才是这件事的来源。
+    #
+    # 正则【不能把模板占位符写死】。第一版写的是 `href="\{?up\}?([^"]+)"`：
+    # `up` 是必需的，于是 render_landing.py 里的字面量 href="manifest.webmanifest"
+    # 一条都没匹配上 —— 那个文件根本没被对账，测试却照样绿。
+    # 现在改成：先把 {任意占位符} 从 href 里剥掉，再取剩下的路径，
+    # 这样 "{up}x.png" 与 "x.png" 都能抓到。
     refs = set()
     for src in ("render_grid.py", "render_random.py", "render_landing.py"):
         t = (ROOT / "scripts" / src).read_text(encoding="utf-8")
-        for pat in (r'rel="manifest" href="\{?up\}?([^"]+)"',
-                    r'rel="apple-touch-icon" href="\{?up\}?([^"]+)"'):
-            refs.update(re.findall(pat, t))
+        for rel in ("manifest", "apple-touch-icon"):
+            got = {re.sub(r"\{[^}]*\}", "", raw)          # 去掉 {up} 一类占位符
+                   for raw in re.findall(rf'rel="{rel}" href="([^"]+)"', t)}
+            # 断言必须细到 **(文件 × 标签种类)**。只按文件断言不够：抽掉 landing 的
+            # manifest 标签后，它还有 apple-touch-icon 顶着，集合依然非空 → 照样绿。
+            # （这条正是负向验证逮出来的 —— 第一版按文件断言时，我以为它能挡住。）
+            assert got, (f"{src} 里没抓到 rel=\"{rel}\" 的引用。要么该文件真的漏了"
+                         f"这个标签，要么正则又跟不上写法了 —— 两种都得有人看一眼。")
+            refs |= got
     man = json.loads((ROOT / "site/manifest.webmanifest").read_text(encoding="utf-8"))
     refs.update(ic["src"] for ic in man["icons"])
 
-    assert refs, "没抓到任何静态资源引用，测试本身失效了"
+    # ── 产物级断言：每一个发出去的页面都必须两个标签齐全，且路径真能解析 ──
+    # 源码级断言数不清"每个 build 函数各自有没有"：render_grid.py 里有两个
+    # manifest 标签（daily 与 archive-index 各一），抽掉一个另一个还顶着，
+    # 集合依然非空 → 假绿（这条也是负向验证逮出来的）。
+    # 「每页都齐全」才是真正要保的性质，就直接对每一页断言。
+    pages = [f for f in sorted((ROOT / "site").rglob("*.html"))
+             if not f.name.startswith("_")]          # _*.html 是探针页，不发布
+    assert len(pages) >= 4, f"只找到 {len(pages)} 个页面，产物像是没生成"
+    for pg in pages:
+        h = pg.read_text(encoding="utf-8")
+        for rel in ("manifest", "apple-touch-icon"):
+            m = re.search(rf'rel="{rel}" href="([^"]+)"', h)
+            assert m, f"{pg.relative_to(ROOT)} 缺 rel=\"{rel}\""
+            target = (pg.parent / m.group(1)).resolve()
+            assert target.is_file(), (f"{pg.relative_to(ROOT)} 的 {rel} 指向 "
+                                      f"{m.group(1)}，从该页所在目录解析不到文件")
     missing = sorted(r for r in refs if r not in guarded)
     assert not missing, (f"这些资源被页面/manifest 引用，但发布守卫没查：{missing}\n"
                          f"守卫清单：{sorted(guarded)}")
     gone = sorted(r for r in refs if not (ROOT / "site" / r).is_file())
     assert not gone, f"引用了但文件不存在：{gone}"
+
+
+def _png_rgb(path):
+    """纯标准库读 8 位真彩 PNG 的像素（zlib 在标准库里，Pillow 不在）。
+
+    为什么不用 Pillow：CI 全程零 pip install（requirements.txt 就写着"全部用
+    标准库"）。第一版写的是 `except ImportError: return` —— 在 CI 里那条护栏
+    **必定空转**，等于没有。可选的护栏≈没护栏，所以改成自己解。
+    返回 (宽, 高, getpx)；getpx(x, y) -> (r, g, b)。
+    """
+    import struct
+    import zlib
+    d = path.read_bytes()
+    assert d[:8] == b"\x89PNG\r\n\x1a\n", f"{path} 不是 PNG"
+    w, h, depth, ctype = struct.unpack(">IIBB", d[16:26])
+    assert (depth, ctype) == (8, 2), f"{path} 是 depth={depth} ctype={ctype}，本读取器只支持 8 位真彩"
+    idat, i = b"", 8
+    while i < len(d):
+        ln = struct.unpack(">I", d[i:i + 4])[0]
+        typ = d[i + 4:i + 8]
+        if typ == b"IDAT":
+            idat += d[i + 8:i + 8 + ln]
+        elif typ == b"IEND":
+            break
+        i += 12 + ln
+    raw = zlib.decompress(idat)
+    stride, bpp = w * 3, 3
+    rows, prev = [], bytearray(stride)
+    for y in range(h):
+        f = raw[y * (stride + 1)]
+        line = bytearray(raw[y * (stride + 1) + 1:(y + 1) * (stride + 1)])
+        for x in range(stride):                       # 反 filter（PNG 五种）
+            a = line[x - bpp] if x >= bpp else 0
+            b = prev[x]
+            c = prev[x - bpp] if x >= bpp else 0
+            if f == 1:
+                line[x] = (line[x] + a) & 255
+            elif f == 2:
+                line[x] = (line[x] + b) & 255
+            elif f == 3:
+                line[x] = (line[x] + (a + b) // 2) & 255
+            elif f == 4:
+                pa, pb, pc = abs(b - c), abs(a - c), abs(a + b - 2 * c)
+                line[x] = (line[x] + (a if pa <= pb and pa <= pc else b if pb <= pc else c)) & 255
+        rows.append(bytes(line))
+        prev = line
+    return w, h, lambda x, y: tuple(rows[y][x * 3:x * 3 + 3])
 
 
 def test_maskable_icon_respects_safe_zone():
@@ -557,28 +631,28 @@ def test_maskable_icon_respects_safe_zone():
     这个声明是给系统的承诺：「随便你裁，中心 80% 圆内是完整的」。
     普通版唱片直径 88%，最外两圈沟槽与盘缘亮边都落在裁切带里（实测 14174 px），
     拿它去声明 maskable，Android 会照裁 —— 比不声明更糟。
+    顺带校验 sizes 声明与真实像素一致（同类的"声明必须成立"问题）。
     """
     man = json.loads((ROOT / "site/manifest.webmanifest").read_text(encoding="utf-8"))
-    ms = [ic for ic in man["icons"] if "maskable" in (ic.get("purpose") or "")]
-    if not ms:
-        return                              # 没声明就没这个义务
-    try:
-        from PIL import Image
-    except ImportError:
-        print("    (跳过：无 Pillow)")       # 出声，不假装通过
-        return
-    for ic in ms:
-        im = Image.open(ROOT / "site" / ic["src"]).convert("RGB")
-        w, h = im.size
+    checked = 0
+    for ic in man["icons"]:
+        w, h, px = _png_rgb(ROOT / "site" / ic["src"])
+        # sizes 也是给系统的声明，标错会让它按错的尺寸挑图
+        assert ic["sizes"] == f"{w}x{h}", (f"{ic['src']} 声明 sizes={ic['sizes']}，"
+                                          f"实际 {w}x{h}")
+        if "maskable" not in (ic.get("purpose") or ""):
+            continue
         assert w == h, f"{ic['src']} 不是正方形"
         c, safe = w / 2, w * 0.40
-        bg = im.getpixel((2, 2))            # 角落即底色
+        bg = px(2, 2)                                 # 角落即底色
         bad = sum(1 for y in range(0, h, 2) for x in range(0, w, 2)
                   if ((x - c) ** 2 + (y - c) ** 2) ** .5 > safe
-                  and max(abs(im.getpixel((x, y))[i] - bg[i]) for i in range(3)) > 12)
+                  and max(abs(px(x, y)[i] - bg[i]) for i in range(3)) > 12)
         assert bad == 0, (f"{ic['src']} 安全区外有 {bad} 个非底色采样点，"
                           f"声明 maskable 会被系统裁掉内容")
-
+        checked += 1
+    assert checked >= 1, ("manifest 里没有任何 maskable 图标被检查到 —— "
+                          "要么声明丢了，要么这个测试空转了")
 
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]
