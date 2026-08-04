@@ -96,15 +96,3 @@ def canon(tag: str) -> str | None:
     """归一到受控词；表外返回 None（调用方决定丢弃还是报错）。"""
     t = str(tag).strip()
     return ALIASES.get(t) or ALIASES.get(t.lower())
-
-
-def canon_list(tags, limit: int = 3) -> list[str]:
-    """整条 mood_tags 归一 + 去重 + 截断，顺序保持原样。"""
-    out: list[str] = []
-    for t in tags or []:
-        c = canon(t)
-        if c and c not in out:
-            out.append(c)
-        if len(out) >= limit:
-            break
-    return out

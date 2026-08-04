@@ -162,8 +162,17 @@ def _mk(status: str, best: dict | None, country: str, error: str = "", retryable
         "lookup_ts": int(time.time()),
         "country": country,
         "status": status,
-        "found": bool(best),                      # 兼容 build_daily：有标题匹配即给封面
-        "accepted": status in ACCEPT,             # 严格：仅 exact/acceptable 可入库
+        # found = 「有标题匹配」，【不代表可用】——它对 version_mismatch /
+        # artist_mismatch 也为真。采纳媒体的唯一判据是 status in ACCEPT。
+        # 原注释写「兼容 build_daily：有标题匹配即给封面」，那正是把别人的歌
+        # 挂上封面的那个 bug 的源头（已在 aea6cbb 修掉 build_daily 两处）。
+        "found": bool(best),
+        # 这里【不再】写 "accepted" 字段：它零消费者，却长得像权威判据，
+        # 而没有任何东西保证它与 status 一致 —— 典型的 parallel path。
+        # 三处真消费者（media_check ×2、merge_candidates ×1）都各自查 ACCEPT。
+        # 不 bump CACHE_SCHEMA：schema 闸只比版本号不校验键集合，存量 1297 条
+        # 带不带这个键都能正常读；bump 会让全部失效、重查约 65 分钟，
+        # 超 merge.yml 的 60 分钟 timeout。
         "artwork": art.replace("100x100bb", "600x600bb") if art else "",
         "preview": (best or {}).get("previewUrl", ""),
         "apple_url": (best or {}).get("trackViewUrl", ""),

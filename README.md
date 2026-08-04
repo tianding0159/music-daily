@@ -56,7 +56,7 @@ python3 -m http.server -d site 8899                           # 浏览器开 loc
 
 候选池随每期轮播消耗；不足一期时，日报会在微信提醒补池。补池 = 按 `docs/profile.md`
 的口味与 `docs/style_bible.md` 的文风，核实真实（Bandcamp/RYM/Wikipedia可查）后打好美学
-标签、写好卡片，append进 `pool.json`。**绝不编造曲名。**（`discover.py` 可辅助搜候选线索。）
+标签、写好卡片，append进 `pool.json`。**绝不编造曲名。**
 
 ## 微信推送
 

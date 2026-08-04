@@ -29,7 +29,11 @@
 - iTunes 匹配**只比艺人 + 曲名**，album 和 year 不参与匹配 —— 所以只需保证
   「艺人名真实 + 干净的录音室曲名」，标题里别带版本词
 
-## 仍然偏缺的方向（当前 1169 首的口径）
+## 仍然偏缺的方向
+
+> 下面的存量数字截至 2026-08-04 的 1169 首基线。
+> **数字会过期，当前值以 `GPT_MEMORY.md` §六（自动生成）为准**；这里只用来判断
+> 相对缺口，别当精确库存。
 
 非英语世界（日语 / 韩语 / 西语 / 北欧 / 中东 / 非洲）· 器乐（约 17%）·
 明快上扬（`upbeat` `hopeful` 标签偏少，整期容易一路温柔到底）·
@@ -113,7 +117,7 @@ Ethio-jazz（Mulatu Astatke 相邻、Hailu Mergia、Girma Bèyèné）、马里�
 
 ### 13. 1950-1969 原产（老年代专项）
 
-专补 1950-1969，池里 1950s 只有 2 首、1960s 只有 31 首。早期 bossa、cool jazz、法国 yé-yé、意大利 canzone、早期 soul 与 doo-wop 的柔面、Brill Building pop、早期 Brazilian、Vashti Bunyan 一脉的英式 folk、exotica 有旋律者。year 与 album 必须对得上。
+专补 1950-1969，池里 1950s 3 首、1960s 34 首。早期 bossa、cool jazz、法国 yé-yé、意大利 canzone、早期 soul 与 doo-wop 的柔面、Brill Building pop、早期 Brazilian、Vashti Bunyan 一脉的英式 folk、exotica 有旋律者。year 与 album 必须对得上。
 
 **典型 mood**：`nostalgic / elegant / warm / sweet / grainy`
 
@@ -125,19 +129,19 @@ Ethio-jazz（Mulatu Astatke 相邻、Hailu Mergia、Girma Bèyèné）、马里�
 
 ### 15. Dream pop / shoegaze 的柔面深挖
 
-Dream pop 与 shoegaze 里旋律清晰、不靠噪音堆的那一支。Cocteau Twins 相邻、Slowdive 的柔面、Mazzy Star 一脉、Beach House 相邻的小厂牌新人、Hatchie、Cindy Lee 的旋律面、Nothing But Thieves 除外。池里 dream pop 已有 117 首，所以务必找没收过的艺人（见已有艺人清单），别重复。
+Dream pop 与 shoegaze 里旋律清晰、不靠噪音堆的那一支。Cocteau Twins 相邻、Slowdive 的柔面、Mazzy Star 一脉、Beach House 相邻的小厂牌新人、Hatchie、Cindy Lee 的旋律面、Nothing But Thieves 除外。池里 dream pop 已有 151 首，所以务必找没收过的艺人（见已有艺人清单），别重复。
 
 **典型 mood**：`hazy / floating / dreamlike / fragile / tender`
 
 ### 16. Folktronica / 有机电子深挖
 
-Folktronica、organic electronic、indietronica、旋律型 IDM。Bibio 相邻、Four Tet 的旋律面、Boards of Canada 一脉、Mount Kimbie 的柔面、Loscil 有旋律者、Christian Löffler、Rival Consoles 的旋律面、Nathan Fake 的柔面、Jon Hopkins 的静面。池里 organic electronic 88 首，务必换新艺人。
+Folktronica、organic electronic、indietronica、旋律型 IDM。Bibio 相邻、Four Tet 的旋律面、Boards of Canada 一脉、Mount Kimbie 的柔面、Loscil 有旋律者、Christian Löffler、Rival Consoles 的旋律面、Nathan Fake 的柔面、Jon Hopkins 的静面。池里 organic electronic 115 首，务必换新艺人。
 
 **典型 mood**：`organic / floating / shimmering / hazy / introspective`
 
 ### 17. Quiet alt-R&B / neo soul 深挖
 
-安静的 alt-R&B 与 neo soul。Sampha 相邻、Blood Orange 一脉、Yaya Bey、Cleo Sol、Little Simz 的柔面、Nick Hakim、Serpentwithfeet 的旋律面、Moses Sumney 的柔面、Liv.e、Pink Siifu 的柔面。池里 neo soul 已 100 首，必须全是新艺人。
+安静的 alt-R&B 与 neo soul。Sampha 相邻、Blood Orange 一脉、Yaya Bey、Cleo Sol、Little Simz 的柔面、Nick Hakim、Serpentwithfeet 的旋律面、Moses Sumney 的柔面、Liv.e、Pink Siifu 的柔面。池里 neo soul 已 117 首，必须全是新艺人。
 
 **典型 mood**：`intimate / sensual / late night / tender / restrained`
 
@@ -149,13 +153,13 @@ Midwest emo 的清音 jangle 面（American Football 相邻、Mineral、The Prom
 
 ### 19. Chamber pop / art pop / sophisti-pop 深挖
 
-编曲精致的 chamber pop / art pop / sophisti-pop。Van Dyke Parks 一脉、Scott Walker 的旋律面、Prefab Sprout 相邻、Blue Nile、Talk Talk、Aztec Camera、Destroyer 的柔面、Weyes Blood 相邻、Aldous Harding、Julia Holter 的旋律面、Cate Le Bon。池里 chamber pop 57 + art pop 60，务必换新艺人。
+编曲精致的 chamber pop / art pop / sophisti-pop。Van Dyke Parks 一脉、Scott Walker 的旋律面、Prefab Sprout 相邻、Blue Nile、Talk Talk、Aztec Camera、Destroyer 的柔面、Weyes Blood 相邻、Aldous Harding、Julia Holter 的旋律面、Cate Le Bon。池里 chamber pop 95 + art pop 110，务必换新艺人。
 
 **典型 mood**：`elegant / restrained / nostalgic / cinematic / lush`
 
 ### 20. 2020s 新锐（近三年）
 
-专补 2022-2026 的新作，池里 2020s 只有 86 首。小厂牌新人为主：Bandcamp Daily / Pitchfork Best New / RA 近年推荐里符合口味的。跨流派都可以，但必须旋律清晰、制作有温度。familiarity 全部 likely-unheard。year 用正式发行年。
+专补 2022-2026 的新作，池里 2022–2026 有 143 首（2020s 整体 265 首）。小厂牌新人为主：Bandcamp Daily / Pitchfork Best New / RA 近年推荐里符合口味的。跨流派都可以，但必须旋律清晰、制作有温度。familiarity 全部 likely-unheard。year 用正式发行年。
 
 **典型 mood**：`任意，但整片至少 8 首带 upbeat 或 hopeful（补对比色）`
 

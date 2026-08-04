@@ -7,6 +7,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -296,6 +297,34 @@ def test_snapshots_copy_in_sync_with_pool():
     assert not lag, (
         f"{len(lag)} 期快照文案滞后于 pool.json（共 {total} 处）："
         f"{[d for d, _, _ in lag]}；跑 python3 tools/refresh_snapshot_copy.py --apply")
+
+
+def test_gpt_docs_blacklist_matches_code():
+    """GPT_ARTIST_BIOS.md 的禁用词表必须与代码的判据集合逐字相等。
+
+    2026-08-04 审计：文档手抄了 36 词，而 bio 通道真实判据是 57 词
+    （copy_check.blacklist() 47 ∪ import_bios.EXTRA_BANNED 10）。GPT 按 36 词
+    自查通过，写出「广受好评」「享誉」这类在音乐人介绍里极自然的词 → P0 →
+    补库通道下连同曲目整批被拒，白写一批 + 一次人工返工。
+
+    为什么不把词表换成链接：GPT_*.md 是贴进 ChatGPT 的自包含任务书，
+    对方未必能取仓库文件，换成链接会从 36 词变成 0 词。所以只能保留副本，
+    然后用这条测试盯住它别漂。
+    """
+    import importlib
+    sys.path.insert(0, str(ROOT / "scripts"))
+    sys.path.insert(0, str(ROOT / "tools"))
+    cc = importlib.import_module("copy_check")
+    ib = importlib.import_module("import_bios")
+    want = set(cc.blacklist()) | set(ib.EXTRA_BANNED)
+
+    doc = (ROOT / "GPT_ARTIST_BIOS.md").read_text(encoding="utf-8")
+    m = re.search(r"\*\*禁用词\*\*.*?```\n(.*?)\n```", doc, re.S)
+    assert m, "GPT_ARTIST_BIOS.md 里找不到禁用词代码块（结构被改了？）"
+    got = set(m.group(1).split())
+    assert got == want, (
+        f"文档禁用词表与代码不一致 —— 缺 {sorted(want - got)} · 多 {sorted(got - want)}。"
+        "别手抄，用脚本从 copy_check.blacklist() ∪ import_bios.EXTRA_BANNED 生成。")
 
 
 def test_snapshots_have_no_bad_status_media():
