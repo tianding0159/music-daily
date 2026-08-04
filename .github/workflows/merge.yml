@@ -44,11 +44,21 @@ jobs:
         run: |
           git config user.name "music-daily-bot"
           git config user.email "actions@users.noreply.github.com"
+          # 刷新 GPT 台账。必须在【这个步骤内】、git add 之前 ——
+          # 生成器读的是 merge_candidates 刚写下的 pool/artists，另起无条件步骤会
+          # 生成上一版，跑在失败分支上等于给没入库的状态发台账。
+          # 不修的后果：bio 自 2026-08-03 改走 candidates 通道后，唯一让 pool 增长的
+          # 主路恰好是不刷台账的这条 —— 下周 GPT 照冻结的「已写清单」给刚入库的艺人
+          # 重写一遍 bio，触发覆盖告警、整批 50 首连简介一起被拒。
+          # 别加 || true（那等于把滞后重新变静默），也别挪进 merge_candidates
+          # （会让本地 --dry-run 变成写盘操作）。
+          python3 tools/gen_gpt_memory.py
           # data/artists.json 必须在列 —— merge_candidates 的 _apply_bios 会写它
           # （补库与简介合成一次交付后新增的行为）。漏掉的话简介只写到 runner 磁盘、
           # 随容器蒸发：合并成功、微信报「+N 首」、Actions 全绿，但库里永远补不上，
           # 下次同一位艺人又被判「新艺人缺简介」。静默得非常彻底。
-          git add data/pool.json data/artists.json data/itunes_cache.json \
+          git add data/pool.json data/artists.json data/artists_todo.json \
+                  data/itunes_cache.json GPT_MEMORY.md \
                   candidates/ quarantine/ reports/ 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "无变更（候选为空/全部隔离），跳过提交"

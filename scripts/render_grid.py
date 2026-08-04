@@ -622,8 +622,11 @@ def _lb_data(track: dict, artist_ctx: dict | None = None) -> str:
     所以 bio 是正文；曲目自身的 why/scene 降级成次要块。
     """
     bpm, _c = _bpm(track)
-    tags = "|".join(_tag(x) for x in
-                    list(track.get("genres") or [])[:3] + list(track.get("mood_tags") or [])[:3])
+    # genres 原样，mood_tags 过 _tag（别名归一）—— 混在一起过 _tag 会把
+    # 「organic electronic」这个流派改写成 mood 词「organic」，还会与真的
+    # organic mood 撞成重复 chip。实测 68 个 chip 被改写、21 首出现重复。
+    tags = "|".join(list(track.get("genres") or [])[:3]
+                    + [_tag(x) for x in list(track.get("mood_tags") or [])[:3]])
     ctx = artist_ctx or {}
     g0 = (track.get("genres") or [""])[0]
     return (f' data-cover="{_esc(track.get("_cover") or track.get("artwork") or "")}"'
@@ -661,7 +664,9 @@ def _art(track: dict) -> str:
 
 def _mod(track: dict, idx: int) -> str:
     g0 = (track.get("genres") or ["—"])[0]
-    tags = "".join(f'<span class="tag">{_esc(_tag(g))}</span>' for g in (track.get("genres") or [])[1:3])
+    # 同上：genre chip 原样输出，不过 mood 别名表
+    tags = "".join(f'<span class="tag">{_esc(g)}</span>'
+                   for g in (track.get("genres") or [])[1:3])
     tags += "".join(f'<span class="tag">{_esc(_tag(m))}</span>' for m in (track.get("mood_tags") or [])[:2])
     links = []
     if track.get("_apple"):

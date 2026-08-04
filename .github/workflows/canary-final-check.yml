@@ -1,6 +1,20 @@
 name: Canary Final Check
 
 on:
+  # 这是 tests + healthcheck 的【唯一】自动执行点。此前只有 workflow_dispatch，
+  # 于是改 picker / merge_candidates / validate_candidates / copy_check 并直推 main
+  # 没有任何自动检查会跑；改 workflow 本身（git add 漏提交那类）也无人对账。
+  # paths 必须含 .github/workflows/** —— test_workflows_commit_what_scripts_write
+  # 正是为抓「workflow 漏 git add」而建的，不含这条它自己就永远跑不到。
+  # 诚实的范围声明：渲染器（render_*.py / lightbox.py）改动【依然抓不到】，
+  # 因为 test_catalog 不 import 它们、healthcheck 也不渲染 —— 那是另一个独立缺口。
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "tools/**"
+      - "tests/**"
+      - ".github/workflows/**"
   workflow_dispatch:
 
 permissions:

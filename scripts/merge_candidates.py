@@ -43,25 +43,11 @@ STAR3 = {"shoegaze", "post punk", "post-punk", "art pop", "indie rock", "psyched
          "indie pop", "guitar pop", "jangle", "folk", "americana", "soul", "aor", "exotica", "boogie"}
 
 
-def _norm(s: str) -> str:
-    return re.sub(r"[^0-9a-z一-鿿぀-ヿ]+", "", (s or "").lower())
 
-
-# 版本词：iTunes 命中的标题若含这些、而候选标题未声明 → 交付的是另一录音版本，剔除
-VERSION_WORDS = ("remix", "remixed", "live", "remaster", "remastered", "rework",
-                 "re recorded", "re recording", "acoustic", "instrumental", "demo",
-                 "reprise", "radio edit", "single edit", "extended", "rerecorded")
-
-
-def _version_mismatch(cand_title: str, matched_title: str) -> str | None:
-    """候选是原版、iTunes 却给了 remix/live/remaster 等 → 返回命中的版本词，否则 None。"""
-    c = " " + _norm(cand_title) + " "
-    m = " " + _norm(matched_title) + " "
-    for w in VERSION_WORDS:
-        wn = _norm(w)
-        if wn in m and wn not in c:
-            return w
-    return None
+# 版本错配的判据【只在 itunes.classify()】——这里曾有一份 _version_mismatch +
+# VERSION_WORDS 副本，零生产调用、只被一条测试保活，且两张词表已双向分叉
+# （itunes 多 cover/edit/karaoke/mix/version，这边多 re recording）。
+# 那条测试给的是「版本错配已覆盖」的假保证，实际覆盖的是死代码。2026-08-04 审计删。
 
 
 def _stars(genres) -> int:
@@ -149,7 +135,7 @@ def merge(cands: list[dict], pool: list[dict], validate: bool = True) -> tuple[l
     quarantined: list[dict] = []
     transient = False
 
-    valid, invalids = vc.validate_batch(cands, pool)
+    valid, invalids = vc.validate_batch(cands)
     c["schema_valid"] = len(valid)
     for iv in invalids:
         tk = iv["track"]

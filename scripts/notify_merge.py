@@ -13,8 +13,10 @@
 """
 from __future__ import annotations
 
+import datetime as dt
 import json
 import pathlib
+from pathlib import Path
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -29,7 +31,14 @@ RC_MEANING = {
     0: ("补库完成", "本次候选已入库。"),
     1: ("补库未通过校验", "候选有 schema / 文案问题，文件已保留在 `candidates/`，修好重传即可。"),
     2: ("补库遇到网络问题", "iTunes 限流或网络异常（transient），**候选已保留**，下次会自动重试，不用管。"),
-    3: ("补库被拒：新艺人缺简介", "本批带进来的新艺人没有简介。规则是曲目和简介要在**同一份文件**里一起给。"),
+    # rc=3 是「艺人简介环节不通过」，有两种成因、文案不能写死成其中一种：
+    #   · 新艺人缺简介（曲目和简介要在同一份文件里一起给）
+    #   · 简介覆盖了已有艺人且内容不同（走覆盖告警，同样返回 3）
+    # 写死成前者的话，遇到后者时微信推给你的原因是错的（2026-08-04 审计）。
+    3: ("补库被拒：艺人简介没过",
+        "两种可能：①本批新艺人没带简介（曲目和简介要在**同一份文件**里一起给）；"
+        "②简介覆盖了已有艺人且内容不同（需比对两版质量后确认）。"
+        "**具体是哪一种、涉及哪几位，看 Actions 日志**，那里逐个点名了。"),
 }
 
 
@@ -39,17 +48,36 @@ _FRESH_SEC = 15 * 60
 
 
 def _latest_report() -> dict | None:
-    """本次运行刚产生的合并报告；拿不到就返回 None（宁可不报数，不报错数）。"""
+    """本次运行刚产生的合并报告；拿不到就返回 None（宁可不报数，不报错数）。
+
+    新鲜度判据用报告内的 `generated_at`，**不能用文件 mtime**：
+    git 不存 mtime，actions/checkout 写出的文件 mtime 全是 checkout 那一刻，
+    守卫永远不触发、排序退化成 scandir 顺序。审计实测 git clone 后会推出
+    「补库完成：+27 首」这类某份历史报告的旧数字，而且具体哪一份不可预测。
+    （merge_candidates 每次无条件填 generated_at，全部历史报告都有该字段。）
+
+    解析失败 / 缺字段的报告直接跳过，**不回退 mtime** —— 回退等于把 bug 放回。
+    整个函数不抛异常：本脚本由 if: always() 调用，抛异常就是「最该发声时哑掉」。
+    """
     if not REPORTS.exists():
         return None
-    fs = sorted(REPORTS.glob("*.json"), key=lambda p: p.stat().st_mtime)
-    if not fs:
+    cand: list[tuple[dt.datetime, Path]] = []
+    for f in REPORTS.glob("*.json"):
+        try:
+            d = json.loads(f.read_text(encoding="utf-8"))
+            ts = dt.datetime.fromisoformat(str(d["generated_at"]))
+            if ts.tzinfo is None:            # 两边都必须 tz-aware，否则比较抛 TypeError
+                ts = ts.replace(tzinfo=dt.timezone.utc)
+            cand.append((ts, f))
+        except Exception:
+            continue                          # 无 generated_at / 坏 JSON → 跳过，不猜
+    if not cand:
         return None
-    import time
-    if time.time() - fs[-1].stat().st_mtime > _FRESH_SEC:
-        return None
+    ts, f = max(cand)
     try:
-        return json.loads(fs[-1].read_text(encoding="utf-8"))
+        if (dt.datetime.now(dt.timezone.utc) - ts).total_seconds() > _FRESH_SEC:
+            return None
+        return json.loads(f.read_text(encoding="utf-8"))
     except Exception:
         return None
 

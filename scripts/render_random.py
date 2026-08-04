@@ -495,7 +495,8 @@ function pool(){return POOL.filter(match)}
 // 浮层要用的 data-*（与日报 _lb_data 同一套字段，浮层组件是共用的）
 function lbData(t){
   const A=(k,v)=>' data-'+k+'="'+String(v==null?'':v).replace(/&/g,'&amp;').replace(/"/g,'&quot;')+'"';
-  const tags=[].concat((t.genres||[]).slice(0,3),(t.mood_tags||[]).slice(0,3)).map(tgm).join('|');
+  // genres 原样输出，【不过 tgm】—— tgm 是 mood 别名表，而「organic electronic」既是池里 115 首的 genre、又是 mood「organic」的别名，过一遍就把流派改写成气质词（实测 68 个 chip 被改写、21 首浮层出现重复 tag）。mood_tags 仍要过 tgm。2026-08-04 审计。
+  const tags=[].concat((t.genres||[]).slice(0,3),(t.mood_tags||[]).slice(0,3).map(tgm)).join('|');
   // 艺人上下文来自侧表 ARTISTS（bio / 年代 / 本站收录），日报是内联注入，
   // 这里走网络加载。漏了这三项的话浮层只剩曲目信息、没有音乐人简介 —— 2026-08-03 修。
   const ac=(ARTISTS&&ARTISTS[t.artist])||{};
@@ -518,8 +519,11 @@ function render(t){
   const glist=(t.genres||['\\u2014']);
   const g0=(gsel&&glist.some(x=>x.toLowerCase()===gsel))
     ? glist.find(x=>x.toLowerCase()===gsel) : glist[0];
-  const tags=[].concat((t.genres||[]).slice(1,3),(t.mood_tags||[]).slice(0,2))
-    .map(x=>'<span class="tag">'+tgm(x)+'</span>').join('');
+    // genres 原样、moods 过 tgm —— 别整体 map(tgm)，那会把流派
+    // 「organic electronic」改写成 mood 词「organic」（见 lbData 处注释）
+    const tags=[].concat((t.genres||[]).slice(1,3),
+                         (t.mood_tags||[]).slice(0,2).map(tgm))
+    .map(x=>'<span class="tag">'+x+'</span>').join('');
   const bpmC=(bb)=>{const n=String(bb||'').match(/\\d+/g); if(!n)return '';
     const m=(+n[0]+ +n[n.length-1])/2;
     return m<85?'#0071bb':m<105?'#006837':m<125?'#fab413':'#f05a24';};

@@ -1,7 +1,7 @@
 """候选 schema 严格校验（P1-5）。纯逻辑、可离线单测。
 
 validate_track(t) -> list[str]  逐首返回错误原因（空=通过）。
-validate_batch(cands, pool) -> (valid, invalids)  批级规则：批内去重、classic-known≤2、单艺人≤3。
+validate_batch(cands) -> (valid, invalids)  批级规则：批内去重、classic-known≤2、单艺人≤3。
 不合格候选不进曲库（由 merge 写入 quarantine），绝不静默补默认值。
 """
 from __future__ import annotations
@@ -82,8 +82,14 @@ def validate_track(t: dict) -> list[str]:
     return errs
 
 
-def validate_batch(cands: list[dict], pool: list[dict] | None = None,
-                   per_artist_cap: int = 3, classic_cap: int = 2) -> tuple[list[dict], list[dict]]:
+def validate_batch(cands: list[dict],
+                   per_artist_cap: int = 3,
+                   classic_cap: int = 2) -> tuple[list[dict], list[dict]]:
+    """批级校验。曾有一个 pool 形参，函数体从未读过，却让调用方以为存在池级校验。
+
+    删它时必须同改 merge_candidates 的调用 —— 那里是【按位置】传的，
+    漏改会把 pool 列表绑到 per_artist_cap，在 `>= per_artist_cap` 处抛 TypeError。
+    """
     valid, invalids = [], []
     seen_batch: set[str] = set()
     artist_count: dict[str, int] = {}

@@ -76,16 +76,19 @@ jobs:
           python3 - <<'PY'
           import json, sys
           sys.path.insert(0, "scripts")
-          import picker, render_random
+          import build_daily, picker
           pool = json.load(open("data/pool.json", encoding="utf-8"))
           media = json.load(open("data/pool_media.json", encoding="utf-8"))
           items = [dict(t) for t in pool if picker.is_eligible(t)[0]]
           for t in items:
               m = media.get(t["id"], {})
               t["_cover"], t["_preview"], t["_apple"] = m.get("c",""), m.get("p",""), m.get("a","")
-          open("site/pool.min.json","w",encoding="utf-8").write(render_random.build_pool_json(items))
-          open("site/random.html","w",encoding="utf-8").write(render_random.build_html(len(items)))
-          print(f"重建完成（{len(items)} 首）")
+          # 走共享函数，别在这里内联复制写盘动作。
+          # 这段此前只写 pool.min.json + random.html、【漏了 artists.min.json】——
+          # 而本 workflow 的全部意义就是导入简介：导完随机页点封面仍看不到新简介，
+          # 最长要等次日 08:11 的 daily 才自愈（2026-08-03 漏、08-04 审计仍在漏）。
+          build_daily.write_random_assets(items)
+          print(f"随机页产物重建完成（{len(items)} 首）")
           PY
 
       - name: 导入后必须仍然全绿——不绿就回滚，绝不提交坏数据

@@ -355,9 +355,27 @@ def audit(rows: list[dict], extra_artists: set[str] | None = None) -> dict:
             + "。**先比对两版质量再决定**——旧版可能更好（batch05 就是这样）。"
             "确认新版更好再加 --force")
         rep["overwrites"] = ov
-    for r in rep["ok"]:
-        _SEEN[r["artist"]] = r["bio"]
+    # 【不在这里登记 _SEEN】—— audit() 只做判定，登记由 _one() 在【放行之后】调
+    # record()。无条件登记会让一个被拒的文件污染 _SEEN，把同一次运行里后面那个
+    # 干净文件连坐拦下，直接违反本文件「按文件隔离、不连坐」的设计。
+    # 触发路径不是 P0（P0 条目走 continue、不进 rep["ok"]），而是
+    # **warn 未给 --force 而 rc=1** —— 那些条目就在 rep["ok"] 里。
+    # 2026-08-04 审计抓到；我第一次核验时只测了 P0 路径，误判成「不成立」。
     return rep
+
+
+def record(rep: dict) -> None:
+    """把本文件已放行的条目登记进 _SEEN，供同一次运行的后续文件做跨文件去重。
+
+    只在 _one() 判定放行（return 0）之后调用 —— 被拒的文件不该留下痕迹。
+    两个 return-0 点【都要调】：体检模式那处漏了的话，_SEEN 在 --dry-run 下
+    永远为空、跨文件检测静默缺席，而「护栏没跑」和「护栏通过」输出一模一样。
+
+    单次调用 audit() 的调用方（如 merge_candidates）无需调 record()：
+    它每进程只 audit 一次且从不读 _SEEN。将来若改成循环调用，记得补上。
+    """
+    for r in rep.get("ok", []):
+        _SEEN[r["artist"]] = r["bio"]
 
 
 # 一次运行内已写过的 artist → bio。用于检测「同一批次里多个文件互相覆盖」，
@@ -518,6 +536,7 @@ def _one(path: Path, sha: str | None, do_apply: bool, force: bool) -> int:
         print(f"\n⚠️ {len(rep['warn'])} 项告警。确认可接受就加 --force 写盘")
         return 1
     if not do_apply:
+        record(rep)          # 放行了才登记；体检模式也要记，否则跨文件检测在 dry-run 下失效
         print("\n（体检模式，未写盘；加 --apply 导入）")
         return 0
 
@@ -533,6 +552,7 @@ def _one(path: Path, sha: str | None, do_apply: bool, force: bool) -> int:
           + ("（无覆盖 ✓）" if dup == 0 else "  ← 已在上方 warn 列出"))
     print("   接着跑：python3 -c \"import sys;sys.path.insert(0,'scripts');"
           "import build_daily;build_daily._rebuild_site()\"")
+    record(rep)
     return 0
 
 

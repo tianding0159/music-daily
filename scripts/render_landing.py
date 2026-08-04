@@ -348,8 +348,12 @@ LANDING_JS = """
 """
 
 
-def build_html(n_issues: int, n_tracks: int, n_moods: int, latest_date: str,
-               playlist_title: str = "") -> str:
+def build_html(n_issues: int, n_tracks: int, latest_date: str) -> str:
+    """落地页。曾有 n_moods 与 playlist_title 两个形参，函数体从未读过。
+
+    删它们要同改 build_daily 的调用（那里是关键字传参，漏改是 unexpected keyword），
+    并删掉 build_daily 里只为算 n_moods 而存在的函数内 import mood_vocab。
+    """
     hit = f"https://abacus.jasoncameron.dev/hit/{COUNTER_NS}/{COUNTER_KEY}"
     year = dt.datetime.now(dt.timezone.utc).year
     md = latest_date.replace("-", ".") if latest_date else ""

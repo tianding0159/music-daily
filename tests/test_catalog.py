@@ -35,6 +35,25 @@ def _good_cand(**over):
     return t
 
 
+def test_version_mismatch_via_itunes_classify():
+    """版本错配判据的测试，从已删的 merge_candidates._version_mismatch 迁到真判据。
+
+    原测试保活的是一份零生产调用的副本，两张词表还与 itunes 双向分叉 ——
+    它给的是「版本错配已覆盖」的假保证。四个例子在 classify 上结果逐条一致
+    （审计已实测），所以直接迁过来。
+    """
+    def st(cand_title, matched_title):
+        res = [{"artistName": "A", "trackName": matched_title, "collectionName": "C",
+                "releaseDate": "2020-01-01T00:00:00Z", "trackId": 1}]
+        return itunes.classify("A", cand_title, res)[0]
+
+    assert st("Halo", "Halo (Ulrich Schnauss Remix of Aus)") == "version_mismatch"
+    assert st("Halo", "Halo") == "exact_match"
+    assert st("Song", "Song (Live)") == "version_mismatch"
+    # 主标题本身含 live、两边都有 → 不算错配
+    assert st("Live Forever", "Live Forever") == "exact_match"
+
+
 def test_itunes_classify_statuses():
     assert itunes.classify("Bibio", "Lovers' Carvings",
                            [{"artistName": "Bibio", "trackName": "Lovers' Carvings"}])[0] == "exact_match"
@@ -113,12 +132,6 @@ def test_canonical_id_stable_and_variant_merges():
     d = mc.canonical_id({"artist": "X", "title": "Y", "album": "Z", "apple_track_id": "123"})
     assert d == "apple:123", "有 apple id 时应优先用 apple:<id>"
 
-
-def test_version_mismatch_detected():
-    assert mcand._version_mismatch("Halo", "Halo (Ulrich Schnauss Remix of Aus)")
-    assert not mcand._version_mismatch("Halo", "Halo")
-    assert mcand._version_mismatch("Song", "Song (Live)")
-    assert not mcand._version_mismatch("Live Forever", "Live Forever")  # 主标题含 live 但两边都有→不算错配
 
 
 def test_fit_score_scale_and_direction():

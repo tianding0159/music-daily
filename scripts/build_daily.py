@@ -175,16 +175,40 @@ def _rebuild_site() -> None:
         (SITE / "daily.html").write_text(
             r.build_html(latest["date"], latest["tracks"], latest["issue_no"], latest["netease_text"]),
             encoding="utf-8")
-        import mood_vocab
         (SITE / "index.html").write_text(
             render_landing.build_html(
-                n_issues=len(snaps), n_tracks=_n_eligible(), n_moods=len(mood_vocab.CANON),
-                latest_date=latest["date"], playlist_title=latest.get("playlist_title", "")),
+                n_issues=len(snaps), n_tracks=_n_eligible(),
+                latest_date=latest["date"]),
             encoding="utf-8")
 
 
 MEDIA = DATA / "pool_media.json"          # id -> {c,p,a} 封面/试听/Apple 链接，增量累积
 _MEDIA_BUDGET = 60                        # 单次最多现查多少首（CI 时长可控；其余下次继续）
+
+
+def write_random_assets(items: list[dict]) -> None:
+    """写随机页的三件产物：pool.min.json / artists.min.json / random.html。
+
+    **抽成函数是因为已经漂移过两次**：import-bios.yml 里内联复制了这一段，
+    2026-08-03 漏了 artists.min.json（导入简介后随机页浮层看不到新简介，
+    要等次日 daily 才自愈），2026-08-04 审计又发现它仍然漏着。
+    补一行只会抄成第三份，下次这里增写第四个文件时会以同样方式再漏。
+    workflow 与 build_daily 都调这个函数 —— 一处增写，两边同时生效。
+
+    入参 items 必须已经补好媒体字段（_cover/_preview/_apple）；
+    iTunes 查询留在调用侧，别把网络调用带进 workflow 链路。
+    """
+    SITE.mkdir(parents=True, exist_ok=True)
+    (SITE / "pool.min.json").write_text(
+        render_random.build_pool_json(items), encoding="utf-8")
+    # 艺人上下文侧表：随机页浮层的 bio / 年代 / 本站收录都从这里取。
+    # 日报是把 ARTIST_CTX 内联进 HTML，随机页数据是异步加载的，所以单独出一份。
+    bios = {a["artist"]: a.get("bio", "")
+            for a in _load_json(DATA / "artists.json", [])}
+    (SITE / "artists.min.json").write_text(
+        render_random.build_artist_json(items, bios), encoding="utf-8")
+    (SITE / "random.html").write_text(
+        render_random.build_html(len(items)), encoding="utf-8")
 
 
 def _build_random(pool: list[dict], use_itunes: bool) -> int:
@@ -205,16 +229,7 @@ def _build_random(pool: list[dict], use_itunes: bool) -> int:
     for t in items:
         m = media.get(t["id"], {})
         t["_cover"], t["_preview"], t["_apple"] = m.get("c", ""), m.get("p", ""), m.get("a", "")
-    SITE.mkdir(parents=True, exist_ok=True)
-    (SITE / "pool.min.json").write_text(render_random.build_pool_json(items), encoding="utf-8")
-    # 艺人上下文侧表：随机页浮层的 bio / 年代 / 本站收录都从这里取。
-    # 日报是把 ARTIST_CTX 内联进 HTML，随机页数据是异步加载的，所以单独出一份。
-    # 漏了这一步 = 点封面看不到音乐人简介（2026-08-03 就是这么漏的）。
-    _bios = {a["artist"]: a.get("bio", "")
-             for a in _load_json(DATA / "artists.json", [])}
-    (SITE / "artists.min.json").write_text(
-        render_random.build_artist_json(items, _bios), encoding="utf-8")
-    (SITE / "random.html").write_text(render_random.build_html(len(items)), encoding="utf-8")
+    write_random_assets(items)
     return len(items)
 
 
