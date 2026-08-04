@@ -1,6 +1,6 @@
 # GPT 长期记忆 · 操作台账
 
-> **本文件由 `tools/gen_gpt_memory.py` 自动生成，最后更新 2026-08-03。**
+> **本文件由 `tools/gen_gpt_memory.py` 自动生成，最后更新 2026-08-04。**
 > 状态数字全部从仓库现算，不会过期。每次开新对话先读这一份。
 
 ---
@@ -17,10 +17,10 @@
 |---|--:|
 | 曲池 | **1169** 首 |
 | 池内艺人 | **1084** 位 |
-| 已写简介 | **934** 位（覆盖 86.2%）|
-| 待写 | **150** 位 |
-| confidence | high 890 · low 44 |
-| bio 长度 | 104–220 字（均 164）|
+| 已写简介 | **1084** 位（覆盖 100.0%）|
+| 待写 | **0** 位 |
+| confidence | high 1032 · low 52 |
+| bio 长度 | 104–220 字（均 167）|
 | 含未翻译地名 | 0 条 ✅ |
 
 ### 已导入批次
@@ -43,7 +43,10 @@
 | `artist_bios_batch13a_50_ascii.json` | 50 |
 | `artist_bios_batch13b_50_ascii.json` | 50 |
 | `artist_bios_batch13c_50_ascii.json` | 50 |
+| `artist_bios_batch14a_50_ascii.json` | 50 |
+| `artist_bios_batch14b_50_ascii.json` | 50 |
 | `artist_bios_batch14c_50_ascii.json` | 50 |
+| `artist_bios_batch14d_50_ascii.json` | 50 |
 | `artist_bios_batch15a_50_ascii.json` | 50 |
 | `artist_bios_batch15b_50_ascii.json` | 50 |
 | `artist_bios_batch15c_35_ascii.json` | 35 |
@@ -51,7 +54,7 @@
 
 ## 三、已写清单（这些别再写）
 
-<details><summary>展开 934 位</summary>
+<details><summary>展开 1084 位</summary>
 
 ```
 1010benja  4hero  79.5  A Sunny Day in Glasgow
@@ -225,9 +228,34 @@ Nils Frahm  Nilüfer Yanya  No Joy  Nobukazu Takemura
 Norman Connors  Nothing  Nourished by Time  Novos Baianos
 Nu Genea  Nubiyan Twist  Nubya Garcia  Nujabes
 Nuno Canavarro  OOHYO  Ochre  Office Culture
-Okay Kaya  Patrice Rushen  Photay  Plaid
-Puma Blue  Rachika Nayar  Ravyn Lenae  Red House Painters
-Rei Harakami  Round Table  Rubel  Sam Prekop
+Ogurusu Norihide  Okay Kaya  Omar  Omni
+Onipa  Opal  Oracle Sisters  Orange Juice
+Orchestra Baobab  Os Mutantes  Oscar Jerome  Otis Redding
+Otto A Totland  Owen  Owen Pallett  Ozora Kimijima (君島大空)
+PACKS  Pale Saints  Panda Bear  Pantha du Prince
+Papercuts  Parannoul  Partner Look  Pat Metheny Group
+Patrice Rushen  Patricia Wolf  Paul Desmond  Pavement
+Peach Pit  Pearl & The Oysters  Pearl Charles  Pearls Before Swine
+Peel Dream Magazine  Penguin Cafe Orchestra  Perfume Genius  Perila
+Peter Broderick  Pharoah Sanders  Phoebe Bridgers  Phosphorescent
+Photay  Phyllis Hyman  Pia Fraus  Piana
+Pinback  Pinegrove  Pizzicato Five  Plaid
+Polo & Pan  Poolside  Poppy Ackroyd  Portico Quartet
+Portishead  Prawn  Predawn  Prefab Sprout
+Proem  Puma Blue  Quantic  Quivers
+Rachel Grimes  Rachika Nayar  Rahill  Ralph Towner
+Ramsey Lewis  Raphael Saadiq  Raveena  Ravyn Lenae
+Real Estate  Red House Painters  Rei Harakami  Renata Zeiguer
+Ride  Ringo Deathstarr  Rival Consoles  Rjd2
+Robert Wyatt  Roberta Flack  Rocketship  Rodrigo Amarante
+Roger Eno & Brian Eno  Rogê  Rosali  Rose Royce
+Rotary Connection  Round Table  Roxy Music  Roy Ayers
+Roy Harper  Rozi Plain  Rubel  Ruby
+Rufus & Chaka Khan  Ruth Garbus  Ryley Walker  Ryo Fukui
+Ryuichi Sakamoto  Ryusenkei  SE SO NEON  SRSQ
+Sade  Saint Etienne  Sakerock  Salami Rose Joe Louis
+Sam Amidon  Sam Prekop  Sampha  Sandro Perri
+Sandy Denny  Satomimagae  Satoshi Ashikawa  Sault
 Say She She  Say Sue Me  Saya Gray  Scritti Politti
 Sea Oleena  Seam  Sean Nicholas Savage  Sebastian Plano
 Secos & Molhados  Seefeel  Selda Bağcan  Sen Morimoto
@@ -242,52 +270,64 @@ Softcult  Solange  Sondre Lerche  Songs: Ohia
 Sons of Kemet  Sophie Hutchings  Spangle call Lilli line  Sparklehorse
 Squirrel Flower  St Germain  Stan Getz & Charlie Byrd  Standing on the Corner
 Steely Dan  Stella Donnelly  Stereolab  Steve Gunn
-Steve Hauschildt  Steve Lacy  Teebs  The Boys with the Perpetual Nervousness
-The Brand New Heavies  The Cardigans  The Chairs  The Chi-Lites
-The Chills  The Cinematic Orchestra  The Clean  The Clientele
-The Cool Greenhouse  The Delfonics  The Dramatics  The Dream Syndicate
-The Durutti Column  The Feelies  The Field  The Field Mice
-The Goon Sax  The High Llamas  The Incredible String Band  The Innocence Mission
-The Isley Brothers  The June Brides  The Loft  The Lotus Eaters
-The Main Ingredient  The Meters  The Microphones  The Moments
-The Monochrome Set  The Notwist  The Ocean Blue  The Orchids
-The Pains of Being Pure at Heart  The Pale Fountains  The Paradise Bangkok Molam International Band  The Pearlfishers
-The Postal Service  The Promise Ring  The Radio Dept.  The Railway Children
-The Rain Parade  The Reds, Pinks and Purples  The Sea Urchins  The Sea and Cake
-The Servants  The Smashing Times  The Softies  The Stroppies
-The Style Council  The Stylistics  The Sundays  The Tallest Man on Earth
-The Telephone Numbers  The Telescopes  The Three O'Clock  The Trash Can Sinatras
-The Umbrellas  The Wake  The War on Drugs  The Weather Prophets
-The Weather Station  The Wedding Present  The Wild Swans  The Wolfhounds
-The Zenmenn  The fin.  Thee Sacred Souls  Thievery Corporation
-This Is the Kit  This Mortal Coil  Tim Bernardes  Tim Buckley
-Tim Hardin  Tim Maia  Timmy Thomas  Tinariwen
-Tiny Ruins  Tirzah  Toco  Todd Terje
-Tohru Aizawa Quartet  Told Slant  Tom Misch  Tom Zé
-Tomberlin  Tomoko Aran  Tord Gustavsen Trio  Toro y Moi
-Tortoise  Tourist  Towa Tei  Trembling Blue Stars
-Tricky  Tulipa Ruiz  Tunng  Turnover
-Tuxedo  Tycho  Ulla  Ulrich Schnauss
-Ulrika Spacek  Unknown Mortal Orchestra  VIDEOTAPEMUSIC  Vampire Weekend
-Vanishing Twin  Vansire  Vashti Bunyan  Vetiver
-Vince Guaraldi  Virginia Astley  Visible Cloaks  Wanda Sá
-Wang Wen  Washed Out  Water From Your Eyes  Waxahatchee
-Wayne Shorter  Wednesday  Wes Montgomery  Weyes Blood
-Whirr  White Flowers  Whitney  Widowspeak
-Wild Nothing  Wild Pink  William Bell  William Onyeabor
-William Tyler  Willie Hutch  Winter  Wombo
-Woo  Woods  Ximena Sariñana  Xênia França
-Yasuaki Shimizu  Yasuha  Yaya Bey  Yazmin Lacey
-Yeasayer  Yebba  Yellow Days  Yin Yin
-Yo La Tengo  Yogee New Waves  Young Marble Giants  Yowler
-Yoyo Sham  Yu Ching  Yu Su  Yukika
-Yumi Zouma  Yussef Dayes  Yussef Kamaal  Yves Jarvis
-Zero 7  Zhaoze  advantage Lucy  cero
-deary  dosii  girl in red  gomes the hitman (ゴメス・ザ・ヒットマン)
-haruka nakamura  maya ongaku  mxmtoon  múm
-never young beach  serpentwithfeet  toe  µ-Ziq
-Étienne Daho  Ólafur Arnalds  五条人  王榆鈞
-甜約翰 Sweet John  陳建年
+Steve Hauschildt  Steve Lacy  Still Corners  Strategy
+Subsonic Eye  Suchmos  Sudan Archives  Sufjan Stevens
+Sugar Plant  Sunny Day Service (サニーデイ・サービス)  Sunset Rollercoaster  Surprise Chef
+Susumu Yokota  Sven Wunder  Swansea Sound  Swervedriver
+Syl Johnson  Sylvain Chauveau  Sylvan Esso  Syreeta
+Sébastien Tellier  TOPS  Taeko Onuki  Takako Minekawa
+Talk Talk  Tallies  Talulah Gosh  Tamaryn
+Tanukichan  Tara Jane O'Neil  Tatsuro Yamashita  Teebs
+Teenage Fanclub  Telefon Tel Aviv  Telepopmusik  Tenci
+Tennis  Tenniscoats  Terry Callier  Terry Reid
+Tess Parks  The Adventures  The Album Leaf  The Aluminum Group
+The Antlers  The Bats  The Beach Boys  The Beths
+The Blackbyrds  The Blue Nile  The Boats  The Bodines
+The Boo Radleys  The Boys with the Perpetual Nervousness  The Brand New Heavies  The Cardigans
+The Chairs  The Chi-Lites  The Chills  The Cinematic Orchestra
+The Clean  The Clientele  The Cool Greenhouse  The Delfonics
+The Dramatics  The Dream Syndicate  The Durutti Column  The Feelies
+The Field  The Field Mice  The Goon Sax  The High Llamas
+The Incredible String Band  The Innocence Mission  The Isley Brothers  The June Brides
+The Loft  The Lotus Eaters  The Main Ingredient  The Meters
+The Microphones  The Moments  The Monochrome Set  The Notwist
+The Ocean Blue  The Orchids  The Pains of Being Pure at Heart  The Pale Fountains
+The Paradise Bangkok Molam International Band  The Pearlfishers  The Postal Service  The Promise Ring
+The Radio Dept.  The Railway Children  The Rain Parade  The Reds, Pinks and Purples
+The Sea Urchins  The Sea and Cake  The Servants  The Smashing Times
+The Softies  The Stroppies  The Style Council  The Stylistics
+The Sundays  The Tallest Man on Earth  The Telephone Numbers  The Telescopes
+The Three O'Clock  The Trash Can Sinatras  The Umbrellas  The Wake
+The War on Drugs  The Weather Prophets  The Weather Station  The Wedding Present
+The Wild Swans  The Wolfhounds  The Zenmenn  The fin.
+Thee Sacred Souls  Thievery Corporation  This Is the Kit  This Mortal Coil
+Tim Bernardes  Tim Buckley  Tim Hardin  Tim Maia
+Timmy Thomas  Tinariwen  Tiny Ruins  Tirzah
+Toco  Todd Terje  Tohru Aizawa Quartet  Told Slant
+Tom Misch  Tom Zé  Tomberlin  Tomoko Aran
+Tord Gustavsen Trio  Toro y Moi  Tortoise  Tourist
+Towa Tei  Trembling Blue Stars  Tricky  Tulipa Ruiz
+Tunng  Turnover  Tuxedo  Tycho
+Ulla  Ulrich Schnauss  Ulrika Spacek  Unknown Mortal Orchestra
+VIDEOTAPEMUSIC  Vampire Weekend  Vanishing Twin  Vansire
+Vashti Bunyan  Vetiver  Vince Guaraldi  Virginia Astley
+Visible Cloaks  Wanda Sá  Wang Wen  Washed Out
+Water From Your Eyes  Waxahatchee  Wayne Shorter  Wednesday
+Wes Montgomery  Weyes Blood  Whirr  White Flowers
+Whitney  Widowspeak  Wild Nothing  Wild Pink
+William Bell  William Onyeabor  William Tyler  Willie Hutch
+Winter  Wombo  Woo  Woods
+Ximena Sariñana  Xênia França  Yasuaki Shimizu  Yasuha
+Yaya Bey  Yazmin Lacey  Yeasayer  Yebba
+Yellow Days  Yin Yin  Yo La Tengo  Yogee New Waves
+Young Marble Giants  Yowler  Yoyo Sham  Yu Ching
+Yu Su  Yukika  Yumi Zouma  Yussef Dayes
+Yussef Kamaal  Yves Jarvis  Zero 7  Zhaoze
+advantage Lucy  cero  deary  dosii
+girl in red  gomes the hitman (ゴメス・ザ・ヒットマン)  haruka nakamura  maya ongaku
+mxmtoon  múm  never young beach  serpentwithfeet
+toe  µ-Ziq  Étienne Daho  Ólafur Arnalds
+五条人  王榆鈞  甜約翰 Sweet John  陳建年
 ```
 
 </details>
@@ -297,21 +337,6 @@ never young beach  serpentwithfeet  toe  µ-Ziq
 完整清单见 [`data/artists_todo.json`](data/artists_todo.json)。**接下来这 60 位优先**：
 
 ```
-Ogurusu Norihide  Omar  Omni  Onipa
-Opal  Oracle Sisters  Orange Juice  Orchestra Baobab
-Os Mutantes  Oscar Jerome  Otis Redding  Otto A Totland
-Owen  Owen Pallett  Ozora Kimijima (君島大空)  PACKS
-Pale Saints  Panda Bear  Pantha du Prince  Papercuts
-Parannoul  Partner Look  Pat Metheny Group  Patricia Wolf
-Paul Desmond  Pavement  Peach Pit  Pearl & The Oysters
-Pearl Charles  Pearls Before Swine  Peel Dream Magazine  Penguin Cafe Orchestra
-Perfume Genius  Perila  Peter Broderick  Pharoah Sanders
-Phoebe Bridgers  Phosphorescent  Phyllis Hyman  Pia Fraus
-Piana  Pinback  Pinegrove  Pizzicato Five
-Polo & Pan  Poolside  Poppy Ackroyd  Portico Quartet
-Portishead  Prawn  Predawn  Prefab Sprout
-Proem  Quantic  Quivers  Rachel Grimes
-Rahill  Ralph Towner  Ramsey Lewis  Raphael Saadiq
 ```
 
 ## 六、补库仍偏缺的方向

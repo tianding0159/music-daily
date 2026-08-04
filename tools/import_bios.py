@@ -102,14 +102,41 @@ _PERSON_TAIL = re.compile(r"^\s+[A-Z][a-z]+")
 # 地名【前面】紧挨一个大写拉丁词 = 它是姓（Alex Leeds、Jack London、Kevin Berlin）。
 # _PERSON_TAIL 只能看后面，看不见这种。Slow Pulp 的贝斯手 Alex Leeds 就这么被误报成 Leeds。
 _PERSON_HEAD = re.compile(r"[A-Z][a-z]+\s+$")
+# 「乐团 Oregon」「乐队 Chicago」—— 地名当团名用，前面有身份词点明。
+# 2026-08-03 batch14b 的 Ralph Towner 就这么被拦：他是乐团 Oregon 的创始成员，
+# 那条 bio 里真正的地名（华盛顿州、维也纳）早就译成中文了。
+_BAND_HEAD = re.compile(r"(乐团|乐队|组合|团体|小组|厂牌|唱片公司|品牌)\s*$")
+
+
+def _in_title(bio: str, i: int, j: int) -> bool:
+    """[i,j) 是否落在书名号 / 引号里 —— 作品名不翻译是对的。
+
+    《Paris I》《Michigan》《Illinois》都是专辑名，翻成中文反而错。
+    2026-08-03 batch14a / 14d 各被这种情况挡掉整批 50 条。
+    做法：往前找最近的开引号，若它后面没有闭引号就说明我们在引号内。
+    """
+    for op, cl in (("\u300a", "\u300b"), ("\u300c", "\u300d"),
+                   ("\u2018", "\u2019"), ("\u201c", "\u201d"), ("\u3008", "\u3009")):
+        a = bio.rfind(op, 0, i)
+        if a >= 0 and bio.find(cl, a) >= j:
+            return True
+    return False
 
 
 def _place_hit(bio: str, x: str) -> bool:
-    """地名是否真的在「指地点」——排除机构名首词、人名的名这两种同形情况。"""
+    """地名是否真的在「指地点」。
+
+    排掉四种同形：机构名首词、人名的名、人名的姓、以及
+    **作品名（书名号内）与乐队名（前面有「乐团 / 乐队」等身份词）**。
+    后两种是 2026-08-03 batch14a/14b/14d 三批各被一条误报挡掉的原因 ——
+    每批 50 条只因 1 条误报全被拦下，而那 3 条其实都写对了。
+    """
     for m in re.finditer(r"(?<![A-Za-z])" + re.escape(x) + r"(?![A-Za-z])", bio):
         tail, head = bio[m.end():], bio[:m.start()]
         if (_INSTITUTION_TAIL.match(tail) or _PERSON_TAIL.match(tail)
-                or _PERSON_HEAD.search(head[-20:])):
+                or _PERSON_HEAD.search(head[-20:])
+                or _BAND_HEAD.search(head[-12:])
+                or _in_title(bio, m.start(), m.end())):
             continue
         return True
     return False
