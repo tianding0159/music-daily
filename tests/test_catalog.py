@@ -673,40 +673,175 @@ def test_maskable_icon_respects_safe_zone():
                           "要么声明丢了，要么这个测试空转了")
 
 def test_safe_area_not_dropped_by_overrides():
-    """贴屏边元素的 padding/bottom，在媒体查询里被覆盖时必须带上 inset。
+    """钉在屏幕某条边上的元素，那个方向必须有 safe-area 让位。
 
-    简写 `padding:` 会【整条替换】前面写好的四行 calc()，于是窄屏
-    （也就是手机 —— 最需要安全区的那批设备）反而丢掉保护。这类漂移
-    静态可查，而浏览器验证只覆盖我恰好测到的那个视口宽度。
+    **判据必须按方向逐个判**，两种偷懒写法都会假绿（都实测过）：
+      · 只看 `"--sa" in body` —— #np 撤掉底部 inset 后左右 inset 还在，
+        整条被放行：部分保护冒充完整保护。
+      · 给"纯 0 定位锚点"开豁免 —— .nav 撤掉 padding-top 后只剩 top:0，
+        正好符合豁免条件：撤掉保护反而让它更容易通过。
 
-    实测踩过：393px 视口命中 max-width:560px 媒体查询，那里的 #basket
-    覆盖了基础规则 —— 撤掉基础规则的联动，浏览器测试照样全绿（假绿）。
+    所以：钉在 top 就要 padding-top / padding 简写里有 --sat；
+    钉在 bottom 就要 --sab（或 bottom 本身是 calc(--sab)）；左右同理。
     """
     import re
-    # 贴屏边、需要安全区的选择器
-    EDGE = (".nav", "#np", "#basket", "#lb", ".stage", ".wrap")
-    problems = []
+
+    # 静态分析看不到 DOM，判不出一个 absolute 元素的定位上下文是视口还是某张卡片
+    # （.pbtn 是卡片内的播放键，absolute + bottom/left，但它贴的是卡片边不是屏幕边）。
+    # 所以贴屏元素用显式清单 —— 由 tools/verify_safe_area.py 的浏览器实测背书，
+    # 且下面有 checked >= N 防止清单被悄悄改空。
+    # 加新的贴屏元素时要同时加到这里和那个脚本（两处都漏才会静默）。
+    EDGE_SELECTORS = {".nav", "#np", "#basket", "#lb", ".foot", ".stage", ".wrap"}
+
+    # 方向 → (钉边的属性名, 该方向需要的 inset 变量, 能提供让位的属性)
+    AXES = [
+        ("top",    "--sat", ("padding-top", "padding", "padding-block", "top")),
+        ("bottom", "--sab", ("padding-bottom", "padding", "padding-block", "bottom")),
+        ("left",   "--sal", ("padding-left", "padding", "padding-inline", "left")),
+        ("right",  "--sar", ("padding-right", "padding", "padding-inline", "right")),
+    ]
+    # 让位有两种方式，有一种就够，不能两样都要求：
+    #   ① 定位属性本身带 inset（#basket 的 bottom:calc(--np-h + --sab)）
+    #   ② padding 在那个方向留出 inset（#np 的 padding-bottom:var(--sab)）
+    # 用哪种由下面的 by_pos 按 (选择器, 方向) 记住。#basket 用的是 ①，它的
+    # padding 底段是纯 9px —— 那是内间距、不管安全区（篮子叠在播放器上方、
+    # 根本不贴屏底）。不分清就会误报。
+
+    def decls(body):
+        """把 CSS body 拆成 {属性: 值}，跳过 border-*/background-* 这类同名后缀。"""
+        out = {}
+        depth = 0
+        buf = ""
+        for ch in body:                     # 手动切分：值里的逗号/括号不能当分隔符
+            if ch == "(":
+                depth += 1
+            elif ch == ")":
+                depth -= 1
+            if ch == ";" and depth == 0:
+                if ":" in buf:
+                    k, v = buf.split(":", 1)
+                    out[k.strip()] = v.strip()
+                buf = ""
+            else:
+                buf += ch
+        if ":" in buf:
+            k, v = buf.split(":", 1)
+            out[k.strip()] = v.strip()
+        return out
+
+    # 两遍扫。第一遍收集"哪些选择器是贴屏边的定位元素"以及它们钉在哪几条边上，
+    # 第二遍才逐条规则查让位。
+    # **为什么要两遍**：媒体查询里的覆盖规则不重复写 position（`#basket{bottom:70px}`），
+    # 单遍扫会把它判成"不是定位元素"直接跳过 —— 而那正是最容易丢保护的地方
+    # （简写 padding 整条替换掉 calc()，窄屏也就是手机反而没保护）。
+    # 钉边方向也按选择器累计：基础规则写 `bottom:76px` 时它同样是钉在底边的，
+    # 只看单条规则的值形态会漏（76px 不匹配 0/var/calc，撤掉保护反而不被检查）。
+    pinned_by_sel = {}
+    rules = []
     for src in ("render_grid.py", "render_random.py", "render_landing.py", "lightbox.py"):
         text = (ROOT / "scripts" / src).read_text(encoding="utf-8")
-        for m in re.finditer(r"^\s*([#.][\w-]+)\s*\{([^}]*)\}", text, re.M):
-            sel, body = m.group(1), m.group(2)
-            if sel not in EDGE:
+        for m in re.finditer(r"^([ \t]*)([#.][^{\n]*?)\s*\{([^}]*)\}", text, re.M):
+            sel, body = m.group(2).strip(), m.group(3)
+            if sel not in EDGE_SELECTORS:
                 continue
+            d = decls(body)
             line_no = text[:m.start()].count("\n") + 1
-            # 声明了会影响贴边距离的属性，就得同时出现 safe-area 变量
-            touches_edge = re.search(r"\b(padding|padding-top|padding-bottom|"
-                                     r"padding-left|padding-right|bottom|top)\s*:", body)
-            if not touches_edge:
+            rules.append((src, line_no, sel, d))
+            pinned_by_sel.setdefault(sel, set())
+    for src2, ln, sel, d in rules:
+        if "inset" in d and d["inset"].strip().startswith("0"):
+            pinned_by_sel[sel] |= {a for a, _, _ in AXES}
+        for axis, _, _ in AXES:
+            if axis in d:                           # 声明了这条边 = 钉在这条边上
+                pinned_by_sel[sel].add(axis)
+
+    problems, checked = [], 0
+    # .stage / .wrap 是【贴屏的块级容器】—— 它们从不声明 top/bottom/left/right
+    # （不靠定位、靠 padding 让位），累计钉边是空集。上面那套"钉在哪条边"的判据
+    # 对它们不适用，但它们同样要给四个方向让位（.wrap 撑满宽度、.stage 是整屏）。
+    # 漏了这一类会少检查 5 条规则，包括两条 ≤520px 里覆盖 padding-inline 的
+    # —— 那正是丢左右安全区的地方。
+    # 每个 (选择器, 方向) 用的是哪种让位机制：
+    #   定位属性带 inset（#basket 的 bottom:calc(--np-h + --sab)）→ 记进 by_pos
+    #   否则就靠 padding（#np 的 padding-bottom:var(--sab)）
+    # 不分清这个就会误报：#basket 那条 ≤720px 的覆盖只改左右 padding，
+    # 它的 padding 底段是纯 9px —— 那是内间距，篮子叠在播放器上方、根本不贴屏底。
+    by_pos = set()
+    for _s, _l, sel, d in rules:
+        for axis, want, _ in AXES:
+            if axis in d and want in d[axis]:
+                by_pos.add((sel, axis))
+
+    FLOW_EDGE = {".stage", ".wrap"}
+    for src, line_no, sel, d in rules:
+        axes_here = ({"left", "right"} if sel == ".wrap" else
+                     {"top", "bottom", "left", "right"} if sel in FLOW_EDGE else
+                     pinned_by_sel.get(sel))
+        if not axes_here:
+            continue
+        # 这条规则有没有碰间距？没碰就不管它（比如 #basket.on{display:flex}）
+        if not any(k in d for k in ("padding", "padding-top", "padding-bottom",
+                                    "padding-left", "padding-right",
+                                    "padding-inline", "padding-block",
+                                    "top", "bottom", "left", "right", "inset")):
+            continue
+        checked += 1
+        for axis, want, providers in AXES:
+            if axis not in axes_here:
                 continue
-            if "--sa" in body or "safe-area" in body:
+            # 这条规则在这个方向上有没有【自己声明】间距？没声明就是沿用上面的，不苛求
+            declares = [pr for pr in providers if pr in d]
+            if not declares:
                 continue
-            # top:0 / bottom:0 这类纯定位锚点不算（由 padding 让位），
-            # 只在它声明了【非零的】间距时才要求带 inset
-            vals = re.findall(r"\b(?:padding[\w-]*|bottom|top)\s*:\s*([^;]+)", body)
-            if all(v.strip() in ("0", "0px", "auto") for v in vals):
+            # 这个方向由【定位属性】负责让位（见 by_pos）→ padding 覆盖不威胁它，跳过。
+            # 只有当这条规则自己重新声明了那个定位属性、却没带 inset 时才算丢保护
+            # （下面 declares 里含 axis 时会查到）。
+            if (sel, axis) in by_pos and axis not in d:
                 continue
-            problems.append(f"{src}:{line_no} {sel} 声明了间距却没带 safe-area 变量：{vals}")
-    assert not problems, ("这些贴屏边规则会丢掉安全区保护：\n  " + "\n  ".join(problems))
+            # padding 简写按方向取对应那一段再判 —— 否则 `padding:9px calc(左右) 9px calc(左右)`
+            # 会因为"整条里没有 --sab"被误报成丢了底部安全区，而底部间距根本不归它管。
+            def _side(val, ax):
+                parts, depth, buf = [], 0, ""
+                for ch in val:
+                    if ch == "(":
+                        depth += 1
+                    elif ch == ")":
+                        depth -= 1
+                    if ch == " " and depth == 0:
+                        if buf:
+                            parts.append(buf)
+                        buf = ""
+                    else:
+                        buf += ch
+                if buf:
+                    parts.append(buf)
+                if len(parts) == 1:
+                    parts *= 4
+                elif len(parts) == 2:
+                    parts = [parts[0], parts[1], parts[0], parts[1]]
+                elif len(parts) == 3:
+                    parts = [parts[0], parts[1], parts[2], parts[1]]
+                return parts[{"top": 0, "right": 1, "bottom": 2, "left": 3}[ax]]
+
+            def _has(pr):
+                v = d[pr]
+                if pr in ("padding", "padding-inline", "padding-block"):
+                    if pr == "padding":
+                        return want in _side(v, axis)
+                    return want in v          # 逻辑简写只管一个轴，整体判即可
+                return want in v
+
+            if not any(_has(pr) for pr in declares):
+                problems.append(f"{src}:{line_no} {sel} 钉在 {axis} 边，"
+                                f"这里声明了 {declares} 却没带 {want}")
+
+    # 防空转：判据挂了会 0 命中然后"通过"
+    # 防空转：判据挂了会 0 命中然后"通过"。当前应有 12 条（含媒体查询里的覆盖），
+    # 留余量到 10 —— 低于这个说明清单被改空或正则失效。
+    assert checked >= 10, (f"只扫到 {checked} 条贴屏边规则，判据可能已失效 —— 期望 "
+                           f".nav/#np/#basket/#lb/.foot/.stage/.wrap 及其媒体查询覆盖共 12 条")
+    assert not problems, ("这些贴屏边规则在某个方向上没有安全区让位：\n  "
+                          + "\n  ".join(problems))
 
 
 if __name__ == "__main__":

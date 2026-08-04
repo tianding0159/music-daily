@@ -422,7 +422,10 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
    ②顶栏右侧 serial 三段挤成两排 ③规格条四列在 390 下每格都折行、genres 那格压成竖带
    ④大数字与右侧说明断开 ⑤卡片内封面+文字并排太挤 */
 @media(max-width:520px){
-  .wrap{padding-inline:16px}
+  /* 覆盖 padding-inline 会整条替换掉基础规则里的 calc()，丢掉左右安全区。
+     ≤520px 正是手机 —— 最需要安全区的那批设备（竖屏 left/right inset 为 0 所以
+     当前无感，横屏窄设备与未来机型会中）。 */
+  .wrap{padding-left:calc(16px + var(--sal)); padding-right:calc(16px + var(--sar))}
   /* 顶栏：logo 不许折行，右侧信息只留最要紧的两段 */
   .nav .wrap{height:52px}
   .brand{font-size:14px; gap:8px; white-space:nowrap; flex:none}
@@ -703,7 +706,11 @@ body.go .deckbox .disc{animation:spin-up 2.9s linear forwards,
   font-size:.92em; display:inline-flex; align-items:center;
   justify-content:center; min-width:1.9em; height:1.55em; padding:0 .45em;
   line-height:1; color:var(--g900); vertical-align:middle; position:relative; top:-.05em}
-.foot{position:absolute; left:0; right:0; bottom:13px; text-align:center;
+/* absolute + left:0/right:0 【脱离了 .stage 的 padding 流】，父容器的安全区
+   对它无效 —— 横屏时刘海在侧边，两端的版权文字会被切掉（实测距边 0 < 47）。
+   绝对定位元素必须自己吃 inset，这是 safe-area 最容易漏的一类。 */
+.foot{position:absolute; left:var(--sal, 0px); right:var(--sar, 0px);
+  bottom:calc(13px + var(--sab, 0px)); text-align:center;
   font-family:var(--sans); font-size:9px; font-weight:300; letter-spacing:.02em;
   text-transform:lowercase; color:var(--g300); z-index:2}
 @keyframes fade-up{from{opacity:0; transform:translateY(9px)}to{opacity:1; transform:none}}

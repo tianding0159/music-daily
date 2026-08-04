@@ -384,7 +384,10 @@ body.has-basket{padding-bottom:calc(var(--np-h, 76px) + 58px + var(--sab, 0px))}
    实测问题：①三个筛选各占一整行，光筛选就吃掉半屏 ②「另起一首」按钮 72px 偏高
    ③the pick 里封面 232px 与右侧文字并排，两边都憋 ④hint 一行字折成三行 */
 @media(max-width:520px){
-  .wrap{padding-inline:16px}
+  /* 覆盖 padding-inline 会整条替换掉基础规则里的 calc()，丢掉左右安全区。
+     ≤520px 正是手机 —— 最需要安全区的那批设备（竖屏 left/right inset 为 0 所以
+     当前无感，横屏窄设备与未来机型会中）。 */
+  .wrap{padding-left:calc(16px + var(--sal)); padding-right:calc(16px + var(--sar))}
   .nav .wrap{height:52px}
   .brand{font-size:14px; gap:8px; white-space:nowrap; flex:none}
   .brand .sq{width:11px; height:11px}

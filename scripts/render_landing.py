@@ -244,7 +244,11 @@ body.go .deckbox .disc{animation:spin-up 2.9s linear forwards,
   font-size:.92em; display:inline-flex; align-items:center;
   justify-content:center; min-width:1.9em; height:1.55em; padding:0 .45em;
   line-height:1; color:var(--g900); vertical-align:middle; position:relative; top:-.05em}
-.foot{position:absolute; left:0; right:0; bottom:13px; text-align:center;
+/* absolute + left:0/right:0 【脱离了 .stage 的 padding 流】，父容器的安全区
+   对它无效 —— 横屏时刘海在侧边，两端的版权文字会被切掉（实测距边 0 < 47）。
+   绝对定位元素必须自己吃 inset，这是 safe-area 最容易漏的一类。 */
+.foot{position:absolute; left:var(--sal, 0px); right:var(--sar, 0px);
+  bottom:calc(13px + var(--sab, 0px)); text-align:center;
   font-family:var(--sans); font-size:9px; font-weight:300; letter-spacing:.02em;
   text-transform:lowercase; color:var(--g300); z-index:2}
 @keyframes fade-up{from{opacity:0; transform:translateY(9px)}to{opacity:1; transform:none}}

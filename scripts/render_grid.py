@@ -514,7 +514,10 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
    ②顶栏右侧 serial 三段挤成两排 ③规格条四列在 390 下每格都折行、genres 那格压成竖带
    ④大数字与右侧说明断开 ⑤卡片内封面+文字并排太挤 */
 @media(max-width:520px){
-  .wrap{padding-inline:16px}
+  /* 覆盖 padding-inline 会整条替换掉基础规则里的 calc()，丢掉左右安全区。
+     ≤520px 正是手机 —— 最需要安全区的那批设备（竖屏 left/right inset 为 0 所以
+     当前无感，横屏窄设备与未来机型会中）。 */
+  .wrap{padding-left:calc(16px + var(--sal)); padding-right:calc(16px + var(--sar))}
   /* 顶栏：logo 不许折行，右侧信息只留最要紧的两段 */
   .nav .wrap{height:52px}
   .brand{font-size:14px; gap:8px; white-space:nowrap; flex:none}
