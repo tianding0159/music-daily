@@ -30,9 +30,17 @@ jobs:
           python-version: "3.12"
 
       - name: 校验 + 精确验真 + 去重 + 合并（transient 时非零退出→后续跳过、候选保留）
-        run: python3 scripts/merge_candidates.py
+        id: merge
+        run: |
+          set +e
+          python3 scripts/merge_candidates.py
+          echo "rc=$?" >> "$GITHUB_OUTPUT"
+          # 退出码交给后面的通知步骤解释；这里先不判生死，
+          # 否则 if: always() 之外的步骤会被跳过、连"回写"都不会尝试
+          exit 0
 
-      - name: 回写 pool / quarantine / 报告（仅上一步成功时）
+      - name: 回写 pool / quarantine / 报告（仅合并成功时）
+        if: steps.merge.outputs.rc == '0'
         run: |
           git config user.name "music-daily-bot"
           git config user.email "actions@users.noreply.github.com"
@@ -43,3 +51,21 @@ jobs:
             git commit -m "chore: 合并候选 $(date -u +%F)"
             git push
           fi
+
+      # 定时补库跑在 GPT 那边、无人值守：失败必须主动告知，
+      # 否则「候选被拒 → 池子停止增长」能静默持续好几周（原来这里完全没有通知）。
+      - name: 推微信告知结果（成功报数 / 失败报原因）
+        if: always()
+        env:
+          WECHAT_PUSH_KEY: ${{ secrets.WECHAT_PUSH_KEY }}
+          WECHAT_PUSH_PROVIDER: ${{ vars.WECHAT_PUSH_PROVIDER }}
+        run: python3 scripts/notify_merge.py "${{ steps.merge.outputs.rc }}"
+
+      # 通知发完再让 job 反映真实结果，这样 Actions 页面的红/绿仍然可信
+      - name: 按合并退出码决定 job 成败
+        if: always()
+        run: |
+          rc="${{ steps.merge.outputs.rc }}"
+          [ "$rc" = "0" ] && { echo "合并成功"; exit 0; }
+          echo "::error::merge_candidates 退出码 $rc —— 候选已保留，见上方日志"
+          exit 1
