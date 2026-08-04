@@ -82,7 +82,8 @@ def _artist_keys(s: str) -> set[str]:
 
 
 def classify(cand_artist: str, cand_title: str, results: list[dict]) -> tuple[str, dict | None]:
-    ca, ct = _key(cand_artist), _key(cand_title)
+    # ca 已被 ca_set 取代（括号内外都算命中），这里只留 ct
+    ct = _key(cand_title)
     ca_set = _artist_keys(cand_artist)
     cver = _versions(cand_title)
     saw_ver = saw_artist = None

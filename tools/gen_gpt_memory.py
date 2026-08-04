@@ -155,7 +155,7 @@ def build() -> str:
     lines += ["  ".join(hs[i:i+4]) for i in range(0, len(hs), 4)]
     lines += ["```", "", "</details>", "",
               "## 四、待写队列（按本站收录曲目数降序，从队首取）", "",
-              f"完整清单见 [`data/artists_todo.json`](data/artists_todo.json)。**接下来这 60 位优先**：", "", "```"]
+              "完整清单见 [`data/artists_todo.json`](data/artists_todo.json)。**接下来这 60 位优先**：", "", "```"]
     lines += ["  ".join(todo_ranked[i:i+4]) for i in range(0, min(60, len(todo_ranked)), 4)]
     lines += ["```", ""]
 

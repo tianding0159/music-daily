@@ -32,27 +32,6 @@ COUNTER_KEY = "landing"
 def _vinyl_label(n_issues: int, latest_date: str) -> str:
     """传统黑胶纸标签排版：上弧走站名、中间横排期号、下弧走转速。
 
-    真黑胶标签的字是围着中心绕的（上下半圈都正读），CSS 做不到，
-    用两条方向相反的 SVG 弧线 + textPath。viewBox 100×100，圆心 (50,50)。
-    """
-    md = latest_date.replace("-", ".") if latest_date else ""
-    return (
-        '<svg viewBox="0 0 100 100" aria-hidden="true">'
-        '<path id="vt" fill="none" d="M20 50 A30 30 0 0 1 80 50"/>'
-        '<path id="vb" fill="none" d="M16 50 A34 34 0 0 0 84 50"/>'
-        '<text class="arc"><textPath href="#vt" startOffset="50%" text-anchor="middle">'
-        'MUSIC DAILY</textPath></text>'
-        '<text class="mid" x="50" y="47.5" text-anchor="middle">MD-30</text>'
-        f'<text class="sub" x="50" y="56" text-anchor="middle">ISSUE {n_issues:03d}</text>'
-        f'<text class="sub" x="50" y="62" text-anchor="middle">{md}</text>'
-        '<text class="arc lo"><textPath href="#vb" startOffset="50%" text-anchor="middle">'
-        '33\u2153 RPM \u00b7 LONG PLAYING</textPath></text>'
-        '</svg>')
-
-
-def _vinyl_label(n_issues: int, latest_date: str) -> str:
-    """传统黑胶纸标签排版：上弧走站名、中间横排期号、下弧走转速。
-
     真黑胶的标签字是围着中心绕的（上下半圈都正读），CSS 做不到，
     用两条 SVG 弧线 + textPath。viewBox 100×100，圆心 (50,50)。
     """

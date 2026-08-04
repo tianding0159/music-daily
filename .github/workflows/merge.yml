@@ -44,7 +44,12 @@ jobs:
         run: |
           git config user.name "music-daily-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/pool.json data/itunes_cache.json candidates/ quarantine/ reports/ 2>/dev/null || true
+          # data/artists.json 必须在列 —— merge_candidates 的 _apply_bios 会写它
+          # （补库与简介合成一次交付后新增的行为）。漏掉的话简介只写到 runner 磁盘、
+          # 随容器蒸发：合并成功、微信报「+N 首」、Actions 全绿，但库里永远补不上，
+          # 下次同一位艺人又被判「新艺人缺简介」。静默得非常彻底。
+          git add data/pool.json data/artists.json data/itunes_cache.json \
+                  candidates/ quarantine/ reports/ 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "无变更（候选为空/全部隔离），跳过提交"
           else

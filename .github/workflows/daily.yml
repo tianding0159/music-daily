@@ -42,7 +42,12 @@ jobs:
         run: |
           git config user.name "music-daily-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/history.json data/issues data/latest.json data/itunes_cache.json site
+          # pool_media.json 必须在列 —— build_daily 每次增量补封面/试听后写它
+          # （见 build_daily.py:197「媒体增量补 N 首，剩 M 首下次继续」）。
+          # 漏掉的话增量永远回不到库里：每天重新去 iTunes 查同一批、每次限流 3s/首，
+          # 而日报照常出、页面有封面、Actions 全绿 —— 静默空转。
+          git add data/history.json data/issues data/latest.json \
+                  data/itunes_cache.json data/pool_media.json site
           if git diff --cached --quiet; then
             echo "无变更，跳过提交"
           else

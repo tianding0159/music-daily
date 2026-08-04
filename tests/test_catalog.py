@@ -298,6 +298,103 @@ def test_snapshots_copy_in_sync_with_pool():
         f"{[d for d, _, _ in lag]}；跑 python3 tools/refresh_snapshot_copy.py --apply")
 
 
+def test_workflows_commit_what_scripts_write():
+    """每个 workflow 跑的脚本（含它调用的模块）会写的 data/*.json，都必须在 git add 里。
+
+    2026-08-04 一次审计抓到两个同根因的静默 bug：
+      · merge.yml 漏 data/artists.json —— 补库带来的简介只写到 runner 磁盘、
+        随容器蒸发；合并成功、微信报「+N 首」、Actions 全绿，库里却永远补不上。
+      · daily.yml 漏 data/pool_media.json —— 每天增量补的封面/试听全部丢失，
+        第二天重查同一批（每首限流 3s），而日报照常出、页面有封面。
+    根因是「脚本写了什么」与「workflow 提交了什么」之间没有任何东西在对账。
+
+    实现上踩过的两个坑（都靠负向验证才发现）：
+      ① shell 续行：git add 跨行时跨行正则会漏，必须先把 "\\\n" 折平。
+      ② **跨模块写入**：merge_candidates 调 import_bios.apply() 才写 artists.json，
+         而 ARTISTS 常量定义在 import_bios 里。只扫单文件 = 测试通过但没在检查
+         （第一版就是这样：抽掉 merge.yml 的 artists.json 竟然仍全绿）。
+         所以这里要顺着 `import xxx` 把被调用的本地模块一起扫。
+    """
+    import re
+
+    SEARCH_DIRS = ["scripts", "tools"]
+
+    def _resolve(mod):
+        for d in SEARCH_DIRS:
+            f = ROOT / d / f"{mod}.py"
+            if f.exists():
+                return f"{d}/{mod}.py"
+        return None
+
+    def _written(src_path, entry=None, seen=None):
+        """该脚本（含它 import 的本地模块）会写的 data/*.json 集合。"""
+        seen = seen if seen is not None else set()
+        if src_path in seen:
+            return set()
+        seen.add(src_path)
+        src = (ROOT / src_path).read_text(encoding="utf-8")
+
+        # 认两种常量写法：DATA / "x.json" 和 ROOT / "data" / "x.json"
+        consts = {}
+        for m in re.finditer(r'^([A-Z_][A-Z_0-9]*)\s*=\s*DATA\s*/\s*"([^"]+)"',
+                             src, re.M):
+            consts[m.group(1)] = m.group(2)
+        for m in re.finditer(
+                r'^([A-Z_][A-Z_0-9]*)\s*=\s*ROOT\s*/\s*"data"\s*/\s*"([^"]+)"',
+                src, re.M):
+            consts[m.group(1)] = m.group(2)
+
+        scope = src
+        if entry:
+            m = re.search(rf"^def {re.escape(entry)}\(.*?(?=\n(?:def |@|\Z))",
+                          src, re.S | re.M)
+            assert m, f"{src_path} 里找不到入口函数 {entry}（改名了？）"
+            scope = m.group(0)
+
+        out = set()
+        for name, fn in consts.items():
+            if re.search(rf"\b{name}\.write_text\b", scope):
+                out.add(f"data/{fn}")
+
+        # 顺着本地 import 递归：只有 scope 里真的用到 mod.something 才算
+        for m in re.finditer(r"^\s*import\s+([a-z_][a-z_0-9]*)\s*(?:#.*)?$",
+                             src, re.M):
+            mod = m.group(1)
+            path = _resolve(mod)
+            if not path or path == src_path:
+                continue
+            if not re.search(rf"\b{mod}\.\w+", scope):
+                continue
+            out |= _written(path, None, seen)
+        return out
+
+    RUNS = {
+        "merge.yml": [("scripts/merge_candidates.py", None)],
+        "daily.yml": [("scripts/build_daily.py", None)],
+        # 只调 _rebuild_site()，那个函数不写 pool_media.json 也不查 iTunes
+        "import-bios.yml": [("tools/import_bios.py", None),
+                            ("tools/gen_gpt_memory.py", None),
+                            ("scripts/build_daily.py", "_rebuild_site")],
+    }
+
+    problems = []
+    for wf, scripts in RUNS.items():
+        f = ROOT / ".github" / "workflows" / wf
+        if not f.exists():
+            continue
+        y = f.read_text(encoding="utf-8")
+        flat = re.sub(r"\\\s*\n\s*", " ", y)          # 折平 shell 续行
+        adds = " ".join(re.findall(r"git add ([^\n]*)", flat))
+        for sp, entry in scripts:
+            if not (ROOT / sp).exists():
+                continue
+            for target in sorted(_written(sp, entry)):
+                if target not in adds:
+                    problems.append(f"{wf} 跑 {sp} 会写 {target}，但 git add 里没有它")
+    assert not problems, ("workflow 漏提交脚本写出的数据文件：\n  "
+                          + "\n  ".join(problems))
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]
     passed, failed = 0, []

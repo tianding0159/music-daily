@@ -118,7 +118,6 @@ def main() -> int:
     # 真外语（韩/日/西里尔/阿拉伯…）是合法内容，Della Zyr、SE SO NEON 这类韩国艺人
     # 的曲名本来就是韩文；而 mojibake 残迹（å æ ï¼）、U+FFFD 替换字符、
     # 裸 C1 控制符（0x80-0x9F）才是真损坏，必须拦。
-    import unicodedata
     bad_text = []
     for t in pool:
         for f in ("title", "artist", "album", "artist_oneliner", "why", "scene"):

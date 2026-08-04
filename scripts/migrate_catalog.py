@@ -40,7 +40,6 @@ def keyify(s: str) -> str:
 
 
 def detect_version(title: str) -> str:
-    t = " " + keyify(title) + " "  # 注意 keyify 去了空格，这里用原串更稳
     raw = (title or "").lower()
     for w in VERSION_WORDS:
         if w in raw:
