@@ -140,7 +140,11 @@ def merge(cands: list[dict], pool: list[dict], validate: bool = True) -> tuple[l
     today = dt.datetime.now(dt.timezone.utc).astimezone(
         dt.timezone(dt.timedelta(hours=8))).strftime("%Y-%m-%d")
     c = {"input": len(cands), "schema_valid": 0, "exact_match": 0, "acceptable_match": 0,
-         "duplicates": 0, "version_mismatch": 0, "artist_mismatch": 0, "album_mismatch": 0,
+         "duplicates": 0, "version_mismatch": 0, "artist_mismatch": 0,
+         # album_mismatch 恒为 0：itunes.lookup 不做专辑匹配（见其 docstring）。
+         # 保留字段是为了报告 schema 稳定，但【0 不代表「没有专辑错配」，
+         # 代表「从来没检查过」】—— 这两件事在报告里看起来一模一样。
+         "album_mismatch": 0,
          "not_found": 0, "blacklist": 0, "transient_error": 0, "added": 0}
     quarantined: list[dict] = []
     transient = False
@@ -167,6 +171,8 @@ def merge(cands: list[dict], pool: list[dict], validate: bool = True) -> tuple[l
             continue
         year, coll_id = t.get("year", ""), str(t.get("apple_collection_id") or "")
         if validate:
+            # album= 目前不参与匹配（itunes.lookup docstring 说明了原因）。
+            # 保留传参是为了将来实现时不用改调用方，但【别指望它在校验专辑】。
             info = itunes.lookup(artist, title, cache, album=t.get("album", ""))
             status = info["status"]
             if status == "transient_error":

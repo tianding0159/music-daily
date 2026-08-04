@@ -47,6 +47,51 @@ jobs:
 
       # 发布前确认 site/ 不是空的 —— 空目录也能成功部署，会把线上站点清掉，
       # 而且失败得很安静（部署"成功"、页面 404）。
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 必须重建，不能直接发 checkout 里的 site/。
+      # 本 workflow 的 paths 包含 scripts/render_*.py —— 声称「改了渲染器就重新发布」，
+      # 但此前没有任何重建步骤：只改渲染器的 push 会把【上一次提交时的旧产物】发上去，
+      # 而且后面那个「抓线上比对字节数」的校验也发现不了 —— 它比的是线上与仓库里的
+      # site/，两者都是旧的，永远一致、永远绿。（2026-08-04 审计）
+      #
+      # 重建是确定性的（同样的 data/ 必得同样的 site/），所以对「只改了 site/」的
+      # push 也无害：重建后没有 diff，发的还是同一份。
+      - name: 从 data/ 重建 site/（确定性，不联网）
+        run: |
+          set -eo pipefail
+          python3 -c "import sys;sys.path.insert(0,'scripts');import build_daily;build_daily._rebuild_site()"
+          python3 - <<'PY'
+          import json, sys
+          sys.path.insert(0, "scripts")
+          import picker, render_random
+          pool = json.load(open("data/pool.json", encoding="utf-8"))
+          media = json.load(open("data/pool_media.json", encoding="utf-8"))
+          bios = {a["artist"]: a.get("bio", "")
+                  for a in json.load(open("data/artists.json", encoding="utf-8"))}
+          items = [dict(t) for t in pool if picker.is_eligible(t)[0]]
+          for t in items:
+              m = media.get(t["id"], {})
+              t["_cover"], t["_preview"], t["_apple"] = m.get("c",""), m.get("p",""), m.get("a","")
+          open("site/pool.min.json","w",encoding="utf-8").write(
+              render_random.build_pool_json(items))
+          open("site/artists.min.json","w",encoding="utf-8").write(
+              render_random.build_artist_json(items, bios))
+          open("site/random.html","w",encoding="utf-8").write(
+              render_random.build_html(len(items)))
+          print(f"重建完成（{len(items)} 首）")
+          PY
+          # 诚实报告：重建后有 diff 说明仓库里的 site/ 之前是滞后的。
+          # 不当成失败（本 workflow 就是来修正这种滞后的），但要让它可见。
+          if ! git diff --quiet -- site/; then
+            echo "::warning::重建后 site/ 有变化，说明仓库里的产物此前滞后于渲染器/数据："
+            git diff --stat -- site/ | sed 's/^/::warning::/'
+          else
+            echo "重建结果与仓库中的 site/ 一致（产物本来就是最新的）"
+          fi
+
       - name: 检查 site/ 有内容
         run: |
           set -e

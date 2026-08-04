@@ -179,6 +179,19 @@ def _mk(status: str, best: dict | None, country: str, error: str = "", retryable
 
 
 def lookup(artist: str, title: str, cache: dict, album: str = "") -> dict:
+    """按 artist + title 查 iTunes。返回 status 枚举之一（见模块 docstring）。
+
+    ⚠️ **album 参数当前【不参与匹配】，纯占位。** 2026-08-04 审计确认：
+    它从声明起就没被读过，`album_mismatch` 因此从未被任何代码产生
+    （merge_candidates 的计数器恒为 0）。merge_candidates:170 在传这个参数，
+    调用方误以为有专辑级校验 —— 所以这里必须写明，而不是留个沉默的死参数。
+
+    没有直接实现的原因：缓存 1106 条里【一条都没存 collection 字段】，
+    要做专辑匹配得先改 CACHE_SCHEMA 再全量重查，每条限流 3s ≈ 55 分钟，
+    而且会动到现役的 99% 命中数据。收益（专辑级精度）远小于风险，暂不做。
+    真要做的话：_mk() 里补 collection → bump CACHE_SCHEMA → 重查 → 再在
+    classify 里加判据，四步一起，缺一步都会静默失效。
+    """
     key = _key(artist) + "|" + _key(title)
     ent = cache.get(key)
     if ent and ent.get("schema") == CACHE_SCHEMA and ent.get("status") != "transient_error":

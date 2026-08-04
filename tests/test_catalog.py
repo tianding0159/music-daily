@@ -298,6 +298,26 @@ def test_snapshots_copy_in_sync_with_pool():
         f"{[d for d, _, _ in lag]}；跑 python3 tools/refresh_snapshot_copy.py --apply")
 
 
+def test_wechat_desp_uses_real_total_not_brief_len():
+    """微信推送的曲目数必须来自当期真实总数，不能是 tracks_brief 的长度。
+
+    2026-08-04 审计抓到：latest.json 的 tracks_brief 只有 6 条（摘要用），
+    而 build_desp 拿 len(tracks) 当总数 —— 于是每天推送都写「今日 6 首已更新」，
+    实际是 30 首。真值在 latest["n"]，此前没人用。
+    """
+    import importlib
+    sys.path.insert(0, str(ROOT / "scripts"))
+    pw = importlib.import_module("push_wechat")
+    brief = [{"title": f"T{i}", "artist": f"A{i}"} for i in range(6)]
+    title, desp = pw.build_desp("2026-01-01", "https://x/", brief, total=30)
+    assert "30首" in title, f"标题没用真实总数：{title}"
+    assert "今日 30 首" in desp, f"正文没用真实总数：{desp.splitlines()[0]}"
+    assert "6首" not in title and "今日 6 首" not in desp, "仍在用摘要条数当总数"
+    # 缺省回退：不传 total 时用 len(tracks)，保持直接调用的兼容
+    t2, _ = pw.build_desp("2026-01-01", "https://x/", brief)
+    assert "6首" in t2, "不传 total 时应回退到 len(tracks)"
+
+
 def test_media_adoption_uses_accept_not_found():
     """采纳封面/试听的判据必须是 status ∈ itunes.ACCEPT，不能是 found。
 

@@ -58,7 +58,11 @@ def main() -> int:
         return 0
     import push_wechat  # 延迟导入
     tracks = latest.get("tracks_brief", [])
-    title, desp = push_wechat.build_desp(latest.get("date", ""), check, tracks, warn=latest.get("low_pool_warn"))
+    # total 传 latest["n"]（当期真实曲目数），不能用 len(tracks)——
+    # tracks 是 tracks_brief，只有 6 条摘要。
+    title, desp = push_wechat.build_desp(
+        latest.get("date", ""), check, tracks,
+        warn=latest.get("low_pool_warn"), total=latest.get("n"))
     if push_wechat.push(title, desp):
         print("✅ 微信推送成功")
     else:

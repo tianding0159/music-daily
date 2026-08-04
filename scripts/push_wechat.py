@@ -53,14 +53,22 @@ def push(title: str, desp_md: str, key: str | None = None,
 
 
 def build_desp(date_str: str, url: str, tracks: list[dict],
-               warn: str | None = None) -> tuple[str, str]:
-    """返回 (title, markdown desp)。列前几首勾一下胃口；warn 非空时附低池预警（A 方案）。"""
-    title = f"🎵 今日音乐日报 · {date_str} · {len(tracks)}首"
-    lines = [f"**{date_str} 今日 {len(tracks)} 首已更新**", "", f"👉 [点开今日日报]({url})", ""]
+               warn: str | None = None, total: int | None = None) -> tuple[str, str]:
+    """返回 (title, markdown desp)。列前几首勾一下胃口；warn 非空时附低池预警（A 方案）。
+
+    total：当期【真实】曲目数。必须与 tracks 分开传 —— tracks 是
+    latest.json 的 tracks_brief，只有 6 条摘要，不是整期。
+    2026-08-04 审计抓到：旧代码拿 len(tracks) 当总数，于是每天推送都写
+    「今日 6 首已更新」，而实际是 30 首。真值在 latest.json 的 n 字段里，
+    此前没人用。缺省回退到 len(tracks) 只为兼容直接调用的场景。
+    """
+    n = total if total is not None else len(tracks)
+    title = f"🎵 今日音乐日报 · {date_str} · {n}首"
+    lines = [f"**{date_str} 今日 {n} 首已更新**", "", f"👉 [点开今日日报]({url})", ""]
     for t in tracks[:5]:
         lines.append(f"- {t['title']} — {t['artist']}")
-    if len(tracks) > 5:
-        lines.append(f"- …等共 {len(tracks)} 首")
+    if n > 5:
+        lines.append(f"- …等共 {n} 首")
     if warn:
         lines += ["", "---", warn]
     return title, "\n".join(lines)
