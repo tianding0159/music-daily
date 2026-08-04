@@ -1,35 +1,37 @@
 {
-  "date": "2026-08-03",
-  "issue_no": 7,
-  "playlist_title": "夜色很稠，节拍很轻（08.03）",
+  "date": "2026-08-04",
+  "issue_no": 8,
+  "playlist_title": "夏天傍晚，风还没凉下来（08.04）",
   "tracks_brief": [
     {
-      "title": "Peacekeeper",
-      "artist": "1010benja"
+      "title": "Breakfast",
+      "artist": "Fana Hues"
     },
     {
-      "title": "Mother Maybe",
-      "artist": "Kadhja Bonet"
+      "title": "The Bottom of It",
+      "artist": "Fruit Bats"
     },
     {
-      "title": "TOKYO SNIPER",
-      "artist": "Ryusenkei"
+      "title": "Sweetness and Light",
+      "artist": "Lush"
     },
     {
-      "title": "Blue Lagoon",
-      "artist": "Masayoshi Takanaka"
+      "title": "Moonshine Freeze",
+      "artist": "This Is the Kit"
     },
     {
-      "title": "Holy",
-      "artist": "Jamila Woods"
+      "title": "Sour Mango",
+      "artist": "Gabriel Garzón-Montano"
     },
     {
-      "title": "Existe Uma Voz",
-      "artist": "Rogê"
+      "title": "Joy",
+      "artist": "Tenci"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true
 }

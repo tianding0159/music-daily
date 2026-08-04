@@ -24622,5 +24622,24 @@
     "release_year": "2021",
     "error_type": "",
     "retryable": false
+  },
+  "gabrielgarzonmontano|sourmango": {
+    "schema": 2,
+    "lookup_ts": 1785801638,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "accepted": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music62/v4/22/91/72/22917204-a286-5875-608f-dbba9ca34971/jardin.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/ed/7c/36/ed7c36b6-0bf1-369f-b014-ac27d13c4ddc/mzaf_6411998231712232995.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/sour-mango/1178839747?i=1178839789&uo=4",
+    "track_id": 1178839789,
+    "collection_id": 1178839747,
+    "matched_artist": "Gabriel Garzón-Montano",
+    "matched_title": "Sour Mango",
+    "collection_name": "Jardín",
+    "release_year": "2016",
+    "error_type": "",
+    "retryable": false
   }
 }
