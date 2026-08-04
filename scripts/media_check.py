@@ -28,6 +28,7 @@ import itunes  # noqa: E402
 DATA = Path(__file__).resolve().parent.parent / "data"
 POOL = DATA / "pool.json"
 MEDIA = DATA / "pool_media.json"
+ISSUES = DATA / "issues"          # 期号快照：媒体在生成当天就被冻进去了
 
 
 def audit() -> dict:
@@ -61,6 +62,29 @@ def audit() -> dict:
         if ent and ent.get("status") == "not_found":
             rep["cached_not_found"].append(label)
     rep["orphan_media"] = [i for i in media if i not in by_id]
+
+    # 快照也要扫。_rebuild_site() 是从 data/issues/*.json 渲染的，媒体在生成
+    # 当天就被【冻】进快照了 —— 后来修好 pool_media 也洗不掉它。
+    # 只扫 pool_media 会给出假绿：2026-08-04 审计时 bad_status 报 0，
+    # 而 2026-07-29 的归档页上正挂着 4 张错封面（含 Ride On Time 配 DEEN 的专辑图，
+    # 点播放听到的是另一个人），线上实测确认。
+    rep["bad_status_snapshot"] = []
+    if ISSUES.is_dir():
+        for f in sorted(ISSUES.glob("*.json")):
+            try:
+                snap = json.loads(f.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            for t in snap.get("tracks", []):
+                if not t.get("_cover"):
+                    continue
+                k = (itunes._key(t.get("artist", "")) + "|"
+                     + itunes._key(t.get("title", "")))
+                ent = cache.get(k)
+                if ent and ent.get("status") not in itunes.ACCEPT:
+                    rep["bad_status_snapshot"].append(
+                        f"{f.stem} · {t.get('artist','')} — {t.get('title','')}"
+                        f"  [{ent.get('status')}]")
     return rep
 
 
@@ -120,6 +144,8 @@ def main() -> int:
     for key, title, is_p0 in [
         ("missing_entry", "media 表无记录（从未查过）", True),
         ("bad_status", "展示了非 ACCEPT 的匹配（错版本/错艺人）", True),
+        # 快照里的错媒体：归档页正在展示它，且修 pool_media 洗不掉
+        ("bad_status_snapshot", "期号快照里冻着非 ACCEPT 的匹配（归档页正在展示）", True),
         ("orphan_media", "media 有记录但池里没这首", False),
         ("no_cover", "无封面（页面显示艺人首字母）", False),
         ("no_preview", "无试听", False),

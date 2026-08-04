@@ -298,6 +298,41 @@ def test_snapshots_copy_in_sync_with_pool():
         f"{[d for d, _, _ in lag]}；跑 python3 tools/refresh_snapshot_copy.py --apply")
 
 
+def test_snapshots_have_no_bad_status_media():
+    """期号快照里不能冻着非 ACCEPT 的媒体 —— 归档页是从快照渲染的。
+
+    2026-08-04 审计实测：2026-07-29 那期有 4 首带着 artist_mismatch /
+    version_mismatch 的封面和试听，线上归档页正在展示（Ride On Time 挂的是
+    DEEN 的专辑图，点播放听到的是另一个人）。而当时 healthcheck 报
+    bad_status: 0 —— 因为 media_check 只扫 pool_media.json，看不见快照。
+    修 pool_media 洗不掉快照，必须单独有工具（tools/fix_snapshot_media.py）。
+
+    这条断言必须在快照洗干净【之后】才加，否则 canary 立刻红而手上没有
+    能让它变绿的工具。
+    """
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import importlib
+    it = importlib.import_module("itunes")
+    cache = it.load_cache()
+    issues = ROOT / "data" / "issues"
+    if not issues.is_dir():
+        return
+    bad = []
+    for f in sorted(issues.glob("*.json")):
+        snap = json.loads(f.read_text(encoding="utf-8"))
+        for t in snap.get("tracks", []):
+            if not t.get("_cover"):
+                continue
+            k = it._key(t.get("artist", "")) + "|" + it._key(t.get("title", ""))
+            ent = cache.get(k)
+            if ent and ent.get("status") not in it.ACCEPT:
+                bad.append(f"{f.stem} {t.get('artist')} — {t.get('title')} "
+                           f"[{ent.get('status')}]")
+    assert not bad, ("快照里冻着非 ACCEPT 媒体（归档页正在展示错封面/错试听），"
+                     "跑 python3 tools/fix_snapshot_media.py --apply：\n  "
+                     + "\n  ".join(bad))
+
+
 def test_wechat_desp_uses_real_total_not_brief_len():
     """微信推送的曲目数必须来自当期真实总数，不能是 tracks_brief 的长度。
 

@@ -1,1574 +1,1574 @@
 {
-  "issue_no": 2,
-  "date": "2026-07-29",
-  "generated_at": "2026-07-29T07:21:14+00:00",
-  "theme": "grid",
-  "playlist_title": "木头、旧磁带和一点灰（07.29）",
-  "netease_text": "木头、旧磁带和一点灰（07.29）\nShow Me How - Men I Trust\nTwo Thousand and Seventeen - Four Tet\n都会 - Taeko Onuki\nHeartbeats - José González\nBefore I Move Off - Mount Kimbie\nRemember Summer Days - Anri\nCocktail Moon - VIDEOTAPEMUSIC\nHard Drive - Cassandra Jenkins\nAround Again - Hovvdy\nYkytu - Fabiano do Nascimento\nRead the Room (feat. Laetitia Sadier) - Pearl & The Oysters\nNo Butterflies, No Nothing - Erika de Casier\nShed That Fear - Nourished by Time\nBaby Blue - Cindy Lee\nHighway Star, Speed Star - Cymbals\n街の人 - Lucky Old Sun (ラッキーオールドサン)\nmiu - Marina Herlop\nTeardrop - Massive Attack\nbaby blue - Sunny Day Service (サニーデイ・サービス)\nDress Down - Kaoru Akimoto (秋元薫)\nNeedy Bees - Nick Hakim\n(No One Knows Me) Like the Piano - Sampha\nCherry-coloured Funk - Cocteau Twins\nCharcoal Baby - Blood Orange\nNorthern Sky - Nick Drake\nQuitter's Raga - Gold Panda\nRide On Time - Tatsuro Yamashita\nA Letter from Home - Ulrich Schnauss\nThe Limp - Surprise Chef\nShinzo no Tobira (心臓の扉) - Mariah",
-  "tracks": [
-    {
-      "id": "sha1:e7887d3d8cb781e8",
-      "title": "Show Me How",
-      "artist": "Men I Trust",
-      "year": "2018",
-      "album": "Show Me How",
-      "genres": [
-        "dream pop",
-        "bedroom pop",
-        "indietronica"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "tender",
-        "unhurried",
-        "airy"
-      ],
-      "production_tags": [
-        "soft compression",
-        "warm bass",
-        "analog warmth"
-      ],
-      "instrumentation": [
-        "圆润 bass",
-        "clean guitar",
-        "合成器"
-      ],
-      "vocal_style": "breathy 女声",
-      "bpm_band": "90-100",
-      "has_melody": true,
-      "scene": "光从窗帘缝斜切进来，先躺着数了会儿墙上的影子。",
-      "artist_oneliner": "魁北克三人组，把「松」磨成一门手艺，音符边缘全部倒圆。",
-      "why": "低音线圆滚滚地在底下打转，人声贴着耳廓吹气。干净到几乎听不出杂质的制作，摸上去还是温的。",
-      "fit_score": 92.0,
-      "source": "社区高口碑 / bedroom pop 代表",
-      "source_url": "",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Men I Trust",
-      "title_display": "Show Me How",
-      "artist_key": "menitrust",
-      "title_key": "showmehow",
-      "version": "",
-      "album_key": "showmehow",
-      "legacy_ids": [
-        "men-i-trust-show-me-how"
-      ],
-      "familiarity": "possibly-known",
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/cf/57/39/cf5739e6-332a-e64c-bed0-b763893c0517/artwork.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/c9/0a/46/c90a464f-379e-8f7a-a212-e22823ac9122/mzaf_8128269148088916110.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/show-me-how/1719975687?i=1719975688&uo=4"
-    },
-    {
-      "id": "sha1:51a90c56270136b7",
-      "title": "Two Thousand and Seventeen",
-      "artist": "Four Tet",
-      "year": "2017",
-      "album": "New Energy",
-      "genres": [
-        "organic electronic",
-        "ambient pop",
-        "downtempo"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "airy",
-        "unhurried",
-        "restrained"
-      ],
-      "production_tags": [
-        "granular",
-        "reverb space",
-        "wide stereo"
-      ],
-      "instrumentation": [
-        "拨弦合成器",
-        "手碟感打击"
-      ],
-      "vocal_style": "无",
-      "bpm_band": "100-110",
-      "has_melody": true,
-      "scene": "傍晚烧一壶水，等它开的这几分钟什么也没干。",
-      "artist_oneliner": "Four Tet 最松的那张 New Energy，拨弦几乎替掉了鼓。",
-      "why": "拨弦像水琴一样绕圈，每绕一圈就多添一样东西。空间铺得很开，中间始终有条旋律线牵着走，不是把 pad 堆在那儿就算数。",
-      "fit_score": 91.0,
-      "source": "New Energy 精选",
-      "source_url": "",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Four Tet",
-      "title_display": "Two Thousand and Seventeen",
-      "artist_key": "fourtet",
-      "title_key": "twothousandandseventeen",
-      "version": "",
-      "album_key": "newenergy",
-      "legacy_ids": [
-        "four-tet-two-thousand-and-seventeen"
-      ],
-      "familiarity": "possibly-known",
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/aa/99/b5/aa99b504-2656-85c4-965a-3bc80e52d0f2/666017319728_cover.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/11/12/50/111250a0-ca7d-8ab2-461c-f772f8c316ec/mzaf_1936462126950328626.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/two-thousand-and-seventeen/1288517633?i=1288518126&uo=4"
-    },
-    {
-      "id": "sha1:32ee00d81522c99c",
-      "title": "都会",
-      "artist": "Taeko Onuki",
-      "year": "1977",
-      "album": "Sunshower",
-      "genres": [
-        "city pop",
-        "sophisti-pop",
-        "jazz pop"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "late night",
-        "restrained",
-        "nostalgic"
-      ],
-      "production_tags": [
-        "analog warmth",
-        "lush strings",
-        "soft"
-      ],
-      "instrumentation": [
-        "电钢琴",
-        "弦乐",
-        "jazz bass"
-      ],
-      "vocal_style": "温润女声",
-      "bpm_band": "90-100",
-      "has_melody": true,
-      "scene": "站在人多的路口，忽然发现自己没在跟任何人说话。",
-      "artist_oneliner": "大貫妙子，Sunshower 时期的东京女声，优雅里始终隔一段距离。",
-      "why": "唱的是都市灯火，站的位置在人群外面。弦乐一层层往上叠、和声绕得比一般流行歌远，钢琴反而收着手。",
-      "fit_score": 91.0,
-      "source": "Sunshower 乐评公认杰作",
-      "source_url": "",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Taeko Onuki",
-      "title_display": "都会",
-      "artist_key": "taekoonuki",
-      "title_key": "都会",
-      "version": "",
-      "album_key": "sunshower",
-      "legacy_ids": [
-        "taeko-onuki-tokai"
-      ],
-      "familiarity": "possibly-known",
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/57/a1/ff/57a1ff39-eb23-40d9-1e91-f8fcc923f4a9/CRCPX-20462.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/56/02/9b/56029b67-6523-fc43-9019-506ae8ba6ac7/mzaf_15684091404769046844.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/jp/album/%E9%83%BD%E4%BC%9A/1481213369?i=1481213374&uo=4"
-    },
-    {
-      "id": "sha1:a5dd107ce5201a5d",
-      "title": "Heartbeats",
-      "artist": "José González",
-      "year": "2003",
-      "album": "Veneer",
-      "genres": [
-        "ambient folk",
-        "indie folk"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "woody",
-        "tender",
-        "human"
-      ],
-      "production_tags": [
-        "analog warmth",
-        "close mic",
-        "soft"
-      ],
-      "instrumentation": [
-        "nylon guitar"
-      ],
-      "vocal_style": "轻柔男声",
-      "bpm_band": "90-100",
-      "has_melody": true,
-      "scene": "关灯坐在地板上，把音量调到只听见指甲碰弦。",
-      "artist_oneliner": "José González，瑞典哥德堡人，阿根廷家族，只用一把尼龙弦。",
-      "why": "尼龙弦被指甲拨得颗颗分明，人声近到能听见每一次换气。The Knife 那首电子原曲被他扒到只剩木头和呼吸。",
-      "fit_score": 90.0,
-      "source": "Veneer / The Knife 翻唱名版",
-      "source_url": "",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "José González",
-      "title_display": "Heartbeats",
-      "artist_key": "josgonzlez",
-      "title_key": "heartbeats",
-      "version": "",
-      "album_key": "veneer",
-      "legacy_ids": [
-        "jose-gonzalez-heartbeats"
-      ],
-      "familiarity": "possibly-known",
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/74/4e/93/744e930f-65d9-dffb-5d86-1360bb5a6bc5/724596932452.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/32/87/b6/3287b631-6497-8dfe-9766-77c1427848e7/mzaf_6755861276223187353.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/heartbeats/828118023?i=828118037&uo=4"
-    },
-    {
-      "id": "sha1:686f506582e2a3a0",
-      "title": "Before I Move Off",
-      "artist": "Mount Kimbie",
-      "year": "2010",
-      "album": "Crooks & Lovers",
-      "genres": [
-        "indietronica",
-        "downtempo",
-        "electro-acoustic"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "grainy",
-        "late night",
-        "airy"
-      ],
-      "production_tags": [
-        "granular",
-        "field recording",
-        "soft",
-        "warm"
-      ],
-      "instrumentation": [
-        "切片吉他",
-        "人声采样",
-        "打击"
-      ],
-      "vocal_style": "切片人声",
-      "bpm_band": "90-100",
-      "has_melody": true,
-      "scene": "末班车玻璃外的灯一段段抽走，站名听漏了一个。",
-      "artist_oneliner": "Mount Kimbie，把日常噪音编进节拍，接缝留着不磨。",
-      "why": "窸窸窣窣的日常声响（field recording）被编进温软的律动，人声切碎了当乐器使。细节埋得很密，每听一遍都能再捞出新的一颗。",
-      "fit_score": 88.0,
-      "source": "Crooks & Lovers 长青",
-      "source_url": "",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Mount Kimbie",
-      "title_display": "Before I Move Off",
-      "artist_key": "mountkimbie",
-      "title_key": "beforeimoveoff",
-      "version": "",
-      "album_key": "crookslovers",
-      "legacy_ids": [
-        "mount-kimbie-before-i-move-off"
-      ],
-      "familiarity": "possibly-known",
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/7b/d5/94/7bd5944b-7533-c842-bc12-a9d7160f63a0/5055317207197_Cover.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/63/a5/39/63a539b3-743f-6664-a023-d8a9cdead991/mzaf_256131007362614590.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/before-i-move-off/762980504?i=762980581&uo=4"
-    },
-    {
-      "id": "sha1:b183f9e913da24ec",
-      "title": "Remember Summer Days",
-      "artist": "Anri",
-      "year": "1983",
-      "album": "Timely!!",
-      "genres": [
-        "city pop",
-        "jazz pop"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "summer dusk",
-        "unhurried",
-        "nostalgic"
-      ],
-      "production_tags": [
-        "analog warmth",
-        "soft",
-        "wide stereo"
-      ],
-      "instrumentation": [
-        "电钢琴",
-        "funky bass",
-        "clean guitar"
-      ],
-      "vocal_style": "清甜女声",
-      "bpm_band": "105-115",
-      "has_melody": true,
-      "scene": "翻出一张旧合照，认出照片里那个人当年的表情。",
-      "artist_oneliner": "杏里，角松敏生编曲下的夏日女声，高音亮得像反光的海面。",
-      "why": "前奏电钢一响，海风就进来了，节奏轻快得像小跑。杏里唱得干净不使劲，标题写的是「记得那些夏天」——这份甜是回头看的，不是正在发生。",
-      "fit_score": 88.0,
-      "source": "City Pop 夏日经典",
-      "source_url": "",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Anri",
-      "title_display": "Remember Summer Days",
-      "artist_key": "anri",
-      "title_key": "remembersummerdays",
-      "version": "",
-      "album_key": "timely",
-      "legacy_ids": [
-        "anri-remember-summer-days"
-      ],
-      "familiarity": "possibly-known",
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/72/26/5d/72265d48-d844-8217-1944-288436a50820/mzi.jgyybcqg.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/17/9a/5f/179a5f10-3ca1-0745-e2c1-21aee09274d4/mzaf_11371664483752023361.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/remember-summer-days-bonus-track/283306771?i=283306782&uo=4"
-    },
-    {
-      "id": "sha1:5c2a92db55154b35",
-      "title": "Cocktail Moon",
-      "artist": "VIDEOTAPEMUSIC",
-      "year": "2020",
-      "album": "Cocktail Moon (Single)",
-      "genres": [
-        "sampledelia",
-        "hypnagogic pop",
-        "downtempo",
-        "exotica"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "nostalgic",
-        "late night",
-        "unhurried"
-      ],
-      "production_tags": [
-        "tape saturation",
-        "VHS sampling",
-        "dub echo",
-        "round wooden bass",
-        "granular",
-        "warm high-end"
-      ],
-      "instrumentation": [],
-      "vocal_style": "以采样人声与器乐为主，偶有嘉宾轻唱",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "likely-unheard",
-      "scene": "冰块在杯子里塌下去一格，风扇正好转到你这边。",
-      "artist_oneliner": "东京的采样匠，素材全从二手店淘的废弃 VHS 带里抠出来。",
-      "why": "dub回声一层层散开，木头贝斯在底下慢慢走，像一杯正在化开的月光鸡尾酒。数码采样和自然声揉得看不出接缝，做旧这门手艺他手最稳。",
-      "fit_score": 86.0,
-      "source": "VIDEOTAPEMUSIC Bandcamp discography",
-      "source_url": "https://videotapemusic.bandcamp.com/",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "VIDEOTAPEMUSIC",
-      "title_display": "Cocktail Moon",
-      "artist_key": "videotapemusic",
-      "title_key": "cocktailmoon",
-      "version": "",
-      "album_key": "cocktailmoon",
-      "legacy_ids": [
-        "d-videotapemus-cocktailmoon"
-      ],
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/10/ad/f0/10adf0e8-8283-dabb-63d7-d67d030cb17c/4538182831519_cov.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/4f/f0/53/4ff0536b-4e82-51a4-775b-4cd2be9ae248/mzaf_4257265667178952991.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/cocktail-moon-feat-mellow-fellow/1472319950?i=1472320068&uo=4"
-    },
-    {
-      "id": "sha1:3455dd4cb554d57a",
-      "title": "Hard Drive",
-      "artist": "Cassandra Jenkins",
-      "year": "2021",
-      "album": "An Overview on Phenomenal Nature",
-      "genres": [
-        "sophisti-pop",
-        "art pop",
-        "ambient folk",
-        "chamber pop"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "tender",
-        "floating",
-        "late night"
-      ],
-      "production_tags": [
-        "saxophone",
-        "ambient 铺底",
-        "field recording",
-        "宽 stereo",
-        "柔和高频",
-        "spoken-word 段落"
-      ],
-      "instrumentation": [],
-      "vocal_style": "半说半唱的温柔叙述，副歌化成气声吟唱",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "likely-unheard",
-      "scene": "在街上走了四十分钟没有目的，红灯前停下，鼻子突然一酸。",
-      "artist_oneliner": "纽约词曲人，口语独白说着说着化成气声，萨克斯和街声在底下接住。",
-      "why": "半说半唱的独白慢慢化成气声吟唱，萨克斯和环境声在底下托着。副歌那句『count to three』落下来，像有人从背后轻拍你的肩。",
-      "fit_score": 86.0,
-      "source": "Wikipedia (An Overview on Phenomenal Nature)",
-      "source_url": "https://en.wikipedia.org/wiki/An_Overview_on_Phenomenal_Nature",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Cassandra Jenkins",
-      "title_display": "Hard Drive",
-      "artist_key": "cassandrajenkins",
-      "title_key": "harddrive",
-      "version": "",
-      "album_key": "anoverviewonphenomenalnature",
-      "legacy_ids": [
-        "d-cassandrajen-harddrive"
-      ],
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/08/7f/29/087f2972-9e02-4f6e-670c-d69d364336c0/600197016428.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/95/7d/4c/957d4c95-d266-fa00-d124-5fdd919ab441/mzaf_5397077128534061862.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/hard-drive/1539427484?i=1539427490&uo=4"
-    },
-    {
-      "id": "sha1:744ab228cc60e728",
-      "title": "Around Again",
-      "artist": "Hovvdy",
-      "year": "2021",
-      "album": "True Love",
-      "genres": [
-        "bedroom pop",
-        "indie folk",
-        "slowcore"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "tender",
-        "warm",
-        "melancholy"
-      ],
-      "production_tags": [
-        "lo-fi",
-        "tape warmth",
-        "muted drums",
-        "soft synth pad",
-        "rounded bass",
-        "gentle mix"
-      ],
-      "instrumentation": [],
-      "vocal_style": "柔和男声、松弛、略带鼻音的亲切感",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "likely-unheard",
-      "scene": "午后被子堆在腿上没盖好，电视开着但没在看。",
-      "artist_oneliner": "德州二人组，自称做 pillowcore——闷鼓压到最低，旋律钩子还在。",
-      "why": "闷鼓压得很低，暖tape和软塌塌的合成pad托着一把带鼻音的男声。慢，不闷，每首都有一个抓得住的旋律钩——卧室流行本该长这样。",
-      "fit_score": 86.0,
-      "source": "Bandcamp",
-      "source_url": "https://hovvdy.bandcamp.com/album/true-love",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Hovvdy",
-      "title_display": "Around Again",
-      "artist_key": "hovvdy",
-      "title_key": "aroundagain",
-      "version": "",
-      "album_key": "truelove",
-      "legacy_ids": [
-        "d-hovvdy-aroundagain"
-      ],
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c9/57/2d/c9572d7a-f810-bf30-2b4b-f3180a06d9d5/196006635138.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/75/13/43/751343c7-d523-5848-53ac-7e1f5897c535/mzaf_3066772526877613571.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/around-again/1570535704?i=1570536524&uo=4"
-    },
-    {
-      "id": "sha1:e4c0631270f2149e",
-      "title": "Ykytu",
-      "artist": "Fabiano do Nascimento",
-      "year": "2021",
-      "album": "Ykytu",
-      "genres": [
-        "modern bossa",
-        "ambient folk",
-        "jazz",
-        "organic electronic"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "unhurried",
-        "woody",
-        "organic"
-      ],
-      "production_tags": [
-        "nylon guitar",
-        "field recording",
-        "granular",
-        "优秀reverb",
-        "柔和高频",
-        "analog warmth"
-      ],
-      "instrumentation": [],
-      "vocal_style": "器乐为主，轻人声点缀",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "likely-unheard",
-      "scene": "树荫下坐了很久，光斑从膝盖挪到脚背。",
-      "artist_oneliner": "两头跑洛杉矶和东京的巴西吉他手，指弹尼龙弦上织进自然录音和细碎电子。",
-      "why": "指弹尼龙弦上叠着细碎电子和自然采样，电子的进出像一次次呼吸。暖而不腻，中间留着能喘气的空。",
-      "fit_score": 86.0,
-      "source": "MusicBrainz + Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Fabiano_do_Nascimento",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Fabiano do Nascimento",
-      "title_display": "Ykytu",
-      "artist_key": "fabianodonascimento",
-      "title_key": "ykytu",
-      "version": "",
-      "album_key": "ykytu",
-      "legacy_ids": [
-        "d-fabianodonas-ykytu"
-      ],
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c0/01/1b/c0011b20-a0bd-d20a-96d9-4bd8d240405f/NA5220-FABIANO-YKYTU-web1500.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/c2/e4/53/c2e45353-1418-73bc-0964-0e553f713c17/mzaf_9923930400457659573.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/ykytu/1583127969?i=1583127978&uo=4"
-    },
-    {
-      "id": "sha1:d728eae73929849f",
-      "title": "Read the Room (feat. Laetitia Sadier)",
-      "artist": "Pearl & The Oysters",
-      "year": "2023",
-      "album": "Coast 2 Coast",
-      "genres": [
-        "shibuya-kei",
-        "sunshine pop",
-        "indietronica",
-        "library music",
-        "lounge pop"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "upbeat",
-        "airy",
-        "nostalgic"
-      ],
-      "production_tags": [
-        "vintage synths",
-        "analog warmth",
-        "Juno/M1 pad",
-        "soft high-end",
-        "wide stereo",
-        "playful arrangement"
-      ],
-      "instrumentation": [],
-      "vocal_style": "男女轻声对唱、气声、慵懒松弛，客串的正是 Stereolab 的 Laetitia Sadier",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "likely-unheard",
-      "scene": "副驾把脚搭在储物箱上，路两边的棕榈一棵棵倒过去。",
-      "artist_oneliner": "旅居洛杉矶的法裔二人组，太空时代 lounge 和游戏配乐揉进渋谷系。",
-      "why": "Juno的pad软得像棉花糖，男女气声一句接一句地递过去。Stereolab的Laetitia Sadier亲自来唱，血统这下焊死了。",
-      "fit_score": 86.0,
-      "source": "Bandcamp",
-      "source_url": "https://pearlandtheoysters.bandcamp.com/album/coast-2-coast",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Pearl & The Oysters",
-      "title_display": "Read the Room (feat. Laetitia Sadier)",
-      "artist_key": "pearltheoysters",
-      "title_key": "readtheroom",
-      "version": "",
-      "album_key": "coast2coast",
-      "legacy_ids": [
-        "d-pearltheoyst-readtheroomfeatl"
-      ],
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/fa/96/15/fa9615a9-9285-04a6-f9f5-9f99717e6b6c/1662.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/be/6a/ca/be6aca8a-0216-920e-7b88-2697a98b2c01/mzaf_2397982978410383603.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/read-the-room-feat-laetitia-sadier/1665327524?i=1665328072&uo=4"
-    },
-    {
-      "id": "sha1:69a25e02f6acd4e5",
-      "title": "No Butterflies, No Nothing",
-      "artist": "Erika de Casier",
-      "year": "2021",
-      "album": "Sensational",
-      "genres": [
-        "quiet alternative r&b",
-        "leftfield pop",
-        "downtempo"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "wintry",
-        "late night",
-        "intimate"
-      ],
-      "production_tags": [
-        "2-step garage groove",
-        "subtle glossy synths",
-        "restrained mix",
-        "soft high-end",
-        "wide stereo",
-        "Y2K reference"
-      ],
-      "instrumentation": [],
-      "vocal_style": "极轻的气声女声、贴耳低语，克制不飙",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "likely-unheard",
-      "scene": "跟人告别之后自己走回去，一路没拿出手机。",
-      "artist_oneliner": "葡萄牙裔丹麦歌手，气声从不放大，2-step 的碎拍替她把话说完。",
-      "why": "气声浮在轻巧的2-step碎拍上，全程收着不放大。没有大鼓也没有drop，只留丝滑和空当——跟那些一味刺耳的爆款R&B划得很清。",
-      "fit_score": 86.0,
-      "source": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Sensational_(Erika_de_Casier_album)",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Erika de Casier",
-      "title_display": "No Butterflies, No Nothing",
-      "artist_key": "erikadecasier",
-      "title_key": "nobutterfliesnonothing",
-      "version": "",
-      "album_key": "sensational",
-      "legacy_ids": [
-        "d-erikadecasie-nobutterfliesnon"
-      ],
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/10/e2/df/10e2df8f-7bba-1cbd-86aa-2f4a269c399d/191400035478.png/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview124/v4/0e/1f/0c/0e1f0cc8-f0ca-5600-90e0-cfb354d37d52/mzaf_8987548653598534387.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/no-butterflies-no-nothing/1560653786?i=1560654640&uo=4"
-    },
-    {
-      "id": "sha1:64bd55dea4d25795",
-      "title": "Shed That Fear",
-      "artist": "Nourished by Time",
-      "year": "2023",
-      "album": "Erotic Probiotic 2",
-      "genres": [
-        "quiet alternative r&b",
-        "indietronica",
-        "dream pop",
-        "leftfield pop"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "nostalgic",
-        "late night",
-        "hopeful"
-      ],
-      "production_tags": [
-        "卧室 synth",
-        "analog warmth",
-        "drum machine",
-        "宽 pad",
-        "lo-fi 录音感",
-        "圆润 bassline"
-      ],
-      "instrumentation": [],
-      "vocal_style": "低沉温厚男声，带一点 croon，层叠回声",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "likely-unheard",
-      "scene": "回家那段路天色转灰，路灯还没亮，你放慢脚步等它亮。",
-      "artist_oneliner": "巴尔的摩的 Marcus Brown，一个人在卧室拼出 80 年代合成器的暖和它的孤独。",
-      "why": "一个人在卧室里做完的东西，听着有整支乐队的暖度。drum machine 配圆润 bassline 撑起一段极抓耳的旋律，怀旧音色裹着非常当下的孤独。",
-      "fit_score": 86.0,
-      "source": "Wikipedia (Nourished by Time / Erotic Probiotic 2)",
-      "source_url": "https://en.wikipedia.org/wiki/Erotic_Probiotic_2",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Nourished by Time",
-      "title_display": "Shed That Fear",
-      "artist_key": "nourishedbytime",
-      "title_key": "shedthatfear",
-      "version": "",
-      "album_key": "eroticprobiotic2",
-      "legacy_ids": [
-        "d-nourishedbyt-shedthatfear"
-      ],
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/35/80/fe/3580fec2-babb-becd-6556-9eda3fb9b9c9/5057998161133_T.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/de/0d/a3/de0da317-44d7-403d-3df1-a7b9f6199424/mzaf_14802949547690490040.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/shed-that-fear/1818221375?i=1818221383&uo=4"
-    },
-    {
-      "id": "sha1:86535e80f1c00049",
-      "title": "Baby Blue",
-      "artist": "Cindy Lee",
-      "year": "2024",
-      "album": "Diamond Jubilee",
-      "genres": [
-        "hypnagogic pop",
-        "dream pop",
-        "sampledelia"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "nostalgic",
-        "hazy",
-        "melancholy"
-      ],
-      "production_tags": [
-        "tape saturation",
-        "AM radio lo-fi",
-        "颗粒感",
-        "reverb 空间",
-        "vintage girl-group 编曲",
-        "hiss"
-      ],
-      "instrumentation": [],
-      "vocal_style": "飘忽双性气声，像隔着旧胶带的幽灵合声",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "likely-unheard",
-      "scene": "抽屉最底层的旧照片摊了一桌，收音机正卡在两个频道之间。",
-      "artist_oneliner": "Patrick Flegel 在 Women 解散后立起的女性化身，甜歌永远隔着一层旧胶带。",
-      "why": "旋律是彻头彻尾六十年代少女组合式的甜，被裹进磁带 hiss 和昏黄混响里发潮。甜和幽灵感同时在场，hypnagogic pop 的命门就在这儿。",
-      "fit_score": 86.0,
-      "source": "Wikipedia (Diamond Jubilee album — 已确认专辑与 Baby Blue 曲目)",
-      "source_url": "https://en.wikipedia.org/wiki/Diamond_Jubilee_(album)",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Cindy Lee",
-      "title_display": "Baby Blue",
-      "artist_key": "cindylee",
-      "title_key": "babyblue",
-      "version": "",
-      "album_key": "diamondjubilee",
-      "legacy_ids": [
-        "d-cindylee-babyblue"
-      ],
-      "_cover": "",
-      "_preview": "",
-      "_apple": ""
-    },
-    {
-      "id": "sha1:82298279bbd8a2bc",
-      "title": "Highway Star, Speed Star",
-      "artist": "Cymbals",
-      "year": "2000",
-      "album": "Mr.Noone Special",
-      "genres": [
-        "shibuya-kei",
-        "guitar pop",
-        "indie pop"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "upbeat",
-        "late night",
-        "nostalgic"
-      ],
-      "production_tags": [
-        "jangle guitar",
-        "shuffle groove",
-        "round bass",
-        "retro pop arrangement"
-      ],
-      "instrumentation": [],
-      "vocal_style": "土岐麻子的女声，甜而不腻、带一点爵士咬字",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "likely-unheard",
-      "scene": "站在自动扶梯上没走动，脚尖已经开始跟着打拍子。",
-      "artist_oneliner": "世纪之交的渋谷系三人组，主唱土岐麻子那点爵士咬字，甜里带口音。",
-      "why": "shuffle律动一晃一晃，jangle吉他叮叮当当追在后面。土岐麻子把爵士的咬字化进甜里，Cornelius、Flipper那片林子往深走就到这。",
-      "fit_score": 86.0,
-      "source": "Wikipedia (Cymbals)",
-      "source_url": "https://ja.wikipedia.org/wiki/Cymbals",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Cymbals",
-      "title_display": "Highway Star, Speed Star",
-      "artist_key": "cymbals",
-      "title_key": "highwaystarspeedstar",
-      "version": "",
-      "album_key": "mrnoonespecial",
-      "legacy_ids": [
-        "d-cymbals-highwaystarspeed"
-      ],
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/33/90/43/339043eb-2f5f-53dc-d3e2-ce8384e8c6d9/VICL-35170.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/c6/0f/8b/c60f8b7e-4221-c602-af2e-1f61f9f63b7c/mzaf_4869558234980133959.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/highway-star-speed-star/1720674244?i=1720674245&uo=4"
-    },
-    {
-      "id": "sha1:656187de1376c257",
-      "title": "街の人",
-      "artist": "Lucky Old Sun (ラッキーオールドサン)",
-      "year": "2021",
-      "album": "うすらい",
-      "genres": [
-        "japanese indie pop",
-        "folk",
-        "city pop"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "summer dusk",
-        "unhurried",
-        "tender"
-      ],
-      "production_tags": [
-        "clean guitar",
-        "warm room sound",
-        "soft groove",
-        "analog warmth"
-      ],
-      "instrumentation": [],
-      "vocal_style": "ナナ的柔和女声与篠原良彰男声的男女和声",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "likely-unheard",
-      "scene": "拎着塑料袋从便利店出来，路口的车都停着等灯。",
-      "artist_oneliner": "ナナ与篠原良彰的夫妻二人组，民谣往城市那头走了半步。",
-      "why": "男女和声铺在带体温的房间录音上，写一座城里普通人的黄昏。电影《街の上で》的主题曲，好就好在朴素——听得见人真的在场。",
-      "fit_score": 86.0,
-      "source": "Wikipedia (ラッキーオールドサン)",
-      "source_url": "https://ja.wikipedia.org/wiki/ラッキーオールドサン",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Lucky Old Sun (ラッキーオールドサン)",
-      "title_display": "街の人",
-      "artist_key": "luckyoldsun",
-      "title_key": "街の人",
-      "version": "",
-      "album_key": "うすらい",
-      "legacy_ids": [
-        "d-luckyoldsunラ-街の人"
-      ],
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/17/80/8d/17808d27-38b4-c58d-2e46-9ac6d628f631/4550753876408_cover.png/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/da/4a/8b/da4a8b62-cb70-f96f-3095-51520f8141c7/mzaf_11138753936131627509.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/jp/album/%E8%A1%97%E3%81%AE%E4%BA%BA/1880394959?i=1880394966&uo=4"
-    },
-    {
-      "id": "sha1:b1c5d16596ade968",
-      "title": "miu",
-      "artist": "Marina Herlop",
-      "year": "2022",
-      "album": "Pripyat",
-      "genres": [
-        "art pop",
-        "leftfield pop",
-        "electro-acoustic"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "dreamlike",
-        "fragile",
-        "restrained"
-      ],
-      "production_tags": [
-        "granular processing",
-        "subtle glitch",
-        "piano",
-        "layered vocals",
-        "digital-organic blend",
-        "PAN aesthetic"
-      ],
-      "instrumentation": [],
-      "vocal_style": "多层女声，受印度卡纳提克唱法启发，被颗粒化处理成人声织体",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "likely-unheard",
-      "scene": "教堂里没有别人，你听见自己咽口水的声音。",
-      "artist_oneliner": "巴塞罗那钢琴科班出身，把卡纳提克唱法碾成一层层晶体，PAN 出品。",
-      "why": "多层女声被颗粒处理拆成一片细密碎响，和钢琴缠着走、又时时错开。卡纳提克的骨架配art pop的皮，旋律始终清晰，不是无调噪音。",
-      "fit_score": 86.0,
-      "source": "Bandcamp",
-      "source_url": "https://marinaherlop.bandcamp.com/album/pripyat",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Marina Herlop",
-      "title_display": "miu",
-      "artist_key": "marinaherlop",
-      "title_key": "miu",
-      "version": "",
-      "album_key": "pripyat",
-      "legacy_ids": [
-        "d-marinaherlop-miu"
-      ],
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/bf/66/af/bf66af51-d208-095c-861d-b55d9ea92403/26408.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/74/5b/71/745b7185-466d-6274-7602-e35dc1128344/mzaf_17566852107555782107.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/miu/1582821287?i=1582821290&uo=4"
-    },
-    {
-      "id": "sha1:f8384d3c930e8349",
-      "title": "Teardrop",
-      "artist": "Massive Attack",
-      "year": "1998",
-      "album": "Mezzanine",
-      "genres": [
-        "trip-hop",
-        "downtempo"
-      ],
-      "genre_stars": 4,
-      "mood_tags": [
-        "rainy",
-        "late night",
-        "tender"
-      ],
-      "production_tags": [
-        "analog warmth",
-        "reverb space",
-        "soft"
-      ],
-      "instrumentation": [
-        "harpsichord",
-        "采样鼓",
-        "钢琴"
-      ],
-      "vocal_style": "空灵女声",
-      "bpm_band": "70-80",
-      "has_melody": true,
-      "scene": "靠着车窗，一颗水珠沿玻璃往下爬，爬到一半停住。",
-      "artist_oneliner": "同在布里斯托的 Massive Attack，每张唱片换一位客座嗓音顶在前面。",
-      "why": "那段拨弦 loop 像心跳，一下一下顶着往前走。人声在上面轻轻荡，忧郁打底，旋律一响就钻进记忆里不出来。",
-      "fit_score": 88.0,
-      "source": "Mezzanine 名盘",
-      "source_url": "",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Massive Attack",
-      "title_display": "Teardrop",
-      "artist_key": "massiveattack",
-      "title_key": "teardrop",
-      "version": "",
-      "album_key": "mezzanine",
-      "legacy_ids": [
-        "massive-attack-teardrop"
-      ],
-      "familiarity": "possibly-known",
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/0a/98/55/0a98555b-8d9d-3b46-660a-b91261557d17/00724384559953.rgb.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f0/31/78/f0317854-f180-d1cd-a974-8acc48834b7b/mzaf_8992917226755403839.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/teardrop/724466069?i=724466700&uo=4"
-    },
-    {
-      "id": "sha1:abc2b72858454edb",
-      "title": "baby blue",
-      "artist": "Sunny Day Service (サニーデイ・サービス)",
-      "year": "1997",
-      "album": "サニーデイ・サービス",
-      "genres": [
-        "japanese indie pop",
-        "guitar pop",
-        "folk rock"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "summer dusk",
-        "hopeful",
-        "unhurried"
-      ],
-      "production_tags": [
-        "jangle guitar",
-        "lo-fi warmth",
-        "70s-flavored arrangement",
-        "analog room sound"
-      ],
-      "instrumentation": [],
-      "vocal_style": "曽我部恵一略带沙哑的温柔男声",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "possibly-known",
-      "scene": "T恤后背被汗粘住，从便利店冰柜里拿一瓶贴在脖子上。",
-      "artist_oneliner": "曽我部恵一的三人组，把 70 年代民谣的毛边接到东京青春上。",
-      "why": "jangle吉他撞上带房间感的lo-fi录音，1997年的夏天听起来像刚被晒褪色。那股颗粒是录音本身给的，不是后期贴上去的滤镜。",
-      "fit_score": 80.0,
-      "source": "Wikipedia (サニーデイ・サービス)",
-      "source_url": "https://ja.wikipedia.org/wiki/サニーデイ・サービス",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Sunny Day Service (サニーデイ・サービス)",
-      "title_display": "baby blue",
-      "artist_key": "sunnydayservice",
-      "title_key": "babyblue",
-      "version": "",
-      "album_key": "サニーデイ・サービス",
-      "legacy_ids": [
-        "d-sunnydayserv-babyblue"
-      ],
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/44/fd/ef/44fdef60-f09d-1857-e56d-c00b889febeb/11821600.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/27/9f/e5/279fe5f2-eb9b-381c-b3e7-7cb7badacf45/mzaf_13446387753224501347.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/baby-blue/1441621132?i=1441621133&uo=4"
-    },
-    {
-      "id": "sha1:43f52621c37f9441",
-      "title": "Dress Down",
-      "artist": "Kaoru Akimoto (秋元薫)",
-      "year": "1986",
-      "album": "Cologne",
-      "genres": [
-        "city pop",
-        "aor",
-        "boogie"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "late night",
-        "unhurried",
-        "nostalgic"
-      ],
-      "production_tags": [
-        "DX7 synth",
-        "warm slap bass",
-        "smooth groove",
-        "80s reverb",
-        "wide stereo"
-      ],
-      "instrumentation": [],
-      "vocal_style": "温柔从容的女声，气口松弛",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "possibly-known",
-      "scene": "深夜第二杯倒好了搁在桌上，你先去把窗帘拉严实。",
-      "artist_oneliner": "唱《Cologne》的 city pop 歌手，气口松到像刚把高跟鞋踢开。",
-      "why": "秋元薫的气口松到像刚脱掉高跟鞋，DX7的电钢一层层往外摊夜色。slap bass弹得圆，不炸低频；1986年的真货，不是复古滤镜。",
-      "fit_score": 80.0,
-      "source": "Wikipedia (秋元薫)",
-      "source_url": "https://ja.wikipedia.org/wiki/秋元薫",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Kaoru Akimoto (秋元薫)",
-      "title_display": "Dress Down",
-      "artist_key": "kaoruakimoto",
-      "title_key": "dressdown",
-      "version": "",
-      "album_key": "cologne",
-      "legacy_ids": [
-        "d-kaoruakimoto-dressdown"
-      ],
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/60/f2/37/60f23702-b7e3-d529-abf2-ed56a8fbbc68/VEATP-34226.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/40/bc/c2/40bcc22e-ba0d-0924-ab8c-da7d40353c56/mzaf_4772645034301018186.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/dress-down/1237549660?i=1237549875&uo=4"
-    },
-    {
-      "id": "sha1:284ffdd1036a8697",
-      "title": "Needy Bees",
-      "artist": "Nick Hakim",
-      "year": "2017",
-      "album": "Green Twins",
-      "genres": [
-        "neo soul",
-        "quiet alternative r&b",
-        "psychedelic pop"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "hazy",
-        "unhurried",
-        "rainy"
-      ],
-      "production_tags": [
-        "hazy reverb",
-        "tape saturation",
-        "warm 低频",
-        "psych 键盘",
-        "lo-fi 空间",
-        "圆润 bass"
-      ],
-      "instrumentation": [],
-      "vocal_style": "沙哑温软男声，泡在混响里，多层叠唱",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "possibly-known",
-      "scene": "沙发陷得很深，暖灯只开一盏，你忘了刚才在想什么。",
-      "artist_oneliner": "华盛顿出身的 neo soul 手艺人——人声和乐器一起泡进烟一样化不开的混响。",
-      "why": "人声和乐器一起泡在温热的混响里，像烟一样化不开。底下有一条清晰旋律穿雾而过——粗颗粒的温柔，Blood Orange 和 Sampha 的听众会认得。",
-      "fit_score": 80.0,
-      "source": "Wikipedia (Green Twins — 已确认 2017 Nick Hakim 专辑，含 Needy Bees)",
-      "source_url": "https://en.wikipedia.org/wiki/Green_Twins",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Nick Hakim",
-      "title_display": "Needy Bees",
-      "artist_key": "nickhakim",
-      "title_key": "needybees",
-      "version": "",
-      "album_key": "greentwins",
-      "legacy_ids": [
-        "d-nickhakim-needybees"
-      ],
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/dc/b7/f0/dcb7f0e6-3846-1b07-8c9f-c630cb0e98bf/cover.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e0/28/52/e02852ee-58f6-b3da-cd85-aac990b74a30/mzaf_13121244893082209205.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/needy-bees/1219744639?i=1219744644&uo=4"
-    },
-    {
-      "id": "sha1:51b8bbeab6c95519",
-      "title": "(No One Knows Me) Like the Piano",
-      "artist": "Sampha",
-      "year": "2017",
-      "album": "Process",
-      "genres": [
-        "neo soul",
-        "quiet alternative r&b",
-        "chamber pop"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "tender",
-        "human",
-        "rainy"
-      ],
-      "production_tags": [
-        "felt piano",
-        "soft",
-        "reverb space",
-        "analog warmth"
-      ],
-      "instrumentation": [
-        "felt piano"
-      ],
-      "vocal_style": "真挚男声",
-      "bpm_band": "70-80",
-      "has_melody": true,
-      "scene": "推开门屋里没人，钥匙扔在鞋柜上，站着没动。",
-      "artist_oneliner": "南伦敦的 Sampha，一架钢琴加一把嗓子，房间自己就静了。",
-      "why": "写的是他母亲家那架陪了半生的钢琴，毡音几乎素颜，没做修饰。人声贴着琴键起伏，力气省到不能再省，眼泪先落下来了。",
-      "fit_score": 92.0,
-      "source": "Process / Mercury 奖",
-      "source_url": "",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Sampha",
-      "title_display": "(No One Knows Me) Like the Piano",
-      "artist_key": "sampha",
-      "title_key": "likethepiano",
-      "version": "",
-      "album_key": "process",
-      "legacy_ids": [
-        "sampha-no-one-knows-me-like-the-piano"
-      ],
-      "familiarity": "possibly-known",
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/95/8d/ed/958ded66-ec58-2347-caa3-dfa2c0e417e1/889030015860.png/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/a0/3e/7e/a03e7eb1-d40c-dc0d-04b0-6209837f8e7d/mzaf_9095946026493753904.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/no-one-knows-me-like-the-piano/1138217713?i=1138217731&uo=4"
-    },
-    {
-      "id": "sha1:db93221c9ec4a511",
-      "title": "Cherry-coloured Funk",
-      "artist": "Cocteau Twins",
-      "year": "1990",
-      "album": "Heaven or Las Vegas",
-      "genres": [
-        "dream pop",
-        "ambient pop"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "airy",
-        "tender",
-        "nostalgic"
-      ],
-      "production_tags": [
-        "reverb space",
-        "chorus guitar",
-        "wide stereo"
-      ],
-      "instrumentation": [
-        "chorus guitar",
-        "合成器",
-        "drum machine"
-      ],
-      "vocal_style": "缥缈女声",
-      "bpm_band": "100-110",
-      "has_melody": true,
-      "scene": "午睡刚醒，屋里光白得发亮，身体还没跟上。",
-      "artist_oneliner": "苏格兰格兰奇茅斯的三人组，歌词是自造音节，话照样说清楚。",
-      "why": "她唱的是自造的音节，你听不懂一个词，情绪全接住了。合唱效果的吉他叠成一层层云——三十多年过去，梦幻流行还在学她这一口。",
-      "fit_score": 90.0,
-      "source": "Heaven or Las Vegas 殿堂",
-      "source_url": "",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Cocteau Twins",
-      "title_display": "Cherry-coloured Funk",
-      "artist_key": "cocteautwins",
-      "title_key": "cherrycolouredfunk",
-      "version": "",
-      "album_key": "heavenorlasvegas",
-      "legacy_ids": [
-        "cocteau-twins-cherry-coloured-funk"
-      ],
-      "familiarity": "possibly-known",
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/76/cd/61/76cd61e7-0714-dce5-c48e-0f05f8fcb84b/652637001280.png/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/46/03/91/460391bc-4154-31ed-7a6d-3e8e5c36dd64/mzaf_4069160857181811263.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/cherry-coloured-funk/258198881?i=258198956&uo=4"
-    },
-    {
-      "id": "sha1:3267a74d714ae6c0",
-      "title": "Charcoal Baby",
-      "artist": "Blood Orange",
-      "year": "2018",
-      "album": "Negro Swan",
-      "genres": [
-        "neo soul",
-        "leftfield pop",
-        "quiet alternative r&b"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "late night",
-        "tender",
-        "restrained"
-      ],
-      "production_tags": [
-        "soft compression",
-        "warm bass",
-        "analog warmth"
-      ],
-      "instrumentation": [
-        "clean guitar",
-        "圆润 bass",
-        "合成器"
-      ],
-      "vocal_style": "柔和 falsetto",
-      "bpm_band": "90-100",
-      "has_melody": true,
-      "scene": "想打给谁，翻完通讯录又把手机扣在桌上。",
-      "artist_oneliner": "Dev Hynes——从伦敦搬到纽约的多面手，最痛的地方一律不拔高。",
-      "why": "最痛的地方他从不拔高嗓门。吉他拨得克制，falsetto 一直压着，「come on and let me know」唱得越平静，底下的孤独越清楚。",
-      "fit_score": 89.0,
-      "source": "Negro Swan / Pitchfork 好评",
-      "source_url": "",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Blood Orange",
-      "title_display": "Charcoal Baby",
-      "artist_key": "bloodorange",
-      "title_key": "charcoalbaby",
-      "version": "",
-      "album_key": "negroswan",
-      "legacy_ids": [
-        "blood-orange-charcoal-baby"
-      ],
-      "familiarity": "possibly-known",
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b4/98/ba/b498ba20-cef3-aef7-3327-280a981c8527/887828042166.png/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4e/e1/7f/4ee17fe6-b996-f46f-0b00-d5361b802cef/mzaf_6942069272625135481.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/charcoal-baby/1413298173?i=1413299301&uo=4"
-    },
-    {
-      "id": "sha1:c2fb8e3582056784",
-      "title": "Northern Sky",
-      "artist": "Nick Drake",
-      "year": "1970",
-      "album": "Bryter Layter",
-      "genres": [
-        "ambient folk",
-        "chamber pop"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "woody",
-        "tender",
-        "nostalgic"
-      ],
-      "production_tags": [
-        "analog warmth",
-        "lush strings",
-        "soft"
-      ],
-      "instrumentation": [
-        "fingerstyle guitar",
-        "钢琴",
-        "celesta"
-      ],
-      "vocal_style": "温柔男声",
-      "bpm_band": "80-90",
-      "has_melody": true,
-      "scene": "窗帘缝里第一道光落在被子上，人醒了没动。",
-      "artist_oneliner": "Nick Drake——三张唱片就走完一生，嗓音压到几乎不用力。",
-      "why": "指弹一颗颗滚出来，John Cale 的键盘和弦乐在后头暖着，不上前。编曲点到即止，暖意全靠留白撑住。",
-      "fit_score": 90.0,
-      "source": "Bryter Layter 殿堂",
-      "source_url": "",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Nick Drake",
-      "title_display": "Northern Sky",
-      "artist_key": "nickdrake",
-      "title_key": "northernsky",
-      "version": "",
-      "album_key": "bryterlayter",
-      "legacy_ids": [
-        "nick-drake-northern-sky"
-      ],
-      "familiarity": "possibly-known",
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/09/0a/de/090adef8-d0f6-6681-a8b4-f33aa52c2c5c/00602537415816.rgb.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/cf/3f/c2/cf3fc2bf-65a9-ddfb-fd77-3051aa45de6d/mzaf_10946942166732598203.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/northern-sky/1440822546?i=1440822868&uo=4"
-    },
-    {
-      "id": "sha1:84259b37fb73f554",
-      "title": "Quitter's Raga",
-      "artist": "Gold Panda",
-      "year": "2010",
-      "album": "Lucky Shiner",
-      "genres": [
-        "organic electronic",
-        "idm",
-        "downtempo"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "grainy",
-        "airy",
-        "unhurried"
-      ],
-      "production_tags": [
-        "granular",
-        "chopped sample",
-        "analog warmth"
-      ],
-      "instrumentation": [
-        "西塔琴采样",
-        "切片打击"
-      ],
-      "vocal_style": "无",
-      "bpm_band": "100-110",
-      "has_melody": true,
-      "scene": "把摊了一周的纸摞好，手停下来才听见屋里多静。",
-      "artist_oneliner": "英国制作人 Gold Panda，采样的刀口不藏，接缝本身就是节奏。",
-      "why": "西塔琴被剪成一小段一小段，错位叠回一条旋律，底下电子鼓温温地转。东方的弦音和机器的规整咬在一起，谁也没盖过谁。",
-      "fit_score": 88.0,
-      "source": "Lucky Shiner 精选",
-      "source_url": "",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Gold Panda",
-      "title_display": "Quitter's Raga",
-      "artist_key": "goldpanda",
-      "title_key": "quittersraga",
-      "version": "",
-      "album_key": "luckyshiner",
-      "legacy_ids": [
-        "gold-panda-quitters-raga"
-      ],
-      "familiarity": "possibly-known",
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/c4/4e/84/c44e8417-c359-abae-e6ca-108339bfc1e5/cover.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/25/39/48/25394826-c621-6001-e1d7-a2c098c49abd/mzaf_16667510853786330580.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/quitters-raga/679486287?i=679486529&uo=4"
-    },
-    {
-      "id": "sha1:dc7cb7d59118b4c2",
-      "title": "Ride On Time",
-      "artist": "Tatsuro Yamashita",
-      "year": "1980",
-      "album": "Ride On Time",
-      "genres": [
-        "city pop",
-        "sophisti-pop"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "summer dusk",
-        "late night",
-        "nostalgic"
-      ],
-      "production_tags": [
-        "analog warmth",
-        "wide stereo",
-        "brass"
-      ],
-      "instrumentation": [
-        "电钢琴",
-        "funky bass",
-        "brass"
-      ],
-      "vocal_style": "醇厚男声 + 叠层和声",
-      "bpm_band": "110-120",
-      "has_melody": true,
-      "scene": "沿海公路摇下车窗，风灌满袖子，手在方向盘上打拍子。",
-      "artist_oneliner": "山下达郎——一个人叠出一整支合唱团的 city pop 制作狂。",
-      "why": "铜管一开，天顶就被推高了。他把自己的和声叠了一层又一层，密得像一群人替他喊，groove 一路往前冲，不留一点犹豫。",
-      "fit_score": 89.0,
-      "source": "City Pop 原典",
-      "source_url": "",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Tatsuro Yamashita",
-      "title_display": "Ride On Time",
-      "artist_key": "tatsuroyamashita",
-      "title_key": "rideontime",
-      "version": "",
-      "album_key": "rideontime",
-      "legacy_ids": [
-        "tatsuro-yamashita-ride-on-time"
-      ],
-      "familiarity": "possibly-known",
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/87/52/9c/87529ca3-843f-3cd2-3b64-d6911b64f2e3/4547366494839.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/f5/32/c8/f532c8f7-d149-b358-6844-f7b69cc695d9/mzaf_10002279256396351348.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/ride-on-time/1547545466?i=1547545629&uo=4"
-    },
-    {
-      "id": "sha1:a6f3382159d91c05",
-      "title": "A Letter from Home",
-      "artist": "Ulrich Schnauss",
-      "year": "2003",
-      "album": "A Strangely Isolated Place",
-      "genres": [
-        "dream pop",
-        "shoegaze(电子)",
-        "ambient pop",
-        "indietronica"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "nostalgic",
-        "airy",
-        "late night"
-      ],
-      "production_tags": [
-        "层叠合成器",
-        "宽stereo",
-        "柔和高频",
-        "海洋reverb",
-        "shoegaze wall"
-      ],
-      "instrumentation": [],
-      "vocal_style": "器乐为主(人声化成pad)",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "possibly-known",
-      "scene": "车窗外的灯一颗颗往后掉，你把额头贴上玻璃。",
-      "artist_oneliner": "德国的 Ulrich Schnauss，shoegaze 那面墙在他手里换成了一层层合成器。",
-      "why": "合成器一层压一层，堆成一朵会发光的旋律云。人声化成背景 pad，词认不出来，那份想家倒是认得出。",
-      "fit_score": 80.0,
-      "source": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/A_Strangely_Isolated_Place",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Ulrich Schnauss",
-      "title_display": "A Letter from Home",
-      "artist_key": "ulrichschnauss",
-      "title_key": "aletterfromhome",
-      "version": "",
-      "album_key": "astrangelyisolatedplace",
-      "legacy_ids": [
-        "d-ulrichschnau-aletterfromhome"
-      ],
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/0a/a5/24/0aa52481-0f20-2fa7-e641-dca3c5d77a2e/5051083142984_cover.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/3b/29/07/3b290778-c3da-9adf-bc84-0a87e1d42088/mzaf_12195865019164422588.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/a-letter-from-home-2019-remaster/1488529595?i=1488530302&uo=4"
-    },
-    {
-      "id": "sha1:8ff5d09b32e99f33",
-      "title": "The Limp",
-      "artist": "Surprise Chef",
-      "year": "2021",
-      "album": "Daylight Savings",
-      "genres": [
-        "cinematic soul",
-        "jazz-funk",
-        "downtempo",
-        "library music"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "unhurried",
-        "late night",
-        "cinematic"
-      ],
-      "production_tags": [
-        "analog warmth",
-        "tape saturation",
-        "圆润木质贝斯",
-        "Rhodes/felt keys",
-        "优秀reverb",
-        "柔和高频"
-      ],
-      "instrumentation": [],
-      "vocal_style": "器乐无人声",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "likely-unheard",
-      "scene": "空高架上一脚油门，顺手把音量拧大一格。",
-      "artist_oneliner": "墨尔本的器乐组，接的是 David Axelrod 那条电影灵魂乐的线，做法却全 DIY。",
-      "why": "整首没人开口唱，木质贝斯蹭着磁带饱和往前挪，一步一步不着急。Khruangbin那一挂的器乐soul，音量拧到很小也照样撑得住一整个晚上。",
-      "fit_score": 86.0,
-      "source": "MusicBrainz + Bandcamp",
-      "source_url": "https://surprisechef.bandcamp.com/",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Surprise Chef",
-      "title_display": "The Limp",
-      "artist_key": "surprisechef",
-      "title_key": "thelimp",
-      "version": "",
-      "album_key": "daylightsavings",
-      "legacy_ids": [
-        "d-surprisechef-thelimp"
-      ],
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/6a/95/f8/6a95f81c-2aab-95d9-a43e-8106d204d52d/7119691267418_MRBLPSurpriseChefDaylightSavingsxpxls.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/93/df/83/93df8344-5a32-8487-7755-9a516a9681dc/mzaf_13824178371119132471.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/the-limp/1862793292?i=1862793632&uo=4"
-    },
-    {
-      "id": "sha1:fc3ffde2465a676c",
-      "title": "Shinzo no Tobira (心臓の扉)",
-      "artist": "Mariah",
-      "year": "1983",
-      "album": "Utakata no Hibi (うたかたの日々)",
-      "genres": [
-        "leftfield pop",
-        "fourth world",
-        "art pop",
-        "minimal electronica",
-        "city pop"
-      ],
-      "genre_stars": 5,
-      "mood_tags": [
-        "nostalgic",
-        "airy",
-        "dreamlike"
-      ],
-      "production_tags": [
-        "synth pad",
-        "圆润木质贝斯",
-        "wide stereo",
-        "granular",
-        "tape"
-      ],
-      "instrumentation": [],
-      "vocal_style": "无国界语言的梦呓吟唱，气声、层叠",
-      "bpm_band": "70–120",
-      "has_melody": true,
-      "familiarity": "likely-unheard",
-      "scene": "副驾的窗全开，脑子彻底放空，风景一路往后退。",
-      "artist_oneliner": "清水靖晃参与的 1983 年乐队，专辑冷门多年，Palto Flats 再版后成了全球邪典。",
-      "why": "人声用谁也听不懂的语言梦呓，木质贝斯一步一步走在第四世界的合成器底子上。1983年的东西，钩子黏得比现在多数新歌都狠。",
-      "fit_score": 86.0,
-      "source": "MusicBrainz",
-      "source_url": "https://musicbrainz.org/search?query=Mariah%20Utakata%20no%20Hibi&type=release&method=indexed",
-      "added_date": "2026-07-28",
-      "apple_track_id": "",
-      "apple_collection_id": "",
-      "artist_display": "Mariah",
-      "title_display": "Shinzo no Tobira (心臓の扉)",
-      "artist_key": "mariah",
-      "title_key": "shinzonotobira",
-      "version": "",
-      "album_key": "utakatanohibi",
-      "legacy_ids": [
-        "d-mariah-shinzonotobira心臓"
-      ],
-      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/0f/42/25/0f42252b-698b-6a98-649a-8ebf4e85ab05/COCB-54216.jpg/600x600bb.jpg",
-      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/2f/c3/b0/2fc3b02c-f6a2-9f1d-eb8a-1a9a7c2bf291/mzaf_16893789488957758318.plus.aac.p.m4a",
-      "_apple": "https://music.apple.com/us/album/shinzo-no-tobira/1472149501?i=1472149509&uo=4"
-    }
-  ]
+ "issue_no": 2,
+ "date": "2026-07-29",
+ "generated_at": "2026-07-29T07:21:14+00:00",
+ "theme": "grid",
+ "playlist_title": "木头、旧磁带和一点灰（07.29）",
+ "netease_text": "木头、旧磁带和一点灰（07.29）\nShow Me How - Men I Trust\nTwo Thousand and Seventeen - Four Tet\n都会 - Taeko Onuki\nHeartbeats - José González\nBefore I Move Off - Mount Kimbie\nRemember Summer Days - Anri\nCocktail Moon - VIDEOTAPEMUSIC\nHard Drive - Cassandra Jenkins\nAround Again - Hovvdy\nYkytu - Fabiano do Nascimento\nRead the Room (feat. Laetitia Sadier) - Pearl & The Oysters\nNo Butterflies, No Nothing - Erika de Casier\nShed That Fear - Nourished by Time\nBaby Blue - Cindy Lee\nHighway Star, Speed Star - Cymbals\n街の人 - Lucky Old Sun (ラッキーオールドサン)\nmiu - Marina Herlop\nTeardrop - Massive Attack\nbaby blue - Sunny Day Service (サニーデイ・サービス)\nDress Down - Kaoru Akimoto (秋元薫)\nNeedy Bees - Nick Hakim\n(No One Knows Me) Like the Piano - Sampha\nCherry-coloured Funk - Cocteau Twins\nCharcoal Baby - Blood Orange\nNorthern Sky - Nick Drake\nQuitter's Raga - Gold Panda\nRide On Time - Tatsuro Yamashita\nA Letter from Home - Ulrich Schnauss\nThe Limp - Surprise Chef\nShinzo no Tobira (心臓の扉) - Mariah",
+ "tracks": [
+  {
+   "id": "sha1:e7887d3d8cb781e8",
+   "title": "Show Me How",
+   "artist": "Men I Trust",
+   "year": "2018",
+   "album": "Show Me How",
+   "genres": [
+    "dream pop",
+    "bedroom pop",
+    "indietronica"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "tender",
+    "unhurried",
+    "airy"
+   ],
+   "production_tags": [
+    "soft compression",
+    "warm bass",
+    "analog warmth"
+   ],
+   "instrumentation": [
+    "圆润 bass",
+    "clean guitar",
+    "合成器"
+   ],
+   "vocal_style": "breathy 女声",
+   "bpm_band": "90-100",
+   "has_melody": true,
+   "scene": "光从窗帘缝斜切进来，先躺着数了会儿墙上的影子。",
+   "artist_oneliner": "魁北克三人组，把「松」磨成一门手艺，音符边缘全部倒圆。",
+   "why": "低音线圆滚滚地在底下打转，人声贴着耳廓吹气。干净到几乎听不出杂质的制作，摸上去还是温的。",
+   "fit_score": 92.0,
+   "source": "社区高口碑 / bedroom pop 代表",
+   "source_url": "",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Men I Trust",
+   "title_display": "Show Me How",
+   "artist_key": "menitrust",
+   "title_key": "showmehow",
+   "version": "",
+   "album_key": "showmehow",
+   "legacy_ids": [
+    "men-i-trust-show-me-how"
+   ],
+   "familiarity": "possibly-known",
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/cf/57/39/cf5739e6-332a-e64c-bed0-b763893c0517/artwork.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/c9/0a/46/c90a464f-379e-8f7a-a212-e22823ac9122/mzaf_8128269148088916110.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/show-me-how/1719975687?i=1719975688&uo=4"
+  },
+  {
+   "id": "sha1:51a90c56270136b7",
+   "title": "Two Thousand and Seventeen",
+   "artist": "Four Tet",
+   "year": "2017",
+   "album": "New Energy",
+   "genres": [
+    "organic electronic",
+    "ambient pop",
+    "downtempo"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "airy",
+    "unhurried",
+    "restrained"
+   ],
+   "production_tags": [
+    "granular",
+    "reverb space",
+    "wide stereo"
+   ],
+   "instrumentation": [
+    "拨弦合成器",
+    "手碟感打击"
+   ],
+   "vocal_style": "无",
+   "bpm_band": "100-110",
+   "has_melody": true,
+   "scene": "傍晚烧一壶水，等它开的这几分钟什么也没干。",
+   "artist_oneliner": "Four Tet 最松的那张 New Energy，拨弦几乎替掉了鼓。",
+   "why": "拨弦像水琴一样绕圈，每绕一圈就多添一样东西。空间铺得很开，中间始终有条旋律线牵着走，不是把 pad 堆在那儿就算数。",
+   "fit_score": 91.0,
+   "source": "New Energy 精选",
+   "source_url": "",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Four Tet",
+   "title_display": "Two Thousand and Seventeen",
+   "artist_key": "fourtet",
+   "title_key": "twothousandandseventeen",
+   "version": "",
+   "album_key": "newenergy",
+   "legacy_ids": [
+    "four-tet-two-thousand-and-seventeen"
+   ],
+   "familiarity": "possibly-known",
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/aa/99/b5/aa99b504-2656-85c4-965a-3bc80e52d0f2/666017319728_cover.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/11/12/50/111250a0-ca7d-8ab2-461c-f772f8c316ec/mzaf_1936462126950328626.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/two-thousand-and-seventeen/1288517633?i=1288518126&uo=4"
+  },
+  {
+   "id": "sha1:32ee00d81522c99c",
+   "title": "都会",
+   "artist": "Taeko Onuki",
+   "year": "1977",
+   "album": "Sunshower",
+   "genres": [
+    "city pop",
+    "sophisti-pop",
+    "jazz pop"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "late night",
+    "restrained",
+    "nostalgic"
+   ],
+   "production_tags": [
+    "analog warmth",
+    "lush strings",
+    "soft"
+   ],
+   "instrumentation": [
+    "电钢琴",
+    "弦乐",
+    "jazz bass"
+   ],
+   "vocal_style": "温润女声",
+   "bpm_band": "90-100",
+   "has_melody": true,
+   "scene": "站在人多的路口，忽然发现自己没在跟任何人说话。",
+   "artist_oneliner": "大貫妙子，Sunshower 时期的东京女声，优雅里始终隔一段距离。",
+   "why": "唱的是都市灯火，站的位置在人群外面。弦乐一层层往上叠、和声绕得比一般流行歌远，钢琴反而收着手。",
+   "fit_score": 91.0,
+   "source": "Sunshower 乐评公认杰作",
+   "source_url": "",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Taeko Onuki",
+   "title_display": "都会",
+   "artist_key": "taekoonuki",
+   "title_key": "都会",
+   "version": "",
+   "album_key": "sunshower",
+   "legacy_ids": [
+    "taeko-onuki-tokai"
+   ],
+   "familiarity": "possibly-known",
+   "_cover": "",
+   "_preview": "",
+   "_apple": ""
+  },
+  {
+   "id": "sha1:a5dd107ce5201a5d",
+   "title": "Heartbeats",
+   "artist": "José González",
+   "year": "2003",
+   "album": "Veneer",
+   "genres": [
+    "ambient folk",
+    "indie folk"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "woody",
+    "tender",
+    "human"
+   ],
+   "production_tags": [
+    "analog warmth",
+    "close mic",
+    "soft"
+   ],
+   "instrumentation": [
+    "nylon guitar"
+   ],
+   "vocal_style": "轻柔男声",
+   "bpm_band": "90-100",
+   "has_melody": true,
+   "scene": "关灯坐在地板上，把音量调到只听见指甲碰弦。",
+   "artist_oneliner": "José González，瑞典哥德堡人，阿根廷家族，只用一把尼龙弦。",
+   "why": "尼龙弦被指甲拨得颗颗分明，人声近到能听见每一次换气。The Knife 那首电子原曲被他扒到只剩木头和呼吸。",
+   "fit_score": 90.0,
+   "source": "Veneer / The Knife 翻唱名版",
+   "source_url": "",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "José González",
+   "title_display": "Heartbeats",
+   "artist_key": "josgonzlez",
+   "title_key": "heartbeats",
+   "version": "",
+   "album_key": "veneer",
+   "legacy_ids": [
+    "jose-gonzalez-heartbeats"
+   ],
+   "familiarity": "possibly-known",
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/74/4e/93/744e930f-65d9-dffb-5d86-1360bb5a6bc5/724596932452.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/32/87/b6/3287b631-6497-8dfe-9766-77c1427848e7/mzaf_6755861276223187353.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/heartbeats/828118023?i=828118037&uo=4"
+  },
+  {
+   "id": "sha1:686f506582e2a3a0",
+   "title": "Before I Move Off",
+   "artist": "Mount Kimbie",
+   "year": "2010",
+   "album": "Crooks & Lovers",
+   "genres": [
+    "indietronica",
+    "downtempo",
+    "electro-acoustic"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "grainy",
+    "late night",
+    "airy"
+   ],
+   "production_tags": [
+    "granular",
+    "field recording",
+    "soft",
+    "warm"
+   ],
+   "instrumentation": [
+    "切片吉他",
+    "人声采样",
+    "打击"
+   ],
+   "vocal_style": "切片人声",
+   "bpm_band": "90-100",
+   "has_melody": true,
+   "scene": "末班车玻璃外的灯一段段抽走，站名听漏了一个。",
+   "artist_oneliner": "Mount Kimbie，把日常噪音编进节拍，接缝留着不磨。",
+   "why": "窸窸窣窣的日常声响（field recording）被编进温软的律动，人声切碎了当乐器使。细节埋得很密，每听一遍都能再捞出新的一颗。",
+   "fit_score": 88.0,
+   "source": "Crooks & Lovers 长青",
+   "source_url": "",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Mount Kimbie",
+   "title_display": "Before I Move Off",
+   "artist_key": "mountkimbie",
+   "title_key": "beforeimoveoff",
+   "version": "",
+   "album_key": "crookslovers",
+   "legacy_ids": [
+    "mount-kimbie-before-i-move-off"
+   ],
+   "familiarity": "possibly-known",
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/7b/d5/94/7bd5944b-7533-c842-bc12-a9d7160f63a0/5055317207197_Cover.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/63/a5/39/63a539b3-743f-6664-a023-d8a9cdead991/mzaf_256131007362614590.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/before-i-move-off/762980504?i=762980581&uo=4"
+  },
+  {
+   "id": "sha1:b183f9e913da24ec",
+   "title": "Remember Summer Days",
+   "artist": "Anri",
+   "year": "1983",
+   "album": "Timely!!",
+   "genres": [
+    "city pop",
+    "jazz pop"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "summer dusk",
+    "unhurried",
+    "nostalgic"
+   ],
+   "production_tags": [
+    "analog warmth",
+    "soft",
+    "wide stereo"
+   ],
+   "instrumentation": [
+    "电钢琴",
+    "funky bass",
+    "clean guitar"
+   ],
+   "vocal_style": "清甜女声",
+   "bpm_band": "105-115",
+   "has_melody": true,
+   "scene": "翻出一张旧合照，认出照片里那个人当年的表情。",
+   "artist_oneliner": "杏里，角松敏生编曲下的夏日女声，高音亮得像反光的海面。",
+   "why": "前奏电钢一响，海风就进来了，节奏轻快得像小跑。杏里唱得干净不使劲，标题写的是「记得那些夏天」——这份甜是回头看的，不是正在发生。",
+   "fit_score": 88.0,
+   "source": "City Pop 夏日经典",
+   "source_url": "",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Anri",
+   "title_display": "Remember Summer Days",
+   "artist_key": "anri",
+   "title_key": "remembersummerdays",
+   "version": "",
+   "album_key": "timely",
+   "legacy_ids": [
+    "anri-remember-summer-days"
+   ],
+   "familiarity": "possibly-known",
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/72/26/5d/72265d48-d844-8217-1944-288436a50820/mzi.jgyybcqg.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/17/9a/5f/179a5f10-3ca1-0745-e2c1-21aee09274d4/mzaf_11371664483752023361.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/remember-summer-days-bonus-track/283306771?i=283306782&uo=4"
+  },
+  {
+   "id": "sha1:5c2a92db55154b35",
+   "title": "Cocktail Moon",
+   "artist": "VIDEOTAPEMUSIC",
+   "year": "2020",
+   "album": "Cocktail Moon (Single)",
+   "genres": [
+    "sampledelia",
+    "hypnagogic pop",
+    "downtempo",
+    "exotica"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "nostalgic",
+    "late night",
+    "unhurried"
+   ],
+   "production_tags": [
+    "tape saturation",
+    "VHS sampling",
+    "dub echo",
+    "round wooden bass",
+    "granular",
+    "warm high-end"
+   ],
+   "instrumentation": [],
+   "vocal_style": "以采样人声与器乐为主，偶有嘉宾轻唱",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "likely-unheard",
+   "scene": "冰块在杯子里塌下去一格，风扇正好转到你这边。",
+   "artist_oneliner": "东京的采样匠，素材全从二手店淘的废弃 VHS 带里抠出来。",
+   "why": "dub回声一层层散开，木头贝斯在底下慢慢走，像一杯正在化开的月光鸡尾酒。数码采样和自然声揉得看不出接缝，做旧这门手艺他手最稳。",
+   "fit_score": 86.0,
+   "source": "VIDEOTAPEMUSIC Bandcamp discography",
+   "source_url": "https://videotapemusic.bandcamp.com/",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "VIDEOTAPEMUSIC",
+   "title_display": "Cocktail Moon",
+   "artist_key": "videotapemusic",
+   "title_key": "cocktailmoon",
+   "version": "",
+   "album_key": "cocktailmoon",
+   "legacy_ids": [
+    "d-videotapemus-cocktailmoon"
+   ],
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/10/ad/f0/10adf0e8-8283-dabb-63d7-d67d030cb17c/4538182831519_cov.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/4f/f0/53/4ff0536b-4e82-51a4-775b-4cd2be9ae248/mzaf_4257265667178952991.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/cocktail-moon-feat-mellow-fellow/1472319950?i=1472320068&uo=4"
+  },
+  {
+   "id": "sha1:3455dd4cb554d57a",
+   "title": "Hard Drive",
+   "artist": "Cassandra Jenkins",
+   "year": "2021",
+   "album": "An Overview on Phenomenal Nature",
+   "genres": [
+    "sophisti-pop",
+    "art pop",
+    "ambient folk",
+    "chamber pop"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "tender",
+    "floating",
+    "late night"
+   ],
+   "production_tags": [
+    "saxophone",
+    "ambient 铺底",
+    "field recording",
+    "宽 stereo",
+    "柔和高频",
+    "spoken-word 段落"
+   ],
+   "instrumentation": [],
+   "vocal_style": "半说半唱的温柔叙述，副歌化成气声吟唱",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "likely-unheard",
+   "scene": "在街上走了四十分钟没有目的，红灯前停下，鼻子突然一酸。",
+   "artist_oneliner": "纽约词曲人，口语独白说着说着化成气声，萨克斯和街声在底下接住。",
+   "why": "半说半唱的独白慢慢化成气声吟唱，萨克斯和环境声在底下托着。副歌那句『count to three』落下来，像有人从背后轻拍你的肩。",
+   "fit_score": 86.0,
+   "source": "Wikipedia (An Overview on Phenomenal Nature)",
+   "source_url": "https://en.wikipedia.org/wiki/An_Overview_on_Phenomenal_Nature",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Cassandra Jenkins",
+   "title_display": "Hard Drive",
+   "artist_key": "cassandrajenkins",
+   "title_key": "harddrive",
+   "version": "",
+   "album_key": "anoverviewonphenomenalnature",
+   "legacy_ids": [
+    "d-cassandrajen-harddrive"
+   ],
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/08/7f/29/087f2972-9e02-4f6e-670c-d69d364336c0/600197016428.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/95/7d/4c/957d4c95-d266-fa00-d124-5fdd919ab441/mzaf_5397077128534061862.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/hard-drive/1539427484?i=1539427490&uo=4"
+  },
+  {
+   "id": "sha1:744ab228cc60e728",
+   "title": "Around Again",
+   "artist": "Hovvdy",
+   "year": "2021",
+   "album": "True Love",
+   "genres": [
+    "bedroom pop",
+    "indie folk",
+    "slowcore"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "tender",
+    "warm",
+    "melancholy"
+   ],
+   "production_tags": [
+    "lo-fi",
+    "tape warmth",
+    "muted drums",
+    "soft synth pad",
+    "rounded bass",
+    "gentle mix"
+   ],
+   "instrumentation": [],
+   "vocal_style": "柔和男声、松弛、略带鼻音的亲切感",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "likely-unheard",
+   "scene": "午后被子堆在腿上没盖好，电视开着但没在看。",
+   "artist_oneliner": "德州二人组，自称做 pillowcore——闷鼓压到最低，旋律钩子还在。",
+   "why": "闷鼓压得很低，暖tape和软塌塌的合成pad托着一把带鼻音的男声。慢，不闷，每首都有一个抓得住的旋律钩——卧室流行本该长这样。",
+   "fit_score": 86.0,
+   "source": "Bandcamp",
+   "source_url": "https://hovvdy.bandcamp.com/album/true-love",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Hovvdy",
+   "title_display": "Around Again",
+   "artist_key": "hovvdy",
+   "title_key": "aroundagain",
+   "version": "",
+   "album_key": "truelove",
+   "legacy_ids": [
+    "d-hovvdy-aroundagain"
+   ],
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c9/57/2d/c9572d7a-f810-bf30-2b4b-f3180a06d9d5/196006635138.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/75/13/43/751343c7-d523-5848-53ac-7e1f5897c535/mzaf_3066772526877613571.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/around-again/1570535704?i=1570536524&uo=4"
+  },
+  {
+   "id": "sha1:e4c0631270f2149e",
+   "title": "Ykytu",
+   "artist": "Fabiano do Nascimento",
+   "year": "2021",
+   "album": "Ykytu",
+   "genres": [
+    "modern bossa",
+    "ambient folk",
+    "jazz",
+    "organic electronic"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "unhurried",
+    "woody",
+    "organic"
+   ],
+   "production_tags": [
+    "nylon guitar",
+    "field recording",
+    "granular",
+    "优秀reverb",
+    "柔和高频",
+    "analog warmth"
+   ],
+   "instrumentation": [],
+   "vocal_style": "器乐为主，轻人声点缀",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "likely-unheard",
+   "scene": "树荫下坐了很久，光斑从膝盖挪到脚背。",
+   "artist_oneliner": "两头跑洛杉矶和东京的巴西吉他手，指弹尼龙弦上织进自然录音和细碎电子。",
+   "why": "指弹尼龙弦上叠着细碎电子和自然采样，电子的进出像一次次呼吸。暖而不腻，中间留着能喘气的空。",
+   "fit_score": 86.0,
+   "source": "MusicBrainz + Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Fabiano_do_Nascimento",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Fabiano do Nascimento",
+   "title_display": "Ykytu",
+   "artist_key": "fabianodonascimento",
+   "title_key": "ykytu",
+   "version": "",
+   "album_key": "ykytu",
+   "legacy_ids": [
+    "d-fabianodonas-ykytu"
+   ],
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c0/01/1b/c0011b20-a0bd-d20a-96d9-4bd8d240405f/NA5220-FABIANO-YKYTU-web1500.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/c2/e4/53/c2e45353-1418-73bc-0964-0e553f713c17/mzaf_9923930400457659573.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/ykytu/1583127969?i=1583127978&uo=4"
+  },
+  {
+   "id": "sha1:d728eae73929849f",
+   "title": "Read the Room (feat. Laetitia Sadier)",
+   "artist": "Pearl & The Oysters",
+   "year": "2023",
+   "album": "Coast 2 Coast",
+   "genres": [
+    "shibuya-kei",
+    "sunshine pop",
+    "indietronica",
+    "library music",
+    "lounge pop"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "upbeat",
+    "airy",
+    "nostalgic"
+   ],
+   "production_tags": [
+    "vintage synths",
+    "analog warmth",
+    "Juno/M1 pad",
+    "soft high-end",
+    "wide stereo",
+    "playful arrangement"
+   ],
+   "instrumentation": [],
+   "vocal_style": "男女轻声对唱、气声、慵懒松弛，客串的正是 Stereolab 的 Laetitia Sadier",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "likely-unheard",
+   "scene": "副驾把脚搭在储物箱上，路两边的棕榈一棵棵倒过去。",
+   "artist_oneliner": "旅居洛杉矶的法裔二人组，太空时代 lounge 和游戏配乐揉进渋谷系。",
+   "why": "Juno的pad软得像棉花糖，男女气声一句接一句地递过去。Stereolab的Laetitia Sadier亲自来唱，血统这下焊死了。",
+   "fit_score": 86.0,
+   "source": "Bandcamp",
+   "source_url": "https://pearlandtheoysters.bandcamp.com/album/coast-2-coast",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Pearl & The Oysters",
+   "title_display": "Read the Room (feat. Laetitia Sadier)",
+   "artist_key": "pearltheoysters",
+   "title_key": "readtheroom",
+   "version": "",
+   "album_key": "coast2coast",
+   "legacy_ids": [
+    "d-pearltheoyst-readtheroomfeatl"
+   ],
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/fa/96/15/fa9615a9-9285-04a6-f9f5-9f99717e6b6c/1662.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/be/6a/ca/be6aca8a-0216-920e-7b88-2697a98b2c01/mzaf_2397982978410383603.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/read-the-room-feat-laetitia-sadier/1665327524?i=1665328072&uo=4"
+  },
+  {
+   "id": "sha1:69a25e02f6acd4e5",
+   "title": "No Butterflies, No Nothing",
+   "artist": "Erika de Casier",
+   "year": "2021",
+   "album": "Sensational",
+   "genres": [
+    "quiet alternative r&b",
+    "leftfield pop",
+    "downtempo"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "wintry",
+    "late night",
+    "intimate"
+   ],
+   "production_tags": [
+    "2-step garage groove",
+    "subtle glossy synths",
+    "restrained mix",
+    "soft high-end",
+    "wide stereo",
+    "Y2K reference"
+   ],
+   "instrumentation": [],
+   "vocal_style": "极轻的气声女声、贴耳低语，克制不飙",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "likely-unheard",
+   "scene": "跟人告别之后自己走回去，一路没拿出手机。",
+   "artist_oneliner": "葡萄牙裔丹麦歌手，气声从不放大，2-step 的碎拍替她把话说完。",
+   "why": "气声浮在轻巧的2-step碎拍上，全程收着不放大。没有大鼓也没有drop，只留丝滑和空当——跟那些一味刺耳的爆款R&B划得很清。",
+   "fit_score": 86.0,
+   "source": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Sensational_(Erika_de_Casier_album)",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Erika de Casier",
+   "title_display": "No Butterflies, No Nothing",
+   "artist_key": "erikadecasier",
+   "title_key": "nobutterfliesnonothing",
+   "version": "",
+   "album_key": "sensational",
+   "legacy_ids": [
+    "d-erikadecasie-nobutterfliesnon"
+   ],
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/10/e2/df/10e2df8f-7bba-1cbd-86aa-2f4a269c399d/191400035478.png/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview124/v4/0e/1f/0c/0e1f0cc8-f0ca-5600-90e0-cfb354d37d52/mzaf_8987548653598534387.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/no-butterflies-no-nothing/1560653786?i=1560654640&uo=4"
+  },
+  {
+   "id": "sha1:64bd55dea4d25795",
+   "title": "Shed That Fear",
+   "artist": "Nourished by Time",
+   "year": "2023",
+   "album": "Erotic Probiotic 2",
+   "genres": [
+    "quiet alternative r&b",
+    "indietronica",
+    "dream pop",
+    "leftfield pop"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "nostalgic",
+    "late night",
+    "hopeful"
+   ],
+   "production_tags": [
+    "卧室 synth",
+    "analog warmth",
+    "drum machine",
+    "宽 pad",
+    "lo-fi 录音感",
+    "圆润 bassline"
+   ],
+   "instrumentation": [],
+   "vocal_style": "低沉温厚男声，带一点 croon，层叠回声",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "likely-unheard",
+   "scene": "回家那段路天色转灰，路灯还没亮，你放慢脚步等它亮。",
+   "artist_oneliner": "巴尔的摩的 Marcus Brown，一个人在卧室拼出 80 年代合成器的暖和它的孤独。",
+   "why": "一个人在卧室里做完的东西，听着有整支乐队的暖度。drum machine 配圆润 bassline 撑起一段极抓耳的旋律，怀旧音色裹着非常当下的孤独。",
+   "fit_score": 86.0,
+   "source": "Wikipedia (Nourished by Time / Erotic Probiotic 2)",
+   "source_url": "https://en.wikipedia.org/wiki/Erotic_Probiotic_2",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Nourished by Time",
+   "title_display": "Shed That Fear",
+   "artist_key": "nourishedbytime",
+   "title_key": "shedthatfear",
+   "version": "",
+   "album_key": "eroticprobiotic2",
+   "legacy_ids": [
+    "d-nourishedbyt-shedthatfear"
+   ],
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/35/80/fe/3580fec2-babb-becd-6556-9eda3fb9b9c9/5057998161133_T.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/de/0d/a3/de0da317-44d7-403d-3df1-a7b9f6199424/mzaf_14802949547690490040.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/shed-that-fear/1818221375?i=1818221383&uo=4"
+  },
+  {
+   "id": "sha1:86535e80f1c00049",
+   "title": "Baby Blue",
+   "artist": "Cindy Lee",
+   "year": "2024",
+   "album": "Diamond Jubilee",
+   "genres": [
+    "hypnagogic pop",
+    "dream pop",
+    "sampledelia"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "nostalgic",
+    "hazy",
+    "melancholy"
+   ],
+   "production_tags": [
+    "tape saturation",
+    "AM radio lo-fi",
+    "颗粒感",
+    "reverb 空间",
+    "vintage girl-group 编曲",
+    "hiss"
+   ],
+   "instrumentation": [],
+   "vocal_style": "飘忽双性气声，像隔着旧胶带的幽灵合声",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "likely-unheard",
+   "scene": "抽屉最底层的旧照片摊了一桌，收音机正卡在两个频道之间。",
+   "artist_oneliner": "Patrick Flegel 在 Women 解散后立起的女性化身，甜歌永远隔着一层旧胶带。",
+   "why": "旋律是彻头彻尾六十年代少女组合式的甜，被裹进磁带 hiss 和昏黄混响里发潮。甜和幽灵感同时在场，hypnagogic pop 的命门就在这儿。",
+   "fit_score": 86.0,
+   "source": "Wikipedia (Diamond Jubilee album — 已确认专辑与 Baby Blue 曲目)",
+   "source_url": "https://en.wikipedia.org/wiki/Diamond_Jubilee_(album)",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Cindy Lee",
+   "title_display": "Baby Blue",
+   "artist_key": "cindylee",
+   "title_key": "babyblue",
+   "version": "",
+   "album_key": "diamondjubilee",
+   "legacy_ids": [
+    "d-cindylee-babyblue"
+   ],
+   "_cover": "",
+   "_preview": "",
+   "_apple": ""
+  },
+  {
+   "id": "sha1:82298279bbd8a2bc",
+   "title": "Highway Star, Speed Star",
+   "artist": "Cymbals",
+   "year": "2000",
+   "album": "Mr.Noone Special",
+   "genres": [
+    "shibuya-kei",
+    "guitar pop",
+    "indie pop"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "upbeat",
+    "late night",
+    "nostalgic"
+   ],
+   "production_tags": [
+    "jangle guitar",
+    "shuffle groove",
+    "round bass",
+    "retro pop arrangement"
+   ],
+   "instrumentation": [],
+   "vocal_style": "土岐麻子的女声，甜而不腻、带一点爵士咬字",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "likely-unheard",
+   "scene": "站在自动扶梯上没走动，脚尖已经开始跟着打拍子。",
+   "artist_oneliner": "世纪之交的渋谷系三人组，主唱土岐麻子那点爵士咬字，甜里带口音。",
+   "why": "shuffle律动一晃一晃，jangle吉他叮叮当当追在后面。土岐麻子把爵士的咬字化进甜里，Cornelius、Flipper那片林子往深走就到这。",
+   "fit_score": 86.0,
+   "source": "Wikipedia (Cymbals)",
+   "source_url": "https://ja.wikipedia.org/wiki/Cymbals",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Cymbals",
+   "title_display": "Highway Star, Speed Star",
+   "artist_key": "cymbals",
+   "title_key": "highwaystarspeedstar",
+   "version": "",
+   "album_key": "mrnoonespecial",
+   "legacy_ids": [
+    "d-cymbals-highwaystarspeed"
+   ],
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/33/90/43/339043eb-2f5f-53dc-d3e2-ce8384e8c6d9/VICL-35170.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/c6/0f/8b/c60f8b7e-4221-c602-af2e-1f61f9f63b7c/mzaf_4869558234980133959.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/highway-star-speed-star/1720674244?i=1720674245&uo=4"
+  },
+  {
+   "id": "sha1:656187de1376c257",
+   "title": "街の人",
+   "artist": "Lucky Old Sun (ラッキーオールドサン)",
+   "year": "2021",
+   "album": "うすらい",
+   "genres": [
+    "japanese indie pop",
+    "folk",
+    "city pop"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "summer dusk",
+    "unhurried",
+    "tender"
+   ],
+   "production_tags": [
+    "clean guitar",
+    "warm room sound",
+    "soft groove",
+    "analog warmth"
+   ],
+   "instrumentation": [],
+   "vocal_style": "ナナ的柔和女声与篠原良彰男声的男女和声",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "likely-unheard",
+   "scene": "拎着塑料袋从便利店出来，路口的车都停着等灯。",
+   "artist_oneliner": "ナナ与篠原良彰的夫妻二人组，民谣往城市那头走了半步。",
+   "why": "男女和声铺在带体温的房间录音上，写一座城里普通人的黄昏。电影《街の上で》的主题曲，好就好在朴素——听得见人真的在场。",
+   "fit_score": 86.0,
+   "source": "Wikipedia (ラッキーオールドサン)",
+   "source_url": "https://ja.wikipedia.org/wiki/ラッキーオールドサン",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Lucky Old Sun (ラッキーオールドサン)",
+   "title_display": "街の人",
+   "artist_key": "luckyoldsun",
+   "title_key": "街の人",
+   "version": "",
+   "album_key": "うすらい",
+   "legacy_ids": [
+    "d-luckyoldsunラ-街の人"
+   ],
+   "_cover": "",
+   "_preview": "",
+   "_apple": ""
+  },
+  {
+   "id": "sha1:b1c5d16596ade968",
+   "title": "miu",
+   "artist": "Marina Herlop",
+   "year": "2022",
+   "album": "Pripyat",
+   "genres": [
+    "art pop",
+    "leftfield pop",
+    "electro-acoustic"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "dreamlike",
+    "fragile",
+    "restrained"
+   ],
+   "production_tags": [
+    "granular processing",
+    "subtle glitch",
+    "piano",
+    "layered vocals",
+    "digital-organic blend",
+    "PAN aesthetic"
+   ],
+   "instrumentation": [],
+   "vocal_style": "多层女声，受印度卡纳提克唱法启发，被颗粒化处理成人声织体",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "likely-unheard",
+   "scene": "教堂里没有别人，你听见自己咽口水的声音。",
+   "artist_oneliner": "巴塞罗那钢琴科班出身，把卡纳提克唱法碾成一层层晶体，PAN 出品。",
+   "why": "多层女声被颗粒处理拆成一片细密碎响，和钢琴缠着走、又时时错开。卡纳提克的骨架配art pop的皮，旋律始终清晰，不是无调噪音。",
+   "fit_score": 86.0,
+   "source": "Bandcamp",
+   "source_url": "https://marinaherlop.bandcamp.com/album/pripyat",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Marina Herlop",
+   "title_display": "miu",
+   "artist_key": "marinaherlop",
+   "title_key": "miu",
+   "version": "",
+   "album_key": "pripyat",
+   "legacy_ids": [
+    "d-marinaherlop-miu"
+   ],
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/bf/66/af/bf66af51-d208-095c-861d-b55d9ea92403/26408.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/74/5b/71/745b7185-466d-6274-7602-e35dc1128344/mzaf_17566852107555782107.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/miu/1582821287?i=1582821290&uo=4"
+  },
+  {
+   "id": "sha1:f8384d3c930e8349",
+   "title": "Teardrop",
+   "artist": "Massive Attack",
+   "year": "1998",
+   "album": "Mezzanine",
+   "genres": [
+    "trip-hop",
+    "downtempo"
+   ],
+   "genre_stars": 4,
+   "mood_tags": [
+    "rainy",
+    "late night",
+    "tender"
+   ],
+   "production_tags": [
+    "analog warmth",
+    "reverb space",
+    "soft"
+   ],
+   "instrumentation": [
+    "harpsichord",
+    "采样鼓",
+    "钢琴"
+   ],
+   "vocal_style": "空灵女声",
+   "bpm_band": "70-80",
+   "has_melody": true,
+   "scene": "靠着车窗，一颗水珠沿玻璃往下爬，爬到一半停住。",
+   "artist_oneliner": "同在布里斯托的 Massive Attack，每张唱片换一位客座嗓音顶在前面。",
+   "why": "那段拨弦 loop 像心跳，一下一下顶着往前走。人声在上面轻轻荡，忧郁打底，旋律一响就钻进记忆里不出来。",
+   "fit_score": 88.0,
+   "source": "Mezzanine 名盘",
+   "source_url": "",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Massive Attack",
+   "title_display": "Teardrop",
+   "artist_key": "massiveattack",
+   "title_key": "teardrop",
+   "version": "",
+   "album_key": "mezzanine",
+   "legacy_ids": [
+    "massive-attack-teardrop"
+   ],
+   "familiarity": "possibly-known",
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/0a/98/55/0a98555b-8d9d-3b46-660a-b91261557d17/00724384559953.rgb.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f0/31/78/f0317854-f180-d1cd-a974-8acc48834b7b/mzaf_8992917226755403839.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/teardrop/724466069?i=724466700&uo=4"
+  },
+  {
+   "id": "sha1:abc2b72858454edb",
+   "title": "baby blue",
+   "artist": "Sunny Day Service (サニーデイ・サービス)",
+   "year": "1997",
+   "album": "サニーデイ・サービス",
+   "genres": [
+    "japanese indie pop",
+    "guitar pop",
+    "folk rock"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "summer dusk",
+    "hopeful",
+    "unhurried"
+   ],
+   "production_tags": [
+    "jangle guitar",
+    "lo-fi warmth",
+    "70s-flavored arrangement",
+    "analog room sound"
+   ],
+   "instrumentation": [],
+   "vocal_style": "曽我部恵一略带沙哑的温柔男声",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "possibly-known",
+   "scene": "T恤后背被汗粘住，从便利店冰柜里拿一瓶贴在脖子上。",
+   "artist_oneliner": "曽我部恵一的三人组，把 70 年代民谣的毛边接到东京青春上。",
+   "why": "jangle吉他撞上带房间感的lo-fi录音，1997年的夏天听起来像刚被晒褪色。那股颗粒是录音本身给的，不是后期贴上去的滤镜。",
+   "fit_score": 80.0,
+   "source": "Wikipedia (サニーデイ・サービス)",
+   "source_url": "https://ja.wikipedia.org/wiki/サニーデイ・サービス",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Sunny Day Service (サニーデイ・サービス)",
+   "title_display": "baby blue",
+   "artist_key": "sunnydayservice",
+   "title_key": "babyblue",
+   "version": "",
+   "album_key": "サニーデイ・サービス",
+   "legacy_ids": [
+    "d-sunnydayserv-babyblue"
+   ],
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/44/fd/ef/44fdef60-f09d-1857-e56d-c00b889febeb/11821600.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/27/9f/e5/279fe5f2-eb9b-381c-b3e7-7cb7badacf45/mzaf_13446387753224501347.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/baby-blue/1441621132?i=1441621133&uo=4"
+  },
+  {
+   "id": "sha1:43f52621c37f9441",
+   "title": "Dress Down",
+   "artist": "Kaoru Akimoto (秋元薫)",
+   "year": "1986",
+   "album": "Cologne",
+   "genres": [
+    "city pop",
+    "aor",
+    "boogie"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "late night",
+    "unhurried",
+    "nostalgic"
+   ],
+   "production_tags": [
+    "DX7 synth",
+    "warm slap bass",
+    "smooth groove",
+    "80s reverb",
+    "wide stereo"
+   ],
+   "instrumentation": [],
+   "vocal_style": "温柔从容的女声，气口松弛",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "possibly-known",
+   "scene": "深夜第二杯倒好了搁在桌上，你先去把窗帘拉严实。",
+   "artist_oneliner": "唱《Cologne》的 city pop 歌手，气口松到像刚把高跟鞋踢开。",
+   "why": "秋元薫的气口松到像刚脱掉高跟鞋，DX7的电钢一层层往外摊夜色。slap bass弹得圆，不炸低频；1986年的真货，不是复古滤镜。",
+   "fit_score": 80.0,
+   "source": "Wikipedia (秋元薫)",
+   "source_url": "https://ja.wikipedia.org/wiki/秋元薫",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Kaoru Akimoto (秋元薫)",
+   "title_display": "Dress Down",
+   "artist_key": "kaoruakimoto",
+   "title_key": "dressdown",
+   "version": "",
+   "album_key": "cologne",
+   "legacy_ids": [
+    "d-kaoruakimoto-dressdown"
+   ],
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/60/f2/37/60f23702-b7e3-d529-abf2-ed56a8fbbc68/VEATP-34226.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/40/bc/c2/40bcc22e-ba0d-0924-ab8c-da7d40353c56/mzaf_4772645034301018186.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/dress-down/1237549660?i=1237549875&uo=4"
+  },
+  {
+   "id": "sha1:284ffdd1036a8697",
+   "title": "Needy Bees",
+   "artist": "Nick Hakim",
+   "year": "2017",
+   "album": "Green Twins",
+   "genres": [
+    "neo soul",
+    "quiet alternative r&b",
+    "psychedelic pop"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "hazy",
+    "unhurried",
+    "rainy"
+   ],
+   "production_tags": [
+    "hazy reverb",
+    "tape saturation",
+    "warm 低频",
+    "psych 键盘",
+    "lo-fi 空间",
+    "圆润 bass"
+   ],
+   "instrumentation": [],
+   "vocal_style": "沙哑温软男声，泡在混响里，多层叠唱",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "possibly-known",
+   "scene": "沙发陷得很深，暖灯只开一盏，你忘了刚才在想什么。",
+   "artist_oneliner": "华盛顿出身的 neo soul 手艺人——人声和乐器一起泡进烟一样化不开的混响。",
+   "why": "人声和乐器一起泡在温热的混响里，像烟一样化不开。底下有一条清晰旋律穿雾而过——粗颗粒的温柔，Blood Orange 和 Sampha 的听众会认得。",
+   "fit_score": 80.0,
+   "source": "Wikipedia (Green Twins — 已确认 2017 Nick Hakim 专辑，含 Needy Bees)",
+   "source_url": "https://en.wikipedia.org/wiki/Green_Twins",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Nick Hakim",
+   "title_display": "Needy Bees",
+   "artist_key": "nickhakim",
+   "title_key": "needybees",
+   "version": "",
+   "album_key": "greentwins",
+   "legacy_ids": [
+    "d-nickhakim-needybees"
+   ],
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/dc/b7/f0/dcb7f0e6-3846-1b07-8c9f-c630cb0e98bf/cover.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e0/28/52/e02852ee-58f6-b3da-cd85-aac990b74a30/mzaf_13121244893082209205.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/needy-bees/1219744639?i=1219744644&uo=4"
+  },
+  {
+   "id": "sha1:51b8bbeab6c95519",
+   "title": "(No One Knows Me) Like the Piano",
+   "artist": "Sampha",
+   "year": "2017",
+   "album": "Process",
+   "genres": [
+    "neo soul",
+    "quiet alternative r&b",
+    "chamber pop"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "tender",
+    "human",
+    "rainy"
+   ],
+   "production_tags": [
+    "felt piano",
+    "soft",
+    "reverb space",
+    "analog warmth"
+   ],
+   "instrumentation": [
+    "felt piano"
+   ],
+   "vocal_style": "真挚男声",
+   "bpm_band": "70-80",
+   "has_melody": true,
+   "scene": "推开门屋里没人，钥匙扔在鞋柜上，站着没动。",
+   "artist_oneliner": "南伦敦的 Sampha，一架钢琴加一把嗓子，房间自己就静了。",
+   "why": "写的是他母亲家那架陪了半生的钢琴，毡音几乎素颜，没做修饰。人声贴着琴键起伏，力气省到不能再省，眼泪先落下来了。",
+   "fit_score": 92.0,
+   "source": "Process / Mercury 奖",
+   "source_url": "",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Sampha",
+   "title_display": "(No One Knows Me) Like the Piano",
+   "artist_key": "sampha",
+   "title_key": "likethepiano",
+   "version": "",
+   "album_key": "process",
+   "legacy_ids": [
+    "sampha-no-one-knows-me-like-the-piano"
+   ],
+   "familiarity": "possibly-known",
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/95/8d/ed/958ded66-ec58-2347-caa3-dfa2c0e417e1/889030015860.png/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/a0/3e/7e/a03e7eb1-d40c-dc0d-04b0-6209837f8e7d/mzaf_9095946026493753904.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/no-one-knows-me-like-the-piano/1138217713?i=1138217731&uo=4"
+  },
+  {
+   "id": "sha1:db93221c9ec4a511",
+   "title": "Cherry-coloured Funk",
+   "artist": "Cocteau Twins",
+   "year": "1990",
+   "album": "Heaven or Las Vegas",
+   "genres": [
+    "dream pop",
+    "ambient pop"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "airy",
+    "tender",
+    "nostalgic"
+   ],
+   "production_tags": [
+    "reverb space",
+    "chorus guitar",
+    "wide stereo"
+   ],
+   "instrumentation": [
+    "chorus guitar",
+    "合成器",
+    "drum machine"
+   ],
+   "vocal_style": "缥缈女声",
+   "bpm_band": "100-110",
+   "has_melody": true,
+   "scene": "午睡刚醒，屋里光白得发亮，身体还没跟上。",
+   "artist_oneliner": "苏格兰格兰奇茅斯的三人组，歌词是自造音节，话照样说清楚。",
+   "why": "她唱的是自造的音节，你听不懂一个词，情绪全接住了。合唱效果的吉他叠成一层层云——三十多年过去，梦幻流行还在学她这一口。",
+   "fit_score": 90.0,
+   "source": "Heaven or Las Vegas 殿堂",
+   "source_url": "",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Cocteau Twins",
+   "title_display": "Cherry-coloured Funk",
+   "artist_key": "cocteautwins",
+   "title_key": "cherrycolouredfunk",
+   "version": "",
+   "album_key": "heavenorlasvegas",
+   "legacy_ids": [
+    "cocteau-twins-cherry-coloured-funk"
+   ],
+   "familiarity": "possibly-known",
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/76/cd/61/76cd61e7-0714-dce5-c48e-0f05f8fcb84b/652637001280.png/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/46/03/91/460391bc-4154-31ed-7a6d-3e8e5c36dd64/mzaf_4069160857181811263.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/cherry-coloured-funk/258198881?i=258198956&uo=4"
+  },
+  {
+   "id": "sha1:3267a74d714ae6c0",
+   "title": "Charcoal Baby",
+   "artist": "Blood Orange",
+   "year": "2018",
+   "album": "Negro Swan",
+   "genres": [
+    "neo soul",
+    "leftfield pop",
+    "quiet alternative r&b"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "late night",
+    "tender",
+    "restrained"
+   ],
+   "production_tags": [
+    "soft compression",
+    "warm bass",
+    "analog warmth"
+   ],
+   "instrumentation": [
+    "clean guitar",
+    "圆润 bass",
+    "合成器"
+   ],
+   "vocal_style": "柔和 falsetto",
+   "bpm_band": "90-100",
+   "has_melody": true,
+   "scene": "想打给谁，翻完通讯录又把手机扣在桌上。",
+   "artist_oneliner": "Dev Hynes——从伦敦搬到纽约的多面手，最痛的地方一律不拔高。",
+   "why": "最痛的地方他从不拔高嗓门。吉他拨得克制，falsetto 一直压着，「come on and let me know」唱得越平静，底下的孤独越清楚。",
+   "fit_score": 89.0,
+   "source": "Negro Swan / Pitchfork 好评",
+   "source_url": "",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Blood Orange",
+   "title_display": "Charcoal Baby",
+   "artist_key": "bloodorange",
+   "title_key": "charcoalbaby",
+   "version": "",
+   "album_key": "negroswan",
+   "legacy_ids": [
+    "blood-orange-charcoal-baby"
+   ],
+   "familiarity": "possibly-known",
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b4/98/ba/b498ba20-cef3-aef7-3327-280a981c8527/887828042166.png/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/4e/e1/7f/4ee17fe6-b996-f46f-0b00-d5361b802cef/mzaf_6942069272625135481.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/charcoal-baby/1413298173?i=1413299301&uo=4"
+  },
+  {
+   "id": "sha1:c2fb8e3582056784",
+   "title": "Northern Sky",
+   "artist": "Nick Drake",
+   "year": "1970",
+   "album": "Bryter Layter",
+   "genres": [
+    "ambient folk",
+    "chamber pop"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "woody",
+    "tender",
+    "nostalgic"
+   ],
+   "production_tags": [
+    "analog warmth",
+    "lush strings",
+    "soft"
+   ],
+   "instrumentation": [
+    "fingerstyle guitar",
+    "钢琴",
+    "celesta"
+   ],
+   "vocal_style": "温柔男声",
+   "bpm_band": "80-90",
+   "has_melody": true,
+   "scene": "窗帘缝里第一道光落在被子上，人醒了没动。",
+   "artist_oneliner": "Nick Drake——三张唱片就走完一生，嗓音压到几乎不用力。",
+   "why": "指弹一颗颗滚出来，John Cale 的键盘和弦乐在后头暖着，不上前。编曲点到即止，暖意全靠留白撑住。",
+   "fit_score": 90.0,
+   "source": "Bryter Layter 殿堂",
+   "source_url": "",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Nick Drake",
+   "title_display": "Northern Sky",
+   "artist_key": "nickdrake",
+   "title_key": "northernsky",
+   "version": "",
+   "album_key": "bryterlayter",
+   "legacy_ids": [
+    "nick-drake-northern-sky"
+   ],
+   "familiarity": "possibly-known",
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/09/0a/de/090adef8-d0f6-6681-a8b4-f33aa52c2c5c/00602537415816.rgb.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/cf/3f/c2/cf3fc2bf-65a9-ddfb-fd77-3051aa45de6d/mzaf_10946942166732598203.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/northern-sky/1440822546?i=1440822868&uo=4"
+  },
+  {
+   "id": "sha1:84259b37fb73f554",
+   "title": "Quitter's Raga",
+   "artist": "Gold Panda",
+   "year": "2010",
+   "album": "Lucky Shiner",
+   "genres": [
+    "organic electronic",
+    "idm",
+    "downtempo"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "grainy",
+    "airy",
+    "unhurried"
+   ],
+   "production_tags": [
+    "granular",
+    "chopped sample",
+    "analog warmth"
+   ],
+   "instrumentation": [
+    "西塔琴采样",
+    "切片打击"
+   ],
+   "vocal_style": "无",
+   "bpm_band": "100-110",
+   "has_melody": true,
+   "scene": "把摊了一周的纸摞好，手停下来才听见屋里多静。",
+   "artist_oneliner": "英国制作人 Gold Panda，采样的刀口不藏，接缝本身就是节奏。",
+   "why": "西塔琴被剪成一小段一小段，错位叠回一条旋律，底下电子鼓温温地转。东方的弦音和机器的规整咬在一起，谁也没盖过谁。",
+   "fit_score": 88.0,
+   "source": "Lucky Shiner 精选",
+   "source_url": "",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Gold Panda",
+   "title_display": "Quitter's Raga",
+   "artist_key": "goldpanda",
+   "title_key": "quittersraga",
+   "version": "",
+   "album_key": "luckyshiner",
+   "legacy_ids": [
+    "gold-panda-quitters-raga"
+   ],
+   "familiarity": "possibly-known",
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/c4/4e/84/c44e8417-c359-abae-e6ca-108339bfc1e5/cover.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/25/39/48/25394826-c621-6001-e1d7-a2c098c49abd/mzaf_16667510853786330580.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/quitters-raga/679486287?i=679486529&uo=4"
+  },
+  {
+   "id": "sha1:dc7cb7d59118b4c2",
+   "title": "Ride On Time",
+   "artist": "Tatsuro Yamashita",
+   "year": "1980",
+   "album": "Ride On Time",
+   "genres": [
+    "city pop",
+    "sophisti-pop"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "summer dusk",
+    "late night",
+    "nostalgic"
+   ],
+   "production_tags": [
+    "analog warmth",
+    "wide stereo",
+    "brass"
+   ],
+   "instrumentation": [
+    "电钢琴",
+    "funky bass",
+    "brass"
+   ],
+   "vocal_style": "醇厚男声 + 叠层和声",
+   "bpm_band": "110-120",
+   "has_melody": true,
+   "scene": "沿海公路摇下车窗，风灌满袖子，手在方向盘上打拍子。",
+   "artist_oneliner": "山下达郎——一个人叠出一整支合唱团的 city pop 制作狂。",
+   "why": "铜管一开，天顶就被推高了。他把自己的和声叠了一层又一层，密得像一群人替他喊，groove 一路往前冲，不留一点犹豫。",
+   "fit_score": 89.0,
+   "source": "City Pop 原典",
+   "source_url": "",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Tatsuro Yamashita",
+   "title_display": "Ride On Time",
+   "artist_key": "tatsuroyamashita",
+   "title_key": "rideontime",
+   "version": "",
+   "album_key": "rideontime",
+   "legacy_ids": [
+    "tatsuro-yamashita-ride-on-time"
+   ],
+   "familiarity": "possibly-known",
+   "_cover": "",
+   "_preview": "",
+   "_apple": ""
+  },
+  {
+   "id": "sha1:a6f3382159d91c05",
+   "title": "A Letter from Home",
+   "artist": "Ulrich Schnauss",
+   "year": "2003",
+   "album": "A Strangely Isolated Place",
+   "genres": [
+    "dream pop",
+    "shoegaze(电子)",
+    "ambient pop",
+    "indietronica"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "nostalgic",
+    "airy",
+    "late night"
+   ],
+   "production_tags": [
+    "层叠合成器",
+    "宽stereo",
+    "柔和高频",
+    "海洋reverb",
+    "shoegaze wall"
+   ],
+   "instrumentation": [],
+   "vocal_style": "器乐为主(人声化成pad)",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "possibly-known",
+   "scene": "车窗外的灯一颗颗往后掉，你把额头贴上玻璃。",
+   "artist_oneliner": "德国的 Ulrich Schnauss，shoegaze 那面墙在他手里换成了一层层合成器。",
+   "why": "合成器一层压一层，堆成一朵会发光的旋律云。人声化成背景 pad，词认不出来，那份想家倒是认得出。",
+   "fit_score": 80.0,
+   "source": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/A_Strangely_Isolated_Place",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Ulrich Schnauss",
+   "title_display": "A Letter from Home",
+   "artist_key": "ulrichschnauss",
+   "title_key": "aletterfromhome",
+   "version": "",
+   "album_key": "astrangelyisolatedplace",
+   "legacy_ids": [
+    "d-ulrichschnau-aletterfromhome"
+   ],
+   "_cover": "",
+   "_preview": "",
+   "_apple": ""
+  },
+  {
+   "id": "sha1:8ff5d09b32e99f33",
+   "title": "The Limp",
+   "artist": "Surprise Chef",
+   "year": "2021",
+   "album": "Daylight Savings",
+   "genres": [
+    "cinematic soul",
+    "jazz-funk",
+    "downtempo",
+    "library music"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "unhurried",
+    "late night",
+    "cinematic"
+   ],
+   "production_tags": [
+    "analog warmth",
+    "tape saturation",
+    "圆润木质贝斯",
+    "Rhodes/felt keys",
+    "优秀reverb",
+    "柔和高频"
+   ],
+   "instrumentation": [],
+   "vocal_style": "器乐无人声",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "likely-unheard",
+   "scene": "空高架上一脚油门，顺手把音量拧大一格。",
+   "artist_oneliner": "墨尔本的器乐组，接的是 David Axelrod 那条电影灵魂乐的线，做法却全 DIY。",
+   "why": "整首没人开口唱，木质贝斯蹭着磁带饱和往前挪，一步一步不着急。Khruangbin那一挂的器乐soul，音量拧到很小也照样撑得住一整个晚上。",
+   "fit_score": 86.0,
+   "source": "MusicBrainz + Bandcamp",
+   "source_url": "https://surprisechef.bandcamp.com/",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Surprise Chef",
+   "title_display": "The Limp",
+   "artist_key": "surprisechef",
+   "title_key": "thelimp",
+   "version": "",
+   "album_key": "daylightsavings",
+   "legacy_ids": [
+    "d-surprisechef-thelimp"
+   ],
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/6a/95/f8/6a95f81c-2aab-95d9-a43e-8106d204d52d/7119691267418_MRBLPSurpriseChefDaylightSavingsxpxls.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/93/df/83/93df8344-5a32-8487-7755-9a516a9681dc/mzaf_13824178371119132471.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/the-limp/1862793292?i=1862793632&uo=4"
+  },
+  {
+   "id": "sha1:fc3ffde2465a676c",
+   "title": "Shinzo no Tobira (心臓の扉)",
+   "artist": "Mariah",
+   "year": "1983",
+   "album": "Utakata no Hibi (うたかたの日々)",
+   "genres": [
+    "leftfield pop",
+    "fourth world",
+    "art pop",
+    "minimal electronica",
+    "city pop"
+   ],
+   "genre_stars": 5,
+   "mood_tags": [
+    "nostalgic",
+    "airy",
+    "dreamlike"
+   ],
+   "production_tags": [
+    "synth pad",
+    "圆润木质贝斯",
+    "wide stereo",
+    "granular",
+    "tape"
+   ],
+   "instrumentation": [],
+   "vocal_style": "无国界语言的梦呓吟唱，气声、层叠",
+   "bpm_band": "70–120",
+   "has_melody": true,
+   "familiarity": "likely-unheard",
+   "scene": "副驾的窗全开，脑子彻底放空，风景一路往后退。",
+   "artist_oneliner": "清水靖晃参与的 1983 年乐队，专辑冷门多年，Palto Flats 再版后成了全球邪典。",
+   "why": "人声用谁也听不懂的语言梦呓，木质贝斯一步一步走在第四世界的合成器底子上。1983年的东西，钩子黏得比现在多数新歌都狠。",
+   "fit_score": 86.0,
+   "source": "MusicBrainz",
+   "source_url": "https://musicbrainz.org/search?query=Mariah%20Utakata%20no%20Hibi&type=release&method=indexed",
+   "added_date": "2026-07-28",
+   "apple_track_id": "",
+   "apple_collection_id": "",
+   "artist_display": "Mariah",
+   "title_display": "Shinzo no Tobira (心臓の扉)",
+   "artist_key": "mariah",
+   "title_key": "shinzonotobira",
+   "version": "",
+   "album_key": "utakatanohibi",
+   "legacy_ids": [
+    "d-mariah-shinzonotobira心臓"
+   ],
+   "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/0f/42/25/0f42252b-698b-6a98-649a-8ebf4e85ab05/COCB-54216.jpg/600x600bb.jpg",
+   "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/2f/c3/b0/2fc3b02c-f6a2-9f1d-eb8a-1a9a7c2bf291/mzaf_16893789488957758318.plus.aac.p.m4a",
+   "_apple": "https://music.apple.com/us/album/shinzo-no-tobira/1472149501?i=1472149509&uo=4"
+  }
+ ]
 }

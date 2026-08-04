@@ -144,6 +144,12 @@ def main() -> int:
         if mrep["bad_status"]:
             p0.append(f"媒体来源非 ACCEPT（错版本/错艺人）{len(mrep['bad_status'])} 首："
                       f"{mrep['bad_status'][:3]}")
+        # 快照里冻着的错媒体：归档页正在展示，洗 pool_media 也没用
+        # （2026-08-04 审计：此前只看 pool_media，bad_status 报 0 是假绿）
+        if mrep.get("bad_status_snapshot"):
+            p0.append(f"期号快照里冻着非 ACCEPT 媒体 {len(mrep['bad_status_snapshot'])} 处"
+                      f"（归档页正在展示）：{mrep['bad_status_snapshot'][:3]}"
+                      f" —— 跑 python3 tools/fix_snapshot_media.py --apply")
         if mrep["missing_entry"]:
             p0.append(f"media 表缺记录 {len(mrep['missing_entry'])} 首（从未查过封面）")
         if mrep["no_cover"]:
