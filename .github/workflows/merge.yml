@@ -40,6 +40,7 @@ jobs:
           exit 0
 
       - name: 回写 pool / quarantine / 报告（仅合并成功时）
+        id: writeback
         if: steps.merge.outputs.rc == '0'
         run: |
           git config user.name "music-daily-bot"
@@ -74,7 +75,11 @@ jobs:
         env:
           WECHAT_PUSH_KEY: ${{ secrets.WECHAT_PUSH_KEY }}
           WECHAT_PUSH_PROVIDER: ${{ vars.WECHAT_PUSH_PROVIDER }}
-        run: python3 scripts/notify_merge.py "${{ steps.merge.outputs.rc }}"
+        # 第二个参数是回写结果 —— 通知此前只看 merge 的退出码，完全不看回写是否
+        # 成功。裸 git push 顶不住分支移动（merge 最坏跑 22 分钟），被拒时池子根本
+        # 没入库，微信却照样推「补库完成：+N 首」。notify_merge 只在 rc==0 分支里
+        # 看这个值（rc≠0 时回写是 skipped，在外层判会把 rc=3 误播成「回写失败」）。
+        run: python3 scripts/notify_merge.py "${{ steps.merge.outputs.rc }}" "${{ steps.writeback.outcome }}"
 
       # 通知发完再让 job 反映真实结果，这样 Actions 页面的红/绿仍然可信
       - name: 按合并退出码决定 job 成败

@@ -268,6 +268,30 @@ def main() -> None:
         picks = selector.select_daily(pool, history, args.date, n=args.n)
         picks, misses = enrich(picks, use_itunes=not args.no_itunes)
         existing = sorted(p.stem for p in ISSUES.glob("*.json"))
+        # 守卫：往【已有期号区间内部】补一期会编出错号。
+        # 新日期一律拿「现有期数+1」，不管时间上排第几；而 _backfill_snapshots
+        # 用 enumerate(sorted(history),1) 按时间序编 —— 两套规则不一致。
+        # 实测 --date 2026-07-25 得「第 9 期」，archive 里它排在最末却标 009，
+        # 而它前面的 2026-07-28 是 001。
+        #
+        # 触发条件是 args.date 不在 existing 里【且】小于 max(existing)：
+        # 当前 8 期日期连续，所以此刻只有 < 首期才会撞；但一旦漏跑形成空档
+        # （如 08-04、08-06 已有而补 08-05），中间那天就是触发点 —— 这才是
+        # 运维里真会遇到的形态。
+        #
+        # 不自动重编号：既有快照永不重编（_backfill_snapshots 对已有的 continue、
+        # refresh_snapshot_copy 也明确不动 issue_no），只改新期算法必然撞号 ——
+        # 实测「sorted(existing+[date]).index()+1」会把「顺序错」换成「编号重复」。
+        # 所以这里只拦住，让人显式处理。
+        if existing and args.date not in existing and args.date < max(existing):
+            raise SystemExit(
+                f"❌ 拒绝生成：{args.date} 落在已有期号区间内部"
+                f"（现有 {existing[0]} … {existing[-1]}，共 {len(existing)} 期）。\n"
+                f"   直接生成会编成第 {len(existing) + 1} 期，与日期顺序矛盾；\n"
+                f"   而既有快照不会重编号，自动按时间序编又会与已有期号撞车。\n"
+                f"   需要人工处理：先决定这一期占哪个号，再把该号及其后所有快照的\n"
+                f"   issue_no 一起重排（data/issues/*.json 的 issue_no 字段），\n"
+                f"   然后跑 _rebuild_site() 重建。没有现成命令能替你做这件事。")
         issue_no = existing.index(args.date) + 1 if args.date in existing else len(existing) + 1
         title = netease.playlist_title(picks, args.date,
                                        recent_titles=_recent_titles(before=args.date))

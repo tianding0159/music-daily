@@ -1,7 +1,8 @@
 """在线音乐接口（iTunes Search）：精确版本匹配 + 瞬时错误区分 + 全局限流 + 结构化缓存。
 
 不再只有 found=True/False。lookup() 返回状态枚举之一：
-  exact_match / acceptable_match / version_mismatch / artist_mismatch / album_mismatch
+  exact_match / acceptable_match / version_mismatch / artist_mismatch
+  （没有 album_mismatch —— 本模块不做专辑匹配，见 lookup docstring）
   / not_found / transient_error
 - 精确匹配：艺人规范化后一致（exact=完全相等 / acceptable=互为子串），主标题（去版本括号）一致，
   且结果不得含候选未声明的版本词（Remix/Live/Remaster/Edit/... → version_mismatch）。
@@ -187,7 +188,7 @@ def _mk(status: str, best: dict | None, country: str, error: str = "", retryable
     }
 
 
-def lookup(artist: str, title: str, cache: dict, album: str = "") -> dict:
+def lookup(artist: str, title: str, cache: dict) -> dict:
     """按 artist + title 查 iTunes。返回 status 枚举之一（见模块 docstring）。
 
     ⚠️ **album 参数当前【不参与匹配】，纯占位。** 2026-08-04 审计确认：

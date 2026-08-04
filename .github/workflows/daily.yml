@@ -78,3 +78,57 @@ jobs:
           WECHAT_PUSH_KEY: ${{ secrets.WECHAT_PUSH_KEY }}
           WECHAT_PUSH_PROVIDER: ${{ vars.WECHAT_PUSH_PROVIDER }}
         run: python3 scripts/notify_after_deploy.py "${{ steps.deploy.outputs.page_url || vars.PAGES_URL }}"
+
+      # 提交 notified 标记。**必须在 notify 之后单独一步** —— 上面那个回写步骤
+      # 在 deploy 之前就跑完了，把标记塞进它等于写进一个随 runner 销毁的文件，
+      # 跨 run 根本不存在；而 notify 的跳过条件已经改成认这个标记，
+      # 标记永不存在 = 四个 cron 槽全推 = 一天四条微信。
+      #
+      # if: always() —— notify 步失败（HTTP 校验没过）时本步也要跑：那种情况下
+      # 标记不会被写入，这里 git diff 为空、自然跳过提交，不会误标成已推送。
+      #
+      # 复刻回写步骤那套 5 次 rebase 重试：手动 dispatch 与定时槽可能前后脚跑。
+      # 这里 rebase 是安全的 —— 只碰 latest.json 一个标记字段，不是 data of record，
+      # 与 merge/import-bios 回写的性质不同（那两条见审计 C4 的警告）。
+      - name: 提交 notified 标记（防当天重复推送）
+        if: always()
+        run: |
+          set -eo pipefail
+          git config user.name "music-daily-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/latest.json
+          if git diff --cached --quiet; then
+            echo "无 notified 标记变更（未推送成功 / 本期已标记），跳过提交"
+            exit 0
+          fi
+          for i in 1 2 3 4 5; do
+            if git commit -q -m "chore: 标记 $(date -u +%F) 已推送 [skip ci]" 2>/dev/null \
+               || git diff --cached --quiet; then :; fi
+            if git push; then echo "notified 标记已提交（第 $i 次）"; exit 0; fi
+            echo "push 被拒，rebase 后重试（第 $i 次）"
+            git pull --rebase --autostash origin main || exit 1
+            sleep $((i * 3))
+          done
+          # 提交失败不该让整条日报判失败 —— 页面已部署、微信已推送，
+          # 最坏后果只是下一槽多推一条。
+          echo "::warning::notified 标记提交失败 5 次，当天后续 cron 槽可能重复推送"
+
+      # 无人值守告警。整个 job 此前没有任何失败信号 —— 确定性失败（池空 /
+      # 渲染器抛异常 / Pages 配额）会让四槽以同样方式全挂，仓内唯一线索是
+      # 「当天一条微信都没收到」，负向信号太弱。merge.yml 早就加了同类一层。
+      #
+      # env 必须【同时】带 KEY 和 PROVIDER：push_wechat 是
+      # `provider or os.environ.get("WECHAT_PUSH_PROVIDER","serverchan")`，
+      # 只带 KEY 时若 var 设成 pushplus，就会拿 PushPlus token 去 POST Server酱
+      # → push() 返回 False → 只打一行日志、步骤照样绿 = 永不响的警报器。
+      #
+      # 槽感知在脚本里做（判当期快照是否已建成），不在这里数槽位 ——
+      # cron 可能被 GitHub 跳过，数槽位不可靠。
+      - name: 失败告警（仅当当期快照未建成才推，避免狼来了）
+        if: failure()
+        env:
+          WECHAT_PUSH_KEY: ${{ secrets.WECHAT_PUSH_KEY }}
+          WECHAT_PUSH_PROVIDER: ${{ vars.WECHAT_PUSH_PROVIDER }}
+        run: |
+          python3 scripts/notify_daily_failure.py \
+            "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

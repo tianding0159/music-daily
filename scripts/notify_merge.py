@@ -39,6 +39,10 @@ RC_MEANING = {
         "两种可能：①本批新艺人没带简介（曲目和简介要在**同一份文件**里一起给）；"
         "②简介覆盖了已有艺人且内容不同（需比对两版质量后确认）。"
         "**具体是哪一种、涉及哪几位，看 Actions 日志**，那里逐个点名了。"),
+    4: ("补库被拒：文件编码损坏",
+        "候选文件里的中文在传输中损坏了。**必须让上游用 "
+        "`json.dumps(..., ensure_ascii=True)` 重发** —— 重试不会好，"
+        "每次都会同样失败。（这就是为什么它不是 rc=2「网络问题，不用管」。）"),
 }
 
 
@@ -108,7 +112,26 @@ def main() -> int:
     except Exception:
         pass
 
+    # 回写结果（merge.yml 传入 steps.writeback.outcome）。
+    # **只在 rc==0 分支里看它** —— 回写步骤带 if: rc=='0'，rc=1/2/3 时它是
+    # skipped、outcome 也不是 'success'，在外层判会把「新艺人缺简介、根本没入库」
+    # 播报成「已入库但回写失败」（2026-08-04 审计点名的陷阱）。
+    wb = (sys.argv[2].strip() if len(sys.argv) > 2 else "").lower()
+
     rep = _latest_report()
+    if rc == 0 and wb and wb != "success":
+        # 池子在 runner 上算好了，但没推回仓库 —— 报「+N 首」就是说反话
+        title = "补库：入库成功但回写失败"
+        added = (rep or {}).get("added")
+        lines.append(f"- 本次合并出 **{added if added is not None else '?'}** 首，"
+                     "但提交回仓库失败（多半是 push 被拒：跑的这段时间里 main 动了）")
+        lines.append("- **池子这轮没长**。候选文件还在仓库里，"
+                     "手动重跑 `gh workflow run merge.yml` 即可（重跑幂等）。")
+        lines.append("")
+        lines.append(advice)
+        ok = push_wechat.push(title, "\n".join(lines))
+        print(f"[notify_merge] rc={rc} writeback={wb!r} title={title!r} pushed={ok}")
+        return 0
     if rc == 0 and not rep:
         title = "补库：本次无新增"
         lines.append("- 本次没有候选文件，或候选全部被去重 / 隔离")

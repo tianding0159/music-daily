@@ -52,9 +52,23 @@ def main() -> int:
         return 1
     print(f"✅ 部署校验通过：{check}")
 
-    latest = json.loads((DATA / "latest.json").read_text(encoding="utf-8")) if (DATA / "latest.json").exists() else {}
-    if latest.get("fresh_build") is False:
-        print("↻ 本期非本次新建（当期此前已发布），跳过重复微信推送")
+    lp = DATA / "latest.json"
+    latest = json.loads(lp.read_text(encoding="utf-8")) if lp.exists() else {}
+
+    # 幂等键必须是「今天推送成功过吗」，不能是 fresh_build（「本次是否新建快照」）。
+    # fresh_build 只看快照文件存不存在，与推送成功无关；而 latest.json 在 daily.yml
+    # 的回写步骤（第 4 步）就提交了，远早于 deploy(6) 和本步(7)。
+    # 于是首槽只要跑过回写，此后【任何】环节失败 —— deploy 挂 / HTTP 校验不过 /
+    # Server酱 5xx（push_wechat 把所有异常吞成 False，本脚本只打印告警就 return 0、
+    # job 全绿）—— 都会让当天剩下三个备份槽在这里提前 return，微信永久静默丢失。
+    # 四个槽恰好被设计成「不重发」，一个都救不回来。
+    #
+    # 改成认 notified 标记：标记由本脚本在推送成功后写入，再由 daily.yml 新增的
+    # post-notify 步骤提交（必须在本步之后，否则随 runner 销毁、跨 run 不存在）。
+    # 退化方向也对：标记机制哪天失效 → 多推一条，而不是永久不推。
+    today = latest.get("date", "")
+    if latest.get("notified") == today and today:
+        print(f"↻ 本期（{today}）已推送成功过，跳过重复推送")
         return 0
     import push_wechat  # 延迟导入
     tracks = latest.get("tracks_brief", [])
@@ -65,8 +79,19 @@ def main() -> int:
         warn=latest.get("low_pool_warn"), total=latest.get("n"))
     if push_wechat.push(title, desp):
         print("✅ 微信推送成功")
+        # 写 notified 标记；提交由 daily.yml 的 post-notify 步骤负责。
+        # 写盘失败不影响本次结论（已经推成功了），只会导致下一槽多推一条。
+        try:
+            latest["notified"] = today
+            lp.write_text(json.dumps(latest, ensure_ascii=False, indent=1),
+                          encoding="utf-8")
+            print(f"   已写 notified={today}（待 post-notify 步骤提交）")
+        except Exception as e:
+            print(f"   ⚠️ notified 标记写盘失败：{e}（下一槽可能重复推送）")
     else:
+        # 【不写标记】—— 这正是修复的核心：推送失败时必须让后续槽位有机会重试。
         print("⚠️ 微信推送失败或未配置 key——页面已部署成功，不回滚，仅告警")
+        print("   未写 notified 标记，当天后续 cron 槽会重试推送")
     return 0
 
 

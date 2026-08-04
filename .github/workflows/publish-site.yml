@@ -90,7 +90,11 @@ jobs:
       - name: 检查 site/ 有内容
         run: |
           set -e
-          for f in index.html daily.html random.html; do
+          # 清单要覆盖【所有】页面依赖的产物，不能只查三个 HTML ——
+          # artists.min.json 正是 B4 那次漏写的文件，只查 HTML 的护栏挡不住它
+          # （页面能打开、只是浮层没简介，失败得很安静）。
+          for f in index.html daily.html random.html \
+                   pool.min.json artists.min.json archive/index.html; do
             [ -s "site/$f" ] || { echo "::error::site/$f 缺失或为空，拒绝发布"; exit 1; }
           done
           echo "site/ 共 $(find site -type f | wc -l) 个文件"

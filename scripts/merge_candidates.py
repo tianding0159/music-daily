@@ -127,10 +127,11 @@ def merge(cands: list[dict], pool: list[dict], validate: bool = True) -> tuple[l
         dt.timezone(dt.timedelta(hours=8))).strftime("%Y-%m-%d")
     c = {"input": len(cands), "schema_valid": 0, "exact_match": 0, "acceptable_match": 0,
          "duplicates": 0, "version_mismatch": 0, "artist_mismatch": 0,
-         # album_mismatch 恒为 0：itunes.lookup 不做专辑匹配（见其 docstring）。
-         # 保留字段是为了报告 schema 稳定，但【0 不代表「没有专辑错配」，
-         # 代表「从来没检查过」】—— 这两件事在报告里看起来一模一样。
-         "album_mismatch": 0,
+         # 不再预置 album_mismatch —— 它恒为 0，而「0」在报告里读起来像
+         # 「专辑维度查过了没问题」，实际是「从来没检查过」。这两件事看起来一样，
+         # 所以宁可让字段缺席。计数用 c.get(status,0)+1，不依赖预置键。
+         # 改为记录 year_differs：候选 year 与 iTunes 匹中年份不一致的条数，
+         # 这个数字是真的有人在算。
          "not_found": 0, "blacklist": 0, "transient_error": 0, "added": 0}
     quarantined: list[dict] = []
     transient = False
@@ -157,9 +158,7 @@ def merge(cands: list[dict], pool: list[dict], validate: bool = True) -> tuple[l
             continue
         year, coll_id = t.get("year", ""), str(t.get("apple_collection_id") or "")
         if validate:
-            # album= 目前不参与匹配（itunes.lookup docstring 说明了原因）。
-            # 保留传参是为了将来实现时不用改调用方，但【别指望它在校验专辑】。
-            info = itunes.lookup(artist, title, cache, album=t.get("album", ""))
+            info = itunes.lookup(artist, title, cache)
             status = info["status"]
             if status == "transient_error":
                 transient = True
@@ -178,9 +177,30 @@ def merge(cands: list[dict], pool: list[dict], validate: bool = True) -> tuple[l
                     c["duplicates"] += 1
                     quarantined.append({"title": title, "artist": artist, "reason": "duplicate"})
                     continue
+            # 【不再用 iTunes 年份覆盖候选 year】。
+            # 原注释写「更权威」，但这条匹配是在**没有任何专辑约束**下选出的
+            # （lookup 的 album 参数从不参与匹配、缓存键只有 artist|title），
+            # 于是卡片上的「年份 / 专辑」可以来自两张不同的唱片：
+            # 实测 The Style Council《You're the Best Thing》存成
+            # year=2020 / album='Café Bleu' —— Café Bleu 是 1984 年的专辑，
+            # 2020 来自匹到的合辑 Long Hot Summers。池里 167 首受影响、26 首已发布。
+            #
+            # 现在保留候选 year（与 album 同源，至少自洽），iTunes 的另存
+            # matched_release_year 供人工核，差异进 warn。
+            # 不改成「collection 与候选 album 一致才采信」—— 那个判据假阳性率很高
+            # （& vs and、Deluxe/Remaster、原专辑没上架只有合辑），会把年份来源从
+            # 「iTunes 匹中发行版」换成「LLM 自报」，即从「错得可查」变「错得不可查」。
             ry = str(info.get("release_year") or "")
-            if re.fullmatch(r"\d{4}", ry):
-                year = ry  # 用 iTunes 收录专辑发行年（更权威）
+            matched_year = ry if re.fullmatch(r"\d{4}", ry) else ""
+            if matched_year and year and matched_year != str(year):
+                c.setdefault("year_differs", 0)
+                c["year_differs"] += 1
+                quarantined.append({
+                    "title": title, "artist": artist, "reason": "year_differs_kept_candidate",
+                    "candidate_year": str(year), "matched_release_year": matched_year,
+                    "candidate_album": t.get("album", ""),
+                    "matched_collection": info.get("collection_name", ""),
+                })
             coll_id = str(info.get("collection_id") or coll_id)
         seen.add(cid)
         st = _stars(t.get("genres"))
@@ -192,6 +212,9 @@ def merge(cands: list[dict], pool: list[dict], validate: bool = True) -> tuple[l
             "version": mc.detect_version(title), "album_key": mc.keyify(t.get("album", "")),
             "apple_track_id": apple_tid, "apple_collection_id": coll_id, "legacy_ids": [],
             "year": year, "album": t.get("album", ""),
+            # iTunes 匹中发行版的年份，仅供核对：它与 album 可能不是同一张唱片
+            # （见上方 year 那段注释）。渲染层只印 year，不印这个。
+            "matched_release_year": matched_year if info else "",
             "genres": t.get("genres", []), "genre_stars": st,
             "mood_tags": t.get("mood_tags", []), "production_tags": t.get("production_tags", []),
             "instrumentation": t.get("instrumentation", []), "vocal_style": t.get("vocal_style", ""),
@@ -231,7 +254,7 @@ def _apply_bios(bios: list[dict], added_artists: set[str],
     ① **覆盖**：入库曲目的艺人若不在 artists.json，本批必须给它 bio。
        不强制的话覆盖率会从 100% 悄悄下滑，而且是静默的（页面只是少一段字）。
     ② **质量**：bio 本身的校验【整个委托给 import_bios.audit()】——
-       SHA/编码不在这层（同一文件已随候选一起校验过），但合同、黑名单、
+       SHA 不在这层；编码已由 main() 在读文件后、解析前用 import_bios.check_encoding 校验过（2026-08-04 补上，此前这句是假断言），但合同、黑名单、
        让人令人、地名、汉字间空格、覆盖已有内容等判据必须与专用通道完全一致。
        在这里重写一份必然与那边漂移（见 memory parallel-paths-drift-silently）。
     """
@@ -296,10 +319,30 @@ def main() -> int:
         print("没有候选文件可处理（candidates/ 为空）。")
         return 0
 
+    # 编码检测必须在【解析之前】—— 损坏的中文仍是合法 JSON，等解析完就晚了。
+    # 补库通道此前完全没有这道闸（全仓 check_encoding 只在 inbox/bios 专用通道用），
+    # 而 cp1252 化的候选能零错误通过全部校验：`。` 变 `ã€‚` 使「why 超过两句」
+    # 失效、len(scene) 只管下限、mood_tags 是 ASCII、黑名单是中文匹不上，
+    # iTunes 也因 title/artist 是 ASCII 照样 exact_match（2026-08-04 审计实测）。
+    # 真正裸奔的是 0-新艺人批次（salvage 重传 / 已知艺人补曲）：不走 bio 校验，
+    # 损坏静默入库并 commit。这类批次真实发生过（reports/merge/2026-08-03-salvage）。
+    sys.path.insert(0, str(ROOT / "tools"))
+    import import_bios as _ib                       # noqa: PLC0415
+
     cands: list[dict] = []
     bios: list[dict] = []
     for p in paths:
         txt = p.read_text(encoding="utf-8")
+        enc_errs = _ib.check_encoding(txt)
+        if enc_errs:
+            print(f"❌ {p.name} 编码损坏：{enc_errs[0]}")
+            print("   请让上游用 json.dumps(..., ensure_ascii=True) 重发。")
+            print("   不写盘、不删候选。")
+            _step_summary(f"### ⚠️ merge FAILED（编码损坏）\n\n`{p.name}`：{enc_errs[0]}")
+            # rc=4 是新码。**绝不能用 2** —— 那是 transient，微信会推
+            # 「不用管，下次自动重试」，而编码损坏每次重试都同样失败，
+            # 等于把硬失败伪装成可忽略的抖动。
+            return 4
         got, gb = parse_candidates(txt), parse_artists(txt)
         print(f"读入 {p.name}: 曲目 {len(got)} 条" + (f" · 艺人简介 {len(gb)} 条" if gb else ""))
         cands += got
