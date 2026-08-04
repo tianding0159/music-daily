@@ -4,9 +4,34 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f0e12">
-<meta name="description" content="每日精选 30 首 · melody-first · mood-first · production-first">
+<meta name="description" content="今日 30 首：Peacekeeper — 1010benja、Mother Maybe — Kadhja Bonet、TOKYO SNIPER — Ryusenkei…">
 <title>MUSIC DAILY · md-30 · 2026-08-03</title>
+<!-- Open Graph：发到微信 / Twitter 时带标题 + 封面 + 摘要，而不是一条裸链接。
+     og:image 用当期第一首的封面（iTunes 的 https 绝对地址，零额外成本）；
+     没有封面时退回站点图标，宁可用占位也别留空 —— 空 og:image 有些抓取端
+     会去页面里乱抓一张图。 -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="MUSIC DAILY">
+<meta property="og:title" content="MUSIC DAILY · 第 007 期 · 2026.08.03">
+<meta property="og:description" content="今日 30 首：Peacekeeper — 1010benja、Mother Maybe — Kadhja Bonet、TOKYO SNIPER — Ryusenkei…">
+<meta property="og:url" content="https://tianding0159.github.io/music-daily/archive/2026-08-03.html">
+<meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/5a/15/5e/5a155ef7-7e15-644c-fac3-32268761ef1e/196871037594.jpg/600x600bb.jpg">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MUSIC DAILY · 第 007 期 · 2026.08.03">
+<meta name="twitter:description" content="今日 30 首：Peacekeeper — 1010benja、Mother Maybe — Kadhja Bonet、TOKYO SNIPER — Ryusenkei…">
+<meta name="twitter:image" content="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/5a/15/5e/5a155ef7-7e15-644c-fac3-32268761ef1e/196871037594.jpg/600x600bb.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23f05a24%22/%3E%3Crect%20x%3D%225%22%20y%3D%225%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22none%22%20stroke%3D%22%230f0e12%22%20stroke-width%3D%222%22/%3E%3C/svg%3E">
+<!-- PWA：加到手机主屏后有真图标、全屏无地址栏、启动闪屏。
+     ../ 前缀让 archive/ 子目录也能取到根目录的资源。
+     只做 manifest 不做 Service Worker —— 这个站每天出新刊，SW 的缓存失效
+     写不对就会让用户看到昨天的日报【而且他不知道】，那类静默失效的代价
+     远大于「离线翻往期」的收益。 -->
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MD-30">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
@@ -32,6 +57,29 @@
   --sp-xl:clamp(28px,4vw,52px);
 }
 html{scroll-behavior:smooth}
+
+/* ── 键盘焦点 ────────────────────────────────────────────────
+   此前没有任何 :focus-visible 规则，键盘用户只能看浏览器默认蓝环 ——
+   跟这套黑白 + 橙的调性完全不搭，且在深色卡片上几乎看不清。
+   用 :focus-visible 而不是 :focus：后者会在【鼠标点击】时也亮起，
+   那是多数站点把焦点环整个 outline:none 掉的原因，代价是键盘用户彻底失明。
+   :focus-visible 只在浏览器判断「用户在用键盘导航」时才亮。
+   本站没有任何 outline:none（实测 0 处），所以这里是纯增强、不夺走兜底。 */
+:focus-visible{
+  outline:2px solid var(--orange);
+  outline-offset:2px;
+  border-radius:1px;   /* 方角站点上给焦点环一点点圆，避免看着像边框错位 */
+}
+/* 深色底上（LCD 屏、浮层、唱盘控制条）橙色对比不足，改用亮描边 + 橙内圈：
+   两层保证在任何底色上都可见。 */
+.lcd :focus-visible,
+#lb :focus-visible,
+.deckbox :focus-visible{
+  outline-color:#f5f5f5;
+  box-shadow:0 0 0 4px var(--orange);
+}
+/* 封面这类大块可聚焦区域，焦点环贴边会被 overflow 裁掉 —— 内缩画 */
+.cover-zoom:focus-visible{outline-offset:-3px}
 body{font-family:var(--sans); font-weight:300; color:var(--ink); background:var(--paper);
   line-height:1.5; letter-spacing:0; -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility; font-feature-settings:"kern" 1,"liga" 1;
@@ -233,6 +281,12 @@ a{color:inherit; text-decoration:none}
 .pbtn svg{width:11px; height:11px; fill:var(--white); display:block}
 .pbtn .i-pause{display:none}
 .pbtn.playing{background:var(--green-d); opacity:1}
+/* 试听失效：给出可见的「不可用」态，而不是让它看起来还能点 */
+.pbtn.dead{background:var(--g300); opacity:.55; cursor:not-allowed}
+.pbtn.dead svg{fill:var(--g600)}
+.pbtn.dead::after{content:"×"; position:absolute; font-size:13px; line-height:1;
+  color:var(--white); font-family:var(--mono)}
+.pbtn.dead .i-play,.pbtn.dead .i-pause{display:none}
 .pbtn.playing .i-play{display:none}
 .pbtn.playing .i-pause{display:block}
 /* 底部 now-playing 条：封面键触发后浮现，显当前曲/进度/播放暂停，与封面键联动 */
@@ -493,6 +547,8 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
     <button class="tbtn line" id="fav-export" type="button">导出收藏</button>
     <a class="tbtn line" href="index.html">往期 archive ↗</a>
     <a class="tbtn line" href="../random.html">听点别的 shuffle ↗</a>
+    <button class="tbtn line" id="share-btn" type="button" hidden>分享这期</button>
+    <a class="tbtn line" rel="prev" href="2026-08-02.html">← 上一期</a><a class="tbtn line" rel="next" href="2026-08-04.html">下一期 →</a>
   </div>
 
   <div class="sect">tracklist</div>
@@ -1398,11 +1454,72 @@ function copyNC(){const t=document.getElementById('nc-text').innerText;
   au.addEventListener('play',function(){mark(true);});
   au.addEventListener('pause',function(){mark(false);});
   au.addEventListener('ended',function(){mark(false);if(FILL)FILL.style.width='0%';step(1);});
-  function load(b){var src=b.dataset.src;if(!src)return;
+
+  // ── 试听失败的处理 ──────────────────────────────────────────
+  // iTunes 的 preview URL 会失效（池里已有 12 首连封面都拿不到）。此前既没有
+  // error 监听、play() 的 Promise 也没接 —— 点下去毫无反馈、按钮卡在 playing，
+  // 用户会以为是自己网络的问题。
+  // 处理分两层：①把这首标成不可播、状态回滚、告诉用户为什么；
+  //            ②【自动跳到下一首】—— 一次连播里遇到坏链不该整条断掉。
+  // 载入代次：每次 load() 自增。play() 的 Promise 是【异步】兑现的，等它
+  // reject 时可能早已跳到下一首了 —— 那条迟到的 catch 必须认出自己已经过期，
+  // 否则它会拿旧曲的失败去污染新曲（实测：只坏第一首时，b1 已开始播，
+  // 迟到的 catch 把 LCD 曲名改成「无法试听」，mark(false) 还按【当前】cur
+  // 抹掉了 b1 的 playing 态 —— 坏的是 b0，遭殃的是 b1）。
+  // reported = 已由 error 事件完整处理过的代次。error 事件与 play() 拒绝是
+  // 【同一次失败的两条上报路径】，谁后到谁就会覆盖前一条的措辞。连锁跳到上限时
+  // 后到的偏偏是笼统那条：「连续几首都无法试听，先停一下」被盖成「这首暂时无法
+  // 试听」—— 用户会以为只是这首坏、还能换一首点，其实整条播放已经停了。
+  var failed = {}, autoStep = 0, gen = 0, reported = 0;
+  function noteFail(b, why){
+    if(!b) return;
+    b.classList.remove('playing');
+    b.classList.add('dead');
+    b.setAttribute('aria-label', '这首暂时无法试听');
+    b.title = '这首暂时无法试听（' + why + '）';
+    failed[b.dataset.src || ''] = 1;
+  }
+  function say(msg){
+    if(T) T.textContent = msg;
+    if(A) A.textContent = '';
+    if(TIME) TIME.textContent = '';
+    if(FILL) FILL.style.width = '0%';
+  }
+  au.addEventListener('error', function(){
+    var b = cur;
+    reported = gen;               // 认领本代次，别让 play() 的拒绝再复述一遍
+    noteFail(b, '音源失效');
+    mark(false);
+    say('这首暂时无法试听，已跳到下一首');
+    // 防死循环：一次连锁跳跃最多 5 次，全坏就停下并说清楚
+    if(autoStep < 5){ autoStep++; step(1); }
+    else { autoStep = 0; say('连续几首都无法试听，先停一下'); }
+  });
+  au.addEventListener('playing', function(){ autoStep = 0; });
+
+  function load(b){var src=b.dataset.src;
+    if(!src){ noteFail(b, '没有试听源'); say('这首没有试听源'); return; }
     if(cur)cur.classList.remove('playing');
+    var myGen = ++gen;
     au.src=src;cur=b;
     if(C)C.src=b.dataset.cover||'';if(T)T.textContent=b.dataset.title||'';if(A)A.textContent=b.dataset.artist||'';
-    if(np)np.classList.add('on');au.play();}
+    if(np)np.classList.add('on');
+    // play() 返回 Promise：被浏览器策略拦下（未交互）或音源解不开时会 reject。
+    // 不接的话按钮永远停在 playing，这正是「点了没反应」的来源。
+    var pr = au.play();
+    if(pr && pr.catch) pr.catch(function(err){
+      // 已经跳到别的曲子了 —— 这条拒绝属于上一首，丢掉。
+      // （换 au.src 会让挂起的 play() 以 AbortError 拒绝，正是这条路径。）
+      if(myGen !== gen) return;
+      // error 事件已经完整处理过这一代（含"停下来"那条终止提示），别再复述
+      if(reported === myGen) return;
+      mark(false);
+      // NotAllowedError = 浏览器自动播放策略，不是音源坏，别标死
+      if(err && err.name === 'NotAllowedError'){ say('点一下播放键即可开始'); return; }
+      noteFail(b, (err && err.name) || '播放失败');
+      say('这首暂时无法试听');
+    });
+  }
   function playCard(b){if(cur===b){if(au.paused)au.play();else au.pause();return;}load(b);}
   function step(d){if(!btns.length)return;var i=cur?btns.indexOf(cur):-1;var j=i+d;
     if(j<0)j=btns.length-1;if(j>=btns.length)j=0;load(btns[j]);}
@@ -1414,6 +1531,44 @@ function copyNC(){const t=document.getElementById('nc-text').innerText;
   document.addEventListener('keydown',function(e){var tag=(e.target.tagName||'').toLowerCase();if(tag==='input'||tag==='textarea')return;
     if(e.code==='Space'){e.preventDefault();if(!cur){if(btns[0])load(btns[0]);}else if(au.paused)au.play();else au.pause();}
     else if(e.key==='ArrowRight'){step(1);}else if(e.key==='ArrowLeft'){step(-1);}});
+})();
+
+// 分享：navigator.share 是移动端原生分享面板（微信/微博/AirDrop 一键直达）。
+// 桌面浏览器大多不支持，此时退回「复制链接」——但【按钮默认 hidden】、
+// 只在确认有能力时才显示，避免点了没反应。
+(function(){
+  var b = document.getElementById('share-btn');
+  if(!b) return;
+  var canShare = !!(navigator.share);
+  var canCopy  = !!(navigator.clipboard && navigator.clipboard.writeText);
+  if(!canShare && !canCopy) return;          // 两样都没有就不显示这个按钮
+  b.hidden = false;
+  if(!canShare) b.textContent = '复制本期链接';
+  b.addEventListener('click', function(){
+    var url = location.href.split('#')[0];
+    var title = document.title;
+    var text = (document.querySelector('meta[property="og:description"]')||{}).content || '';
+    if(canShare){
+      // share() 被用户取消也会 reject（AbortError），那不是错误，别提示
+      navigator.share({title: title, text: text, url: url}).catch(function(e){
+        if(e && e.name === 'AbortError') return;
+        if(canCopy) fallbackCopy(url, b);
+      });
+      return;
+    }
+    fallbackCopy(url, b);
+  });
+  function fallbackCopy(url, btn){
+    navigator.clipboard.writeText(url).then(function(){
+      var o = btn.textContent;
+      btn.textContent = '链接已复制 ✓';
+      setTimeout(function(){ btn.textContent = o; }, 1800);
+    }).catch(function(){
+      var o = btn.textContent;
+      btn.textContent = '复制失败，请手动复制地址栏';
+      setTimeout(function(){ btn.textContent = o; }, 2400);
+    });
+  }
 })();
 
 // heart 收藏：localStorage 跨期累计 + 只看收藏 + 导出网易云
@@ -1466,8 +1621,11 @@ function copyFav(){var t=document.getElementById('fav-text').innerText;
 
   function esc(s){ var d=document.createElement('div'); d.textContent=s==null?'':s; return d.innerHTML; }
 
-  function open(d){
-    last=document.activeElement;
+  function open(d, trigger){
+    // 存【触发元素】而不是 document.activeElement —— 鼠标点击时 activeElement
+    // 是 body（点 div 不给焦点），于是关闭后焦点掉回 body，键盘用户要从头 Tab。
+    // 2026-08-04 实测：修前 Esc 后 activeElement 就是 <body class="anim">。
+    last = trigger || document.activeElement;
     $('lb-big').innerHTML = d.cover
       ? '<img src="'+esc(big(d.cover))+'" alt="">'
       : '<div class="ph">'+esc((d.artist||'?').slice(0,1).toUpperCase())+'</div>';
@@ -1504,11 +1662,34 @@ function copyFav(){var t=document.getElementById('fav-text').innerText;
     $('lb-links').innerHTML = lk.join('');
     lb.classList.add('on');
     document.body.style.overflow='hidden';
+    // 焦点 trap：把 #lb 以外的顶层兄弟节点整棵设为 inert —— 它们既不可聚焦
+    // 也不接受点击，Tab 自然被关在浮层里。比手写「首尾元素循环」可靠得多：
+    // 那种写法要维护「可聚焦元素清单」，而浮层内容是动态渲染的，清单必然漂。
+    // 2026-08-04 实测：修之前连按 12 次 Tab，10 次落到浮层背后的卡片上，
+    // 而 #lb 明明声明了 role=dialog + aria-modal=true —— 承诺了模态却没兑现。
+    inertKids(true);
     lb.querySelector('.x').focus();
+  }
+  // 除 #lb 外的 body 子节点整体 inert / 恢复。只动我们设过的那些（记在 _inert 上），
+  // 免得把页面本来就有的 inert 属性给清掉。
+  function inertKids(on){
+    var kids = document.body.children;
+    for(var i=0;i<kids.length;i++){
+      var el = kids[i];
+      if(el === lb) continue;
+      if(on){
+        if(!el.hasAttribute('inert')){ el.setAttribute('inert',''); el._lbInert = 1; }
+      } else if(el._lbInert){
+        el.removeAttribute('inert'); el._lbInert = 0;
+      }
+    }
   }
   function close(){
     lb.classList.remove('on');
     document.body.style.overflow='';
+    inertKids(false);
+    // 焦点归位要在解除 inert 【之后】—— 在 inert 状态下 focus() 是无效的，
+    // 焦点会掉回 body，用户按 Tab 得从头再来。
     if(last && last.focus) last.focus();
   }
 
@@ -1518,7 +1699,7 @@ function copyFav(){var t=document.getElementById('fav-text').innerText;
     if(e.target.closest('.pbtn')) return;
     var h=e.target.closest('.art'); if(!h) return;
     var d=h.dataset; if(!d.title && !d.cover) return;
-    e.preventDefault(); open(d);
+    e.preventDefault(); open(d, h);
   });
   addEventListener('keydown', function(e){
     if(e.key==='Escape' && lb.classList.contains('on')) close();

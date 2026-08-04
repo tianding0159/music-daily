@@ -678,6 +678,7 @@ document.addEventListener('keydown',(e)=>{
 
 def build_html(n_total: int) -> str:
     import urllib.parse
+    up = ""             # 本页在站点根目录
     favicon = "data:image/svg+xml," + urllib.parse.quote(
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">'
         '<rect width="24" height="24" fill="#0f0e12"/>'
@@ -697,6 +698,16 @@ def build_html(n_total: int) -> str:
 <meta name="description" content="从 {n_total} 首曲库里随手另起一首 · melody-first · mood-first">
 <title>MUSIC DAILY · shuffle · 今天听点别的</title>
 <link rel="icon" href="{favicon}">
+<!-- PWA：加到手机主屏后有真图标、全屏无地址栏、启动闪屏。
+     {up} 前缀让 archive/ 子目录也能取到根目录的资源。
+     只做 manifest 不做 Service Worker —— 这个站每天出新刊，SW 的缓存失效
+     写不对就会让用户看到昨天的日报【而且他不知道】，那类静默失效的代价
+     远大于「离线翻往期」的收益。 -->
+<link rel="manifest" href="{up}manifest.webmanifest">
+<link rel="apple-touch-icon" href="{up}icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MD-30">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">

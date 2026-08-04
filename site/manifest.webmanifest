@@ -1,0 +1,48 @@
+{
+  "name": "MUSIC DAILY",
+  "short_name": "MD-30",
+  "description": "每日精选 30 首 · melody-first · mood-first · production-first",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f5f5f5",
+  "theme_color": "#0f0e12",
+  "categories": ["music", "entertainment"],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "听点别的",
+      "short_name": "shuffle",
+      "description": "从全池随机抽一首",
+      "url": "random.html"
+    },
+    {
+      "name": "往期",
+      "short_name": "archive",
+      "description": "翻看历史期号",
+      "url": "archive/index.html"
+    }
+  ]
+}

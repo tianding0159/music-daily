@@ -7,6 +7,16 @@
 <meta name="description" content="从 1169 首曲库里随手另起一首 · melody-first · mood-first">
 <title>MUSIC DAILY · shuffle · 今天听点别的</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%230f0e12%22/%3E%3Crect%20x%3D%225%22%20y%3D%225%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22none%22%20stroke%3D%22%23f05a24%22%20stroke-width%3D%222%22/%3E%3C/svg%3E">
+<!-- PWA：加到手机主屏后有真图标、全屏无地址栏、启动闪屏。
+      前缀让 archive/ 子目录也能取到根目录的资源。
+     只做 manifest 不做 Service Worker —— 这个站每天出新刊，SW 的缓存失效
+     写不对就会让用户看到昨天的日报【而且他不知道】，那类静默失效的代价
+     远大于「离线翻往期」的收益。 -->
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MD-30">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
@@ -32,6 +42,29 @@
   --sp-xl:clamp(28px,4vw,52px);
 }
 html{scroll-behavior:smooth}
+
+/* ── 键盘焦点 ────────────────────────────────────────────────
+   此前没有任何 :focus-visible 规则，键盘用户只能看浏览器默认蓝环 ——
+   跟这套黑白 + 橙的调性完全不搭，且在深色卡片上几乎看不清。
+   用 :focus-visible 而不是 :focus：后者会在【鼠标点击】时也亮起，
+   那是多数站点把焦点环整个 outline:none 掉的原因，代价是键盘用户彻底失明。
+   :focus-visible 只在浏览器判断「用户在用键盘导航」时才亮。
+   本站没有任何 outline:none（实测 0 处），所以这里是纯增强、不夺走兜底。 */
+:focus-visible{
+  outline:2px solid var(--orange);
+  outline-offset:2px;
+  border-radius:1px;   /* 方角站点上给焦点环一点点圆，避免看着像边框错位 */
+}
+/* 深色底上（LCD 屏、浮层、唱盘控制条）橙色对比不足，改用亮描边 + 橙内圈：
+   两层保证在任何底色上都可见。 */
+.lcd :focus-visible,
+#lb :focus-visible,
+.deckbox :focus-visible{
+  outline-color:#f5f5f5;
+  box-shadow:0 0 0 4px var(--orange);
+}
+/* 封面这类大块可聚焦区域，焦点环贴边会被 overflow 裁掉 —— 内缩画 */
+.cover-zoom:focus-visible{outline-offset:-3px}
 body{font-family:var(--sans); font-weight:300; color:var(--ink); background:var(--paper);
   line-height:1.5; letter-spacing:0; -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility; font-feature-settings:"kern" 1,"liga" 1;
@@ -233,6 +266,12 @@ a{color:inherit; text-decoration:none}
 .pbtn svg{width:11px; height:11px; fill:var(--white); display:block}
 .pbtn .i-pause{display:none}
 .pbtn.playing{background:var(--green-d); opacity:1}
+/* 试听失效：给出可见的「不可用」态，而不是让它看起来还能点 */
+.pbtn.dead{background:var(--g300); opacity:.55; cursor:not-allowed}
+.pbtn.dead svg{fill:var(--g600)}
+.pbtn.dead::after{content:"×"; position:absolute; font-size:13px; line-height:1;
+  color:var(--white); font-family:var(--mono)}
+.pbtn.dead .i-play,.pbtn.dead .i-pause{display:none}
 .pbtn.playing .i-play{display:none}
 .pbtn.playing .i-pause{display:block}
 /* 底部 now-playing 条：封面键触发后浮现，显当前曲/进度/播放暂停，与封面键联动 */
@@ -1161,8 +1200,11 @@ document.addEventListener('keydown',(e)=>{
 
   function esc(s){ var d=document.createElement('div'); d.textContent=s==null?'':s; return d.innerHTML; }
 
-  function open(d){
-    last=document.activeElement;
+  function open(d, trigger){
+    // 存【触发元素】而不是 document.activeElement —— 鼠标点击时 activeElement
+    // 是 body（点 div 不给焦点），于是关闭后焦点掉回 body，键盘用户要从头 Tab。
+    // 2026-08-04 实测：修前 Esc 后 activeElement 就是 <body class="anim">。
+    last = trigger || document.activeElement;
     $('lb-big').innerHTML = d.cover
       ? '<img src="'+esc(big(d.cover))+'" alt="">'
       : '<div class="ph">'+esc((d.artist||'?').slice(0,1).toUpperCase())+'</div>';
@@ -1199,11 +1241,34 @@ document.addEventListener('keydown',(e)=>{
     $('lb-links').innerHTML = lk.join('');
     lb.classList.add('on');
     document.body.style.overflow='hidden';
+    // 焦点 trap：把 #lb 以外的顶层兄弟节点整棵设为 inert —— 它们既不可聚焦
+    // 也不接受点击，Tab 自然被关在浮层里。比手写「首尾元素循环」可靠得多：
+    // 那种写法要维护「可聚焦元素清单」，而浮层内容是动态渲染的，清单必然漂。
+    // 2026-08-04 实测：修之前连按 12 次 Tab，10 次落到浮层背后的卡片上，
+    // 而 #lb 明明声明了 role=dialog + aria-modal=true —— 承诺了模态却没兑现。
+    inertKids(true);
     lb.querySelector('.x').focus();
+  }
+  // 除 #lb 外的 body 子节点整体 inert / 恢复。只动我们设过的那些（记在 _inert 上），
+  // 免得把页面本来就有的 inert 属性给清掉。
+  function inertKids(on){
+    var kids = document.body.children;
+    for(var i=0;i<kids.length;i++){
+      var el = kids[i];
+      if(el === lb) continue;
+      if(on){
+        if(!el.hasAttribute('inert')){ el.setAttribute('inert',''); el._lbInert = 1; }
+      } else if(el._lbInert){
+        el.removeAttribute('inert'); el._lbInert = 0;
+      }
+    }
   }
   function close(){
     lb.classList.remove('on');
     document.body.style.overflow='';
+    inertKids(false);
+    // 焦点归位要在解除 inert 【之后】—— 在 inert 状态下 focus() 是无效的，
+    // 焦点会掉回 body，用户按 Tab 得从头再来。
     if(last && last.focus) last.focus();
   }
 
@@ -1213,7 +1278,7 @@ document.addEventListener('keydown',(e)=>{
     if(e.target.closest('.pbtn')) return;
     var h=e.target.closest('.big-art'); if(!h) return;
     var d=h.dataset; if(!d.title && !d.cover) return;
-    e.preventDefault(); open(d);
+    e.preventDefault(); open(d, h);
   });
   addEventListener('keydown', function(e){
     if(e.key==='Escape' && lb.classList.contains('on')) close();

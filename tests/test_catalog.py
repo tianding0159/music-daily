@@ -519,6 +519,67 @@ def test_workflows_commit_what_scripts_write():
                           + "\n  ".join(problems))
 
 
+def test_publish_guard_covers_static_assets():
+    """页面 head 引用的静态资源（manifest / 各尺寸图标），发布守卫必须逐个查。
+
+    这些资源【不由重建步骤生成】，只靠 checkout 带过来——没有任何脚本会重造它们，
+    所以误删之后一路静默：页面照开，只是 404 四个请求、加桌面拿不到图标。
+    根因同 artists.min.json 那次（守卫清单没跟上新增产物）。这里把「清单」与
+    「页面真实引用」对账，而不是再手写一份清单等它漂移。
+    """
+    wf = (ROOT / ".github/workflows/publish-site.yml").read_text(encoding="utf-8")
+    m = re.search(r"for f in ((?:[^\n]*\\\n)*[^\n]*); do", wf)
+    assert m, "publish-site.yml 里找不到非空守卫的 for 清单"
+    guarded = set(m.group(1).replace("\\\n", " ").split())
+
+    # 页面真实引用的静态资源从【渲染器源码】抓，不从产物 HTML 抓——
+    # 产物可能滞后，渲染器才是这件事的来源。
+    refs = set()
+    for src in ("render_grid.py", "render_random.py", "render_landing.py"):
+        t = (ROOT / "scripts" / src).read_text(encoding="utf-8")
+        for pat in (r'rel="manifest" href="\{?up\}?([^"]+)"',
+                    r'rel="apple-touch-icon" href="\{?up\}?([^"]+)"'):
+            refs.update(re.findall(pat, t))
+    man = json.loads((ROOT / "site/manifest.webmanifest").read_text(encoding="utf-8"))
+    refs.update(ic["src"] for ic in man["icons"])
+
+    assert refs, "没抓到任何静态资源引用，测试本身失效了"
+    missing = sorted(r for r in refs if r not in guarded)
+    assert not missing, (f"这些资源被页面/manifest 引用，但发布守卫没查：{missing}\n"
+                         f"守卫清单：{sorted(guarded)}")
+    gone = sorted(r for r in refs if not (ROOT / "site" / r).is_file())
+    assert not gone, f"引用了但文件不存在：{gone}"
+
+
+def test_maskable_icon_respects_safe_zone():
+    """声明 purpose=maskable 的图标，安全区（直径 80% 圆）外不能有内容。
+
+    这个声明是给系统的承诺：「随便你裁，中心 80% 圆内是完整的」。
+    普通版唱片直径 88%，最外两圈沟槽与盘缘亮边都落在裁切带里（实测 14174 px），
+    拿它去声明 maskable，Android 会照裁 —— 比不声明更糟。
+    """
+    man = json.loads((ROOT / "site/manifest.webmanifest").read_text(encoding="utf-8"))
+    ms = [ic for ic in man["icons"] if "maskable" in (ic.get("purpose") or "")]
+    if not ms:
+        return                              # 没声明就没这个义务
+    try:
+        from PIL import Image
+    except ImportError:
+        print("    (跳过：无 Pillow)")       # 出声，不假装通过
+        return
+    for ic in ms:
+        im = Image.open(ROOT / "site" / ic["src"]).convert("RGB")
+        w, h = im.size
+        assert w == h, f"{ic['src']} 不是正方形"
+        c, safe = w / 2, w * 0.40
+        bg = im.getpixel((2, 2))            # 角落即底色
+        bad = sum(1 for y in range(0, h, 2) for x in range(0, w, 2)
+                  if ((x - c) ** 2 + (y - c) ** 2) ** .5 > safe
+                  and max(abs(im.getpixel((x, y))[i] - bg[i]) for i in range(3)) > 12)
+        assert bad == 0, (f"{ic['src']} 安全区外有 {bad} 个非底色采样点，"
+                          f"声明 maskable 会被系统裁掉内容")
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]
     passed, failed = 0, []

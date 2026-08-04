@@ -118,6 +118,11 @@ def _knob(seed: str) -> str:
     return KNOB[sum(ord(c) for c in (seed or "x")) % len(KNOB)]
 
 
+# 站点绝对地址。Open Graph 的 og:url / og:image 必须是绝对 URL —— 相对路径
+# 在微信、Twitter 这些抓取端会解析失败，卡片就退化成一条光秃秃的链接。
+# 这里是唯一来源，改域名只改这一处。
+SITE_URL = "https://tianding0159.github.io/music-daily/"
+
 CSS = """
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -140,6 +145,29 @@ CSS = """
   --sp-xl:clamp(28px,4vw,52px);
 }
 html{scroll-behavior:smooth}
+
+/* ── 键盘焦点 ────────────────────────────────────────────────
+   此前没有任何 :focus-visible 规则，键盘用户只能看浏览器默认蓝环 ——
+   跟这套黑白 + 橙的调性完全不搭，且在深色卡片上几乎看不清。
+   用 :focus-visible 而不是 :focus：后者会在【鼠标点击】时也亮起，
+   那是多数站点把焦点环整个 outline:none 掉的原因，代价是键盘用户彻底失明。
+   :focus-visible 只在浏览器判断「用户在用键盘导航」时才亮。
+   本站没有任何 outline:none（实测 0 处），所以这里是纯增强、不夺走兜底。 */
+:focus-visible{
+  outline:2px solid var(--orange);
+  outline-offset:2px;
+  border-radius:1px;   /* 方角站点上给焦点环一点点圆，避免看着像边框错位 */
+}
+/* 深色底上（LCD 屏、浮层、唱盘控制条）橙色对比不足，改用亮描边 + 橙内圈：
+   两层保证在任何底色上都可见。 */
+.lcd :focus-visible,
+#lb :focus-visible,
+.deckbox :focus-visible{
+  outline-color:#f5f5f5;
+  box-shadow:0 0 0 4px var(--orange);
+}
+/* 封面这类大块可聚焦区域，焦点环贴边会被 overflow 裁掉 —— 内缩画 */
+.cover-zoom:focus-visible{outline-offset:-3px}
 body{font-family:var(--sans); font-weight:300; color:var(--ink); background:var(--paper);
   line-height:1.5; letter-spacing:0; -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility; font-feature-settings:"kern" 1,"liga" 1;
@@ -341,6 +369,12 @@ a{color:inherit; text-decoration:none}
 .pbtn svg{width:11px; height:11px; fill:var(--white); display:block}
 .pbtn .i-pause{display:none}
 .pbtn.playing{background:var(--green-d); opacity:1}
+/* 试听失效：给出可见的「不可用」态，而不是让它看起来还能点 */
+.pbtn.dead{background:var(--g300); opacity:.55; cursor:not-allowed}
+.pbtn.dead svg{fill:var(--g600)}
+.pbtn.dead::after{content:"×"; position:absolute; font-size:13px; line-height:1;
+  color:var(--white); font-family:var(--mono)}
+.pbtn.dead .i-play,.pbtn.dead .i-pause{display:none}
 .pbtn.playing .i-play{display:none}
 .pbtn.playing .i-pause{display:block}
 /* 底部 now-playing 条：封面键触发后浮现，显当前曲/进度/播放暂停，与封面键联动 */
@@ -511,11 +545,72 @@ function copyNC(){const t=document.getElementById('nc-text').innerText;
   au.addEventListener('play',function(){mark(true);});
   au.addEventListener('pause',function(){mark(false);});
   au.addEventListener('ended',function(){mark(false);if(FILL)FILL.style.width='0%';step(1);});
-  function load(b){var src=b.dataset.src;if(!src)return;
+
+  // ── 试听失败的处理 ──────────────────────────────────────────
+  // iTunes 的 preview URL 会失效（池里已有 12 首连封面都拿不到）。此前既没有
+  // error 监听、play() 的 Promise 也没接 —— 点下去毫无反馈、按钮卡在 playing，
+  // 用户会以为是自己网络的问题。
+  // 处理分两层：①把这首标成不可播、状态回滚、告诉用户为什么；
+  //            ②【自动跳到下一首】—— 一次连播里遇到坏链不该整条断掉。
+  // 载入代次：每次 load() 自增。play() 的 Promise 是【异步】兑现的，等它
+  // reject 时可能早已跳到下一首了 —— 那条迟到的 catch 必须认出自己已经过期，
+  // 否则它会拿旧曲的失败去污染新曲（实测：只坏第一首时，b1 已开始播，
+  // 迟到的 catch 把 LCD 曲名改成「无法试听」，mark(false) 还按【当前】cur
+  // 抹掉了 b1 的 playing 态 —— 坏的是 b0，遭殃的是 b1）。
+  // reported = 已由 error 事件完整处理过的代次。error 事件与 play() 拒绝是
+  // 【同一次失败的两条上报路径】，谁后到谁就会覆盖前一条的措辞。连锁跳到上限时
+  // 后到的偏偏是笼统那条：「连续几首都无法试听，先停一下」被盖成「这首暂时无法
+  // 试听」—— 用户会以为只是这首坏、还能换一首点，其实整条播放已经停了。
+  var failed = {}, autoStep = 0, gen = 0, reported = 0;
+  function noteFail(b, why){
+    if(!b) return;
+    b.classList.remove('playing');
+    b.classList.add('dead');
+    b.setAttribute('aria-label', '这首暂时无法试听');
+    b.title = '这首暂时无法试听（' + why + '）';
+    failed[b.dataset.src || ''] = 1;
+  }
+  function say(msg){
+    if(T) T.textContent = msg;
+    if(A) A.textContent = '';
+    if(TIME) TIME.textContent = '';
+    if(FILL) FILL.style.width = '0%';
+  }
+  au.addEventListener('error', function(){
+    var b = cur;
+    reported = gen;               // 认领本代次，别让 play() 的拒绝再复述一遍
+    noteFail(b, '音源失效');
+    mark(false);
+    say('这首暂时无法试听，已跳到下一首');
+    // 防死循环：一次连锁跳跃最多 5 次，全坏就停下并说清楚
+    if(autoStep < 5){ autoStep++; step(1); }
+    else { autoStep = 0; say('连续几首都无法试听，先停一下'); }
+  });
+  au.addEventListener('playing', function(){ autoStep = 0; });
+
+  function load(b){var src=b.dataset.src;
+    if(!src){ noteFail(b, '没有试听源'); say('这首没有试听源'); return; }
     if(cur)cur.classList.remove('playing');
+    var myGen = ++gen;
     au.src=src;cur=b;
     if(C)C.src=b.dataset.cover||'';if(T)T.textContent=b.dataset.title||'';if(A)A.textContent=b.dataset.artist||'';
-    if(np)np.classList.add('on');au.play();}
+    if(np)np.classList.add('on');
+    // play() 返回 Promise：被浏览器策略拦下（未交互）或音源解不开时会 reject。
+    // 不接的话按钮永远停在 playing，这正是「点了没反应」的来源。
+    var pr = au.play();
+    if(pr && pr.catch) pr.catch(function(err){
+      // 已经跳到别的曲子了 —— 这条拒绝属于上一首，丢掉。
+      // （换 au.src 会让挂起的 play() 以 AbortError 拒绝，正是这条路径。）
+      if(myGen !== gen) return;
+      // error 事件已经完整处理过这一代（含"停下来"那条终止提示），别再复述
+      if(reported === myGen) return;
+      mark(false);
+      // NotAllowedError = 浏览器自动播放策略，不是音源坏，别标死
+      if(err && err.name === 'NotAllowedError'){ say('点一下播放键即可开始'); return; }
+      noteFail(b, (err && err.name) || '播放失败');
+      say('这首暂时无法试听');
+    });
+  }
   function playCard(b){if(cur===b){if(au.paused)au.play();else au.pause();return;}load(b);}
   function step(d){if(!btns.length)return;var i=cur?btns.indexOf(cur):-1;var j=i+d;
     if(j<0)j=btns.length-1;if(j>=btns.length)j=0;load(btns[j]);}
@@ -527,6 +622,44 @@ function copyNC(){const t=document.getElementById('nc-text').innerText;
   document.addEventListener('keydown',function(e){var tag=(e.target.tagName||'').toLowerCase();if(tag==='input'||tag==='textarea')return;
     if(e.code==='Space'){e.preventDefault();if(!cur){if(btns[0])load(btns[0]);}else if(au.paused)au.play();else au.pause();}
     else if(e.key==='ArrowRight'){step(1);}else if(e.key==='ArrowLeft'){step(-1);}});
+})();
+
+// 分享：navigator.share 是移动端原生分享面板（微信/微博/AirDrop 一键直达）。
+// 桌面浏览器大多不支持，此时退回「复制链接」——但【按钮默认 hidden】、
+// 只在确认有能力时才显示，避免点了没反应。
+(function(){
+  var b = document.getElementById('share-btn');
+  if(!b) return;
+  var canShare = !!(navigator.share);
+  var canCopy  = !!(navigator.clipboard && navigator.clipboard.writeText);
+  if(!canShare && !canCopy) return;          // 两样都没有就不显示这个按钮
+  b.hidden = false;
+  if(!canShare) b.textContent = '复制本期链接';
+  b.addEventListener('click', function(){
+    var url = location.href.split('#')[0];
+    var title = document.title;
+    var text = (document.querySelector('meta[property="og:description"]')||{}).content || '';
+    if(canShare){
+      // share() 被用户取消也会 reject（AbortError），那不是错误，别提示
+      navigator.share({title: title, text: text, url: url}).catch(function(e){
+        if(e && e.name === 'AbortError') return;
+        if(canCopy) fallbackCopy(url, b);
+      });
+      return;
+    }
+    fallbackCopy(url, b);
+  });
+  function fallbackCopy(url, btn){
+    navigator.clipboard.writeText(url).then(function(){
+      var o = btn.textContent;
+      btn.textContent = '链接已复制 ✓';
+      setTimeout(function(){ btn.textContent = o; }, 1800);
+    }).catch(function(){
+      var o = btn.textContent;
+      btn.textContent = '复制失败，请手动复制地址栏';
+      setTimeout(function(){ btn.textContent = o; }, 2400);
+    });
+  }
 })();
 
 // heart 收藏：localStorage 跨期累计 + 只看收藏 + 导出网易云
@@ -723,7 +856,14 @@ def _mod(track: dict, idx: int) -> str:
 
 
 def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: str,
-               archive_href: str = "archive/index.html", random_href: str = "random.html") -> str:
+               archive_href: str = "archive/index.html", random_href: str = "random.html",
+               prev_date: str = "", next_date: str = "") -> str:
+    """prev_date / next_date：相邻两期的日期（空串 = 没有）。
+
+    只有 archive 页会传 —— 首页 daily.html 永远是最新一期，它的「下一期」不存在，
+    而「上一期」要跳到 archive/ 子目录，链接前缀不同。分开处理比在模板里
+    塞条件判断清楚。
+    """
     mods = "\n".join(_mod(t, i) for i, t in enumerate(tracks, 1))
     if len(tracks) % 2 == 1:  # 补一格方格纸填充，让网格成完整矩形
         mods += '\n<div class="mod fill"></div>'
@@ -731,6 +871,30 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
     js = JS
     n = len(tracks)
     ymd = date_str.replace("-", ".")
+
+    # ── Open Graph 的四个值 ──────────────────────────────────
+    # 标题带上期号与日期，摘要用前三首「曲名 — 艺人」——比一句固定标语
+    # 有信息量得多：分享出去的人和看到的人都能立刻知道这期有什么。
+    _first3 = "、".join(f"{t.get('title','')} — {t.get('artist','')}"
+                       for t in tracks[:3] if t.get("title"))
+    og_title = f"MUSIC DAILY · 第 {issue_no:03d} 期 · {ymd}"
+    og_desc = (f"今日 {n} 首：{_first3}…" if _first3
+               else "每日精选 30 首 · melody-first · mood-first · production-first")
+    # 往期页在 archive/ 子目录下，URL 要带上；archive_href 指回上一级即说明身处子目录
+    og_url = (SITE_URL + f"archive/{date_str}.html"
+              if archive_href.startswith("index") else SITE_URL)
+    # 首图取当期第一张真实封面；没有就退回站点图标（空 og:image 会让抓取端乱抓图）
+    og_img = next((t.get("_cover") for t in tracks if t.get("_cover")), "") \
+        or (SITE_URL + "icon-512.png")
+
+    # 上一期 / 下一期。看完今天想看昨天，此前得先回归档页再点 —— 多一次跳转。
+    # 在 archive/ 子目录里同级跳转；首页的「上一期」要进子目录。
+    _in_archive = archive_href.startswith("index")
+    _pfx = "" if _in_archive else "archive/"
+    nav_prev = (f'<a class="tbtn line" rel="prev" href="{_pfx}{prev_date}.html">'
+                f'← 上一期</a>' if prev_date else "")
+    nav_next = (f'<a class="tbtn line" rel="next" href="{_pfx}{next_date}.html">'
+                f'下一期 →</a>' if next_date else "")
     genres = sorted({(t.get("genres") or ["—"])[0] for t in tracks})
     genre_line = " · ".join(_esc(g).lower() for g in genres[:6])
     ticker = "".join(
@@ -738,6 +902,9 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
         for i, t in enumerate(tracks, 1)
     )
     boot = f"system ready — {n} tracks loaded · melody-first · mood-first · production-first"
+    # archive/ 子页要用 ../ 才能取到根目录的 manifest 与图标。
+    # 判据复用 _in_archive（archive_href=="index.html" 即身处子目录）。
+    up = "../" if _in_archive else ""
     favicon = "data:image/svg+xml," + urllib.parse.quote(
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">'
         '<rect width="24" height="24" fill="#f05a24"/>'
@@ -749,9 +916,34 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0f0e12">
-<meta name="description" content="每日精选 30 首 · melody-first · mood-first · production-first">
+<meta name="description" content="{_esc(og_desc)}">
 <title>MUSIC DAILY · md-{n:02d} · {_esc(date_str)}</title>
+<!-- Open Graph：发到微信 / Twitter 时带标题 + 封面 + 摘要，而不是一条裸链接。
+     og:image 用当期第一首的封面（iTunes 的 https 绝对地址，零额外成本）；
+     没有封面时退回站点图标，宁可用占位也别留空 —— 空 og:image 有些抓取端
+     会去页面里乱抓一张图。 -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="MUSIC DAILY">
+<meta property="og:title" content="{_esc(og_title)}">
+<meta property="og:description" content="{_esc(og_desc)}">
+<meta property="og:url" content="{_esc(og_url)}">
+<meta property="og:image" content="{_esc(og_img)}">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{_esc(og_title)}">
+<meta name="twitter:description" content="{_esc(og_desc)}">
+<meta name="twitter:image" content="{_esc(og_img)}">
 <link rel="icon" href="{favicon}">
+<!-- PWA：加到手机主屏后有真图标、全屏无地址栏、启动闪屏。
+     {up} 前缀让 archive/ 子目录也能取到根目录的资源。
+     只做 manifest 不做 Service Worker —— 这个站每天出新刊，SW 的缓存失效
+     写不对就会让用户看到昨天的日报【而且他不知道】，那类静默失效的代价
+     远大于「离线翻往期」的收益。 -->
+<link rel="manifest" href="{up}manifest.webmanifest">
+<link rel="apple-touch-icon" href="{up}icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MD-30">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
@@ -789,6 +981,8 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
     <button class="tbtn line" id="fav-export" type="button">导出收藏</button>
     <a class="tbtn line" href="{archive_href}">往期 archive ↗</a>
     <a class="tbtn line" href="{random_href}">听点别的 shuffle ↗</a>
+    <button class="tbtn line" id="share-btn" type="button" hidden>分享这期</button>
+    {nav_prev}{nav_next}
   </div>
 
   <div class="sect">tracklist</div>
@@ -847,6 +1041,7 @@ def build_archive_index(issues: list[dict]) -> str:
         f'<span class="t">{_esc(s.get("playlist_title", ""))}</span></a>'
         for s in issues
     )
+    up = "../"          # 本页固定在 archive/ 子目录
     favicon = "data:image/svg+xml," + urllib.parse.quote(
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">'
         '<rect width="24" height="24" fill="#f05a24"/>'
@@ -859,6 +1054,16 @@ def build_archive_index(issues: list[dict]) -> str:
 <meta name="theme-color" content="#0f0e12">
 <title>MUSIC DAILY · archive</title>
 <link rel="icon" href="{favicon}">
+<!-- PWA：加到手机主屏后有真图标、全屏无地址栏、启动闪屏。
+     {up} 前缀让 archive/ 子目录也能取到根目录的资源。
+     只做 manifest 不做 Service Worker —— 这个站每天出新刊，SW 的缓存失效
+     写不对就会让用户看到昨天的日报【而且他不知道】，那类静默失效的代价
+     远大于「离线翻往期」的收益。 -->
+<link rel="manifest" href="{up}manifest.webmanifest">
+<link rel="apple-touch-icon" href="{up}icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MD-30">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">

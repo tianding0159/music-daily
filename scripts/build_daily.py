@@ -159,9 +159,14 @@ def _rebuild_site() -> None:
                    key=lambda s: s["date"])
     # 浮层的艺人上下文按全池算（不只当期），这样「本站收录」能列出该艺人的全部曲目
     render_grid.ARTIST_CTX = _artist_ctx(_load_json(DATA / "pool.json", []))
-    for s in snaps:
+    # snaps 已按 date 升序 —— 相邻两项就是上一期 / 下一期
+    for i, s in enumerate(snaps):
         r = RENDERERS.get(s.get("theme", "grid"), render_grid)
-        html = r.build_html(s["date"], s["tracks"], s["issue_no"], s["netease_text"], archive_href="index.html", random_href="../random.html")
+        html = r.build_html(
+            s["date"], s["tracks"], s["issue_no"], s["netease_text"],
+            archive_href="index.html", random_href="../random.html",
+            prev_date=snaps[i - 1]["date"] if i > 0 else "",
+            next_date=snaps[i + 1]["date"] if i + 1 < len(snaps) else "")
         (arch / f"{s['date']}.html").write_text(html, encoding="utf-8")
     if snaps:
         idx = render_grid.build_archive_index([
@@ -173,7 +178,10 @@ def _rebuild_site() -> None:
         r = RENDERERS.get(latest.get("theme", "grid"), render_grid)
         # 日报本体在 daily.html；index.html 让给开机自检落地页（站点入口）
         (SITE / "daily.html").write_text(
-            r.build_html(latest["date"], latest["tracks"], latest["issue_no"], latest["netease_text"]),
+            r.build_html(latest["date"], latest["tracks"], latest["issue_no"],
+                         latest["netease_text"],
+                         # 首页永远是最新一期：没有「下一期」，「上一期」进 archive/
+                         prev_date=snaps[-2]["date"] if len(snaps) > 1 else ""),
             encoding="utf-8")
         (SITE / "index.html").write_text(
             render_landing.build_html(

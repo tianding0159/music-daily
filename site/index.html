@@ -7,6 +7,13 @@
 <meta name="description" content="每日精选 30 首 · melody-first · mood-first · production-first">
 <meta name="theme-color" content="#f5f5f5">
 <link rel="preload" href="daily.html" as="document">
+<!-- PWA。本页是 manifest 的 start_url —— 从主屏图标点进来先看到这一屏，
+     再落针进日报，跟真开唱机的顺序一致。 -->
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MD-30">
 <!-- 字体必须在这里引 —— GRID_CSS 里只是【声明】 --sans:"Inter" / --mono:"Space Mono"，
      声明不等于加载。2026-08-03 之前本页漏了这三行，变量与日报完全一致却回退到
      Helvetica/Arial 渲染，看起来就是「开启页字体和日报不一致」。
@@ -36,6 +43,29 @@
   --sp-xl:clamp(28px,4vw,52px);
 }
 html{scroll-behavior:smooth}
+
+/* ── 键盘焦点 ────────────────────────────────────────────────
+   此前没有任何 :focus-visible 规则，键盘用户只能看浏览器默认蓝环 ——
+   跟这套黑白 + 橙的调性完全不搭，且在深色卡片上几乎看不清。
+   用 :focus-visible 而不是 :focus：后者会在【鼠标点击】时也亮起，
+   那是多数站点把焦点环整个 outline:none 掉的原因，代价是键盘用户彻底失明。
+   :focus-visible 只在浏览器判断「用户在用键盘导航」时才亮。
+   本站没有任何 outline:none（实测 0 处），所以这里是纯增强、不夺走兜底。 */
+:focus-visible{
+  outline:2px solid var(--orange);
+  outline-offset:2px;
+  border-radius:1px;   /* 方角站点上给焦点环一点点圆，避免看着像边框错位 */
+}
+/* 深色底上（LCD 屏、浮层、唱盘控制条）橙色对比不足，改用亮描边 + 橙内圈：
+   两层保证在任何底色上都可见。 */
+.lcd :focus-visible,
+#lb :focus-visible,
+.deckbox :focus-visible{
+  outline-color:#f5f5f5;
+  box-shadow:0 0 0 4px var(--orange);
+}
+/* 封面这类大块可聚焦区域，焦点环贴边会被 overflow 裁掉 —— 内缩画 */
+.cover-zoom:focus-visible{outline-offset:-3px}
 body{font-family:var(--sans); font-weight:300; color:var(--ink); background:var(--paper);
   line-height:1.5; letter-spacing:0; -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility; font-feature-settings:"kern" 1,"liga" 1;
@@ -237,6 +267,12 @@ a{color:inherit; text-decoration:none}
 .pbtn svg{width:11px; height:11px; fill:var(--white); display:block}
 .pbtn .i-pause{display:none}
 .pbtn.playing{background:var(--green-d); opacity:1}
+/* 试听失效：给出可见的「不可用」态，而不是让它看起来还能点 */
+.pbtn.dead{background:var(--g300); opacity:.55; cursor:not-allowed}
+.pbtn.dead svg{fill:var(--g600)}
+.pbtn.dead::after{content:"×"; position:absolute; font-size:13px; line-height:1;
+  color:var(--white); font-family:var(--mono)}
+.pbtn.dead .i-play,.pbtn.dead .i-pause{display:none}
 .pbtn.playing .i-play{display:none}
 .pbtn.playing .i-pause{display:block}
 /* 底部 now-playing 条：封面键触发后浮现，显当前曲/进度/播放暂停，与封面键联动 */

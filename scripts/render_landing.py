@@ -367,6 +367,13 @@ def build_html(n_issues: int, n_tracks: int, latest_date: str) -> str:
 <meta name="description" content="每日精选 30 首 · melody-first · mood-first · production-first">
 <meta name="theme-color" content="#f5f5f5">
 <link rel="preload" href="daily.html" as="document">
+<!-- PWA。本页是 manifest 的 start_url —— 从主屏图标点进来先看到这一屏，
+     再落针进日报，跟真开唱机的顺序一致。 -->
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MD-30">
 <!-- 字体必须在这里引 —— GRID_CSS 里只是【声明】 --sans:"Inter" / --mono:"Space Mono"，
      声明不等于加载。2026-08-03 之前本页漏了这三行，变量与日报完全一致却回退到
      Helvetica/Arial 渲染，看起来就是「开启页字体和日报不一致」。

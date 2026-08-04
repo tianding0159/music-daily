@@ -142,8 +142,11 @@ def lightbox_js(trigger_sel: str) -> str:
 
   function esc(s){ var d=document.createElement('div'); d.textContent=s==null?'':s; return d.innerHTML; }
 
-  function open(d){
-    last=document.activeElement;
+  function open(d, trigger){
+    // 存【触发元素】而不是 document.activeElement —— 鼠标点击时 activeElement
+    // 是 body（点 div 不给焦点），于是关闭后焦点掉回 body，键盘用户要从头 Tab。
+    // 2026-08-04 实测：修前 Esc 后 activeElement 就是 <body class="anim">。
+    last = trigger || document.activeElement;
     $('lb-big').innerHTML = d.cover
       ? '<img src="'+esc(big(d.cover))+'" alt="">'
       : '<div class="ph">'+esc((d.artist||'?').slice(0,1).toUpperCase())+'</div>';
@@ -180,11 +183,34 @@ def lightbox_js(trigger_sel: str) -> str:
     $('lb-links').innerHTML = lk.join('');
     lb.classList.add('on');
     document.body.style.overflow='hidden';
+    // 焦点 trap：把 #lb 以外的顶层兄弟节点整棵设为 inert —— 它们既不可聚焦
+    // 也不接受点击，Tab 自然被关在浮层里。比手写「首尾元素循环」可靠得多：
+    // 那种写法要维护「可聚焦元素清单」，而浮层内容是动态渲染的，清单必然漂。
+    // 2026-08-04 实测：修之前连按 12 次 Tab，10 次落到浮层背后的卡片上，
+    // 而 #lb 明明声明了 role=dialog + aria-modal=true —— 承诺了模态却没兑现。
+    inertKids(true);
     lb.querySelector('.x').focus();
+  }
+  // 除 #lb 外的 body 子节点整体 inert / 恢复。只动我们设过的那些（记在 _inert 上），
+  // 免得把页面本来就有的 inert 属性给清掉。
+  function inertKids(on){
+    var kids = document.body.children;
+    for(var i=0;i<kids.length;i++){
+      var el = kids[i];
+      if(el === lb) continue;
+      if(on){
+        if(!el.hasAttribute('inert')){ el.setAttribute('inert',''); el._lbInert = 1; }
+      } else if(el._lbInert){
+        el.removeAttribute('inert'); el._lbInert = 0;
+      }
+    }
   }
   function close(){
     lb.classList.remove('on');
     document.body.style.overflow='';
+    inertKids(false);
+    // 焦点归位要在解除 inert 【之后】—— 在 inert 状态下 focus() 是无效的，
+    // 焦点会掉回 body，用户按 Tab 得从头再来。
     if(last && last.focus) last.focus();
   }
 
@@ -194,7 +220,7 @@ def lightbox_js(trigger_sel: str) -> str:
     if(e.target.closest('.pbtn')) return;
     var h=e.target.closest('SEL'); if(!h) return;
     var d=h.dataset; if(!d.title && !d.cover) return;
-    e.preventDefault(); open(d);
+    e.preventDefault(); open(d, h);
   });
   addEventListener('keydown', function(e){
     if(e.key==='Escape' && lb.classList.contains('on')) close();
