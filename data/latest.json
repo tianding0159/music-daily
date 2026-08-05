@@ -1,36 +1,37 @@
 {
- "date": "2026-08-04",
- "issue_no": 8,
- "playlist_title": "夏天傍晚，风还没凉下来（08.04）",
- "tracks_brief": [
-  {
-   "title": "Breakfast",
-   "artist": "Fana Hues"
-  },
-  {
-   "title": "The Bottom of It",
-   "artist": "Fruit Bats"
-  },
-  {
-   "title": "Sweetness and Light",
-   "artist": "Lush"
-  },
-  {
-   "title": "Moonshine Freeze",
-   "artist": "This Is the Kit"
-  },
-  {
-   "title": "Sour Mango",
-   "artist": "Gabriel Garzón-Montano"
-  },
-  {
-   "title": "Joy",
-   "artist": "Tenci"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [],
- "fresh_build": false,
- "notified": "2026-08-04"
+  "date": "2026-08-05",
+  "issue_no": 9,
+  "playlist_title": "慢到几乎停下来的好听（08.05）",
+  "tracks_brief": [
+    {
+      "title": "Angel Echoes",
+      "artist": "Four Tet"
+    },
+    {
+      "title": "Suddenly",
+      "artist": "Kevin Krauter"
+    },
+    {
+      "title": "Pluto",
+      "artist": "Raveena"
+    },
+    {
+      "title": "henna tattoo",
+      "artist": "Field Medic"
+    },
+    {
+      "title": "Gravity",
+      "artist": "Renata Zeiguer"
+    },
+    {
+      "title": "Doomed",
+      "artist": "Moses Sumney"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true
 }
