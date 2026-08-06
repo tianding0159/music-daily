@@ -1,37 +1,38 @@
 {
-  "date": "2026-08-06",
-  "issue_no": 10,
-  "playlist_title": "电子像呼吸的那种（08.06）",
-  "tracks_brief": [
-    {
-      "title": "Fellowship",
-      "artist": "serpentwithfeet"
-    },
-    {
-      "title": "Oblivious",
-      "artist": "Aztec Camera"
-    },
-    {
-      "title": "You Have Bought Yourself a Boat",
-      "artist": "MJ Lenderman"
-    },
-    {
-      "title": "Rum Hee",
-      "artist": "Shugo Tokumaru"
-    },
-    {
-      "title": "Gap in the Clouds",
-      "artist": "Yellow Days"
-    },
-    {
-      "title": "CACTUS",
-      "artist": "LÜCY"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [
-    "bright保底(+5)"
-  ],
-  "fresh_build": true
+ "date": "2026-08-06",
+ "issue_no": 10,
+ "playlist_title": "电子像呼吸的那种（08.06）",
+ "tracks_brief": [
+  {
+   "title": "Fellowship",
+   "artist": "serpentwithfeet"
+  },
+  {
+   "title": "Oblivious",
+   "artist": "Aztec Camera"
+  },
+  {
+   "title": "You Have Bought Yourself a Boat",
+   "artist": "MJ Lenderman"
+  },
+  {
+   "title": "Rum Hee",
+   "artist": "Shugo Tokumaru"
+  },
+  {
+   "title": "Gap in the Clouds",
+   "artist": "Yellow Days"
+  },
+  {
+   "title": "CACTUS",
+   "artist": "LÜCY"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [
+  "bright保底(+5)"
+ ],
+ "fresh_build": true,
+ "notified": "2026-08-06"
 }
