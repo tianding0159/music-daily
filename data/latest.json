@@ -1,37 +1,38 @@
 {
-  "date": "2026-08-07",
-  "issue_no": 11,
-  "playlist_title": "木头、旧磁带和一点灰（08.07）",
-  "tracks_brief": [
-    {
-      "title": "Thursday",
-      "artist": "Asobi Seksu"
-    },
-    {
-      "title": "The Look",
-      "artist": "Metronomy"
-    },
-    {
-      "title": "Flying Fish",
-      "artist": "Chinese Football"
-    },
-    {
-      "title": "Shine",
-      "artist": "For Against"
-    },
-    {
-      "title": "Phase Dance",
-      "artist": "Pat Metheny Group"
-    },
-    {
-      "title": "Pjluk",
-      "artist": "Cecile Believe"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [
-    "bright保底(+5)"
-  ],
-  "fresh_build": true
+ "date": "2026-08-07",
+ "issue_no": 11,
+ "playlist_title": "木头、旧磁带和一点灰（08.07）",
+ "tracks_brief": [
+  {
+   "title": "Thursday",
+   "artist": "Asobi Seksu"
+  },
+  {
+   "title": "The Look",
+   "artist": "Metronomy"
+  },
+  {
+   "title": "Flying Fish",
+   "artist": "Chinese Football"
+  },
+  {
+   "title": "Shine",
+   "artist": "For Against"
+  },
+  {
+   "title": "Phase Dance",
+   "artist": "Pat Metheny Group"
+  },
+  {
+   "title": "Pjluk",
+   "artist": "Cecile Believe"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [
+  "bright保底(+5)"
+ ],
+ "fresh_build": true,
+ "notified": "2026-08-07"
 }
