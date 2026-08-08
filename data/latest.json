@@ -1,38 +1,35 @@
 {
- "date": "2026-08-08",
- "issue_no": 12,
- "playlist_title": "冬日下午，斜光只照到半墙（08.08）",
- "tracks_brief": [
-  {
-   "title": "Marathon",
-   "artist": "Tennis"
-  },
-  {
-   "title": "The Everyday Push",
-   "artist": "Photay"
-  },
-  {
-   "title": "Blue Lights",
-   "artist": "Jorja Smith"
-  },
-  {
-   "title": "Love Is All",
-   "artist": "The Tallest Man on Earth"
-  },
-  {
-   "title": "The Company",
-   "artist": "Sam Prekop"
-  },
-  {
-   "title": "What's Going On With Ordinary People",
-   "artist": "The Reds, Pinks and Purples"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [
-  "bright保底(+5)"
- ],
- "fresh_build": true,
- "notified": "2026-08-08"
+  "date": "2026-08-08",
+  "issue_no": 12,
+  "playlist_title": "冬日下午，斜光只照到半墙（08.08）",
+  "tracks_brief": [
+    {
+      "title": "Marathon",
+      "artist": "Tennis"
+    },
+    {
+      "title": "The Everyday Push",
+      "artist": "Photay"
+    },
+    {
+      "title": "Blue Lights",
+      "artist": "Jorja Smith"
+    },
+    {
+      "title": "Love Is All",
+      "artist": "The Tallest Man on Earth"
+    },
+    {
+      "title": "The Company",
+      "artist": "Sam Prekop"
+    },
+    {
+      "title": "What's Going On With Ordinary People",
+      "artist": "The Reds, Pinks and Purples"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false
 }
