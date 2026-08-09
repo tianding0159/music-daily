@@ -1,36 +1,35 @@
 {
- "date": "2026-08-09",
- "issue_no": 13,
- "playlist_title": "把白天调成夜的亮度（08.09）",
- "tracks_brief": [
-  {
-   "title": "Step Out Of The Light",
-   "artist": "Bruno Pernadas"
-  },
-  {
-   "title": "Dooyo",
-   "artist": "Dur-Dur Band"
-  },
-  {
-   "title": "Get It Up for Love",
-   "artist": "Ned Doheny"
-  },
-  {
-   "title": "Sienna",
-   "artist": "Dawn Richard & Spencer Zahn"
-  },
-  {
-   "title": "Ylang Ylang",
-   "artist": "FKJ"
-  },
-  {
-   "title": "Lodger",
-   "artist": "Papercuts"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [],
- "fresh_build": false,
- "notified": "2026-08-09"
+  "date": "2026-08-09",
+  "issue_no": 13,
+  "playlist_title": "把白天调成夜的亮度（08.09）",
+  "tracks_brief": [
+    {
+      "title": "Step Out Of The Light",
+      "artist": "Bruno Pernadas"
+    },
+    {
+      "title": "Dooyo",
+      "artist": "Dur-Dur Band"
+    },
+    {
+      "title": "Get It Up for Love",
+      "artist": "Ned Doheny"
+    },
+    {
+      "title": "Sienna",
+      "artist": "Dawn Richard & Spencer Zahn"
+    },
+    {
+      "title": "Ylang Ylang",
+      "artist": "FKJ"
+    },
+    {
+      "title": "Lodger",
+      "artist": "Papercuts"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false
 }
