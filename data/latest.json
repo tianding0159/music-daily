@@ -1,37 +1,38 @@
 {
-  "date": "2026-08-10",
-  "issue_no": 14,
-  "playlist_title": "城市夜里，声音都调小了（08.10）",
-  "tracks_brief": [
-    {
-      "title": "The Bus Song",
-      "artist": "Jay Som"
-    },
-    {
-      "title": "Kushimoto Bushi",
-      "artist": "Minyo Crusaders"
-    },
-    {
-      "title": "Over the Ice",
-      "artist": "The Field"
-    },
-    {
-      "title": "Ghosts",
-      "artist": "Laura Marling"
-    },
-    {
-      "title": "Résumé",
-      "artist": "Jenevieve"
-    },
-    {
-      "title": "Frontline",
-      "artist": "Kelela"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [
-    "bright保底(+5)"
-  ],
-  "fresh_build": true
+ "date": "2026-08-10",
+ "issue_no": 14,
+ "playlist_title": "城市夜里，声音都调小了（08.10）",
+ "tracks_brief": [
+  {
+   "title": "The Bus Song",
+   "artist": "Jay Som"
+  },
+  {
+   "title": "Kushimoto Bushi",
+   "artist": "Minyo Crusaders"
+  },
+  {
+   "title": "Over the Ice",
+   "artist": "The Field"
+  },
+  {
+   "title": "Ghosts",
+   "artist": "Laura Marling"
+  },
+  {
+   "title": "Résumé",
+   "artist": "Jenevieve"
+  },
+  {
+   "title": "Frontline",
+   "artist": "Kelela"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [
+  "bright保底(+5)"
+ ],
+ "fresh_build": true,
+ "notified": "2026-08-10"
 }
