@@ -1,37 +1,38 @@
 {
-  "date": "2026-08-12",
-  "issue_no": 16,
-  "playlist_title": "退潮之后，鞋里还进着沙（08.12）",
-  "tracks_brief": [
-    {
-      "title": "Lewis Takes Action",
-      "artist": "Owen Pallett"
-    },
-    {
-      "title": "Inspector Norse",
-      "artist": "Todd Terje"
-    },
-    {
-      "title": "The Second Summer of Love",
-      "artist": "Danny Wilson"
-    },
-    {
-      "title": "AA BOUQUET FOR YOUR 180 FACE",
-      "artist": "Saya Gray"
-    },
-    {
-      "title": "The Lethe, the Sea",
-      "artist": "Dawuna"
-    },
-    {
-      "title": "Les Nuits",
-      "artist": "Nightmares on Wax"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [
-    "bright保底(+5)"
-  ],
-  "fresh_build": true
+ "date": "2026-08-12",
+ "issue_no": 16,
+ "playlist_title": "退潮之后，鞋里还进着沙（08.12）",
+ "tracks_brief": [
+  {
+   "title": "Lewis Takes Action",
+   "artist": "Owen Pallett"
+  },
+  {
+   "title": "Inspector Norse",
+   "artist": "Todd Terje"
+  },
+  {
+   "title": "The Second Summer of Love",
+   "artist": "Danny Wilson"
+  },
+  {
+   "title": "AA BOUQUET FOR YOUR 180 FACE",
+   "artist": "Saya Gray"
+  },
+  {
+   "title": "The Lethe, the Sea",
+   "artist": "Dawuna"
+  },
+  {
+   "title": "Les Nuits",
+   "artist": "Nightmares on Wax"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [
+  "bright保底(+5)"
+ ],
+ "fresh_build": true,
+ "notified": "2026-08-12"
 }
