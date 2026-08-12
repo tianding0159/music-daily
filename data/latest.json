@@ -1,36 +1,37 @@
 {
- "date": "2026-08-11",
- "issue_no": 15,
- "playlist_title": "有点甜，但克制着（08.11）",
- "tracks_brief": [
-  {
-   "title": "Water Soaked in Forever",
-   "artist": "Khotin"
-  },
-  {
-   "title": "Old Town",
-   "artist": "Say Sue Me"
-  },
-  {
-   "title": "I Want You Around",
-   "artist": "Snoh Aalegra"
-  },
-  {
-   "title": "That Don't Make It So",
-   "artist": "Yves Jarvis"
-  },
-  {
-   "title": "How Can We Hang On to a Dream",
-   "artist": "Tim Hardin"
-  },
-  {
-   "title": "Only for Tonight",
-   "artist": "Pearl Charles"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [],
- "fresh_build": false,
- "notified": "2026-08-11"
+  "date": "2026-08-12",
+  "issue_no": 16,
+  "playlist_title": "退潮之后，鞋里还进着沙（08.12）",
+  "tracks_brief": [
+    {
+      "title": "Lewis Takes Action",
+      "artist": "Owen Pallett"
+    },
+    {
+      "title": "Inspector Norse",
+      "artist": "Todd Terje"
+    },
+    {
+      "title": "The Second Summer of Love",
+      "artist": "Danny Wilson"
+    },
+    {
+      "title": "AA BOUQUET FOR YOUR 180 FACE",
+      "artist": "Saya Gray"
+    },
+    {
+      "title": "The Lethe, the Sea",
+      "artist": "Dawuna"
+    },
+    {
+      "title": "Les Nuits",
+      "artist": "Nightmares on Wax"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true
 }
