@@ -1,35 +1,36 @@
 {
-  "date": "2026-08-13",
-  "issue_no": 17,
-  "playlist_title": "电子像呼吸的那种（08.13）",
-  "tracks_brief": [
-    {
-      "title": "Strange",
-      "artist": "Galaxie 500"
-    },
-    {
-      "title": "Carmensita",
-      "artist": "Devendra Banhart"
-    },
-    {
-      "title": "Fool",
-      "artist": "Frankie Cosmos"
-    },
-    {
-      "title": "Have You Seen Her",
-      "artist": "The Chi-Lites"
-    },
-    {
-      "title": "1999",
-      "artist": "Hitsujibungaku"
-    },
-    {
-      "title": "Astral Traveling",
-      "artist": "Pharoah Sanders"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false
+ "date": "2026-08-13",
+ "issue_no": 17,
+ "playlist_title": "电子像呼吸的那种（08.13）",
+ "tracks_brief": [
+  {
+   "title": "Strange",
+   "artist": "Galaxie 500"
+  },
+  {
+   "title": "Carmensita",
+   "artist": "Devendra Banhart"
+  },
+  {
+   "title": "Fool",
+   "artist": "Frankie Cosmos"
+  },
+  {
+   "title": "Have You Seen Her",
+   "artist": "The Chi-Lites"
+  },
+  {
+   "title": "1999",
+   "artist": "Hitsujibungaku"
+  },
+  {
+   "title": "Astral Traveling",
+   "artist": "Pharoah Sanders"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [],
+ "fresh_build": false,
+ "notified": "2026-08-13"
 }
