@@ -24641,5 +24641,41 @@
     "release_year": "2016",
     "error_type": "",
     "retryable": false
+  },
+  "joaogilberto|chegadesaudade": {
+    "schema": 2,
+    "lookup_ts": 1786579241,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/6d/37/38/6d3738f1-a645-612a-616d-8dca08e9bb1d/196925600774.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/77/07/59/770759db-251c-036d-4f35-94ee8f4b3006/mzaf_9233049057737624477.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/chega-de-saudade/1639381385?i=1639381787&uo=4",
+    "track_id": 1639381787,
+    "collection_id": 1639381385,
+    "matched_artist": "João Gilberto",
+    "matched_title": "Chega de Saudade",
+    "collection_name": "Chega de Saudade (2022 Ultimate Mix)",
+    "release_year": "1959",
+    "error_type": "",
+    "retryable": false
+  },
+  "sessa|cancaodacura": {
+    "schema": 2,
+    "lookup_ts": 1786579244,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b2/60/f3/b260f333-a321-4ddf-b6ca-a2fee5194537/184923131369_cover.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6e/80/c9/6e80c9eb-dbb7-3c3b-c4e3-1886576ea5e6/mzaf_15863159713656873922.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/can%C3%A7%C3%A3o-da-cura/1775801764?i=1775801771&uo=4",
+    "track_id": 1775801771,
+    "collection_id": 1775801764,
+    "matched_artist": "Sessa",
+    "matched_title": "Canção da Cura",
+    "collection_name": "Estrela Acesa",
+    "release_year": "2022",
+    "error_type": "",
+    "retryable": false
   }
 }
