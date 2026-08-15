@@ -1,36 +1,37 @@
 {
- "date": "2026-08-14",
- "issue_no": 18,
- "playlist_title": "地铁靠窗的那十分钟（08.14）",
- "tracks_brief": [
-  {
-   "title": "Feet Don't Fail Me Now",
-   "artist": "Joy Crookes"
-  },
-  {
-   "title": "Obaa Sima",
-   "artist": "Ata Kak"
-  },
-  {
-   "title": "Dance II",
-   "artist": "Discovery Zone"
-  },
-  {
-   "title": "Rose in the Dark",
-   "artist": "Cleo Sol"
-  },
-  {
-   "title": "Sure",
-   "artist": "Hatchie"
-  },
-  {
-   "title": "Chocolates",
-   "artist": "The Aluminum Group"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [],
- "fresh_build": false,
- "notified": "2026-08-14"
+  "date": "2026-08-15",
+  "issue_no": 19,
+  "playlist_title": "夜色很稠，节拍很轻（08.15）",
+  "tracks_brief": [
+    {
+      "title": "Here's Where the Story Ends",
+      "artist": "The Sundays"
+    },
+    {
+      "title": "Grey Luh",
+      "artist": "Berhana"
+    },
+    {
+      "title": "Skin Tight",
+      "artist": "Ravyn Lenae"
+    },
+    {
+      "title": "Super Natural",
+      "artist": "Turnover"
+    },
+    {
+      "title": "The Boy with the Arab Strap",
+      "artist": "Belle and Sebastian"
+    },
+    {
+      "title": "2Wicky",
+      "artist": "Hooverphonic"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true
 }

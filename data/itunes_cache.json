@@ -24677,5 +24677,23 @@
     "release_year": "2022",
     "error_type": "",
     "retryable": false
+  },
+  "joaodonato|ara": {
+    "schema": 2,
+    "lookup_ts": 1786752042,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/bf/64/a2/bf64a24b-6220-6488-8a1d-63b8d50a1e31/0e3586e9-f4b5-4bf2-b280-3caff868eab7.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/87/72/e0/8772e013-4491-31a8-b072-de574e6e8177/mzaf_17663338793538825996.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/a-r%C3%A3/1796793934?i=1796793943&uo=4",
+    "track_id": 1796793943,
+    "collection_id": 1796793934,
+    "matched_artist": "João Donato",
+    "matched_title": "A Rã",
+    "collection_name": "Sambolero",
+    "release_year": "2005",
+    "error_type": "",
+    "retryable": false
   }
 }
