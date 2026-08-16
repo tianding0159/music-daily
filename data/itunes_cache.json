@@ -24695,5 +24695,41 @@
     "release_year": "2005",
     "error_type": "",
     "retryable": false
+  },
+  "limperatrice|agitationstropicales": {
+    "schema": 2,
+    "lookup_ts": 1786838447,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/ea/52/b1/ea52b130-0c00-aff0-d93a-e369f1943ac0/5055486980365_cover.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/5d/26/e3/5d26e3ec-551e-ce23-8f13-9c358d15b565/mzaf_10738447842868299670.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/agitations-tropicales/1203034305?i=1203034552&uo=4",
+    "track_id": 1203034552,
+    "collection_id": 1203034305,
+    "matched_artist": "L'Impératrice",
+    "matched_title": "Agitations tropicales",
+    "collection_name": "Odyssée - EP",
+    "release_year": "2015",
+    "error_type": "",
+    "retryable": false
+  },
+  "alifarkatoure|diaraby": {
+    "schema": 2,
+    "lookup_ts": 1786838449,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/46/21/52/462152eb-c0f4-39a8-e1c0-758481a867ba/0859381180500.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview114/v4/47/e0/0c/47e00cb4-7902-9810-0f01-8064896fe86a/mzaf_3152602110514224650.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/diaraby-with-ry-cooder-with-ry-cooder/1528519970?i=1528519982&uo=4",
+    "track_id": 1528519982,
+    "collection_id": 1528519970,
+    "matched_artist": "Ali Farka Touré",
+    "matched_title": "Diaraby (with Ry Cooder) [with Ry Cooder]",
+    "collection_name": "Talking Timbuktu (with Ry Cooder)",
+    "release_year": "1984",
+    "error_type": "",
+    "retryable": false
   }
 }

@@ -1,36 +1,37 @@
 {
- "date": "2026-08-15",
- "issue_no": 19,
- "playlist_title": "夜色很稠，节拍很轻（08.15）",
- "tracks_brief": [
-  {
-   "title": "Here's Where the Story Ends",
-   "artist": "The Sundays"
-  },
-  {
-   "title": "Grey Luh",
-   "artist": "Berhana"
-  },
-  {
-   "title": "Skin Tight",
-   "artist": "Ravyn Lenae"
-  },
-  {
-   "title": "Super Natural",
-   "artist": "Turnover"
-  },
-  {
-   "title": "The Boy with the Arab Strap",
-   "artist": "Belle and Sebastian"
-  },
-  {
-   "title": "2Wicky",
-   "artist": "Hooverphonic"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [],
- "fresh_build": false,
- "notified": "2026-08-15"
+  "date": "2026-08-16",
+  "issue_no": 20,
+  "playlist_title": "耳朵先安静，人才跟上（08.16）",
+  "tracks_brief": [
+    {
+      "title": "I Feel Alive",
+      "artist": "TOPS"
+    },
+    {
+      "title": "Agitations tropicales",
+      "artist": "L'Impératrice"
+    },
+    {
+      "title": "Hope She'll Be Happier",
+      "artist": "Bill Withers"
+    },
+    {
+      "title": "Young, Alive, in Love",
+      "artist": "Flipper's Guitar"
+    },
+    {
+      "title": "bless ur heart",
+      "artist": "serpentwithfeet"
+    },
+    {
+      "title": "Can I Call You Tonight?",
+      "artist": "Dayglow"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true
 }
