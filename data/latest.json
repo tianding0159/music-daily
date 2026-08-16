@@ -1,36 +1,35 @@
 {
- "date": "2026-08-16",
- "issue_no": 20,
- "playlist_title": "耳朵先安静，人才跟上（08.16）",
- "tracks_brief": [
-  {
-   "title": "I Feel Alive",
-   "artist": "TOPS"
-  },
-  {
-   "title": "Agitations tropicales",
-   "artist": "L'Impératrice"
-  },
-  {
-   "title": "Hope She'll Be Happier",
-   "artist": "Bill Withers"
-  },
-  {
-   "title": "Young, Alive, in Love",
-   "artist": "Flipper's Guitar"
-  },
-  {
-   "title": "bless ur heart",
-   "artist": "serpentwithfeet"
-  },
-  {
-   "title": "Can I Call You Tonight?",
-   "artist": "Dayglow"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [],
- "fresh_build": false,
- "notified": "2026-08-16"
+  "date": "2026-08-16",
+  "issue_no": 20,
+  "playlist_title": "耳朵先安静，人才跟上（08.16）",
+  "tracks_brief": [
+    {
+      "title": "I Feel Alive",
+      "artist": "TOPS"
+    },
+    {
+      "title": "Agitations tropicales",
+      "artist": "L'Impératrice"
+    },
+    {
+      "title": "Hope She'll Be Happier",
+      "artist": "Bill Withers"
+    },
+    {
+      "title": "Young, Alive, in Love",
+      "artist": "Flipper's Guitar"
+    },
+    {
+      "title": "bless ur heart",
+      "artist": "serpentwithfeet"
+    },
+    {
+      "title": "Can I Call You Tonight?",
+      "artist": "Dayglow"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false
 }
