@@ -1,36 +1,35 @@
 {
- "date": "2026-08-17",
- "issue_no": 21,
- "playlist_title": "慢到几乎停下来的好听（08.17）",
- "tracks_brief": [
-  {
-   "title": "Candy",
-   "artist": "Kate Bollinger"
-  },
-  {
-   "title": "Know Me",
-   "artist": "Frankie Rose"
-  },
-  {
-   "title": "Archangel",
-   "artist": "Burial"
-  },
-  {
-   "title": "Let Me Be With You",
-   "artist": "Round Table"
-  },
-  {
-   "title": "Zero",
-   "artist": "Liniker"
-  },
-  {
-   "title": "Siempre tocas algo",
-   "artist": "Mabe Fratti"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [],
- "fresh_build": false,
- "notified": "2026-08-17"
+  "date": "2026-08-17",
+  "issue_no": 21,
+  "playlist_title": "慢到几乎停下来的好听（08.17）",
+  "tracks_brief": [
+    {
+      "title": "Candy",
+      "artist": "Kate Bollinger"
+    },
+    {
+      "title": "Know Me",
+      "artist": "Frankie Rose"
+    },
+    {
+      "title": "Archangel",
+      "artist": "Burial"
+    },
+    {
+      "title": "Let Me Be With You",
+      "artist": "Round Table"
+    },
+    {
+      "title": "Zero",
+      "artist": "Liniker"
+    },
+    {
+      "title": "Siempre tocas algo",
+      "artist": "Mabe Fratti"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false
 }
