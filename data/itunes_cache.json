@@ -24731,5 +24731,23 @@
     "release_year": "1984",
     "error_type": "",
     "retryable": false
+  },
+  "anafrangoeletrico|temcerteza": {
+    "schema": 2,
+    "lookup_ts": 1786924839,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a0/14/bf/a014bfd7-0767-1d7b-9ee2-4b3064da4fee/8445162940153.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/1a/9b/ba/1a9bba0b-f55c-9d23-c78c-967179fcacce/mzaf_17234495976149867591.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/tem-certeza/1702260679?i=1702260702&uo=4",
+    "track_id": 1702260702,
+    "collection_id": 1702260679,
+    "matched_artist": "Ana Frango Elétrico",
+    "matched_title": "Tem Certeza?",
+    "collection_name": "Little Electric Chicken Heart",
+    "release_year": "2019",
+    "error_type": "",
+    "retryable": false
   }
 }
