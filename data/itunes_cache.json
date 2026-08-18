@@ -24749,5 +24749,41 @@
     "release_year": "2019",
     "error_type": "",
     "retryable": false
+  },
+  "christianloffler|eleven": {
+    "schema": 2,
+    "lookup_ts": 1787011242,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/79/56/d4/7956d472-007c-b195-cd21-72ccbeb7051c/880319592010_cover.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/79/c7/90/79c79063-d62e-d253-642c-05a4f937d62c/mzaf_14222726827389804612.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/eleven-feat-mohna/1070513811?i=1070513818&uo=4",
+    "track_id": 1070513818,
+    "collection_id": 1070513811,
+    "matched_artist": "Christian Löffler",
+    "matched_title": "Eleven (feat. Mohna)",
+    "collection_name": "A Forest",
+    "release_year": "2012",
+    "error_type": "",
+    "retryable": false
+  },
+  "silvanaestrada|undiacualquiera": {
+    "schema": 2,
+    "lookup_ts": 1787011245,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/91/2e/e3/912ee307-2a88-4b18-dd52-b7bd9b3f53e3/5056167167563.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/70/49/e7/7049e710-1940-45c0-bb1f-95c6d97d5098/mzaf_12156527409626661137.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/un-d%C3%ADa-cualquiera/1640345256?i=1640345263&uo=4",
+    "track_id": 1640345263,
+    "collection_id": 1640345256,
+    "matched_artist": "Silvana Estrada",
+    "matched_title": "Un Día Cualquiera",
+    "collection_name": "Marchita",
+    "release_year": "2022",
+    "error_type": "",
+    "retryable": false
   }
 }
