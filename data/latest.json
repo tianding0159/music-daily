@@ -1,36 +1,35 @@
 {
- "date": "2026-08-18",
- "issue_no": 22,
- "playlist_title": "夏天傍晚，风还没凉下来（08.18）",
- "tracks_brief": [
-  {
-   "title": "Chinatown",
-   "artist": "Wild Nothing"
-  },
-  {
-   "title": "Biggest Part of Me",
-   "artist": "Ambrosia"
-  },
-  {
-   "title": "Soul Lady",
-   "artist": "Yukika"
-  },
-  {
-   "title": "Eleven",
-   "artist": "Christian Löffler"
-  },
-  {
-   "title": "Kingston",
-   "artist": "Faye Webster"
-  },
-  {
-   "title": "Body",
-   "artist": "Julia Jacklin"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [],
- "fresh_build": false,
- "notified": "2026-08-18"
+  "date": "2026-08-18",
+  "issue_no": 22,
+  "playlist_title": "夏天傍晚，风还没凉下来（08.18）",
+  "tracks_brief": [
+    {
+      "title": "Chinatown",
+      "artist": "Wild Nothing"
+    },
+    {
+      "title": "Biggest Part of Me",
+      "artist": "Ambrosia"
+    },
+    {
+      "title": "Soul Lady",
+      "artist": "Yukika"
+    },
+    {
+      "title": "Eleven",
+      "artist": "Christian Löffler"
+    },
+    {
+      "title": "Kingston",
+      "artist": "Faye Webster"
+    },
+    {
+      "title": "Body",
+      "artist": "Julia Jacklin"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false
 }
