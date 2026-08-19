@@ -1,38 +1,35 @@
 {
- "date": "2026-08-19",
- "issue_no": 23,
- "playlist_title": "有点甜，但克制着（08.19）",
- "tracks_brief": [
-  {
-   "title": "Into Orbit",
-   "artist": "Alex Isley"
-  },
-  {
-   "title": "Sketch for Summer",
-   "artist": "The Durutti Column"
-  },
-  {
-   "title": "I Forgot to Be Your Lover",
-   "artist": "William Bell"
-  },
-  {
-   "title": "Says",
-   "artist": "Nils Frahm"
-  },
-  {
-   "title": "She Comes from the Rain",
-   "artist": "The Weather Prophets"
-  },
-  {
-   "title": "Silhouettes",
-   "artist": "Floating Points"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [
-  "bright保底(+5)"
- ],
- "fresh_build": true,
- "notified": "2026-08-19"
+  "date": "2026-08-19",
+  "issue_no": 23,
+  "playlist_title": "有点甜，但克制着（08.19）",
+  "tracks_brief": [
+    {
+      "title": "Into Orbit",
+      "artist": "Alex Isley"
+    },
+    {
+      "title": "Sketch for Summer",
+      "artist": "The Durutti Column"
+    },
+    {
+      "title": "I Forgot to Be Your Lover",
+      "artist": "William Bell"
+    },
+    {
+      "title": "Says",
+      "artist": "Nils Frahm"
+    },
+    {
+      "title": "She Comes from the Rain",
+      "artist": "The Weather Prophets"
+    },
+    {
+      "title": "Silhouettes",
+      "artist": "Floating Points"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false
 }
