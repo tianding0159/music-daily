@@ -1,36 +1,35 @@
 {
- "date": "2026-08-20",
- "issue_no": 24,
- "playlist_title": "电子像呼吸的那种（08.20）",
- "tracks_brief": [
-  {
-   "title": "Flyday Chinatown",
-   "artist": "Yasuha"
-  },
-  {
-   "title": "Everytime",
-   "artist": "Boy Pablo"
-  },
-  {
-   "title": "Pra Que Me Chamas?",
-   "artist": "Xênia França"
-  },
-  {
-   "title": "Cut the Grass",
-   "artist": "Cheatahs"
-  },
-  {
-   "title": "Jimmy, Renda-se",
-   "artist": "Tom Zé"
-  },
-  {
-   "title": "Pineapple",
-   "artist": "Blue Lab Beats"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [],
- "fresh_build": false,
- "notified": "2026-08-20"
+  "date": "2026-08-20",
+  "issue_no": 24,
+  "playlist_title": "电子像呼吸的那种（08.20）",
+  "tracks_brief": [
+    {
+      "title": "Flyday Chinatown",
+      "artist": "Yasuha"
+    },
+    {
+      "title": "Everytime",
+      "artist": "Boy Pablo"
+    },
+    {
+      "title": "Pra Que Me Chamas?",
+      "artist": "Xênia França"
+    },
+    {
+      "title": "Cut the Grass",
+      "artist": "Cheatahs"
+    },
+    {
+      "title": "Jimmy, Renda-se",
+      "artist": "Tom Zé"
+    },
+    {
+      "title": "Pineapple",
+      "artist": "Blue Lab Beats"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false
 }
