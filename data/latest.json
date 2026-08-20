@@ -1,36 +1,37 @@
 {
- "date": "2026-08-19",
- "issue_no": 23,
- "playlist_title": "有点甜，但克制着（08.19）",
- "tracks_brief": [
-  {
-   "title": "Into Orbit",
-   "artist": "Alex Isley"
-  },
-  {
-   "title": "Sketch for Summer",
-   "artist": "The Durutti Column"
-  },
-  {
-   "title": "I Forgot to Be Your Lover",
-   "artist": "William Bell"
-  },
-  {
-   "title": "Says",
-   "artist": "Nils Frahm"
-  },
-  {
-   "title": "She Comes from the Rain",
-   "artist": "The Weather Prophets"
-  },
-  {
-   "title": "Silhouettes",
-   "artist": "Floating Points"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [],
- "fresh_build": false,
- "notified": "2026-08-19"
+  "date": "2026-08-20",
+  "issue_no": 24,
+  "playlist_title": "电子像呼吸的那种（08.20）",
+  "tracks_brief": [
+    {
+      "title": "Flyday Chinatown",
+      "artist": "Yasuha"
+    },
+    {
+      "title": "Everytime",
+      "artist": "Boy Pablo"
+    },
+    {
+      "title": "Pra Que Me Chamas?",
+      "artist": "Xênia França"
+    },
+    {
+      "title": "Cut the Grass",
+      "artist": "Cheatahs"
+    },
+    {
+      "title": "Jimmy, Renda-se",
+      "artist": "Tom Zé"
+    },
+    {
+      "title": "Pineapple",
+      "artist": "Blue Lab Beats"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true
 }
