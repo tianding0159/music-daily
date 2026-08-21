@@ -1,36 +1,35 @@
 {
- "date": "2026-08-21",
- "issue_no": 25,
- "playlist_title": "冬日下午，斜光只照到半墙（08.21）",
- "tracks_brief": [
-  {
-   "title": "Yolk in the Fur",
-   "artist": "Wild Pink"
-  },
-  {
-   "title": "Suddenly",
-   "artist": "Drugdealer"
-  },
-  {
-   "title": "Um Corpo no Mundo",
-   "artist": "Luedji Luna"
-  },
-  {
-   "title": "Tittle Tattle",
-   "artist": "Nubiyan Twist"
-  },
-  {
-   "title": "Talking Backwards",
-   "artist": "Real Estate"
-  },
-  {
-   "title": "Y Volveré",
-   "artist": "Los Ángeles Negros"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [],
- "fresh_build": false,
- "notified": "2026-08-21"
+  "date": "2026-08-21",
+  "issue_no": 25,
+  "playlist_title": "冬日下午，斜光只照到半墙（08.21）",
+  "tracks_brief": [
+    {
+      "title": "Yolk in the Fur",
+      "artist": "Wild Pink"
+    },
+    {
+      "title": "Suddenly",
+      "artist": "Drugdealer"
+    },
+    {
+      "title": "Um Corpo no Mundo",
+      "artist": "Luedji Luna"
+    },
+    {
+      "title": "Tittle Tattle",
+      "artist": "Nubiyan Twist"
+    },
+    {
+      "title": "Talking Backwards",
+      "artist": "Real Estate"
+    },
+    {
+      "title": "Y Volveré",
+      "artist": "Los Ángeles Negros"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false
 }
