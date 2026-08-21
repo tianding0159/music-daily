@@ -24839,5 +24839,41 @@
     "release_year": "2010",
     "error_type": "",
     "retryable": false
+  },
+  "losangelesnegros|yvolvere": {
+    "schema": 2,
+    "lookup_ts": 1787270443,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/79/71/2f/79712fa4-6843-8414-c1f8-f2d5d5949de7/192562933954.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/94/0d/ed/940ded0e-a433-5a31-5431-a3a4f4b392ee/mzaf_2349057626047442890.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/y-volver%C3%A9/1435600006?i=1435600213&uo=4",
+    "track_id": 1435600213,
+    "collection_id": 1435600006,
+    "matched_artist": "Los Ángeles Negros",
+    "matched_title": "Y Volveré",
+    "collection_name": "Y Volveré",
+    "release_year": "1970",
+    "error_type": "",
+    "retryable": false
+  },
+  "betoguedes|amordeindio": {
+    "schema": 2,
+    "lookup_ts": 1787270446,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/7d/b3/ae/7db3aeff-2427-d23e-4f39-daf6c9c1cd14/13UABIM53102.rgb.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d2/8a/fd/d28afd4d-daa0-2281-bdab-81f66c238145/mzaf_8786017338364954764.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/amor-de-indio/713575153?i=713575224&uo=4",
+    "track_id": 713575224,
+    "collection_id": 713575153,
+    "matched_artist": "Beto Guedes",
+    "matched_title": "Amor de Indio",
+    "collection_name": "Preferencia Nacional",
+    "release_year": "1998",
+    "error_type": "",
+    "retryable": false
   }
 }

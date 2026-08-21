@@ -1,36 +1,37 @@
 {
- "date": "2026-08-20",
- "issue_no": 24,
- "playlist_title": "电子像呼吸的那种（08.20）",
- "tracks_brief": [
-  {
-   "title": "Flyday Chinatown",
-   "artist": "Yasuha"
-  },
-  {
-   "title": "Everytime",
-   "artist": "Boy Pablo"
-  },
-  {
-   "title": "Pra Que Me Chamas?",
-   "artist": "Xênia França"
-  },
-  {
-   "title": "Cut the Grass",
-   "artist": "Cheatahs"
-  },
-  {
-   "title": "Jimmy, Renda-se",
-   "artist": "Tom Zé"
-  },
-  {
-   "title": "Pineapple",
-   "artist": "Blue Lab Beats"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [],
- "fresh_build": false,
- "notified": "2026-08-20"
+  "date": "2026-08-21",
+  "issue_no": 25,
+  "playlist_title": "冬日下午，斜光只照到半墙（08.21）",
+  "tracks_brief": [
+    {
+      "title": "Yolk in the Fur",
+      "artist": "Wild Pink"
+    },
+    {
+      "title": "Suddenly",
+      "artist": "Drugdealer"
+    },
+    {
+      "title": "Um Corpo no Mundo",
+      "artist": "Luedji Luna"
+    },
+    {
+      "title": "Tittle Tattle",
+      "artist": "Nubiyan Twist"
+    },
+    {
+      "title": "Talking Backwards",
+      "artist": "Real Estate"
+    },
+    {
+      "title": "Y Volveré",
+      "artist": "Los Ángeles Negros"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true
 }
