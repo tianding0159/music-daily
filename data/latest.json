@@ -1,38 +1,35 @@
 {
- "date": "2026-08-22",
- "issue_no": 26,
- "playlist_title": "夜色很稠，节拍很轻（08.22）",
- "tracks_brief": [
-  {
-   "title": "Jazz Carnival",
-   "artist": "Azymuth"
-  },
-  {
-   "title": "Letter of Intent",
-   "artist": "Ducktails"
-  },
-  {
-   "title": "Wallflower",
-   "artist": "Jordan Rakei"
-  },
-  {
-   "title": "A Long Walk",
-   "artist": "Jill Scott"
-  },
-  {
-   "title": "7 heures du matin",
-   "artist": "Jacqueline Taïeb"
-  },
-  {
-   "title": "A Call from My Dream",
-   "artist": "Meaningful Stone"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [
-  "bright保底(+5)"
- ],
- "fresh_build": true,
- "notified": "2026-08-22"
+  "date": "2026-08-22",
+  "issue_no": 26,
+  "playlist_title": "夜色很稠，节拍很轻（08.22）",
+  "tracks_brief": [
+    {
+      "title": "Jazz Carnival",
+      "artist": "Azymuth"
+    },
+    {
+      "title": "Letter of Intent",
+      "artist": "Ducktails"
+    },
+    {
+      "title": "Wallflower",
+      "artist": "Jordan Rakei"
+    },
+    {
+      "title": "A Long Walk",
+      "artist": "Jill Scott"
+    },
+    {
+      "title": "7 heures du matin",
+      "artist": "Jacqueline Taïeb"
+    },
+    {
+      "title": "A Call from My Dream",
+      "artist": "Meaningful Stone"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false
 }
