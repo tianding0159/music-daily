@@ -24875,5 +24875,23 @@
     "release_year": "1998",
     "error_type": "",
     "retryable": false
+  },
+  "jacquelinetaieb|7heuresdumatin": {
+    "schema": 2,
+    "lookup_ts": 1787356843,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/ce/c9/fc/cec9fcde-34d7-2802-43f9-74618a678fe5/3700403511307_cover.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/0f/0f/e3/0f0fe3a2-0c43-f7d0-32a5-18c11bfa45d5/mzaf_12407457160402039244.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/7-heures-du-matin/724379312?i=724379718&uo=4",
+    "track_id": 724379718,
+    "collection_id": 724379312,
+    "matched_artist": "Jacqueline Taïeb",
+    "matched_title": "7 heures du matin",
+    "collection_name": "Femmes de Paris, Vol. 1",
+    "release_year": "1967",
+    "error_type": "",
+    "retryable": false
   }
 }

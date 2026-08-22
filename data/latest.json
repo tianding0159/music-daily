@@ -1,36 +1,37 @@
 {
- "date": "2026-08-21",
- "issue_no": 25,
- "playlist_title": "冬日下午，斜光只照到半墙（08.21）",
- "tracks_brief": [
-  {
-   "title": "Yolk in the Fur",
-   "artist": "Wild Pink"
-  },
-  {
-   "title": "Suddenly",
-   "artist": "Drugdealer"
-  },
-  {
-   "title": "Um Corpo no Mundo",
-   "artist": "Luedji Luna"
-  },
-  {
-   "title": "Tittle Tattle",
-   "artist": "Nubiyan Twist"
-  },
-  {
-   "title": "Talking Backwards",
-   "artist": "Real Estate"
-  },
-  {
-   "title": "Y Volveré",
-   "artist": "Los Ángeles Negros"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [],
- "fresh_build": false,
- "notified": "2026-08-21"
+  "date": "2026-08-22",
+  "issue_no": 26,
+  "playlist_title": "夜色很稠，节拍很轻（08.22）",
+  "tracks_brief": [
+    {
+      "title": "Jazz Carnival",
+      "artist": "Azymuth"
+    },
+    {
+      "title": "Letter of Intent",
+      "artist": "Ducktails"
+    },
+    {
+      "title": "Wallflower",
+      "artist": "Jordan Rakei"
+    },
+    {
+      "title": "A Long Walk",
+      "artist": "Jill Scott"
+    },
+    {
+      "title": "7 heures du matin",
+      "artist": "Jacqueline Taïeb"
+    },
+    {
+      "title": "A Call from My Dream",
+      "artist": "Meaningful Stone"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true
 }
