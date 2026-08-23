@@ -1,36 +1,35 @@
 {
- "date": "2026-08-23",
- "issue_no": 27,
- "playlist_title": "木头、旧磁带和一点灰（08.23）",
- "tracks_brief": [
-  {
-   "title": "we fell in love in october",
-   "artist": "girl in red"
-  },
-  {
-   "title": "Is This Thing On?",
-   "artist": "The Promise Ring"
-  },
-  {
-   "title": "Best Part",
-   "artist": "Daniel Caesar"
-  },
-  {
-   "title": "Cristo Redentor",
-   "artist": "Donald Byrd"
-  },
-  {
-   "title": "Marechià",
-   "artist": "Nu Genea"
-  },
-  {
-   "title": "High Noon",
-   "artist": "Kruder & Dorfmeister"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [],
- "fresh_build": false,
- "notified": "2026-08-23"
+  "date": "2026-08-23",
+  "issue_no": 27,
+  "playlist_title": "木头、旧磁带和一点灰（08.23）",
+  "tracks_brief": [
+    {
+      "title": "we fell in love in october",
+      "artist": "girl in red"
+    },
+    {
+      "title": "Is This Thing On?",
+      "artist": "The Promise Ring"
+    },
+    {
+      "title": "Best Part",
+      "artist": "Daniel Caesar"
+    },
+    {
+      "title": "Cristo Redentor",
+      "artist": "Donald Byrd"
+    },
+    {
+      "title": "Marechià",
+      "artist": "Nu Genea"
+    },
+    {
+      "title": "High Noon",
+      "artist": "Kruder & Dorfmeister"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false
 }
