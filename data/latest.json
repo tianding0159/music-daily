@@ -1,35 +1,36 @@
 {
-  "date": "2026-08-24",
-  "issue_no": 28,
-  "playlist_title": "耳朵先安静，人才跟上（08.24）",
-  "tracks_brief": [
-    {
-      "title": "Together",
-      "artist": "Tourist"
-    },
-    {
-      "title": "Canopée",
-      "artist": "Polo & Pan"
-    },
-    {
-      "title": "Serious Drugs",
-      "artist": "BMX Bandits"
-    },
-    {
-      "title": "Every Beat of the Heart",
-      "artist": "The Railway Children"
-    },
-    {
-      "title": "Free",
-      "artist": "Deniece Williams"
-    },
-    {
-      "title": "A Ghost at Noon",
-      "artist": "Sam Prekop"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false
+ "date": "2026-08-24",
+ "issue_no": 28,
+ "playlist_title": "耳朵先安静，人才跟上（08.24）",
+ "tracks_brief": [
+  {
+   "title": "Together",
+   "artist": "Tourist"
+  },
+  {
+   "title": "Canopée",
+   "artist": "Polo & Pan"
+  },
+  {
+   "title": "Serious Drugs",
+   "artist": "BMX Bandits"
+  },
+  {
+   "title": "Every Beat of the Heart",
+   "artist": "The Railway Children"
+  },
+  {
+   "title": "Free",
+   "artist": "Deniece Williams"
+  },
+  {
+   "title": "A Ghost at Noon",
+   "artist": "Sam Prekop"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [],
+ "fresh_build": false,
+ "notified": "2026-08-24"
 }
