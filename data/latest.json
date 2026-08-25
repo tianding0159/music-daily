@@ -1,38 +1,35 @@
 {
- "date": "2026-08-25",
- "issue_no": 29,
- "playlist_title": "慢到几乎停下来的好听（08.25）",
- "tracks_brief": [
-  {
-   "title": "A.M. 180",
-   "artist": "Grandaddy"
-  },
-  {
-   "title": "Easy",
-   "artist": "Mac Ayres"
-  },
-  {
-   "title": "A Little Bit of Love",
-   "artist": "Brenda Russell"
-  },
-  {
-   "title": "Bamboo",
-   "artist": "Harvey Sutherland"
-  },
-  {
-   "title": "Bright Star",
-   "artist": "Anaïs Mitchell"
-  },
-  {
-   "title": "Ambling Alp",
-   "artist": "Yeasayer"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [
-  "bright保底(+5)"
- ],
- "fresh_build": true,
- "notified": "2026-08-25"
+  "date": "2026-08-25",
+  "issue_no": 29,
+  "playlist_title": "慢到几乎停下来的好听（08.25）",
+  "tracks_brief": [
+    {
+      "title": "A.M. 180",
+      "artist": "Grandaddy"
+    },
+    {
+      "title": "Easy",
+      "artist": "Mac Ayres"
+    },
+    {
+      "title": "A Little Bit of Love",
+      "artist": "Brenda Russell"
+    },
+    {
+      "title": "Bamboo",
+      "artist": "Harvey Sutherland"
+    },
+    {
+      "title": "Bright Star",
+      "artist": "Anaïs Mitchell"
+    },
+    {
+      "title": "Ambling Alp",
+      "artist": "Yeasayer"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false
 }
