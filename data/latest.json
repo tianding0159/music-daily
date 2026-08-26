@@ -1,36 +1,37 @@
 {
- "date": "2026-08-25",
- "issue_no": 29,
- "playlist_title": "慢到几乎停下来的好听（08.25）",
- "tracks_brief": [
-  {
-   "title": "A.M. 180",
-   "artist": "Grandaddy"
-  },
-  {
-   "title": "Easy",
-   "artist": "Mac Ayres"
-  },
-  {
-   "title": "A Little Bit of Love",
-   "artist": "Brenda Russell"
-  },
-  {
-   "title": "Bamboo",
-   "artist": "Harvey Sutherland"
-  },
-  {
-   "title": "Bright Star",
-   "artist": "Anaïs Mitchell"
-  },
-  {
-   "title": "Ambling Alp",
-   "artist": "Yeasayer"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [],
- "fresh_build": false,
- "notified": "2026-08-25"
+  "date": "2026-08-26",
+  "issue_no": 30,
+  "playlist_title": "把白天调成夜的亮度（08.26）",
+  "tracks_brief": [
+    {
+      "title": "Rabo del Sol",
+      "artist": "Dip in the Pool"
+    },
+    {
+      "title": "Who Knows Who Cares",
+      "artist": "Local Natives"
+    },
+    {
+      "title": "Do What You Gotta Do",
+      "artist": "Kaidi Tatham"
+    },
+    {
+      "title": "You Are Everything",
+      "artist": "The Stylistics"
+    },
+    {
+      "title": "Feel Flows",
+      "artist": "The Beach Boys"
+    },
+    {
+      "title": "Harlem River",
+      "artist": "Kevin Morby"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true
 }
