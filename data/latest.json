@@ -1,37 +1,38 @@
 {
-  "date": "2026-08-27",
-  "issue_no": 31,
-  "playlist_title": "电子像呼吸的那种（08.27）",
-  "tracks_brief": [
-    {
-      "title": "My Queen Is Harriet Tubman",
-      "artist": "Sons of Kemet"
-    },
-    {
-      "title": "María También",
-      "artist": "Khruangbin"
-    },
-    {
-      "title": "Mixer",
-      "artist": "Nap Eyes"
-    },
-    {
-      "title": "Midnight Pretenders",
-      "artist": "Tomoko Aran"
-    },
-    {
-      "title": "Malemolência",
-      "artist": "Céu"
-    },
-    {
-      "title": "Midsummer",
-      "artist": "Katie Von Schleicher"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [
-    "bright保底(+5)"
-  ],
-  "fresh_build": true
+ "date": "2026-08-27",
+ "issue_no": 31,
+ "playlist_title": "电子像呼吸的那种（08.27）",
+ "tracks_brief": [
+  {
+   "title": "My Queen Is Harriet Tubman",
+   "artist": "Sons of Kemet"
+  },
+  {
+   "title": "María También",
+   "artist": "Khruangbin"
+  },
+  {
+   "title": "Mixer",
+   "artist": "Nap Eyes"
+  },
+  {
+   "title": "Midnight Pretenders",
+   "artist": "Tomoko Aran"
+  },
+  {
+   "title": "Malemolência",
+   "artist": "Céu"
+  },
+  {
+   "title": "Midsummer",
+   "artist": "Katie Von Schleicher"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [
+  "bright保底(+5)"
+ ],
+ "fresh_build": true,
+ "notified": "2026-08-27"
 }
