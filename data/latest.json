@@ -1,37 +1,38 @@
 {
-  "date": "2026-08-29",
-  "issue_no": 33,
-  "playlist_title": "微凉的清晨，先别说话（08.29）",
-  "tracks_brief": [
-    {
-      "title": "Circle the Drain",
-      "artist": "Soccer Mommy"
-    },
-    {
-      "title": "My Girls",
-      "artist": "Animal Collective"
-    },
-    {
-      "title": "My Only Swerving",
-      "artist": "El Ten Eleven"
-    },
-    {
-      "title": "Southern Nights",
-      "artist": "Allen Toussaint"
-    },
-    {
-      "title": "Under the Sun",
-      "artist": "DIIV"
-    },
-    {
-      "title": "Only Trying 2 Tell U",
-      "artist": "Puma Blue"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [
-    "bright保底(+5)"
-  ],
-  "fresh_build": true
+ "date": "2026-08-29",
+ "issue_no": 33,
+ "playlist_title": "微凉的清晨，先别说话（08.29）",
+ "tracks_brief": [
+  {
+   "title": "Circle the Drain",
+   "artist": "Soccer Mommy"
+  },
+  {
+   "title": "My Girls",
+   "artist": "Animal Collective"
+  },
+  {
+   "title": "My Only Swerving",
+   "artist": "El Ten Eleven"
+  },
+  {
+   "title": "Southern Nights",
+   "artist": "Allen Toussaint"
+  },
+  {
+   "title": "Under the Sun",
+   "artist": "DIIV"
+  },
+  {
+   "title": "Only Trying 2 Tell U",
+   "artist": "Puma Blue"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [
+  "bright保底(+5)"
+ ],
+ "fresh_build": true,
+ "notified": "2026-08-29"
 }
