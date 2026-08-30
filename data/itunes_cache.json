@@ -25181,5 +25181,23 @@
     "release_year": "2026",
     "error_type": "",
     "retryable": false
+  },
+  "etiennedaho|weekendarome": {
+    "schema": 2,
+    "lookup_ts": 1788048042,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/9a/3d/af/9a3daf18-bd50-737a-92ec-689ff795b449/0094634492553_1500x1500_300dpi.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/95/b2/66/95b266c4-b821-d658-5b5e-5a192033c05f/mzaf_1288792980378485320.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/week-end-%C3%A0-rome/695898957?i=695899754&uo=4",
+    "track_id": 695899754,
+    "collection_id": 695898957,
+    "matched_artist": "Étienne Daho",
+    "matched_title": "Week-end à Rome",
+    "collection_name": "Week End À Rome - Single",
+    "release_year": "1984",
+    "error_type": "",
+    "retryable": false
   }
 }
