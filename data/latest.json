@@ -1,35 +1,36 @@
 {
-  "date": "2026-08-31",
-  "issue_no": 35,
-  "playlist_title": "夏天傍晚，风还没凉下来（08.31）",
-  "tracks_brief": [
-    {
-      "title": "Feel You",
-      "artist": "Julia Holter"
-    },
-    {
-      "title": "Sonido Amazonico",
-      "artist": "Chicha Libre"
-    },
-    {
-      "title": "Prune, You Talk Funny",
-      "artist": "Gus Dapperton"
-    },
-    {
-      "title": "Alrighty Aphrodite",
-      "artist": "Peach Pit"
-    },
-    {
-      "title": "Asayake",
-      "artist": "Casiopea"
-    },
-    {
-      "title": "Love Is the Message",
-      "artist": "Yussef Dayes"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false
+ "date": "2026-08-31",
+ "issue_no": 35,
+ "playlist_title": "夏天傍晚，风还没凉下来（08.31）",
+ "tracks_brief": [
+  {
+   "title": "Feel You",
+   "artist": "Julia Holter"
+  },
+  {
+   "title": "Sonido Amazonico",
+   "artist": "Chicha Libre"
+  },
+  {
+   "title": "Prune, You Talk Funny",
+   "artist": "Gus Dapperton"
+  },
+  {
+   "title": "Alrighty Aphrodite",
+   "artist": "Peach Pit"
+  },
+  {
+   "title": "Asayake",
+   "artist": "Casiopea"
+  },
+  {
+   "title": "Love Is the Message",
+   "artist": "Yussef Dayes"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [],
+ "fresh_build": false,
+ "notified": "2026-08-31"
 }
