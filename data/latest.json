@@ -1,35 +1,36 @@
 {
-  "date": "2026-09-01",
-  "issue_no": 36,
-  "playlist_title": "有点甜，但克制着（09.01）",
-  "tracks_brief": [
-    {
-      "title": "Sensitive",
-      "artist": "The Field Mice"
-    },
-    {
-      "title": "Sparky's Dream",
-      "artist": "Teenage Fanclub"
-    },
-    {
-      "title": "Love Me Right",
-      "artist": "Amber Mark"
-    },
-    {
-      "title": "Desafinado",
-      "artist": "Stan Getz & Charlie Byrd"
-    },
-    {
-      "title": "Hood Pass Intact",
-      "artist": "Dâm-Funk"
-    },
-    {
-      "title": "Pretty Girls",
-      "artist": "Michael Seyer"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false
+ "date": "2026-09-01",
+ "issue_no": 36,
+ "playlist_title": "有点甜，但克制着（09.01）",
+ "tracks_brief": [
+  {
+   "title": "Sensitive",
+   "artist": "The Field Mice"
+  },
+  {
+   "title": "Sparky's Dream",
+   "artist": "Teenage Fanclub"
+  },
+  {
+   "title": "Love Me Right",
+   "artist": "Amber Mark"
+  },
+  {
+   "title": "Desafinado",
+   "artist": "Stan Getz & Charlie Byrd"
+  },
+  {
+   "title": "Hood Pass Intact",
+   "artist": "Dâm-Funk"
+  },
+  {
+   "title": "Pretty Girls",
+   "artist": "Michael Seyer"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [],
+ "fresh_build": false,
+ "notified": "2026-09-01"
 }
