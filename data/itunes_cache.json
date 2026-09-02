@@ -25343,5 +25343,41 @@
     "release_year": "1969",
     "error_type": "",
     "retryable": false
+  },
+  "kirinji|エイリアンス": {
+    "schema": 2,
+    "lookup_ts": 1788307245,
+    "country": "JP",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/66/37/f2/6637f21a-7a52-6072-62af-6009a6f5bd48/dj.nssfghzp.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c0/f3/46/c0f34688-f5ae-7d61-9b81-89ebb3724f74/mzaf_15300152028185973584.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/jp/album/%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%83%B3%E3%82%BA/258411790?i=258412002&uo=4",
+    "track_id": 258412002,
+    "collection_id": 258411790,
+    "matched_artist": "KIRINJI",
+    "matched_title": "エイリアンズ",
+    "collection_name": "3",
+    "release_year": "2000",
+    "error_type": "",
+    "retryable": false
+  },
+  "ximenasarinana|sintinopuedeestartanmal": {
+    "schema": 2,
+    "lookup_ts": 1788307248,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music7/v4/ab/d6/43/abd64312-2ba2-477e-623c-38e9f5210734/825646124053.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/7c/e6/55/7ce65564-8fba-70bb-3866-e9c514275eb5/mzaf_9269963094308241517.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/sin-ti-no-puede-estar-tan-mal/985803086?i=985803090&uo=4",
+    "track_id": 985803090,
+    "collection_id": 985803086,
+    "matched_artist": "Ximena Sariñana",
+    "matched_title": "Sin ti no puede estar tan mal",
+    "collection_name": "No todo lo puedes dar (Deluxe Edition)",
+    "release_year": "2014",
+    "error_type": "",
+    "retryable": false
   }
 }
