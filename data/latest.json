@@ -1,37 +1,38 @@
 {
-  "date": "2026-09-02",
-  "issue_no": 37,
-  "playlist_title": "一个人也不觉得空的房间（09.02）",
-  "tracks_brief": [
-    {
-      "title": "Loud Places",
-      "artist": "Jamie xx"
-    },
-    {
-      "title": "Cranes in the Sky",
-      "artist": "Solange"
-    },
-    {
-      "title": "Odessa",
-      "artist": "Caribou"
-    },
-    {
-      "title": "エイリアンズ",
-      "artist": "Kirinji"
-    },
-    {
-      "title": "Time Moves Slow",
-      "artist": "BADBADNOTGOOD"
-    },
-    {
-      "title": "Andromeda",
-      "artist": "Weyes Blood"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [
-    "bright保底(+5)"
-  ],
-  "fresh_build": true
+ "date": "2026-09-02",
+ "issue_no": 37,
+ "playlist_title": "一个人也不觉得空的房间（09.02）",
+ "tracks_brief": [
+  {
+   "title": "Loud Places",
+   "artist": "Jamie xx"
+  },
+  {
+   "title": "Cranes in the Sky",
+   "artist": "Solange"
+  },
+  {
+   "title": "Odessa",
+   "artist": "Caribou"
+  },
+  {
+   "title": "エイリアンズ",
+   "artist": "Kirinji"
+  },
+  {
+   "title": "Time Moves Slow",
+   "artist": "BADBADNOTGOOD"
+  },
+  {
+   "title": "Andromeda",
+   "artist": "Weyes Blood"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [
+  "bright保底(+5)"
+ ],
+ "fresh_build": true,
+ "notified": "2026-09-02"
 }
