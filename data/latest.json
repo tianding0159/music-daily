@@ -1,36 +1,35 @@
 {
- "date": "2026-09-03",
- "issue_no": 38,
- "playlist_title": "把肩膀放下来的那半小时（09.03）",
- "tracks_brief": [
-  {
-   "title": "What You Won't Do for Love",
-   "artist": "Bobby Caldwell"
-  },
-  {
-   "title": "Francis Forever",
-   "artist": "Mitski"
-  },
-  {
-   "title": "Red Eyes",
-   "artist": "The War on Drugs"
-  },
-  {
-   "title": "Some Place",
-   "artist": "Nick Waterhouse"
-  },
-  {
-   "title": "My Mind",
-   "artist": "Yebba"
-  },
-  {
-   "title": "Day by Day",
-   "artist": "White Flowers"
-  }
- ],
- "n": 30,
- "low_pool_warn": "⚠️ 候选池仅剩 29 首未发（不足一期），该补池了。",
- "relax": [],
- "fresh_build": false,
- "notified": "2026-09-03"
+  "date": "2026-09-03",
+  "issue_no": 38,
+  "playlist_title": "把肩膀放下来的那半小时（09.03）",
+  "tracks_brief": [
+    {
+      "title": "What You Won't Do for Love",
+      "artist": "Bobby Caldwell"
+    },
+    {
+      "title": "Francis Forever",
+      "artist": "Mitski"
+    },
+    {
+      "title": "Red Eyes",
+      "artist": "The War on Drugs"
+    },
+    {
+      "title": "Some Place",
+      "artist": "Nick Waterhouse"
+    },
+    {
+      "title": "My Mind",
+      "artist": "Yebba"
+    },
+    {
+      "title": "Day by Day",
+      "artist": "White Flowers"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": "⚠️ 候选池仅剩 29 首未发（不足一期），该补池了。",
+  "relax": [],
+  "fresh_build": false
 }
