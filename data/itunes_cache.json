@@ -25379,5 +25379,41 @@
     "release_year": "2014",
     "error_type": "",
     "retryable": false
+  },
+  "naraleao|lindoneia": {
+    "schema": 2,
+    "lookup_ts": 1788393645,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/f2/a7/2d/f2a72dc9-28fc-b183-dea4-4ad128ab577b/00602537401369.rgb.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/05/2a/c1/052ac121-41aa-6a37-7f2c-17293f1bfbb7/mzaf_8313634769858968016.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/lindon%C3%A9ia/1444096873?i=1444096894&uo=4",
+    "track_id": 1444096894,
+    "collection_id": 1444096873,
+    "matched_artist": "Nara Leão",
+    "matched_title": "Lindonéia",
+    "collection_name": "Nara Leão (1968)",
+    "release_year": "1968",
+    "error_type": "",
+    "retryable": false
+  },
+  "mulatuastatke|yegelletezeta": {
+    "schema": 2,
+    "lookup_ts": 1788393648,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/3c/48/9b/3c489b98-ca59-0d43-aa5e-c20a91ba9cf0/3596974270596_cover.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/b3/1f/fc/b31ffcbe-a169-2a38-ea3c-0a6988a316a2/mzaf_6494240538636423063.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/y%C3%A8gell%C3%A9-tezeta/1641494490?i=1641494964&uo=4",
+    "track_id": 1641494964,
+    "collection_id": 1641494490,
+    "matched_artist": "Mulatu Astatke",
+    "matched_title": "Yègellé Tezeta",
+    "collection_name": "Afrobeat Experience, Vol.1",
+    "release_year": "2022",
+    "error_type": "",
+    "retryable": false
   }
 }
