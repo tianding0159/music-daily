@@ -25415,5 +25415,23 @@
     "release_year": "2022",
     "error_type": "",
     "retryable": false
+  },
+  "jardsmacale|vaporbarato": {
+    "schema": 2,
+    "lookup_ts": 1788480044,
+    "country": "US",
+    "status": "exact_match",
+    "found": true,
+    "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Music7/v4/4a/31/2e/4a312eb3-dbe9-0443-25dd-26bb7ed442c5/dj.scqwgobk.jpg/600x600bb.jpg",
+    "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/6b/fd/50/6bfd50e1-9aff-6b10-c1ab-26681982b8b4/mzaf_10816228634143378177.plus.aac.p.m4a",
+    "apple_url": "https://music.apple.com/us/album/vapor-barato/263782671?i=263785501&uo=4",
+    "track_id": 263785501,
+    "collection_id": 263782671,
+    "matched_artist": "Jards Macalé",
+    "matched_title": "Vapor Barato",
+    "collection_name": "O Que Faco é Musica",
+    "release_year": "1999",
+    "error_type": "",
+    "retryable": false
   }
 }
