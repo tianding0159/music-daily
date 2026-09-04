@@ -1,39 +1,40 @@
 {
-  "date": "2026-09-04",
-  "issue_no": 39,
-  "playlist_title": "电子像呼吸的那种（09.04）",
-  "tracks_brief": [
-    {
-      "title": "Cat",
-      "artist": "Hiroshi Suzuki"
-    },
-    {
-      "title": "Heaven Can Wait",
-      "artist": "Charlotte Gainsbourg"
-    },
-    {
-      "title": "Talking in My Sleep",
-      "artist": "The Rain Parade"
-    },
-    {
-      "title": "Could Heaven Ever Be Like This",
-      "artist": "Idris Muhammad"
-    },
-    {
-      "title": "Sur la planche",
-      "artist": "La Femme"
-    },
-    {
-      "title": "Monday, In a Small Dull Town",
-      "artist": "The Smashing Times"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": "⚠️ 候选池仅剩 0 首未发（不足一期），该补池了。",
-  "relax": [
-    "bright保底(+5)",
-    "放宽跨期艺人间隔(+2)",
-    "回填最久未发(池不足)(+1)"
-  ],
-  "fresh_build": true
+ "date": "2026-09-04",
+ "issue_no": 39,
+ "playlist_title": "电子像呼吸的那种（09.04）",
+ "tracks_brief": [
+  {
+   "title": "Cat",
+   "artist": "Hiroshi Suzuki"
+  },
+  {
+   "title": "Heaven Can Wait",
+   "artist": "Charlotte Gainsbourg"
+  },
+  {
+   "title": "Talking in My Sleep",
+   "artist": "The Rain Parade"
+  },
+  {
+   "title": "Could Heaven Ever Be Like This",
+   "artist": "Idris Muhammad"
+  },
+  {
+   "title": "Sur la planche",
+   "artist": "La Femme"
+  },
+  {
+   "title": "Monday, In a Small Dull Town",
+   "artist": "The Smashing Times"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": "⚠️ 候选池仅剩 0 首未发（不足一期），该补池了。",
+ "relax": [
+  "bright保底(+5)",
+  "放宽跨期艺人间隔(+2)",
+  "回填最久未发(池不足)(+1)"
+ ],
+ "fresh_build": true,
+ "notified": "2026-09-04"
 }
