@@ -1,37 +1,38 @@
 {
-  "date": "2026-09-05",
-  "issue_no": 40,
-  "playlist_title": "留白比声音还多（09.05）",
-  "tracks_brief": [
-    {
-      "title": "Lovers' Carvings",
-      "artist": "Bibio"
-    },
-    {
-      "title": "いかれたBaby",
-      "artist": "Fishmans"
-    },
-    {
-      "title": "Summer Soul",
-      "artist": "cero"
-    },
-    {
-      "title": "Angel Echoes",
-      "artist": "Four Tet"
-    },
-    {
-      "title": "Plastic Love",
-      "artist": "Mariya Takeuchi"
-    },
-    {
-      "title": "Roygbiv",
-      "artist": "Boards of Canada"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": "⚠️ 候选池仅剩 0 首未发（不足一期），该补池了。",
-  "relax": [
-    "回填最久未发(池不足)(+30)"
-  ],
-  "fresh_build": true
+ "date": "2026-09-05",
+ "issue_no": 40,
+ "playlist_title": "留白比声音还多（09.05）",
+ "tracks_brief": [
+  {
+   "title": "Lovers' Carvings",
+   "artist": "Bibio"
+  },
+  {
+   "title": "いかれたBaby",
+   "artist": "Fishmans"
+  },
+  {
+   "title": "Summer Soul",
+   "artist": "cero"
+  },
+  {
+   "title": "Angel Echoes",
+   "artist": "Four Tet"
+  },
+  {
+   "title": "Plastic Love",
+   "artist": "Mariya Takeuchi"
+  },
+  {
+   "title": "Roygbiv",
+   "artist": "Boards of Canada"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": "⚠️ 候选池仅剩 0 首未发（不足一期），该补池了。",
+ "relax": [
+  "回填最久未发(池不足)(+30)"
+ ],
+ "fresh_build": true,
+ "notified": "2026-09-05"
 }
