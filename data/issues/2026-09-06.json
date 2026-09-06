@@ -1,0 +1,1540 @@
+{
+  "issue_no": 41,
+  "date": "2026-09-06",
+  "generated_at": "2026-09-06T00:00:45+00:00",
+  "theme": "grid",
+  "playlist_title": "夜色很稠，节拍很轻（09.06）",
+  "netease_text": "夜色很稠，节拍很轻（09.06）\nLovers' Carvings - Bibio\nいかれたBaby - Fishmans\nSummer Soul - cero\nSpace Song - Beach House\nTwo Thousand and Seventeen - Four Tet\nGreen Grass of Tunnel - múm\nRoygbiv - Boards of Canada\nHomage - Mild High Club\nTwiggy Twiggy - Pizzicato Five\nSlowness - Ana Roxanne\nSarah Alice - The Boats\nFellowship - serpentwithfeet\nThat Don't Make It So - Yves Jarvis\nsnow bird - Piana\n14:31 - Global Communication\nDiamond Heart - Marissa Nadler\nLove's Refrain - Jefre Cantu-Ledesma\nChimacum Rain - Linda Perhacs\nChanges - Sandro Perri\nSienna - Dawn Richard & Spencer Zahn\nGloss - Ulla\nThe Waves - Tamaryn\nThank You - The Pale Fountains\ncome here go there - Rei Harakami\nThinking About You - Ivy\nCoffee Bubbles - Yoyo Sham\nThis World Couldn't See Us - Nabihah Iqbal\nSomewhere - Luby Sparks\nI Love You Like the Way That I Used to Do - Rocketship\nA Alma do Vento - Domenico Lancellotti",
+  "tracks": [
+    {
+      "id": "sha1:eaebc89758487a7d",
+      "title": "Lovers' Carvings",
+      "artist": "Bibio",
+      "year": "2009",
+      "album": "Ambivalence Avenue",
+      "genres": [
+        "folktronica",
+        "organic electronic",
+        "indietronica"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "woody",
+        "grainy",
+        "summer dusk"
+      ],
+      "production_tags": [
+        "tape saturation",
+        "cassette",
+        "granular",
+        "analog warmth"
+      ],
+      "instrumentation": [
+        "fingerstyle guitar",
+        "老式合成器"
+      ],
+      "vocal_style": "薄雾人声",
+      "bpm_band": "90-100",
+      "has_melody": true,
+      "scene": "柏油路烫手，推着自行车走完最后一段，蝉声盖过耳机。",
+      "artist_oneliner": "英国的 Stephen Wilkinson，指弹先录进磁带，再任它受潮起毛。",
+      "why": "磁带的嘶声裹着一段指弹循环，合成器像从旧录音深处透出来。听久了像一卷被反复播到磨损的家庭录像，画面都发白了。",
+      "fit_score": 97.0,
+      "source": "Ambivalence Avenue 长青 / folktronica 标杆",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Bibio",
+      "title_display": "Lovers' Carvings",
+      "artist_key": "bibio",
+      "title_key": "loverscarvings",
+      "version": "",
+      "album_key": "ambivalenceavenue",
+      "legacy_ids": [
+        "bibio-lovers-carvings"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ac/de/05/acde05a3-0dab-61be-dd3a-ef92854e90fc/mzi.cxkbiari.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/75/65/b6/7565b6c5-f848-4690-d4e1-f4b4e893efc5/mzaf_15571987273744335747.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/lovers-carvings/318815067?i=318815214&uo=4"
+    },
+    {
+      "id": "sha1:6343b23c96b71560",
+      "title": "いかれたBaby",
+      "artist": "Fishmans",
+      "year": "1996",
+      "album": "空中キャンプ",
+      "genres": [
+        "dream pop",
+        "dub",
+        "japanese indie pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "tender",
+        "late night",
+        "nostalgic"
+      ],
+      "production_tags": [
+        "reverb space",
+        "warm bass",
+        "analog warmth",
+        "soft"
+      ],
+      "instrumentation": [
+        "dub bass",
+        "clean guitar",
+        "synth pad"
+      ],
+      "vocal_style": "breathy 男声",
+      "bpm_band": "70-80",
+      "has_melody": true,
+      "scene": "窗开着没关，路灯半亮，那条消息打了又删。",
+      "artist_oneliner": "佐藤伸治领着的东京乐队，牙买加 dub 的低音泡进日语情歌。",
+      "why": "佐藤的气声几乎贴在话筒上，像在你耳边小声认错。贝斯放得极低极慢，混响把每个字的尾巴拖得老长，温柔到不像唱给谁听。",
+      "fit_score": 96.0,
+      "source": "空中キャンプ 殿堂级 / 日系 dream pop 顶点",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Fishmans",
+      "title_display": "いかれたBaby",
+      "artist_key": "fishmans",
+      "title_key": "いかれたbaby",
+      "version": "",
+      "album_key": "空中キャンプ",
+      "legacy_ids": [
+        "fishmans-ikareta-baby"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/c3/4b/04/c34b0404-268f-05ce-4013-54186ac92814/mzi.gywnuhiz.tif/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/c4/34/0d/c4340da8-7881-d835-01af-ceebe345563c/mzaf_6851450624919606359.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/jp/album/%E3%81%84%E3%81%8B%E3%82%8C%E3%81%9Fbaby/307999873?i=307999885&uo=4"
+    },
+    {
+      "id": "sha1:a350201f7ceb2b34",
+      "title": "Summer Soul",
+      "artist": "cero",
+      "year": "2015",
+      "album": "Obscure Ride",
+      "genres": [
+        "japanese indie pop",
+        "neo soul",
+        "city pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "summer dusk",
+        "late night",
+        "unhurried"
+      ],
+      "production_tags": [
+        "warm bass",
+        "soft compression",
+        "airy",
+        "clean"
+      ],
+      "instrumentation": [
+        "jazz bass",
+        "electric piano",
+        "clean guitar"
+      ],
+      "vocal_style": "轻柔和声",
+      "bpm_band": "90-100",
+      "has_melody": true,
+      "scene": "下班走到便利店门口，天还是橙蓝的，站着没进去。",
+      "artist_oneliner": "东京三人组 cero，日语抒情压在 J Dilla 那派拖半拍的鼓上。",
+      "why": "松得像刚睡醒：贝斯永远慢鼓半步，谁也不催谁。副歌哼过一遍就记住了，然后就这么走完，一次劲都没使。",
+      "fit_score": 95.0,
+      "source": "Obscure Ride 乐评公认 / 日系 neo-soul 标杆",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "cero",
+      "title_display": "Summer Soul",
+      "artist_key": "cero",
+      "title_key": "summersoul",
+      "version": "",
+      "album_key": "obscureride",
+      "legacy_ids": [
+        "cero-summer-soul"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8c/45/cd/8c45cd2f-1145-0746-4fd0-e526bf3c73a9/4538182529881.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2d/0a/6c/2d0a6c2e-cb87-119e-495f-0e4a8564e72d/mzaf_8818393445654743297.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/summer-soul/994807575?i=994807584&uo=4"
+    },
+    {
+      "id": "sha1:727c47f4af21858d",
+      "title": "Space Song",
+      "artist": "Beach House",
+      "year": "2015",
+      "album": "Depression Cherry",
+      "genres": [
+        "dream pop",
+        "ambient pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "late night",
+        "tender",
+        "nostalgic"
+      ],
+      "production_tags": [
+        "reverb space",
+        "analog warmth",
+        "wide stereo"
+      ],
+      "instrumentation": [
+        "合成器 pad",
+        "clean guitar",
+        "drum machine"
+      ],
+      "vocal_style": "梦呓女声",
+      "bpm_band": "100-110",
+      "has_melody": true,
+      "scene": "凌晨的环城路空着，油门没松，也说不上要去哪。",
+      "artist_oneliner": "Victoria Legrand 的中音区，合成器越铺越低、人却舍不得醒。",
+      "why": "旋律一路往下走，像慢慢坠，人声浮在上头失重。副歌那句「fall back into place」一出来，就再也从脑子里赶不走。",
+      "fit_score": 93.0,
+      "source": "Depression Cherry / 当代 dream pop 经典",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Beach House",
+      "title_display": "Space Song",
+      "artist_key": "beachhouse",
+      "title_key": "spacesong",
+      "version": "",
+      "album_key": "depressioncherry",
+      "legacy_ids": [
+        "beach-house-space-song"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/09/e0/d5/09e0d559-0682-f0f0-5e0c-3cd11e3114fd/beachhouse_depressioncherry_2400_300.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/4b/1d/64/4b1d6431-295b-2683-d180-cf3cba4eb943/mzaf_10508096473229016789.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/space-song/997913392?i=997914096&uo=4"
+    },
+    {
+      "id": "sha1:51a90c56270136b7",
+      "title": "Two Thousand and Seventeen",
+      "artist": "Four Tet",
+      "year": "2017",
+      "album": "New Energy",
+      "genres": [
+        "organic electronic",
+        "ambient pop",
+        "downtempo"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "airy",
+        "unhurried",
+        "restrained"
+      ],
+      "production_tags": [
+        "granular",
+        "reverb space",
+        "wide stereo"
+      ],
+      "instrumentation": [
+        "拨弦合成器",
+        "手碟感打击"
+      ],
+      "vocal_style": "无",
+      "bpm_band": "100-110",
+      "has_melody": true,
+      "scene": "傍晚烧一壶水，等它开的这几分钟什么也没干。",
+      "artist_oneliner": "Four Tet 最松的那张 New Energy，拨弦几乎替掉了鼓。",
+      "why": "拨弦像水琴一样绕圈，每绕一圈就多添一样东西。空间铺得很开，中间始终有条旋律线牵着走，不是把 pad 堆在那儿就算数。",
+      "fit_score": 91.0,
+      "source": "New Energy 精选",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Four Tet",
+      "title_display": "Two Thousand and Seventeen",
+      "artist_key": "fourtet",
+      "title_key": "twothousandandseventeen",
+      "version": "",
+      "album_key": "newenergy",
+      "legacy_ids": [
+        "four-tet-two-thousand-and-seventeen"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/aa/99/b5/aa99b504-2656-85c4-965a-3bc80e52d0f2/666017319728_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/11/12/50/111250a0-ca7d-8ab2-461c-f772f8c316ec/mzaf_1936462126950328626.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/two-thousand-and-seventeen/1288517633?i=1288518126&uo=4"
+    },
+    {
+      "id": "sha1:dc59b4671c6a6cc2",
+      "title": "Green Grass of Tunnel",
+      "artist": "múm",
+      "year": "2002",
+      "album": "Finally We Are No One",
+      "genres": [
+        "folktronica",
+        "indietronica",
+        "ambient pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "grainy",
+        "airy",
+        "nostalgic"
+      ],
+      "production_tags": [
+        "glitch",
+        "field recording",
+        "analog warmth",
+        "granular"
+      ],
+      "instrumentation": [
+        "melodica",
+        "手风琴",
+        "glitch 打击"
+      ],
+      "vocal_style": "童声般 breathy 女声",
+      "bpm_band": "90-100",
+      "has_melody": true,
+      "scene": "起雾的清早还没开灯，窗玻璃上蒙着一层白。",
+      "artist_oneliner": "冰岛乐队 múm，手风琴、气声童音和一地电子碎屑住在一起。",
+      "why": "手风琴被一层细碎的电子噼啪声托着往前挪。双胞胎姐妹的气声细得像小孩念咒，脆弱外面裹着暖，像旧毛线织出来的东西。",
+      "fit_score": 91.0,
+      "source": "Finally We Are No One 名盘",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "múm",
+      "title_display": "Green Grass of Tunnel",
+      "artist_key": "mm",
+      "title_key": "greengrassoftunnel",
+      "version": "",
+      "album_key": "finallywearenoone",
+      "legacy_ids": [
+        "mum-green-grass-of-tunnel"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/e6/53/20/e6532049-1c3f-b8d3-bbc4-7567c27fca99/5016958093228.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/5f/bb/6b/5fbb6b82-83bd-c593-4e44-d145010d2614/mzaf_11481680599470044025.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/green-grass-of-tunnel/1726650241?i=1726650250&uo=4"
+    },
+    {
+      "id": "sha1:89514f6adba46d13",
+      "title": "Roygbiv",
+      "artist": "Boards of Canada",
+      "year": "1998",
+      "album": "Music Has the Right to Children",
+      "genres": [
+        "idm",
+        "downtempo",
+        "hypnagogic pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "nostalgic",
+        "grainy",
+        "unhurried"
+      ],
+      "production_tags": [
+        "tape saturation",
+        "analog warmth",
+        "vinyl crackle",
+        "wobble"
+      ],
+      "instrumentation": [
+        "模拟合成器",
+        "hip-hop 底鼓"
+      ],
+      "vocal_style": "无",
+      "bpm_band": "90-100",
+      "has_melody": true,
+      "scene": "下午放家庭录像带，画面偏色，声音闷在电视里。",
+      "artist_oneliner": "苏格兰兄弟档，模拟合成器故意走音，像晒褪色的旧胶片。",
+      "why": "合成器的音准像被太阳晒化，微微往两边飘，底下垫着黑胶的噼啪。不到一分钟的旋律，暖，同时隐隐发着旧。",
+      "fit_score": 90.0,
+      "source": "MHTRTC 电子经典",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Boards of Canada",
+      "title_display": "Roygbiv",
+      "artist_key": "boardsofcanada",
+      "title_key": "roygbiv",
+      "version": "",
+      "album_key": "musichastherighttochildren",
+      "legacy_ids": [
+        "boards-of-canada-roygbiv"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/b5/4c/c2/b54cc20d-03f5-f2c4-4a0d-9b51ad65af89/dj.txuslqgv.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c5/fe/9b/c5fe9bbd-3511-6797-560c-bd77759d63d0/mzaf_7238585652863500053.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/roygbiv/281116024?i=281116081&uo=4"
+    },
+    {
+      "id": "sha1:a69da6d57d2bf8e0",
+      "title": "Homage",
+      "artist": "Mild High Club",
+      "year": "2016",
+      "album": "Skiptracing",
+      "genres": [
+        "psychedelic pop",
+        "jazz pop",
+        "sophisti-pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "unhurried",
+        "nostalgic",
+        "late night"
+      ],
+      "production_tags": [
+        "analog warmth",
+        "tape saturation",
+        "soft"
+      ],
+      "instrumentation": [
+        "电钢琴",
+        "圆润 bass",
+        "clean guitar"
+      ],
+      "vocal_style": "慵懒男声",
+      "bpm_band": "95-105",
+      "has_melody": true,
+      "scene": "酒吧角落的暖灯下，看杯里冰块塌下一角的时候。",
+      "artist_oneliner": "Alexander Brettin，yacht rock 的顺滑里掺了一层晕眩。",
+      "why": "groove 晃得慢悠悠，和弦拐弯的地方总藏着一个没料到的音。复古味很足，闻不到一点老唱片的霉气。",
+      "fit_score": 90.0,
+      "source": "Skiptracing 长青",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Mild High Club",
+      "title_display": "Homage",
+      "artist_key": "mildhighclub",
+      "title_key": "homage",
+      "version": "",
+      "album_key": "skiptracing",
+      "legacy_ids": [
+        "mild-high-club-homage"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/69/b0/c3/69b0c397-dc3c-381f-386e-f7f4a3d9f754/Skiptracing.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/bb/7e/99/bb7e99d5-7ec3-4a0e-e805-2919da67c92f/mzaf_732972828779443253.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/homage/1110226847?i=1110226862&uo=4"
+    },
+    {
+      "id": "sha1:3514b6e4e80e15bb",
+      "title": "Twiggy Twiggy",
+      "artist": "Pizzicato Five",
+      "year": "1991",
+      "album": "This Year's Girl",
+      "genres": [
+        "shibuya-kei",
+        "jazz pop",
+        "art pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "restrained",
+        "nostalgic",
+        "unhurried"
+      ],
+      "production_tags": [
+        "analog warmth",
+        "soft",
+        "wide stereo"
+      ],
+      "instrumentation": [
+        "电钢琴",
+        "弦乐",
+        "bossa 打击乐"
+      ],
+      "vocal_style": "俏皮女声",
+      "bpm_band": "95-105",
+      "has_melody": true,
+      "scene": "上午拉开窗帘擦桌子，身体比脑子先醒过来。",
+      "artist_oneliner": "野宫真贵领唱的涩谷系组合，六十年代 mod 少女被搬进橱窗。",
+      "why": "歌名取自六十年代模特 Twiggy，整首就是一页翻拍的时装杂志内页。复古管乐搭 bossa 摇摆，野宫真贵懒着嗓子唱，尾音一拐就俏。",
+      "fit_score": 88.0,
+      "source": "Shibuya-kei 代表作",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Pizzicato Five",
+      "title_display": "Twiggy Twiggy",
+      "artist_key": "pizzicatofive",
+      "title_key": "twiggytwiggy",
+      "version": "",
+      "album_key": "thisyearsgirl",
+      "legacy_ids": [
+        "pizzicato-five-twiggy-twiggy"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/e8/da/fd/e8dafd89-275f-eb96-fb33-a2a061608ead/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/9a/fb/fc/9afbfc44-5a02-bdc3-4077-6762061b3c59/mzaf_9843557651193300309.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/twiggy-twiggy/896609968?i=896610139&uo=4"
+    },
+    {
+      "id": "apple:1454399745",
+      "title": "Slowness",
+      "artist": "Ana Roxanne",
+      "artist_display": "Ana Roxanne",
+      "title_display": "Slowness",
+      "artist_key": "anaroxanne",
+      "title_key": "slowness",
+      "version": "",
+      "album_key": "becauseofaflower",
+      "apple_track_id": "1454399745",
+      "apple_collection_id": "1454399743",
+      "legacy_ids": [],
+      "year": "2019",
+      "album": "Because of a Flower",
+      "genres": [
+        "ambient pop",
+        "idm",
+        "organic electronic"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "shimmering",
+        "restrained",
+        "unhurried"
+      ],
+      "production_tags": [
+        "field recording",
+        "granular editing",
+        "soft digital edits"
+      ],
+      "instrumentation": [
+        "upright piano",
+        "electric piano",
+        "modular synthesizer"
+      ],
+      "vocal_style": "轻声主唱，少量和声叠录",
+      "bpm_band": "70–100",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "公交车从路口拐走，站牌下只剩一小滩水，鞋带松开，却没马上蹲下。",
+      "artist_oneliner": "Ana Roxanne 不靠堆声部取胜，在卧室电子向室内乐靠近的地带中更愿意让立式钢琴的一次转弯决定整首歌。",
+      "why": "立式钢琴在左右两侧交替擦过，电钢琴把中间的位置留给主旋律。环境收音只负责改变光泽，没有遮住主题的落点。",
+      "fit_score": 86,
+      "source": "Apple Music / Bandcamp",
+      "source_url": "https://music.apple.com/us/search?term=Ana+Roxanne+Slowness",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f3/bc/ef/f3bcef4b-2f29-5a03-76a1-bbb0a788cf6e/1292.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e3/21/b7/e321b752-16d7-67be-5896-b76942bcda95/mzaf_13264382497288417178.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/slowness/1454399743?i=1454399745&uo=4"
+    },
+    {
+      "id": "apple:1179965473",
+      "title": "Sarah Alice",
+      "artist": "The Boats",
+      "artist_display": "The Boats",
+      "title_display": "Sarah Alice",
+      "artist_key": "theboats",
+      "title_key": "sarahalice",
+      "version": "",
+      "album_key": "wemadeitforyou",
+      "apple_track_id": "1179965473",
+      "apple_collection_id": "1179965380",
+      "legacy_ids": [],
+      "year": "2005",
+      "album": "We Made It For You",
+      "genres": [
+        "ambient pop",
+        "idm",
+        "organic electronic"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "wide open",
+        "organic",
+        "hopeful"
+      ],
+      "production_tags": [
+        "rounded transients",
+        "soft compression",
+        "tape saturation"
+      ],
+      "instrumentation": [
+        "processed voice",
+        "bass guitar",
+        "field recordings"
+      ],
+      "vocal_style": "器乐曲，无主唱",
+      "bpm_band": "70–100",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "煮面计时器还剩四十秒，筷子横在碗沿，最后一块冰碰到杯底。",
+      "artist_oneliner": "The Boats 站在卧室电子向室内乐靠近的地带偏安静的一侧，用处理后的人声承担动作，用贝斯守住歌的重心。",
+      "why": "处理后的人声在左右两侧交替绕行，贝斯把中间的位置留给主旋律。圆钝瞬态只负责改变光泽，没有遮住低频的分寸。",
+      "fit_score": 86,
+      "source": "Apple Music / Bandcamp",
+      "source_url": "https://music.apple.com/us/search?term=The+Boats+Sarah+Alice",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music71/v4/0e/42/4f/0e424fdc-8ed0-c509-986a-638ae082e4f6/PDIP-6566cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/38/4d/91/384d91a8-d027-9cc2-0d60-b7a57dae8c6a/mzaf_423212822754248060.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/jp/album/sarah-alice/1179965380?i=1179965473&uo=4"
+    },
+    {
+      "id": "apple:1547728764",
+      "title": "Fellowship",
+      "artist": "serpentwithfeet",
+      "artist_display": "serpentwithfeet",
+      "title_display": "Fellowship",
+      "artist_key": "serpentwithfeet",
+      "title_key": "fellowship",
+      "version": "",
+      "album_key": "deacon",
+      "apple_track_id": "1547728764",
+      "apple_collection_id": "1547728752",
+      "legacy_ids": [],
+      "year": "2021",
+      "album": "DEACON",
+      "genres": [
+        "neo soul",
+        "art pop",
+        "quiet alternative r&b"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "warm",
+        "human",
+        "restrained"
+      ],
+      "production_tags": [
+        "muted percussion",
+        "spacious mix",
+        "dry drum machine"
+      ],
+      "instrumentation": [
+        "hand percussion",
+        "vocal harmonies",
+        "drum machine"
+      ],
+      "vocal_style": "近距离主唱，气息与换气都保留",
+      "bpm_band": "85–110",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "窗帘只拉到一半，桌面被夕阳切成两块，台灯刚换到最低一档。",
+      "artist_oneliner": "serpentwithfeet 把另类 R&B 中保留手工录音痕迹的一脉缩进很小的听觉距离，多轨和声的每次进入都像重新摆过家具。",
+      "why": "手打击乐先以很轻的力度落下，多轨和声随后把和声向外推开。没有多余尾巴，低频的分寸落得干脆。",
+      "fit_score": 86,
+      "source": "Apple Music / Bandcamp",
+      "source_url": "https://music.apple.com/us/search?term=serpentwithfeet+Fellowship",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/8a/32/6c/8a326c15-fcbb-863d-52f4-72466e7ebf09/656605039664.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/5f/d8/44/5fd84412-009f-9f25-cde6-f2455b88b7c5/mzaf_4513889663852133462.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/fellowship/1547728752?i=1547728764&uo=4"
+    },
+    {
+      "id": "apple:1485074007",
+      "title": "That Don't Make It So",
+      "artist": "Yves Jarvis",
+      "artist_display": "Yves Jarvis",
+      "title_display": "That Don't Make It So",
+      "artist_key": "yvesjarvis",
+      "title_key": "thatdontmakeitso",
+      "version": "",
+      "album_key": "thesamebutbydifferentmeans",
+      "apple_track_id": "1485074007",
+      "apple_collection_id": "1485073994",
+      "legacy_ids": [],
+      "year": "2019",
+      "album": "The Same but by Different Means",
+      "genres": [
+        "neo soul",
+        "organic electronic"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "organic",
+        "grainy"
+      ],
+      "production_tags": [
+        "lo-fi collage",
+        "warm guitar",
+        "field recording"
+      ],
+      "instrumentation": [
+        "guitar",
+        "bass",
+        "percussion",
+        "voice"
+      ],
+      "vocal_style": "轻柔男声，多层",
+      "bpm_band": "85–105",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "在林子里坐了一下午，回来鞋底还沾着松针。",
+      "artist_oneliner": "蒙特利尔创作者，吉他、人声和虫鸣被缝在同一张糙暖的拼贴上。",
+      "why": "吉他和人声都糙糙暖暖，缝里塞满采样和自然声。像一本长在户外的日记，散、真、有机，听久了整个人钻进那片朦胧的绿。",
+      "fit_score": 86,
+      "source": "Bandcamp Daily",
+      "source_url": "https://yvesjarvis.bandcamp.com",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/29/80/d4/2980d45b-0be5-fe61-32db-93e8b691c866/0045778759200.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/bf/fe/0c/bffe0cb7-ef17-4847-6649-f976d9dcf8e5/mzaf_1245456843519320646.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/that-dont-make-it-so/1485073994?i=1485074007&uo=4"
+    },
+    {
+      "id": "apple:22661104",
+      "title": "snow bird",
+      "artist": "Piana",
+      "artist_display": "Piana",
+      "title_display": "snow bird",
+      "artist_key": "piana",
+      "title_key": "snowbird",
+      "version": "",
+      "album_key": "snowbird",
+      "apple_track_id": "22661104",
+      "apple_collection_id": "22661152",
+      "legacy_ids": [],
+      "year": "2003",
+      "album": "Snow Bird",
+      "genres": [
+        "electronic",
+        "dream pop",
+        "japanese indie"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "fragile",
+        "wintry",
+        "dreamlike"
+      ],
+      "production_tags": [
+        "glitch edits",
+        "music box samples",
+        "soft tape hiss"
+      ],
+      "instrumentation": [
+        "toy piano",
+        "laptop percussion",
+        "glockenspiel",
+        "synth pad"
+      ],
+      "vocal_style": "tiny breathy female voice",
+      "bpm_band": "85-105",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "下第一场雪的清早，你没开灯，站在厨房等水壶响。",
+      "artist_oneliner": "京都的山崎奈保子，用玩具钢琴和碎裂的数字剪辑给自己那把小得快听不见的嗓子搭台的人。",
+      "why": "音乐盒的音色被剪成一地碎屑，节奏在碎屑之间踩着走，人声薄到几乎被淹掉。奇怪的是旋律始终立着，越是残缺越显得完整。",
+      "fit_score": 86,
+      "source": "Deezer / MusicBrainz 目录核实",
+      "source_url": "https://www.deezer.com/album/6439554",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/2a/4d/bf/2a4dbfc7-5cec-5df6-ca92-9c0f2914a0d9/dj.pndczydu.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/22/03/0c/22030cec-4aeb-3a88-bcb3-1b00b7ee15e5/mzaf_9587911301655730293.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/snow-bird/22661152?i=22661104&uo=4"
+    },
+    {
+      "id": "apple:1687118020",
+      "title": "14:31",
+      "artist": "Global Communication",
+      "artist_display": "Global Communication",
+      "title_display": "14:31",
+      "artist_key": "globalcommunication",
+      "title_key": "1431",
+      "version": "",
+      "album_key": "7614",
+      "apple_track_id": "1687118020",
+      "apple_collection_id": "1687117665",
+      "legacy_ids": [],
+      "year": "1994",
+      "album": "76:14",
+      "genres": [
+        "ambient",
+        "downtempo"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "introspective",
+        "wide open"
+      ],
+      "production_tags": [
+        "深空间pad",
+        "宽stereo"
+      ],
+      "instrumentation": [
+        "合成器",
+        "pad",
+        "鼓机"
+      ],
+      "vocal_style": "器乐为主",
+      "bpm_band": "70–90",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "失眠到四点放弃入睡，翻身平躺、把手搭在胸口跟着 pad 数呼吸",
+      "artist_oneliner": "英国二人组 Tom Middleton 与 Mark Pritchard，给整张专辑只标时长、不起歌名的那一对 ambient 制作人。",
+      "why": "pad 一起一伏地呼吸，一个简单动机在很深的地方若隐若现。几乎什么都不动，反而听得见空气自己在起伏。",
+      "fit_score": 86,
+      "source": "Wikipedia",
+      "source_url": "https://en.wikipedia.org/wiki/Global_Communication",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/52/a1/cd/52a1cdb5-d9a2-6b25-16e1-cdcd837bb959/196871096614.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/2a/79/fd/2a79fdde-b65c-af3c-628a-d806254002c6/mzaf_13601736138679566398.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/14-31/1687117665?i=1687118020&uo=4"
+    },
+    {
+      "id": "apple:1487091896",
+      "title": "Diamond Heart",
+      "artist": "Marissa Nadler",
+      "artist_display": "Marissa Nadler",
+      "title_display": "Diamond Heart",
+      "artist_key": "marissanadler",
+      "title_key": "diamondheart",
+      "version": "",
+      "album_key": "songsiiibirdonthewater",
+      "apple_track_id": "1487091896",
+      "apple_collection_id": "1487091894",
+      "legacy_ids": [],
+      "year": "2007",
+      "album": "Songs III: Bird on the Water",
+      "genres": [
+        "gothic folk",
+        "dream pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "floating",
+        "melancholy"
+      ],
+      "production_tags": [
+        "长混响",
+        "warm"
+      ],
+      "instrumentation": [
+        "fingerstyle guitar"
+      ],
+      "vocal_style": "飘渺女声",
+      "bpm_band": "70–90",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "翻到一张再也联系不上的人的照片，指头捏着相纸边角一直没松",
+      "artist_oneliner": "波士顿哥特民谣女声，混响尾巴放得比人声还长，后来还去给黑金属唱片客座。",
+      "why": "分解和弦缓缓荡开，她的嗓音裹在长混响里飘着不落。唱失去的人时不哭不喊，只让声音一点点淡出，像照片边角在发黄。",
+      "fit_score": 86,
+      "source": "Pitchfork",
+      "source_url": "https://pitchfork.com/artists/23158-marissa-nadler/",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/20/ad/6f/20ad6faa-fdfe-0037-a4c5-37b2c80abf8a/859735606342_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/89/aa/74/89aa7457-6d94-7436-1232-bf6d3cfe1ff0/mzaf_12998716936408146853.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/diamond-heart/1487091894?i=1487091896&uo=4"
+    },
+    {
+      "id": "apple:1775782342",
+      "title": "Love's Refrain",
+      "artist": "Jefre Cantu-Ledesma",
+      "artist_display": "Jefre Cantu-Ledesma",
+      "title_display": "Love's Refrain",
+      "artist_key": "jefrecantuledesma",
+      "title_key": "lovesrefrain",
+      "version": "",
+      "album_key": "insummer",
+      "apple_track_id": "1775782342",
+      "apple_collection_id": "1775782008",
+      "legacy_ids": [],
+      "year": "2020",
+      "album": "In Summer",
+      "genres": [
+        "minimal electronica",
+        "art pop",
+        "downtempo"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "hazy",
+        "floating",
+        "intimate"
+      ],
+      "production_tags": [
+        "tape hiss",
+        "layered arrangement",
+        "slow attack synthesis"
+      ],
+      "instrumentation": [
+        "drum machine",
+        "field recordings",
+        "electric piano"
+      ],
+      "vocal_style": "器乐曲，无主唱",
+      "bpm_band": "80–105",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "走到海堤拐弯处，风把衬衫下摆掀起，手指把杯垫推到桌角。",
+      "artist_oneliner": "Jefre Cantu-Ledesma 的坐标落在极简电子向歌曲结构靠拢的支线，声音里最醒目的是鼓机被处理后的边缘。",
+      "why": "鼓机和环境录音隔着一层带有玻璃珠触感的声部互相回应，节拍只在需要时出现。这样的留白不是空缺，而是把声部之间的距离留在前景。",
+      "fit_score": 86,
+      "source": "Apple Music / Bandcamp",
+      "source_url": "https://music.apple.com/us/search?term=Jefre+Cantu-Ledesma+Love%27s+Refrain",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/49/89/7b/49897b1e-ad22-cd85-dcea-03568d7c66d4/184923130553_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/57/c7/ef/57c7ef7e-f7e8-e309-bd73-636a34903a59/mzaf_8595940168680517497.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/loves-refrain/1775782008?i=1775782342&uo=4"
+    },
+    {
+      "id": "apple:1443772857",
+      "title": "Chimacum Rain",
+      "artist": "Linda Perhacs",
+      "artist_display": "Linda Perhacs",
+      "title_display": "Chimacum Rain",
+      "artist_key": "lindaperhacs",
+      "title_key": "chimacumrain",
+      "version": "",
+      "album_key": "parallelograms",
+      "apple_track_id": "1443772857",
+      "apple_collection_id": "1443772850",
+      "legacy_ids": [],
+      "year": "1970",
+      "album": "Parallelograms",
+      "genres": [
+        "psychedelic",
+        "ambient folk"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "rainy",
+        "airy"
+      ],
+      "production_tags": [
+        "layered vocal",
+        "tape delay",
+        "fingerpicked guitar"
+      ],
+      "instrumentation": [
+        "acoustic guitar",
+        "voice"
+      ],
+      "vocal_style": "多轨女声叠成雨帘",
+      "bpm_band": "75–95",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "躲在屋檐下等雨停，鞋尖已经湿了一圈，雨丝斜着扫过对面的墙。",
+      "artist_oneliner": "洛杉矶的牙科助理，业余录过唯一一张唱片，后来成了迷幻民谣的地下圣物。",
+      "why": "人声叠成好几层，雨像从不同方向同时落下来。吉他只有几个和弦，空间铺得极深——业余录的东西，听着像从云里传下来。",
+      "fit_score": 86,
+      "source": "RateYourMusic",
+      "source_url": "https://rateyourmusic.com/artist/linda_perhacs",
+      "added_date": "2026-07-29",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/40/cf/af/40cfaf4b-1e58-a252-672a-98df9a5dff7c/00602537885794.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/64/c1/47/64c147fc-a260-309b-3e32-9cac9c9284da/mzaf_5741727990467919100.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/chimacum-rain/1443772850?i=1443772857&uo=4"
+    },
+    {
+      "id": "sha1:7154804eff2b715c",
+      "title": "Changes",
+      "artist": "Sandro Perri",
+      "year": "2011",
+      "album": "Impossible Spaces",
+      "genres": [
+        "leftfield pop",
+        "jazz pop",
+        "folktronica",
+        "sophisti-pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "human",
+        "unhurried",
+        "organic"
+      ],
+      "production_tags": [
+        "live band",
+        "organic electronic",
+        "saxophone",
+        "jazz groove",
+        "analog warmth"
+      ],
+      "instrumentation": [],
+      "vocal_style": "温柔男声，soft falsetto",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "散步走过了原本要拐的路口，就顺着这条街一直走。",
+      "artist_oneliner": "多伦多的 Sandro Perri，乐队和电子在他手里长成一棵找不到接缝的树。",
+      "why": "近八分钟里，活的乐队和电子处理咬着往前长，接缝几乎找不到。你以为要收尾了，萨克斯又从假声底下抽出一层新的。",
+      "fit_score": 86.0,
+      "source": "Wikipedia",
+      "source_url": "https://en.wikipedia.org/wiki/Impossible_Spaces",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Sandro Perri",
+      "title_display": "Changes",
+      "artist_key": "sandroperri",
+      "title_key": "changes",
+      "version": "",
+      "album_key": "impossiblespaces",
+      "legacy_ids": [
+        "d-sandroperri-changes"
+      ],
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/dd/5e/2b/dd5e2b0f-bf00-af0f-ee4a-5427950ef3c4/mzi.xuvlejbm.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/86/cf/f0/86cff0ec-f5a5-31b5-c92c-acb5824e81ad/mzaf_9333426238123302405.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/changes/483018314?i=483018320&uo=4"
+    },
+    {
+      "id": "apple:1839182538",
+      "title": "Sienna",
+      "artist": "Dawn Richard & Spencer Zahn",
+      "artist_display": "Dawn Richard & Spencer Zahn",
+      "title_display": "Sienna",
+      "artist_key": "dawnrichardspencerzahn",
+      "title_key": "sienna",
+      "version": "",
+      "album_key": "pigments",
+      "apple_track_id": "1839182538",
+      "apple_collection_id": "1839182527",
+      "legacy_ids": [],
+      "year": "2022",
+      "album": "Pigments",
+      "genres": [
+        "quiet alternative r&b",
+        "jazz pop",
+        "neo soul"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "sweet",
+        "hopeful",
+        "human"
+      ],
+      "production_tags": [
+        "dry drum machine",
+        "close-mic vocal",
+        "off-grid drums"
+      ],
+      "instrumentation": [
+        "drum machine",
+        "electric guitar",
+        "muted trumpet"
+      ],
+      "vocal_style": "多轨人声，声部保持窄距离",
+      "bpm_band": "90–115",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "电梯停在楼下，门缝里漏进一条白光，笔尖悬在日期旁边，没有落下。",
+      "artist_oneliner": "Dawn Richard & Spencer Zahn 沿着不靠炫技转音的当代灵魂乐坐标往里走，编曲常在鼓机和电吉他之间做小幅位移。",
+      "why": "鼓机压住低处，电吉他从后方慢慢铺开，边缘带着棉布的硬度。整首歌不靠突然放大取胜，主旋律的方向是在回环里一点点显出来的。",
+      "fit_score": 86,
+      "source": "Apple Music / Bandcamp",
+      "source_url": "https://music.apple.com/us/search?term=Dawn+Richard+%26+Spencer+Zahn+Sienna",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/52/d4/fa/52d4fa4b-ef9f-b043-4d7f-753aa9e42304/57274.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ab/f8/d1/abf8d1a7-0bb6-9778-e4e2-1bfe0d8b86dd/mzaf_863823887569380576.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/sienna/1839182527?i=1839182538&uo=4"
+    },
+    {
+      "id": "apple:1654209755",
+      "title": "Gloss",
+      "artist": "Ulla",
+      "artist_display": "Ulla",
+      "title_display": "Gloss",
+      "artist_key": "ulla",
+      "title_key": "gloss",
+      "version": "",
+      "album_key": "foam",
+      "apple_track_id": "1654209755",
+      "apple_collection_id": "1654209753",
+      "legacy_ids": [],
+      "year": "2022",
+      "album": "Foam",
+      "genres": [
+        "minimal electronica",
+        "art pop",
+        "downtempo"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "dreamlike",
+        "airy",
+        "melancholy"
+      ],
+      "production_tags": [
+        "soft clipping",
+        "close-mic detail",
+        "deep reverb"
+      ],
+      "instrumentation": [
+        "clarinet",
+        "piano",
+        "synthesizer"
+      ],
+      "vocal_style": "器乐曲，无主唱",
+      "bpm_band": "80–105",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "空会议室只剩投影机风扇，白板笔盖还没扣紧，远处的红灯把地面照出一小块暖色。",
+      "artist_oneliner": "Ulla 在极简电子向歌曲结构靠拢的支线里保留粗细不一的接缝，单簧管负责留下最容易辨认的那一道。",
+      "why": "单簧管和钢琴隔着一层带有棉布触感的声部互相回应，节拍只在需要时出现。这样的留白不是空缺，而是把每次回环的差别留在前景。",
+      "fit_score": 86,
+      "source": "Apple Music / Bandcamp",
+      "source_url": "https://music.apple.com/us/search?term=Ulla+Gloss",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4d/f2/bb/4df2bb0e-1593-d1e4-c58e-dfed1c38715b/5060165487639.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/57/9e/02/579e0279-ee0f-b8b0-c675-42b33289d945/mzaf_6723209895313690415.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/gloss/1654209753?i=1654209755&uo=4"
+    },
+    {
+      "id": "apple:6771783461",
+      "title": "The Waves",
+      "artist": "Tamaryn",
+      "artist_display": "Tamaryn",
+      "title_display": "The Waves",
+      "artist_key": "tamaryn",
+      "title_key": "thewaves",
+      "version": "",
+      "album_key": "thewaves",
+      "apple_track_id": "6771783461",
+      "apple_collection_id": "6771783460",
+      "legacy_ids": [],
+      "year": "2010",
+      "album": "The Waves",
+      "genres": [
+        "dream pop",
+        "shoegaze"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "restless",
+        "dreamlike"
+      ],
+      "production_tags": [
+        "浪涌吉他",
+        "低沉女声"
+      ],
+      "instrumentation": [
+        "电吉他",
+        "贝斯",
+        "鼓"
+      ],
+      "vocal_style": "女声，低缓",
+      "bpm_band": "90–110",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "涨潮把脚踝一次次没过去，你没往后退。",
+      "artist_oneliner": "新西兰出生、纽约成团的暗色女声，吉他一波涌上来又退回去。",
+      "why": "吉他一波涌上来又退下去，来回不停。Tamaryn 的女声低而缓，贴在浪底不动，整首不急着去哪，就让你陷在那个潮里。",
+      "fit_score": 86,
+      "source": "Stereogum",
+      "source_url": "https://www.stereogum.com/tamaryn-the-waves",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/5b/93/19/5b931975-37ac-5750-2f50-7752980ed85b/859735892226_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d1/7c/b4/d17cb441-5a49-2155-202a-bbbbdd0901f6/mzaf_17615753572654718940.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/the-waves/6771783460?i=6771783461&uo=4"
+    },
+    {
+      "id": "apple:134139823",
+      "title": "Thank You",
+      "artist": "The Pale Fountains",
+      "artist_display": "The Pale Fountains",
+      "title_display": "Thank You",
+      "artist_key": "thepalefountains",
+      "title_key": "thankyou",
+      "version": "",
+      "album_key": "thankyou",
+      "apple_track_id": "134139823",
+      "apple_collection_id": "134138606",
+      "legacy_ids": [],
+      "year": "1995",
+      "album": "Thank You",
+      "genres": [
+        "jangle pop",
+        "sophisti-pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "hopeful",
+        "melancholy"
+      ],
+      "production_tags": [
+        "clean guitar",
+        "brass arrangement"
+      ],
+      "instrumentation": [
+        "electric guitar",
+        "trumpet",
+        "bass"
+      ],
+      "vocal_style": "轻盈男声，略带鼻音",
+      "bpm_band": "110–130",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "初夏骑车下坡，风从袖口灌进来，手不敢捏刹车。",
+      "artist_oneliner": "利物浦少年帮，Arthur Lee 那套铜管和波萨诺瓦一起塞进英伦吉他流行。",
+      "why": "小号从吉他缝里探出头，像有人推开一扇临街的窗。主唱把失恋唱得飘飘的，副歌多铺一层弦乐，甜里渗出没说出口的委屈。",
+      "fit_score": 86,
+      "source": "Bandcamp Daily",
+      "source_url": "https://daily.bandcamp.com/lists/pale-fountains",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/f2/d3/b8/mzi.kpoaqdjs.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/b8/f4/fc/b8f4fc55-6a40-3b0e-96a8-56fad8261b47/mzaf_7837413438187046961.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/thank-you/134138606?i=134139823&uo=4"
+    },
+    {
+      "id": "apple:1882646169",
+      "title": "come here go there",
+      "artist": "Rei Harakami",
+      "artist_display": "Rei Harakami",
+      "title_display": "come here go there",
+      "artist_key": "reiharakami",
+      "title_key": "comeheregothere",
+      "version": "",
+      "album_key": "lust",
+      "apple_track_id": "1882646169",
+      "apple_collection_id": "1882646010",
+      "legacy_ids": [],
+      "year": "2005",
+      "album": "Lust",
+      "genres": [
+        "organic electronic",
+        "indietronica"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "lush",
+        "warm"
+      ],
+      "production_tags": [
+        "老采样器",
+        "错拍律动"
+      ],
+      "instrumentation": [
+        "合成器",
+        "采样器",
+        "电子节拍"
+      ],
+      "vocal_style": "器乐无人声",
+      "bpm_band": "90–108",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "戴上耳机躺平，眼睛没有落点，脑子慢慢空掉。",
+      "artist_oneliner": "京都的电子音乐人——一台老音源，被他捂出了体温。",
+      "why": "合成器的音色圆钝得像含在嘴里的糖，一颗颗错着拍往前滚。纯电子做出来的东西，听着像隔壁房间有人在轻轻呼吸。",
+      "fit_score": 86,
+      "source": "Pitchfork",
+      "source_url": "https://pitchfork.com/reviews/albums/rei-harakami-lust",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/11/7c/1e/117c1ed9-d696-efa4-ae95-8075e19b63c3/4988044020696.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/12/20/dc/1220dc4c-9a18-6e5f-b503-a8af22f25043/mzaf_12540551150361405711.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/come-here-go-there/1882646010?i=1882646169&uo=4"
+    },
+    {
+      "id": "apple:1571952349",
+      "title": "Thinking About You",
+      "artist": "Ivy",
+      "artist_display": "Ivy",
+      "title_display": "Thinking About You",
+      "artist_key": "ivy",
+      "title_key": "thinkingaboutyou",
+      "version": "",
+      "album_key": "intheclear",
+      "apple_track_id": "1571952349",
+      "apple_collection_id": "1571952344",
+      "legacy_ids": [],
+      "year": "2005",
+      "album": "In the Clear",
+      "genres": [
+        "sophisti-pop",
+        "indie pop",
+        "bossa"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "elegant",
+        "warm",
+        "unhurried"
+      ],
+      "production_tags": [
+        "wide stereo",
+        "careful orchestration",
+        "analog warmth"
+      ],
+      "instrumentation": [
+        "strings",
+        "saxophone",
+        "flute"
+      ],
+      "vocal_style": "多轨人声，声部保持窄距离",
+      "bpm_band": "75–100",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "走到海堤拐弯处，风把衬衫下摆掀起，耳机线从口袋里扯出一个结。",
+      "artist_oneliner": "Ivy 沿着巴西歌曲写作与现代录音并行的支线往里走，编曲常在弦乐和萨克斯之间做小幅位移。",
+      "why": "弦乐把节拍做出棉布的摩擦，萨克斯从上方划出细线。制作细节很多，但耳朵首先记住的是和声里的空隙。",
+      "fit_score": 86,
+      "source": "Apple Music / Bandcamp",
+      "source_url": "https://music.apple.com/us/search?term=Ivy+Thinking+About+You",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/31/8f/12/318f1211-75f5-5aa7-3ecd-3c2b668a184c/18204.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/ff/1c/31/ff1c31fb-3ef1-7967-81e9-c253644f5894/mzaf_14933751438375633485.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/thinking-about-you/1571952344?i=1571952349&uo=4"
+    },
+    {
+      "id": "apple:1442487024",
+      "title": "Coffee Bubbles",
+      "artist": "Yoyo Sham",
+      "artist_display": "Yoyo Sham",
+      "title_display": "Coffee Bubbles",
+      "artist_key": "yoyosham",
+      "title_key": "coffeebubbles",
+      "version": "",
+      "album_key": "nothingisundercontrol",
+      "apple_track_id": "1442487024",
+      "apple_collection_id": "1442487021",
+      "legacy_ids": [],
+      "year": "2018",
+      "album": "Nothing is Under Control",
+      "genres": [
+        "hong kong indie",
+        "jazz pop",
+        "singer-songwriter"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "intimate",
+        "warm",
+        "unhurried"
+      ],
+      "production_tags": [
+        "upright bass",
+        "brushed drums",
+        "close vocal mic"
+      ],
+      "instrumentation": [
+        "nylon guitar",
+        "upright bass",
+        "drums",
+        "electric piano"
+      ],
+      "vocal_style": "清亮但不使力的女声，带明显气声尾音",
+      "bpm_band": "85–105",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "周末上午在家煮第二壶咖啡，等奶泡沉下去的那一分钟。",
+      "artist_oneliner": "香港人，长年给别人当和声歌手，自己唱歌时反而把音量收得更小的那一位。",
+      "why": "贝斯用手指拨得又圆又钝，鼓刷擦着军鼓走，一切都刻意留在小音量里；她把咖啡泡这种琐碎小事唱得像正经心事。",
+      "fit_score": 86,
+      "source": "Deezer",
+      "source_url": "https://www.deezer.com/album/79408482",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/c2/34/e6/c234e668-6a8e-6a04-9629-76c629b9354c/193017005424.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/0f/2d/47/0f2d47fd-049c-95ec-2a98-af7b80d51052/mzaf_17458308020682833707.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/coffee-bubbles/1442487021?i=1442487024&uo=4"
+    },
+    {
+      "id": "sha1:aa2239b5fef2b36c",
+      "title": "This World Couldn't See Us",
+      "artist": "Nabihah Iqbal",
+      "year": "2023",
+      "album": "DREAMER",
+      "genres": [
+        "dream pop",
+        "indietronica",
+        "organic electronic",
+        "ambient pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "longing",
+        "summer dusk",
+        "hopeful"
+      ],
+      "production_tags": [
+        "tape saturation",
+        "acoustic guitar",
+        "harmonium",
+        "wide reverb",
+        "lo-fi warmth",
+        "soft high-end"
+      ],
+      "instrumentation": [],
+      "vocal_style": "柔和女声、裹在混响里、略带疏离",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "站在天台看太阳落完，手心还留着水泥的余温。",
+      "artist_oneliner": "伦敦的 Nabihah Iqbal，硬盘被偷后整张推倒重写，木吉他与簧风琴垫底。",
+      "why": "磁带暖噪把女声磨成一层雾面，木吉他和簧风琴在下面打底。电子只像呼吸那样起伏，dream pop里难得是长出来的，不是套模板。",
+      "fit_score": 86.0,
+      "source": "Bandcamp",
+      "source_url": "https://nabihahiqbal.bandcamp.com/album/dreamer",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Nabihah Iqbal",
+      "title_display": "This World Couldn't See Us",
+      "artist_key": "nabihahiqbal",
+      "title_key": "thisworldcouldntseeus",
+      "version": "",
+      "album_key": "dreamer",
+      "legacy_ids": [
+        "d-nabihahiqbal-thisworldcouldnt"
+      ],
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/be/09/57/be0957c5-245e-efbf-de9a-4b89c4127010/5054429172799.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/b4/10/3d/b4103d49-07c6-9c2f-7484-0eb48518f589/mzaf_14623469485567407697.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/this-world-couldnt-see-us/1669791374?i=1669791677&uo=4"
+    },
+    {
+      "id": "apple:1479417447",
+      "title": "Somewhere",
+      "artist": "Luby Sparks",
+      "artist_display": "Luby Sparks",
+      "title_display": "Somewhere",
+      "artist_key": "lubysparks",
+      "title_key": "somewhere",
+      "version": "",
+      "album_key": "lubysparks",
+      "apple_track_id": "1479417447",
+      "apple_collection_id": "1479417323",
+      "legacy_ids": [],
+      "year": "2019",
+      "album": "Luby Sparks",
+      "genres": [
+        "dream pop",
+        "shoegaze"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "wintry",
+        "hazy"
+      ],
+      "production_tags": [
+        "顶前贝斯",
+        "吉他噪墙"
+      ],
+      "instrumentation": [
+        "贝斯",
+        "吉他",
+        "鼓"
+      ],
+      "vocal_style": "清冷女声",
+      "bpm_band": "116–132",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "换乘通道里逆着人流走，耳机盖过报站声。",
+      "artist_oneliner": "东京的年轻团，贝斯顶在最前，八十年代英伦独立的冷被弹亮。",
+      "why": "整首歌被一层亮闪闪的噪音雾罩着，贝斯在里头顶着往前跑。女声冷冷地飘在上面，像挤在地铁里想一件跟眼前无关的事。",
+      "fit_score": 86,
+      "source": "Bandcamp Daily",
+      "source_url": "https://daily.bandcamp.com/features/luby-sparks",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/77/89/c9/7789c93f-f438-d8d0-0dca-d51cd24d9efb/4538182841129.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/58/47/64/58476419-294b-dfde-4705-062397f4d383/mzaf_5825208173045204853.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/somewhere/1479417323?i=1479417447&uo=4"
+    },
+    {
+      "id": "apple:999679867",
+      "title": "I Love You Like the Way That I Used to Do",
+      "artist": "Rocketship",
+      "artist_display": "Rocketship",
+      "title_display": "I Love You Like the Way That I Used to Do",
+      "artist_key": "rocketship",
+      "title_key": "iloveyoulikethewaythatiusedtodo",
+      "version": "",
+      "album_key": "acertainsmileacertainsadness",
+      "apple_track_id": "999679867",
+      "apple_collection_id": "999679826",
+      "legacy_ids": [],
+      "year": "1995",
+      "album": "A Certain Smile, a Certain Sadness",
+      "genres": [
+        "jangle pop",
+        "dream pop",
+        "guitar pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "upbeat",
+        "hopeful",
+        "warm"
+      ],
+      "production_tags": [
+        "chorus guitar",
+        "roomy drums",
+        "layered guitars"
+      ],
+      "instrumentation": [
+        "chorus guitar",
+        "synthesizer",
+        "clean electric guitar"
+      ],
+      "vocal_style": "低声主唱，句尾轻收",
+      "bpm_band": "90–115",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "把外套搭上椅背，袖口还沾着室外的凉气，笔尖悬在日期旁边，没有落下。",
+      "artist_oneliner": "Rocketship 沿着低速吉他歌与合成器微光相接的坐标往里走，编曲常在合唱效果吉他和合成器之间做小幅位移。",
+      "why": "合唱效果吉他先把节拍压成带有丝线触感的表面，合成器随后从边缘挑出一条短旋律。合唱效果吉他让细节不断换位置，和声里的空隙却一直稳着。",
+      "fit_score": 86,
+      "source": "Apple Music / Bandcamp",
+      "source_url": "https://music.apple.com/us/search?term=Rocketship+I+Love+You+Like+the+Way+That+I+Used+to+Do",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/21/54/ea/2154ea69-5e0c-2c97-08ce-61180a3e109e/artwork.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/64/00/7c/64007c49-5abb-bc1e-7ffb-108dcff6d96f/mzaf_14424516582657204540.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/i-love-you-like-the-way-that-i-used-to-do/999679826?i=999679867&uo=4"
+    },
+    {
+      "id": "apple:1351955605",
+      "title": "A Alma do Vento",
+      "artist": "Domenico Lancellotti",
+      "artist_display": "Domenico Lancellotti",
+      "title_display": "A Alma do Vento",
+      "artist_key": "domenicolancellotti",
+      "title_key": "aalmadovento",
+      "version": "",
+      "album_key": "thegoodisabiggod",
+      "apple_track_id": "1351955605",
+      "apple_collection_id": "1351955493",
+      "legacy_ids": [],
+      "year": "2017",
+      "album": "The Good Is a Big God",
+      "genres": [
+        "jazz pop",
+        "sophisti-pop",
+        "modern bossa"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "sensual",
+        "late night",
+        "elegant"
+      ],
+      "production_tags": [
+        "natural room reverb",
+        "soft compression",
+        "close-mic percussion"
+      ],
+      "instrumentation": [
+        "hand percussion",
+        "Rhodes piano",
+        "bass guitar"
+      ],
+      "vocal_style": "低声主唱，句尾轻收",
+      "bpm_band": "80–105",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "面包店刚把铁门拉下一半，烤盘还在冒热气，耳机线从口袋里扯出一个结。",
+      "artist_oneliner": "Domenico Lancellotti 让手打击乐和 Rhodes 电钢琴在轻爵士编配与短篇流行歌相接的区域里靠得很近，两件乐器之间总留着可听见的缝隙。",
+      "why": "手打击乐压住低处，Rhodes 电钢琴从后方慢慢铺开，边缘带着薄木片的硬度。整首歌不靠突然放大取胜，一句旋律反复变形的轨迹是在回环里一点点显出来的。",
+      "fit_score": 86,
+      "source": "Apple Music / Bandcamp",
+      "source_url": "https://music.apple.com/us/search?term=Domenico+Lancellotti+A+Alma+do+Vento",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/28/27/4b/28274b0d-4a00-bbf4-8642-763efb7c549c/680899008822.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/76/b5/b3/76b5b3a1-da59-fed5-6e7a-3677f884db8e/mzaf_12145962084727289530.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/a-alma-do-vento/1351955493?i=1351955605&uo=4"
+    }
+  ]
+}
