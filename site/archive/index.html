@@ -46,10 +46,10 @@
      此前两处各写死 76px（#np 的 height 与 #basket 的 bottom），
      加了安全区就会错位 —— 抽成变量，一处改两处跟。 */
   --np-h:76px;
-  --white:#fff; --paper:#f5f5f5; --ink:#0f0e12;
-  --g100:#e5e5e5; --g200:#ccc; --g300:#b2b2b2; --g500:#a1a7af;
-  --g600:#767676; --g900:#4d4d4d; --g1000:#272727;
-  --blue:#0071bb; --green:#00a651; --green-d:#006837; --orange:#f05a24;
+  --white:#fffdf8; --paper:#f3f0e8; --ink:#25251f;
+  --g100:#e8e4db; --g200:#d3cec3; --g300:#ada79a; --g500:#767165;
+  --g600:#6d685e; --g900:#514c43; --g1000:#34342b;
+  --blue:#346478; --green:#b6c79b; --green-d:#496844; --orange:#bb4426;
   --red:#b81d13; --yellow:#fab413;
   --sans:"Inter","Noto Sans SC","Helvetica Neue",Arial,sans-serif;
   /* Space Mono 不含汉字。栈里必须显式给中文字体，否则中文落到【操作系统默认】——
@@ -57,7 +57,7 @@
      2026-08-03 实测（CDP getPlatformFontsForNode）：页面 44 处中文都在这条栈上，
      全部走了系统回退。Noto Sans SC 本来已在 --sans 里引过，复用不增加网络请求。 */
   --mono:"Space Mono","JetBrains Mono","Noto Sans SC",ui-monospace,Menlo,monospace;
-  --fs-10:clamp(11px,.92vw,13px); --fs-15:clamp(12px,1.1vw,15px);
+  --fs-10:clamp(12px,.92vw,13px); --fs-15:clamp(14px,1.1vw,16px);
   --fs-20:clamp(15px,1.5vw,20px); --fs-25:clamp(19px,2.1vw,27px);
   --fs-30:clamp(23px,2.7vw,36px); --fs-40:clamp(34px,5vw,68px);
   --sp-xs:clamp(4px,.5vw,6px); --sp-sm:clamp(8px,1vw,12px);
@@ -103,7 +103,7 @@ a{color:inherit; text-decoration:none}
    在这里再加一次会变成双倍留白。 */
 .wrap{max-width:1160px; margin:0 auto;
   padding-left:calc(var(--sp-xl) + var(--sal)); padding-right:calc(var(--sp-xl) + var(--sar))}
-.lc{text-transform:lowercase}
+.lc{text-transform:none}
 
 /* 顶部铭牌导航 */
 /* padding-top 而不是 margin/top 位移：底色要一直铺到屏幕最上沿（刘海区也是黑的，
@@ -355,7 +355,7 @@ a{color:inherit; text-decoration:none}
 .arc .no{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); flex:none}
 .arc .t{font-size:var(--fs-15); font-weight:300; color:var(--g900); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 .hd{flex:1; min-width:0}
-.title{font-size:var(--fs-25); font-weight:100; line-height:1.12; letter-spacing:-.01em}
+.title{font-size:var(--fs-25); font-weight:400; line-height:1.2; letter-spacing:-.025em;overflow-wrap:anywhere}
 .artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
   margin-top:5px; letter-spacing:.09em}
 .meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:7px; line-height:1.6}
@@ -452,6 +452,119 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
   html{scroll-behavior:auto}
 }
 
+/* Shared magazine controls; the page renderers own their compositions. */
+[hidden]{display:none!important}
+button,input,select,textarea{font:inherit}
+button,a,input,select{-webkit-tap-highlight-color:transparent}
+button:disabled{cursor:default;opacity:.5}
+button,a{touch-action:manipulation}
+:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+.skip-link{position:fixed;left:16px;top:-100px;padding:14px 20px;background:var(--ink);color:white;z-index:9999}
+.skip-link:focus{top:12px}
+.site-nav{background:var(--paper);color:var(--ink);border-bottom:1px solid var(--g200)}
+.site-nav .wrap{height:76px;gap:24px}
+.site-nav .brand{font-weight:400;font-size:18px;letter-spacing:-.04em;white-space:nowrap}
+.brand-note{font:11px var(--sans);letter-spacing:.08em;margin-left:8px;color:var(--g600)}
+.nav-links{display:flex;gap:24px;align-items:center;white-space:nowrap}
+.nav-links a{font-size:13px;min-height:44px;display:flex;align-items:center;border-bottom:2px solid transparent}
+.nav-links a[aria-current=page]{border-color:var(--orange);color:var(--ink)}
+.nav-links a:hover{color:var(--orange)}
+.eyebrow{font:12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--g600)}
+.lead{font-size:15px;line-height:1.8;color:var(--g900);max-width:44em;margin-top:18px}
+.primary-action{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;background:var(--orange);color:#fff;border:1px solid var(--orange);font-size:14px;cursor:pointer;gap:12px}
+.primary-action:hover{background:#a93a20;border-color:#a93a20}
+.filterbar{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;margin:24px 0 14px}
+.field{display:grid;gap:7px;min-width:130px;font-size:12px;color:var(--g900)}
+.field.search-field{flex:1;min-width:200px}
+.field input,.field select{width:100%;height:46px;padding:10px 12px;background:var(--white);border:1px solid var(--g200);color:var(--ink);border-radius:0;font-size:14px}
+.filter-status{font-size:12px;color:var(--g600);display:flex;justify-content:space-between;gap:12px;margin:14px 0}
+.empty-state{border:1px dashed var(--g300);padding:40px 24px;text-align:center;color:var(--g900);line-height:1.8}
+.empty-state strong{display:block;color:var(--ink);font-size:18px;margin-bottom:6px}
+.empty-state button{margin-top:16px}
+.tbtn,.btn{min-height:44px;align-items:center;justify-content:center;font-size:12px;text-transform:none}
+.tbtn:hover,.btn:hover{opacity:1;background:var(--g100)}
+.btn.solid:hover{background:var(--g1000)}
+.heart{min-width:44px;min-height:44px;display:inline-grid;place-items:center;padding:0}
+.heart svg{width:20px;height:20px}
+.pbtn{width:44px;height:44px;left:8px;bottom:8px;opacity:1}
+.pbtn svg{width:15px;height:15px}
+.np-btn,#np-prev,#np-next{width:44px;height:44px;background:transparent;border:1px solid #57534c}
+#np-toggle{background:var(--orange);border-color:var(--orange)}
+#np-close{font-size:20px}
+#np-bar{min-height:24px;background:linear-gradient(#57534c,#57534c) center / 100% 3px no-repeat}
+#np-fill{top:10px;bottom:10px;background:var(--orange);pointer-events:none}
+#md-toast{position:fixed;bottom:calc(96px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);max-width:calc(100% - 32px);width:max-content;background:var(--ink);color:#fff;font-size:13px;line-height:1.7;padding:12px 20px;z-index:4000;border-left:3px solid var(--orange);pointer-events:none}
+.manual-copy{position:fixed;z-index:4001;inset:auto 16px calc(100px + env(safe-area-inset-bottom,0px));max-width:600px;margin:auto;background:var(--paper);border:1px solid var(--ink);padding:16px}
+.manual-copy textarea{display:block;width:100%;height:110px;margin:12px 0;padding:10px;font-size:14px}
+@media(max-width:760px){
+ .site-nav .wrap{height:auto;min-height:68px;flex-wrap:wrap;gap:2px;padding-top:14px;padding-bottom:0}
+ .brand-note{display:none}.nav-links{gap:22px;width:100%;justify-content:space-between}.nav-links a{font-size:12px}
+ .filterbar{gap:10px}.field.search-field{flex-basis:100%}.field{flex:1}
+ #np-cover{width:36px;height:36px}#np-meta{flex:1;width:auto}#np{gap:7px;padding-left:calc(12px + var(--sal));padding-right:calc(12px + var(--sar))}
+ #np-bar,#np-prev{display:none}#np-close{width:32px;min-width:32px;border:0}.np-btn,#np-next{width:40px;height:44px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+/* Daily issue: an open music journal with generous covers and quiet reading. */
+.issue-header{display:grid;grid-template-columns:1fr auto;align-items:end;gap:32px;padding:46px 0 30px;border-bottom:1px solid var(--ink)}
+.issue-header h1{font-size:clamp(36px,5.5vw,70px);font-weight:400;letter-spacing:-.06em;line-height:1.18;margin:16px 0;max-width:13em}
+.issue-header .lead{margin:0;max-width:38em}
+.issue-number{text-align:right;font:12px var(--mono);color:var(--g600);line-height:2}
+.issue-number strong{display:block;font:70px var(--sans);font-weight:300;letter-spacing:-.07em;color:var(--orange)}
+.issue-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:24px}
+.listening-note{display:flex;align-items:center;gap:20px;padding:16px 0;border-bottom:1px solid var(--g200);font-size:12px;color:var(--g600)}
+.listening-note .lcd{margin:0;background:var(--ink);width:130px;height:44px;flex:none;border:0}
+.listening-note .lcd .row1{padding:4px 6px;min-height:44px;border:0}
+.listening-note .lcd .cat-wrap{width:110px}
+.listening-note p{flex:1;line-height:1.7}
+.listening-note a{border-bottom:1px solid var(--g300);padding:10px 0}
+.issue-toolbar{padding:12px 0 0}
+.issue-toolbar .tools{margin:0;gap:8px}
+.grid{gap:24px;border:0;margin-top:20px}
+.mod{border:1px solid var(--g200);background:var(--white);min-width:0}
+.mod.selected-track{outline:2px solid var(--orange);outline-offset:4px}
+.mod .m-top{padding:7px 16px;border:0}
+.mod .m-num{font:14px var(--mono);color:var(--g600)}
+.mod .m-code{font-size:10px;letter-spacing:.04em}
+.mod .m-main{padding:0 20px;gap:18px;align-items:center}
+.mod .art{width:clamp(120px,12vw,148px)}
+.mod .art .cover{border:0}
+.mod .cover-open{position:absolute;inset:0;width:100%;height:100%;background:transparent;border:0;cursor:zoom-in}
+.mod .pbtn{z-index:2}
+.mod .body{padding:20px;gap:4px}
+.mod .one{font:12px/1.8 var(--sans);color:var(--g600);margin-bottom:8px}
+.mod .why{font-size:15px;line-height:1.95;letter-spacing:.01em}
+.mod .scene{font:12px/1.8 var(--sans);padding-top:16px;color:var(--g600)}
+.mod .links{margin-top:16px;padding-top:16px;border-top:1px solid var(--g100)}
+.mod .links a{display:inline-flex;flex:1;padding:10px 8px;white-space:nowrap}
+.mod .src{font:11px/1.5 var(--sans);margin-top:10px}
+.mod .artist{font:13px/1.6 var(--sans);letter-spacing:0;text-transform:none;margin-top:8px}
+.mod .meta{font:11px/1.7 var(--sans)}
+.mod .tag{font-size:10px;padding:2px 6px;text-transform:none}
+.mod .bpm{margin:4px 0 0}
+.export{scroll-margin-top:140px}.export .in p{font:13px/1.8 var(--sans)}
+.archive-hero{padding:52px 0 26px;border-bottom:1px solid var(--ink)}
+.archive-hero h1{font-size:clamp(38px,6vw,72px);font-weight:400;letter-spacing:-.05em;margin:14px 0}
+.archive-list{border-top:1px solid var(--g200)}
+.archive-row{display:grid;grid-template-columns:120px 1fr auto;align-items:center;gap:22px;padding:24px 0;border-bottom:1px solid var(--g200)}
+.archive-row:hover .archive-title{color:var(--orange)}
+.archive-date{font:12px var(--mono);color:var(--g600)}
+.archive-title{font-size:21px;line-height:1.5;font-weight:400;overflow-wrap:anywhere}
+.archive-meta{font:11px var(--mono);color:var(--g600);margin-top:7px}
+.archive-arrow{font-size:24px;color:var(--orange)}
+@media(min-width:1100px){.mod .title{font-size:26px}}
+@media(max-width:760px){
+ .issue-header{grid-template-columns:1fr;gap:12px;padding:24px 0 20px}.issue-number{display:none}
+ .issue-header h1{font-size:34px}.issue-header .lead{font-size:13px}
+ .issue-actions{margin-top:20px}.issue-actions .primary-action{flex:1;padding:10px 12px;font-size:13px}.issue-actions .tbtn{flex:1;padding:10px 8px}
+ .listening-note{gap:12px;padding:8px 0}.listening-note p{font-size:11px}.listening-note .lcd{width:80px}.listening-note a{display:none}
+ .issue-toolbar .filterbar{margin-top:12px}.issue-toolbar .tools{gap:6px}.issue-toolbar .tools .tbtn{font-size:11px;padding:8px;flex:initial}
+ .grid{grid-template-columns:1fr;gap:20px}.mod .art{width:120px}.mod .title{font-size:23px}
+ .mod .m-main{padding:0 16px;gap:16px;flex-direction:row;align-items:center}.mod .body{padding:18px 16px}.mod .why{font-size:15px}
+ .archive-row{grid-template-columns:1fr auto;gap:10px;padding:22px 0}.archive-date{grid-column:1/-1}
+ .archive-title{font-size:18px}.archive-arrow{grid-column:2;grid-row:2}
+}
+@media(max-width:370px){.mod .art{width:96px}.mod .pbtn{left:0;bottom:0}.mod .title{font-size:20px}.mod .tags{display:none}}
+
 /* ── 封面放大 + 艺人详情 ── */
 /* 四边都要加安全区：实测 iPhone 14 Pro standalone 下，.sheet 距顶 52px
    而刘海是 59px —— 贴在 .sheet 右上角的关闭键整个埋在刘海底下，【浮层关不掉】。
@@ -491,8 +604,8 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 #lb .kicker{font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.16em;
   text-transform:uppercase; color:var(--g600); display:flex; align-items:center; gap:9px}
 #lb .kicker::after{content:""; flex:1; height:1px; background:var(--g200)}
-#lb h3{font-size:clamp(26px,3.4vw,36px); font-weight:100; line-height:1.24;
-  letter-spacing:-.015em; margin-top:11px; text-transform:lowercase;
+#lb h3{font-size:clamp(26px,3.4vw,36px); font-weight:400; line-height:1.24;
+  letter-spacing:-.025em; margin-top:11px;
   padding-bottom:.1em; overflow:visible}
 #lb .ar{font-family:var(--mono); font-size:var(--fs-15); text-transform:uppercase;
   letter-spacing:.1em; color:var(--g900); margin-top:5px}
@@ -511,8 +624,8 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 #lb .sec#lb-bio-w{margin-top:14px}
 /* 本站收录的曲目：可点，跳到那一首 */
 #lb .pool{display:flex; flex-wrap:wrap; gap:5px}
-#lb .pool a{font-family:var(--mono); font-size:9px; letter-spacing:.04em;
-  border:1px solid var(--g200); padding:4px 8px; color:var(--g900); background:var(--white);
+#lb .pool a{font-family:var(--sans); font-size:12px; letter-spacing:.01em;
+  border:1px solid var(--g200); padding:10px 12px; color:var(--g900); background:var(--white);
   transition:background .14s, color .14s}
 #lb .pool a:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
 #lb .pool a.cur{background:var(--ink); color:var(--white); border-color:var(--ink)}
@@ -552,59 +665,76 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 </style>
 </head>
 <body>
-<nav class="nav"><div class="wrap">
-  <div class="brand"><span class="sq"></span>MUSIC DAILY</div>
-  <div class="serial"><span>archive</span><span>共 <b>41</b> 期</span></div>
-</div></nav>
-<main class="wrap">
-  <div class="hero"><div class="h-l"><h1 class="lc">往期</h1>
-    <div class="en">archive · all issues</div></div>
-    <div class="h-r"><span class="big">41</span>issues<br><a href="../daily.html" style="border-bottom:1px solid var(--g300)">← 最新一期</a></div>
+<a class="skip-link" href="#main">跳到内容</a><nav class="nav site-nav" aria-label="主导航"><div class="wrap"><a class="brand" href="../index.html" aria-label="MUSIC DAILY 首页"><span class="sq" aria-hidden="true"></span>MUSIC DAILY<span class="brand-note">独立音乐日刊</span></a><div class="nav-links"><a href="../index.html">唱片室</a><a href="../daily.html">今日精选</a><a href="../random.html">听点别的</a><a href="../discover.html">新发现</a><a href="../archive/index.html" aria-current="page">往期</a></div></div></nav>
+<main class="wrap" id="main">
+  <header class="archive-hero"><p class="eyebrow">THE ARCHIVE / 041 ISSUES</p>
+    <h1>有些歌，值得回头。</h1>
+    <p class="lead">41 期音乐日记。按月份翻阅，或找一个记得的歌单名字。</p>
+  </header>
+  <div class="filterbar">
+    <label class="field search-field" for="archive-search">查找往期<input id="archive-search" type="search" placeholder="日期或歌单名称" autocomplete="off"></label>
+    <label class="field" for="archive-month">月份<select id="archive-month"><option value="">全部月份</option><option value="2026-09">2026-09</option><option value="2026-08">2026-08</option><option value="2026-07">2026-07</option></select></label>
+    <button id="archive-reset" class="tbtn" type="button">清空筛选</button>
   </div>
-  <div class="arc">
-    <a href="2026-09-06.html"><span class="d">2026-09-06</span><span class="no">issue 041 / 30首</span><span class="t">夜色很稠，节拍很轻（09.06）</span></a>
-<a href="2026-09-05.html"><span class="d">2026-09-05</span><span class="no">issue 040 / 30首</span><span class="t">留白比声音还多（09.05）</span></a>
-<a href="2026-09-04.html"><span class="d">2026-09-04</span><span class="no">issue 039 / 30首</span><span class="t">电子像呼吸的那种（09.04）</span></a>
-<a href="2026-09-03.html"><span class="d">2026-09-03</span><span class="no">issue 038 / 30首</span><span class="t">把肩膀放下来的那半小时（09.03）</span></a>
-<a href="2026-09-02.html"><span class="d">2026-09-02</span><span class="no">issue 037 / 30首</span><span class="t">一个人也不觉得空的房间（09.02）</span></a>
-<a href="2026-09-01.html"><span class="d">2026-09-01</span><span class="no">issue 036 / 30首</span><span class="t">有点甜，但克制着（09.01）</span></a>
-<a href="2026-08-31.html"><span class="d">2026-08-31</span><span class="no">issue 035 / 30首</span><span class="t">夏天傍晚，风还没凉下来（08.31）</span></a>
-<a href="2026-08-30.html"><span class="d">2026-08-30</span><span class="no">issue 034 / 30首</span><span class="t">木头、旧磁带和一点灰（08.30）</span></a>
-<a href="2026-08-29.html"><span class="d">2026-08-29</span><span class="no">issue 033 / 30首</span><span class="t">微凉的清晨，先别说话（08.29）</span></a>
-<a href="2026-08-28.html"><span class="d">2026-08-28</span><span class="no">issue 032 / 30首</span><span class="t">地铁靠窗的那十分钟（08.28）</span></a>
-<a href="2026-08-27.html"><span class="d">2026-08-27</span><span class="no">issue 031 / 30首</span><span class="t">电子像呼吸的那种（08.27）</span></a>
-<a href="2026-08-26.html"><span class="d">2026-08-26</span><span class="no">issue 030 / 30首</span><span class="t">把白天调成夜的亮度（08.26）</span></a>
-<a href="2026-08-25.html"><span class="d">2026-08-25</span><span class="no">issue 029 / 30首</span><span class="t">慢到几乎停下来的好听（08.25）</span></a>
-<a href="2026-08-24.html"><span class="d">2026-08-24</span><span class="no">issue 028 / 30首</span><span class="t">耳朵先安静，人才跟上（08.24）</span></a>
-<a href="2026-08-23.html"><span class="d">2026-08-23</span><span class="no">issue 027 / 30首</span><span class="t">木头、旧磁带和一点灰（08.23）</span></a>
-<a href="2026-08-22.html"><span class="d">2026-08-22</span><span class="no">issue 026 / 30首</span><span class="t">夜色很稠，节拍很轻（08.22）</span></a>
-<a href="2026-08-21.html"><span class="d">2026-08-21</span><span class="no">issue 025 / 30首</span><span class="t">冬日下午，斜光只照到半墙（08.21）</span></a>
-<a href="2026-08-20.html"><span class="d">2026-08-20</span><span class="no">issue 024 / 30首</span><span class="t">电子像呼吸的那种（08.20）</span></a>
-<a href="2026-08-19.html"><span class="d">2026-08-19</span><span class="no">issue 023 / 30首</span><span class="t">有点甜，但克制着（08.19）</span></a>
-<a href="2026-08-18.html"><span class="d">2026-08-18</span><span class="no">issue 022 / 30首</span><span class="t">夏天傍晚，风还没凉下来（08.18）</span></a>
-<a href="2026-08-17.html"><span class="d">2026-08-17</span><span class="no">issue 021 / 30首</span><span class="t">慢到几乎停下来的好听（08.17）</span></a>
-<a href="2026-08-16.html"><span class="d">2026-08-16</span><span class="no">issue 020 / 30首</span><span class="t">耳朵先安静，人才跟上（08.16）</span></a>
-<a href="2026-08-15.html"><span class="d">2026-08-15</span><span class="no">issue 019 / 30首</span><span class="t">夜色很稠，节拍很轻（08.15）</span></a>
-<a href="2026-08-14.html"><span class="d">2026-08-14</span><span class="no">issue 018 / 30首</span><span class="t">地铁靠窗的那十分钟（08.14）</span></a>
-<a href="2026-08-13.html"><span class="d">2026-08-13</span><span class="no">issue 017 / 30首</span><span class="t">电子像呼吸的那种（08.13）</span></a>
-<a href="2026-08-12.html"><span class="d">2026-08-12</span><span class="no">issue 016 / 30首</span><span class="t">退潮之后，鞋里还进着沙（08.12）</span></a>
-<a href="2026-08-11.html"><span class="d">2026-08-11</span><span class="no">issue 015 / 30首</span><span class="t">有点甜，但克制着（08.11）</span></a>
-<a href="2026-08-10.html"><span class="d">2026-08-10</span><span class="no">issue 014 / 30首</span><span class="t">城市夜里，声音都调小了（08.10）</span></a>
-<a href="2026-08-09.html"><span class="d">2026-08-09</span><span class="no">issue 013 / 30首</span><span class="t">把白天调成夜的亮度（08.09）</span></a>
-<a href="2026-08-08.html"><span class="d">2026-08-08</span><span class="no">issue 012 / 30首</span><span class="t">冬日下午，斜光只照到半墙（08.08）</span></a>
-<a href="2026-08-07.html"><span class="d">2026-08-07</span><span class="no">issue 011 / 30首</span><span class="t">木头、旧磁带和一点灰（08.07）</span></a>
-<a href="2026-08-06.html"><span class="d">2026-08-06</span><span class="no">issue 010 / 30首</span><span class="t">电子像呼吸的那种（08.06）</span></a>
-<a href="2026-08-05.html"><span class="d">2026-08-05</span><span class="no">issue 009 / 30首</span><span class="t">慢到几乎停下来的好听（08.05）</span></a>
-<a href="2026-08-04.html"><span class="d">2026-08-04</span><span class="no">issue 008 / 30首</span><span class="t">夏天傍晚，风还没凉下来（08.04）</span></a>
-<a href="2026-08-03.html"><span class="d">2026-08-03</span><span class="no">issue 007 / 30首</span><span class="t">夜色很稠，节拍很轻（08.03）</span></a>
-<a href="2026-08-02.html"><span class="d">2026-08-02</span><span class="no">issue 006 / 30首</span><span class="t">有点甜，但克制着（08.02）</span></a>
-<a href="2026-08-01.html"><span class="d">2026-08-01</span><span class="no">issue 005 / 30首</span><span class="t">耳朵先安静，人才跟上（08.01）</span></a>
-<a href="2026-07-31.html"><span class="d">2026-07-31</span><span class="no">issue 004 / 30首</span><span class="t">潮湿黄昏，木吉他慢慢走（07.31）</span></a>
-<a href="2026-07-30.html"><span class="d">2026-07-30</span><span class="no">issue 003 / 30首</span><span class="t">电子像呼吸的那种（07.30）</span></a>
-<a href="2026-07-29.html"><span class="d">2026-07-29</span><span class="no">issue 002 / 30首</span><span class="t">木头、旧磁带和一点灰（07.29）</span></a>
-<a href="2026-07-28.html"><span class="d">2026-07-28</span><span class="no">issue 001 / 30首</span><span class="t">一个人也不觉得空的房间（07.28）</span></a>
+  <p id="archive-count" class="filter-status" role="status">显示 41 / 41 期</p>
+  <div id="archive-empty" class="empty-state" hidden><strong>没有找到这一期</strong>换一个日期或歌单名称试试。</div>
+  <div class="archive-list">
+    <a class="archive-row" data-date="2026-09-06" href="2026-09-06.html"><time class="archive-date" datetime="2026-09-06">2026-09-06</time><div><div class="archive-title">夜色很稠，节拍很轻（09.06）</div><div class="archive-meta">VOL. 041 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-09-05" href="2026-09-05.html"><time class="archive-date" datetime="2026-09-05">2026-09-05</time><div><div class="archive-title">留白比声音还多（09.05）</div><div class="archive-meta">VOL. 040 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-09-04" href="2026-09-04.html"><time class="archive-date" datetime="2026-09-04">2026-09-04</time><div><div class="archive-title">电子像呼吸的那种（09.04）</div><div class="archive-meta">VOL. 039 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-09-03" href="2026-09-03.html"><time class="archive-date" datetime="2026-09-03">2026-09-03</time><div><div class="archive-title">把肩膀放下来的那半小时（09.03）</div><div class="archive-meta">VOL. 038 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-09-02" href="2026-09-02.html"><time class="archive-date" datetime="2026-09-02">2026-09-02</time><div><div class="archive-title">一个人也不觉得空的房间（09.02）</div><div class="archive-meta">VOL. 037 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-09-01" href="2026-09-01.html"><time class="archive-date" datetime="2026-09-01">2026-09-01</time><div><div class="archive-title">有点甜，但克制着（09.01）</div><div class="archive-meta">VOL. 036 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-31" href="2026-08-31.html"><time class="archive-date" datetime="2026-08-31">2026-08-31</time><div><div class="archive-title">夏天傍晚，风还没凉下来（08.31）</div><div class="archive-meta">VOL. 035 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-30" href="2026-08-30.html"><time class="archive-date" datetime="2026-08-30">2026-08-30</time><div><div class="archive-title">木头、旧磁带和一点灰（08.30）</div><div class="archive-meta">VOL. 034 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-29" href="2026-08-29.html"><time class="archive-date" datetime="2026-08-29">2026-08-29</time><div><div class="archive-title">微凉的清晨，先别说话（08.29）</div><div class="archive-meta">VOL. 033 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-28" href="2026-08-28.html"><time class="archive-date" datetime="2026-08-28">2026-08-28</time><div><div class="archive-title">地铁靠窗的那十分钟（08.28）</div><div class="archive-meta">VOL. 032 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-27" href="2026-08-27.html"><time class="archive-date" datetime="2026-08-27">2026-08-27</time><div><div class="archive-title">电子像呼吸的那种（08.27）</div><div class="archive-meta">VOL. 031 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-26" href="2026-08-26.html"><time class="archive-date" datetime="2026-08-26">2026-08-26</time><div><div class="archive-title">把白天调成夜的亮度（08.26）</div><div class="archive-meta">VOL. 030 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-25" href="2026-08-25.html"><time class="archive-date" datetime="2026-08-25">2026-08-25</time><div><div class="archive-title">慢到几乎停下来的好听（08.25）</div><div class="archive-meta">VOL. 029 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-24" href="2026-08-24.html"><time class="archive-date" datetime="2026-08-24">2026-08-24</time><div><div class="archive-title">耳朵先安静，人才跟上（08.24）</div><div class="archive-meta">VOL. 028 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-23" href="2026-08-23.html"><time class="archive-date" datetime="2026-08-23">2026-08-23</time><div><div class="archive-title">木头、旧磁带和一点灰（08.23）</div><div class="archive-meta">VOL. 027 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-22" href="2026-08-22.html"><time class="archive-date" datetime="2026-08-22">2026-08-22</time><div><div class="archive-title">夜色很稠，节拍很轻（08.22）</div><div class="archive-meta">VOL. 026 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-21" href="2026-08-21.html"><time class="archive-date" datetime="2026-08-21">2026-08-21</time><div><div class="archive-title">冬日下午，斜光只照到半墙（08.21）</div><div class="archive-meta">VOL. 025 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-20" href="2026-08-20.html"><time class="archive-date" datetime="2026-08-20">2026-08-20</time><div><div class="archive-title">电子像呼吸的那种（08.20）</div><div class="archive-meta">VOL. 024 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-19" href="2026-08-19.html"><time class="archive-date" datetime="2026-08-19">2026-08-19</time><div><div class="archive-title">有点甜，但克制着（08.19）</div><div class="archive-meta">VOL. 023 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-18" href="2026-08-18.html"><time class="archive-date" datetime="2026-08-18">2026-08-18</time><div><div class="archive-title">夏天傍晚，风还没凉下来（08.18）</div><div class="archive-meta">VOL. 022 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-17" href="2026-08-17.html"><time class="archive-date" datetime="2026-08-17">2026-08-17</time><div><div class="archive-title">慢到几乎停下来的好听（08.17）</div><div class="archive-meta">VOL. 021 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-16" href="2026-08-16.html"><time class="archive-date" datetime="2026-08-16">2026-08-16</time><div><div class="archive-title">耳朵先安静，人才跟上（08.16）</div><div class="archive-meta">VOL. 020 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-15" href="2026-08-15.html"><time class="archive-date" datetime="2026-08-15">2026-08-15</time><div><div class="archive-title">夜色很稠，节拍很轻（08.15）</div><div class="archive-meta">VOL. 019 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-14" href="2026-08-14.html"><time class="archive-date" datetime="2026-08-14">2026-08-14</time><div><div class="archive-title">地铁靠窗的那十分钟（08.14）</div><div class="archive-meta">VOL. 018 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-13" href="2026-08-13.html"><time class="archive-date" datetime="2026-08-13">2026-08-13</time><div><div class="archive-title">电子像呼吸的那种（08.13）</div><div class="archive-meta">VOL. 017 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-12" href="2026-08-12.html"><time class="archive-date" datetime="2026-08-12">2026-08-12</time><div><div class="archive-title">退潮之后，鞋里还进着沙（08.12）</div><div class="archive-meta">VOL. 016 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-11" href="2026-08-11.html"><time class="archive-date" datetime="2026-08-11">2026-08-11</time><div><div class="archive-title">有点甜，但克制着（08.11）</div><div class="archive-meta">VOL. 015 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-10" href="2026-08-10.html"><time class="archive-date" datetime="2026-08-10">2026-08-10</time><div><div class="archive-title">城市夜里，声音都调小了（08.10）</div><div class="archive-meta">VOL. 014 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-09" href="2026-08-09.html"><time class="archive-date" datetime="2026-08-09">2026-08-09</time><div><div class="archive-title">把白天调成夜的亮度（08.09）</div><div class="archive-meta">VOL. 013 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-08" href="2026-08-08.html"><time class="archive-date" datetime="2026-08-08">2026-08-08</time><div><div class="archive-title">冬日下午，斜光只照到半墙（08.08）</div><div class="archive-meta">VOL. 012 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-07" href="2026-08-07.html"><time class="archive-date" datetime="2026-08-07">2026-08-07</time><div><div class="archive-title">木头、旧磁带和一点灰（08.07）</div><div class="archive-meta">VOL. 011 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-06" href="2026-08-06.html"><time class="archive-date" datetime="2026-08-06">2026-08-06</time><div><div class="archive-title">电子像呼吸的那种（08.06）</div><div class="archive-meta">VOL. 010 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-05" href="2026-08-05.html"><time class="archive-date" datetime="2026-08-05">2026-08-05</time><div><div class="archive-title">慢到几乎停下来的好听（08.05）</div><div class="archive-meta">VOL. 009 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-04" href="2026-08-04.html"><time class="archive-date" datetime="2026-08-04">2026-08-04</time><div><div class="archive-title">夏天傍晚，风还没凉下来（08.04）</div><div class="archive-meta">VOL. 008 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-03" href="2026-08-03.html"><time class="archive-date" datetime="2026-08-03">2026-08-03</time><div><div class="archive-title">夜色很稠，节拍很轻（08.03）</div><div class="archive-meta">VOL. 007 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-02" href="2026-08-02.html"><time class="archive-date" datetime="2026-08-02">2026-08-02</time><div><div class="archive-title">有点甜，但克制着（08.02）</div><div class="archive-meta">VOL. 006 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-08-01" href="2026-08-01.html"><time class="archive-date" datetime="2026-08-01">2026-08-01</time><div><div class="archive-title">耳朵先安静，人才跟上（08.01）</div><div class="archive-meta">VOL. 005 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-07-31" href="2026-07-31.html"><time class="archive-date" datetime="2026-07-31">2026-07-31</time><div><div class="archive-title">潮湿黄昏，木吉他慢慢走（07.31）</div><div class="archive-meta">VOL. 004 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-07-30" href="2026-07-30.html"><time class="archive-date" datetime="2026-07-30">2026-07-30</time><div><div class="archive-title">电子像呼吸的那种（07.30）</div><div class="archive-meta">VOL. 003 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-07-29" href="2026-07-29.html"><time class="archive-date" datetime="2026-07-29">2026-07-29</time><div><div class="archive-title">木头、旧磁带和一点灰（07.29）</div><div class="archive-meta">VOL. 002 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
+<a class="archive-row" data-date="2026-07-28" href="2026-07-28.html"><time class="archive-date" datetime="2026-07-28">2026-07-28</time><div><div class="archive-title">一个人也不觉得空的房间（07.28）</div><div class="archive-meta">VOL. 001 · 30 首精选</div></div><span class="archive-arrow" aria-hidden="true">↗</span></a>
   </div>
   <footer><span>MUSIC DAILY · archive</span><span>41 issues · melody-first</span></footer>
 </main>
+<script>(() => {
+  const input=document.getElementById('archive-search'), month=document.getElementById('archive-month');
+  const rows=[...document.querySelectorAll('.archive-row')];
+  function filter(){
+    const query=input.value.normalize('NFKC').toLowerCase().trim();let count=0;
+    rows.forEach(row=>{row.hidden=!(row.textContent.normalize('NFKC').toLowerCase().includes(query)&&(!month.value||row.dataset.date.startsWith(month.value)));if(!row.hidden)count++;});
+    document.getElementById('archive-count').textContent=`显示 ${count} / ${rows.length} 期`;
+    document.getElementById('archive-empty').hidden=count>0;
+  }
+  input.addEventListener('input',filter);month.addEventListener('change',filter);
+  document.getElementById('archive-reset').addEventListener('click',()=>{input.value='';month.value='';filter();});
+})();
+</script>
 </body>
 </html>
