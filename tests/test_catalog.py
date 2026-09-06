@@ -528,7 +528,9 @@ def test_publish_guard_covers_static_assets():
     「页面真实引用」对账，而不是再手写一份清单等它漂移。
     """
     # 清单的唯一来源是 tools/check_site_assets.sh（两个 workflow 都调它）。
-    guard = (ROOT / "tools/check_site_assets.sh").read_text(encoding="utf-8")
+    guard_bytes = (ROOT / "tools/check_site_assets.sh").read_bytes()
+    assert b"\r" not in guard_bytes, "发布脚本必须使用 LF 换行，否则 Linux 无法执行 shebang"
+    guard = guard_bytes.decode("utf-8")
     guarded = set()
     for blk in re.findall(r"^(?:PRODUCTS|STATIC)=\(\n(.*?)^\)", guard, re.M | re.S):
         guarded |= {ln.strip() for ln in blk.splitlines()
