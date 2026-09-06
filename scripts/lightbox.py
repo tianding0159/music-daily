@@ -13,6 +13,8 @@
 """
 from __future__ import annotations
 
+import json
+
 LIGHTBOX_CSS = """
 /* ── 封面放大 + 艺人详情 ── */
 /* 四边都要加安全区：实测 iPhone 14 Pro standalone 下，.sheet 距顶 52px
@@ -53,8 +55,8 @@ LIGHTBOX_CSS = """
 #lb .kicker{font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.16em;
   text-transform:uppercase; color:var(--g600); display:flex; align-items:center; gap:9px}
 #lb .kicker::after{content:""; flex:1; height:1px; background:var(--g200)}
-#lb h3{font-size:clamp(26px,3.4vw,36px); font-weight:100; line-height:1.24;
-  letter-spacing:-.015em; margin-top:11px; text-transform:lowercase;
+#lb h3{font-size:clamp(26px,3.4vw,36px); font-weight:400; line-height:1.24;
+  letter-spacing:-.025em; margin-top:11px;
   padding-bottom:.1em; overflow:visible}
 #lb .ar{font-family:var(--mono); font-size:var(--fs-15); text-transform:uppercase;
   letter-spacing:.1em; color:var(--g900); margin-top:5px}
@@ -73,8 +75,8 @@ LIGHTBOX_CSS = """
 #lb .sec#lb-bio-w{margin-top:14px}
 /* 本站收录的曲目：可点，跳到那一首 */
 #lb .pool{display:flex; flex-wrap:wrap; gap:5px}
-#lb .pool a{font-family:var(--mono); font-size:9px; letter-spacing:.04em;
-  border:1px solid var(--g200); padding:4px 8px; color:var(--g900); background:var(--white);
+#lb .pool a{font-family:var(--sans); font-size:12px; letter-spacing:.01em;
+  border:1px solid var(--g200); padding:10px 12px; color:var(--g900); background:var(--white);
   transition:background .14s, color .14s}
 #lb .pool a:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
 #lb .pool a.cur{background:var(--ink); color:var(--white); border-color:var(--ink)}
@@ -113,7 +115,7 @@ LIGHTBOX_CSS = """
 }
 """
 
-LIGHTBOX_HTML = """<div id="lb" role="dialog" aria-modal="true" aria-label="专辑详情">
+LIGHTBOX_HTML = """<div id="lb" role="dialog" aria-modal="true" aria-labelledby="lb-artist" aria-hidden="true">
   <div class="veil" data-close></div>
   <div class="sheet">
     <button class="x" type="button" data-close aria-label="关闭">✕</button>
@@ -137,112 +139,91 @@ LIGHTBOX_HTML = """<div id="lb" role="dialog" aria-modal="true" aria-label="专�
 </div>"""
 
 
-def lightbox_js(trigger_sel: str) -> str:
-    """trigger_sel：点了会开浮层的元素选择器（日报 '.art'，随机页 '.big-art'）。"""
-    return """
+def lightbox_js(trigger_sel: str, base_prefix: str = '') -> str:
+    """Render accessible details; sibling links always use canonical track IDs."""
+    return r"""
 (function(){
-  var lb=document.getElementById('lb'); if(!lb) return;
-  var $=function(i){return document.getElementById(i)};
-  var last=null;
-
-  // iTunes 缩略图按既定命名规则换更大尺寸；非 iTunes 的 URL 原样返回
-  function big(u){ return u ? u.replace(/\\/(\\d+)x(\\d+)(bb)?\\.(jpg|png)/i, '/600x600bb.$4') : ''; }
-
-  function esc(s){ var d=document.createElement('div'); d.textContent=s==null?'':s; return d.innerHTML; }
-
-  function open(d, trigger){
-    // 存【触发元素】而不是 document.activeElement —— 鼠标点击时 activeElement
-    // 是 body（点 div 不给焦点），于是关闭后焦点掉回 body，键盘用户要从头 Tab。
-    // 2026-08-04 实测：修前 Esc 后 activeElement 就是 <body class="anim">。
-    last = trigger || document.activeElement;
-    $('lb-big').innerHTML = d.cover
-      ? '<img src="'+esc(big(d.cover))+'" alt="">'
-      : '<div class="ph">'+esc((d.artist||'?').slice(0,1).toUpperCase())+'</div>';
-    if(d.year || d.album){
-      $('lb-big').insertAdjacentHTML('beforeend',
-        '<div class="yr"><span>'+esc(d.album||'')+'</span><span>'+esc(d.year||'')+'</span></div>');
-    }
-    // 主体是音乐人：大标题放艺人名，副行放年代跨度与流派
-    $('lb-artist').textContent = d.artist||'';
-    var sub=[]; if(d.years) sub.push(d.years); else if(d.year) sub.push(d.year);
-    if(d.g0) sub.push(d.g0);
-    $('lb-sub').textContent = sub.join(' · ');
-    $('lb-tags').innerHTML = (d.tags||'').split('|').filter(Boolean)
-      .map(function(t){return '<span>'+esc(t)+'</span>'}).join('');
-    // 本站收录该艺人的其它曲目（当前这首标 cur）
-    var inp=(d.inpool||'').split('|').filter(Boolean);
-    $('lb-inpool').innerHTML = inp.map(function(x){
-      var cur = x===d.title ? ' class="cur"' : '';
-      return '<a href="?t='+encodeURIComponent(x)+'"'+cur+'>'+esc(x)+'</a>';
-    }).join('');
-    $('lb-inpool-w').style.display = inp.length>1 ? '' : 'none';
-    // 这一首（次要块）
-    $('lb-trkname').textContent = [d.title, d.album, d.year, d.bpm].filter(Boolean).join(' · ');
-    [['bio','lb-bio'],['one','lb-one'],['why','lb-why'],['scene','lb-scene']].forEach(function(p){
-      var v=d[p[0]]||'';
-      $(p[1]).textContent=v;
-      var w=$(p[1]+'-w'); if(w) w.style.display = v ? '' : 'none';   // 该段没内容就整块收起
-    });
-    $('lb-trk-w').style.display = (d.why||d.scene) ? '' : 'none';
-    var lk=[];
-    if(d.apple)   lk.push('<a href="'+esc(d.apple)+'" target="_blank" rel="noopener">apple music ↗</a>');
-    if(d.spotify) lk.push('<a href="'+esc(d.spotify)+'" target="_blank" rel="noopener">spotify ↗</a>');
-    if(d.netease) lk.push('<a href="'+esc(d.netease)+'" target="_blank" rel="noopener">netease ↗</a>');
-    $('lb-links').innerHTML = lk.join('');
-    lb.classList.add('on');
-    document.body.style.overflow='hidden';
-    // 焦点 trap：把 #lb 以外的顶层兄弟节点整棵设为 inert —— 它们既不可聚焦
-    // 也不接受点击，Tab 自然被关在浮层里。比手写「首尾元素循环」可靠得多：
-    // 那种写法要维护「可聚焦元素清单」，而浮层内容是动态渲染的，清单必然漂。
-    // 2026-08-04 实测：修之前连按 12 次 Tab，10 次落到浮层背后的卡片上，
-    // 而 #lb 明明声明了 role=dialog + aria-modal=true —— 承诺了模态却没兑现。
-    inertKids(true);
-    lb.querySelector('.x').focus();
+  const lb=document.getElementById('lb');if(!lb)return;
+  const $=id=>document.getElementById(id), triggerSelector=__TRIGGER__, randomPage=__RANDOM_PAGE__;
+  let last=null, activeData=null, previousOverflow='';
+  function safeURL(value){try{const u=new URL(value);return /^https?:$/.test(u.protocol)?u.href:''}catch{return ''}}
+  function node(tag,text,className){const n=document.createElement(tag);if(text!=null)n.textContent=String(text);if(className)n.className=className;return n;}
+  function entries(raw){
+    try{const parsed=JSON.parse(raw||'[]');return Array.isArray(parsed)?parsed.filter(x=>x&&typeof x.id==='string'&&x.id&&typeof x.title==='string'&&x.title):[];}catch{return [];}
   }
-  // 除 #lb 外的 body 子节点整体 inert / 恢复。只动我们设过的那些（记在 _inert 上），
-  // 免得把页面本来就有的 inert 属性给清掉。
+  function renderContext(d){
+    $('lb-artist').textContent=d.artist||'';
+    $('lb-sub').textContent=[d.years||d.year,d.g0].filter(Boolean).join(' · ');
+    $('lb-tags').replaceChildren(...(d.tags||'').split('|').filter(Boolean).map(t=>node('span',t)));
+    const songs=entries(d.inpool);
+    $('lb-inpool').replaceChildren(...songs.map(song=>{
+      const link=node('a',song.title);link.href=randomPage+'?t='+encodeURIComponent(song.id);
+      if(song.id===d.id){link.className='cur';link.setAttribute('aria-current','true');}
+      return link;
+    }));
+    $('lb-inpool-w').hidden=songs.length<2;
+    [['bio','lb-bio'],['one','lb-one'],['why','lb-why'],['scene','lb-scene']].forEach(([key,id])=>{
+      $(id).textContent=d[key]||'';const wrapper=$(id+'-w');if(wrapper)wrapper.hidden=!d[key];
+    });
+    $('lb-trkname').textContent=[d.title,d.album,d.year,d.bpm].filter(Boolean).join(' · ');
+    $('lb-trk-w').hidden=!(d.title||d.why||d.scene);
+  }
+  function open(d,trigger){
+    if(!lb.classList.contains('on')){last=trigger||document.activeElement;previousOverflow=document.body.style.overflow;}
+    activeData={...d};$('lb-big').replaceChildren();
+    const cover=safeURL(d.cover), placeholder=()=>node('div',(d.artist||'?').slice(0,1).toUpperCase(),'ph');
+    if(cover){
+      const img=node('img');img.src=cover.replace(/\/(\d+)x(\d+)(bb)?\.(jpg|png)/i,'/600x600bb.$4');img.alt=(d.album||d.title||'')+' 专辑封面';
+      img.addEventListener('error',()=>img.replaceWith(placeholder()),{once:true});$('lb-big').appendChild(img);
+    }else $('lb-big').appendChild(placeholder());
+    if(d.album||d.year){const meta=node('div',null,'yr');meta.append(node('span',d.album||''),node('span',d.year||''));$('lb-big').appendChild(meta);}
+    renderContext(d);$('lb-links').replaceChildren();
+    [['apple','Apple Music ↗'],['spotify','Spotify ↗'],['netease','网易云 ↗']].forEach(([key,label])=>{
+      const url=safeURL(d[key]);if(!url)return;
+      const link=node('a',label);link.href=url;link.target='_blank';link.rel='noopener noreferrer';
+      if(key==='netease')link.dataset.nc=[d.title,d.artist].filter(Boolean).join(' ');
+      $('lb-links').appendChild(link);
+    });
+    lb.classList.add('on');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';inertKids(true);lb.querySelector('.x').focus();
+  }
   function inertKids(on){
-    var kids = document.body.children;
-    for(var i=0;i<kids.length;i++){
-      var el = kids[i];
-      if(el === lb) continue;
-      if(on){
-        if(!el.hasAttribute('inert')){ el.setAttribute('inert',''); el._lbInert = 1; }
-      } else if(el._lbInert){
-        el.removeAttribute('inert'); el._lbInert = 0;
-      }
+    for(const el of document.body.children){
+      if(el===lb)continue;
+      if(on&&!el.hasAttribute('inert')){el.setAttribute('inert','');el._lbInert=true;}
+      else if(!on&&el._lbInert){el.removeAttribute('inert');el._lbInert=false;}
     }
   }
   function close(){
-    lb.classList.remove('on');
-    document.body.style.overflow='';
-    inertKids(false);
-    // 焦点归位要在解除 inert 【之后】—— 在 inert 状态下 focus() 是无效的，
-    // 焦点会掉回 body，用户按 Tab 得从头再来。
-    if(last && last.focus) last.focus();
+    if(!lb.classList.contains('on'))return;
+    lb.classList.remove('on');lb.setAttribute('aria-hidden','true');document.body.style.overflow=previousOverflow;inertKids(false);activeData=null;
+    if(last?.isConnected)last.focus();
   }
-
-  document.addEventListener('click', function(e){
-    if(e.target.closest('[data-close]')){ close(); return; }
-    // 点播放键不开浮层
-    if(e.target.closest('.pbtn')) return;
-    var h=e.target.closest('SEL'); if(!h) return;
-    var d=h.dataset; if(!d.title && !d.cover) return;
-    e.preventDefault(); open(d, h);
+  lb.addEventListener('refresh',event=>{
+    if(!activeData||event.detail.id!==activeData.id)return;
+    activeData={...activeData,...event.detail};renderContext(activeData);
   });
-  addEventListener('keydown', function(e){
-    if(e.key==='Escape' && lb.classList.contains('on')){ close(); return; }
-    if(lb.classList.contains('on')) return;      // 浮层已开，下面只管"打开"
-    // 封面卡片声明了 role="button" + tabindex="0"，那就必须响应 Enter / Space ——
-    // 原生 <button> 自带这个行为，用 div 扮演按钮就得自己补齐。
-    // 之前只绑了 click：键盘用户能聚焦到封面（还能看到焦点环），按下去毫无反应，
-    // 于是那个焦点环和浮层里的焦点 trap 对他们全是白做的。
-    if(e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
-    var h = e.target.closest && e.target.closest('SEL');
-    if(!h) return;
-    var d = h.dataset; if(!d.title && !d.cover) return;
-    e.preventDefault();                           // Space 默认会滚动页面
-    open(d, h);
+  document.addEventListener('click',event=>{
+    const target=event.target.closest?event.target:null;if(!target)return;
+    if(target.closest('#lb [data-close]')){close();return;}
+    if(target.closest('.pbtn'))return;
+    const trigger=target.closest(triggerSelector);if(!trigger)return;
+    if(!trigger.dataset.title&&!trigger.dataset.cover)return;event.preventDefault();open(trigger.dataset,trigger);
+  });
+  document.addEventListener('keydown',event=>{
+    if(lb.classList.contains('on')){
+      if(event.key==='Escape'){event.preventDefault();close();return;}
+      // Also constrain Tab on older browsers without inert support.
+      if(event.key==='Tab'){
+        const focusables=[...lb.querySelectorAll('button,a[href],[tabindex="0"]')].filter(el=>!el.hidden&&el.getClientRects().length);
+        const first=focusables[0],last=focusables[focusables.length-1];
+        if(event.shiftKey&&document.activeElement===first){event.preventDefault();last?.focus();}
+        else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus();}
+      }
+      return;
+    }
+    if(event.defaultPrevented||event.repeat||!['Enter',' ','Spacebar'].includes(event.key)||event.target.closest?.('.pbtn'))return;
+    const trigger=event.target.closest?.(triggerSelector);if(!trigger||trigger.tagName==='BUTTON')return;
+    if(!trigger.dataset.title&&!trigger.dataset.cover)return;event.preventDefault();open(trigger.dataset,trigger);
   });
 })();
-""".replace("SEL", trigger_sel)
+""".replace('__TRIGGER__', json.dumps(trigger_sel)).replace('__RANDOM_PAGE__', json.dumps(base_prefix + 'random.html'))

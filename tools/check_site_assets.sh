@@ -17,6 +17,7 @@ PRODUCTS=(
   index.html
   daily.html
   random.html
+  discover.html
   archive/index.html
   pool.min.json
   artists.min.json

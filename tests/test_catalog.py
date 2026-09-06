@@ -528,7 +528,9 @@ def test_publish_guard_covers_static_assets():
     「页面真实引用」对账，而不是再手写一份清单等它漂移。
     """
     # 清单的唯一来源是 tools/check_site_assets.sh（两个 workflow 都调它）。
-    guard = (ROOT / "tools/check_site_assets.sh").read_text(encoding="utf-8")
+    guard_bytes = (ROOT / "tools/check_site_assets.sh").read_bytes()
+    assert b"\r" not in guard_bytes, "发布脚本必须使用 LF 换行，否则 Linux 无法执行 shebang"
+    guard = guard_bytes.decode("utf-8")
     guarded = set()
     for blk in re.findall(r"^(?:PRODUCTS|STATIC)=\(\n(.*?)^\)", guard, re.M | re.S):
         guarded |= {ln.strip() for ln in blk.splitlines()
@@ -691,7 +693,7 @@ def test_safe_area_not_dropped_by_overrides():
     # 所以贴屏元素用显式清单 —— 由 tools/verify_safe_area.py 的浏览器实测背书，
     # 且下面有 checked >= N 防止清单被悄悄改空。
     # 加新的贴屏元素时要同时加到这里和那个脚本（两处都漏才会静默）。
-    EDGE_SELECTORS = {".nav", "#np", "#basket", "#lb", ".foot", ".stage", ".wrap"}
+    EDGE_SELECTORS = {".nav", "#np", "#basket", "#lb", ".home-main", ".wrap"}
 
     # 方向 → (钉边的属性名, 该方向需要的 inset 变量, 能提供让位的属性)
     AXES = [
@@ -738,7 +740,7 @@ def test_safe_area_not_dropped_by_overrides():
     # 只看单条规则的值形态会漏（76px 不匹配 0/var/calc，撤掉保护反而不被检查）。
     pinned_by_sel = {}
     rules = []
-    for src in ("render_grid.py", "render_random.py", "render_landing.py", "lightbox.py"):
+    for src in ("render_grid.py", "render_random.py", "render_landing.py", "lightbox.py", "ui_common.py"):
         text = (ROOT / "scripts" / src).read_text(encoding="utf-8")
         for m in re.finditer(r"^([ \t]*)([#.][^{\n]*?)\s*\{([^}]*)\}", text, re.M):
             sel, body = m.group(2).strip(), m.group(3)
@@ -756,6 +758,7 @@ def test_safe_area_not_dropped_by_overrides():
                 pinned_by_sel[sel].add(axis)
 
     problems, checked = [], 0
+    checked_selectors = set()
     # .stage / .wrap 是【贴屏的块级容器】—— 它们从不声明 top/bottom/left/right
     # （不靠定位、靠 padding 让位），累计钉边是空集。上面那套"钉在哪条边"的判据
     # 对它们不适用，但它们同样要给四个方向让位（.wrap 撑满宽度、.stage 是整屏）。
@@ -772,10 +775,9 @@ def test_safe_area_not_dropped_by_overrides():
             if axis in d and want in d[axis]:
                 by_pos.add((sel, axis))
 
-    FLOW_EDGE = {".stage", ".wrap"}
+    FLOW_EDGE = {".home-main", ".wrap"}
     for src, line_no, sel, d in rules:
-        axes_here = ({"left", "right"} if sel == ".wrap" else
-                     {"top", "bottom", "left", "right"} if sel in FLOW_EDGE else
+        axes_here = ({"left", "right"} if sel in FLOW_EDGE else
                      pinned_by_sel.get(sel))
         if not axes_here:
             continue
@@ -786,6 +788,7 @@ def test_safe_area_not_dropped_by_overrides():
                                     "top", "bottom", "left", "right", "inset")):
             continue
         checked += 1
+        checked_selectors.add(sel)
         for axis, want, providers in AXES:
             if axis not in axes_here:
                 continue
@@ -835,11 +838,9 @@ def test_safe_area_not_dropped_by_overrides():
                 problems.append(f"{src}:{line_no} {sel} 钉在 {axis} 边，"
                                 f"这里声明了 {declares} 却没带 {want}")
 
-    # 防空转：判据挂了会 0 命中然后"通过"
-    # 防空转：判据挂了会 0 命中然后"通过"。当前应有 12 条（含媒体查询里的覆盖），
-    # 留余量到 10 —— 低于这个说明清单被改空或正则失效。
-    assert checked >= 10, (f"只扫到 {checked} 条贴屏边规则，判据可能已失效 —— 期望 "
-                           f".nav/#np/#basket/#lb/.foot/.stage/.wrap 及其媒体查询覆盖共 12 条")
+    # Guard the actual components, not the number of CSS overrides. The old
+    # fixed-height landing .stage/.foot no longer exist after the scrollable redesign.
+    assert EDGE_SELECTORS <= checked_selectors, f"安全区检查漏掉组件: {EDGE_SELECTORS - checked_selectors}"
     assert not problems, ("这些贴屏边规则在某个方向上没有安全区让位：\n  "
                           + "\n  ".join(problems))
 

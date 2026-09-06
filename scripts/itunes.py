@@ -4,8 +4,8 @@
   exact_match / acceptable_match / version_mismatch / artist_mismatch
   （没有 album_mismatch —— 本模块不做专辑匹配，见 lookup docstring）
   / not_found / transient_error
-- 精确匹配：艺人规范化后一致（exact=完全相等 / acceptable=互为子串），主标题（去版本括号）一致，
-  且结果不得含候选未声明的版本词（Remix/Live/Remaster/Edit/... → version_mismatch）。
+- 精确匹配：艺人规范化后一致（exact=完全相等 / acceptable=有效子串），主标题一致，
+  且声明的版本类型双向一致（Remix/Live/Remaster/Edit/... → version_mismatch）。
 - 搜索顺序：artist+title 美区 → 日区；再尝试"只搜曲名"但仅能升级为 exact（严格艺人匹配），不降级。
 - 瞬时错误（超时/DNS/429/5xx/JSON 异常）：status=transient_error, retryable=True，**不进长期缓存**，
   指数退避 + Retry-After + jitter + 最大重试；调用方应据此整批 fail-closed，而非当成"假曲"。
@@ -39,6 +39,11 @@ _MAX_RETRIES = 3
 _last_req = [0.0]
 
 _PARENS = re.compile(r"[\(\（\[【].*?[\)\）\]】]")
+_VERSION_PATTERNS = {
+    word: re.compile(r"(?<!\w)" + r"[\s\-\u2010-\u2015]+".join(
+        re.escape(part) for part in word.split()) + r"(?!\w)", re.IGNORECASE)
+    for word in VERSION_WORDS
+}
 
 
 class _Transient(Exception):
@@ -49,21 +54,55 @@ def _strip_parens(s: str) -> str:
     return _PARENS.sub(" ", s or "")
 
 
-def _key(s: str) -> str:
-    """归一化成可比较的键：先剥重音，再只留数字/拉丁小写/中日文字。
+def _key(s: str, *, strip_parentheses: bool = True) -> str:
+    """保留各语言文字；拉丁字母容忍重音差异，标点与大小写不参与比较。
 
-    必须先 NFKD 剥重音再过滤——否则带重音的字符会被整个删掉：
-    「María」→ 'mara'（í 消失）而 iTunes 返回的「Maria」→ 'maria'，两边永远比不上。
-    这正是 Khruangbin - María También 这类曲子一直 not_found、页面只显示首字母的原因。
+    旧白名单把韩文整段删成空串，不同韩文曲名因此相等；韩文艺人又会
+    以空串命中任何拉丁艺人的子串规则。NFKD 之后重新组合 Hangul，
+    只剥拉丁重音，保留日文浊点及其它语言有辨义作用的附加符号。
     """
-    t = unicodedata.normalize("NFKD", _strip_parens(s or ""))
-    t = "".join(c for c in t if not unicodedata.combining(c))   # 去掉重音记号
-    return re.sub(r"[^0-9a-z一-鿿぀-ヿ]+", "", t.lower())
+    text = _strip_parens(s or "") if strip_parentheses else (s or "")
+    text = unicodedata.normalize("NFKD", text).casefold()
+    chars = []
+    latin_base = False
+    for char in text:
+        category = unicodedata.category(char)
+        if category.startswith("M"):
+            if not latin_base:
+                chars.append(char)
+            continue
+        latin_base = unicodedata.name(char, "").startswith("LATIN ")
+        if category[0] in {"L", "N"}:
+            chars.append(char)
+    key = unicodedata.normalize("NFC", "".join(chars))
+    return key if any(c.isalnum() for c in key) else ""
 
 
 def _versions(s: str) -> set[str]:
-    raw = (s or "").lower()
-    return {w for w in VERSION_WORDS if w in raw}
+    # Whole tokens: Deliver is not Live, Meditation is not Edit, Mixed is not Mix.
+    # Hyphenated re-recorded is the same marker as the existing "re recorded".
+    raw = unicodedata.normalize("NFKC", s or "")
+    return {word for word, pattern in _VERSION_PATTERNS.items() if pattern.search(raw)}
+
+
+def _version_kinds(s: str) -> set[str]:
+    """同种版本的常见词形等价；radio edit / single edit 仍保留区别。"""
+    aliases = {"remixed": "remix", "remastered": "remaster", "re recorded": "rerecorded"}
+    kinds = {aliases.get(word, word) for word in _versions(s)}
+    if len(kinds) > 1:
+        kinds.discard("version")  # Acoustic 与 Acoustic Version 是同一种声明。
+    return kinds
+
+
+def _title_key(s: str) -> str:
+    # iTunes also writes version suffixes as "Title - Live" or "Title – Radio Edit".
+    # Only remove a separated suffix that actually declares a version marker.
+    title = _PARENS.sub(lambda match: " " if _versions(match.group()) else match.group(), s or "")
+    pieces = re.split(r"\s+[-–—]\s+", title, maxsplit=1)
+    if len(pieces) == 2 and _versions(pieces[1]):
+        title = pieces[0]
+    # Non-version parentheses are real title words: "Song (For You)" is not "Song".
+    return _key(title, strip_parentheses=False)
 
 
 # ── 纯逻辑：分类（可离线单测）────────────────────────────────────────────────
@@ -84,21 +123,24 @@ def _artist_keys(s: str) -> set[str]:
 
 def classify(cand_artist: str, cand_title: str, results: list[dict]) -> tuple[str, dict | None]:
     # ca 已被 ca_set 取代（括号内外都算命中），这里只留 ct
-    ct = _key(cand_title)
+    ct = _title_key(cand_title)
     ca_set = _artist_keys(cand_artist)
-    cver = _versions(cand_title)
+    if not ct or not ca_set:
+        return ("not_found", None)
+    cver = _version_kinds(cand_title)
     saw_ver = saw_artist = None
     for r in results:
         ra = _key(r.get("artistName", ""))
         tn = r.get("trackName", "")
-        if _key(tn) != ct:            # 主标题（去版本括号）必须一致
+        if _title_key(tn) != ct:      # 主标题（去版本括号/后缀）必须一致
             continue
-        extra = _versions(tn) - cver  # 结果多出的版本词
+        version_mismatch = _version_kinds(tn) != cver
         artist_exact = ra in ca_set
-        artist_sub = any(len(k) >= 4 and (k in ra or ra in k) for k in ca_set)
-        if (artist_exact or artist_sub) and not extra:
+        artist_sub = len(ra) >= 4 and any(
+            len(k) >= 4 and (k in ra or ra in k) for k in ca_set)
+        if (artist_exact or artist_sub) and not version_mismatch:
             return ("exact_match" if artist_exact else "acceptable_match", r)
-        if (artist_exact or artist_sub) and extra:
+        if (artist_exact or artist_sub) and version_mismatch:
             saw_ver = saw_ver or r
         else:
             saw_artist = saw_artist or r
@@ -191,21 +233,28 @@ def _mk(status: str, best: dict | None, country: str, error: str = "", retryable
 def lookup(artist: str, title: str, cache: dict) -> dict:
     """按 artist + title 查 iTunes。返回 status 枚举之一（见模块 docstring）。
 
-    ⚠️ **album 参数当前【不参与匹配】，纯占位。** 2026-08-04 审计确认：
-    它从声明起就没被读过，`album_mismatch` 因此从未被任何代码产生
-    （merge_candidates 的计数器恒为 0）。merge_candidates:170 在传这个参数，
-    调用方误以为有专辑级校验 —— 所以这里必须写明，而不是留个沉默的死参数。
-
-    没有直接实现的原因：缓存 1106 条里【一条都没存 collection 字段】，
-    要做专辑匹配得先改 CACHE_SCHEMA 再全量重查，每条限流 3s ≈ 55 分钟，
-    而且会动到现役的 99% 命中数据。收益（专辑级精度）远小于风险，暂不做。
-    真要做的话：_mk() 里补 collection → bump CACHE_SCHEMA → 重查 → 再在
-    classify 里加判据，四步一起，缺一步都会静默失效。
+    不做专辑匹配。缓存保留现有键与 schema，避免让全部媒体重新联网；
+    但必须用缓存中的实际曲名/艺人重新检查，不能让括号被省略的缓存键
+    把原版与 Live 等版本混为一条。失败缓存只在同一原始查询下复用。
     """
+    if not _artist_keys(artist) or not _title_key(title):
+        return _mk("not_found", None, "US")
     key = _key(artist) + "|" + _key(title)
     ent = cache.get(key)
     if ent and ent.get("schema") == CACHE_SCHEMA and ent.get("status") != "transient_error":
-        return ent
+        if ent.get("matched_artist") and ent.get("matched_title"):
+            status, _ = classify(artist, title, [{
+                "artistName": ent["matched_artist"], "trackName": ent["matched_title"]}])
+            if status in ACCEPT:
+                return dict(ent, status=status)
+        if (ent.get("status") not in ACCEPT and ent.get("query_artist") == artist
+                and ent.get("query_title") == title):
+            return ent
+
+    def remember(result: dict) -> dict:
+        result.update(query_artist=artist, query_title=title)
+        cache[key] = result
+        return result
 
     best_nonexact = None  # (status, dict, country)
     try:
@@ -214,24 +263,21 @@ def lookup(artist: str, title: str, cache: dict) -> dict:
             status, best = classify(artist, title, results)
             if status in ACCEPT:
                 res = _mk(status, best, country)
-                cache[key] = res
-                return res
+                return remember(res)
             if best_nonexact is None and status != "not_found":
                 best_nonexact = (status, best, country)
         # 最后手段：只搜曲名，但仅在能严格 exact 时采用（不降级）
         results = _query(title, "US")
         status, best = classify(artist, title, results)
-        if status in ACCEPT:
+        if status == "exact_match":
             res = _mk(status, best, "US")
-            cache[key] = res
-            return res
+            return remember(res)
     except _Transient as e:
         return _mk("transient_error", None, "US", error=str(e), retryable=True)  # 不写缓存
 
     status, best, country = best_nonexact if best_nonexact else ("not_found", None, "US")
     res = _mk(status, best, country)
-    cache[key] = res
-    return res
+    return remember(res)
 
 
 if __name__ == "__main__":

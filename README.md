@@ -1,7 +1,7 @@
 # 每日音乐日报 · Daily Music Report
 
-每天早8:00（北京时间）自动更新的音乐日报：按口味profile精选 **30首**，
-工业 / 工程风格网页（专辑封面 + 艺人/专辑介绍 + 推荐理由 + 场景 + 官方播放页/网易云外链），
+每天北京时间约 08:11 自动更新的音乐日报：按口味 profile 精选 **30首**，
+暖纸色音乐日刊（专辑封面 + 艺人/专辑介绍 + 推荐理由 + 场景 + 官方播放页/网易云外链），
 并附一份可一键复制的网易云导入文本。发布到GitHub Pages，可选发一条微信推送提醒。
 
 ## 怎么运作（发现与投递解耦）
@@ -45,6 +45,7 @@ site/     ← GitHub Pages 发布目录
 
 ```bash
 python3 scripts/build_daily.py --theme grid --date 2026-07-28   # 生成 site/ 全套页面
+python3 scripts/build_daily.py --render-only                  # 只重建 UI，保留选曲/推送状态，离线可用
 python3 -m http.server -d site 8899                           # 浏览器开 localhost:8899
 # 可选：--push 发微信；--no-itunes 离线跳过封面查询
 ```
@@ -64,7 +65,15 @@ python3 -m http.server -d site 8899                           # 浏览器开 loc
 - 运维手册（节奏 / 合并 / 回滚 / canary / 库存指标，事实源）：见 [`docs/operations.md`](docs/operations.md)。
 - 用ChatGPT补库：见 [`GPT_WEEKLY.md`](GPT_WEEKLY.md)（曲目 + 艺人简介一次交付，含可直接粘给 GPT 的指令）。
 - 授权：**代码MIT**（`LICENSE`）；**口味画像 / 文案 / 曲库等内容保留所有权利**（`CONTENT_LICENSE.md`）。
-- 页面不内嵌音频，仅官方播放页外链；封面来自iTunes/Apple公开接口，无官方合作关系。
+- 页面支持最多 30 秒官方试听片段；完整歌曲使用音乐平台外链。封面与试听来自 iTunes/Apple 公开接口，无官方合作关系。
+
+## 浏览与新发现
+
+- 日报支持歌名、艺人、专辑与气质搜索、流派筛选、跨期收藏及歌单导出。
+- 随机页支持搜索直选、筛选与临时篮子；临时篮子与长期收藏分别保存。
+- `site/discover.html` 展示 `data/discovery.json` 中 **1000 首已核实元数据的新发现**，可以搜索、试听、收藏；它们尚未完成逐首听感与乐评审核，不进入每日精选池 `data/pool.json`。
+- 本次数据来源、去重和媒体可获取性证据见 `reports/catalog-expansion-2026-09-07/`。Apple 上架版年份可能不同于初版发行年份。
+- 页面改动与验证说明见 `docs/ui-refresh-2026-09-07.md`。
 
 ## 补充候选池（保持新鲜）
 

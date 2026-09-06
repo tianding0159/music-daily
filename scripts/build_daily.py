@@ -143,7 +143,8 @@ def _artist_ctx(pool: list[dict]) -> dict[str, dict]:
         out[a] = {
             "bio": bios.get(a, ""),
             "years": (yrs[0] if yrs[0] == yrs[-1] else f"{yrs[0]}–{yrs[-1]}") if yrs else "",
-            "inpool": [t.get("title", "") for t in ts][:8],
+            "inpool": [{"id": t.get("id", ""), "title": t.get("title", "")}
+                       for t in ts if t.get("id")][:8],
         }
     return out
 
@@ -155,6 +156,9 @@ def _rebuild_site() -> None:
         for f in arch.glob("*.html"):
             f.unlink()
     arch.mkdir(parents=True, exist_ok=True)
+    import render_discover
+    discovery = _load_json(DATA / "discovery.json", [])
+    (SITE / "discover.html").write_text(render_discover.build_html(discovery), encoding="utf-8")
     snaps = sorted((json.loads(p.read_text(encoding="utf-8")) for p in ISSUES.glob("*.json")),
                    key=lambda s: s["date"])
     # 浮层的艺人上下文按全池算（不只当期），这样「本站收录」能列出该艺人的全部曲目
@@ -254,6 +258,8 @@ def main() -> None:
     ap.add_argument("--theme", choices=list(RENDERERS), default="grid")
     ap.add_argument("--force-rebuild", action="store_true", help="重生成当期快照（否则当天幂等复用）")
     ap.add_argument("--no-itunes", action="store_true")
+    ap.add_argument("--render-only", action="store_true",
+                    help="只从现有快照和媒体缓存重建页面，不选新歌、不改数据、不联网")
     ap.add_argument("--push", action="store_true", help="本地顺带发微信（CI 用 notify_after_deploy）")
     ap.add_argument("--url", default="")
     args = ap.parse_args()
@@ -262,6 +268,14 @@ def main() -> None:
     history = _load_json(DATA / "history.json", {})
     if not pool:
         raise SystemExit("pool.json 为空，先建候选池")
+
+    if args.render_only:
+        if args.push or args.force_rebuild:
+            raise SystemExit("--render-only 不能与 --push 或 --force-rebuild 一起使用")
+        _rebuild_site()
+        total = _build_random(pool, use_itunes=False)
+        print(f"已从现有快照重建页面，随机曲库 {total} 首；数据与推送状态未改动")
+        return
 
     _backfill_snapshots(history, pool, skip_date=args.date, use_itunes=not args.no_itunes)
     snap_path = ISSUES / f"{args.date}.json"

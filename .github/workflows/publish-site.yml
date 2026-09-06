@@ -20,6 +20,10 @@ on:
       - "scripts/render_*.py"
       - "scripts/lightbox.py"
       - "scripts/build_daily.py"
+      - "scripts/ui_common.py"
+      - "scripts/*_ui.js"
+      - "scripts/*_ui.css"
+      - "data/discovery.json"
   workflow_dispatch:
 
 permissions:
