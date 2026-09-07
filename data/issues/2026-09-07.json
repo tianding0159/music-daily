@@ -1,0 +1,1537 @@
+{
+  "issue_no": 42,
+  "date": "2026-09-07",
+  "generated_at": "2026-09-07T00:00:39+00:00",
+  "theme": "grid",
+  "playlist_title": "木头、旧磁带和一点灰（09.07）",
+  "netease_text": "木头、旧磁带和一点灰（09.07）\nLovers' Carvings - Bibio\nSummer Soul - cero\nSpace Song - Beach House\n(No One Knows Me) Like the Piano - Sampha\nAngel Echoes - Four Tet\nGreen Grass of Tunnel - múm\nTo Build a Home - The Cinematic Orchestra\nNumb - Men I Trust\nRoygbiv - Boards of Canada\nThank You - The Pale Fountains\nSoul Sista - Bilal\nHome - Hania Rani\nYesterday Is Gone - Dana Gavanski\nElastic Girl - Kahimi Karie\nHighway Star, Speed Star - Cymbals\nGloria - Mineral\nHeld - Malibu\nThe Mighty Owl - Louis Philippe\nInfinite Delight - Arushi Jain\nHe is On His Way Home, We Don't Live Together - Anastasia Coope\nPink Sky - Loma\nAtlas of Green - Dialect\nlust - Rei Harakami\nForest Run - Joseph Shabason\nAdorned - Nailah Hunter\nEdge of the Ocean - Ivy\nBreakfast - Fana Hues\nBoost - Astrid Sonne\nClues Not to Read - Fievel Is Glauque\nWinona - Drop Nineteens",
+  "tracks": [
+    {
+      "id": "sha1:eaebc89758487a7d",
+      "title": "Lovers' Carvings",
+      "artist": "Bibio",
+      "year": "2009",
+      "album": "Ambivalence Avenue",
+      "genres": [
+        "folktronica",
+        "organic electronic",
+        "indietronica"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "woody",
+        "grainy",
+        "summer dusk"
+      ],
+      "production_tags": [
+        "tape saturation",
+        "cassette",
+        "granular",
+        "analog warmth"
+      ],
+      "instrumentation": [
+        "fingerstyle guitar",
+        "老式合成器"
+      ],
+      "vocal_style": "薄雾人声",
+      "bpm_band": "90-100",
+      "has_melody": true,
+      "scene": "柏油路烫手，推着自行车走完最后一段，蝉声盖过耳机。",
+      "artist_oneliner": "英国的 Stephen Wilkinson，指弹先录进磁带，再任它受潮起毛。",
+      "why": "磁带的嘶声裹着一段指弹循环，合成器像从旧录音深处透出来。听久了像一卷被反复播到磨损的家庭录像，画面都发白了。",
+      "fit_score": 97.0,
+      "source": "Ambivalence Avenue 长青 / folktronica 标杆",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Bibio",
+      "title_display": "Lovers' Carvings",
+      "artist_key": "bibio",
+      "title_key": "loverscarvings",
+      "version": "",
+      "album_key": "ambivalenceavenue",
+      "legacy_ids": [
+        "bibio-lovers-carvings"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ac/de/05/acde05a3-0dab-61be-dd3a-ef92854e90fc/mzi.cxkbiari.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/75/65/b6/7565b6c5-f848-4690-d4e1-f4b4e893efc5/mzaf_15571987273744335747.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/lovers-carvings/318815067?i=318815214&uo=4"
+    },
+    {
+      "id": "sha1:a350201f7ceb2b34",
+      "title": "Summer Soul",
+      "artist": "cero",
+      "year": "2015",
+      "album": "Obscure Ride",
+      "genres": [
+        "japanese indie pop",
+        "neo soul",
+        "city pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "summer dusk",
+        "late night",
+        "unhurried"
+      ],
+      "production_tags": [
+        "warm bass",
+        "soft compression",
+        "airy",
+        "clean"
+      ],
+      "instrumentation": [
+        "jazz bass",
+        "electric piano",
+        "clean guitar"
+      ],
+      "vocal_style": "轻柔和声",
+      "bpm_band": "90-100",
+      "has_melody": true,
+      "scene": "下班走到便利店门口，天还是橙蓝的，站着没进去。",
+      "artist_oneliner": "东京三人组 cero，日语抒情压在 J Dilla 那派拖半拍的鼓上。",
+      "why": "松得像刚睡醒：贝斯永远慢鼓半步，谁也不催谁。副歌哼过一遍就记住了，然后就这么走完，一次劲都没使。",
+      "fit_score": 95.0,
+      "source": "Obscure Ride 乐评公认 / 日系 neo-soul 标杆",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "cero",
+      "title_display": "Summer Soul",
+      "artist_key": "cero",
+      "title_key": "summersoul",
+      "version": "",
+      "album_key": "obscureride",
+      "legacy_ids": [
+        "cero-summer-soul"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8c/45/cd/8c45cd2f-1145-0746-4fd0-e526bf3c73a9/4538182529881.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2d/0a/6c/2d0a6c2e-cb87-119e-495f-0e4a8564e72d/mzaf_8818393445654743297.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/summer-soul/994807575?i=994807584&uo=4"
+    },
+    {
+      "id": "sha1:727c47f4af21858d",
+      "title": "Space Song",
+      "artist": "Beach House",
+      "year": "2015",
+      "album": "Depression Cherry",
+      "genres": [
+        "dream pop",
+        "ambient pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "late night",
+        "tender",
+        "nostalgic"
+      ],
+      "production_tags": [
+        "reverb space",
+        "analog warmth",
+        "wide stereo"
+      ],
+      "instrumentation": [
+        "合成器 pad",
+        "clean guitar",
+        "drum machine"
+      ],
+      "vocal_style": "梦呓女声",
+      "bpm_band": "100-110",
+      "has_melody": true,
+      "scene": "凌晨的环城路空着，油门没松，也说不上要去哪。",
+      "artist_oneliner": "Victoria Legrand 的中音区，合成器越铺越低、人却舍不得醒。",
+      "why": "旋律一路往下走，像慢慢坠，人声浮在上头失重。副歌那句「fall back into place」一出来，就再也从脑子里赶不走。",
+      "fit_score": 93.0,
+      "source": "Depression Cherry / 当代 dream pop 经典",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Beach House",
+      "title_display": "Space Song",
+      "artist_key": "beachhouse",
+      "title_key": "spacesong",
+      "version": "",
+      "album_key": "depressioncherry",
+      "legacy_ids": [
+        "beach-house-space-song"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/09/e0/d5/09e0d559-0682-f0f0-5e0c-3cd11e3114fd/beachhouse_depressioncherry_2400_300.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/4b/1d/64/4b1d6431-295b-2683-d180-cf3cba4eb943/mzaf_10508096473229016789.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/space-song/997913392?i=997914096&uo=4"
+    },
+    {
+      "id": "sha1:51b8bbeab6c95519",
+      "title": "(No One Knows Me) Like the Piano",
+      "artist": "Sampha",
+      "year": "2017",
+      "album": "Process",
+      "genres": [
+        "neo soul",
+        "quiet alternative r&b",
+        "chamber pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "tender",
+        "human",
+        "rainy"
+      ],
+      "production_tags": [
+        "felt piano",
+        "soft",
+        "reverb space",
+        "analog warmth"
+      ],
+      "instrumentation": [
+        "felt piano"
+      ],
+      "vocal_style": "真挚男声",
+      "bpm_band": "70-80",
+      "has_melody": true,
+      "scene": "推开门屋里没人，钥匙扔在鞋柜上，站着没动。",
+      "artist_oneliner": "南伦敦的 Sampha，一架钢琴加一把嗓子，房间自己就静了。",
+      "why": "写的是他母亲家那架陪了半生的钢琴，毡音几乎素颜，没做修饰。人声贴着琴键起伏，力气省到不能再省，眼泪先落下来了。",
+      "fit_score": 92.0,
+      "source": "Process / Mercury 奖",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Sampha",
+      "title_display": "(No One Knows Me) Like the Piano",
+      "artist_key": "sampha",
+      "title_key": "likethepiano",
+      "version": "",
+      "album_key": "process",
+      "legacy_ids": [
+        "sampha-no-one-knows-me-like-the-piano"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/95/8d/ed/958ded66-ec58-2347-caa3-dfa2c0e417e1/889030015860.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/a0/3e/7e/a03e7eb1-d40c-dc0d-04b0-6209837f8e7d/mzaf_9095946026493753904.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/no-one-knows-me-like-the-piano/1138217713?i=1138217731&uo=4"
+    },
+    {
+      "id": "sha1:5fbab066eb524da2",
+      "title": "Angel Echoes",
+      "artist": "Four Tet",
+      "year": "2010",
+      "album": "There Is Love in You",
+      "genres": [
+        "folktronica",
+        "idm",
+        "downtempo"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "airy",
+        "grainy",
+        "tender"
+      ],
+      "production_tags": [
+        "granular",
+        "chopped vocal",
+        "reverb space",
+        "warm"
+      ],
+      "instrumentation": [
+        "切片人声",
+        "合成器",
+        "打击乐"
+      ],
+      "vocal_style": "切片女声",
+      "bpm_band": "110-120",
+      "has_melody": true,
+      "scene": "闹钟响过第一轮，眼睛半睁，手还搭在被子外面。",
+      "artist_oneliner": "Kieran Hebden，人声剁成碎屑再拼出体温的伦敦电子乐匠。",
+      "why": "一句女声被切成无数小片，在拍子里翻来覆去地重排。碎成这样，底下的旋律还是暖的；旋律型 IDM 最好推开的一扇门。",
+      "fit_score": 92.0,
+      "source": "There Is Love in You 名盘",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Four Tet",
+      "title_display": "Angel Echoes",
+      "artist_key": "fourtet",
+      "title_key": "angelechoes",
+      "version": "",
+      "album_key": "thereisloveinyou",
+      "legacy_ids": [
+        "four-tet-angel-echoes"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/b5/09/30/b50930fc-c3e6-93ea-d146-de291b3e101a/3663729136985_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/0c/cb/7b/0ccb7b14-c7f6-51fe-764f-4b83f3953ca6/mzaf_13740168921318198087.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/angel-echoes/1537809701?i=1537809712&uo=4"
+    },
+    {
+      "id": "sha1:dc59b4671c6a6cc2",
+      "title": "Green Grass of Tunnel",
+      "artist": "múm",
+      "year": "2002",
+      "album": "Finally We Are No One",
+      "genres": [
+        "folktronica",
+        "indietronica",
+        "ambient pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "grainy",
+        "airy",
+        "nostalgic"
+      ],
+      "production_tags": [
+        "glitch",
+        "field recording",
+        "analog warmth",
+        "granular"
+      ],
+      "instrumentation": [
+        "melodica",
+        "手风琴",
+        "glitch 打击"
+      ],
+      "vocal_style": "童声般 breathy 女声",
+      "bpm_band": "90-100",
+      "has_melody": true,
+      "scene": "起雾的清早还没开灯，窗玻璃上蒙着一层白。",
+      "artist_oneliner": "冰岛乐队 múm，手风琴、气声童音和一地电子碎屑住在一起。",
+      "why": "手风琴被一层细碎的电子噼啪声托着往前挪。双胞胎姐妹的气声细得像小孩念咒，脆弱外面裹着暖，像旧毛线织出来的东西。",
+      "fit_score": 91.0,
+      "source": "Finally We Are No One 名盘",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "múm",
+      "title_display": "Green Grass of Tunnel",
+      "artist_key": "mm",
+      "title_key": "greengrassoftunnel",
+      "version": "",
+      "album_key": "finallywearenoone",
+      "legacy_ids": [
+        "mum-green-grass-of-tunnel"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/e6/53/20/e6532049-1c3f-b8d3-bbc4-7567c27fca99/5016958093228.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/5f/bb/6b/5fbb6b82-83bd-c593-4e44-d145010d2614/mzaf_11481680599470044025.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/green-grass-of-tunnel/1726650241?i=1726650250&uo=4"
+    },
+    {
+      "id": "sha1:b4ee2b9927762b4a",
+      "title": "To Build a Home",
+      "artist": "The Cinematic Orchestra",
+      "year": "2007",
+      "album": "Ma Fleur",
+      "genres": [
+        "jazz pop",
+        "chamber pop",
+        "downtempo"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "rainy",
+        "tender",
+        "human"
+      ],
+      "production_tags": [
+        "felt piano",
+        "lush strings",
+        "reverb space",
+        "analog warmth"
+      ],
+      "instrumentation": [
+        "felt piano",
+        "弦乐"
+      ],
+      "vocal_style": "深情男声",
+      "bpm_band": "70-80",
+      "has_melody": true,
+      "scene": "窝进旧沙发，想起一个早就不联系的人。",
+      "artist_oneliner": "伦敦的 nu-jazz 团体，Ninja Tune 旗下最会用弦乐压人的一支。",
+      "why": "毡音钢琴每个音都是被毛毡闷住的钝响。弦乐从底下一寸寸顶上来，一路不喊，压到最后一句才让眼眶发热。",
+      "fit_score": 91.0,
+      "source": "Ma Fleur / 长青金曲",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "The Cinematic Orchestra",
+      "title_display": "To Build a Home",
+      "artist_key": "thecinematicorchestra",
+      "title_key": "tobuildahome",
+      "version": "",
+      "album_key": "mafleur",
+      "legacy_ids": [
+        "cinematic-orchestra-to-build-a-home"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/de/73/f2/de73f26c-42b9-168c-e003-592f44b7857e/801390015120.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/96/8c/01/968c0166-cbb4-aa20-b249-93766e59c824/mzaf_330532835091751865.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/to-build-a-home-feat-patrick-watson/255464394?i=255470095&uo=4"
+    },
+    {
+      "id": "sha1:5023dd6dc0b71eca",
+      "title": "Numb",
+      "artist": "Men I Trust",
+      "year": "2019",
+      "album": "Oncle Jazz",
+      "genres": [
+        "dream pop",
+        "bedroom pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "unhurried",
+        "tender",
+        "late night"
+      ],
+      "production_tags": [
+        "soft compression",
+        "warm bass",
+        "soft"
+      ],
+      "instrumentation": [
+        "圆润 bass",
+        "clean guitar"
+      ],
+      "vocal_style": "breathy 女声",
+      "bpm_band": "95-105",
+      "has_melody": true,
+      "scene": "吃完饭下楼倒垃圾，顺着河堤多走了两站路。",
+      "artist_oneliner": "同一支魁北克乐队的另一档速度，谁也不抢拍，绕着圈往前挪。",
+      "why": "第一遍听会觉得平平无奇，第三遍就走不掉了。律动松而不垮，旋律绵绵地绕，几件乐器互相让着位置，谁都不抢。",
+      "fit_score": 90.0,
+      "source": "Oncle Jazz 精选",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Men I Trust",
+      "title_display": "Numb",
+      "artist_key": "menitrust",
+      "title_key": "numb",
+      "version": "",
+      "album_key": "onclejazz",
+      "legacy_ids": [
+        "men-i-trust-numb"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/5d/78/90/5d78904a-661a-8896-975c-33b506b5b4ca/artwork.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b3/a8/bd/b3a8bda8-4aed-a637-b317-ed4da1b6097c/mzaf_2299091951569937875.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/numb/1458981357?i=1458981361&uo=4"
+    },
+    {
+      "id": "sha1:89514f6adba46d13",
+      "title": "Roygbiv",
+      "artist": "Boards of Canada",
+      "year": "1998",
+      "album": "Music Has the Right to Children",
+      "genres": [
+        "idm",
+        "downtempo",
+        "hypnagogic pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "nostalgic",
+        "grainy",
+        "unhurried"
+      ],
+      "production_tags": [
+        "tape saturation",
+        "analog warmth",
+        "vinyl crackle",
+        "wobble"
+      ],
+      "instrumentation": [
+        "模拟合成器",
+        "hip-hop 底鼓"
+      ],
+      "vocal_style": "无",
+      "bpm_band": "90-100",
+      "has_melody": true,
+      "scene": "下午放家庭录像带，画面偏色，声音闷在电视里。",
+      "artist_oneliner": "苏格兰兄弟档，模拟合成器故意走音，像晒褪色的旧胶片。",
+      "why": "合成器的音准像被太阳晒化，微微往两边飘，底下垫着黑胶的噼啪。不到一分钟的旋律，暖，同时隐隐发着旧。",
+      "fit_score": 90.0,
+      "source": "MHTRTC 电子经典",
+      "source_url": "",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Boards of Canada",
+      "title_display": "Roygbiv",
+      "artist_key": "boardsofcanada",
+      "title_key": "roygbiv",
+      "version": "",
+      "album_key": "musichastherighttochildren",
+      "legacy_ids": [
+        "boards-of-canada-roygbiv"
+      ],
+      "familiarity": "possibly-known",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/b5/4c/c2/b54cc20d-03f5-f2c4-4a0d-9b51ad65af89/dj.txuslqgv.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c5/fe/9b/c5fe9bbd-3511-6797-560c-bd77759d63d0/mzaf_7238585652863500053.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/roygbiv/281116024?i=281116081&uo=4"
+    },
+    {
+      "id": "apple:134139823",
+      "title": "Thank You",
+      "artist": "The Pale Fountains",
+      "artist_display": "The Pale Fountains",
+      "title_display": "Thank You",
+      "artist_key": "thepalefountains",
+      "title_key": "thankyou",
+      "version": "",
+      "album_key": "thankyou",
+      "apple_track_id": "134139823",
+      "apple_collection_id": "134138606",
+      "legacy_ids": [],
+      "year": "1995",
+      "album": "Thank You",
+      "genres": [
+        "jangle pop",
+        "sophisti-pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "hopeful",
+        "melancholy"
+      ],
+      "production_tags": [
+        "clean guitar",
+        "brass arrangement"
+      ],
+      "instrumentation": [
+        "electric guitar",
+        "trumpet",
+        "bass"
+      ],
+      "vocal_style": "轻盈男声，略带鼻音",
+      "bpm_band": "110–130",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "初夏骑车下坡，风从袖口灌进来，手不敢捏刹车。",
+      "artist_oneliner": "利物浦少年帮，Arthur Lee 那套铜管和波萨诺瓦一起塞进英伦吉他流行。",
+      "why": "小号从吉他缝里探出头，像有人推开一扇临街的窗。主唱把失恋唱得飘飘的，副歌多铺一层弦乐，甜里渗出没说出口的委屈。",
+      "fit_score": 86,
+      "source": "Bandcamp Daily",
+      "source_url": "https://daily.bandcamp.com/lists/pale-fountains",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/f2/d3/b8/mzi.kpoaqdjs.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/b8/f4/fc/b8f4fc55-6a40-3b0e-96a8-56fad8261b47/mzaf_7837413438187046961.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/thank-you/134138606?i=134139823&uo=4"
+    },
+    {
+      "id": "apple:1443567494",
+      "title": "Soul Sista",
+      "artist": "Bilal",
+      "artist_display": "Bilal",
+      "title_display": "Soul Sista",
+      "artist_key": "bilal",
+      "title_key": "soulsista",
+      "version": "",
+      "album_key": "1stbornsecond",
+      "apple_track_id": "1443567494",
+      "apple_collection_id": "1443567239",
+      "legacy_ids": [],
+      "year": "2001",
+      "album": "1st Born Second",
+      "genres": [
+        "neo-soul",
+        "quiet alternative r&b"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "sweet",
+        "longing"
+      ],
+      "production_tags": [
+        "J Dilla 味松鼓",
+        "即兴人声"
+      ],
+      "instrumentation": [
+        "鼓机",
+        "电钢琴",
+        "电贝斯"
+      ],
+      "vocal_style": "男声假声真声切换",
+      "bpm_band": "85–100",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "停在路边等人，车窗摇下一半，胳膊搭在窗框上。",
+      "artist_oneliner": "费城人，茱莉亚学院训练过，假声能一脚踩空掉进沙哑真声。",
+      "why": "Bilal 一会儿飘上假声、一会儿摔回胸腔，像在你面前现编一段情话。J Dilla 味的鼓点在底下懒懒晃，痞和深情同时在场。",
+      "fit_score": 86,
+      "source": "Pitchfork",
+      "source_url": "https://pitchfork.com/",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/5b/09/fd/5b09fd33-6fa9-1ad9-c862-fb001cd64fd7/00606949311025.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/bd/58/1c/bd581c62-88a0-a0aa-23c4-0c252839b7de/mzaf_4982047026295820003.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/soul-sista/1443567239?i=1443567494&uo=4"
+    },
+    {
+      "id": "sha1:c80d7cf628134fdb",
+      "title": "Home",
+      "artist": "Hania Rani",
+      "year": "2020",
+      "album": "Home",
+      "genres": [
+        "modern classical",
+        "ambient electronic",
+        "folktronica"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "introspective",
+        "shimmering",
+        "longing"
+      ],
+      "production_tags": [
+        "felt piano",
+        "subtle electronics",
+        "strings",
+        "analog warmth",
+        "wide reverb",
+        "Nils-Frahm-adjacent mastering"
+      ],
+      "instrumentation": [],
+      "vocal_style": "柔和女声与无词吟唱，与钢琴交织",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "钥匙插进自己家门那一下，屋里比外面暗。",
+      "artist_oneliner": "波兰钢琴家，《Home》里第一次开口唱，连毡槌的软都留在录音里。",
+      "why": "钢琴敲下去闷闷的，连锤头上那层毡的软都听得见。电子在缝里一起一伏像呼吸，无词的轻吟绕着琴走，空间铺得很开。",
+      "fit_score": 86.0,
+      "source": "Bandcamp",
+      "source_url": "https://haniarani.bandcamp.com/album/home",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Hania Rani",
+      "title_display": "Home",
+      "artist_key": "haniarani",
+      "title_key": "home",
+      "version": "",
+      "album_key": "home",
+      "legacy_ids": [
+        "d-haniarani-home"
+      ],
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/96/b9/4b/96b94b87-a595-3580-4590-3405f9567daf/5050580731981_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/86/01/7b/86017b35-02a2-1fd1-d192-a2580103523c/mzaf_9599135740321877729.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/home/1579362259?i=1579362725&uo=4"
+    },
+    {
+      "id": "apple:1494766661",
+      "title": "Yesterday Is Gone",
+      "artist": "Dana Gavanski",
+      "artist_display": "Dana Gavanski",
+      "title_display": "Yesterday Is Gone",
+      "artist_key": "danagavanski",
+      "title_key": "yesterdayisgone",
+      "version": "",
+      "album_key": "yesterdayisgone",
+      "apple_track_id": "1494766661",
+      "apple_collection_id": "1494766481",
+      "legacy_ids": [],
+      "year": "2020",
+      "album": "Yesterday Is Gone",
+      "genres": [
+        "folk",
+        "art pop",
+        "ambient folk"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "wide open",
+        "nostalgic",
+        "hopeful"
+      ],
+      "production_tags": [
+        "soft compression",
+        "live ensemble",
+        "room recording"
+      ],
+      "instrumentation": [
+        "violin",
+        "pump organ",
+        "acoustic guitar"
+      ],
+      "vocal_style": "近距离主唱，气息与换气都保留",
+      "bpm_band": "80–110",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "空会议室只剩投影机风扇，白板笔盖还没扣紧，手机屏幕暗下去，拇指还停在侧键上。",
+      "artist_oneliner": "Dana Gavanski 沿着传统歌谣被现代录音轻轻改写的地带往里走，编曲常在小提琴和簧风琴之间做小幅位移。",
+      "why": "小提琴压住低处，簧风琴从后方慢慢铺开，边缘带着纸盒的硬度。整首歌不靠突然放大取胜，主旋律的方向是在回环里一点点显出来的。",
+      "fit_score": 86,
+      "source": "Apple Music / Bandcamp",
+      "source_url": "https://music.apple.com/us/search?term=Dana+Gavanski+Yesterday+Is+Gone",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/12/88/e0/1288e085-47a4-90cb-17a1-399cf69c840f/600197015728.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview123/v4/09/64/da/0964dae0-f1d3-9241-1240-e2c2bd788bd6/mzaf_17697930509861885605.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/yesterday-is-gone/1494766481?i=1494766661&uo=4"
+    },
+    {
+      "id": "apple:1478654732",
+      "title": "Elastic Girl",
+      "artist": "Kahimi Karie",
+      "artist_display": "Kahimi Karie",
+      "title_display": "Elastic Girl",
+      "artist_key": "kahimikarie",
+      "title_key": "elasticgirl",
+      "version": "",
+      "album_key": "myfirstkarie",
+      "apple_track_id": "1478654732",
+      "apple_collection_id": "1478654731",
+      "legacy_ids": [],
+      "year": "1995",
+      "album": "My First Karie",
+      "genres": [
+        "shibuya-kei",
+        "chamber pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "wintry",
+        "restrained"
+      ],
+      "production_tags": [
+        "鼓机",
+        "复古叠录"
+      ],
+      "instrumentation": [
+        "贝斯",
+        "鼓机",
+        "键盘"
+      ],
+      "vocal_style": "法语念白女声",
+      "bpm_band": "96–110",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "出门前对着镜子扣最后一颗扣子，扣了两遍。",
+      "artist_oneliner": "日本歌手，用法语念白当乐器，音量始终压在鼓机之下。",
+      "why": "节拍器一样的鼓机上，码着弹簧似的贝斯，弹一下缩一下。她的念白飘在最上面，冷淡得像在念别人的日记。",
+      "fit_score": 86,
+      "source": "Pitchfork",
+      "source_url": "https://pitchfork.com/reviews/albums/kahimi-karie",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/9c/3d/f6/9c3df627-1ef7-ef73-63e8-92ef18e3495d/4538182839706_cov.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/db/05/47/db0547a6-72b2-6ac0-10fe-86f50768f91a/mzaf_3559100887640458134.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/elastic-girl/1478654731?i=1478654732&uo=4"
+    },
+    {
+      "id": "sha1:82298279bbd8a2bc",
+      "title": "Highway Star, Speed Star",
+      "artist": "Cymbals",
+      "year": "2000",
+      "album": "Mr.Noone Special",
+      "genres": [
+        "shibuya-kei",
+        "guitar pop",
+        "indie pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "upbeat",
+        "late night",
+        "nostalgic"
+      ],
+      "production_tags": [
+        "jangle guitar",
+        "shuffle groove",
+        "round bass",
+        "retro pop arrangement"
+      ],
+      "instrumentation": [],
+      "vocal_style": "土岐麻子的女声，甜而不腻、带一点爵士咬字",
+      "bpm_band": "70–120",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "站在自动扶梯上没走动，脚尖已经开始跟着打拍子。",
+      "artist_oneliner": "世纪之交的渋谷系三人组，主唱土岐麻子那点爵士咬字，甜里带口音。",
+      "why": "shuffle律动一晃一晃，jangle吉他叮叮当当追在后面。土岐麻子把爵士的咬字化进甜里，Cornelius、Flipper那片林子往深走就到这。",
+      "fit_score": 86.0,
+      "source": "Wikipedia (Cymbals)",
+      "source_url": "https://ja.wikipedia.org/wiki/Cymbals",
+      "added_date": "2026-07-28",
+      "apple_track_id": "",
+      "apple_collection_id": "",
+      "artist_display": "Cymbals",
+      "title_display": "Highway Star, Speed Star",
+      "artist_key": "cymbals",
+      "title_key": "highwaystarspeedstar",
+      "version": "",
+      "album_key": "mrnoonespecial",
+      "legacy_ids": [
+        "d-cymbals-highwaystarspeed"
+      ],
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/33/90/43/339043eb-2f5f-53dc-d3e2-ce8384e8c6d9/VICL-35170.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/c6/0f/8b/c60f8b7e-4221-c602-af2e-1f61f9f63b7c/mzaf_4869558234980133959.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/highway-star-speed-star/1720674244?i=1720674245&uo=4"
+    },
+    {
+      "id": "apple:1860709952",
+      "title": "Gloria",
+      "artist": "Mineral",
+      "artist_display": "Mineral",
+      "title_display": "Gloria",
+      "artist_key": "mineral",
+      "title_key": "gloria",
+      "version": "",
+      "album_key": "endserenading",
+      "apple_track_id": "1860709952",
+      "apple_collection_id": "1860709950",
+      "legacy_ids": [],
+      "year": "1997",
+      "album": "EndSerenading",
+      "genres": [
+        "midwest emo",
+        "indie rock"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "human",
+        "grainy"
+      ],
+      "production_tags": [
+        "clean-to-dist guitar",
+        "dynamic build",
+        "warm mix"
+      ],
+      "instrumentation": [
+        "electric guitar",
+        "bass",
+        "drums"
+      ],
+      "vocal_style": "少年男声，从低语到嘶喊",
+      "bpm_band": "90–115",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "十七岁写完一封不会寄出的信，趴在桌上，台灯还亮着。",
+      "artist_oneliner": "德州 emo 元老，唱到后半段嗓子会破，他们从不重录那一遍。",
+      "why": "吉他从清亮一路推到失真，嗓子也从低语涨成嘶喊，情绪一点不藏。笨拙、用力过猛，那份不加修饰的少年心气最要命。",
+      "fit_score": 86,
+      "source": "RateYourMusic",
+      "source_url": "https://rateyourmusic.com/artist/mineral",
+      "added_date": "2026-07-29",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/25/14/7e/25147ef4-9b0c-819f-dbe7-07d1525badce/61054.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3f/87/0e/3f870e6c-99d2-b75e-e206-e8aaaef0bf74/mzaf_16252046086749318449.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/gloria/1860709950?i=1860709952&uo=4"
+    },
+    {
+      "id": "apple:1501421536",
+      "title": "Held",
+      "artist": "Malibu",
+      "artist_display": "Malibu",
+      "title_display": "Held",
+      "artist_key": "malibu",
+      "title_key": "held",
+      "version": "",
+      "album_key": "palacesofpity",
+      "apple_track_id": "1501421536",
+      "apple_collection_id": "1501421531",
+      "legacy_ids": [],
+      "year": "2017",
+      "album": "Palaces of Pity",
+      "genres": [
+        "ambient pop",
+        "minimal electronica",
+        "leftfield pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "hazy",
+        "floating",
+        "intimate"
+      ],
+      "production_tags": [
+        "deep reverb",
+        "room recording",
+        "tape hiss"
+      ],
+      "instrumentation": [
+        "synthesizer",
+        "processed guitar",
+        "drum machine"
+      ],
+      "vocal_style": "轻声主唱，少量和声叠录",
+      "bpm_band": "70–90",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "把唱针抬起又放下，窗外的招牌刚熄一盏，收据被折成四格塞进掌心。",
+      "artist_oneliner": "Malibu 不靠堆声部取胜，在 ambient pop 与私密录音的交界处更愿意让合成器的一次转弯决定整首歌。",
+      "why": "合成器的短音被剪成几段，边缘带着湿纸的摩擦，处理后的吉他负责把它们串回一句话。长尾混响使表面不断变化，短句的重量仍有明确方向。",
+      "fit_score": 86,
+      "source": "Apple Music / Bandcamp",
+      "source_url": "https://music.apple.com/us/search?term=Malibu+Held",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ba/62/e9/ba62e94d-4916-8be2-d883-ebdd31c18c71/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/7d/0c/61/7d0c61b0-0915-f36e-d9a4-b236f9b75771/mzaf_642778538726824413.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/held/1501421531?i=1501421536&uo=4"
+    },
+    {
+      "id": "apple:1534922286",
+      "title": "The Mighty Owl",
+      "artist": "Louis Philippe",
+      "artist_display": "Louis Philippe",
+      "title_display": "The Mighty Owl",
+      "artist_key": "louisphilippe",
+      "title_key": "themightyowl",
+      "version": "",
+      "album_key": "thunderclouds",
+      "apple_track_id": "1534922286",
+      "apple_collection_id": "1534921681",
+      "legacy_ids": [],
+      "year": "2007",
+      "album": "Thunderclouds",
+      "genres": [
+        "jazz pop",
+        "sophisti-pop",
+        "modern bossa"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "sensual",
+        "late night",
+        "elegant"
+      ],
+      "production_tags": [
+        "analog warmth",
+        "tape saturation",
+        "natural room reverb"
+      ],
+      "instrumentation": [
+        "flute",
+        "brushed drums",
+        "hand percussion"
+      ],
+      "vocal_style": "低声主唱，句尾轻收",
+      "bpm_band": "80–105",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "洗衣机进入脱水，阳台门被震得轻轻发响，钥匙在掌心留下两道齿印。",
+      "artist_oneliner": "Louis Philippe 从 bossa、爵士流行与独立制作的交界出发，擅长把模拟电路染色整理成可以记住的短句。",
+      "why": "长笛先铺出带有湿纸触感的底层，刷鼓再把它切成几个短句。模拟电路染色用得克制，最后留下的是每次回环的差别。",
+      "fit_score": 86,
+      "source": "Apple Music / Bandcamp",
+      "source_url": "https://music.apple.com/us/search?term=Louis+Philippe+The+Mighty+Owl",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/b2/11/07/b2110774-7d46-3f3c-058a-f700e631d985/4015698129380.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/d0/98/5d/d0985de0-7b61-85a1-a673-9a10c19a9428/mzaf_12839009333104720543.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/the-mighty-owl/1534921681?i=1534922286&uo=4"
+    },
+    {
+      "id": "apple:1724742052",
+      "title": "Infinite Delight",
+      "artist": "Arushi Jain",
+      "artist_display": "Arushi Jain",
+      "title_display": "Infinite Delight",
+      "artist_key": "arushijain",
+      "title_key": "infinitedelight",
+      "version": "",
+      "album_key": "delight",
+      "apple_track_id": "1724742052",
+      "apple_collection_id": "1724741644",
+      "legacy_ids": [],
+      "year": "2024",
+      "album": "Delight",
+      "genres": [
+        "ambient pop",
+        "minimal electronica",
+        "hindustani electronic"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "shimmering",
+        "longing",
+        "elegant"
+      ],
+      "production_tags": [
+        "modular synthesis",
+        "granular vocals",
+        "slow harmonic bloom"
+      ],
+      "instrumentation": [
+        "modular synthesizer",
+        "voice",
+        "marimba"
+      ],
+      "vocal_style": "印度古典唱腔，被切分与叠录",
+      "bpm_band": "70–90",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "夜里把手机扣在桌面，窗外车灯扫过屋顶，整间屋子短暂变亮。",
+      "artist_oneliner": "印度出生的 Arushi Jain，把拉格旋律送进模块合成器，再听它在电路里折返。",
+      "why": "人声拉出长线，合成器却把尾端切成细小棱面，木琴音在下方逐颗垫住。传统旋律没有被电子声盖住，反而像金属薄片受热后慢慢舒展。",
+      "fit_score": 86,
+      "source": "Bandcamp / Apple Music",
+      "source_url": "https://music.apple.com/us/song/1724742052",
+      "added_date": "2026-08-02",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/84/a3/18/84a31856-47cd-979c-bae2-c186f9424bac/196922756078_Cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/75/d0/df/75d0df41-c22b-1e1d-0bf5-b356ba746523/mzaf_11065017748517107690.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/infinite-delight/1724741644?i=1724742052&uo=4"
+    },
+    {
+      "id": "apple:1711642215",
+      "title": "He is On His Way Home, We Don't Live Together",
+      "artist": "Anastasia Coope",
+      "artist_display": "Anastasia Coope",
+      "title_display": "He is On His Way Home, We Don't Live Together",
+      "artist_key": "anastasiacoope",
+      "title_key": "heisonhiswayhomewedontlivetogether",
+      "version": "live",
+      "album_key": "darningwoman",
+      "apple_track_id": "1711642215",
+      "apple_collection_id": "1711642212",
+      "legacy_ids": [],
+      "year": "2024",
+      "album": "Darning Woman",
+      "genres": [
+        "experimental folk",
+        "chamber pop",
+        "art pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "intimate",
+        "dreamlike",
+        "restless"
+      ],
+      "production_tags": [
+        "multitracked vocals",
+        "unusual panning",
+        "raw room texture"
+      ],
+      "instrumentation": [
+        "electric guitar",
+        "piano",
+        "horn"
+      ],
+      "vocal_style": "多轨女声，短句交叠",
+      "bpm_band": "75–100",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "楼道感应灯灭了又亮，钥匙已经插进门锁，手却还停在原处。",
+      "artist_oneliner": "纽约多轨声乐作者 Anastasia Coope，把日常句子缝成略微失衡的民谣剧场。",
+      "why": "人声从不同角度挤进来，钢琴和号像家具被悄悄挪了位置。歌曲不靠噪音制造怪异，而是把一句普通关系事实拧到发紧。",
+      "fit_score": 86,
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/gb/song/1711642215",
+      "added_date": "2026-08-02",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/b0/3b/4c/b03b4c64-99d2-0b02-4a14-a8e1aabaea80/42381.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/33/0e/3b/330e3bc8-e28d-c70c-8b9f-22456af7f666/mzaf_1691820315500476973.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/he-is-on-his-way-home-we-dont-live-together/1711642212?i=1711642215&uo=4"
+    },
+    {
+      "id": "apple:1737289129",
+      "title": "Pink Sky",
+      "artist": "Loma",
+      "artist_display": "Loma",
+      "title_display": "Pink Sky",
+      "artist_key": "loma",
+      "title_key": "pinksky",
+      "version": "",
+      "album_key": "howwillilivewithoutabody",
+      "apple_track_id": "1737289129",
+      "apple_collection_id": "1737288821",
+      "legacy_ids": [],
+      "year": "2024",
+      "album": "How Will I Live Without a Body?",
+      "genres": [
+        "art pop",
+        "chamber pop",
+        "slowcore"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "cinematic",
+        "restrained",
+        "melancholy"
+      ],
+      "production_tags": [
+        "close-miked vocals",
+        "subtle orchestration",
+        "deep room ambience"
+      ],
+      "instrumentation": [
+        "piano",
+        "strings",
+        "electric guitar"
+      ],
+      "vocal_style": "低声女声，克制而贴近",
+      "bpm_band": "70–95",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "飞机降落前收起小桌板，云层下面的城市灯刚刚接通成网。",
+      "artist_oneliner": "跨大西洋三人组 Loma，擅长把耳语、房间回声与精确留白压成暗色歌曲。",
+      "why": "钢琴只按几颗硬币般的音，弦乐从远处抬高地平线，人声几乎不动声色。粉色天空没有被写成浪漫明信片，底下压着一道很薄的失重感。",
+      "fit_score": 86,
+      "source": "Bandcamp / Apple Music",
+      "source_url": "https://lomamusic.bandcamp.com/album/how-will-i-live-without-a-body",
+      "added_date": "2026-08-02",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/87/62/3c/87623cb7-7689-77de-1c74-281279c2146d/098787147469.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1f/b3/74/1fb37458-184f-8a6e-f2dd-07bf25ce4a89/mzaf_11390576683510720905.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/pink-sky/1737288821?i=1737289129&uo=4"
+    },
+    {
+      "id": "apple:1747006009",
+      "title": "Atlas of Green",
+      "artist": "Dialect",
+      "artist_display": "Dialect",
+      "title_display": "Atlas of Green",
+      "artist_key": "dialect",
+      "title_key": "atlasofgreen",
+      "version": "",
+      "album_key": "atlasofgreen",
+      "apple_track_id": "1747006009",
+      "apple_collection_id": "1747004981",
+      "legacy_ids": [],
+      "year": "2024",
+      "album": "Atlas of Green",
+      "genres": [
+        "folktronica",
+        "organic electronic",
+        "chamber pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "organic",
+        "airy",
+        "hopeful"
+      ],
+      "production_tags": [
+        "acoustic-electronic collage",
+        "soft digital edits",
+        "wide stereo"
+      ],
+      "instrumentation": [
+        "woodwinds",
+        "plucked strings",
+        "synthesizer"
+      ],
+      "vocal_style": "器乐曲，无主唱",
+      "bpm_band": "75–95",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "周日上午把窗推开一条缝，桌上的植物叶片正慢慢转向光。",
+      "artist_oneliner": "利物浦作曲人 Andrew PM Hunt 的个人计划，常把室内乐器拆进细密的电子剪辑里。",
+      "why": "木管似的主旋律从细碎脉冲间探出来，像新叶顶开一层湿土。编曲一直在变形，却把那条旋律稳稳留在手心。",
+      "fit_score": 86,
+      "source": "Bandcamp / Apple Music",
+      "source_url": "https://dialect-trax.bandcamp.com/track/atlas-of-green",
+      "added_date": "2026-08-02",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ac/5d/c8/ac5dc8a1-ac96-ec5b-0c2e-d962c246ee12/46283.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/5f/bf/e4/5fbfe40d-f5c0-51b1-1a33-66fa91b9850c/mzaf_646388299603427967.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/atlas-of-green/1747004981?i=1747006009&uo=4"
+    },
+    {
+      "id": "apple:1882646015",
+      "title": "lust",
+      "artist": "Rei Harakami",
+      "artist_display": "Rei Harakami",
+      "title_display": "lust",
+      "artist_key": "reiharakami",
+      "title_key": "lust",
+      "version": "",
+      "album_key": "lust",
+      "apple_track_id": "1882646015",
+      "apple_collection_id": "1882646010",
+      "legacy_ids": [],
+      "year": "2005",
+      "album": "Lust",
+      "genres": [
+        "organic electronic",
+        "downtempo"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "fragile",
+        "dreamlike"
+      ],
+      "production_tags": [
+        "切碎节拍",
+        "缓起伏低音"
+      ],
+      "instrumentation": [
+        "合成器",
+        "采样器",
+        "电子节拍"
+      ],
+      "vocal_style": "器乐无人声",
+      "bpm_band": "84–100",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "凌晨四点窗外开始发灰，你还没承认天要亮。",
+      "artist_oneliner": "已故的京都制作人，数码节拍被他剁碎又捂软。",
+      "why": "节拍被剁得很碎，落下来是软的，像雨点砸在塑料棚上。底下一条低音缓慢起伏兜着，听到第三分钟，呼吸就跟着它走了。",
+      "fit_score": 86,
+      "source": "Pitchfork",
+      "source_url": "https://pitchfork.com/reviews/albums/rei-harakami-lust",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/11/7c/1e/117c1ed9-d696-efa4-ae95-8075e19b63c3/4988044020696.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e1/2e/07/e12e0792-4e22-827f-3527-9eeddab29ef8/mzaf_579739428651505163.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/lust/1882646010?i=1882646015&uo=4"
+    },
+    {
+      "id": "apple:1427809154",
+      "title": "Forest Run",
+      "artist": "Joseph Shabason",
+      "artist_display": "Joseph Shabason",
+      "title_display": "Forest Run",
+      "artist_key": "josephshabason",
+      "title_key": "forestrun",
+      "version": "",
+      "album_key": "thefellowship",
+      "apple_track_id": "1427809154",
+      "apple_collection_id": "1427808233",
+      "legacy_ids": [],
+      "year": "2018",
+      "album": "The Fellowship",
+      "genres": [
+        "idm",
+        "organic electronic",
+        "downtempo"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "floating",
+        "late night",
+        "introspective"
+      ],
+      "production_tags": [
+        "analog warmth",
+        "modular synthesis",
+        "field recording"
+      ],
+      "instrumentation": [
+        "plucked strings",
+        "electronic percussion",
+        "upright piano"
+      ],
+      "vocal_style": "器乐曲，无主唱",
+      "bpm_band": "75–95",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "电影院散场后，鞋底黏着走廊的糖水，最后一块冰碰到杯底。",
+      "artist_oneliner": "Joseph Shabason 在后 IDM 的柔和支线里保留粗细不一的接缝，拨弦乐器负责留下最容易辨认的那一道。",
+      "why": "拨弦乐器的短音被剪成几段，边缘带着雨棚的摩擦，电子打击乐负责把它们串回一句话。模拟电路染色使表面不断变化，旋律的骨架仍有明确方向。",
+      "fit_score": 86,
+      "source": "Apple Music / Bandcamp",
+      "source_url": "https://music.apple.com/us/search?term=Joseph+Shabason+Forest+Run",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/d9/a4/d2/d9a4d2f3-f488-73b5-1640-39af3bc4cdc1/656605382968.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e8/48/31/e8483145-ed5d-d845-076a-8542f0426f51/mzaf_12932790591285961899.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/forest-run/1427808233?i=1427809154&uo=4"
+    },
+    {
+      "id": "apple:1706892938",
+      "title": "Adorned",
+      "artist": "Nailah Hunter",
+      "artist_display": "Nailah Hunter",
+      "title_display": "Adorned",
+      "artist_key": "nailahhunter",
+      "title_key": "adorned",
+      "version": "",
+      "album_key": "lovegaze",
+      "apple_track_id": "1706892938",
+      "apple_collection_id": "1706892606",
+      "legacy_ids": [],
+      "year": "2024",
+      "album": "Lovegaze",
+      "genres": [
+        "ambient pop",
+        "quiet alternative r&b",
+        "chamber pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "lush",
+        "sensual",
+        "dreamlike"
+      ],
+      "production_tags": [
+        "deep reverb",
+        "slow attack synths",
+        "layered arrangement"
+      ],
+      "instrumentation": [
+        "harp",
+        "saxophone",
+        "synthesizer"
+      ],
+      "vocal_style": "低声女声，长尾混响",
+      "bpm_band": "70–95",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "浴室镜面还蒙着水汽，披着毛巾坐在床沿，耳边只剩排风扇的低鸣。",
+      "artist_oneliner": "洛杉矶竖琴手 Nailah Hunter，让凯尔特弦音与慢速 R&B 在同一片暗水里相遇。",
+      "why": "竖琴不是撒亮片，而是一根根压进低频；萨克斯从后方擦过，像丝绒被指甲划出一道纹。人声始终贴着暗处，华丽却没有摆出姿态。",
+      "fit_score": 86,
+      "source": "Bandcamp / Apple Music",
+      "source_url": "https://nailahhunter.bandcamp.com/track/adorned",
+      "added_date": "2026-08-02",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/77/92/7e/77927e69-4eea-a08b-e1f5-0584b692fe71/197189452949.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/f8/e2/6c/f8e26cae-068e-53fc-2896-1e22d8bc71c7/mzaf_9204838806159382842.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/adorned/1706892606?i=1706892938&uo=4"
+    },
+    {
+      "id": "apple:1571953451",
+      "title": "Edge of the Ocean",
+      "artist": "Ivy",
+      "artist_display": "Ivy",
+      "title_display": "Edge of the Ocean",
+      "artist_key": "ivy",
+      "title_key": "edgeoftheocean",
+      "version": "",
+      "album_key": "longdistance",
+      "apple_track_id": "1571953451",
+      "apple_collection_id": "1571953446",
+      "legacy_ids": [],
+      "year": "2000",
+      "album": "Long Distance",
+      "genres": [
+        "dream pop",
+        "sophisti-pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "restrained",
+        "unhurried"
+      ],
+      "production_tags": [
+        "clean吉他",
+        "轻柔编曲"
+      ],
+      "instrumentation": [
+        "电吉他",
+        "贝斯",
+        "鼓"
+      ],
+      "vocal_style": "女声，法国口音、贴耳",
+      "bpm_band": "90–110",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "海边露台上风把裙角掀起又放下，谁都没说话。",
+      "artist_oneliner": "纽约三人组，Dominique Durand 的法语口音贴着麦克风，编曲不留毛边。",
+      "why": "法国口音的女声贴着耳边说话，吉他清得透亮，鼓点轻轻打拍不抢戏。整首干净得几乎没有毛边，像一张刚擦过的玻璃桌面。",
+      "fit_score": 86,
+      "source": "AllMusic",
+      "source_url": "https://www.allmusic.com/album/long-distance-ivy",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/fb/08/74/fb08741c-0cff-9046-3f24-014f081e7683/18203.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/b2/3d/1e/b23d1eff-cce9-de5e-bab4-5679fc6e1362/mzaf_17591904784370672194.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/edge-of-the-ocean/1571953446?i=1571953451&uo=4"
+    },
+    {
+      "id": "apple:1596446065",
+      "title": "Breakfast",
+      "artist": "Fana Hues",
+      "artist_display": "Fana Hues",
+      "title_display": "Breakfast",
+      "artist_key": "fanahues",
+      "title_key": "breakfast",
+      "version": "",
+      "album_key": "florafana",
+      "apple_track_id": "1596446065",
+      "apple_collection_id": "1596446064",
+      "legacy_ids": [],
+      "year": "2021",
+      "album": "flora + fana",
+      "genres": [
+        "quiet alternative r&b",
+        "jazz pop",
+        "neo soul"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "warm",
+        "human",
+        "restrained"
+      ],
+      "production_tags": [
+        "analog warmth",
+        "tape saturation",
+        "soft clipping"
+      ],
+      "instrumentation": [
+        "saxophone",
+        "piano",
+        "Rhodes piano"
+      ],
+      "vocal_style": "近距离主唱，气息与换气都保留",
+      "bpm_band": "90–115",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "空会议室只剩投影机风扇，白板笔盖还没扣紧，耳机线从口袋里扯出一个结。",
+      "artist_oneliner": "Fana Hues 让萨克斯和钢琴在夜色 R&B 中最克制的制作谱系里靠得很近，两件乐器之间总留着可听见的缝隙。",
+      "why": "萨克斯先铺出带有麻绳触感的底层，钢琴再把它切成几个短句。模拟电路染色用得克制，最后留下的是情绪没有说破的部分。",
+      "fit_score": 86,
+      "source": "Apple Music / Bandcamp",
+      "source_url": "https://music.apple.com/us/search?term=Fana+Hues+Breakfast",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d1/e3/18/d1e3189d-e6db-2f01-8550-e04224d0fcb7/850014129828_1.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/50/dd/59/50dd593d-fe12-8234-b377-a1c30e2ffd12/mzaf_2142662102833403617.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/breakfast/1596446064?i=1596446065&uo=4"
+    },
+    {
+      "id": "apple:1708920023",
+      "title": "Boost",
+      "artist": "Astrid Sonne",
+      "artist_display": "Astrid Sonne",
+      "title_display": "Boost",
+      "artist_key": "astridsonne",
+      "title_key": "boost",
+      "version": "",
+      "album_key": "greatdoubt",
+      "apple_track_id": "1708920023",
+      "apple_collection_id": "1708919462",
+      "legacy_ids": [],
+      "year": "2024",
+      "album": "Great Doubt",
+      "genres": [
+        "ambient pop",
+        "minimal electronica",
+        "leftfield pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "dreamlike",
+        "airy",
+        "melancholy"
+      ],
+      "production_tags": [
+        "deep reverb",
+        "room recording",
+        "tape hiss"
+      ],
+      "instrumentation": [
+        "synthesizer",
+        "processed guitar",
+        "drum machine"
+      ],
+      "vocal_style": "器乐曲，无主唱",
+      "bpm_band": "70–90",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "洗完杯子，水槽边还挂着一圈泡沫，钥匙在掌心留下两道齿印。",
+      "artist_oneliner": "Astrid Sonne 不靠堆声部取胜，在后古典与卧室制作相遇的坐标里更愿意让合成器的一次转弯决定整首歌。",
+      "why": "合成器先画出一条带有墨水棱角的轮廓，处理后的吉他再用反拍把它推向下一小节。编曲收放很准，主题的落点没有被修饰词代替。",
+      "fit_score": 86,
+      "source": "Apple Music / Bandcamp",
+      "source_url": "https://music.apple.com/us/search?term=Astrid+Sonne+Boost",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/9e/f4/2c/9ef42c91-1dac-8611-203f-0f2544cd06e6/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/81/e6/60/81e6608f-cf5e-fc47-69b2-1223f046d73f/mzaf_14468078800108325478.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/boost/1708919462?i=1708920023&uo=4"
+    },
+    {
+      "id": "apple:1702711859",
+      "title": "Clues Not to Read",
+      "artist": "Fievel Is Glauque",
+      "artist_display": "Fievel Is Glauque",
+      "title_display": "Clues Not to Read",
+      "artist_key": "fievelisglauque",
+      "title_key": "cluesnottoread",
+      "version": "",
+      "album_key": "rongweicknes",
+      "apple_track_id": "1702711859",
+      "apple_collection_id": "1702711689",
+      "legacy_ids": [],
+      "year": "2022",
+      "album": "Rong Weicknes",
+      "genres": [
+        "jazz pop",
+        "sophisti-pop",
+        "modern bossa"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "elegant",
+        "warm",
+        "unhurried"
+      ],
+      "production_tags": [
+        "live ensemble",
+        "dry drum mix",
+        "wide stereo"
+      ],
+      "instrumentation": [
+        "nylon-string guitar",
+        "vibraphone",
+        "strings"
+      ],
+      "vocal_style": "多轨人声，声部保持窄距离",
+      "bpm_band": "80–105",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "把唱针抬起又放下，窗外的招牌刚熄一盏，手机屏幕暗下去，拇指还停在侧键上。",
+      "artist_oneliner": "Fievel Is Glauque 把 bossa、爵士流行与独立制作的交界缩进很小的听觉距离，颤音琴的每次进入都像重新摆过家具。",
+      "why": "尼龙弦吉他先铺出带有毛毡触感的底层，颤音琴再把它切成几个短句。同期合奏用得克制，最后留下的是低频的分寸。",
+      "fit_score": 86,
+      "source": "Apple Music / Bandcamp",
+      "source_url": "https://music.apple.com/us/search?term=Fievel+Is+Glauque+Clues+Not+to+Read",
+      "added_date": "2026-08-03",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/68/eb/6c/68eb6cb1-fbce-0a7d-b00f-c37d0caaafb9/193436309004.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/d0/02/86/d002860b-e3bb-ad49-5c92-bc1bfedfaf3b/mzaf_1845229383563358588.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/clues-not-to-read/1702711689?i=1702711859&uo=4"
+    },
+    {
+      "id": "apple:714831792",
+      "title": "Winona",
+      "artist": "Drop Nineteens",
+      "artist_display": "Drop Nineteens",
+      "title_display": "Winona",
+      "artist_key": "dropnineteens",
+      "title_key": "winona",
+      "version": "",
+      "album_key": "delaware",
+      "apple_track_id": "714831792",
+      "apple_collection_id": "714831767",
+      "legacy_ids": [],
+      "year": "1992",
+      "album": "Delaware",
+      "genres": [
+        "shoegaze",
+        "dream pop"
+      ],
+      "genre_stars": 5,
+      "mood_tags": [
+        "longing",
+        "hazy"
+      ],
+      "production_tags": [
+        "失真吉他",
+        "男女双主唱"
+      ],
+      "instrumentation": [
+        "电吉他",
+        "贝斯",
+        "鼓"
+      ],
+      "vocal_style": "男女对唱，一冷一软",
+      "bpm_band": "90–110",
+      "has_melody": true,
+      "familiarity": "likely-unheard",
+      "scene": "翻出高中照片，认了半天才认出中间那个是自己。",
+      "artist_oneliner": "波士顿人，一男一女两条人声，唱成美式 shoegaze 的青春期日记。",
+      "why": "副歌喊出那个女演员的名字，一片脏吉他里忽然亮起来。男女两条人声一冷一软地叠着，噪音底下藏的那段旋律其实很甜。",
+      "fit_score": 86,
+      "source": "Stereogum",
+      "source_url": "https://www.stereogum.com/drop-nineteens-delaware",
+      "added_date": "2026-07-31",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/0a/05/69/0a056978-8ab9-7363-854f-45d329792354/05099969648656.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c9/c2/aa/c9c2aa8b-73fb-6c4d-ccf6-235611a4838b/mzaf_13064887452461456513.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/winona/714831767?i=714831792&uo=4"
+    }
+  ]
+}
