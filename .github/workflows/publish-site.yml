@@ -20,6 +20,7 @@ on:
       - "scripts/render_*.py"
       - "scripts/lightbox.py"
       - "scripts/build_daily.py"
+      - "data/discovery.json"
   workflow_dispatch:
 
 permissions:
@@ -75,8 +76,8 @@ jobs:
               t["_cover"], t["_preview"], t["_apple"] = m.get("c",""), m.get("p",""), m.get("a","")
           # 走 build_daily 的共享函数，别在这里内联复制写盘动作 ——
           # 那样已经漂移过两次（2026-08-03 / 08-04 都漏了 artists.min.json）。
-          build_daily.write_random_assets(items)
-          print(f"随机页产物重建完成（{len(items)} 首）")
+          n_random = build_daily.write_random_assets(items)
+          print(f"随机页产物重建完成（{n_random} 首）")
           PY
           # 诚实报告：重建后有 diff 说明仓库里的 site/ 之前是滞后的。
           # 不当成失败（本 workflow 就是来修正这种滞后的），但要让它可见。
