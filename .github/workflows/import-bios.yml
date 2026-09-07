@@ -87,8 +87,8 @@ jobs:
           # 这段此前只写 pool.min.json + random.html、【漏了 artists.min.json】——
           # 而本 workflow 的全部意义就是导入简介：导完随机页点封面仍看不到新简介，
           # 最长要等次日 08:11 的 daily 才自愈（2026-08-03 漏、08-04 审计仍在漏）。
-          build_daily.write_random_assets(items)
-          print(f"随机页产物重建完成（{len(items)} 首）")
+          n_random = build_daily.write_random_assets(items)
+          print(f"随机页产物重建完成（{n_random} 首）")
           PY
 
       - name: 导入后必须仍然全绿——不绿就回滚，绝不提交坏数据

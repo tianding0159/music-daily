@@ -18,6 +18,8 @@ import argparse
 import datetime as dt
 import json
 import re
+import unicodedata
+import urllib.parse
 from pathlib import Path
 
 import itunes
@@ -121,9 +123,9 @@ def _backfill_snapshots(history: dict, pool: list[dict], skip_date: str = "",
 
 
 def _n_eligible() -> int:
-    """池里合格曲目数（落地页自检要显示，与随机页同一口径）。"""
+    """随机页可听曲目数（精选 + 待精选，落地页沿用同一口径）。"""
     pool = _load_json(DATA / "pool.json", [])
-    return sum(1 for t in pool if selector.is_eligible(t)[0])
+    return len(_random_catalog_items([t for t in pool if selector.is_eligible(t)[0]]))
 
 
 def _artist_ctx(pool: list[dict]) -> dict[str, dict]:
@@ -194,7 +196,89 @@ MEDIA = DATA / "pool_media.json"          # id -> {c,p,a} 封面/试听/Apple �
 _MEDIA_BUDGET = 60                        # 单次最多现查多少首（CI 时长可控；其余下次继续）
 
 
-def write_random_assets(items: list[dict]) -> None:
+def _discovery_work_key(track: dict) -> tuple[str, str]:
+    """去重作品，而非某次上架的 Apple ID；兼容旧池未括起的版本尾缀。"""
+    title = re.sub(r"[\(（\[【].*?[\)）\]】]", " ", str(track.get("title", "")))
+    version = r"(?:remaster(?:ed)?|remix(?:ed)?|live|rework|edit|acoustic|instrumental|demo|reprise|rerecorded|re[- ]recorded|version|mix)"
+    title = re.sub(r"\s*[-–—]\s*(?:(?:\d{4}|stereo|mono|original|digitally|album|single|radio|us|uk|lp)\s+)*" + version + r"\b.*$", "", title, flags=re.I)
+    # 没有括号/破折号时只识别明确的重制标注；普通标题中的 live/mix 不是版本。
+    title = re.sub(r"\s+(?:(?:\d{4}|digitally)\s+)?remaster(?:ed)?(?:\s+\d{4})?\s*$", "", title, flags=re.I)
+
+    def key(value: str) -> str:
+        raw = unicodedata.normalize("NFKD", value).casefold()
+        return "".join(c for c in raw if c.isalnum() and not unicodedata.combining(c))
+
+    return key(str(track.get("artist", ""))), key(title)
+
+
+def _random_catalog_items(items: list[dict]) -> list[dict]:
+    """投影已验真但待精选的独立曲库，仅供随机页；不写入正式选曲池。
+
+    不沿用种子曲的听感、心情或 BPM。状态说明用旧页面现有文字位展示，
+    模板、样式和交互完全沿用。所有日刊选曲仍只读取 data/pool.json。
+    """
+    out = list(items)
+    discovery_path = DATA / "discovery.json"
+    if not discovery_path.exists():
+        return out
+    payload = _load_json(discovery_path, {})
+    if not isinstance(payload, dict) or payload.get("schema") != 1 or payload.get("status") != "discovery_not_curated" or not isinstance(payload.get("tracks"), list):
+        raise ValueError("discovery.json 必须为保留待精选状态的 schema 1 曲目对象")
+    discovery = payload["tracks"]
+    # 正式池优先，即使同一作品提升入库时换了上架 ID 或暂不符合随机筛选。
+    curated = _load_json(DATA / "pool.json", [])
+    existing = list(items) + curated
+    seen_ids = {str(t.get("id") or "") for t in existing}
+    seen_apple = {str(t.get("apple_track_id") or "") for t in existing}
+    seen_apple.update(i[6:] for i in seen_ids if i.startswith("apple:"))
+    seen_works = {_discovery_work_key(t) for t in existing}
+    for track in discovery:
+        if not isinstance(track, dict):
+            raise ValueError("discovery.json 曲目必须为对象")
+        if track.get("status") != "listening_and_editorial_review_required":
+            raise ValueError("discovery.json 曲目必须保留待精选状态")
+        apple_id = str(track.get("apple_track_id") or "")
+        tid = str(track.get("review_id") or "")
+        if not apple_id.isdigit() or tid != "apple:" + apple_id:
+            raise ValueError("discovery.json 曲目 ID 与 Apple ID 不一致")
+        work = _discovery_work_key(track)
+        if tid in seen_ids or apple_id in seen_apple or work in seen_works:
+            continue
+        for field in ("title", "artist", "album"):
+            value = track.get(field)
+            # 旧随机页直接拼接 HTML：新数据必须是纯文本，不能携带标记。
+            if not isinstance(value, str) or not value.strip() or any(c in value for c in "<>") or any(unicodedata.category(c) in {"Cc", "Cf"} for c in value):
+                raise ValueError(f"discovery.json {field} 必须为非空纯文本")
+        year = track.get("apple_edition_year")
+        if not isinstance(year, str) or not re.fullmatch(r"\d{4}", year):
+            raise ValueError("discovery.json 缺少 Apple 发行版本年份")
+        media = {}
+        hosts = {"preview_url": {"audio-ssl.itunes.apple.com"}, "apple_url": {"music.apple.com"},
+                 "artwork_url": {f"is{i}-ssl.mzstatic.com" for i in range(1, 6)}}
+        for field, allowed in hosts.items():
+            value = str(track.get(field) or "")
+            parsed = urllib.parse.urlsplit(value)
+            if parsed.scheme != "https" or parsed.hostname not in allowed or parsed.username or parsed.password or any(c.isspace() or c in '<>"' for c in value):
+                raise ValueError(f"discovery.json {field} 必须为 Apple HTTPS 媒体链接")
+            media[field] = value
+        genre = track.get("apple_genre", "")
+        if not isinstance(genre, str) or any(c in genre for c in '<>"') or any(unicodedata.category(c) in {"Cc", "Cf"} for c in genre):
+            raise ValueError("discovery.json 流派必须为纯文本")
+        genre = genre.lower()
+        out.append({
+            "id": tid, "title": track["title"], "artist": track["artist"],
+            "album": track["album"], "year": year, "genres": [genre] if genre else [],
+            "artist_oneliner": "新发现 · 待精选",
+            "why": f"曲目资料已核对；{year} 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+            "_cover": media["artwork_url"], "_preview": media["preview_url"], "_apple": media["apple_url"],
+        })
+        seen_ids.add(tid)
+        seen_apple.add(apple_id)
+        seen_works.add(work)
+    return out
+
+
+def write_random_assets(items: list[dict]) -> int:
     """写随机页的三件产物：pool.min.json / artists.min.json / random.html。
 
     **抽成函数是因为已经漂移过两次**：import-bios.yml 里内联复制了这一段，
@@ -206,6 +290,7 @@ def write_random_assets(items: list[dict]) -> None:
     入参 items 必须已经补好媒体字段（_cover/_preview/_apple）；
     iTunes 查询留在调用侧，别把网络调用带进 workflow 链路。
     """
+    items = _random_catalog_items(items)
     SITE.mkdir(parents=True, exist_ok=True)
     (SITE / "pool.min.json").write_text(
         render_random.build_pool_json(items), encoding="utf-8")
@@ -217,6 +302,7 @@ def write_random_assets(items: list[dict]) -> None:
         render_random.build_artist_json(items, bios), encoding="utf-8")
     (SITE / "random.html").write_text(
         render_random.build_html(len(items)), encoding="utf-8")
+    return len(items)
 
 
 def _build_random(pool: list[dict], use_itunes: bool) -> int:
@@ -237,8 +323,7 @@ def _build_random(pool: list[dict], use_itunes: bool) -> int:
     for t in items:
         m = media.get(t["id"], {})
         t["_cover"], t["_preview"], t["_apple"] = m.get("c", ""), m.get("p", ""), m.get("a", "")
-    write_random_assets(items)
-    return len(items)
+    return write_random_assets(items)
 
 
 def _low_pool_warn(pool: list[dict], history: dict, n: int) -> str | None:

@@ -1,0 +1,46 @@
+name: Validate discovery library
+
+on:
+  pull_request:
+    paths:
+      - "data/discovery.json"
+      - "scripts/build_daily.py"
+      - "tests/test_discovery_library.py"
+      - ".github/workflows/validate-discovery.yml"
+  push:
+    branches: [main]
+    paths:
+      - "data/discovery.json"
+      - "scripts/build_daily.py"
+      - "tests/test_discovery_library.py"
+      - ".github/workflows/validate-discovery.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check the curated catalog and discovery integration
+        run: |
+          python3 tests/test_catalog.py
+          python3 -m unittest discover -s tests -p 'test_discovery_library.py' -v
+          python3 scripts/healthcheck.py
+      - name: Rebuild the existing random library offline
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          sys.path.insert(0, "scripts")
+          import build_daily
+          pool = json.loads(build_daily.DATA.joinpath("pool.json").read_text(encoding="utf-8"))
+          build_daily._build_random(pool, use_itunes=False)
+          PY
+          ./tools/check_site_assets.sh
+          git diff --exit-code -- data/pool.json data/history.json data/issues data/latest.json data/pool_media.json data/artists.json scripts/render_grid.py scripts/render_random.py scripts/render_landing.py scripts/lightbox.py
