@@ -1,38 +1,35 @@
 {
- "date": "2026-09-08",
- "issue_no": 43,
- "playlist_title": "凌晨两点，只留一盏灯（09.08）",
- "tracks_brief": [
-  {
-   "title": "Lovers' Carvings",
-   "artist": "Bibio"
-  },
-  {
-   "title": "Summer Soul",
-   "artist": "cero"
-  },
-  {
-   "title": "Drop",
-   "artist": "Cornelius"
-  },
-  {
-   "title": "Space Song",
-   "artist": "Beach House"
-  },
-  {
-   "title": "Show Me How",
-   "artist": "Men I Trust"
-  },
-  {
-   "title": "Green Grass of Tunnel",
-   "artist": "múm"
-  }
- ],
- "n": 30,
- "low_pool_warn": "⚠️ 候选池仅剩 0 首未发（不足一期），该补池了。",
- "relax": [
-  "回填最久未发(池不足)(+30)"
- ],
- "fresh_build": true,
- "notified": "2026-09-08"
+  "date": "2026-09-08",
+  "issue_no": 43,
+  "playlist_title": "凌晨两点，只留一盏灯（09.08）",
+  "tracks_brief": [
+    {
+      "title": "Lovers' Carvings",
+      "artist": "Bibio"
+    },
+    {
+      "title": "Summer Soul",
+      "artist": "cero"
+    },
+    {
+      "title": "Drop",
+      "artist": "Cornelius"
+    },
+    {
+      "title": "Space Song",
+      "artist": "Beach House"
+    },
+    {
+      "title": "Show Me How",
+      "artist": "Men I Trust"
+    },
+    {
+      "title": "Green Grass of Tunnel",
+      "artist": "múm"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": "⚠️ 候选池仅剩 0 首未发（不足一期），该补池了。",
+  "relax": [],
+  "fresh_build": false
 }
