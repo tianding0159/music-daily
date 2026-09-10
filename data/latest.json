@@ -1,36 +1,35 @@
 {
- "date": "2026-09-10",
- "issue_no": 45,
- "playlist_title": "一个人也不觉得空的房间（09.10）",
- "tracks_brief": [
-  {
-   "title": "Lovers' Carvings",
-   "artist": "Bibio"
-  },
-  {
-   "title": "Summer Soul",
-   "artist": "cero"
-  },
-  {
-   "title": "Space Song",
-   "artist": "Beach House"
-  },
-  {
-   "title": "Drop",
-   "artist": "Cornelius"
-  },
-  {
-   "title": "Show Me How",
-   "artist": "Men I Trust"
-  },
-  {
-   "title": "To Build a Home",
-   "artist": "The Cinematic Orchestra"
-  }
- ],
- "n": 30,
- "low_pool_warn": "⚠️ 候选池仅剩 0 首未发（不足一期），该补池了。",
- "relax": [],
- "fresh_build": false,
- "notified": "2026-09-10"
+  "date": "2026-09-10",
+  "issue_no": 45,
+  "playlist_title": "一个人也不觉得空的房间（09.10）",
+  "tracks_brief": [
+    {
+      "title": "Lovers' Carvings",
+      "artist": "Bibio"
+    },
+    {
+      "title": "Summer Soul",
+      "artist": "cero"
+    },
+    {
+      "title": "Space Song",
+      "artist": "Beach House"
+    },
+    {
+      "title": "Drop",
+      "artist": "Cornelius"
+    },
+    {
+      "title": "Show Me How",
+      "artist": "Men I Trust"
+    },
+    {
+      "title": "To Build a Home",
+      "artist": "The Cinematic Orchestra"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": "⚠️ 候选池仅剩 0 首未发（不足一期），该补池了。",
+  "relax": [],
+  "fresh_build": false
 }
