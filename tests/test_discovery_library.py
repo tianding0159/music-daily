@@ -63,7 +63,7 @@ class DiscoveryLibraryTests(unittest.TestCase):
         self.put("discovery.json", {"schema": 1, "status": "discovery_not_curated", "tracks": tracks})
 
     def site_hashes(self):
-        return {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in self.site.glob("*")}
+        return {str(p.relative_to(self.site)): hashlib.sha256(p.read_bytes()).hexdigest() for p in self.site.rglob("*") if p.is_file()}
 
     def test_absent_data_retains_original_renderer_output(self):
         original = [curated()]

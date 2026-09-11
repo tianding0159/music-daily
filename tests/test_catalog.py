@@ -118,6 +118,7 @@ def test_canonical_fields_present():
 
 def test_history_ids_exist():
     pool_ids = {t["id"] for t in POOL}
+    pool_ids.update(t["review_id"] for t in json.loads((ROOT / "data" / "discovery.json").read_text(encoding="utf-8"))["tracks"])
     for date, ids in HISTORY.items():
         for i in ids:
             assert i in pool_ids, f"history[{date}] 指向不存在 id {i}"
@@ -148,14 +149,17 @@ def test_blacklist_filtered_in_merge():
 
 
 def test_picker_deterministic_and_dedup():
-    a = [t["id"] for t in picker.select_daily([dict(x) for x in POOL], HISTORY, "2026-08-10", 20)]
-    b = [t["id"] for t in picker.select_daily([dict(x) for x in POOL], HISTORY, "2026-08-10", 20)]
+    history = {d: ids for d, ids in HISTORY.items() if d < "2026-08-10"}
+    a = [t["id"] for t in picker.select_daily([dict(x) for x in POOL], history, "2026-08-10", 20)]
+    b = [t["id"] for t in picker.select_daily([dict(x) for x in POOL], history, "2026-08-10", 20)]
+    assert len(a) == 20
     assert a == b, "同一天选曲应确定性一致"
     assert len(a) == len(set(a)), "同一期不应重复"
 
 
 def test_picker_no_dup_artist_or_album_in_issue():
-    picks = picker.select_daily([dict(x) for x in POOL], HISTORY, "2026-08-11", 30)
+    picks = picker.select_daily([dict(x) for x in POOL], {d: ids for d, ids in HISTORY.items() if d < "2026-08-11"}, "2026-08-11", 30)
+    assert len(picks) == 30
     aks = [t.get("artist_key") for t in picks]
     alks = [t.get("album_key") for t in picks if t.get("album_key")]
     assert len(aks) == len(set(aks)), "同一期出现重复艺人"

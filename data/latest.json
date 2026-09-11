@@ -1,38 +1,39 @@
 {
- "date": "2026-09-11",
- "issue_no": 46,
- "playlist_title": "电子像呼吸的那种（09.11）",
- "tracks_brief": [
-  {
-   "title": "Lovers' Carvings",
-   "artist": "Bibio"
-  },
-  {
-   "title": "いかれたBaby",
-   "artist": "Fishmans"
-  },
-  {
-   "title": "Summer Soul",
-   "artist": "cero"
-  },
-  {
-   "title": "Drop",
-   "artist": "Cornelius"
-  },
-  {
-   "title": "Plastic Love",
-   "artist": "Mariya Takeuchi"
-  },
-  {
-   "title": "To Build a Home",
-   "artist": "The Cinematic Orchestra"
-  }
- ],
- "n": 30,
- "low_pool_warn": "⚠️ 候选池仅剩 13 首未发（不足一期），该补池了。",
- "relax": [
-  "回填最久未发(池不足)(+30)"
- ],
- "fresh_build": true,
- "notified": "2026-09-11"
+  "date": "2026-09-11",
+  "issue_no": 46,
+  "playlist_title": "今天第一次推荐的 30 首（09.11）",
+  "tracks_brief": [
+    {
+      "title": "Some Gospel According to Matthew",
+      "artist": "Roberta Flack"
+    },
+    {
+      "title": "Can't Fight",
+      "artist": "Lianne La Havas"
+    },
+    {
+      "title": "Sorceress",
+      "artist": "Jordan Rakei"
+    },
+    {
+      "title": "Hot Pants In the Summertime",
+      "artist": "The Dramatics"
+    },
+    {
+      "title": "Dream Come True",
+      "artist": "The Brand New Heavies"
+    },
+    {
+      "title": "Como Quisiera Decirte",
+      "artist": "Los Ángeles Negros"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1",
+  "notified": "2026-09-11"
 }

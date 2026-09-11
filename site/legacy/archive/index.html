@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f0e12">
+<title>MUSIC DAILY · archive</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23f05a24%22/%3E%3Crect%20x%3D%225%22%20y%3D%225%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22none%22%20stroke%3D%22%230f0e12%22%20stroke-width%3D%222%22/%3E%3C/svg%3E">
+<!-- PWA：加到手机主屏后有真图标、全屏无地址栏、启动闪屏。
+     子目录页面用相对上级前缀取根目录的资源。
+     只做 manifest 不做 Service Worker —— 这个站每天出新刊，SW 的缓存失效
+     写不对就会让用户看到昨天的日报【而且他不知道】，那类静默失效的代价
+     远大于「离线翻往期」的收益。 -->
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MD-30">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+/* hidden 是 HTML 语义属性（同时把元素从无障碍树摘除），必须是硬约束。
+   靠 UA 样式表的 [hidden]{display:none} 顶不住：任何组件类只要声明 display
+   就把它盖掉 —— 实测 .tbtn{display:inline-flex} 让分享按钮的「没有 share 也
+   没有 clipboard 就别显示」门禁完全失效（JS 关掉时按钮照样占 74×36px、
+   点了毫无反应；微信内置 webview 正是这种环境）。
+   用 !important 表达「这是硬约束」，比给每个组件类打 :not([hidden]) 补丁可靠。 */
+[hidden]{display:none !important}
+:root{
+  /* ── iOS 安全区 ──────────────────────────────────────────────
+     四页都声明了 viewport-fit=cover（这是让 env() 返回非零的前提，
+     同时也意味着内容真的会铺到刘海/home 条底下）。此前一处 safe-area
+     都没用，加到主屏 standalone 打开时实测（iPhone 14 Pro，顶 59px / 底 34px）：
+       · 顶栏 nav 高 53px，整条【完全埋在】刘海下，不是压掉一角
+       · 吸底播放器 76px 被 home 条压掉 34px，播放键点不到
+       · 浮层关闭键距顶 52px < 59px，浮层【关不掉】——这条最严重
+     浏览器里 env() 一律是 0，所以加它对普通网页零影响，纯粹是补 standalone。
+     fallback 写 0px 而不是省略：老 Safari 不认 env() 时整条声明会被丢弃。 */
+  --sat:env(safe-area-inset-top, 0px);
+  --sar:env(safe-area-inset-right, 0px);
+  --sab:env(safe-area-inset-bottom, 0px);
+  --sal:env(safe-area-inset-left, 0px);
+  /* 播放器实际占位高度 = 自身高度 + 底部安全区。随机页的篮子要叠在它上方，
+     此前两处各写死 76px（#np 的 height 与 #basket 的 bottom），
+     加了安全区就会错位 —— 抽成变量，一处改两处跟。 */
+  --np-h:76px;
+  --white:#fff; --paper:#f5f5f5; --ink:#0f0e12;
+  --g100:#e5e5e5; --g200:#ccc; --g300:#b2b2b2; --g500:#a1a7af;
+  --g600:#767676; --g900:#4d4d4d; --g1000:#272727;
+  --blue:#0071bb; --green:#00a651; --green-d:#006837; --orange:#f05a24;
+  --red:#b81d13; --yellow:#fab413;
+  --sans:"Inter","Noto Sans SC","Helvetica Neue",Arial,sans-serif;
+  /* Space Mono 不含汉字。栈里必须显式给中文字体，否则中文落到【操作系统默认】——
+     Windows 是雅黑、Linux 可能是文泉驿，同一页在不同机器上长得不一样。
+     2026-08-03 实测（CDP getPlatformFontsForNode）：页面 44 处中文都在这条栈上，
+     全部走了系统回退。Noto Sans SC 本来已在 --sans 里引过，复用不增加网络请求。 */
+  --mono:"Space Mono","JetBrains Mono","Noto Sans SC",ui-monospace,Menlo,monospace;
+  --fs-10:clamp(11px,.92vw,13px); --fs-15:clamp(12px,1.1vw,15px);
+  --fs-20:clamp(15px,1.5vw,20px); --fs-25:clamp(19px,2.1vw,27px);
+  --fs-30:clamp(23px,2.7vw,36px); --fs-40:clamp(34px,5vw,68px);
+  --sp-xs:clamp(4px,.5vw,6px); --sp-sm:clamp(8px,1vw,12px);
+  --sp-md:clamp(12px,1.5vw,18px); --sp-lg:clamp(18px,2.3vw,28px);
+  --sp-xl:clamp(28px,4vw,52px);
+}
+html{scroll-behavior:smooth}
+
+/* ── 键盘焦点 ────────────────────────────────────────────────
+   此前没有任何 :focus-visible 规则，键盘用户只能看浏览器默认蓝环 ——
+   跟这套黑白 + 橙的调性完全不搭，且在深色卡片上几乎看不清。
+   用 :focus-visible 而不是 :focus：后者会在【鼠标点击】时也亮起，
+   那是多数站点把焦点环整个 outline:none 掉的原因，代价是键盘用户彻底失明。
+   :focus-visible 只在浏览器判断「用户在用键盘导航」时才亮。
+   本站没有任何 outline:none（实测 0 处），所以这里是纯增强、不夺走兜底。 */
+:focus-visible{
+  outline:2px solid var(--orange);
+  outline-offset:2px;
+  border-radius:1px;   /* 方角站点上给焦点环一点点圆，避免看着像边框错位 */
+}
+/* 深色底上（LCD 屏、唱盘控制条）橙色对比不足，改用亮描边 + 橙外圈。
+   **浮层不在这一类**：它的 .sheet 与 .x 都是 var(--paper) 浅底 ——
+   把亮描边画在同色底上等于隐形，而外扩的橙环又被 .sheet 的 overflow:hidden
+   裁掉（.x 贴在右上角），实测橙色只剩左下两边、成了个 L 形拐角。
+   浅底就用默认那条橙描边，它本来就够。 */
+.lcd :focus-visible,
+.deckbox :focus-visible{
+  outline-color:#f5f5f5;
+  box-shadow:0 0 0 4px var(--orange);
+}
+/* 浮层的关闭键贴着 .sheet 右上角，向外扩会被裁 —— 内缩画。 */
+#lb .x:focus-visible{outline-offset:-3px}
+/* 封面这类大块可聚焦区域，焦点环贴边会被 overflow 裁掉 —— 内缩画 */
+.cover-zoom:focus-visible{outline-offset:-3px}
+body{font-family:var(--sans); font-weight:300; color:var(--ink); background:var(--paper);
+  line-height:1.5; letter-spacing:0; -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility; font-feature-settings:"kern" 1,"liga" 1;
+  padding-bottom:calc(var(--np-h) + var(--sab)); overscroll-behavior-y:none}
+a{color:inherit; text-decoration:none}
+.mono{font-family:var(--mono)}
+/* 左右吃 inset：横屏时刘海在侧边，纸白内容会被切掉一条。
+   顶部不用管 —— .nav 已经加了 padding-top，.wrap 被它自然推下去；
+   在这里再加一次会变成双倍留白。 */
+.wrap{max-width:1160px; margin:0 auto;
+  padding-left:calc(var(--sp-xl) + var(--sal)); padding-right:calc(var(--sp-xl) + var(--sar))}
+.lc{text-transform:lowercase}
+
+/* 顶部铭牌导航 */
+/* padding-top 而不是 margin/top 位移：底色要一直铺到屏幕最上沿（刘海区也是黑的，
+   与 --ink 同色，视觉上连成一体），只把【内容】推到安全区以下。
+   用 margin 会在刘海区留出一条纸白，反而更难看。 */
+.nav{position:sticky; top:0; z-index:1000; background:var(--ink); color:var(--white);
+  border-bottom:1px solid var(--g1000); padding-top:var(--sat)}
+.nav .wrap{height:clamp(52px,7vw,66px); display:flex; align-items:center; justify-content:space-between}
+.brand{display:flex; align-items:center; gap:10px; font-size:var(--fs-20); font-weight:100; letter-spacing:.01em}
+.brand .sq{width:14px; height:14px; background:var(--orange)}
+.nav .serial{font-family:var(--mono); font-size:var(--fs-10); color:var(--g300); text-transform:uppercase;
+  display:flex; gap:16px; flex-wrap:wrap; justify-content:flex-end}
+.nav .serial b{color:var(--white); font-weight:400}
+
+/* Hero */
+.hero{padding:var(--sp-xl) 0 var(--sp-lg); display:flex; align-items:flex-end;
+  justify-content:space-between; gap:var(--sp-lg); flex-wrap:wrap}
+.hero .h-l h1{font-size:var(--fs-40); font-weight:100; line-height:1.02; letter-spacing:-.01em}
+.hero .h-l .en{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
+  color:var(--g600); margin-top:10px; letter-spacing:.06em}
+.hero .h-r{text-align:right; font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
+  text-transform:uppercase; line-height:1.7}
+.hero .h-r .big{display:block; font-size:var(--fs-40); font-weight:100; color:var(--ink);
+  font-family:var(--sans); line-height:.9; letter-spacing:-.02em}
+
+/* LCD 屏幕模块 */
+.lcd{background:#08110c; border:1px solid var(--g1000); color:var(--green);
+  font-family:var(--mono); font-size:var(--fs-15); overflow:hidden; position:relative; margin-bottom:var(--sp-md)}
+.lcd .row1{display:flex; align-items:center; gap:10px; padding:9px 16px; min-height:46px; border-bottom:1px solid #12241a}
+.lcd .dot{width:8px; height:8px; border-radius:50%; background:var(--green); flex:none;
+  box-shadow:0 0 8px var(--green); animation:blink 1.3s steps(1) infinite}
+.lcd #boot{white-space:pre; overflow:hidden; flex:1; min-width:0; text-overflow:ellipsis}
+.lcd #boot .cur{animation:blink .8s steps(1) infinite}
+.lcd .cat-wrap{position:relative; width:clamp(104px,15vw,156px); height:34px; flex:none; margin-left:auto;
+  align-self:center}
+/* 4 套姿态叠在一起，靠 opacity 切换做定格动画；整体走位靠 .cat-wrap 的 travel */
+.lcd .pose{position:absolute; right:4px; bottom:0; width:42px; height:38px;
+  will-change:transform,opacity; backface-visibility:hidden; -webkit-font-smoothing:none; display:block;
+  image-rendering:pixelated; opacity:0; transform-origin:bottom center}
+.lcd .pose .fur rect{fill:#ffffff}
+.lcd .pose .fur2 rect{fill:#ffffff}
+.lcd .pose .cat-eyes rect{fill:#2b2620}
+.lcd .pose .glint{fill:#ffffff}
+.lcd .pose .nose{fill:var(--orange)}
+.lcd .pose .mouth{fill:var(--orange)}
+.lcd .pose .blush{fill:var(--orange); opacity:.42}
+.lcd .pose .pad rect{fill:#ffffff}
+.lcd .pose .zzz rect{fill:#9c9282}
+/* SVG 元素上的 transform 动画【默认不走合成器】：浏览器每帧都要重算
+   fill-box 的边界 → 每帧一次 layout。实测（CDP Performance + 逐条暂停二分）：
+   daily 页 1.5 秒内 91 次 layout，暂停 cat-wag 后降到 1 次 —— 一条尾巴动画
+   贡献了几乎全部 layout。cat-eyes 同构，一起处理。
+   加 will-change + translateZ 把它们各自提成独立合成层，transform 就只在
+   合成器线程插值、不再回到主线程做布局。旁边的 .cat-move 早就这么写了，
+   这两条是漏的。 */
+.lcd .pose .cat-eyes{transform-box:fill-box; transform-origin:center;
+  animation:cat-blink 2.2s infinite;
+  will-change:transform; backface-visibility:hidden; transform:translateZ(0)}
+.lcd .pose .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
+  animation:cat-wag .42s ease-in-out infinite alternate;
+  will-change:transform; backface-visibility:hidden; transform:translateZ(0)}
+/* 走位（整只猫在舞台上来回） */
+.lcd .cat-move{position:absolute; inset:0; animation:cat-travel 20s cubic-bezier(.5,0,.5,1) infinite;
+  will-change:transform; backface-visibility:hidden; transform:translateZ(0)}
+/* travel 必须挂内层 .cat-move —— 挂 .cat-wrap 的话道具是它的子元素、会跟着猫一起平移，
+   猫与饭盆间距恒定，"走过去吃饭"就永远走不到。 */
+/* 9 个动作（20s 一轮，放慢到看得清每个动作）：
+   ①走去饭盆 ②低头吃 ③走回 ④伸懒腰 ⑤追球左右扑 ⑥连跳 ⑦坐下舔爪 ⑧趴下打盹 ⑨起身抖毛归位 */
+@keyframes cat-travel{
+  0%,6%{transform:translateX(0)}         /* 呆：站着（1.2s） */
+  13%,27%{transform:translateX(-64px)}   /* 走去饭盆 → 吃（吃的这段不移动） */
+  33%{transform:translateX(-64px)}       /* 呆：吃完抬头（1.2s，原地） */
+  38%,47%{transform:translateX(-28px)}   /* 走回来 → 伸懒腰（伸的这段不移动） */
+  53%{transform:translateX(-28px)}       /* 呆：伸完站定（1.2s，原地） */
+  57%{transform:translateX(14px)}        /* 追球：右扑 */
+  60%{transform:translateX(-18px)}       /*       左扑 */
+  62%{transform:translateX(6px)}         /*       右扑 */
+  64%,76%{transform:translateX(-4px)}    /* 呆 → 坐下舔爪（原地） */
+  93%{transform:translateX(-4px)}        /* 趴睡（整段原地） */
+  97%,100%{transform:translateX(0)}}     /* 起身抖毛归位 + 呆 */
+/* 姿态时间轴（5 套姿态切换支撑 9 个动作） */
+.lcd .p-stand{animation:pose-stand 20s steps(1) infinite, cat-bob .58s ease-in-out infinite}
+.lcd .p-sit{animation:pose-sit 20s steps(1) infinite, cat-eat 20s ease-in-out infinite}
+.lcd .p-stretch{animation:pose-stretch 20s steps(1) infinite, cat-stretch 20s ease-in-out infinite}
+.lcd .p-lick{animation:pose-lick 20s steps(1) infinite, cat-lick 20s ease-in-out infinite}
+.lcd .p-sleep{animation:pose-sleep 20s steps(1) infinite, cat-sleep 20s ease-in-out infinite}
+@keyframes pose-stand{0%{opacity:1}13%{opacity:0}27%{opacity:1}38%{opacity:0}
+  47%{opacity:1}64%{opacity:0}93%{opacity:1}100%{opacity:1}}
+@keyframes pose-sit{0%{opacity:0}13%{opacity:1}27%{opacity:0}100%{opacity:0}}
+@keyframes pose-stretch{0%{opacity:0}38%{opacity:1}47%{opacity:0}100%{opacity:0}}
+@keyframes pose-lick{0%{opacity:0}64%{opacity:1}76%{opacity:0}100%{opacity:0}}
+@keyframes pose-sleep{0%{opacity:0}76%{opacity:1}93%{opacity:0}100%{opacity:0}}
+/* 各动作细节 */
+@keyframes cat-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
+@keyframes cat-eat{0%,15%{transform:translateY(0) rotate(0)}
+  17%{transform:translateY(3px) rotate(5deg)}19%{transform:translateY(0) rotate(3deg)}
+  21%{transform:translateY(3px) rotate(5deg)}23%{transform:translateY(0) rotate(3deg)}
+  25%{transform:translateY(3px) rotate(5deg)}27%,100%{transform:translateY(0) rotate(0)}}
+@keyframes cat-stretch{0%,39%{transform:scaleX(1)}41.5%{transform:scaleX(1.22) translateX(-4px)}
+  44.5%{transform:scaleX(1.22) translateX(-4px)}47%,100%{transform:scaleX(1)}}
+@keyframes cat-lick{0%,66%{transform:rotate(0)}68.5%{transform:rotate(-12deg)}70%{transform:rotate(-3deg)}
+  71.5%{transform:rotate(-12deg)}73%{transform:rotate(-3deg)}74%,100%{transform:rotate(0)}}
+@keyframes cat-sleep{0%,78%{transform:translateY(0)}
+  81%{transform:translateY(3px)}84%{transform:translateY(2px)}
+  87%{transform:translateY(3px)}90%{transform:translateY(2px)}92%,100%{transform:translateY(0)}}
+/* ⑥ 连跳（叠在 stand 上） */
+.lcd .p-stand{animation:pose-stand 20s steps(1) infinite, cat-bob .58s ease-in-out infinite,
+  cat-hop 20s ease-in-out infinite}
+@keyframes cat-hop{0%,56%{transform:translateY(0)}
+  58%{transform:translateY(-9px) scaleY(1.1)}60%{transform:translateY(0) scaleY(.93)}
+  61.5%{transform:translateY(-6px) scaleY(1.06)}63%,93%{transform:translateY(0) scale(1)}
+  /* 起身抖毛，抖完留一段站定（呆） */
+  95%{transform:rotate(6deg)}96.5%{transform:rotate(-5deg)}98%{transform:rotate(3deg)}
+  99%,100%{transform:none}}
+@keyframes cat-blink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes cat-wag{from{transform:rotate(-26deg)}to{transform:rotate(22deg)}}
+/* 道具：饭盆(吃饭期) / 球(追球期被扑得乱弹) */
+.lcd .prop{position:absolute; bottom:1px; image-rendering:pixelated; opacity:0}
+.lcd .prop.bowl{left:6px; width:17px} .lcd .prop.bowl svg{display:block; width:17px}
+.lcd .prop.ball{right:0; width:10px} .lcd .prop.ball svg{display:block; width:10px}
+.lcd .prop.bowl{animation:prop-bowl 20s ease-in-out infinite}
+.lcd .prop.ball{animation:prop-ball 20s ease-in-out infinite}
+.lcd .prop.bowl rect{fill:#e9e9e9} .lcd .prop.bowl .food{fill:#b9b9b9}
+.lcd .prop.ball rect{fill:#f2f2f2} .lcd .prop.ball .hl{fill:#c8c8c8}
+@keyframes cat-breathe{50%{transform:scaleY(1.03)}}
+@keyframes prop-bowl{0%{opacity:0}8%,31%{opacity:1}34%,100%{opacity:0}}
+@keyframes prop-ball{
+  0%,52%{opacity:0; transform:translate(0,0)}
+  54%{opacity:1; transform:translate(0,0)}
+  57%{opacity:1; transform:translate(-20px,-12px)}
+  59%{opacity:1; transform:translate(5px,0)}
+  61%{opacity:1; transform:translate(-14px,-9px)}
+  62.5%{opacity:1; transform:translate(3px,0)}
+  64%{opacity:.7; transform:translate(-6px,-4px)}
+  66%,100%{opacity:0; transform:translate(0,0)}}
+.lcd .ticker{padding:8px 0; position:relative; -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.lcd .track{display:inline-block; white-space:nowrap; padding-left:100%; color:#3fae6f;
+  animation:marquee 26s linear infinite}
+.lcd:hover .track{animation-play-state:paused}
+.lcd .track b{color:var(--green); font-weight:700}
+.lcd .track i{color:#1f6b42; font-style:normal; margin:0 14px}
+@keyframes blink{50%{opacity:.2}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* 规格条 */
+.spec{border:1px solid var(--g300); font-family:var(--mono);
+  font-size:var(--fs-10); text-transform:uppercase; color:var(--g600);
+  /* 前三格是短单值，genres 是 6 个流派的长串，给它更宽的列：
+     等分下它要折 5 行、把整条撑到 127px；给 2fr 后 2 行就排完，另外三格不再空一大片。
+     不用省略号——这一格本来就是给人看全流派构成的。 */
+  display:grid; grid-template-columns:1fr 1fr 1fr 2.2fr; align-items:stretch}
+/* 各格：内容顶部对齐 + 同一行高，四格自然等高等齐；genres 长串照常折行，
+   折出来的行也和其它格共用同一条基线网格（line-height 一致）。 */
+.spec div{padding:10px 14px; border-right:1px solid var(--g100); min-width:0;
+  display:flex; align-items:flex-start; gap:7px; line-height:1.65}
+.spec div:last-child{border-right:none}
+.spec b{color:var(--ink); font-weight:700; letter-spacing:.02em; min-width:0;
+  /* genres 要看完整，不截断 —— 这一格本来就是给人看全流派构成的 */
+  overflow-wrap:anywhere}
+
+/* 分区标题 */
+.sect{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; letter-spacing:.14em;
+  color:var(--ink); margin:var(--sp-lg) 0 var(--sp-sm); display:flex; align-items:center; gap:12px}
+.sect::after{content:""; flex:1; height:1px; background:var(--ink)}
+
+/* 工程方格纸模块网格 */
+.grid{display:grid; grid-template-columns:repeat(2,1fr);
+  border-top:1px solid var(--g300); border-left:1px solid var(--g300)}
+.mod{border-right:1px solid var(--g300); border-bottom:1px solid var(--g300);
+  background:var(--paper); display:flex; flex-direction:column; position:relative}
+.anim .mod{opacity:0; transform:translateY(8px); transition:opacity .4s ease-out, transform .4s ease-out}
+.anim .mod.in{opacity:1; transform:none}
+.mod.fill{background:
+  repeating-linear-gradient(0deg,transparent,transparent 21px,var(--g100) 21px,var(--g100) 22px),
+  repeating-linear-gradient(90deg,transparent,transparent 21px,var(--g100) 21px,var(--g100) 22px)}
+.m-top{display:flex; align-items:center; justify-content:space-between; padding:10px 14px;
+  border-bottom:1px solid var(--g100)}
+.m-num{font-family:var(--mono); font-size:var(--fs-25); font-weight:400; line-height:1; letter-spacing:-.02em}
+.m-code{display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:var(--fs-10);
+  text-transform:uppercase; color:var(--white); padding:3px 8px}
+.m-main{display:flex; gap:var(--sp-md); padding:var(--sp-md) var(--sp-md) 0}
+.art{position:relative; width:clamp(84px,9vw,104px); aspect-ratio:1; flex:none}
+.cover{width:100%; height:100%; object-fit:cover; display:block; background:var(--g100);
+  border:1px solid var(--g100); transition:opacity .2s}
+.cover.ph{display:grid; place-items:center; font-family:var(--mono); font-size:var(--fs-30);
+  color:var(--white); background:var(--ink); border:none}
+.art:hover .cover{opacity:.82}
+.pbtn{position:absolute; left:6px; bottom:6px; width:26px; height:26px; display:grid; place-items:center;
+  background:var(--ink); color:var(--white); border:none; padding:0; cursor:pointer; opacity:.9;
+  transition:transform .15s, opacity .2s, background .2s}
+.pbtn:hover{opacity:1}
+.pbtn:active{transform:scale(.9)}
+.pbtn svg{width:11px; height:11px; fill:var(--white); display:block}
+.pbtn .i-pause{display:none}
+.pbtn.playing{background:var(--green-d); opacity:1}
+/* 试听失效：给出可见的「不可用」态，而不是让它看起来还能点 */
+.pbtn.dead{background:var(--g300); opacity:.55; cursor:not-allowed}
+.pbtn.dead svg{fill:var(--g600)}
+.pbtn.dead::after{content:"×"; position:absolute; font-size:13px; line-height:1;
+  color:var(--white); font-family:var(--mono)}
+.pbtn.dead .i-play,.pbtn.dead .i-pause{display:none}
+.pbtn.playing .i-play{display:none}
+.pbtn.playing .i-pause{display:block}
+/* 底部 now-playing 条：封面键触发后浮现，显当前曲/进度/播放暂停，与封面键联动 */
+/* height 保持 76px（内容区不变），额外用 padding-bottom 吃掉 home 条，
+   box-sizing:border-box 下总高变成 76+sab、内容仍居中在上面那 76px 里。
+   左右也吃 inset：横屏时刘海会在侧边。 */
+#np{position:fixed; left:0; right:0; bottom:0; z-index:1200; display:none; align-items:center; gap:clamp(8px,1.2vw,14px);
+  background:var(--ink); color:var(--white); border-top:1px solid var(--g1000);
+  height:calc(var(--np-h) + var(--sab)); padding:0 clamp(16px,4vw,52px) var(--sab);
+  padding-left:calc(clamp(16px,4vw,52px) + var(--sal));
+  padding-right:calc(clamp(16px,4vw,52px) + var(--sar))}
+#np.on{display:flex}
+#np-cover{width:52px; height:52px; flex:none; object-fit:cover; background:var(--g1000)}
+#np-meta{flex:none; width:clamp(110px,20vw,240px); min-width:0}
+#np-title{font-size:var(--fs-15); font-weight:300; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+#np-artist{font-family:var(--mono); font-size:var(--fs-10); color:var(--g300); text-transform:uppercase;
+  letter-spacing:.09em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:3px}
+.np-btn{width:34px; height:34px; flex:none; display:grid; place-items:center; cursor:pointer;
+  background:var(--green-d); color:var(--white); border:none; transition:transform .15s}
+.np-btn:active{transform:scale(.9)}
+.np-btn svg{width:13px; height:13px; fill:var(--white); display:block}
+.np-btn .i-pause{display:none}
+#np.playing .np-btn .i-play{display:none}
+#np.playing .np-btn .i-pause{display:block}
+#np-bar{flex:1; min-width:40px; height:4px; background:var(--g1000); position:relative; cursor:pointer}
+#np-fill{position:absolute; left:0; top:0; bottom:0; width:0; background:var(--green)}
+#np-time{flex:none; min-width:82px; text-align:right; font-family:var(--mono); font-size:var(--fs-10); color:var(--g300)}
+@media(max-width:720px){#np-meta{width:clamp(90px,32vw,160px)} #np-time{display:none}}
+#np-prev,#np-next{width:30px; height:30px} #np-prev svg,#np-next svg{width:12px; height:10px}
+.heart{background:none; border:none; padding:0 0 0 8px; cursor:pointer; line-height:0}
+.heart svg{width:18px; height:18px; fill:var(--g300); transition:fill .15s, transform .15s}
+.heart:hover svg{fill:var(--g600)}
+.heart.on svg{fill:var(--red)}
+.heart:active svg{transform:scale(.85)}
+.tools{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:var(--sp-md)}
+.tbtn{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:8px 12px; cursor:pointer;
+  border:1px solid var(--ink); background:var(--paper); color:var(--ink); display:inline-flex; align-items:center; gap:6px; transition:opacity .2s}
+.tbtn:hover{opacity:.7}
+.tbtn.active{background:var(--ink); color:var(--white)}
+.tbtn.line{background:transparent}
+.mod.hidden{display:none}
+.arc{border-top:1px solid var(--g300); border-left:1px solid var(--g300); margin-top:var(--sp-md)}
+.arc a{display:flex; align-items:baseline; gap:var(--sp-md); padding:14px 16px;
+  border-right:1px solid var(--g300); border-bottom:1px solid var(--g300); transition:background .15s}
+.arc a:hover{background:var(--white)}
+.arc .d{font-family:var(--mono); font-size:var(--fs-15); color:var(--ink); flex:none; width:110px}
+.arc .no{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); flex:none}
+.arc .t{font-size:var(--fs-15); font-weight:300; color:var(--g900); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.hd{flex:1; min-width:0}
+.title{font-size:var(--fs-25); font-weight:100; line-height:1.12; letter-spacing:-.01em}
+.artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
+  margin-top:5px; letter-spacing:.09em}
+.meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:7px; line-height:1.6}
+.bpm{display:inline-block; margin-left:8px; padding:1px 6px 1px 5px; border:1px solid var(--g200);
+  border-left:3px solid var(--bc,var(--g300)); color:var(--g900); letter-spacing:.04em; white-space:nowrap}
+.tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:8px}
+.tag{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:2px 7px;
+  background:var(--g100); color:var(--g900)}
+.body{padding:var(--sp-md); display:flex; flex-direction:column; flex:1}
+.one{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); line-height:1.65; margin-bottom:7px}
+.why{font-size:var(--fs-15); font-weight:300; line-height:1.55}
+.scene{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
+  margin-top:auto; padding-top:11px}
+.scene .k{color:var(--orange)}
+.links{display:flex; gap:7px; margin-top:11px; flex-wrap:wrap}
+.btn{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:8px 12px;
+  cursor:pointer; transition:opacity .2s; border:1px solid var(--ink)}
+.btn.solid{background:var(--ink); color:var(--white)}
+.btn.line{background:transparent; color:var(--ink)}
+.btn:hover{opacity:.7}
+.src{font-family:var(--mono); font-size:var(--fs-10); color:var(--g500); margin-top:10px; letter-spacing:.02em}
+.src a{border-bottom:1px solid var(--g300)}
+
+/* 导出面板 */
+.export{border:1px solid var(--g300); margin-top:var(--sp-lg); background:var(--white)}
+/* 只看收藏时，整期的网易云导入块和当前视图矛盾，隐去；#fav-box 是收藏导出，要留 */
+body.fav-mode .export:not(#fav-box){display:none}
+.export .h{display:flex; justify-content:space-between; align-items:center; padding:12px 16px;
+  border-bottom:1px solid var(--g100); font-family:var(--mono); font-size:var(--fs-10);
+  text-transform:uppercase; letter-spacing:.04em}
+.export .h span{color:var(--g600)}
+.export .in{padding:var(--sp-md)}
+.export p{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-bottom:10px; text-transform:none}
+.export pre{border:1px solid var(--g100); background:var(--paper); padding:14px; font-family:var(--mono);
+  font-size:var(--fs-10); line-height:1.8; white-space:pre-wrap; max-height:280px; overflow:auto}
+
+footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-top:var(--sp-lg);
+  padding:var(--sp-lg) 0; font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
+  color:var(--g600); border-top:1px solid var(--g300)}
+
+@media(max-width:720px){
+  .grid{grid-template-columns:1fr}
+  .hero{align-items:flex-start}
+  .m-main{flex-direction:row}
+  .spec{grid-template-columns:repeat(2,1fr)}
+  .spec div:nth-child(2n){border-right:none}
+  .spec div:nth-child(-n+2){border-bottom:1px solid var(--g100)}
+}
+
+/* ── 竖屏（手机）适配：以 iPhone 390×844 为基准 ──
+   问题都是实测出来的，不是猜的：①logo「MUSIC DAILY」被折成两行
+   ②顶栏右侧 serial 三段挤成两排 ③规格条四列在 390 下每格都折行、genres 那格压成竖带
+   ④大数字与右侧说明断开 ⑤卡片内封面+文字并排太挤 */
+@media(max-width:520px){
+  /* 覆盖 padding-inline 会整条替换掉基础规则里的 calc()，丢掉左右安全区。
+     ≤520px 正是手机 —— 最需要安全区的那批设备（竖屏 left/right inset 为 0 所以
+     当前无感，横屏窄设备与未来机型会中）。 */
+  .wrap{padding-left:calc(16px + var(--sal)); padding-right:calc(16px + var(--sar))}
+  /* 顶栏：logo 不许折行，右侧信息只留最要紧的两段 */
+  .nav .wrap{height:52px}
+  .brand{font-size:14px; gap:8px; white-space:nowrap; flex:none}
+  .brand .sq{width:11px; height:11px}
+  .nav .serial{gap:10px; flex-wrap:nowrap; font-size:9px; overflow:hidden}
+  .nav .serial>*:nth-child(n+3){display:none}   /* 只留前两段，别挤成两排 */
+  /* Hero：大数字与说明并成一行，别各占一块 */
+  .hero{padding:20px 0 14px; gap:12px; align-items:flex-end}
+  .hero .h-l h1{font-size:34px}
+  .hero .h-l .en{margin-top:7px; font-size:9px; letter-spacing:.04em}
+  .hero .h-r{line-height:1.5; font-size:9px}
+  .hero .h-r .big{font-size:30px; display:inline-block; margin-right:6px}
+  /* 竖屏：390px 放四列每格都折行，改两列（保持原样式，只是换行数） */
+  .spec{grid-template-columns:repeat(2,1fr)}
+  .spec div{padding:8px 12px}
+  .spec div:nth-child(2n){border-right:none}
+  .spec div:nth-child(-n+2){border-bottom:1px solid var(--g100)}
+  /* 工具按钮：一行放不下就整行铺满，别半截换行 */
+  .tools{gap:7px}
+  .tools .tbtn{flex:1 1 calc(50% - 4px); justify-content:center; padding:9px 8px; font-size:10px}
+  /* 卡片：封面与文字改上下叠，封面横铺（竖屏并排 130px 封面太憋） */
+  .m-main{flex-direction:column !important; gap:12px; padding:12px 12px 0}
+  .m-main .art{width:100%; aspect-ratio:16/10}
+  .m-top{padding:10px 12px}
+  .body{padding:0 12px 12px}
+  /* LCD：猫和跑马灯在窄屏共存，缩小猫舞台 */
+  .lcd .row1{min-height:40px; padding:7px 12px; gap:7px}
+  .lcd .cat-wrap{transform:scale(.85); transform-origin:center bottom}
+  footer{flex-direction:column; gap:6px; text-align:center}
+}
+@media(prefers-reduced-motion:reduce){
+  .mod{opacity:1; transform:none; transition:none}
+  .track,.dot,.rec,.pose,.p-sleep,.cat-wrap,.cat-move,.cat-eyes,.cat-tail,.prop{animation:none}
+  .pose{opacity:0}
+  .p-stand{opacity:1}
+  html{scroll-behavior:auto}
+}
+
+/* ── 封面放大 + 艺人详情 ── */
+/* 四边都要加安全区：实测 iPhone 14 Pro standalone 下，.sheet 距顶 52px
+   而刘海是 59px —— 贴在 .sheet 右上角的关闭键整个埋在刘海底下，【浮层关不掉】。
+   这比顶栏被埋严重得多（顶栏只是看不见，浮层是操作不了）。
+   变量在 render_grid 的 :root 里定义，本文件的样式注入同一个文档，直接继承。 */
+#lb{position:fixed; inset:0; z-index:2000; display:none;
+  padding:calc(clamp(14px,4vw,40px) + var(--sat, 0px))
+          calc(clamp(14px,4vw,40px) + var(--sar, 0px))
+          calc(clamp(14px,4vw,40px) + var(--sab, 0px))
+          calc(clamp(14px,4vw,40px) + var(--sal, 0px));
+  align-items:center; justify-content:center}
+#lb.on{display:flex}
+#lb .veil{position:absolute; inset:0; background:rgba(10,9,12,.86);
+  backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px);
+  animation:lb-veil .26s ease-out both}
+@keyframes lb-veil{from{opacity:0}to{opacity:1}}
+#lb .sheet{position:relative; z-index:1; width:min(880px,100%); max-height:92svh;
+  display:grid; grid-template-columns:minmax(0,300px) minmax(0,1fr);
+  background:var(--paper); border:1px solid var(--g1000); overflow:hidden;
+  animation:lb-in .38s cubic-bezier(.16,1,.3,1) both}
+@keyframes lb-in{from{opacity:0; transform:translateY(14px) scale(.965)}
+  to{opacity:1; transform:none}}
+/* 左：大图。方形，底部压一条铭牌 */
+#lb .big{position:relative; background:var(--ink); aspect-ratio:1; overflow:hidden}
+#lb .big img{width:100%; height:100%; object-fit:cover; display:block;
+  animation:lb-img .5s cubic-bezier(.2,1,.3,1) both}
+@keyframes lb-img{from{opacity:0; transform:scale(1.06)}to{opacity:1; transform:none}}
+#lb .big .ph{width:100%; height:100%; display:grid; place-items:center;
+  font-family:var(--mono); font-size:64px; color:var(--g900); background:var(--g1000)}
+#lb .big .yr{position:absolute; left:0; right:0; bottom:0; padding:9px 13px;
+  font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.1em;
+  text-transform:uppercase; color:var(--white);
+  background:linear-gradient(transparent,rgba(0,0,0,.78) 40%);
+  display:flex; justify-content:space-between; gap:10px}
+/* 右：详情 */
+#lb .info{padding:clamp(18px,2.6vw,28px); overflow:auto; display:flex; flex-direction:column}
+#lb .kicker{font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.16em;
+  text-transform:uppercase; color:var(--g600); display:flex; align-items:center; gap:9px}
+#lb .kicker::after{content:""; flex:1; height:1px; background:var(--g200)}
+#lb h3{font-size:clamp(26px,3.4vw,36px); font-weight:100; line-height:1.24;
+  letter-spacing:-.015em; margin-top:11px; text-transform:lowercase;
+  padding-bottom:.1em; overflow:visible}
+#lb .ar{font-family:var(--mono); font-size:var(--fs-15); text-transform:uppercase;
+  letter-spacing:.1em; color:var(--g900); margin-top:5px}
+#lb .meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
+  margin-top:11px; line-height:1.7}
+#lb .tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:12px}
+#lb .tags span{font-family:var(--mono); font-size:9px; letter-spacing:.06em;
+  text-transform:uppercase; border:1px solid var(--g200); padding:3px 7px; color:var(--g900)}
+#lb .sec{margin-top:16px}
+#lb .sec .lb-t{font-family:var(--mono); font-size:9px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--orange); margin-bottom:5px}
+#lb .sec p{font-size:var(--fs-20); font-weight:300; line-height:1.62}
+#lb .sec.mono p{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); line-height:1.75}
+/* bio 是主体，字号比别的段大一档 */
+#lb #lb-bio{font-size:var(--fs-20); font-weight:300; line-height:1.72}
+#lb .sec#lb-bio-w{margin-top:14px}
+/* 本站收录的曲目：可点，跳到那一首 */
+#lb .pool{display:flex; flex-wrap:wrap; gap:5px}
+#lb .pool a{font-family:var(--mono); font-size:9px; letter-spacing:.04em;
+  border:1px solid var(--g200); padding:4px 8px; color:var(--g900); background:var(--white);
+  transition:background .14s, color .14s}
+#lb .pool a:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
+#lb .pool a.cur{background:var(--ink); color:var(--white); border-color:var(--ink)}
+/* 「这一首」降级成次要块：加左边线、字号收小 */
+#lb .sec.trk{border-left:2px solid var(--g200); padding-left:11px; margin-top:18px}
+#lb .sec.trk .tk{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
+  letter-spacing:.06em; color:var(--ink); margin-bottom:5px}
+#lb .sec.trk p{font-size:var(--fs-15); line-height:1.6; color:var(--g900)}
+#lb .sec.trk p.sc{font-family:var(--mono); font-size:9px; color:var(--g600);
+  margin-top:6px; line-height:1.7}
+#lb .lb-links{display:flex; flex-wrap:wrap; gap:7px; margin-top:auto; padding-top:20px}
+#lb .lb-links a{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
+  letter-spacing:.06em; border:1px solid var(--g300); padding:8px 13px; color:var(--ink);
+  transition:background .15s, border-color .15s}
+#lb .lb-links a:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
+#lb .x{position:absolute; right:0; top:0; z-index:3; width:42px; height:42px;
+  border:none; border-left:1px solid var(--g200); border-bottom:1px solid var(--g200);
+  background:var(--paper); color:var(--ink); cursor:pointer; font-family:var(--mono);
+  font-size:16px; line-height:1; transition:background .15s}
+#lb .x:hover{background:var(--ink); color:var(--white)}
+/* 封面可点：给个手型 + 悬停微亮 + 右下角放大镜提示 */
+.cover-zoom{cursor:zoom-in}
+.cover-zoom::after{content:"⤢"; position:absolute; right:6px; bottom:6px; z-index:2;
+  width:20px; height:20px; display:grid; place-items:center; font-size:11px;
+  background:rgba(15,14,18,.72); color:#fff; opacity:0; transition:opacity .18s;
+  pointer-events:none}
+.cover-zoom:hover::after{opacity:1}
+@media(max-width:720px){
+  #lb .sheet{grid-template-columns:1fr; max-height:88svh; overflow:auto}
+  #lb .big{aspect-ratio:16/11}
+  #lb .info{padding:16px}
+  #lb h3{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  #lb .veil,#lb .sheet,#lb .big img{animation:none}
+}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <div class="brand"><span class="sq"></span>MUSIC DAILY</div>
+  <div class="serial"><span>archive</span><span>共 <b>46</b> 期</span></div>
+</div></nav>
+<main class="wrap">
+  <div class="hero"><div class="h-l"><h1 class="lc">往期</h1>
+    <div class="en">archive · all issues</div></div>
+    <div class="h-r"><span class="big">46</span>issues<br><a href="../daily.html" style="border-bottom:1px solid var(--g300)">← 最新一期</a></div>
+  </div>
+  <div class="arc">
+    <a href="2026-09-11.html"><span class="d">2026-09-11</span><span class="no">issue 046 / 30首</span><span class="t">今天第一次推荐的 30 首（09.11）</span></a>
+<a href="2026-09-10.html"><span class="d">2026-09-10</span><span class="no">issue 045 / 30首</span><span class="t">一个人也不觉得空的房间（09.10）</span></a>
+<a href="2026-09-09.html"><span class="d">2026-09-09</span><span class="no">issue 044 / 30首</span><span class="t">有点甜，但克制着（09.09）</span></a>
+<a href="2026-09-08.html"><span class="d">2026-09-08</span><span class="no">issue 043 / 30首</span><span class="t">凌晨两点，只留一盏灯（09.08）</span></a>
+<a href="2026-09-07.html"><span class="d">2026-09-07</span><span class="no">issue 042 / 30首</span><span class="t">木头、旧磁带和一点灰（09.07）</span></a>
+<a href="2026-09-06.html"><span class="d">2026-09-06</span><span class="no">issue 041 / 30首</span><span class="t">夜色很稠，节拍很轻（09.06）</span></a>
+<a href="2026-09-05.html"><span class="d">2026-09-05</span><span class="no">issue 040 / 30首</span><span class="t">留白比声音还多（09.05）</span></a>
+<a href="2026-09-04.html"><span class="d">2026-09-04</span><span class="no">issue 039 / 30首</span><span class="t">电子像呼吸的那种（09.04）</span></a>
+<a href="2026-09-03.html"><span class="d">2026-09-03</span><span class="no">issue 038 / 30首</span><span class="t">把肩膀放下来的那半小时（09.03）</span></a>
+<a href="2026-09-02.html"><span class="d">2026-09-02</span><span class="no">issue 037 / 30首</span><span class="t">一个人也不觉得空的房间（09.02）</span></a>
+<a href="2026-09-01.html"><span class="d">2026-09-01</span><span class="no">issue 036 / 30首</span><span class="t">有点甜，但克制着（09.01）</span></a>
+<a href="2026-08-31.html"><span class="d">2026-08-31</span><span class="no">issue 035 / 30首</span><span class="t">夏天傍晚，风还没凉下来（08.31）</span></a>
+<a href="2026-08-30.html"><span class="d">2026-08-30</span><span class="no">issue 034 / 30首</span><span class="t">木头、旧磁带和一点灰（08.30）</span></a>
+<a href="2026-08-29.html"><span class="d">2026-08-29</span><span class="no">issue 033 / 30首</span><span class="t">微凉的清晨，先别说话（08.29）</span></a>
+<a href="2026-08-28.html"><span class="d">2026-08-28</span><span class="no">issue 032 / 30首</span><span class="t">地铁靠窗的那十分钟（08.28）</span></a>
+<a href="2026-08-27.html"><span class="d">2026-08-27</span><span class="no">issue 031 / 30首</span><span class="t">电子像呼吸的那种（08.27）</span></a>
+<a href="2026-08-26.html"><span class="d">2026-08-26</span><span class="no">issue 030 / 30首</span><span class="t">把白天调成夜的亮度（08.26）</span></a>
+<a href="2026-08-25.html"><span class="d">2026-08-25</span><span class="no">issue 029 / 30首</span><span class="t">慢到几乎停下来的好听（08.25）</span></a>
+<a href="2026-08-24.html"><span class="d">2026-08-24</span><span class="no">issue 028 / 30首</span><span class="t">耳朵先安静，人才跟上（08.24）</span></a>
+<a href="2026-08-23.html"><span class="d">2026-08-23</span><span class="no">issue 027 / 30首</span><span class="t">木头、旧磁带和一点灰（08.23）</span></a>
+<a href="2026-08-22.html"><span class="d">2026-08-22</span><span class="no">issue 026 / 30首</span><span class="t">夜色很稠，节拍很轻（08.22）</span></a>
+<a href="2026-08-21.html"><span class="d">2026-08-21</span><span class="no">issue 025 / 30首</span><span class="t">冬日下午，斜光只照到半墙（08.21）</span></a>
+<a href="2026-08-20.html"><span class="d">2026-08-20</span><span class="no">issue 024 / 30首</span><span class="t">电子像呼吸的那种（08.20）</span></a>
+<a href="2026-08-19.html"><span class="d">2026-08-19</span><span class="no">issue 023 / 30首</span><span class="t">有点甜，但克制着（08.19）</span></a>
+<a href="2026-08-18.html"><span class="d">2026-08-18</span><span class="no">issue 022 / 30首</span><span class="t">夏天傍晚，风还没凉下来（08.18）</span></a>
+<a href="2026-08-17.html"><span class="d">2026-08-17</span><span class="no">issue 021 / 30首</span><span class="t">慢到几乎停下来的好听（08.17）</span></a>
+<a href="2026-08-16.html"><span class="d">2026-08-16</span><span class="no">issue 020 / 30首</span><span class="t">耳朵先安静，人才跟上（08.16）</span></a>
+<a href="2026-08-15.html"><span class="d">2026-08-15</span><span class="no">issue 019 / 30首</span><span class="t">夜色很稠，节拍很轻（08.15）</span></a>
+<a href="2026-08-14.html"><span class="d">2026-08-14</span><span class="no">issue 018 / 30首</span><span class="t">地铁靠窗的那十分钟（08.14）</span></a>
+<a href="2026-08-13.html"><span class="d">2026-08-13</span><span class="no">issue 017 / 30首</span><span class="t">电子像呼吸的那种（08.13）</span></a>
+<a href="2026-08-12.html"><span class="d">2026-08-12</span><span class="no">issue 016 / 30首</span><span class="t">退潮之后，鞋里还进着沙（08.12）</span></a>
+<a href="2026-08-11.html"><span class="d">2026-08-11</span><span class="no">issue 015 / 30首</span><span class="t">有点甜，但克制着（08.11）</span></a>
+<a href="2026-08-10.html"><span class="d">2026-08-10</span><span class="no">issue 014 / 30首</span><span class="t">城市夜里，声音都调小了（08.10）</span></a>
+<a href="2026-08-09.html"><span class="d">2026-08-09</span><span class="no">issue 013 / 30首</span><span class="t">把白天调成夜的亮度（08.09）</span></a>
+<a href="2026-08-08.html"><span class="d">2026-08-08</span><span class="no">issue 012 / 30首</span><span class="t">冬日下午，斜光只照到半墙（08.08）</span></a>
+<a href="2026-08-07.html"><span class="d">2026-08-07</span><span class="no">issue 011 / 30首</span><span class="t">木头、旧磁带和一点灰（08.07）</span></a>
+<a href="2026-08-06.html"><span class="d">2026-08-06</span><span class="no">issue 010 / 30首</span><span class="t">电子像呼吸的那种（08.06）</span></a>
+<a href="2026-08-05.html"><span class="d">2026-08-05</span><span class="no">issue 009 / 30首</span><span class="t">慢到几乎停下来的好听（08.05）</span></a>
+<a href="2026-08-04.html"><span class="d">2026-08-04</span><span class="no">issue 008 / 30首</span><span class="t">夏天傍晚，风还没凉下来（08.04）</span></a>
+<a href="2026-08-03.html"><span class="d">2026-08-03</span><span class="no">issue 007 / 30首</span><span class="t">夜色很稠，节拍很轻（08.03）</span></a>
+<a href="2026-08-02.html"><span class="d">2026-08-02</span><span class="no">issue 006 / 30首</span><span class="t">有点甜，但克制着（08.02）</span></a>
+<a href="2026-08-01.html"><span class="d">2026-08-01</span><span class="no">issue 005 / 30首</span><span class="t">耳朵先安静，人才跟上（08.01）</span></a>
+<a href="2026-07-31.html"><span class="d">2026-07-31</span><span class="no">issue 004 / 30首</span><span class="t">潮湿黄昏，木吉他慢慢走（07.31）</span></a>
+<a href="2026-07-30.html"><span class="d">2026-07-30</span><span class="no">issue 003 / 30首</span><span class="t">电子像呼吸的那种（07.30）</span></a>
+<a href="2026-07-29.html"><span class="d">2026-07-29</span><span class="no">issue 002 / 30首</span><span class="t">木头、旧磁带和一点灰（07.29）</span></a>
+<a href="2026-07-28.html"><span class="d">2026-07-28</span><span class="no">issue 001 / 30首</span><span class="t">一个人也不觉得空的房间（07.28）</span></a>
+  </div>
+  <footer><span>MUSIC DAILY · archive</span><span>46 issues · melody-first</span></footer>
+</main>
+<a href="../../archive/index.html" style="position:fixed;right:12px;top:calc(72px + env(safe-area-inset-top,0px));z-index:1100;padding:10px 12px;background:#0f0e12;color:#fff;font:12px monospace;border:1px solid #ccc">旧版外观 · 返回新版 ↗</a></body>
+</html>

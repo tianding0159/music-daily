@@ -1,13 +1,13 @@
-"""每日选曲：黑名单硬过滤 + 旋律必须 + 打分排序 + 气质多样性挑 30 首。
+"""每日选曲：全历史作品去重、黑名单过滤与气质多样性。
 
-选曲依据用户的 music taste profile（气质+制作+旋律，非流派配额）。所有美学判断已在
-发现阶段写进 pool.json，这里是确定性的纯逻辑：过滤 → 打分 → 按 mood 多样性挑选。
-同一天日期做种子，结果稳定；跨天用 history 去重轮播。
+pool.json 保留已听审的美学判断；资料核实但未听审的曲目单独标为新发现。
+同一天日期与输入做种子，结果稳定；已推荐作品不回填，库存不足按实际数量出刊。
 """
 from __future__ import annotations
 
 import hashlib
 import re
+import unicodedata
 
 # 黑名单流派/制作标签（命中即排除）——profile 明确不喜欢的
 BLACKLIST = {
@@ -54,15 +54,6 @@ def _recent_sent_ids(history: dict, cutoff_dates: set[str]) -> set[str]:
         if d in cutoff_dates:
             ids.update(id_list)
     return ids
-
-
-def _last_sent(history: dict) -> dict[str, str]:
-    """每个 id 最近一次被发的日期（用于池耗尽时挑最久没发的）。"""
-    last: dict[str, str] = {}
-    for d in sorted(history.keys()):
-        for tid in history[d]:
-            last[tid] = d
-    return last
 
 
 def _seeded_key(track: dict, date_str: str) -> float:
@@ -120,6 +111,41 @@ def _alkey(t: dict) -> str:
     return t.get("album_key") or _norm(t.get("album", ""))
 
 
+def work_key(track: dict) -> tuple[str, str]:
+    """作品身份不依赖上架 ID；同艺人的重制、现场版本不会再次推荐。"""
+    title = re.sub(r"[\(（\[【].*?[\)）\]】]", " ", str(track.get("title", "")))
+    version = r"(?:remaster(?:ed)?|remix(?:ed)?|live|rework|edit|acoustic|instrumental|demo|reprise|rerecorded|re[- ]recorded|version|mix)"
+    title = re.sub(r"\s*[-–—]\s*(?:(?:\d{4}|stereo|mono|original|digitally|album|single|radio|us|uk|lp)\s+)*" + version + r"\b.*$", "", title, flags=re.I)
+    title = re.sub(r"\s+(?:(?:\d{4}|digitally)\s+)?remaster(?:ed)?(?:\s+\d{4})?\s*$", "", title, flags=re.I)
+    def key(value):
+        raw = unicodedata.normalize("NFKD", str(value)).casefold()
+        return "".join(c for c in raw if c.isalnum() and not unicodedata.combining(c))
+    return key(track.get("artist", "")), key(title)
+
+
+def identities(track: dict) -> set[str]:
+    return {str(x) for x in [track.get("id"), *(track.get("legacy_ids") or [])] if x}
+
+
+def unsent_tracks(candidates: list[dict], history: dict, history_tracks=()) -> list[dict]:
+    """全历史 ID、旧 ID 与作品名共同去重，不因日期窗口或曲库迁移而重置。"""
+    sent = _recent_sent_ids(history, set(history))
+    sent_works = {work_key(t) for t in [*candidates, *history_tracks] if identities(t) & sent}
+    return [t for t in candidates if not identities(t) & sent and work_key(t) not in sent_works]
+
+
+def daily_candidates(pool: list[dict], discoveries=()) -> list[dict]:
+    """听审精选与资料核实的新发现分开，绝不补造 has_melody 或听感字段。"""
+    curated = [t for t in pool if is_eligible(t)[0]]
+    curated_works = {work_key(t) for t in pool}
+    pending = [t for t in discoveries
+               if t.get("selection_status") == "discovery_not_curated"
+               and not (_tagset(t, "genres") & BLACKLIST)
+               and not (_tagset(t, "production_tags") & BLACKLIST_PROD)
+               and work_key(t) not in curated_works]
+    return curated + pending
+
+
 def _fill(cands, n, date_str, picked, uid, uartist, ualbum, allow_artist_repeat=False) -> int:
     """按气质多样性 round-robin 填充；硬守 同期同艺人/同专辑/canonical id 不重复。"""
     ranked = sorted(cands, key=lambda t: score(t) + _seeded_key(t, date_str) * 6, reverse=True)
@@ -138,14 +164,15 @@ def _fill(cands, n, date_str, picked, uid, uartist, ualbum, allow_artist_repeat=
             while b:
                 t = b.pop(0)
                 ak, alk = _akey(t), _alkey(t)
-                if t["id"] in uid:
+                wk = ("work", *work_key(t))
+                if t["id"] in uid or wk in uid:
                     continue
                 if not allow_artist_repeat and ak in uartist:
                     continue
                 if alk and alk in ualbum:
                     continue
                 picked.append(t)
-                uid.add(t["id"]); uartist.add(ak)
+                uid.add(t["id"]); uid.add(wk); uartist.add(ak)
                 if alk:
                     ualbum.add(alk)
                 advanced = True
@@ -155,22 +182,21 @@ def _fill(cands, n, date_str, picked, uid, uartist, ualbum, allow_artist_repeat=
 
 def select_daily(pool: list[dict], history: dict, date_str: str, n: int = 30,
                  recency_days: int = 45, artist_gap_issues: int = 6,
-                 bright_floor: int = 5) -> list[dict]:
-    """分阶段约束选曲：硬规则(旋律/黑名单/同期同艺人同专辑/canonical 去重/近 45 期不重复)优先，
-    库存不足时按固定顺序逐条放宽软约束并记录 LAST_RELAX。旋律与黑名单永不放宽。"""
+                 bright_floor: int = 5, *, discoveries=(), history_tracks=()) -> list[dict]:
+    """已推荐作品永不回填；库存不足少选。recency_days 仅保留调用兼容。"""
     global LAST_RELAX
     LAST_RELAX = []
-    by_id = {t["id"]: t for t in pool if t.get("id")}
-    eligible = [t for t in pool if is_eligible(t)[0]]           # 硬过滤：旋律 + 黑名单
+    if n < 1:
+        raise ValueError("每日曲目数必须大于 0")
+    eligible = daily_candidates(pool, discoveries)
+    by_id = {t["id"]: t for t in [*pool, *discoveries, *history_tracks] if t.get("id")}
     sent_dates = sorted(history)
-    recent_ids = _recent_sent_ids(history, set(sent_dates[-recency_days:]))
     recent_artists = set()
     for d in sent_dates[-artist_gap_issues:]:
         for tid in history.get(d, []):
             tr = by_id.get(tid)
             if tr:
                 recent_artists.add(_akey(tr))
-    last = _last_sent(history)
     picked: list[dict] = []
     uid: set = set()
     uartist: set = set()
@@ -183,7 +209,7 @@ def select_daily(pool: list[dict], history: dict, date_str: str, n: int = 30,
         if added and tag:
             LAST_RELAX.append(f"{tag}(+{added})")
 
-    fresh = [t for t in eligible if t["id"] not in recent_ids]
+    fresh = unsent_tracks(eligible, history, history_tracks)
     fresh_strict = [t for t in fresh if _akey(t) not in recent_artists]
     # 动态反差：先在最严池里保底挑 bright_floor 首上扬/groove 曲，避免整期一路软到底
     brights = [t for t in fresh_strict if _is_bright(t)]
@@ -193,11 +219,7 @@ def select_daily(pool: list[dict], history: dict, date_str: str, n: int = 30,
             LAST_RELAX.append(f"bright保底(+{added})")
     stage(fresh_strict, "")                                                      # 1 最严
     stage(fresh, "放宽跨期艺人间隔")                                             # 2
-    backfill = sorted([t for t in eligible if t["id"] in recent_ids],
-                      key=lambda t: (last.get(t["id"], ""), _seeded_key(t, date_str)))
-    stage(backfill, "回填最久未发(池不足)")                                      # 3
-    stage(sorted(eligible, key=lambda t: (last.get(t["id"], ""), _seeded_key(t, date_str))),
-          "放宽同期同艺人(极端不足)", allow_artist_repeat=True)                  # 4（仍不放宽旋律/黑名单）
+    stage(fresh, "放宽同期同艺人(仅未推荐作品)", allow_artist_repeat=True)
     return picked[:n]
 
 

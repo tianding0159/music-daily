@@ -10,6 +10,7 @@
   python3 scripts/build_daily.py --date 2026-07-28
   python3 scripts/build_daily.py --force-rebuild  # 重新生成当期快照（否则当天幂等复用）
   python3 scripts/build_daily.py --no-itunes      # 离线：跳过 iTunes
+  python3 scripts/build_daily.py --render-only    # 只从现存数据离线重建页面，不生成日报或通知
   python3 scripts/build_daily.py --push --url <PAGES_URL>   # 本地顺带发微信
 """
 from __future__ import annotations
@@ -29,6 +30,10 @@ import push_wechat
 import render_grid
 import render_landing
 import render_random
+import render_classic_grid
+import render_classic_landing
+import render_classic_random
+import shutil
 
 RENDERERS = {"grid": render_grid}
 
@@ -50,7 +55,15 @@ def enrich(tracks: list[dict], use_itunes: bool) -> tuple[list[dict], list[str]]
     """给每首补 _cover/_preview/_apple。返回 (tracks, iTunes未命中列表)。"""
     misses: list[str] = []
     cache = itunes.load_cache() if use_itunes else {}
+    media = _load_json(MEDIA, {}) if not use_itunes else {}
     for t in tracks:
+        if t.get("selection_status") == "discovery_not_curated":
+            # 已从 discovery.json 的严格验证投影得到精确媒体，不能用模糊查询覆盖。
+            continue
+        stored = media.get(t["id"], {})
+        if stored:
+            t["_cover"], t["_preview"], t["_apple"] = stored.get("c", ""), stored.get("p", ""), stored.get("a", "")
+            continue
         info = itunes.lookup(t["artist"], t["title"], cache) if use_itunes else {"found": False}
         # 判据是 status ∈ ACCEPT，不是 found —— lookup 在拿不到 exact/acceptable 时
         # 会退回 best_nonexact（version_mismatch / artist_mismatch）并且 found 仍为真。
@@ -68,11 +81,14 @@ def enrich(tracks: list[dict], use_itunes: bool) -> tuple[list[dict], list[str]]
 
 
 def _write_snapshot(date: str, issue_no: int, theme: str, picks: list[dict],
-                    title: str, nc_text: str) -> dict:
+                    title: str, nc_text: str, selection_policy: str = "legacy",
+                    superseded_tracks=()) -> dict:
     snap = {
         "issue_no": issue_no, "date": date,
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "theme": theme, "playlist_title": title, "netease_text": nc_text, "tracks": picks,
+        "selection_policy": selection_policy,
+        **({"superseded_tracks": list(superseded_tracks)} if superseded_tracks else {}),
     }
     ISSUES.mkdir(parents=True, exist_ok=True)
     (ISSUES / f"{date}.json").write_text(json.dumps(snap, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -106,7 +122,7 @@ def _backfill_snapshots(history: dict, pool: list[dict], skip_date: str = "",
     """给还没有快照的历史日期补一份，避免历史 archive 丢失。
     也补 iTunes 封面/试听（多数走缓存），否则补出来的 archive 页会没有封面和试听。
     跳过 skip_date（当前正在正常构建的日期，由主流程新鲜生成）。"""
-    by_id = {t["id"]: t for t in pool}
+    by_id = {t["id"]: t for t in _random_catalog_items(pool)}
     ISSUES.mkdir(parents=True, exist_ok=True)
     made: dict[str, str] = {}                     # 本轮已补的 {date: title}，链式累积避免互相撞名
     for i, date in enumerate(sorted(history), 1):
@@ -150,9 +166,13 @@ def _artist_ctx(pool: list[dict]) -> dict[str, dict]:
     return out
 
 
-def _rebuild_site() -> None:
+def _rebuild_site(target=None, grid=None, landing=None) -> None:
     """清空 archive，从所有 issue 快照全量重建 archive/*.html 与最新一期 index.html。"""
-    arch = SITE / "archive"
+    classic = target is not None
+    target = target or SITE
+    grid = grid or render_grid
+    landing = landing or render_landing
+    arch = target / "archive"
     if arch.exists():
         for f in arch.glob("*.html"):
             f.unlink()
@@ -160,36 +180,59 @@ def _rebuild_site() -> None:
     snaps = sorted((json.loads(p.read_text(encoding="utf-8")) for p in ISSUES.glob("*.json")),
                    key=lambda s: s["date"])
     # 浮层的艺人上下文按全池算（不只当期），这样「本站收录」能列出该艺人的全部曲目
-    render_grid.ARTIST_CTX = _artist_ctx(_load_json(DATA / "pool.json", []))
+    grid.ARTIST_CTX = _artist_ctx(_random_catalog_items(_load_json(DATA / "pool.json", [])))
     # snaps 已按 date 升序 —— 相邻两项就是上一期 / 下一期
     for i, s in enumerate(snaps):
-        r = RENDERERS.get(s.get("theme", "grid"), render_grid)
+        r = grid
         html = r.build_html(
             s["date"], s["tracks"], s["issue_no"], s["netease_text"],
             archive_href="index.html", random_href="../random.html",
             prev_date=snaps[i - 1]["date"] if i > 0 else "",
             next_date=snaps[i + 1]["date"] if i + 1 < len(snaps) else "")
+        if classic:
+            html = _classic_link(html, "../../archive/" + s['date'] + ".html")
         (arch / f"{s['date']}.html").write_text(html, encoding="utf-8")
     if snaps:
-        idx = render_grid.build_archive_index([
+        idx = grid.build_archive_index([
             {"date": s2["date"], "issue_no": s2["issue_no"],
              "playlist_title": s2.get("playlist_title", ""), "n": len(s2["tracks"])}
             for s2 in reversed(snaps)])
-        (arch / "index.html").write_text(idx, encoding="utf-8")
+        (arch / "index.html").write_text(_classic_link(idx, "../../archive/index.html") if classic else idx, encoding="utf-8")
         latest = snaps[-1]
-        r = RENDERERS.get(latest.get("theme", "grid"), render_grid)
+        r = grid
         # 日报本体在 daily.html；index.html 让给开机自检落地页（站点入口）
-        (SITE / "daily.html").write_text(
+        (target / "daily.html").write_text(
             r.build_html(latest["date"], latest["tracks"], latest["issue_no"],
                          latest["netease_text"],
                          # 首页永远是最新一期：没有「下一期」，「上一期」进 archive/
                          prev_date=snaps[-2]["date"] if len(snaps) > 1 else ""),
             encoding="utf-8")
-        (SITE / "index.html").write_text(
-            render_landing.build_html(
+        (target / "index.html").write_text(
+            landing.build_html(
                 n_issues=len(snaps), n_tracks=_n_eligible(),
                 latest_date=latest["date"]),
             encoding="utf-8")
+        if classic:
+            for name in ("daily.html", "index.html"):
+                p = target / name
+                p.write_text(_classic_link(p.read_text(encoding="utf-8"), "../" + name), encoding="utf-8")
+    if not classic:
+        _rebuild_site(SITE / "legacy", render_classic_grid, render_classic_landing)
+        for asset in SITE.glob("icon-*.png"):
+            shutil.copy2(asset, SITE / "legacy" / asset.name)
+        manifest = SITE / "manifest.webmanifest"
+        if manifest.exists():
+            shutil.copy2(manifest, SITE / "legacy" / manifest.name)
+
+
+def _classic_link(page: str, href: str) -> str:
+    """旧外观与新版读取同一份日报；切换入口避开播放器。"""
+    link = ('<a href="' + href + '" style="position:fixed;right:12px;top:calc(72px + env(safe-area-inset-top,0px));'
+            'z-index:1100;padding:10px 12px;background:#0f0e12;color:#fff;font:12px monospace;border:1px solid #ccc">'
+            '旧版外观 · 返回新版 ↗</a>')
+    if '新发现 · 待精选' in page:
+        page = page.replace('<h1 class="lc">今日精选</h1>', '<h1 class="lc">今日日报</h1>').replace('<b>70–120</b>', '<b>待核实</b>')
+    return page.replace('</body>', link + '</body>')
 
 
 MEDIA = DATA / "pool_media.json"          # id -> {c,p,a} 封面/试听/Apple 链接，增量累积
@@ -197,25 +240,15 @@ _MEDIA_BUDGET = 60                        # 单次最多现查多少首（CI 时
 
 
 def _discovery_work_key(track: dict) -> tuple[str, str]:
-    """去重作品，而非某次上架的 Apple ID；兼容旧池未括起的版本尾缀。"""
-    title = re.sub(r"[\(（\[【].*?[\)）\]】]", " ", str(track.get("title", "")))
-    version = r"(?:remaster(?:ed)?|remix(?:ed)?|live|rework|edit|acoustic|instrumental|demo|reprise|rerecorded|re[- ]recorded|version|mix)"
-    title = re.sub(r"\s*[-–—]\s*(?:(?:\d{4}|stereo|mono|original|digitally|album|single|radio|us|uk|lp)\s+)*" + version + r"\b.*$", "", title, flags=re.I)
-    # 没有括号/破折号时只识别明确的重制标注；普通标题中的 live/mix 不是版本。
-    title = re.sub(r"\s+(?:(?:\d{4}|digitally)\s+)?remaster(?:ed)?(?:\s+\d{4})?\s*$", "", title, flags=re.I)
-
-    def key(value: str) -> str:
-        raw = unicodedata.normalize("NFKD", value).casefold()
-        return "".join(c for c in raw if c.isalnum() and not unicodedata.combining(c))
-
-    return key(str(track.get("artist", ""))), key(title)
+    """日报与随机库共用作品身份，避免两套去重规则漂移。"""
+    return selector.work_key(track)
 
 
 def _random_catalog_items(items: list[dict]) -> list[dict]:
-    """投影已验真但待精选的独立曲库，仅供随机页；不写入正式选曲池。
+    """投影已验真但待精选的独立曲库；保持与听审精选池分离。
 
     不沿用种子曲的听感、心情或 BPM。状态说明用旧页面现有文字位展示，
-    模板、样式和交互完全沿用。所有日刊选曲仍只读取 data/pool.json。
+    日报可将这些曲目明确作为新发现推荐，不能冒充完成听审的精选。
     """
     out = list(items)
     discovery_path = DATA / "discovery.json"
@@ -267,8 +300,10 @@ def _random_catalog_items(items: list[dict]) -> list[dict]:
         genre = genre.lower()
         out.append({
             "id": tid, "title": track["title"], "artist": track["artist"],
+            "selection_status": "discovery_not_curated",
             "album": track["album"], "year": year, "genres": [genre] if genre else [],
             "artist_oneliner": "新发现 · 待精选",
+            "source": "Apple Music", "source_url": media["apple_url"],
             "why": f"曲目资料已核对；{year} 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
             "_cover": media["artwork_url"], "_preview": media["preview_url"], "_apple": media["apple_url"],
         })
@@ -302,6 +337,12 @@ def write_random_assets(items: list[dict]) -> int:
         render_random.build_artist_json(items, bios), encoding="utf-8")
     (SITE / "random.html").write_text(
         render_random.build_html(len(items)), encoding="utf-8")
+    legacy = SITE / "legacy"
+    legacy.mkdir(parents=True, exist_ok=True)
+    for name in ("pool.min.json", "artists.min.json"):
+        shutil.copy2(SITE / name, legacy / name)
+    (legacy / "random.html").write_text(
+        _classic_link(render_classic_random.build_html(len(items)), "../random.html"), encoding="utf-8")
     return len(items)
 
 
@@ -327,9 +368,41 @@ def _build_random(pool: list[dict], use_itunes: bool) -> int:
 
 
 def _low_pool_warn(pool: list[dict], history: dict, n: int) -> str | None:
-    recent = selector._recent_sent_ids(history, set(sorted(history)[-45:]))
-    unsent = sum(1 for t in pool if selector.is_eligible(t)[0] and t["id"] not in recent)
-    return (f"⚠️ 候选池仅剩 {unsent} 首未发（不足一期），该补池了。" if unsent < n else None)
+    candidates = selector.daily_candidates(pool, _random_catalog_items([]))
+    unsent = len({selector.work_key(t) for t in selector.unsent_tracks(candidates, history, _historical_tracks())})
+    return (f"⚠️ 还剩 {unsent} 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。" if unsent < n * 7 else None)
+
+
+def _historical_tracks() -> list[dict]:
+    return [t for p in sorted(ISSUES.glob("*.json"))
+            for field in ("tracks", "superseded_tracks") for t in _load_json(p, {}).get(field, [])]
+
+
+def _complete_history(history: dict) -> dict:
+    """缺失/落后的 history 不能让旧歌重新入选；快照也是已发证据。"""
+    combined = {d: list(ids) for d, ids in history.items()}
+    for p in sorted(ISSUES.glob("*.json")):
+        snap = _load_json(p, {})
+        date = snap["date"]
+        tracks = snap["tracks"] + snap.get("superseded_tracks", [])
+        combined[date] = list(dict.fromkeys(combined.get(date, []) + [t["id"] for t in tracks]))
+    return combined
+
+
+def _render_only() -> int:
+    """复用正式页面生成链，只写 site/；不补快照、不选曲、不联网或通知。"""
+    pool = _load_json(DATA / "pool.json", [])
+    if not pool:
+        raise SystemExit("pool.json 为空，无法从现存曲库重建页面")
+    snapshots = list(ISSUES.glob("*.json"))
+    if not snapshots:
+        raise SystemExit("没有现存日报快照；--render-only 不会创建新日报")
+    _rebuild_site()
+    # 这里只使用 pool_media.json 和 discovery.json 中已经核实的媒体。
+    # --no-itunes 的普通主流程仍会挑歌、写 latest；不能拿它代替早返回。
+    n_random = _build_random(pool, use_itunes=False)
+    print(f"📄 离线重建完成：site/ 主页、日报、{len(snapshots)} 期归档、随机页 {n_random} 首；data/ 未写入")
+    return n_random
 
 
 def main() -> None:
@@ -339,16 +412,23 @@ def main() -> None:
     ap.add_argument("--theme", choices=list(RENDERERS), default="grid")
     ap.add_argument("--force-rebuild", action="store_true", help="重生成当期快照（否则当天幂等复用）")
     ap.add_argument("--no-itunes", action="store_true")
+    ap.add_argument("--render-only", action="store_true", help="只从全部现存快照离线重建 site/，不选曲、不写 data/、不通知")
     ap.add_argument("--push", action="store_true", help="本地顺带发微信（CI 用 notify_after_deploy）")
     ap.add_argument("--url", default="")
     args = ap.parse_args()
 
+    if args.render_only:
+        if args.push or args.force_rebuild:
+            ap.error("--render-only 不能与 --push 或 --force-rebuild 一起使用")
+        _render_only()
+        return
+
     pool = _load_json(DATA / "pool.json", [])
-    history = _load_json(DATA / "history.json", {})
+    history = _complete_history(_load_json(DATA / "history.json", {}))
+    previous_latest = _load_json(DATA / "latest.json", {})
     if not pool:
         raise SystemExit("pool.json 为空，先建候选池")
 
-    _backfill_snapshots(history, pool, skip_date=args.date, use_itunes=not args.no_itunes)
     snap_path = ISSUES / f"{args.date}.json"
 
     if snap_path.exists() and not args.force_rebuild:
@@ -357,9 +437,18 @@ def main() -> None:
         fresh = False
     else:
         fresh = True
-        history.pop(args.date, None)
-        picks = selector.select_daily(pool, history, args.date, n=args.n)
+        previous_snap = _load_json(snap_path, {})
+        superseded = previous_snap.get("tracks", []) + previous_snap.get("superseded_tracks", [])
+        discoveries = _random_catalog_items([])
+        picks = selector.select_daily(pool, history, args.date, n=args.n,
+                                      discoveries=discoveries, history_tracks=_historical_tracks())
+        if not picks:
+            raise SystemExit("❌ 从未推荐的作品已耗尽：停止生成，不回填旧歌；请补充新曲库。")
+        if len(picks) < args.n:
+            print(f"⚠️ 本期仅有 {len(picks)} 首符合条件的新作品，按实际数量发布，不凑旧歌。")
+        picks = [dict(t) for t in picks]
         picks, misses = enrich(picks, use_itunes=not args.no_itunes)
+        _backfill_snapshots(history, pool, skip_date=args.date, use_itunes=not args.no_itunes)
         existing = sorted(p.stem for p in ISSUES.glob("*.json"))
         # 守卫：往【已有期号区间内部】补一期会编出错号。
         # 新日期一律拿「现有期数+1」，不管时间上排第几；而 _backfill_snapshots
@@ -386,10 +475,12 @@ def main() -> None:
                 f"   issue_no 一起重排（data/issues/*.json 的 issue_no 字段），\n"
                 f"   然后跑 _rebuild_site() 重建。没有现成命令能替你做这件事。")
         issue_no = existing.index(args.date) + 1 if args.date in existing else len(existing) + 1
-        title = netease.playlist_title(picks, args.date,
-                                       recent_titles=_recent_titles(before=args.date))
+        title = (f"今天第一次推荐的 {len(picks)} 首（{args.date[5:].replace('-', '.')}）"
+                 if any(t.get("selection_status") == "discovery_not_curated" for t in picks)
+                 else netease.playlist_title(picks, args.date, recent_titles=_recent_titles(before=args.date)))
         snap = _write_snapshot(args.date, issue_no, args.theme, picks, title,
-                               netease.build_text(picks, title))
+                               netease.build_text(picks, title), selection_policy="never_repeat_v1",
+                               superseded_tracks=superseded)
         history[args.date] = [t["id"] for t in picks]
         (DATA / "history.json").write_text(json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"✅ 第 {issue_no} 期 · {args.date} · {len(picks)} 首")
@@ -401,6 +492,8 @@ def main() -> None:
         if selector.LAST_RELAX:
             print(f"⚠️  选曲放宽软约束: {selector.LAST_RELAX}")
 
+    if not fresh:
+        _backfill_snapshots(history, pool, skip_date=args.date, use_itunes=not args.no_itunes)
     _rebuild_site()
     n_rand = _build_random(pool, use_itunes=not args.no_itunes)
     print(f"🎲 随机页已生成（{n_rand} 首可摇）")
@@ -410,6 +503,9 @@ def main() -> None:
         "tracks_brief": [{"title": t["title"], "artist": t["artist"]} for t in snap["tracks"][:6]],
         "n": len(snap["tracks"]), "low_pool_warn": warn, "relax": selector.LAST_RELAX,
         "fresh_build": fresh,
+        "selection_policy": snap.get("selection_policy", "legacy"),
+        **({"notified": previous_latest["notified"]}
+           if previous_latest.get("date") == snap["date"] and previous_latest.get("notified") == snap["date"] else {}),
     }, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"📄 已重建 site/（archive {len(list(ISSUES.glob('*.json')))} 期 + index）")
 
