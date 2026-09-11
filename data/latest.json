@@ -30,10 +30,8 @@
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [
-    "bright保底(+5)"
-  ],
-  "fresh_build": true,
+  "relax": [],
+  "fresh_build": false,
   "selection_policy": "never_repeat_v1",
   "notified": "2026-09-11"
 }
