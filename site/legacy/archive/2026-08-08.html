@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f0e12">
+<meta name="description" content="今日 30 首：Marathon — Tennis、The Everyday Push — Photay、Blue Lights — Jorja Smith…">
+<title>MUSIC DAILY · md-30 · 2026-08-08</title>
+<!-- Open Graph：发到微信 / Twitter 时带标题 + 封面 + 摘要，而不是一条裸链接。
+     og:image 用当期第一首的封面（iTunes 的 https 绝对地址，零额外成本）；
+     没有封面时退回站点图标，宁可用占位也别留空 —— 空 og:image 有些抓取端
+     会去页面里乱抓一张图。 -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="MUSIC DAILY">
+<meta property="og:title" content="MUSIC DAILY · 第 012 期 · 2026.08.08">
+<meta property="og:description" content="今日 30 首：Marathon — Tennis、The Everyday Push — Photay、Blue Lights — Jorja Smith…">
+<meta property="og:url" content="https://tianding0159.github.io/music-daily/archive/2026-08-08.html">
+<meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Music111/v4/e8/b3/c2/e8b3c264-af7b-74f0-95f9-949f6ca30634/886446283289.jpg/600x600bb.jpg">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MUSIC DAILY · 第 012 期 · 2026.08.08">
+<meta name="twitter:description" content="今日 30 首：Marathon — Tennis、The Everyday Push — Photay、Blue Lights — Jorja Smith…">
+<meta name="twitter:image" content="https://is1-ssl.mzstatic.com/image/thumb/Music111/v4/e8/b3/c2/e8b3c264-af7b-74f0-95f9-949f6ca30634/886446283289.jpg/600x600bb.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23f05a24%22/%3E%3Crect%20x%3D%225%22%20y%3D%225%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22none%22%20stroke%3D%22%230f0e12%22%20stroke-width%3D%222%22/%3E%3C/svg%3E">
+<!-- PWA：加到手机主屏后有真图标、全屏无地址栏、启动闪屏。
+     子目录页面用相对上级前缀取根目录的资源。
+     只做 manifest 不做 Service Worker —— 这个站每天出新刊，SW 的缓存失效
+     写不对就会让用户看到昨天的日报【而且他不知道】，那类静默失效的代价
+     远大于「离线翻往期」的收益。 -->
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MD-30">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+/* hidden 是 HTML 语义属性（同时把元素从无障碍树摘除），必须是硬约束。
+   靠 UA 样式表的 [hidden]{display:none} 顶不住：任何组件类只要声明 display
+   就把它盖掉 —— 实测 .tbtn{display:inline-flex} 让分享按钮的「没有 share 也
+   没有 clipboard 就别显示」门禁完全失效（JS 关掉时按钮照样占 74×36px、
+   点了毫无反应；微信内置 webview 正是这种环境）。
+   用 !important 表达「这是硬约束」，比给每个组件类打 :not([hidden]) 补丁可靠。 */
+[hidden]{display:none !important}
+:root{
+  /* ── iOS 安全区 ──────────────────────────────────────────────
+     四页都声明了 viewport-fit=cover（这是让 env() 返回非零的前提，
+     同时也意味着内容真的会铺到刘海/home 条底下）。此前一处 safe-area
+     都没用，加到主屏 standalone 打开时实测（iPhone 14 Pro，顶 59px / 底 34px）：
+       · 顶栏 nav 高 53px，整条【完全埋在】刘海下，不是压掉一角
+       · 吸底播放器 76px 被 home 条压掉 34px，播放键点不到
+       · 浮层关闭键距顶 52px < 59px，浮层【关不掉】——这条最严重
+     浏览器里 env() 一律是 0，所以加它对普通网页零影响，纯粹是补 standalone。
+     fallback 写 0px 而不是省略：老 Safari 不认 env() 时整条声明会被丢弃。 */
+  --sat:env(safe-area-inset-top, 0px);
+  --sar:env(safe-area-inset-right, 0px);
+  --sab:env(safe-area-inset-bottom, 0px);
+  --sal:env(safe-area-inset-left, 0px);
+  /* 播放器实际占位高度 = 自身高度 + 底部安全区。随机页的篮子要叠在它上方，
+     此前两处各写死 76px（#np 的 height 与 #basket 的 bottom），
+     加了安全区就会错位 —— 抽成变量，一处改两处跟。 */
+  --np-h:76px;
+  --white:#fff; --paper:#f5f5f5; --ink:#0f0e12;
+  --g100:#e5e5e5; --g200:#ccc; --g300:#b2b2b2; --g500:#a1a7af;
+  --g600:#767676; --g900:#4d4d4d; --g1000:#272727;
+  --blue:#0071bb; --green:#00a651; --green-d:#006837; --orange:#f05a24;
+  --red:#b81d13; --yellow:#fab413;
+  --sans:"Inter","Noto Sans SC","Helvetica Neue",Arial,sans-serif;
+  /* Space Mono 不含汉字。栈里必须显式给中文字体，否则中文落到【操作系统默认】——
+     Windows 是雅黑、Linux 可能是文泉驿，同一页在不同机器上长得不一样。
+     2026-08-03 实测（CDP getPlatformFontsForNode）：页面 44 处中文都在这条栈上，
+     全部走了系统回退。Noto Sans SC 本来已在 --sans 里引过，复用不增加网络请求。 */
+  --mono:"Space Mono","JetBrains Mono","Noto Sans SC",ui-monospace,Menlo,monospace;
+  --fs-10:clamp(11px,.92vw,13px); --fs-15:clamp(12px,1.1vw,15px);
+  --fs-20:clamp(15px,1.5vw,20px); --fs-25:clamp(19px,2.1vw,27px);
+  --fs-30:clamp(23px,2.7vw,36px); --fs-40:clamp(34px,5vw,68px);
+  --sp-xs:clamp(4px,.5vw,6px); --sp-sm:clamp(8px,1vw,12px);
+  --sp-md:clamp(12px,1.5vw,18px); --sp-lg:clamp(18px,2.3vw,28px);
+  --sp-xl:clamp(28px,4vw,52px);
+}
+html{scroll-behavior:smooth}
+
+/* ── 键盘焦点 ────────────────────────────────────────────────
+   此前没有任何 :focus-visible 规则，键盘用户只能看浏览器默认蓝环 ——
+   跟这套黑白 + 橙的调性完全不搭，且在深色卡片上几乎看不清。
+   用 :focus-visible 而不是 :focus：后者会在【鼠标点击】时也亮起，
+   那是多数站点把焦点环整个 outline:none 掉的原因，代价是键盘用户彻底失明。
+   :focus-visible 只在浏览器判断「用户在用键盘导航」时才亮。
+   本站没有任何 outline:none（实测 0 处），所以这里是纯增强、不夺走兜底。 */
+:focus-visible{
+  outline:2px solid var(--orange);
+  outline-offset:2px;
+  border-radius:1px;   /* 方角站点上给焦点环一点点圆，避免看着像边框错位 */
+}
+/* 深色底上（LCD 屏、唱盘控制条）橙色对比不足，改用亮描边 + 橙外圈。
+   **浮层不在这一类**：它的 .sheet 与 .x 都是 var(--paper) 浅底 ——
+   把亮描边画在同色底上等于隐形，而外扩的橙环又被 .sheet 的 overflow:hidden
+   裁掉（.x 贴在右上角），实测橙色只剩左下两边、成了个 L 形拐角。
+   浅底就用默认那条橙描边，它本来就够。 */
+.lcd :focus-visible,
+.deckbox :focus-visible{
+  outline-color:#f5f5f5;
+  box-shadow:0 0 0 4px var(--orange);
+}
+/* 浮层的关闭键贴着 .sheet 右上角，向外扩会被裁 —— 内缩画。 */
+#lb .x:focus-visible{outline-offset:-3px}
+/* 封面这类大块可聚焦区域，焦点环贴边会被 overflow 裁掉 —— 内缩画 */
+.cover-zoom:focus-visible{outline-offset:-3px}
+body{font-family:var(--sans); font-weight:300; color:var(--ink); background:var(--paper);
+  line-height:1.5; letter-spacing:0; -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility; font-feature-settings:"kern" 1,"liga" 1;
+  padding-bottom:calc(var(--np-h) + var(--sab)); overscroll-behavior-y:none}
+a{color:inherit; text-decoration:none}
+.mono{font-family:var(--mono)}
+/* 左右吃 inset：横屏时刘海在侧边，纸白内容会被切掉一条。
+   顶部不用管 —— .nav 已经加了 padding-top，.wrap 被它自然推下去；
+   在这里再加一次会变成双倍留白。 */
+.wrap{max-width:1160px; margin:0 auto;
+  padding-left:calc(var(--sp-xl) + var(--sal)); padding-right:calc(var(--sp-xl) + var(--sar))}
+.lc{text-transform:lowercase}
+
+/* 顶部铭牌导航 */
+/* padding-top 而不是 margin/top 位移：底色要一直铺到屏幕最上沿（刘海区也是黑的，
+   与 --ink 同色，视觉上连成一体），只把【内容】推到安全区以下。
+   用 margin 会在刘海区留出一条纸白，反而更难看。 */
+.nav{position:sticky; top:0; z-index:1000; background:var(--ink); color:var(--white);
+  border-bottom:1px solid var(--g1000); padding-top:var(--sat)}
+.nav .wrap{height:clamp(52px,7vw,66px); display:flex; align-items:center; justify-content:space-between}
+.brand{display:flex; align-items:center; gap:10px; font-size:var(--fs-20); font-weight:100; letter-spacing:.01em}
+.brand .sq{width:14px; height:14px; background:var(--orange)}
+.nav .serial{font-family:var(--mono); font-size:var(--fs-10); color:var(--g300); text-transform:uppercase;
+  display:flex; gap:16px; flex-wrap:wrap; justify-content:flex-end}
+.nav .serial b{color:var(--white); font-weight:400}
+
+/* Hero */
+.hero{padding:var(--sp-xl) 0 var(--sp-lg); display:flex; align-items:flex-end;
+  justify-content:space-between; gap:var(--sp-lg); flex-wrap:wrap}
+.hero .h-l h1{font-size:var(--fs-40); font-weight:100; line-height:1.02; letter-spacing:-.01em}
+.hero .h-l .en{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
+  color:var(--g600); margin-top:10px; letter-spacing:.06em}
+.hero .h-r{text-align:right; font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
+  text-transform:uppercase; line-height:1.7}
+.hero .h-r .big{display:block; font-size:var(--fs-40); font-weight:100; color:var(--ink);
+  font-family:var(--sans); line-height:.9; letter-spacing:-.02em}
+
+/* LCD 屏幕模块 */
+.lcd{background:#08110c; border:1px solid var(--g1000); color:var(--green);
+  font-family:var(--mono); font-size:var(--fs-15); overflow:hidden; position:relative; margin-bottom:var(--sp-md)}
+.lcd .row1{display:flex; align-items:center; gap:10px; padding:9px 16px; min-height:46px; border-bottom:1px solid #12241a}
+.lcd .dot{width:8px; height:8px; border-radius:50%; background:var(--green); flex:none;
+  box-shadow:0 0 8px var(--green); animation:blink 1.3s steps(1) infinite}
+.lcd #boot{white-space:pre; overflow:hidden; flex:1; min-width:0; text-overflow:ellipsis}
+.lcd #boot .cur{animation:blink .8s steps(1) infinite}
+.lcd .cat-wrap{position:relative; width:clamp(104px,15vw,156px); height:34px; flex:none; margin-left:auto;
+  align-self:center}
+/* 4 套姿态叠在一起，靠 opacity 切换做定格动画；整体走位靠 .cat-wrap 的 travel */
+.lcd .pose{position:absolute; right:4px; bottom:0; width:42px; height:38px;
+  will-change:transform,opacity; backface-visibility:hidden; -webkit-font-smoothing:none; display:block;
+  image-rendering:pixelated; opacity:0; transform-origin:bottom center}
+.lcd .pose .fur rect{fill:#ffffff}
+.lcd .pose .fur2 rect{fill:#ffffff}
+.lcd .pose .cat-eyes rect{fill:#2b2620}
+.lcd .pose .glint{fill:#ffffff}
+.lcd .pose .nose{fill:var(--orange)}
+.lcd .pose .mouth{fill:var(--orange)}
+.lcd .pose .blush{fill:var(--orange); opacity:.42}
+.lcd .pose .pad rect{fill:#ffffff}
+.lcd .pose .zzz rect{fill:#9c9282}
+/* SVG 元素上的 transform 动画【默认不走合成器】：浏览器每帧都要重算
+   fill-box 的边界 → 每帧一次 layout。实测（CDP Performance + 逐条暂停二分）：
+   daily 页 1.5 秒内 91 次 layout，暂停 cat-wag 后降到 1 次 —— 一条尾巴动画
+   贡献了几乎全部 layout。cat-eyes 同构，一起处理。
+   加 will-change + translateZ 把它们各自提成独立合成层，transform 就只在
+   合成器线程插值、不再回到主线程做布局。旁边的 .cat-move 早就这么写了，
+   这两条是漏的。 */
+.lcd .pose .cat-eyes{transform-box:fill-box; transform-origin:center;
+  animation:cat-blink 2.2s infinite;
+  will-change:transform; backface-visibility:hidden; transform:translateZ(0)}
+.lcd .pose .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
+  animation:cat-wag .42s ease-in-out infinite alternate;
+  will-change:transform; backface-visibility:hidden; transform:translateZ(0)}
+/* 走位（整只猫在舞台上来回） */
+.lcd .cat-move{position:absolute; inset:0; animation:cat-travel 20s cubic-bezier(.5,0,.5,1) infinite;
+  will-change:transform; backface-visibility:hidden; transform:translateZ(0)}
+/* travel 必须挂内层 .cat-move —— 挂 .cat-wrap 的话道具是它的子元素、会跟着猫一起平移，
+   猫与饭盆间距恒定，"走过去吃饭"就永远走不到。 */
+/* 9 个动作（20s 一轮，放慢到看得清每个动作）：
+   ①走去饭盆 ②低头吃 ③走回 ④伸懒腰 ⑤追球左右扑 ⑥连跳 ⑦坐下舔爪 ⑧趴下打盹 ⑨起身抖毛归位 */
+@keyframes cat-travel{
+  0%,6%{transform:translateX(0)}         /* 呆：站着（1.2s） */
+  13%,27%{transform:translateX(-64px)}   /* 走去饭盆 → 吃（吃的这段不移动） */
+  33%{transform:translateX(-64px)}       /* 呆：吃完抬头（1.2s，原地） */
+  38%,47%{transform:translateX(-28px)}   /* 走回来 → 伸懒腰（伸的这段不移动） */
+  53%{transform:translateX(-28px)}       /* 呆：伸完站定（1.2s，原地） */
+  57%{transform:translateX(14px)}        /* 追球：右扑 */
+  60%{transform:translateX(-18px)}       /*       左扑 */
+  62%{transform:translateX(6px)}         /*       右扑 */
+  64%,76%{transform:translateX(-4px)}    /* 呆 → 坐下舔爪（原地） */
+  93%{transform:translateX(-4px)}        /* 趴睡（整段原地） */
+  97%,100%{transform:translateX(0)}}     /* 起身抖毛归位 + 呆 */
+/* 姿态时间轴（5 套姿态切换支撑 9 个动作） */
+.lcd .p-stand{animation:pose-stand 20s steps(1) infinite, cat-bob .58s ease-in-out infinite}
+.lcd .p-sit{animation:pose-sit 20s steps(1) infinite, cat-eat 20s ease-in-out infinite}
+.lcd .p-stretch{animation:pose-stretch 20s steps(1) infinite, cat-stretch 20s ease-in-out infinite}
+.lcd .p-lick{animation:pose-lick 20s steps(1) infinite, cat-lick 20s ease-in-out infinite}
+.lcd .p-sleep{animation:pose-sleep 20s steps(1) infinite, cat-sleep 20s ease-in-out infinite}
+@keyframes pose-stand{0%{opacity:1}13%{opacity:0}27%{opacity:1}38%{opacity:0}
+  47%{opacity:1}64%{opacity:0}93%{opacity:1}100%{opacity:1}}
+@keyframes pose-sit{0%{opacity:0}13%{opacity:1}27%{opacity:0}100%{opacity:0}}
+@keyframes pose-stretch{0%{opacity:0}38%{opacity:1}47%{opacity:0}100%{opacity:0}}
+@keyframes pose-lick{0%{opacity:0}64%{opacity:1}76%{opacity:0}100%{opacity:0}}
+@keyframes pose-sleep{0%{opacity:0}76%{opacity:1}93%{opacity:0}100%{opacity:0}}
+/* 各动作细节 */
+@keyframes cat-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
+@keyframes cat-eat{0%,15%{transform:translateY(0) rotate(0)}
+  17%{transform:translateY(3px) rotate(5deg)}19%{transform:translateY(0) rotate(3deg)}
+  21%{transform:translateY(3px) rotate(5deg)}23%{transform:translateY(0) rotate(3deg)}
+  25%{transform:translateY(3px) rotate(5deg)}27%,100%{transform:translateY(0) rotate(0)}}
+@keyframes cat-stretch{0%,39%{transform:scaleX(1)}41.5%{transform:scaleX(1.22) translateX(-4px)}
+  44.5%{transform:scaleX(1.22) translateX(-4px)}47%,100%{transform:scaleX(1)}}
+@keyframes cat-lick{0%,66%{transform:rotate(0)}68.5%{transform:rotate(-12deg)}70%{transform:rotate(-3deg)}
+  71.5%{transform:rotate(-12deg)}73%{transform:rotate(-3deg)}74%,100%{transform:rotate(0)}}
+@keyframes cat-sleep{0%,78%{transform:translateY(0)}
+  81%{transform:translateY(3px)}84%{transform:translateY(2px)}
+  87%{transform:translateY(3px)}90%{transform:translateY(2px)}92%,100%{transform:translateY(0)}}
+/* ⑥ 连跳（叠在 stand 上） */
+.lcd .p-stand{animation:pose-stand 20s steps(1) infinite, cat-bob .58s ease-in-out infinite,
+  cat-hop 20s ease-in-out infinite}
+@keyframes cat-hop{0%,56%{transform:translateY(0)}
+  58%{transform:translateY(-9px) scaleY(1.1)}60%{transform:translateY(0) scaleY(.93)}
+  61.5%{transform:translateY(-6px) scaleY(1.06)}63%,93%{transform:translateY(0) scale(1)}
+  /* 起身抖毛，抖完留一段站定（呆） */
+  95%{transform:rotate(6deg)}96.5%{transform:rotate(-5deg)}98%{transform:rotate(3deg)}
+  99%,100%{transform:none}}
+@keyframes cat-blink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes cat-wag{from{transform:rotate(-26deg)}to{transform:rotate(22deg)}}
+/* 道具：饭盆(吃饭期) / 球(追球期被扑得乱弹) */
+.lcd .prop{position:absolute; bottom:1px; image-rendering:pixelated; opacity:0}
+.lcd .prop.bowl{left:6px; width:17px} .lcd .prop.bowl svg{display:block; width:17px}
+.lcd .prop.ball{right:0; width:10px} .lcd .prop.ball svg{display:block; width:10px}
+.lcd .prop.bowl{animation:prop-bowl 20s ease-in-out infinite}
+.lcd .prop.ball{animation:prop-ball 20s ease-in-out infinite}
+.lcd .prop.bowl rect{fill:#e9e9e9} .lcd .prop.bowl .food{fill:#b9b9b9}
+.lcd .prop.ball rect{fill:#f2f2f2} .lcd .prop.ball .hl{fill:#c8c8c8}
+@keyframes cat-breathe{50%{transform:scaleY(1.03)}}
+@keyframes prop-bowl{0%{opacity:0}8%,31%{opacity:1}34%,100%{opacity:0}}
+@keyframes prop-ball{
+  0%,52%{opacity:0; transform:translate(0,0)}
+  54%{opacity:1; transform:translate(0,0)}
+  57%{opacity:1; transform:translate(-20px,-12px)}
+  59%{opacity:1; transform:translate(5px,0)}
+  61%{opacity:1; transform:translate(-14px,-9px)}
+  62.5%{opacity:1; transform:translate(3px,0)}
+  64%{opacity:.7; transform:translate(-6px,-4px)}
+  66%,100%{opacity:0; transform:translate(0,0)}}
+.lcd .ticker{padding:8px 0; position:relative; -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.lcd .track{display:inline-block; white-space:nowrap; padding-left:100%; color:#3fae6f;
+  animation:marquee 26s linear infinite}
+.lcd:hover .track{animation-play-state:paused}
+.lcd .track b{color:var(--green); font-weight:700}
+.lcd .track i{color:#1f6b42; font-style:normal; margin:0 14px}
+@keyframes blink{50%{opacity:.2}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* 规格条 */
+.spec{border:1px solid var(--g300); font-family:var(--mono);
+  font-size:var(--fs-10); text-transform:uppercase; color:var(--g600);
+  /* 前三格是短单值，genres 是 6 个流派的长串，给它更宽的列：
+     等分下它要折 5 行、把整条撑到 127px；给 2fr 后 2 行就排完，另外三格不再空一大片。
+     不用省略号——这一格本来就是给人看全流派构成的。 */
+  display:grid; grid-template-columns:1fr 1fr 1fr 2.2fr; align-items:stretch}
+/* 各格：内容顶部对齐 + 同一行高，四格自然等高等齐；genres 长串照常折行，
+   折出来的行也和其它格共用同一条基线网格（line-height 一致）。 */
+.spec div{padding:10px 14px; border-right:1px solid var(--g100); min-width:0;
+  display:flex; align-items:flex-start; gap:7px; line-height:1.65}
+.spec div:last-child{border-right:none}
+.spec b{color:var(--ink); font-weight:700; letter-spacing:.02em; min-width:0;
+  /* genres 要看完整，不截断 —— 这一格本来就是给人看全流派构成的 */
+  overflow-wrap:anywhere}
+
+/* 分区标题 */
+.sect{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; letter-spacing:.14em;
+  color:var(--ink); margin:var(--sp-lg) 0 var(--sp-sm); display:flex; align-items:center; gap:12px}
+.sect::after{content:""; flex:1; height:1px; background:var(--ink)}
+
+/* 工程方格纸模块网格 */
+.grid{display:grid; grid-template-columns:repeat(2,1fr);
+  border-top:1px solid var(--g300); border-left:1px solid var(--g300)}
+.mod{border-right:1px solid var(--g300); border-bottom:1px solid var(--g300);
+  background:var(--paper); display:flex; flex-direction:column; position:relative}
+.anim .mod{opacity:0; transform:translateY(8px); transition:opacity .4s ease-out, transform .4s ease-out}
+.anim .mod.in{opacity:1; transform:none}
+.mod.fill{background:
+  repeating-linear-gradient(0deg,transparent,transparent 21px,var(--g100) 21px,var(--g100) 22px),
+  repeating-linear-gradient(90deg,transparent,transparent 21px,var(--g100) 21px,var(--g100) 22px)}
+.m-top{display:flex; align-items:center; justify-content:space-between; padding:10px 14px;
+  border-bottom:1px solid var(--g100)}
+.m-num{font-family:var(--mono); font-size:var(--fs-25); font-weight:400; line-height:1; letter-spacing:-.02em}
+.m-code{display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:var(--fs-10);
+  text-transform:uppercase; color:var(--white); padding:3px 8px}
+.m-main{display:flex; gap:var(--sp-md); padding:var(--sp-md) var(--sp-md) 0}
+.art{position:relative; width:clamp(84px,9vw,104px); aspect-ratio:1; flex:none}
+.cover{width:100%; height:100%; object-fit:cover; display:block; background:var(--g100);
+  border:1px solid var(--g100); transition:opacity .2s}
+.cover.ph{display:grid; place-items:center; font-family:var(--mono); font-size:var(--fs-30);
+  color:var(--white); background:var(--ink); border:none}
+.art:hover .cover{opacity:.82}
+.pbtn{position:absolute; left:6px; bottom:6px; width:26px; height:26px; display:grid; place-items:center;
+  background:var(--ink); color:var(--white); border:none; padding:0; cursor:pointer; opacity:.9;
+  transition:transform .15s, opacity .2s, background .2s}
+.pbtn:hover{opacity:1}
+.pbtn:active{transform:scale(.9)}
+.pbtn svg{width:11px; height:11px; fill:var(--white); display:block}
+.pbtn .i-pause{display:none}
+.pbtn.playing{background:var(--green-d); opacity:1}
+/* 试听失效：给出可见的「不可用」态，而不是让它看起来还能点 */
+.pbtn.dead{background:var(--g300); opacity:.55; cursor:not-allowed}
+.pbtn.dead svg{fill:var(--g600)}
+.pbtn.dead::after{content:"×"; position:absolute; font-size:13px; line-height:1;
+  color:var(--white); font-family:var(--mono)}
+.pbtn.dead .i-play,.pbtn.dead .i-pause{display:none}
+.pbtn.playing .i-play{display:none}
+.pbtn.playing .i-pause{display:block}
+/* 底部 now-playing 条：封面键触发后浮现，显当前曲/进度/播放暂停，与封面键联动 */
+/* height 保持 76px（内容区不变），额外用 padding-bottom 吃掉 home 条，
+   box-sizing:border-box 下总高变成 76+sab、内容仍居中在上面那 76px 里。
+   左右也吃 inset：横屏时刘海会在侧边。 */
+#np{position:fixed; left:0; right:0; bottom:0; z-index:1200; display:none; align-items:center; gap:clamp(8px,1.2vw,14px);
+  background:var(--ink); color:var(--white); border-top:1px solid var(--g1000);
+  height:calc(var(--np-h) + var(--sab)); padding:0 clamp(16px,4vw,52px) var(--sab);
+  padding-left:calc(clamp(16px,4vw,52px) + var(--sal));
+  padding-right:calc(clamp(16px,4vw,52px) + var(--sar))}
+#np.on{display:flex}
+#np-cover{width:52px; height:52px; flex:none; object-fit:cover; background:var(--g1000)}
+#np-meta{flex:none; width:clamp(110px,20vw,240px); min-width:0}
+#np-title{font-size:var(--fs-15); font-weight:300; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+#np-artist{font-family:var(--mono); font-size:var(--fs-10); color:var(--g300); text-transform:uppercase;
+  letter-spacing:.09em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:3px}
+.np-btn{width:34px; height:34px; flex:none; display:grid; place-items:center; cursor:pointer;
+  background:var(--green-d); color:var(--white); border:none; transition:transform .15s}
+.np-btn:active{transform:scale(.9)}
+.np-btn svg{width:13px; height:13px; fill:var(--white); display:block}
+.np-btn .i-pause{display:none}
+#np.playing .np-btn .i-play{display:none}
+#np.playing .np-btn .i-pause{display:block}
+#np-bar{flex:1; min-width:40px; height:4px; background:var(--g1000); position:relative; cursor:pointer}
+#np-fill{position:absolute; left:0; top:0; bottom:0; width:0; background:var(--green)}
+#np-time{flex:none; min-width:82px; text-align:right; font-family:var(--mono); font-size:var(--fs-10); color:var(--g300)}
+@media(max-width:720px){#np-meta{width:clamp(90px,32vw,160px)} #np-time{display:none}}
+#np-prev,#np-next{width:30px; height:30px} #np-prev svg,#np-next svg{width:12px; height:10px}
+.heart{background:none; border:none; padding:0 0 0 8px; cursor:pointer; line-height:0}
+.heart svg{width:18px; height:18px; fill:var(--g300); transition:fill .15s, transform .15s}
+.heart:hover svg{fill:var(--g600)}
+.heart.on svg{fill:var(--red)}
+.heart:active svg{transform:scale(.85)}
+.tools{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:var(--sp-md)}
+.tbtn{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:8px 12px; cursor:pointer;
+  border:1px solid var(--ink); background:var(--paper); color:var(--ink); display:inline-flex; align-items:center; gap:6px; transition:opacity .2s}
+.tbtn:hover{opacity:.7}
+.tbtn.active{background:var(--ink); color:var(--white)}
+.tbtn.line{background:transparent}
+.mod.hidden{display:none}
+.arc{border-top:1px solid var(--g300); border-left:1px solid var(--g300); margin-top:var(--sp-md)}
+.arc a{display:flex; align-items:baseline; gap:var(--sp-md); padding:14px 16px;
+  border-right:1px solid var(--g300); border-bottom:1px solid var(--g300); transition:background .15s}
+.arc a:hover{background:var(--white)}
+.arc .d{font-family:var(--mono); font-size:var(--fs-15); color:var(--ink); flex:none; width:110px}
+.arc .no{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); flex:none}
+.arc .t{font-size:var(--fs-15); font-weight:300; color:var(--g900); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.hd{flex:1; min-width:0}
+.title{font-size:var(--fs-25); font-weight:100; line-height:1.12; letter-spacing:-.01em}
+.artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
+  margin-top:5px; letter-spacing:.09em}
+.meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:7px; line-height:1.6}
+.bpm{display:inline-block; margin-left:8px; padding:1px 6px 1px 5px; border:1px solid var(--g200);
+  border-left:3px solid var(--bc,var(--g300)); color:var(--g900); letter-spacing:.04em; white-space:nowrap}
+.tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:8px}
+.tag{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:2px 7px;
+  background:var(--g100); color:var(--g900)}
+.body{padding:var(--sp-md); display:flex; flex-direction:column; flex:1}
+.one{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); line-height:1.65; margin-bottom:7px}
+.why{font-size:var(--fs-15); font-weight:300; line-height:1.55}
+.scene{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
+  margin-top:auto; padding-top:11px}
+.scene .k{color:var(--orange)}
+.links{display:flex; gap:7px; margin-top:11px; flex-wrap:wrap}
+.btn{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:8px 12px;
+  cursor:pointer; transition:opacity .2s; border:1px solid var(--ink)}
+.btn.solid{background:var(--ink); color:var(--white)}
+.btn.line{background:transparent; color:var(--ink)}
+.btn:hover{opacity:.7}
+.src{font-family:var(--mono); font-size:var(--fs-10); color:var(--g500); margin-top:10px; letter-spacing:.02em}
+.src a{border-bottom:1px solid var(--g300)}
+
+/* 导出面板 */
+.export{border:1px solid var(--g300); margin-top:var(--sp-lg); background:var(--white)}
+/* 只看收藏时，整期的网易云导入块和当前视图矛盾，隐去；#fav-box 是收藏导出，要留 */
+body.fav-mode .export:not(#fav-box){display:none}
+.export .h{display:flex; justify-content:space-between; align-items:center; padding:12px 16px;
+  border-bottom:1px solid var(--g100); font-family:var(--mono); font-size:var(--fs-10);
+  text-transform:uppercase; letter-spacing:.04em}
+.export .h span{color:var(--g600)}
+.export .in{padding:var(--sp-md)}
+.export p{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-bottom:10px; text-transform:none}
+.export pre{border:1px solid var(--g100); background:var(--paper); padding:14px; font-family:var(--mono);
+  font-size:var(--fs-10); line-height:1.8; white-space:pre-wrap; max-height:280px; overflow:auto}
+
+footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-top:var(--sp-lg);
+  padding:var(--sp-lg) 0; font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
+  color:var(--g600); border-top:1px solid var(--g300)}
+
+@media(max-width:720px){
+  .grid{grid-template-columns:1fr}
+  .hero{align-items:flex-start}
+  .m-main{flex-direction:row}
+  .spec{grid-template-columns:repeat(2,1fr)}
+  .spec div:nth-child(2n){border-right:none}
+  .spec div:nth-child(-n+2){border-bottom:1px solid var(--g100)}
+}
+
+/* ── 竖屏（手机）适配：以 iPhone 390×844 为基准 ──
+   问题都是实测出来的，不是猜的：①logo「MUSIC DAILY」被折成两行
+   ②顶栏右侧 serial 三段挤成两排 ③规格条四列在 390 下每格都折行、genres 那格压成竖带
+   ④大数字与右侧说明断开 ⑤卡片内封面+文字并排太挤 */
+@media(max-width:520px){
+  /* 覆盖 padding-inline 会整条替换掉基础规则里的 calc()，丢掉左右安全区。
+     ≤520px 正是手机 —— 最需要安全区的那批设备（竖屏 left/right inset 为 0 所以
+     当前无感，横屏窄设备与未来机型会中）。 */
+  .wrap{padding-left:calc(16px + var(--sal)); padding-right:calc(16px + var(--sar))}
+  /* 顶栏：logo 不许折行，右侧信息只留最要紧的两段 */
+  .nav .wrap{height:52px}
+  .brand{font-size:14px; gap:8px; white-space:nowrap; flex:none}
+  .brand .sq{width:11px; height:11px}
+  .nav .serial{gap:10px; flex-wrap:nowrap; font-size:9px; overflow:hidden}
+  .nav .serial>*:nth-child(n+3){display:none}   /* 只留前两段，别挤成两排 */
+  /* Hero：大数字与说明并成一行，别各占一块 */
+  .hero{padding:20px 0 14px; gap:12px; align-items:flex-end}
+  .hero .h-l h1{font-size:34px}
+  .hero .h-l .en{margin-top:7px; font-size:9px; letter-spacing:.04em}
+  .hero .h-r{line-height:1.5; font-size:9px}
+  .hero .h-r .big{font-size:30px; display:inline-block; margin-right:6px}
+  /* 竖屏：390px 放四列每格都折行，改两列（保持原样式，只是换行数） */
+  .spec{grid-template-columns:repeat(2,1fr)}
+  .spec div{padding:8px 12px}
+  .spec div:nth-child(2n){border-right:none}
+  .spec div:nth-child(-n+2){border-bottom:1px solid var(--g100)}
+  /* 工具按钮：一行放不下就整行铺满，别半截换行 */
+  .tools{gap:7px}
+  .tools .tbtn{flex:1 1 calc(50% - 4px); justify-content:center; padding:9px 8px; font-size:10px}
+  /* 卡片：封面与文字改上下叠，封面横铺（竖屏并排 130px 封面太憋） */
+  .m-main{flex-direction:column !important; gap:12px; padding:12px 12px 0}
+  .m-main .art{width:100%; aspect-ratio:16/10}
+  .m-top{padding:10px 12px}
+  .body{padding:0 12px 12px}
+  /* LCD：猫和跑马灯在窄屏共存，缩小猫舞台 */
+  .lcd .row1{min-height:40px; padding:7px 12px; gap:7px}
+  .lcd .cat-wrap{transform:scale(.85); transform-origin:center bottom}
+  footer{flex-direction:column; gap:6px; text-align:center}
+}
+@media(prefers-reduced-motion:reduce){
+  .mod{opacity:1; transform:none; transition:none}
+  .track,.dot,.rec,.pose,.p-sleep,.cat-wrap,.cat-move,.cat-eyes,.cat-tail,.prop{animation:none}
+  .pose{opacity:0}
+  .p-stand{opacity:1}
+  html{scroll-behavior:auto}
+}
+
+/* ── 封面放大 + 艺人详情 ── */
+/* 四边都要加安全区：实测 iPhone 14 Pro standalone 下，.sheet 距顶 52px
+   而刘海是 59px —— 贴在 .sheet 右上角的关闭键整个埋在刘海底下，【浮层关不掉】。
+   这比顶栏被埋严重得多（顶栏只是看不见，浮层是操作不了）。
+   变量在 render_grid 的 :root 里定义，本文件的样式注入同一个文档，直接继承。 */
+#lb{position:fixed; inset:0; z-index:2000; display:none;
+  padding:calc(clamp(14px,4vw,40px) + var(--sat, 0px))
+          calc(clamp(14px,4vw,40px) + var(--sar, 0px))
+          calc(clamp(14px,4vw,40px) + var(--sab, 0px))
+          calc(clamp(14px,4vw,40px) + var(--sal, 0px));
+  align-items:center; justify-content:center}
+#lb.on{display:flex}
+#lb .veil{position:absolute; inset:0; background:rgba(10,9,12,.86);
+  backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px);
+  animation:lb-veil .26s ease-out both}
+@keyframes lb-veil{from{opacity:0}to{opacity:1}}
+#lb .sheet{position:relative; z-index:1; width:min(880px,100%); max-height:92svh;
+  display:grid; grid-template-columns:minmax(0,300px) minmax(0,1fr);
+  background:var(--paper); border:1px solid var(--g1000); overflow:hidden;
+  animation:lb-in .38s cubic-bezier(.16,1,.3,1) both}
+@keyframes lb-in{from{opacity:0; transform:translateY(14px) scale(.965)}
+  to{opacity:1; transform:none}}
+/* 左：大图。方形，底部压一条铭牌 */
+#lb .big{position:relative; background:var(--ink); aspect-ratio:1; overflow:hidden}
+#lb .big img{width:100%; height:100%; object-fit:cover; display:block;
+  animation:lb-img .5s cubic-bezier(.2,1,.3,1) both}
+@keyframes lb-img{from{opacity:0; transform:scale(1.06)}to{opacity:1; transform:none}}
+#lb .big .ph{width:100%; height:100%; display:grid; place-items:center;
+  font-family:var(--mono); font-size:64px; color:var(--g900); background:var(--g1000)}
+#lb .big .yr{position:absolute; left:0; right:0; bottom:0; padding:9px 13px;
+  font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.1em;
+  text-transform:uppercase; color:var(--white);
+  background:linear-gradient(transparent,rgba(0,0,0,.78) 40%);
+  display:flex; justify-content:space-between; gap:10px}
+/* 右：详情 */
+#lb .info{padding:clamp(18px,2.6vw,28px); overflow:auto; display:flex; flex-direction:column}
+#lb .kicker{font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.16em;
+  text-transform:uppercase; color:var(--g600); display:flex; align-items:center; gap:9px}
+#lb .kicker::after{content:""; flex:1; height:1px; background:var(--g200)}
+#lb h3{font-size:clamp(26px,3.4vw,36px); font-weight:100; line-height:1.24;
+  letter-spacing:-.015em; margin-top:11px; text-transform:lowercase;
+  padding-bottom:.1em; overflow:visible}
+#lb .ar{font-family:var(--mono); font-size:var(--fs-15); text-transform:uppercase;
+  letter-spacing:.1em; color:var(--g900); margin-top:5px}
+#lb .meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
+  margin-top:11px; line-height:1.7}
+#lb .tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:12px}
+#lb .tags span{font-family:var(--mono); font-size:9px; letter-spacing:.06em;
+  text-transform:uppercase; border:1px solid var(--g200); padding:3px 7px; color:var(--g900)}
+#lb .sec{margin-top:16px}
+#lb .sec .lb-t{font-family:var(--mono); font-size:9px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--orange); margin-bottom:5px}
+#lb .sec p{font-size:var(--fs-20); font-weight:300; line-height:1.62}
+#lb .sec.mono p{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); line-height:1.75}
+/* bio 是主体，字号比别的段大一档 */
+#lb #lb-bio{font-size:var(--fs-20); font-weight:300; line-height:1.72}
+#lb .sec#lb-bio-w{margin-top:14px}
+/* 本站收录的曲目：可点，跳到那一首 */
+#lb .pool{display:flex; flex-wrap:wrap; gap:5px}
+#lb .pool a{font-family:var(--mono); font-size:9px; letter-spacing:.04em;
+  border:1px solid var(--g200); padding:4px 8px; color:var(--g900); background:var(--white);
+  transition:background .14s, color .14s}
+#lb .pool a:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
+#lb .pool a.cur{background:var(--ink); color:var(--white); border-color:var(--ink)}
+/* 「这一首」降级成次要块：加左边线、字号收小 */
+#lb .sec.trk{border-left:2px solid var(--g200); padding-left:11px; margin-top:18px}
+#lb .sec.trk .tk{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
+  letter-spacing:.06em; color:var(--ink); margin-bottom:5px}
+#lb .sec.trk p{font-size:var(--fs-15); line-height:1.6; color:var(--g900)}
+#lb .sec.trk p.sc{font-family:var(--mono); font-size:9px; color:var(--g600);
+  margin-top:6px; line-height:1.7}
+#lb .lb-links{display:flex; flex-wrap:wrap; gap:7px; margin-top:auto; padding-top:20px}
+#lb .lb-links a{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
+  letter-spacing:.06em; border:1px solid var(--g300); padding:8px 13px; color:var(--ink);
+  transition:background .15s, border-color .15s}
+#lb .lb-links a:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
+#lb .x{position:absolute; right:0; top:0; z-index:3; width:42px; height:42px;
+  border:none; border-left:1px solid var(--g200); border-bottom:1px solid var(--g200);
+  background:var(--paper); color:var(--ink); cursor:pointer; font-family:var(--mono);
+  font-size:16px; line-height:1; transition:background .15s}
+#lb .x:hover{background:var(--ink); color:var(--white)}
+/* 封面可点：给个手型 + 悬停微亮 + 右下角放大镜提示 */
+.cover-zoom{cursor:zoom-in}
+.cover-zoom::after{content:"⤢"; position:absolute; right:6px; bottom:6px; z-index:2;
+  width:20px; height:20px; display:grid; place-items:center; font-size:11px;
+  background:rgba(15,14,18,.72); color:#fff; opacity:0; transition:opacity .18s;
+  pointer-events:none}
+.cover-zoom:hover::after{opacity:1}
+@media(max-width:720px){
+  #lb .sheet{grid-template-columns:1fr; max-height:88svh; overflow:auto}
+  #lb .big{aspect-ratio:16/11}
+  #lb .info{padding:16px}
+  #lb h3{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  #lb .veil,#lb .sheet,#lb .big img{animation:none}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <div class="brand"><span class="sq"></span>MUSIC DAILY</div>
+    <div class="serial"><span>model <b>md-30</b></span><span>issue <b>012</b></span><span>date <b>2026.08.08</b></span></div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="hero">
+    <div class="h-l">
+      <h1 class="lc">今日精选</h1>
+      <div class="en">today's selection · daily music report</div>
+    </div>
+    <div class="h-r"><span class="big">30</span>tracks / daily<br>2026.08.08</div>
+  </div>
+
+  <div class="lcd">
+    <div class="row1"><span class="dot"></span><span id="boot" data-text="system ready — 30 tracks loaded · melody-first · mood-first · production-first"></span><div class="cat-wrap"><div class="cat-move"><svg class="cat pose p-stand" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="12" width="2" height="2"/><rect x="17" y="10" width="2" height="2"/><rect x="18" y="9" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="12" width="10" height="4"/><rect x="4" y="16" width="3" height="2"/><rect x="11" y="16" width="3" height="2"/></g><g class="fur2"><rect x="10" y="12" width="4" height="2"/></g><g class="pad"><rect x="4" y="16" width="3" height="1"/><rect x="11" y="16" width="3" height="1"/></g></svg><svg class="cat pose p-sit" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="14" width="3" height="2"/><rect x="18" y="12" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="11" width="10" height="5"/><rect x="3" y="13" width="12" height="3"/></g><g class="pad"><rect x="5" y="15" width="2" height="1"/><rect x="11" y="15" width="2" height="1"/></g></svg><svg class="cat pose p-stretch" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="18" y="5" width="2" height="2"/><rect x="19" y="3" width="2" height="2"/></g><g class="fur"><rect x="2" y="2" width="3" height="2"/><rect x="8" y="1" width="3" height="2"/><rect x="1" y="3" width="11" height="5"/><rect x="0" y="5" width="14" height="4"/><rect x="13" y="4" width="6" height="6"/><rect x="1" y="9" width="3" height="2"/><rect x="14" y="10" width="3" height="3"/></g><g class="fur2"><rect x="13" y="4" width="6" height="2"/></g><g class="cat-eyes"><rect x="2" y="5" width="3" height="1"/></g><rect class="nose" x="0" y="6" width="1" height="1"/><g class="pad"><rect x="1" y="10" width="3" height="1"/></g></svg><svg class="cat pose p-lick" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="14" width="3" height="2"/><rect x="18" y="13" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="11" width="10" height="5"/><rect x="8" y="8" width="3" height="5"/></g><g class="pad"><rect x="8" y="8" width="3" height="1"/><rect x="5" y="15" width="2" height="1"/></g></svg><svg class="cat pose p-sleep" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="17" y="15" width="3" height="1"/><rect x="19" y="14" width="2" height="1"/></g><g class="fur"><rect x="3" y="6" width="3" height="2"/><rect x="12" y="6" width="3" height="2"/><rect x="2" y="7" width="14" height="7"/><rect x="1" y="9" width="16" height="5"/><rect x="14" y="11" width="5" height="4"/></g><g class="fur2"><rect x="3" y="6" width="3" height="2"/><rect x="12" y="9" width="4" height="3"/></g><g class="cat-eyes"><rect x="4" y="10" width="3" height="1"/><rect x="11" y="10" width="3" height="1"/></g><rect class="nose" x="8" y="11" width="2" height="1"/><rect class="blush" x="2" y="11" width="2" height="1"/><g class="zzz"><rect x="17" y="4" width="3" height="1"/><rect x="19" y="5" width="1" height="1"/><rect x="17" y="6" width="3" height="1"/></g></svg></div><span class="prop bowl"><svg viewBox="0 0 14 8" shape-rendering="crispEdges" aria-hidden="true"><rect class="fish" x="4" y="0" width="4" height="1"/><rect class="fish" x="3" y="1" width="1" height="1"/><rect class="fish" x="8" y="1" width="1" height="1"/><rect class="food" x="3" y="2" width="8" height="1"/><rect x="1" y="3" width="12" height="1"/><rect x="2" y="4" width="10" height="3"/></svg></span><span class="prop ball"><svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><rect x="1" y="1" width="6" height="6"/><rect class="hl" x="1" y="1" width="2" height="2"/><rect class="yarn" x="3" y="2" width="1" height="4"/><rect class="yarn" x="2" y="4" width="4" height="1"/></svg></span></div></div>
+    <div class="ticker"><span class="track"><b>01</b> Marathon <i>—</i> Tennis<i>·</i><b>02</b> The Everyday Push <i>—</i> Photay<i>·</i><b>03</b> Blue Lights <i>—</i> Jorja Smith<i>·</i><b>04</b> Love Is All <i>—</i> The Tallest Man on Earth<i>·</i><b>05</b> The Company <i>—</i> Sam Prekop<i>·</i><b>06</b> What&#x27;s Going On With Ordinary People <i>—</i> The Reds, Pinks and Purples<i>·</i><b>07</b> Plainsong <i>—</i> Seefeel<i>·</i><b>08</b> Big Time Things <i>—</i> Office Culture<i>·</i><b>09</b> Aquamarine <i>—</i> Hand Habits<i>·</i><b>10</b> Heaven <i>—</i> Levitation Room<i>·</i><b>11</b> A Song About Holding Hands <i>—</i> Gregor<i>·</i><b>12</b> Damdadi <i>—</i> Shin Hae Gyeong<i>·</i><b>13</b> Milk for Flowers <i>—</i> H. Hawkline<i>·</i><b>14</b> The Magic Eye <i>—</i> The Zenmenn<i>·</i><b>15</b> Groceries <i>—</i> Gia Margaret<i>·</i><b>16</b> Brave Child of a New World <i>—</i> Bananagun<i>·</i><b>17</b> head <i>—</i> Claire Rousay<i>·</i><b>18</b> I Love You Like the Way That I Used to Do <i>—</i> Rocketship<i>·</i><b>19</b> Sort of Light <i>—</i> Cuushe<i>·</i><b>20</b> Pae Paoe <i>—</i> Bola<i>·</i><b>21</b> Prussian Blue <i>—</i> Sven Wunder<i>·</i><b>22</b> Aquarium <i>—</i> Casino Versus Japan<i>·</i><b>23</b> Geometry <i>—</i> Jega<i>·</i><b>24</b> Better Days <i>—</i> Anna St. Louis<i>·</i><b>25</b> Tsunami <i>—</i> Told Slant<i>·</i><b>26</b> Fables <i>—</i> Rahill<i>·</i><b>27</b> Pain <i>—</i> Ruth Garbus<i>·</i><b>28</b> Dots <i>—</i> Satomimagae<i>·</i><b>29</b> Good Morning World <i>—</i> Kahimi Karie<i>·</i><b>30</b> come here go there <i>—</i> Rei Harakami<i>·</i><b>01</b> Marathon <i>—</i> Tennis<i>·</i><b>02</b> The Everyday Push <i>—</i> Photay<i>·</i><b>03</b> Blue Lights <i>—</i> Jorja Smith<i>·</i><b>04</b> Love Is All <i>—</i> The Tallest Man on Earth<i>·</i><b>05</b> The Company <i>—</i> Sam Prekop<i>·</i><b>06</b> What&#x27;s Going On With Ordinary People <i>—</i> The Reds, Pinks and Purples<i>·</i><b>07</b> Plainsong <i>—</i> Seefeel<i>·</i><b>08</b> Big Time Things <i>—</i> Office Culture<i>·</i><b>09</b> Aquamarine <i>—</i> Hand Habits<i>·</i><b>10</b> Heaven <i>—</i> Levitation Room<i>·</i><b>11</b> A Song About Holding Hands <i>—</i> Gregor<i>·</i><b>12</b> Damdadi <i>—</i> Shin Hae Gyeong<i>·</i><b>13</b> Milk for Flowers <i>—</i> H. Hawkline<i>·</i><b>14</b> The Magic Eye <i>—</i> The Zenmenn<i>·</i><b>15</b> Groceries <i>—</i> Gia Margaret<i>·</i><b>16</b> Brave Child of a New World <i>—</i> Bananagun<i>·</i><b>17</b> head <i>—</i> Claire Rousay<i>·</i><b>18</b> I Love You Like the Way That I Used to Do <i>—</i> Rocketship<i>·</i><b>19</b> Sort of Light <i>—</i> Cuushe<i>·</i><b>20</b> Pae Paoe <i>—</i> Bola<i>·</i><b>21</b> Prussian Blue <i>—</i> Sven Wunder<i>·</i><b>22</b> Aquarium <i>—</i> Casino Versus Japan<i>·</i><b>23</b> Geometry <i>—</i> Jega<i>·</i><b>24</b> Better Days <i>—</i> Anna St. Louis<i>·</i><b>25</b> Tsunami <i>—</i> Told Slant<i>·</i><b>26</b> Fables <i>—</i> Rahill<i>·</i><b>27</b> Pain <i>—</i> Ruth Garbus<i>·</i><b>28</b> Dots <i>—</i> Satomimagae<i>·</i><b>29</b> Good Morning World <i>—</i> Kahimi Karie<i>·</i><b>30</b> come here go there <i>—</i> Rei Harakami<i>·</i></span></div>
+  </div>
+
+  <div class="spec">
+    <div>sort <b>melody-first</b></div><div>bpm <b>70–120</b></div>
+    <div>tracks <b>30</b></div><div>genres <b>ambient folk · art pop · bedroom pop · chamber folk · downtempo · dream pop</b></div>
+  </div>
+
+  <div class="tools">
+    <button class="tbtn" id="fav-only" type="button"><span id="fav-lb">♥ 只看收藏</span> <span id="fav-n">0</span></button>
+    <button class="tbtn line" id="fav-export" type="button">导出收藏</button>
+    <a class="tbtn line" href="index.html">往期 archive ↗</a>
+    <a class="tbtn line" href="../random.html">听点别的 shuffle ↗</a>
+    <button class="tbtn line" id="share-btn" type="button" hidden>分享这期</button>
+    <a class="tbtn line" rel="prev" href="2026-08-07.html">← 上一期</a><a class="tbtn line" rel="next" href="2026-08-09.html">下一期 →</a>
+  </div>
+
+  <div class="sect">tracklist</div>
+  <div class="grid">
+    <article class="mod" data-k="Marathon - Tennis">
+      <div class="m-top">
+        <span class="m-num">01</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0071bb">dream pop</span>
+          <button class="heart" type="button" data-k="Marathon - Tennis" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music111/v4/e8/b3/c2/e8b3c264-af7b-74f0-95f9-949f6ca30634/886446283289.jpg/600x600bb.jpg" data-title="Marathon" data-artist="Tennis" data-year="2010" data-years="2010–2011" data-g0="dream pop" data-album="Cape Dory" data-bpm="110–125 bpm" data-tags="dream pop|indie pop|summer dusk|unhurried" data-bio="Tennis 是丹佛夫妻 Alaina Moore 与 Patrick Riley 组成的二人组，两人在一次长期帆船旅行后把沿途经历写成首张专辑《Cape Dory》。Moore 负责主唱与键盘，Riley 负责吉他和主要录音制作，二人后来建立 Mutually Detrimental 厂牌。自二〇一一年起，他们持续以固定节奏组巡演，并由自己控制后续专辑的制作与发行。" data-inpool="Marathon|Take Me Somewhere|Long Boat Pass|Cape Dory" data-one="一对夫妻，航海回来写了整张专辑，60 年代流行晒到发暖。" data-why="副歌一起,吉他裹着复古混响往前滚,键盘甜得像船上那一天。航海回忆唱成“和你一起就不觉得累”,简单,但戳。" data-scene="和爱人搬完最后一箱东西，坐在地板上笑到没力气。" data-apple="https://music.apple.com/us/album/marathon/1185721430?i=1185721676&amp;uo=4" data-spotify="https://open.spotify.com/search/Marathon%20Tennis"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music111/v4/e8/b3/c2/e8b3c264-af7b-74f0-95f9-949f6ca30634/886446283289.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e2/64/aa/e264aa32-74c9-4da9-a043-880d71d62af1/mzaf_6635862198321591963.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music111/v4/e8/b3/c2/e8b3c264-af7b-74f0-95f9-949f6ca30634/886446283289.jpg/600x600bb.jpg" data-title="Marathon" data-artist="Tennis" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Marathon</div>
+          <div class="artist">Tennis</div>
+          <div class="meta">2010 / Cape Dory<span class="bpm" style="--bc:#fab413">110–125 bpm</span></div>
+          <div class="tags"><span class="tag">indie pop</span><span class="tag">summer dusk</span><span class="tag">unhurried</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">一对夫妻，航海回来写了整张专辑，60 年代流行晒到发暖。</div>
+        <div class="why">副歌一起,吉他裹着复古混响往前滚,键盘甜得像船上那一天。航海回忆唱成“和你一起就不觉得累”,简单,但戳。</div>
+        <div class="scene"><span class="k">use ▸</span> 和爱人搬完最后一箱东西，坐在地板上笑到没力气。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/marathon/1185721430?i=1185721676&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Marathon%20Tennis" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Marathon%20Tennis" target="_blank" rel="noopener" data-nc="Marathon Tennis">netease ♫</a></div>
+        <div class="src">src · <a href="https://pitchfork.com/artists/tennis" target="_blank" rel="noopener">Pitchfork</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="The Everyday Push - Photay">
+      <div class="m-top">
+        <span class="m-num">02</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0f0e12">organic electronic</span>
+          <button class="heart" type="button" data-k="The Everyday Push - Photay" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/cc/2b/4f/cc2b4fa5-b8f1-3af1-8e2e-dc647a9e49eb/816216026648.jpg/600x600bb.jpg" data-title="The Everyday Push" data-artist="Photay" data-year="2017" data-years="2014–2017" data-g0="organic electronic" data-album="Onism" data-bpm="100–120 bpm" data-tags="organic electronic|idm|airy|grainy" data-bio="Photay 是纽约州 Woodstock 制作人 Evan Shornstein 的项目名。他在 Purchase College 学习期间前往几内亚研习鼓乐，这段经历进入其复合节奏写作。2014年同名 EP 由 Astro Nautico 发行，2017年首张完整专辑《Onism》进一步讨论科技、身体与自然之间的关系。" data-inpool="The Everyday Push|Reconstruct|Screens|Inharmonious Slog|Storm" data-one="纽约上州制作人，西非学来的复合节奏裹进温热的合成器。" data-why="几条节奏互相错着往前挤，人声碎片飘在最上层。合成器给了体温，电子做得再密，也一直听得见真人在呼吸。" data-scene="早高峰车厢被人推着走，耳机里的节奏比人潮准。" data-apple="https://music.apple.com/us/album/the-everyday-push/1254524399?i=1254524921&amp;uo=4" data-spotify="https://open.spotify.com/search/The%20Everyday%20Push%20Photay"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/cc/2b/4f/cc2b4fa5-b8f1-3af1-8e2e-dc647a9e49eb/816216026648.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/73/4f/f2/734ff22d-2aa1-ae02-0f7c-89bb45100083/mzaf_4292374563639834.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/cc/2b/4f/cc2b4fa5-b8f1-3af1-8e2e-dc647a9e49eb/816216026648.jpg/600x600bb.jpg" data-title="The Everyday Push" data-artist="Photay" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">The Everyday Push</div>
+          <div class="artist">Photay</div>
+          <div class="meta">2017 / Onism<span class="bpm" style="--bc:#fab413">100–120 bpm</span></div>
+          <div class="tags"><span class="tag">idm</span><span class="tag">airy</span><span class="tag">grainy</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">纽约上州制作人，西非学来的复合节奏裹进温热的合成器。</div>
+        <div class="why">几条节奏互相错着往前挤，人声碎片飘在最上层。合成器给了体温，电子做得再密，也一直听得见真人在呼吸。</div>
+        <div class="scene"><span class="k">use ▸</span> 早高峰车厢被人推着走，耳机里的节奏比人潮准。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/the-everyday-push/1254524399?i=1254524921&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/The%20Everyday%20Push%20Photay" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=The%20Everyday%20Push%20Photay" target="_blank" rel="noopener" data-nc="The Everyday Push Photay">netease ♫</a></div>
+        <div class="src">src · <a href="https://photay.bandcamp.com" target="_blank" rel="noopener">Bandcamp Daily</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Blue Lights - Jorja Smith">
+      <div class="m-top">
+        <span class="m-num">03</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#006837">neo soul</span>
+          <button class="heart" type="button" data-k="Blue Lights - Jorja Smith" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/9f/da/5d/9fda5dfb-8be4-e656-6fb3-a83cc9dbd60a/192562402849.jpg/600x600bb.jpg" data-title="Blue Lights" data-artist="Jorja Smith" data-year="2016" data-years="2016–2018" data-g0="neo soul" data-album="Lost &amp; Found" data-bpm="85–105 bpm" data-tags="neo soul|quiet alternative|late night|human" data-bio="Jorja Smith 在英格兰沃尔索尔长大，2016 年以自行发布的《Blue Lights》进入公众视野。首张专辑《Lost &amp; Found》于 2018 年发行，并让她获得当年全英音乐奖评论家选择奖。她与长期合作团队运营 FAMM 厂牌，歌曲写作始终在英国街头叙事、爵士训练与当代 R&amp;B 之间移动。" data-inpool="Blue Lights|Lost &amp; Found|Teenage Fantasy|Where Did I Go?" data-one="英国的年轻灵魂歌者，越是社会议题，唱腔越冷。" data-why="dub 的低频沉在底下，节拍空出大片位置。写的是看见蓝色警灯就发紧的那种恐惧，唱腔越冷静，不安压得越实。" data-scene="路口蓝光扫过车内，手不自觉从方向盘上抬了一下。" data-apple="https://music.apple.com/us/album/blue-lights/1373567754?i=1373567936&amp;uo=4" data-spotify="https://open.spotify.com/search/Blue%20Lights%20Jorja%20Smith"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/9f/da/5d/9fda5dfb-8be4-e656-6fb3-a83cc9dbd60a/192562402849.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2f/00/d2/2f00d250-a1ec-cc9f-08c9-e595baffc29c/mzaf_4036460359052677984.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/9f/da/5d/9fda5dfb-8be4-e656-6fb3-a83cc9dbd60a/192562402849.jpg/600x600bb.jpg" data-title="Blue Lights" data-artist="Jorja Smith" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Blue Lights</div>
+          <div class="artist">Jorja Smith</div>
+          <div class="meta">2016 / Lost &amp; Found<span class="bpm" style="--bc:#006837">85–105 bpm</span></div>
+          <div class="tags"><span class="tag">quiet alternative</span><span class="tag">late night</span><span class="tag">human</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">英国的年轻灵魂歌者，越是社会议题，唱腔越冷。</div>
+        <div class="why">dub 的低频沉在底下，节拍空出大片位置。写的是看见蓝色警灯就发紧的那种恐惧，唱腔越冷静，不安压得越实。</div>
+        <div class="scene"><span class="k">use ▸</span> 路口蓝光扫过车内，手不自觉从方向盘上抬了一下。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/blue-lights/1373567754?i=1373567936&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Blue%20Lights%20Jorja%20Smith" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Blue%20Lights%20Jorja%20Smith" target="_blank" rel="noopener" data-nc="Blue Lights Jorja Smith">netease ♫</a></div>
+        <div class="src">src · <a href="https://pitchfork.com/artists/jorja-smith" target="_blank" rel="noopener">Pitchfork</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Love Is All - The Tallest Man on Earth">
+      <div class="m-top">
+        <span class="m-num">04</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0071bb">chamber folk</span>
+          <button class="heart" type="button" data-k="Love Is All - The Tallest Man on Earth" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/13/46/da/mzi.vphzbjfh.tif/600x600bb.jpg" data-title="Love Is All" data-artist="The Tallest Man on Earth" data-year="2010" data-years="2010" data-g0="chamber folk" data-album="The Wild Hunt" data-bpm="110–130 bpm" data-tags="chamber folk|ambient folk|woody|human" data-bio="The Tallest Man on Earth 是瑞典唱作人 Kristian Matsson 的个人名义，他早期曾在乐队 Montezumas 活动。二〇〇六年同名 EP 与二〇〇八年的《Shallow Grave》以开放调弦、快速扫弦和单人录音建立声誉。签入 Dead Oceans 后，他在《The Wild Hunt》及后续专辑中逐步加入完整乐队。" data-inpool="Love Is All" data-one="瑞典人 Kristian Matsson，扫弦快到像要把琴箱撕开，嗓子哑成 Dylan 的翻版。" data-why="扫弦快得几乎要撕开琴箱，嗓子哑，力气一点不省。“爱就是一切”这种烂俗话被他唱得毫不心虚，全靠那股扑上来的真。" data-scene="吵完又和好，走在回家的路上突然自己笑出声。" data-apple="https://music.apple.com/us/album/love-is-all/445968858?i=445969035&amp;uo=4" data-spotify="https://open.spotify.com/search/Love%20Is%20All%20The%20Tallest%20Man%20on%20Earth"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music/13/46/da/mzi.vphzbjfh.tif/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c0/b9/5f/c0b95f81-2c90-e9c2-e767-4f61fe6de9a3/mzaf_11093339623702456444.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/13/46/da/mzi.vphzbjfh.tif/600x600bb.jpg" data-title="Love Is All" data-artist="The Tallest Man on Earth" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Love Is All</div>
+          <div class="artist">The Tallest Man on Earth</div>
+          <div class="meta">2010 / The Wild Hunt<span class="bpm" style="--bc:#fab413">110–130 bpm</span></div>
+          <div class="tags"><span class="tag">ambient folk</span><span class="tag">woody</span><span class="tag">human</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">瑞典人 Kristian Matsson，扫弦快到像要把琴箱撕开，嗓子哑成 Dylan 的翻版。</div>
+        <div class="why">扫弦快得几乎要撕开琴箱，嗓子哑，力气一点不省。“爱就是一切”这种烂俗话被他唱得毫不心虚，全靠那股扑上来的真。</div>
+        <div class="scene"><span class="k">use ▸</span> 吵完又和好，走在回家的路上突然自己笑出声。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/love-is-all/445968858?i=445969035&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Love%20Is%20All%20The%20Tallest%20Man%20on%20Earth" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Love%20Is%20All%20The%20Tallest%20Man%20on%20Earth" target="_blank" rel="noopener" data-nc="Love Is All The Tallest Man on Earth">netease ♫</a></div>
+        <div class="src">src · <a href="https://rateyourmusic.com/artist/the_tallest_man_on_earth" target="_blank" rel="noopener">RateYourMusic</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="The Company - Sam Prekop">
+      <div class="m-top">
+        <span class="m-num">05</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">soft post-rock</span>
+          <button class="heart" type="button" data-k="The Company - Sam Prekop" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/d4/b3/37/mzi.dkowyluf.jpg/600x600bb.jpg" data-title="The Company" data-artist="Sam Prekop" data-year="1999" data-years="1999–2022" data-g0="soft post-rock" data-album="Sam Prekop" data-bpm="100–120 bpm" data-tags="soft post-rock|jazz|unhurried|restrained" data-bio="Sam Prekop 出生于伦敦、在芝加哥长大，先后参与 Shrimp Boat 与 The Sea and Cake，并长期为后者担任主唱和吉他手。1999年首张个人专辑由 Jim O&#x27;Rourke 制作。2010年的《Old Punch Card》转向模块合成器，之后《The Republic》《Comma》等作品继续发展电子创作。" data-inpool="The Company|A Ghost at Noon" data-one="The Sea and Cake 主唱的个人作，爵士的松散调得更私人一点。" data-why="吉他清亮地绕，低音提琴和刷鼓给它爵士的呼吸，人声故意含混。全程不给一个重拍，只给一段一直往前滑的下午。" data-scene="沙发上午睡醒来不想动，光从百叶窗一条条爬过小腿。" data-apple="https://music.apple.com/us/album/the-company/308211330?i=308211716&amp;uo=4" data-spotify="https://open.spotify.com/search/The%20Company%20Sam%20Prekop"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music/d4/b3/37/mzi.dkowyluf.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/db/8c/3d/db8c3d9a-e7ab-e3c9-fa0c-70cb7dbdcb75/mzaf_16127753137128077819.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music/d4/b3/37/mzi.dkowyluf.jpg/600x600bb.jpg" data-title="The Company" data-artist="Sam Prekop" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">The Company</div>
+          <div class="artist">Sam Prekop</div>
+          <div class="meta">1999 / Sam Prekop<span class="bpm" style="--bc:#fab413">100–120 bpm</span></div>
+          <div class="tags"><span class="tag">jazz</span><span class="tag">unhurried</span><span class="tag">restrained</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">The Sea and Cake 主唱的个人作，爵士的松散调得更私人一点。</div>
+        <div class="why">吉他清亮地绕，低音提琴和刷鼓给它爵士的呼吸，人声故意含混。全程不给一个重拍，只给一段一直往前滑的下午。</div>
+        <div class="scene"><span class="k">use ▸</span> 沙发上午睡醒来不想动，光从百叶窗一条条爬过小腿。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/the-company/308211330?i=308211716&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/The%20Company%20Sam%20Prekop" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=The%20Company%20Sam%20Prekop" target="_blank" rel="noopener" data-nc="The Company Sam Prekop">netease ♫</a></div>
+        <div class="src">src · <a href="https://pitchfork.com/artists/3730-sam-prekop" target="_blank" rel="noopener">Pitchfork</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="What&#x27;s Going On With Ordinary People - The Reds, Pinks and Purples">
+      <div class="m-top">
+        <span class="m-num">06</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">jangle pop</span>
+          <button class="heart" type="button" data-k="What&#x27;s Going On With Ordinary People - The Reds, Pinks and Purples" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3a/fc/d5/3afcd50c-1b1e-531e-b173-036bc52a142e/0197190494457.jpg/600x600bb.jpg" data-title="What&#x27;s Going On With Ordinary People" data-artist="The Reds, Pinks and Purples" data-year="2024" data-years="2024" data-g0="jangle pop" data-album="Uncommon Weather" data-bpm="90–115 bpm" data-tags="jangle pop|dream pop|guitar pop|summer dusk|tender|unhurried" data-bio="The Reds, Pinks and Purples 是旧金山音乐人 Glenn Donaldson 主导的家庭录音项目，他此前参与 Skygreen Leopards 等团体。项目二〇一〇年代末开始密集发行，封面多由 Donaldson 拍摄所在社区街景。作品经 Tough Love、Slumberland 等厂牌传播，吉他、鼓机和独唱基本由他完成。" data-inpool="What&#x27;s Going On With Ordinary People" data-one="The Reds, Pinks and Purples 让鼓组和铃鼓在九十年代吉他流行的柔焦支线里靠得很近，两件乐器之间总留着可听见的缝隙。" data-why="鼓组把主旋律托在低处，铃鼓偶尔从侧面擦过。轻压缩令声音有旧痕，短句的重量却不含糊。" data-scene="电梯停在楼下，门缝里漏进一条白光，风扇叶片把墙上的影子切成三段。" data-apple="https://music.apple.com/us/album/whats-going-on-with-ordinary-people/6796124629?i=6796124630&amp;uo=4" data-spotify="https://open.spotify.com/search/What%27s%20Going%20On%20With%20Ordinary%20People%20The%20Reds%2C%20Pinks%20and%20Purples"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3a/fc/d5/3afcd50c-1b1e-531e-b173-036bc52a142e/0197190494457.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b1/94/21/b1942129-cdae-af1c-1866-73b237f1f759/mzaf_7571450438494257506.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3a/fc/d5/3afcd50c-1b1e-531e-b173-036bc52a142e/0197190494457.jpg/600x600bb.jpg" data-title="What&#x27;s Going On With Ordinary People" data-artist="The Reds, Pinks and Purples" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">What&#x27;s Going On With Ordinary People</div>
+          <div class="artist">The Reds, Pinks and Purples</div>
+          <div class="meta">2024 / Uncommon Weather<span class="bpm" style="--bc:#006837">90–115 bpm</span></div>
+          <div class="tags"><span class="tag">dream pop</span><span class="tag">guitar pop</span><span class="tag">summer dusk</span><span class="tag">tender</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">The Reds, Pinks and Purples 让鼓组和铃鼓在九十年代吉他流行的柔焦支线里靠得很近，两件乐器之间总留着可听见的缝隙。</div>
+        <div class="why">鼓组把主旋律托在低处，铃鼓偶尔从侧面擦过。轻压缩令声音有旧痕，短句的重量却不含糊。</div>
+        <div class="scene"><span class="k">use ▸</span> 电梯停在楼下，门缝里漏进一条白光，风扇叶片把墙上的影子切成三段。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/whats-going-on-with-ordinary-people/6796124629?i=6796124630&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/What%27s%20Going%20On%20With%20Ordinary%20People%20The%20Reds%2C%20Pinks%20and%20Purples" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=What%27s%20Going%20On%20With%20Ordinary%20People%20The%20Reds%2C%20Pinks%20and%20Purples" target="_blank" rel="noopener" data-nc="What&#x27;s Going On With Ordinary People The Reds, Pinks and Purples">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/search?term=The+Reds%2C+Pinks+and+Purples+What%27s+Going+On+With+Ordinary+People" target="_blank" rel="noopener">Apple Music / Bandcamp</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Plainsong - Seefeel">
+      <div class="m-top">
+        <span class="m-num">07</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0071bb">dream pop</span>
+          <button class="heart" type="button" data-k="Plainsong - Seefeel" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/36/6a/41/366a4102-a143-4206-9373-56ebef166482/644918819462.png/600x600bb.jpg" data-title="Plainsong" data-artist="Seefeel" data-year="1993" data-years="1993–2007" data-g0="dream pop" data-album="Quique" data-bpm="100–115 bpm" data-tags="dream pop|organic electronic|airy|grainy" data-bio="Seefeel 一九九二年在伦敦成立，早期阵容为 Mark Clifford、Sarah Peacock、Justin Fletcher 与 Darren Seymour。乐队先在 Too Pure 发行《Quique》，把吉他循环、电子鼓和低声人声处理成连续纹理，随后成为 Warp Records 少数以吉他编制签约的团体。九十年代后期暂停多年，Clifford 与 Peacock 于二〇〇八年重启项目，并在二〇一一年推出同名专辑。" data-inpool="Plainsong|Polyfusion|Industrious|Imperial" data-one="英国乐队 Seefeel，吉他不再是吉他，是被 loop 出来的一片水面。" data-why="吉他被 loop 成一片循环的水面，dub 贝斯低低地推，人声化成雾。摇滚和电子的边界在这里糊掉了，听着像在温水里失重。" data-scene="关灯戴耳机躺着，分不清声音从耳机还是脑子里出来。" data-apple="https://music.apple.com/us/album/plainsong/1475817544?i=1475817551&amp;uo=4" data-spotify="https://open.spotify.com/search/Plainsong%20Seefeel"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/36/6a/41/366a4102-a143-4206-9373-56ebef166482/644918819462.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview124/v4/aa/e4/2c/aae42c89-56c3-9b17-0441-16b24dc713e7/mzaf_5204173593810515456.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/36/6a/41/366a4102-a143-4206-9373-56ebef166482/644918819462.png/600x600bb.jpg" data-title="Plainsong" data-artist="Seefeel" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Plainsong</div>
+          <div class="artist">Seefeel</div>
+          <div class="meta">1993 / Quique<span class="bpm" style="--bc:#fab413">100–115 bpm</span></div>
+          <div class="tags"><span class="tag">organic electronic</span><span class="tag">airy</span><span class="tag">grainy</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">英国乐队 Seefeel，吉他不再是吉他，是被 loop 出来的一片水面。</div>
+        <div class="why">吉他被 loop 成一片循环的水面，dub 贝斯低低地推，人声化成雾。摇滚和电子的边界在这里糊掉了，听着像在温水里失重。</div>
+        <div class="scene"><span class="k">use ▸</span> 关灯戴耳机躺着，分不清声音从耳机还是脑子里出来。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/plainsong/1475817544?i=1475817551&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Plainsong%20Seefeel" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Plainsong%20Seefeel" target="_blank" rel="noopener" data-nc="Plainsong Seefeel">netease ♫</a></div>
+        <div class="src">src · <a href="https://rateyourmusic.com/artist/seefeel" target="_blank" rel="noopener">RateYourMusic</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Big Time Things - Office Culture">
+      <div class="m-top">
+        <span class="m-num">08</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#fab413">sophisti-pop</span>
+          <button class="heart" type="button" data-k="Big Time Things - Office Culture" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/7d/e6/7a/7de67afe-013c-a396-7af1-7e105140223c/634457108912.png/600x600bb.jpg" data-title="Big Time Things" data-artist="Office Culture" data-year="2022" data-years="2022" data-g0="sophisti-pop" data-album="Big Time Things" data-bpm="80–105 bpm" data-tags="sophisti-pop|jazz pop|art pop|late night|elegant|restrained" data-bio="Office Culture 是纽约乐队，由主唱、键盘手和词曲人 Winston Cook-Wilson 领导，成员来自当地爵士与独立音乐圈。项目从《A Life of Crime》发展到二〇二二年的《Big Time Things》，编制集中在钢琴、贝斯、鼓与少量管乐。Cook-Wilson 用长句歌词描写成年人工作、友谊和自我解释，合奏则借鉴 Steely Dan 与安静风暴时期的录音方法。" data-inpool="Big Time Things|Suddenly|Timing|Things Were Bad" data-one="Winston Cook-Wilson 领衔的布鲁克林乐队 Office Culture，用夜班钢琴和软爵士写成年人小题大做的瞬间。" data-why="电钢琴把和弦磨得很圆，贝斯与萨克斯只在句尾交换眼色。精致不是西装外壳，歌里那些犹豫仍露着线头。" data-scene="餐厅打烊后把椅子倒扣上桌，最后一盏壁灯还照着没收走的水杯。" data-apple="https://music.apple.com/us/album/big-time-things/1630832236?i=1630832238&amp;uo=4" data-spotify="https://open.spotify.com/search/Big%20Time%20Things%20Office%20Culture"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/7d/e6/7a/7de67afe-013c-a396-7af1-7e105140223c/634457108912.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/71/75/37/7175373e-4d9d-4bb6-5160-c48cb582c3e9/mzaf_2977637751185525573.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/7d/e6/7a/7de67afe-013c-a396-7af1-7e105140223c/634457108912.png/600x600bb.jpg" data-title="Big Time Things" data-artist="Office Culture" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Big Time Things</div>
+          <div class="artist">Office Culture</div>
+          <div class="meta">2022 / Big Time Things<span class="bpm" style="--bc:#006837">80–105 bpm</span></div>
+          <div class="tags"><span class="tag">jazz pop</span><span class="tag">art pop</span><span class="tag">late night</span><span class="tag">elegant</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">Winston Cook-Wilson 领衔的布鲁克林乐队 Office Culture，用夜班钢琴和软爵士写成年人小题大做的瞬间。</div>
+        <div class="why">电钢琴把和弦磨得很圆，贝斯与萨克斯只在句尾交换眼色。精致不是西装外壳，歌里那些犹豫仍露着线头。</div>
+        <div class="scene"><span class="k">use ▸</span> 餐厅打烊后把椅子倒扣上桌，最后一盏壁灯还照着没收走的水杯。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/big-time-things/1630832236?i=1630832238&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Big%20Time%20Things%20Office%20Culture" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Big%20Time%20Things%20Office%20Culture" target="_blank" rel="noopener" data-nc="Big Time Things Office Culture">netease ♫</a></div>
+        <div class="src">src · <a href="https://officeculture.bandcamp.com/track/big-time-things" target="_blank" rel="noopener">Bandcamp / Apple Music</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Aquamarine - Hand Habits">
+      <div class="m-top">
+        <span class="m-num">09</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">ambient folk</span>
+          <button class="heart" type="button" data-k="Aquamarine - Hand Habits" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b5/5d/c4/b55dc4c9-528a-f3fe-9c62-8a1cea2c1111/187.jpg/600x600bb.jpg" data-title="Aquamarine" data-artist="Hand Habits" data-year="2021" data-years="2019–2021" data-g0="ambient folk" data-album="Fun House" data-bpm="70–90 bpm" data-tags="ambient folk|chamber pop|singer-songwriter|woody|intimate|melancholy" data-bio="Hand Habits 是吉他手兼词曲作者 Meg Duffy 的个人项目。Duffy 曾长期担任 Kevin Morby 的巡演乐手，也参与 Weyes Blood、William Tyler 等人的录音。2017年《Wildly Idle》由 Woodsist 发行，之后他们转入 Saddle Creek，并与 SASAMI 合作制作《Fun House》。" data-inpool="placeholder|Aquamarine|can’t calm down|pacify|jessica" data-one="Hand Habits 把北美私语民谣与慢速摇滚之间缩进很小的听觉距离，电吉他的每次进入都像重新摆过家具。" data-why="手打击乐先以很轻的力度落下，电吉他随后把和声向外推开。没有多余尾巴，低频的分寸落得干脆。" data-scene="面包店刚把铁门拉下一半，烤盘还在冒热气，钥匙在掌心留下两道齿印。" data-apple="https://music.apple.com/us/album/aquamarine/1577253682?i=1577253915&amp;uo=4" data-spotify="https://open.spotify.com/search/Aquamarine%20Hand%20Habits"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b5/5d/c4/b55dc4c9-528a-f3fe-9c62-8a1cea2c1111/187.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/00/5e/27/005e27b2-942a-4275-c6a4-ada943f90c39/mzaf_3990537647549166208.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b5/5d/c4/b55dc4c9-528a-f3fe-9c62-8a1cea2c1111/187.jpg/600x600bb.jpg" data-title="Aquamarine" data-artist="Hand Habits" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Aquamarine</div>
+          <div class="artist">Hand Habits</div>
+          <div class="meta">2021 / Fun House<span class="bpm" style="--bc:#0071bb">70–90 bpm</span></div>
+          <div class="tags"><span class="tag">chamber pop</span><span class="tag">singer-songwriter</span><span class="tag">woody</span><span class="tag">intimate</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">Hand Habits 把北美私语民谣与慢速摇滚之间缩进很小的听觉距离，电吉他的每次进入都像重新摆过家具。</div>
+        <div class="why">手打击乐先以很轻的力度落下，电吉他随后把和声向外推开。没有多余尾巴，低频的分寸落得干脆。</div>
+        <div class="scene"><span class="k">use ▸</span> 面包店刚把铁门拉下一半，烤盘还在冒热气，钥匙在掌心留下两道齿印。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/aquamarine/1577253682?i=1577253915&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Aquamarine%20Hand%20Habits" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Aquamarine%20Hand%20Habits" target="_blank" rel="noopener" data-nc="Aquamarine Hand Habits">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/search?term=Hand+Habits+Aquamarine" target="_blank" rel="noopener">Apple Music / Bandcamp</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Heaven - Levitation Room">
+      <div class="m-top">
+        <span class="m-num">10</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#b81d13">hypnagogic pop</span>
+          <button class="heart" type="button" data-k="Heaven - Levitation Room" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/32/97/20/32972090-bdaa-975b-bd50-eac03f9fe94b/0.jpg/600x600bb.jpg" data-title="Heaven" data-artist="Levitation Room" data-year="2023" data-years="2023" data-g0="hypnagogic pop" data-album="Strange Weather" data-bpm="95–120 bpm" data-tags="hypnagogic pop|art pop|indie rock|wide open|hopeful|organic" data-bio="Levitation Room 于 2012 年在洛杉矶形成，成员从当地车库摇滚与迷幻演出圈开始合作。2016 年首张《Ethos》保留十二弦吉他、风琴和现场录音的粗边，后续《Headspace》扩大了制作。乐队此后经历阵容变化，仍由 Julian Porte 等核心成员延续，并在《Strange Weather》中加入更多合成器。" data-inpool="Heaven" data-one="Levitation Room 在不靠长篇即兴的 psychedelic pop 坐标里工作，常把贝斯削成瓷面，再用合成器把轮廓补回来。" data-why="贝斯先以很轻的力度落下，合成器随后把和声向外推开。没有多余尾巴，每个声部的落脚处落得干脆。" data-scene="楼上的水管响过一阵，手里的书还停在同一页，钥匙在掌心留下两道齿印。" data-apple="https://music.apple.com/us/album/heaven/1713460835?i=1713460837&amp;uo=4" data-spotify="https://open.spotify.com/search/Heaven%20Levitation%20Room"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/32/97/20/32972090-bdaa-975b-bd50-eac03f9fe94b/0.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/3b/c0/ce/3bc0ce36-a642-117c-1311-5c28368e306e/mzaf_17087000796187899059.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/32/97/20/32972090-bdaa-975b-bd50-eac03f9fe94b/0.jpg/600x600bb.jpg" data-title="Heaven" data-artist="Levitation Room" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Heaven</div>
+          <div class="artist">Levitation Room</div>
+          <div class="meta">2023 / Strange Weather<span class="bpm" style="--bc:#fab413">95–120 bpm</span></div>
+          <div class="tags"><span class="tag">art pop</span><span class="tag">indie rock</span><span class="tag">wide open</span><span class="tag">hopeful</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">Levitation Room 在不靠长篇即兴的 psychedelic pop 坐标里工作，常把贝斯削成瓷面，再用合成器把轮廓补回来。</div>
+        <div class="why">贝斯先以很轻的力度落下，合成器随后把和声向外推开。没有多余尾巴，每个声部的落脚处落得干脆。</div>
+        <div class="scene"><span class="k">use ▸</span> 楼上的水管响过一阵，手里的书还停在同一页，钥匙在掌心留下两道齿印。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/heaven/1713460835?i=1713460837&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Heaven%20Levitation%20Room" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Heaven%20Levitation%20Room" target="_blank" rel="noopener" data-nc="Heaven Levitation Room">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/search?term=Levitation+Room+Heaven" target="_blank" rel="noopener">Apple Music / Bandcamp</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="A Song About Holding Hands - Gregor">
+      <div class="m-top">
+        <span class="m-num">11</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#b81d13">art pop</span>
+          <button class="heart" type="button" data-k="A Song About Holding Hands - Gregor" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/dc/0e/0b/dc0e0b3d-19bc-0829-aec0-cf917afaa62d/747742111822.jpg/600x600bb.jpg" data-title="A Song About Holding Hands" data-artist="Gregor" data-year="2018" data-years="2018" data-g0="art pop" data-album="Silver Drop" data-bpm="85–110 bpm" data-tags="art pop|lo-fi pop|sophisti-pop|sweet|intimate|nostalgic" data-bio="Gregor是墨尔本音乐人，最早通过2016年卡带《Thoughts &amp; Faults》进入Chapter Music的发行网络。他在个人录音中兼任写作、演唱和多种乐器，常把廉价键盘、贝斯与不对称的歌曲结构并置。2018年首张专辑《Silver Drop》由Chapter Music发行，也是其从卡带作品转向完整专辑的起点。" data-inpool="A Song About Holding Hands|This Heat|Fishing Net|I Look Devastated" data-one="墨尔本作者 Gregor，用廉价键盘、圆贝斯和认真过头的浪漫写偏斜流行歌。" data-why="合成器像玩具电子琴，却被贝斯垫出软厚底座，鼓机每一下都留着家用设备的棱角。题目直白，编曲反而绕了几步才把手伸过来。" data-scene="电影院散场后没有立刻松手，门口海报灯把两个人的影子压在一起。" data-apple="https://music.apple.com/us/album/a-song-about-holding-hands/1407833342?i=1407833803&amp;uo=4" data-spotify="https://open.spotify.com/search/A%20Song%20About%20Holding%20Hands%20Gregor"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/dc/0e/0b/dc0e0b3d-19bc-0829-aec0-cf917afaa62d/747742111822.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/3b/c4/21/3bc42109-f21e-c23d-5379-4c694c0e92be/mzaf_5355405293615810113.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/dc/0e/0b/dc0e0b3d-19bc-0829-aec0-cf917afaa62d/747742111822.jpg/600x600bb.jpg" data-title="A Song About Holding Hands" data-artist="Gregor" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">A Song About Holding Hands</div>
+          <div class="artist">Gregor</div>
+          <div class="meta">2018 / Silver Drop<span class="bpm" style="--bc:#006837">85–110 bpm</span></div>
+          <div class="tags"><span class="tag">lo-fi pop</span><span class="tag">sophisti-pop</span><span class="tag">sweet</span><span class="tag">intimate</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">墨尔本作者 Gregor，用廉价键盘、圆贝斯和认真过头的浪漫写偏斜流行歌。</div>
+        <div class="why">合成器像玩具电子琴，却被贝斯垫出软厚底座，鼓机每一下都留着家用设备的棱角。题目直白，编曲反而绕了几步才把手伸过来。</div>
+        <div class="scene"><span class="k">use ▸</span> 电影院散场后没有立刻松手，门口海报灯把两个人的影子压在一起。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/a-song-about-holding-hands/1407833342?i=1407833803&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/A%20Song%20About%20Holding%20Hands%20Gregor" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=A%20Song%20About%20Holding%20Hands%20Gregor" target="_blank" rel="noopener" data-nc="A Song About Holding Hands Gregor">netease ♫</a></div>
+        <div class="src">src · <a href="https://6regor.bandcamp.com/track/a-song-about-holding-hands" target="_blank" rel="noopener">Bandcamp / Apple Music</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Damdadi - Shin Hae Gyeong">
+      <div class="m-top">
+        <span class="m-num">12</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0071bb">korean dream pop</span>
+          <button class="heart" type="button" data-k="Damdadi - Shin Hae Gyeong" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/16/5b/e9/165be9cc-3621-d6fe-48d0-38b78551c23b/8809795750426_cover.jpg/600x600bb.jpg" data-title="Damdadi" data-artist="Shin Hae Gyeong" data-year="2018" data-years="2018" data-g0="korean dream pop" data-album="My Reversible Reaction" data-bpm="75–105 bpm" data-tags="korean dream pop|ambient pop|indie pop|hazy|nostalgic|tender" data-bio="Shin Hae Gyeong 是首尔唱作人，早期以 The Mirror 名义活动，艺名取自作家李箱的本名金海卿。他二〇一四年前后开始发行作品，并于二〇一七年推出 EP《My Reversible Reaction》。这张作品由他围绕失真吉他、层叠人声与连续叙事亲自构建，首版实体发行在短时间内售罄。" data-inpool="Damdadi" data-one="Shin Hae Gyeong 在日韩独立音乐里不追求爆点的地带中工作，常把电钢琴削成浅水，再用合成器把轮廓补回来。" data-why="电钢琴把节拍做出浅水的摩擦，合成器从上方划出细线。制作细节很多，但耳朵首先记住的是乐器之间的摩擦。" data-scene="冰箱压缩机突然停下，屋里空了一拍，钥匙在掌心留下两道齿印。" data-apple="https://music.apple.com/us/album/damdadi/1809732052?i=1809732053&amp;uo=4" data-spotify="https://open.spotify.com/search/Damdadi%20Shin%20Hae%20Gyeong"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/16/5b/e9/165be9cc-3621-d6fe-48d0-38b78551c23b/8809795750426_cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1e/76/6f/1e766f57-a5be-0978-786d-c063241094b8/mzaf_15003591384374766698.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/16/5b/e9/165be9cc-3621-d6fe-48d0-38b78551c23b/8809795750426_cover.jpg/600x600bb.jpg" data-title="Damdadi" data-artist="Shin Hae Gyeong" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Damdadi</div>
+          <div class="artist">Shin Hae Gyeong</div>
+          <div class="meta">2018 / My Reversible Reaction<span class="bpm" style="--bc:#006837">75–105 bpm</span></div>
+          <div class="tags"><span class="tag">ambient pop</span><span class="tag">indie pop</span><span class="tag">hazy</span><span class="tag">nostalgic</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">Shin Hae Gyeong 在日韩独立音乐里不追求爆点的地带中工作，常把电钢琴削成浅水，再用合成器把轮廓补回来。</div>
+        <div class="why">电钢琴把节拍做出浅水的摩擦，合成器从上方划出细线。制作细节很多，但耳朵首先记住的是乐器之间的摩擦。</div>
+        <div class="scene"><span class="k">use ▸</span> 冰箱压缩机突然停下，屋里空了一拍，钥匙在掌心留下两道齿印。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/damdadi/1809732052?i=1809732053&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Damdadi%20Shin%20Hae%20Gyeong" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Damdadi%20Shin%20Hae%20Gyeong" target="_blank" rel="noopener" data-nc="Damdadi Shin Hae Gyeong">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/search?term=Shin+Hae+Gyeong+Damdadi" target="_blank" rel="noopener">Apple Music / Bandcamp</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Milk for Flowers - H. Hawkline">
+      <div class="m-top">
+        <span class="m-num">13</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">ambient folk</span>
+          <button class="heart" type="button" data-k="Milk for Flowers - H. Hawkline" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/de/2a/10/de2a106e-1d74-00ad-5174-258b4326237c/5400863066871_cover.jpg/600x600bb.jpg" data-title="Milk for Flowers" data-artist="H. Hawkline" data-year="2022" data-years="2022–2023" data-g0="ambient folk" data-album="Milk for Flowers" data-bpm="70–90 bpm" data-tags="ambient folk|chamber pop|singer-songwriter|rainy|fragile|longing" data-bio="H. Hawkline 是威尔士音乐人 Huw Gwynfryn Evans 的化名，早期作品形成于家乡加的夫，并与 Cate Le Bon、Sweet Baboo 等同代音乐人频繁合作。他先后经 Trash Aesthetics 与 Heavenly Recordings 发行唱片。第五张专辑《Milk for Flowers》由 Cate Le Bon 制作，并在威尔士 Rockfield Studios 录制。" data-inpool="Milk for Flowers|Plastic Man|Suppression Street|I Need Him" data-one="H. Hawkline 从木吉他录音最看重房间回声的谱系出发，擅长把房间收音整理成可以记住的短句。" data-why="木吉他把节拍做出薄木片的摩擦，大提琴从上方划出细线。制作细节很多，但耳朵首先记住的是整首歌的耐心。" data-scene="把唱针抬起又放下，窗外的招牌刚熄一盏，手背上的雨点还没擦干。" data-apple="https://music.apple.com/us/album/milk-for-flowers/1647432590?i=1647432593&amp;uo=4" data-spotify="https://open.spotify.com/search/Milk%20for%20Flowers%20H.%20Hawkline"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/de/2a/10/de2a106e-1d74-00ad-5174-258b4326237c/5400863066871_cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/2c/76/e8/2c76e80e-03cb-4d59-ce36-4f061e36b328/mzaf_18242877384974981248.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/de/2a/10/de2a106e-1d74-00ad-5174-258b4326237c/5400863066871_cover.jpg/600x600bb.jpg" data-title="Milk for Flowers" data-artist="H. Hawkline" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Milk for Flowers</div>
+          <div class="artist">H. Hawkline</div>
+          <div class="meta">2022 / Milk for Flowers<span class="bpm" style="--bc:#0071bb">70–90 bpm</span></div>
+          <div class="tags"><span class="tag">chamber pop</span><span class="tag">singer-songwriter</span><span class="tag">rainy</span><span class="tag">fragile</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">H. Hawkline 从木吉他录音最看重房间回声的谱系出发，擅长把房间收音整理成可以记住的短句。</div>
+        <div class="why">木吉他把节拍做出薄木片的摩擦，大提琴从上方划出细线。制作细节很多，但耳朵首先记住的是整首歌的耐心。</div>
+        <div class="scene"><span class="k">use ▸</span> 把唱针抬起又放下，窗外的招牌刚熄一盏，手背上的雨点还没擦干。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/milk-for-flowers/1647432590?i=1647432593&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Milk%20for%20Flowers%20H.%20Hawkline" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Milk%20for%20Flowers%20H.%20Hawkline" target="_blank" rel="noopener" data-nc="Milk for Flowers H. Hawkline">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/search?term=H.+Hawkline+Milk+for+Flowers" target="_blank" rel="noopener">Apple Music / Bandcamp</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="The Magic Eye - The Zenmenn">
+      <div class="m-top">
+        <span class="m-num">14</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0f0e12">downtempo</span>
+          <button class="heart" type="button" data-k="The Magic Eye - The Zenmenn" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/63/3d/64/633d647d-e067-927d-77ad-39f3ee4d5f0a/0603051913321_cover.jpg/600x600bb.jpg" data-title="The Magic Eye" data-artist="The Zenmenn" data-year="2021" data-years="2021" data-g0="downtempo" data-album="Enter the Zenmenn" data-bpm="75–100 bpm" data-tags="downtempo|new age|psychedelic pop|unhurried|dreamlike|warm" data-bio="The Zenmenn 是成员身份保持低调的欧洲录音项目，二〇二一年通过荷兰厂牌 Music From Memory 发行首张专辑《Enter the Zenmenn》。作品由合成器、吉他、贝斯与稀疏人声组成，并以多人录音室合作取代传统主唱中心。后续发行继续在同一厂牌体系中展开，但公开成员资料与现场记录仍然有限。" data-inpool="The Magic Eye|Flags of the World|Bamboo Garden|Stairway To Heaven" data-one="The Zenmenn 把新世纪音乐、慢拍放克和候机室旋律煮成一锅低温汤。" data-why="圆贝斯推着木槌音往前走，合成器在上方画出几条不闭合的曲线。它松得近乎随手，细听却处处有摆位。" data-scene="午睡醒来没看时间，风扇还转着，窗帘背后的光已经偏黄。" data-apple="https://music.apple.com/us/album/the-magic-eye/1559280266?i=1559280268&amp;uo=4" data-spotify="https://open.spotify.com/search/The%20Magic%20Eye%20The%20Zenmenn"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/63/3d/64/633d647d-e067-927d-77ad-39f3ee4d5f0a/0603051913321_cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview124/v4/b1/2b/2b/b12b2bc5-968b-d150-b825-d4dbc0eaa960/mzaf_14100855445109664081.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/63/3d/64/633d647d-e067-927d-77ad-39f3ee4d5f0a/0603051913321_cover.jpg/600x600bb.jpg" data-title="The Magic Eye" data-artist="The Zenmenn" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">The Magic Eye</div>
+          <div class="artist">The Zenmenn</div>
+          <div class="meta">2021 / Enter the Zenmenn<span class="bpm" style="--bc:#006837">75–100 bpm</span></div>
+          <div class="tags"><span class="tag">new age</span><span class="tag">psychedelic pop</span><span class="tag">unhurried</span><span class="tag">dreamlike</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">The Zenmenn 把新世纪音乐、慢拍放克和候机室旋律煮成一锅低温汤。</div>
+        <div class="why">圆贝斯推着木槌音往前走，合成器在上方画出几条不闭合的曲线。它松得近乎随手，细听却处处有摆位。</div>
+        <div class="scene"><span class="k">use ▸</span> 午睡醒来没看时间，风扇还转着，窗帘背后的光已经偏黄。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/the-magic-eye/1559280266?i=1559280268&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/The%20Magic%20Eye%20The%20Zenmenn" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=The%20Magic%20Eye%20The%20Zenmenn" target="_blank" rel="noopener" data-nc="The Magic Eye The Zenmenn">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/gb/song/1559280268" target="_blank" rel="noopener">Music From Memory / Apple Music</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Groceries - Gia Margaret">
+      <div class="m-top">
+        <span class="m-num">15</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#006837">bedroom pop</span>
+          <button class="heart" type="button" data-k="Groceries - Gia Margaret" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/1d/9f/fc/1d9ffc66-351b-725e-cac3-ae321401f9f4/cover.jpg/600x600bb.jpg" data-title="Groceries" data-artist="Gia Margaret" data-year="2018" data-years="2018" data-g0="bedroom pop" data-album="There&#x27;s Always Glimmer" data-bpm="70–120 bpm" data-tags="bedroom pop|ambient folk|dream pop|tender|airy|intimate" data-bio="Gia Margaret是芝加哥唱作人、制作人与多乐器演奏者，2018年在Orindal发行自行制作的首专《There&#x27;s Always Glimmer》。那批歌曲最初与失眠经验相连，录音主要围绕钢琴、吉他和家庭设备展开。声带疾病迫使她暂停演唱后，她完成了以器乐和采样为主的《Mia Gargaret》，并亲自参与混音。" data-inpool="Groceries" data-one="芝加哥的 Gia Margaret，自称做的是『睡眠音乐』，气声一层层压在毛毡钢琴上。" data-why="耳语被叠成好几层压在毛毡钢琴上，磁带底噪在缝里嘶嘶响。偶尔一点数码碎响像唱针跳了格，安静里旋律的骨头反而更清楚。" data-scene="窗玻璃被雨敲着，醒了一半，手伸出被子凉了才收回去。" data-apple="https://music.apple.com/us/album/groceries/1460162597?i=1460162601&amp;uo=4" data-spotify="https://open.spotify.com/search/Groceries%20Gia%20Margaret"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/1d/9f/fc/1d9ffc66-351b-725e-cac3-ae321401f9f4/cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/7e/02/89/7e028987-da92-ae56-115c-3768a80f693e/mzaf_10974593432785760095.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/1d/9f/fc/1d9ffc66-351b-725e-cac3-ae321401f9f4/cover.jpg/600x600bb.jpg" data-title="Groceries" data-artist="Gia Margaret" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Groceries</div>
+          <div class="artist">Gia Margaret</div>
+          <div class="meta">2018 / There&#x27;s Always Glimmer<span class="bpm" style="--bc:#006837">70–120 bpm</span></div>
+          <div class="tags"><span class="tag">ambient folk</span><span class="tag">dream pop</span><span class="tag">tender</span><span class="tag">airy</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">芝加哥的 Gia Margaret，自称做的是『睡眠音乐』，气声一层层压在毛毡钢琴上。</div>
+        <div class="why">耳语被叠成好几层压在毛毡钢琴上，磁带底噪在缝里嘶嘶响。偶尔一点数码碎响像唱针跳了格，安静里旋律的骨头反而更清楚。</div>
+        <div class="scene"><span class="k">use ▸</span> 窗玻璃被雨敲着，醒了一半，手伸出被子凉了才收回去。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/groceries/1460162597?i=1460162601&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Groceries%20Gia%20Margaret" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Groceries%20Gia%20Margaret" target="_blank" rel="noopener" data-nc="Groceries Gia Margaret">netease ♫</a></div>
+        <div class="src">src · <a href="https://en.wikipedia.org/wiki/Gia_Margaret" target="_blank" rel="noopener">MusicBrainz + Wikipedia</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Brave Child of a New World - Bananagun">
+      <div class="m-top">
+        <span class="m-num">16</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">psychedelic pop</span>
+          <button class="heart" type="button" data-k="Brave Child of a New World - Bananagun" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/38/9c/6e/389c6e25-a637-f548-0750-815cb0c4ceb3/5060626468115_cover.jpg/600x600bb.jpg" data-title="Brave Child of a New World" data-artist="Bananagun" data-year="2024" data-years="2024" data-g0="psychedelic pop" data-album="Why Is the Colour of the Sky?" data-bpm="75–105 bpm" data-tags="psychedelic pop|indie pop|leftfield pop|shimmering|upbeat|elegant" data-bio="Bananagun 是 Nick van Bakel 主导的墨尔本乐队，编制包括打击乐、键盘、吉他和多人和声。Full Time Hobby 于2020年发行首专。第二张《Why Is the Colour of the Sky?》在2024年推出，录音强调乐队同步演奏。" data-inpool="Brave Child of a New World" data-one="Bananagun 属于六十年代配器被现代剪辑重新排序的支线的细节派，偏干的打击乐不是装饰，而是旋律的一部分。" data-why="长笛在低处反复停顿，木吉他像旧胶片的边缘一样卡进空隙。编曲没有急着抬高音量，录音里保留下来的手感反而更清楚。" data-scene="空会议室只剩投影机风扇，白板笔盖还没扣紧，窗台那片叶子翻出了浅色背面。" data-apple="https://music.apple.com/us/album/brave-child-of-a-new-world/1763661296?i=1763661301&amp;uo=4" data-spotify="https://open.spotify.com/search/Brave%20Child%20of%20a%20New%20World%20Bananagun"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/38/9c/6e/389c6e25-a637-f548-0750-815cb0c4ceb3/5060626468115_cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/52/80/a6/5280a65b-aee5-8d6d-c802-0b4d56078147/mzaf_3956081751168230426.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/38/9c/6e/389c6e25-a637-f548-0750-815cb0c4ceb3/5060626468115_cover.jpg/600x600bb.jpg" data-title="Brave Child of a New World" data-artist="Bananagun" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Brave Child of a New World</div>
+          <div class="artist">Bananagun</div>
+          <div class="meta">2024 / Why Is the Colour of the Sky?<span class="bpm" style="--bc:#006837">75–105 bpm</span></div>
+          <div class="tags"><span class="tag">indie pop</span><span class="tag">leftfield pop</span><span class="tag">shimmering</span><span class="tag">upbeat</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">Bananagun 属于六十年代配器被现代剪辑重新排序的支线的细节派，偏干的打击乐不是装饰，而是旋律的一部分。</div>
+        <div class="why">长笛在低处反复停顿，木吉他像旧胶片的边缘一样卡进空隙。编曲没有急着抬高音量，录音里保留下来的手感反而更清楚。</div>
+        <div class="scene"><span class="k">use ▸</span> 空会议室只剩投影机风扇，白板笔盖还没扣紧，窗台那片叶子翻出了浅色背面。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/brave-child-of-a-new-world/1763661296?i=1763661301&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Brave%20Child%20of%20a%20New%20World%20Bananagun" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Brave%20Child%20of%20a%20New%20World%20Bananagun" target="_blank" rel="noopener" data-nc="Brave Child of a New World Bananagun">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/search?term=Bananagun+Brave+Child+of+a+New+World" target="_blank" rel="noopener">Apple Music / Bandcamp</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="head - Claire Rousay">
+      <div class="m-top">
+        <span class="m-num">17</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0f0e12">organic electronic</span>
+          <button class="heart" type="button" data-k="head - Claire Rousay" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/01/8d/6f/018d6faf-977e-9df5-0fe4-78a1ea1f3793/4582561400988.jpg/600x600bb.jpg" data-title="head" data-artist="Claire Rousay" data-year="2024" data-years="2024" data-g0="organic electronic" data-album="sentiment" data-bpm="75–100 bpm" data-tags="organic electronic|ambient pop|electro-acoustic|organic|unhurried|human" data-bio="Claire Rousay 是加拿大出生、现居洛杉矶的作曲者和多乐器演奏者，早期也参与自由即兴与噪音演出。她把语音留言、触觉声和日常环境录音剪入弦乐、钢琴与电子处理。2024年的《Sentiment》是她加入 Thrill Jockey 后的首张专辑，并首次大幅增加吉他和演唱。" data-inpool="head" data-one="Claire Rousay 让合成器和处理后的吉他在低速电子里最重视呼吸间距的一脉里靠得很近，两件乐器之间总留着可听见的缝隙。" data-why="合成器的每个音都留着起落，处理后的吉他则把节奏压到背景。长尾混响让录音显得贴近，情绪没有说破的部分也因此更有身体感。" data-scene="洗完杯子，水槽边还挂着一圈泡沫，纸袋里的橘子滚到另一边。" data-apple="https://music.apple.com/jp/album/head/1728225104?i=1728225106&amp;uo=4" data-spotify="https://open.spotify.com/search/head%20Claire%20Rousay"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/01/8d/6f/018d6faf-977e-9df5-0fe4-78a1ea1f3793/4582561400988.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/71/38/9b/71389b1c-49f8-9661-2b06-5af8d2c23ed3/mzaf_3464657637939623422.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/01/8d/6f/018d6faf-977e-9df5-0fe4-78a1ea1f3793/4582561400988.jpg/600x600bb.jpg" data-title="head" data-artist="Claire Rousay" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">head</div>
+          <div class="artist">Claire Rousay</div>
+          <div class="meta">2024 / sentiment<span class="bpm" style="--bc:#006837">75–100 bpm</span></div>
+          <div class="tags"><span class="tag">ambient pop</span><span class="tag">electro-acoustic</span><span class="tag">organic</span><span class="tag">unhurried</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">Claire Rousay 让合成器和处理后的吉他在低速电子里最重视呼吸间距的一脉里靠得很近，两件乐器之间总留着可听见的缝隙。</div>
+        <div class="why">合成器的每个音都留着起落，处理后的吉他则把节奏压到背景。长尾混响让录音显得贴近，情绪没有说破的部分也因此更有身体感。</div>
+        <div class="scene"><span class="k">use ▸</span> 洗完杯子，水槽边还挂着一圈泡沫，纸袋里的橘子滚到另一边。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/jp/album/head/1728225104?i=1728225106&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/head%20Claire%20Rousay" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=head%20Claire%20Rousay" target="_blank" rel="noopener" data-nc="head Claire Rousay">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/search?term=Claire+Rousay+head" target="_blank" rel="noopener">Apple Music / Bandcamp</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="I Love You Like the Way That I Used to Do - Rocketship">
+      <div class="m-top">
+        <span class="m-num">18</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">jangle pop</span>
+          <button class="heart" type="button" data-k="I Love You Like the Way That I Used to Do - Rocketship" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/21/54/ea/2154ea69-5e0c-2c97-08ce-61180a3e109e/artwork.jpg/600x600bb.jpg" data-title="I Love You Like the Way That I Used to Do" data-artist="Rocketship" data-year="1995" data-years="1995" data-g0="jangle pop" data-album="A Certain Smile, a Certain Sadness" data-bpm="90–115 bpm" data-tags="jangle pop|dream pop|guitar pop|upbeat|hopeful|warm" data-bio="Rocketship 是 Dustin Reske 在加州萨克拉门托主导的独立流行项目，九十年代初先以乐队阵容演出和录制。项目与 Slumberland Records 关系密切，一九九六年的《A Certain Smile, a Certain Sadness》把吉他、风琴和鼓机放在同一张专辑中。此后 Reske 减少现场活动，继续以 Rocketship 名义制作更偏电子与家用录音的作品。" data-inpool="I Love You Like the Way That I Used to Do" data-one="Rocketship 沿着低速吉他歌与合成器微光相接的坐标往里走，编曲常在合唱效果吉他和合成器之间做小幅位移。" data-why="合唱效果吉他先把节拍压成带有丝线触感的表面，合成器随后从边缘挑出一条短旋律。合唱效果吉他让细节不断换位置，和声里的空隙却一直稳着。" data-scene="把外套搭上椅背，袖口还沾着室外的凉气，笔尖悬在日期旁边，没有落下。" data-apple="https://music.apple.com/us/album/i-love-you-like-the-way-that-i-used-to-do/999679826?i=999679867&amp;uo=4" data-spotify="https://open.spotify.com/search/I%20Love%20You%20Like%20the%20Way%20That%20I%20Used%20to%20Do%20Rocketship"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/21/54/ea/2154ea69-5e0c-2c97-08ce-61180a3e109e/artwork.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/64/00/7c/64007c49-5abb-bc1e-7ffb-108dcff6d96f/mzaf_14424516582657204540.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/21/54/ea/2154ea69-5e0c-2c97-08ce-61180a3e109e/artwork.jpg/600x600bb.jpg" data-title="I Love You Like the Way That I Used to Do" data-artist="Rocketship" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">I Love You Like the Way That I Used to Do</div>
+          <div class="artist">Rocketship</div>
+          <div class="meta">1995 / A Certain Smile, a Certain Sadness<span class="bpm" style="--bc:#006837">90–115 bpm</span></div>
+          <div class="tags"><span class="tag">dream pop</span><span class="tag">guitar pop</span><span class="tag">upbeat</span><span class="tag">hopeful</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">Rocketship 沿着低速吉他歌与合成器微光相接的坐标往里走，编曲常在合唱效果吉他和合成器之间做小幅位移。</div>
+        <div class="why">合唱效果吉他先把节拍压成带有丝线触感的表面，合成器随后从边缘挑出一条短旋律。合唱效果吉他让细节不断换位置，和声里的空隙却一直稳着。</div>
+        <div class="scene"><span class="k">use ▸</span> 把外套搭上椅背，袖口还沾着室外的凉气，笔尖悬在日期旁边，没有落下。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/i-love-you-like-the-way-that-i-used-to-do/999679826?i=999679867&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/I%20Love%20You%20Like%20the%20Way%20That%20I%20Used%20to%20Do%20Rocketship" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=I%20Love%20You%20Like%20the%20Way%20That%20I%20Used%20to%20Do%20Rocketship" target="_blank" rel="noopener" data-nc="I Love You Like the Way That I Used to Do Rocketship">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/search?term=Rocketship+I+Love+You+Like+the+Way+That+I+Used+to+Do" target="_blank" rel="noopener">Apple Music / Bandcamp</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Sort of Light - Cuushe">
+      <div class="m-top">
+        <span class="m-num">19</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0071bb">dream pop</span>
+          <button class="heart" type="button" data-k="Sort of Light - Cuushe" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4e/23/9b/4e239bd5-1969-e91b-0e05-ed7a6092ae1b/888003250550.jpg/600x600bb.jpg" data-title="Sort of Light" data-artist="Cuushe" data-year="2013" data-years="2013" data-g0="dream pop" data-album="Butterfly Case" data-bpm="90-110 bpm" data-tags="dream pop|electronic|japanese indie|dreamlike|late night|floating" data-bio="Cuushe 是京都出身的歌手、制作人和多乐器演奏者一柳真由子的个人名义。2009年首专《Red Rocket Telepathy》由 Flau 发行，之后她在不同国家生活和创作。2013年的《Butterfly Case》与2020年的《Waken》记录了她从家庭电子制作向更完整歌曲结构的变化。" data-inpool="Sort of Light" data-one="京都出身的一柳茉由子，把自己的嗓音切碎当 pad 铺在鼓机底下的电子唱作人。" data-why="人声被剪成短音节反复叠，堆成一层雾压住方正的鼓机；两分钟后雾散开，底下露出一条相当清楚的旋律线。前半段像在水下听人说话。" data-scene="凌晨从便利店出来，塑料袋提在手上，路口信号灯还在空转。" data-apple="https://music.apple.com/us/album/sort-of-light/712396327?i=712396548&amp;uo=4" data-spotify="https://open.spotify.com/search/Sort%20of%20Light%20Cuushe"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4e/23/9b/4e239bd5-1969-e91b-0e05-ed7a6092ae1b/888003250550.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/0c/73/bb/0c73bb30-f621-18f2-9582-a7a708ce8025/mzaf_13131552133023195143.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4e/23/9b/4e239bd5-1969-e91b-0e05-ed7a6092ae1b/888003250550.jpg/600x600bb.jpg" data-title="Sort of Light" data-artist="Cuushe" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Sort of Light</div>
+          <div class="artist">Cuushe</div>
+          <div class="meta">2013 / Butterfly Case<span class="bpm" style="--bc:#006837">90-110 bpm</span></div>
+          <div class="tags"><span class="tag">electronic</span><span class="tag">japanese indie</span><span class="tag">dreamlike</span><span class="tag">late night</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">京都出身的一柳茉由子，把自己的嗓音切碎当 pad 铺在鼓机底下的电子唱作人。</div>
+        <div class="why">人声被剪成短音节反复叠，堆成一层雾压住方正的鼓机；两分钟后雾散开，底下露出一条相当清楚的旋律线。前半段像在水下听人说话。</div>
+        <div class="scene"><span class="k">use ▸</span> 凌晨从便利店出来，塑料袋提在手上，路口信号灯还在空转。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/sort-of-light/712396327?i=712396548&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Sort%20of%20Light%20Cuushe" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Sort%20of%20Light%20Cuushe" target="_blank" rel="noopener" data-nc="Sort of Light Cuushe">netease ♫</a></div>
+        <div class="src">src · <a href="https://www.deezer.com/album/6958577" target="_blank" rel="noopener">Deezer / MusicBrainz 目录核实</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Pae Paoe - Bola">
+      <div class="m-top">
+        <span class="m-num">20</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#b81d13">electro-acoustic</span>
+          <button class="heart" type="button" data-k="Pae Paoe - Bola" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/fb/a7/6d/fba76dc4-184a-ed54-7c2a-e2cccedf0a02/mzi.ighidjdn.jpg/600x600bb.jpg" data-title="Pae Paoe" data-artist="Bola" data-year="2001" data-years="2001" data-g0="electro-acoustic" data-album="Fyuti" data-bpm="80–105 bpm" data-tags="electro-acoustic|folktronica|minimal electronica|grainy|warm|restrained" data-bio="Bola 是英国电子音乐人 Darrell Fitton 的主要名义，他来自罗奇代尔并长期与曼彻斯特厂牌 Skam 合作。1994年他的作品进入 Warp 合辑《Artificial Intelligence II》，翌年发行首张 Bola 单曲。1998年的《Soup》和2001年的《Fyuti》均由他独立完成主要制作。" data-inpool="Pae Paoe" data-one="Bola 让立式钢琴和电钢琴在细节密集却不拥挤的 electro-acoustic 一侧里靠得很近，两件乐器之间总留着可听见的缝隙。" data-why="立式钢琴把节拍做出麻绳的摩擦，电钢琴从上方划出细线。制作细节很多，但耳朵首先记住的是鼓点前后的停顿。" data-scene="公交车从路口拐走，站牌下只剩一小滩水，窗台那片叶子翻出了浅色背面。" data-apple="https://music.apple.com/us/album/pae-paoe/266513405?i=266513851&amp;uo=4" data-spotify="https://open.spotify.com/search/Pae%20Paoe%20Bola"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/fb/a7/6d/fba76dc4-184a-ed54-7c2a-e2cccedf0a02/mzi.ighidjdn.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/80/4c/70/804c70e9-7da0-10c6-80bd-3dff1e2d06f3/mzaf_16497222738893265834.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/fb/a7/6d/fba76dc4-184a-ed54-7c2a-e2cccedf0a02/mzi.ighidjdn.jpg/600x600bb.jpg" data-title="Pae Paoe" data-artist="Bola" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Pae Paoe</div>
+          <div class="artist">Bola</div>
+          <div class="meta">2001 / Fyuti<span class="bpm" style="--bc:#006837">80–105 bpm</span></div>
+          <div class="tags"><span class="tag">folktronica</span><span class="tag">minimal electronica</span><span class="tag">grainy</span><span class="tag">warm</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">Bola 让立式钢琴和电钢琴在细节密集却不拥挤的 electro-acoustic 一侧里靠得很近，两件乐器之间总留着可听见的缝隙。</div>
+        <div class="why">立式钢琴把节拍做出麻绳的摩擦，电钢琴从上方划出细线。制作细节很多，但耳朵首先记住的是鼓点前后的停顿。</div>
+        <div class="scene"><span class="k">use ▸</span> 公交车从路口拐走，站牌下只剩一小滩水，窗台那片叶子翻出了浅色背面。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/pae-paoe/266513405?i=266513851&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Pae%20Paoe%20Bola" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Pae%20Paoe%20Bola" target="_blank" rel="noopener" data-nc="Pae Paoe Bola">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/search?term=Bola+Pae+Paoe" target="_blank" rel="noopener">Apple Music / Bandcamp</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Prussian Blue - Sven Wunder">
+      <div class="m-top">
+        <span class="m-num">21</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#b81d13">jazz pop</span>
+          <button class="heart" type="button" data-k="Prussian Blue - Sven Wunder" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/08/df/36/08df363b-ea76-5d08-1acf-ab920828c6f1/cover.jpg/600x600bb.jpg" data-title="Prussian Blue" data-artist="Sven Wunder" data-year="2021" data-years="2021" data-g0="jazz pop" data-album="Eastern Flowers" data-bpm="85–110 bpm" data-tags="jazz pop|psychedelic pop|chamber pop|hopeful|organic|warm" data-bio="Sven Wunder 是以斯德哥尔摩为基地的低调录音项目，创作者长期避免公开个人身份，并通过 Piano Piano Records 发行作品。项目从《Eastern Flowers》开始，把土耳其与中东旋律、爵士节奏和室内乐配器放进模拟录音。《Wabi Sabi》和《Natura Morta》随后分别转向日本审美主题与植物学概念，继续由固定录音室乐手完成。" data-inpool="Prussian Blue" data-one="Sven Wunder 在六十年代室内流行被重新擦亮的坐标里保留粗细不一的接缝，长笛负责留下最容易辨认的那一道。" data-why="长笛把和弦翻到背面，刷鼓从较暗的位置接出旋律。结尾没有给出大答案，只把旋律的骨架轻轻放回桌面。" data-scene="楼上的水管响过一阵，手里的书还停在同一页，远处的红灯把地面照出一小块暖色。" data-apple="https://music.apple.com/us/album/prussian-blue/1671850742?i=1671851386&amp;uo=4" data-spotify="https://open.spotify.com/search/Prussian%20Blue%20Sven%20Wunder"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/08/df/36/08df363b-ea76-5d08-1acf-ab920828c6f1/cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/70/39/4b/70394b82-f874-5a8a-2577-fc7b91474a52/mzaf_4929690804069967394.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/08/df/36/08df363b-ea76-5d08-1acf-ab920828c6f1/cover.jpg/600x600bb.jpg" data-title="Prussian Blue" data-artist="Sven Wunder" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Prussian Blue</div>
+          <div class="artist">Sven Wunder</div>
+          <div class="meta">2021 / Eastern Flowers<span class="bpm" style="--bc:#006837">85–110 bpm</span></div>
+          <div class="tags"><span class="tag">psychedelic pop</span><span class="tag">chamber pop</span><span class="tag">hopeful</span><span class="tag">organic</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">Sven Wunder 在六十年代室内流行被重新擦亮的坐标里保留粗细不一的接缝，长笛负责留下最容易辨认的那一道。</div>
+        <div class="why">长笛把和弦翻到背面，刷鼓从较暗的位置接出旋律。结尾没有给出大答案，只把旋律的骨架轻轻放回桌面。</div>
+        <div class="scene"><span class="k">use ▸</span> 楼上的水管响过一阵，手里的书还停在同一页，远处的红灯把地面照出一小块暖色。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/prussian-blue/1671850742?i=1671851386&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Prussian%20Blue%20Sven%20Wunder" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Prussian%20Blue%20Sven%20Wunder" target="_blank" rel="noopener" data-nc="Prussian Blue Sven Wunder">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/search?term=Sven+Wunder+Prussian+Blue" target="_blank" rel="noopener">Apple Music / Bandcamp</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Aquarium - Casino Versus Japan">
+      <div class="m-top">
+        <span class="m-num">22</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#b81d13">folktronica</span>
+          <button class="heart" type="button" data-k="Aquarium - Casino Versus Japan" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8e/64/8d/8e648d28-4374-ffa1-6b39-981dc359c6e2/677517001853.png/600x600bb.jpg" data-title="Aquarium" data-artist="Casino Versus Japan" data-year="2002" data-years="2002" data-g0="folktronica" data-album="Whole Numbers Play the Basics" data-bpm="70–120 bpm" data-tags="folktronica|idm|ambient|nostalgic|airy|unhurried" data-bio="Casino Versus Japan 是 Milwaukee 制作人 Erik Kowalski 的个人项目。他曾以 Radiogate 活动，并在 Atomic Records 工作。《Go Hawaii》之后，2002年在 Carpark 发行《Whole Numbers Play the Basics》。" data-inpool="It&#x27;s Very Sunny|Aquarium" data-one="密尔沃基的 Erik Kowalski——把合成器泡进旧磁带里，褪色但不阴郁。" data-why="褪色的合成器浮在软塌塌的碎拍上，磁带全程在轻微发抖。高频棱角被磨圆了，整段像封在一盘转旧的带子里，总慢你半拍。" data-scene="翻出一盘不知道录了什么的旧带子，按下播放键等它出声。" data-apple="https://music.apple.com/us/album/aquarium/1583496371?i=1583496378&amp;uo=4" data-spotify="https://open.spotify.com/search/Aquarium%20Casino%20Versus%20Japan"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8e/64/8d/8e648d28-4374-ffa1-6b39-981dc359c6e2/677517001853.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/8e/c7/94/8ec794f7-72bc-c962-ead1-f9077b9196bb/mzaf_5918027520628134946.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/8e/64/8d/8e648d28-4374-ffa1-6b39-981dc359c6e2/677517001853.png/600x600bb.jpg" data-title="Aquarium" data-artist="Casino Versus Japan" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Aquarium</div>
+          <div class="artist">Casino Versus Japan</div>
+          <div class="meta">2002 / Whole Numbers Play the Basics<span class="bpm" style="--bc:#006837">70–120 bpm</span></div>
+          <div class="tags"><span class="tag">idm</span><span class="tag">ambient</span><span class="tag">nostalgic</span><span class="tag">airy</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">密尔沃基的 Erik Kowalski——把合成器泡进旧磁带里，褪色但不阴郁。</div>
+        <div class="why">褪色的合成器浮在软塌塌的碎拍上，磁带全程在轻微发抖。高频棱角被磨圆了，整段像封在一盘转旧的带子里，总慢你半拍。</div>
+        <div class="scene"><span class="k">use ▸</span> 翻出一盘不知道录了什么的旧带子，按下播放键等它出声。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/aquarium/1583496371?i=1583496378&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Aquarium%20Casino%20Versus%20Japan" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Aquarium%20Casino%20Versus%20Japan" target="_blank" rel="noopener" data-nc="Aquarium Casino Versus Japan">netease ♫</a></div>
+        <div class="src">src · <a href="https://en.wikipedia.org/wiki/Whole_Numbers_Play_the_Basics" target="_blank" rel="noopener">Wikipedia</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Geometry - Jega">
+      <div class="m-top">
+        <span class="m-num">23</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">idm</span>
+          <button class="heart" type="button" data-k="Geometry - Jega" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/05/e5/b0/05e5b0c0-5828-4a57-6251-4a2934e8c0b1/17462.jpg/600x600bb.jpg" data-title="Geometry" data-artist="Jega" data-year="2000" data-years="2000" data-g0="idm" data-album="Geometry" data-bpm="75–95 bpm" data-tags="idm|organic electronic|downtempo|floating|late night|introspective" data-bio="Jega 是曼彻斯特电子音乐人 Dylan Nathan 的化名，他在建筑学校时期结识 Mike Paradinas，并进入九十年代英国 IDM 网络。Paradinas 将 Nathan 视为创办 Planet Mu 的早期推动之一，Jega 的《Type Xer0》和首张《Spectrum》也成为该厂牌最早的一批正式发行。二〇〇〇年的《Geometry》继续由他独自编程节拍、合成器与采样。" data-inpool="Geometry" data-one="Jega 属于模拟合成器与短旋律并行的坐标的细节派，磁带饱和不是装饰，而是旋律的一部分。" data-why="环境录音每次进入都比上一次偏半步，木管则守在原位。两股力量没有争抢，主旋律的方向就在这种错位里成立。" data-scene="楼上的水管响过一阵，手里的书还停在同一页，鞋带松开，却没马上蹲下。" data-apple="https://music.apple.com/us/album/geometry/724015773?i=724016262&amp;uo=4" data-spotify="https://open.spotify.com/search/Geometry%20Jega"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/05/e5/b0/05e5b0c0-5828-4a57-6251-4a2934e8c0b1/17462.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/53/3b/0a/533b0ace-e96e-fa34-bb09-1456fe2eb5cb/mzaf_11936693672676745629.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/05/e5/b0/05e5b0c0-5828-4a57-6251-4a2934e8c0b1/17462.jpg/600x600bb.jpg" data-title="Geometry" data-artist="Jega" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Geometry</div>
+          <div class="artist">Jega</div>
+          <div class="meta">2000 / Geometry<span class="bpm" style="--bc:#006837">75–95 bpm</span></div>
+          <div class="tags"><span class="tag">organic electronic</span><span class="tag">downtempo</span><span class="tag">floating</span><span class="tag">late night</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">Jega 属于模拟合成器与短旋律并行的坐标的细节派，磁带饱和不是装饰，而是旋律的一部分。</div>
+        <div class="why">环境录音每次进入都比上一次偏半步，木管则守在原位。两股力量没有争抢，主旋律的方向就在这种错位里成立。</div>
+        <div class="scene"><span class="k">use ▸</span> 楼上的水管响过一阵，手里的书还停在同一页，鞋带松开，却没马上蹲下。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/geometry/724015773?i=724016262&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Geometry%20Jega" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Geometry%20Jega" target="_blank" rel="noopener" data-nc="Geometry Jega">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/search?term=Jega+Geometry" target="_blank" rel="noopener">Apple Music / Bandcamp</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Better Days - Anna St. Louis">
+      <div class="m-top">
+        <span class="m-num">24</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0071bb">chamber folk</span>
+          <button class="heart" type="button" data-k="Better Days - Anna St. Louis" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/46/de/97/46de971c-8bc5-fdde-fa82-28e01d6123d3/795154138821.jpg/600x600bb.jpg" data-title="Better Days" data-artist="Anna St. Louis" data-year="2023" data-years="2018–2023" data-g0="chamber folk" data-album="In the Air" data-bpm="75–100 bpm" data-tags="chamber folk|indie folk|slowcore|wintry|cinematic|intimate" data-bio="Anna St. Louis 来自堪萨斯城，搬到洛杉矶后开始集中写歌。家庭录音《First Songs》由 Woodsist 与 Mare 发行。2018年的《If Only There Was a River》由 Kevin Morby 和 Kyle Thomas 制作。" data-inpool="If Only There Was a River|Better Days|Water|Understand|The Bells" data-one="Anna St. Louis 在不靠大合唱推动情绪的 chamber folk 坐标里保留粗细不一的接缝，木吉他负责留下最容易辨认的那一道。" data-why="木吉他在左右两侧交替卷起，大提琴把中间的位置留给主旋律。房间收音只负责改变光泽，没有遮住高低频之间的通道。" data-scene="把唱针抬起又放下，窗外的招牌刚熄一盏，远处的红灯把地面照出一小块暖色。" data-apple="https://music.apple.com/us/album/better-days/1675947775?i=1675947779&amp;uo=4" data-spotify="https://open.spotify.com/search/Better%20Days%20Anna%20St.%20Louis"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/46/de/97/46de971c-8bc5-fdde-fa82-28e01d6123d3/795154138821.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/34/e8/6d/34e86d08-9ada-5d45-836f-2cb261627f80/mzaf_1459845976267413811.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/46/de/97/46de971c-8bc5-fdde-fa82-28e01d6123d3/795154138821.jpg/600x600bb.jpg" data-title="Better Days" data-artist="Anna St. Louis" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Better Days</div>
+          <div class="artist">Anna St. Louis</div>
+          <div class="meta">2023 / In the Air<span class="bpm" style="--bc:#006837">75–100 bpm</span></div>
+          <div class="tags"><span class="tag">indie folk</span><span class="tag">slowcore</span><span class="tag">wintry</span><span class="tag">cinematic</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">Anna St. Louis 在不靠大合唱推动情绪的 chamber folk 坐标里保留粗细不一的接缝，木吉他负责留下最容易辨认的那一道。</div>
+        <div class="why">木吉他在左右两侧交替卷起，大提琴把中间的位置留给主旋律。房间收音只负责改变光泽，没有遮住高低频之间的通道。</div>
+        <div class="scene"><span class="k">use ▸</span> 把唱针抬起又放下，窗外的招牌刚熄一盏，远处的红灯把地面照出一小块暖色。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/better-days/1675947775?i=1675947779&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Better%20Days%20Anna%20St.%20Louis" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Better%20Days%20Anna%20St.%20Louis" target="_blank" rel="noopener" data-nc="Better Days Anna St. Louis">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/search?term=Anna+St.+Louis+Better+Days" target="_blank" rel="noopener">Apple Music / Bandcamp</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Tsunami - Told Slant">
+      <div class="m-top">
+        <span class="m-num">25</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">slowcore</span>
+          <button class="heart" type="button" data-k="Tsunami - Told Slant" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c1/b3/d7/c1b3d712-9931-22a6-9ff3-174c5e96423e/66452.jpg/600x600bb.jpg" data-title="Tsunami" data-artist="Told Slant" data-year="2016" data-years="2016" data-g0="slowcore" data-album="Going by" data-bpm="75–95 bpm" data-tags="slowcore|bedroom pop|human|woody" data-bio="Told Slant 是纽约音乐人 Felix Walworth 主导的项目，也是布鲁克林 Epoch 艺术集体的一部分。Walworth 负责主要词曲、吉他与鼓，并同时参与 Florist 等乐队。首专《Still Water》于二〇一二年自行发行，之后《Going By》和《Point the Flashlight and Walk》经 Double Double Whammy 推出。" data-inpool="Tsunami" data-one="布鲁克林的 Felix Walworth，嗓子抖着把软肋摊在桌面上。" data-why="「我想被爱、被照顾」，他直接就唱出来了。吉他疏落，嗓子在抖，把软肋摊开摆着，简单得有点疼。" data-scene="朋友走后坐在门口台阶上，抱着膝盖迟迟没起身。" data-apple="https://music.apple.com/us/album/tsunami/6775617854?i=6775617868&amp;uo=4" data-spotify="https://open.spotify.com/search/Tsunami%20Told%20Slant"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c1/b3/d7/c1b3d712-9931-22a6-9ff3-174c5e96423e/66452.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/dc/4e/62/dc4e6275-aa7b-cbdb-25f4-e26e9a8d9505/mzaf_11408505142713787122.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c1/b3/d7/c1b3d712-9931-22a6-9ff3-174c5e96423e/66452.jpg/600x600bb.jpg" data-title="Tsunami" data-artist="Told Slant" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Tsunami</div>
+          <div class="artist">Told Slant</div>
+          <div class="meta">2016 / Going by<span class="bpm" style="--bc:#006837">75–95 bpm</span></div>
+          <div class="tags"><span class="tag">bedroom pop</span><span class="tag">human</span><span class="tag">woody</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">布鲁克林的 Felix Walworth，嗓子抖着把软肋摊在桌面上。</div>
+        <div class="why">「我想被爱、被照顾」，他直接就唱出来了。吉他疏落，嗓子在抖，把软肋摊开摆着，简单得有点疼。</div>
+        <div class="scene"><span class="k">use ▸</span> 朋友走后坐在门口台阶上，抱着膝盖迟迟没起身。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/tsunami/6775617854?i=6775617868&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Tsunami%20Told%20Slant" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Tsunami%20Told%20Slant" target="_blank" rel="noopener" data-nc="Tsunami Told Slant">netease ♫</a></div>
+        <div class="src">src · <a href="https://toldslant.bandcamp.com" target="_blank" rel="noopener">Bandcamp Daily</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Fables - Rahill">
+      <div class="m-top">
+        <span class="m-num">26</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#fab413">quiet alternative r&amp;b</span>
+          <button class="heart" type="button" data-k="Fables - Rahill" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a0/3d/ab/a03dab58-68ad-6172-15f6-46b2e260c9c2/5054429172645.png/600x600bb.jpg" data-title="Fables" data-artist="Rahill" data-year="2023" data-years="2023" data-g0="quiet alternative r&amp;b" data-album="Flowers At Your Feet" data-bpm="75–100 bpm" data-tags="quiet alternative r&amp;b|neo soul|leftfield pop|intimate|sensual|late night" data-bio="Rahill Jamalifard 是伊朗裔美国歌手与视觉艺术家，二〇一〇年代初共同创立纽约迷幻摇滚乐队 Habibi。转向个人名义后，她先发行翻唱 EP《Sun Songs》，再与 Big Dada 签约。二〇二三年的首张专辑《Flowers At Your Feet》围绕家庭记忆和移民经验展开，并邀请 Beck 等合作者进入采样与独白式编曲。" data-inpool="Fables|I Smile for E|Tell Me|From a Sandbox" data-one="Rahill 在安静另类 R&amp;B 与爵士和声之间保留粗细不一的接缝，弱音小号负责留下最容易辨认的那一道。" data-why="弱音小号每次进入都比上一次偏半步，贝斯则守在原位。两股力量没有争抢，旋律的骨架就在这种错位里成立。" data-scene="面包店刚把铁门拉下一半，烤盘还在冒热气，窗台那片叶子翻出了浅色背面。" data-apple="https://music.apple.com/us/album/fables-feat-beck/1660270914?i=1660270919&amp;uo=4" data-spotify="https://open.spotify.com/search/Fables%20Rahill"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a0/3d/ab/a03dab58-68ad-6172-15f6-46b2e260c9c2/5054429172645.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/62/d4/46/62d446d9-2d6c-c111-83b9-19081025afc8/mzaf_2026423884680438454.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a0/3d/ab/a03dab58-68ad-6172-15f6-46b2e260c9c2/5054429172645.png/600x600bb.jpg" data-title="Fables" data-artist="Rahill" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Fables</div>
+          <div class="artist">Rahill</div>
+          <div class="meta">2023 / Flowers At Your Feet<span class="bpm" style="--bc:#006837">75–100 bpm</span></div>
+          <div class="tags"><span class="tag">neo soul</span><span class="tag">leftfield pop</span><span class="tag">intimate</span><span class="tag">sensual</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">Rahill 在安静另类 R&amp;B 与爵士和声之间保留粗细不一的接缝，弱音小号负责留下最容易辨认的那一道。</div>
+        <div class="why">弱音小号每次进入都比上一次偏半步，贝斯则守在原位。两股力量没有争抢，旋律的骨架就在这种错位里成立。</div>
+        <div class="scene"><span class="k">use ▸</span> 面包店刚把铁门拉下一半，烤盘还在冒热气，窗台那片叶子翻出了浅色背面。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/fables-feat-beck/1660270914?i=1660270919&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Fables%20Rahill" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Fables%20Rahill" target="_blank" rel="noopener" data-nc="Fables Rahill">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/search?term=Rahill+Fables" target="_blank" rel="noopener">Apple Music / Bandcamp</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Pain - Ruth Garbus">
+      <div class="m-top">
+        <span class="m-num">27</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#006837">singer-songwriter</span>
+          <button class="heart" type="button" data-k="Pain - Ruth Garbus" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/e5/65/94/e565946e-2295-541c-ef41-df72795af652/cover.jpg/600x600bb.jpg" data-title="Pain" data-artist="Ruth Garbus" data-year="2019" data-years="2019" data-g0="singer-songwriter" data-album="Alive People" data-bpm="70–95 bpm" data-tags="singer-songwriter|chamber pop|slowcore|warm|introspective|unhurried" data-bio="Ruth Garbus 是佛蒙特州布拉特尔伯勒的唱作人，曾参与 Feathers，并与当地实验民谣社群长期合作。她的个人录音多使用木吉他、少量键盘与近距离人声，作品数量不多，但保持稳定的家庭制作方式。二〇一九年的《Kleinmeister》由 Orindal Records 发行，现场录音《Alive People》则保留她与小乐队的即时配合。" data-inpool="Pain" data-one="Ruth Garbus 在独立民谣中保留粗糙边角的一脉里保留粗细不一的接缝，木吉他负责留下最容易辨认的那一道。" data-why="木吉他在低处反复卷起，大提琴像窗纱的边缘一样卡进空隙。编曲没有急着抬高音量，每次回环的差别反而更清楚。" data-scene="把外套搭上椅背，袖口还沾着室外的凉气，最后一块冰碰到杯底。" data-apple="https://music.apple.com/us/album/pain/1469027926?i=1469027935&amp;uo=4" data-spotify="https://open.spotify.com/search/Pain%20Ruth%20Garbus"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/e5/65/94/e565946e-2295-541c-ef41-df72795af652/cover.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/5a/4b/9e/5a4b9e65-3b76-711e-b531-6fb89f179913/mzaf_18259376810633132225.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/e5/65/94/e565946e-2295-541c-ef41-df72795af652/cover.jpg/600x600bb.jpg" data-title="Pain" data-artist="Ruth Garbus" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Pain</div>
+          <div class="artist">Ruth Garbus</div>
+          <div class="meta">2019 / Alive People<span class="bpm" style="--bc:#0071bb">70–95 bpm</span></div>
+          <div class="tags"><span class="tag">chamber pop</span><span class="tag">slowcore</span><span class="tag">warm</span><span class="tag">introspective</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">Ruth Garbus 在独立民谣中保留粗糙边角的一脉里保留粗细不一的接缝，木吉他负责留下最容易辨认的那一道。</div>
+        <div class="why">木吉他在低处反复卷起，大提琴像窗纱的边缘一样卡进空隙。编曲没有急着抬高音量，每次回环的差别反而更清楚。</div>
+        <div class="scene"><span class="k">use ▸</span> 把外套搭上椅背，袖口还沾着室外的凉气，最后一块冰碰到杯底。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/pain/1469027926?i=1469027935&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Pain%20Ruth%20Garbus" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Pain%20Ruth%20Garbus" target="_blank" rel="noopener" data-nc="Pain Ruth Garbus">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/search?term=Ruth+Garbus+Pain" target="_blank" rel="noopener">Apple Music / Bandcamp</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Dots - Satomimagae">
+      <div class="m-top">
+        <span class="m-num">28</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">ambient folk</span>
+          <button class="heart" type="button" data-k="Dots - Satomimagae" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/ae/ca/3f/aeca3f0a-4078-6c9e-507c-cff4d59cafac/26356.jpg/600x600bb.jpg" data-title="Dots" data-artist="Satomimagae" data-year="2021" data-years="2021" data-g0="ambient folk" data-album="Dots - Single" data-bpm="70–95 bpm" data-tags="ambient folk|experimental folk|minimal electronica|introspective|organic|wintry" data-bio="Satomimagae 是东京唱作人，主要以木吉他、低声演唱和少量电子处理完成个人录音，并长期自行管理视觉与影像。她在二〇一〇年代持续独立发行作品，二〇二一年的《Hanazono》由美国厂牌 RVNG Intl. 推向海外。单曲《Dots》随后收入 Adult Swim 与 RVNG 合作的《Salutations》企划，近年仍保持个人制作方式。" data-inpool="Dots" data-one="东京作者 Satomimagae，让酸民谣的木纹与极少量电子噪点互相照面。" data-why="木吉他每一下都能听见指腹离弦，电子声只留下几颗冷硬小点。留白没有吞掉旋律，反而把每次转音的方向标得更准。" data-scene="冬日下午洗完杯子，水龙头关紧后，厨房里只剩冰箱的低响。" data-apple="https://music.apple.com/us/album/dots/1582533857?i=1582533859&amp;uo=4" data-spotify="https://open.spotify.com/search/Dots%20Satomimagae"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/ae/ca/3f/aeca3f0a-4078-6c9e-507c-cff4d59cafac/26356.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/bf/a8/5d/bfa85d9b-3fe8-c890-e90f-9f3df19b1e93/mzaf_14910950578274477692.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/ae/ca/3f/aeca3f0a-4078-6c9e-507c-cff4d59cafac/26356.jpg/600x600bb.jpg" data-title="Dots" data-artist="Satomimagae" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Dots</div>
+          <div class="artist">Satomimagae</div>
+          <div class="meta">2021 / Dots - Single<span class="bpm" style="--bc:#0071bb">70–95 bpm</span></div>
+          <div class="tags"><span class="tag">experimental folk</span><span class="tag">minimal electronica</span><span class="tag">introspective</span><span class="tag">organic</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">东京作者 Satomimagae，让酸民谣的木纹与极少量电子噪点互相照面。</div>
+        <div class="why">木吉他每一下都能听见指腹离弦，电子声只留下几颗冷硬小点。留白没有吞掉旋律，反而把每次转音的方向标得更准。</div>
+        <div class="scene"><span class="k">use ▸</span> 冬日下午洗完杯子，水龙头关紧后，厨房里只剩冰箱的低响。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/dots/1582533857?i=1582533859&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Dots%20Satomimagae" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Dots%20Satomimagae" target="_blank" rel="noopener" data-nc="Dots Satomimagae">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/in/album/dots-single/1582533857" target="_blank" rel="noopener">Apple Music</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="Good Morning World - Kahimi Karie">
+      <div class="m-top">
+        <span class="m-num">29</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0f0e12">shibuya-kei</span>
+          <button class="heart" type="button" data-k="Good Morning World - Kahimi Karie" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4f/8f/5e/4f8f5e5f-5e9f-95ba-07a0-941761372fa9/dj.zktvcdlq.jpg/600x600bb.jpg" data-title="Good Morning World" data-artist="Kahimi Karie" data-year="1995" data-years="1995" data-g0="shibuya-kei" data-album="K.K.K.K.K." data-bpm="88–104 bpm" data-tags="shibuya-kei|chamber pop|sensual" data-bio="Kahimi Karie 是日本歌手，九十年代初在小山田圭吾推动下开始录音，多支早期作品由其 Trattoria 厂牌发行。她也与 Momus、Philippe Katerine 等欧洲作者合作，并在巴黎居住多年。进入二十一世纪后，她逐渐转向爵士与实验编制。" data-inpool="Good Morning World|Elastic Girl" data-one="渋谷系里声音最小的那位歌手，气声从不越过乐队的音量。" data-why="她几乎不用力，气声贴着麦克风，像怕吵醒谁。底下一层复古管弦推得很轻，人声再大就要盖过乐队，制作偏偏故意让她这么飘着。" data-scene="窗帘拉开一条缝，光落在被子上，你没动。" data-apple="https://music.apple.com/us/album/good-morning-world/948639856?i=948639857&amp;uo=4" data-spotify="https://open.spotify.com/search/Good%20Morning%20World%20Kahimi%20Karie"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4f/8f/5e/4f8f5e5f-5e9f-95ba-07a0-941761372fa9/dj.zktvcdlq.jpg/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c8/d9/17/c8d91716-8e03-8041-bef9-66b9601e0215/mzaf_7895185245174839254.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4f/8f/5e/4f8f5e5f-5e9f-95ba-07a0-941761372fa9/dj.zktvcdlq.jpg/600x600bb.jpg" data-title="Good Morning World" data-artist="Kahimi Karie" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Good Morning World</div>
+          <div class="artist">Kahimi Karie</div>
+          <div class="meta">1995 / K.K.K.K.K.<span class="bpm" style="--bc:#006837">88–104 bpm</span></div>
+          <div class="tags"><span class="tag">chamber pop</span><span class="tag">sensual</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">渋谷系里声音最小的那位歌手，气声从不越过乐队的音量。</div>
+        <div class="why">她几乎不用力，气声贴着麦克风，像怕吵醒谁。底下一层复古管弦推得很轻，人声再大就要盖过乐队，制作偏偏故意让她这么飘着。</div>
+        <div class="scene"><span class="k">use ▸</span> 窗帘拉开一条缝，光落在被子上，你没动。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/good-morning-world/948639856?i=948639857&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Good%20Morning%20World%20Kahimi%20Karie" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Good%20Morning%20World%20Kahimi%20Karie" target="_blank" rel="noopener" data-nc="Good Morning World Kahimi Karie">netease ♫</a></div>
+        <div class="src">src · <a href="https://pitchfork.com/reviews/albums/kahimi-karie" target="_blank" rel="noopener">Pitchfork</a></div>
+      </div>
+    </article>
+<article class="mod" data-k="come here go there - Rei Harakami">
+      <div class="m-top">
+        <span class="m-num">30</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0f0e12">organic electronic</span>
+          <button class="heart" type="button" data-k="come here go there - Rei Harakami" aria-label="收藏"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art cover-zoom" role="button" tabindex="0" aria-label="看大图与详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/11/7c/1e/117c1ed9-d696-efa4-ae95-8075e19b63c3/4988044020696.png/600x600bb.jpg" data-title="come here go there" data-artist="Rei Harakami" data-year="2005" data-years="2005" data-g0="organic electronic" data-album="Lust" data-bpm="90–108 bpm" data-tags="organic electronic|indietronica|lush|warm" data-bio="Rei Harakami 1970年生于广岛，后来长期居住在京都。他主要依靠 Roland SC-88Pro 音源和硬盘录音设备制作，1998年发行首专《Unrest》。除个人唱片外，他也为矢野显子、UA 等歌手制作或重混，并与矢野显子组成 yanokami；2011年因脑出血去世。" data-inpool="come here go there|lust" data-one="京都的电子音乐人——一台老音源，被他捂出了体温。" data-why="合成器的音色圆钝得像含在嘴里的糖，一颗颗错着拍往前滚。纯电子做出来的东西，听着像隔壁房间有人在轻轻呼吸。" data-scene="戴上耳机躺平，眼睛没有落点，脑子慢慢空掉。" data-apple="https://music.apple.com/us/album/come-here-go-there/1882646010?i=1882646169&amp;uo=4" data-spotify="https://open.spotify.com/search/come%20here%20go%20there%20Rei%20Harakami"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/11/7c/1e/117c1ed9-d696-efa4-ae95-8075e19b63c3/4988044020696.png/600x600bb.jpg" alt="" loading="lazy"><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/12/20/dc/1220dc4c-9a18-6e5f-b503-a8af22f25043/mzaf_12540551150361405711.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/11/7c/1e/117c1ed9-d696-efa4-ae95-8075e19b63c3/4988044020696.png/600x600bb.jpg" data-title="come here go there" data-artist="Rei Harakami" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">come here go there</div>
+          <div class="artist">Rei Harakami</div>
+          <div class="meta">2005 / Lust<span class="bpm" style="--bc:#006837">90–108 bpm</span></div>
+          <div class="tags"><span class="tag">indietronica</span><span class="tag">lush</span><span class="tag">warm</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">京都的电子音乐人——一台老音源，被他捂出了体温。</div>
+        <div class="why">合成器的音色圆钝得像含在嘴里的糖，一颗颗错着拍往前滚。纯电子做出来的东西，听着像隔壁房间有人在轻轻呼吸。</div>
+        <div class="scene"><span class="k">use ▸</span> 戴上耳机躺平，眼睛没有落点，脑子慢慢空掉。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/come-here-go-there/1882646010?i=1882646169&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/come%20here%20go%20there%20Rei%20Harakami" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=come%20here%20go%20there%20Rei%20Harakami" target="_blank" rel="noopener" data-nc="come here go there Rei Harakami">netease ♫</a></div>
+        <div class="src">src · <a href="https://pitchfork.com/reviews/albums/rei-harakami-lust" target="_blank" rel="noopener">Pitchfork</a></div>
+      </div>
+    </article>
+  </div>
+
+  <section class="export">
+    <div class="h">data export · 网易云导入 <span>format: title - artist</span></div>
+    <div class="in">
+      <p>复制下列清单 → 网易云 App「新建歌单 → 导入」，第一行会作为歌单名自动创建。</p>
+      <pre id="nc-text">冬日下午，斜光只照到半墙（08.08）
+Marathon - Tennis
+The Everyday Push - Photay
+Blue Lights - Jorja Smith
+Love Is All - The Tallest Man on Earth
+The Company - Sam Prekop
+What&#x27;s Going On With Ordinary People - The Reds, Pinks and Purples
+Plainsong - Seefeel
+Big Time Things - Office Culture
+Aquamarine - Hand Habits
+Heaven - Levitation Room
+A Song About Holding Hands - Gregor
+Damdadi - Shin Hae Gyeong
+Milk for Flowers - H. Hawkline
+The Magic Eye - The Zenmenn
+Groceries - Gia Margaret
+Brave Child of a New World - Bananagun
+head - Claire Rousay
+I Love You Like the Way That I Used to Do - Rocketship
+Sort of Light - Cuushe
+Pae Paoe - Bola
+Prussian Blue - Sven Wunder
+Aquarium - Casino Versus Japan
+Geometry - Jega
+Better Days - Anna St. Louis
+Tsunami - Told Slant
+Fables - Rahill
+Pain - Ruth Garbus
+Dots - Satomimagae
+Good Morning World - Kahimi Karie
+come here go there - Rei Harakami</pre>
+      <button class="btn solid" id="nc-btn" onclick="copyNC()" style="margin-top:12px">复制歌单 / copy</button>
+    </div>
+  </section>
+
+  <section class="export" id="fav-box" style="display:none">
+    <div class="h">我收藏的 · 网易云导入 <span>存在此浏览器 · 跨期累计</span></div>
+    <div class="in">
+      <p>你在各期点 ♥ 收藏的曲目（本浏览器）。复制 → 网易云「新建歌单 → 导入」。</p>
+      <pre id="fav-text"></pre>
+      <button class="btn solid" id="fav-copy" onclick="copyFav()" style="margin-top:12px">复制收藏 / copy</button>
+    </div>
+  </section>
+
+  <footer>
+    <span>MUSIC DAILY · md-30 · issue 012</span>
+    <span>updated 08:00 cst</span>
+    <span>cover &amp; preview via public music api · personal use</span>
+  </footer>
+</main>
+
+<div id="np" aria-live="polite">
+  <img id="np-cover" alt="">
+  <div id="np-meta"><div id="np-title" class="lc"></div><div id="np-artist"></div></div>
+  <button id="np-prev" class="np-btn" type="button" aria-label="上一首"><svg viewBox="0 0 12 10" aria-hidden="true"><rect x="1" y="1" width="2" height="8"/><path d="M11 1 L4 5 L11 9 Z"/></svg></button>
+  <button id="np-toggle" class="np-btn" type="button" aria-label="播放/暂停"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button>
+  <button id="np-next" class="np-btn" type="button" aria-label="下一首"><svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 1 L8 5 L1 9 Z"/><rect x="9" y="1" width="2" height="8"/></svg></button>
+  <div id="np-bar"><div id="np-fill"></div></div>
+  <span id="np-time" class="mono">0:00 / 0:00</span>
+</div>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="专辑详情">
+  <div class="veil" data-close></div>
+  <div class="sheet">
+    <button class="x" type="button" data-close aria-label="关闭">✕</button>
+    <div class="big" id="lb-big"></div>
+    <div class="info">
+      <div class="kicker" id="lb-kick">artist</div>
+      <h3 id="lb-artist"></h3>
+      <div class="ar" id="lb-sub"></div>
+      <div class="tags" id="lb-tags"></div>
+      <div class="sec" id="lb-bio-w"><p id="lb-bio"></p></div>
+      <div class="sec" id="lb-one-w"><div class="lb-t">在音乐地图上</div><p id="lb-one"></p></div>
+      <div class="sec" id="lb-inpool-w"><div class="lb-t">本站收录</div>
+        <div class="pool" id="lb-inpool"></div></div>
+      <div class="sec trk" id="lb-trk-w"><div class="lb-t">这一首</div>
+        <p class="tk" id="lb-trkname"></p>
+        <p id="lb-why"></p>
+        <p class="sc" id="lb-scene"></p></div>
+      <div class="lb-links" id="lb-links"></div>
+    </div>
+  </div>
+</div>
+<script>
+// LCD boot 打字机
+const boot=document.getElementById('boot'), BOOT=boot?boot.dataset.text:'';
+if(boot){let i=0;boot.textContent='';(function type(){if(i<=BOOT.length){boot.innerHTML=BOOT.slice(0,i)+'<span class="cur">▋</span>';i++;setTimeout(type,26);}else{boot.textContent=BOOT;}})();}
+
+// 卡片分级进场（渐进增强：默认可见，仅 JS 正常时启用进场动画，避免 JS 出错整页空白）
+if('IntersectionObserver' in window){
+  document.body.classList.add('anim');
+  const io=new IntersectionObserver((es)=>{es.forEach((e,k)=>{if(e.isIntersecting){const el=e.target;
+    setTimeout(()=>el.classList.add('in'),(el.dataset.d||0)*1);io.unobserve(el);}});},{threshold:.12});
+  document.querySelectorAll('.mod').forEach((m,k)=>{m.dataset.d=(k%6)*70;io.observe(m);});
+}
+
+function copyNC(){const t=document.getElementById('nc-text').innerText;
+  navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('nc-btn'),o=b.innerText;
+    b.innerText='copied ✓';setTimeout(()=>b.innerText=o,1600);});}
+
+// 30s 试听：单例 audio + 底部条；整期贯穿(自动续播/上一首/下一首)、键盘、切歌互斥（iTunes 公开 previewUrl，仅预览非整曲）
+(function(){
+  var au=new Audio(), cur=null;
+  var btns=[].slice.call(document.querySelectorAll('.pbtn'));
+  var np=document.getElementById('np'), C=document.getElementById('np-cover'),
+      T=document.getElementById('np-title'), A=document.getElementById('np-artist'),
+      BAR=document.getElementById('np-bar'), FILL=document.getElementById('np-fill'),
+      TIME=document.getElementById('np-time'), TOG=document.getElementById('np-toggle'),
+      PREV=document.getElementById('np-prev'), NEXT=document.getElementById('np-next');
+  function fmt(s){if(!isFinite(s)||s<0)s=0;s=Math.floor(s);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+  function mark(on){if(cur)cur.classList.toggle('playing',on);if(np)np.classList.toggle('playing',on);}
+  au.addEventListener('timeupdate',function(){if(au.duration&&FILL){FILL.style.width=(au.currentTime/au.duration*100)+'%';TIME.textContent=fmt(au.currentTime)+' / '+fmt(au.duration);}});
+  au.addEventListener('play',function(){mark(true);});
+  au.addEventListener('pause',function(){mark(false);});
+  au.addEventListener('ended',function(){mark(false);if(FILL)FILL.style.width='0%';step(1);});
+
+  // ── 试听失败的处理 ──────────────────────────────────────────
+  // iTunes 的 preview URL 会失效（池里已有 12 首连封面都拿不到）。此前既没有
+  // error 监听、play() 的 Promise 也没接 —— 点下去毫无反馈、按钮卡在 playing，
+  // 用户会以为是自己网络的问题。
+  // 处理分两层：①把这首标成不可播、状态回滚、告诉用户为什么；
+  //            ②【自动跳到下一首】—— 一次连播里遇到坏链不该整条断掉。
+  // 载入代次：每次 load() 自增。play() 的 Promise 是【异步】兑现的，等它
+  // reject 时可能早已跳到下一首了 —— 那条迟到的 catch 必须认出自己已经过期，
+  // 否则它会拿旧曲的失败去污染新曲（实测：只坏第一首时，b1 已开始播，
+  // 迟到的 catch 把 LCD 曲名改成「无法试听」，mark(false) 还按【当前】cur
+  // 抹掉了 b1 的 playing 态 —— 坏的是 b0，遭殃的是 b1）。
+  // reported = 已由 error 事件完整处理过的代次。error 事件与 play() 拒绝是
+  // 【同一次失败的两条上报路径】，谁后到谁就会覆盖前一条的措辞。连锁跳到上限时
+  // 后到的偏偏是笼统那条：「连续几首都无法试听，先停一下」被盖成「这首暂时无法
+  // 试听」—— 用户会以为只是这首坏、还能换一首点，其实整条播放已经停了。
+  var failed = {}, autoStep = 0, gen = 0, reported = 0, skipNote = 0;
+  function noteFail(b, why){
+    if(!b) return;
+    b.classList.remove('playing');
+    b.classList.add('dead');
+    b.setAttribute('aria-label', '这首暂时无法试听');
+    b.title = '这首暂时无法试听（' + why + '）';
+    failed[b.dataset.src || ''] = 1;
+  }
+  function say(msg){
+    if(T) T.textContent = msg;
+    if(A) A.textContent = '';
+    if(TIME) TIME.textContent = '';
+    if(FILL) FILL.style.width = '0%';
+  }
+  // dead 是【这一刻取不到音源】的快照，不是永久判决 —— 一次隧道/电梯里的网络
+  // 抖动会连锁标死 6 首，网络恢复后它们仍然灰着、划着 ×、读屏念「暂时无法试听」，
+  // 整个会话都洗不掉。所以真的播出声（playing 事件）就必须撤销。
+  function unFail(b){
+    if(!b || !b.classList.contains('dead')) return;
+    b.classList.remove('dead');
+    b.setAttribute('aria-label', '试听 30 秒');
+    b.removeAttribute('title');
+    delete failed[b.dataset.src || ''];
+  }
+  au.addEventListener('error', function(){
+    var b = cur;
+    reported = gen;               // 认领本代次，别让 play() 的拒绝再复述一遍
+    noteFail(b, '音源失效');
+    mark(false);
+    // 【不在这里 say】——下面 step(1) 会同步走到 load()，把 LCD 改成下一首的曲名，
+    // 两次写入在同一个宏任务里相隔不到 1ms，浏览器根本画不出中间那帧。
+    // 提示要交给 load() 在设好新曲名【之后】显示，见 load() 里的 skipNote。
+    if(autoStep < 5){ autoStep++; skipNote = 1; step(1); }
+    else { autoStep = 0; say('连续几首都无法试听，先停一下'); }
+  });
+  au.addEventListener('playing', function(){
+    autoStep = 0;
+    unFail(cur);                  // 真出声了，撤销之前的失败判定
+  });
+
+  function load(b){var src=b.dataset.src;
+    if(!src){ noteFail(b, '没有试听源'); say('这首没有试听源'); return; }
+    if(cur)cur.classList.remove('playing');
+    var myGen = ++gen;
+    au.src=src;cur=b;
+    if(C)C.src=b.dataset.cover||'';if(T)T.textContent=b.dataset.title||'';if(A)A.textContent=b.dataset.artist||'';
+    if(np)np.classList.add('on');
+    // 自动跳曲的说明必须在【设好新曲名之后】追加，否则会被上面那行覆盖掉、
+    // 用户看到的就是"点了第 1 首、第 2 首在放、零解释"。
+    if(skipNote){ skipNote = 0; if(A) A.textContent = '上一首取不到音源，已自动跳到这首'; }
+    // play() 返回 Promise：被浏览器策略拦下（未交互）或音源解不开时会 reject。
+    // 不接的话按钮永远停在 playing，这正是「点了没反应」的来源。
+    var pr = au.play();
+    if(pr && pr.catch) pr.catch(function(err){
+      // 已经跳到别的曲子了 —— 这条拒绝属于上一首，丢掉。
+      // （换 au.src 会让挂起的 play() 以 AbortError 拒绝，正是这条路径。）
+      if(myGen !== gen) return;
+      // error 事件已经完整处理过这一代（含"停下来"那条终止提示），别再复述
+      if(reported === myGen) return;
+      mark(false);
+      // NotAllowedError = 浏览器自动播放策略，不是音源坏，别标死
+      if(err && err.name === 'NotAllowedError'){ say('点一下播放键即可开始'); return; }
+      noteFail(b, (err && err.name) || '播放失败');
+      say('这首暂时无法试听');
+    });
+  }
+  function playCard(b){if(cur===b){if(au.paused)au.play();else au.pause();return;}load(b);}
+  function step(d){
+    if(!btns.length) return;
+    var i = cur ? btns.indexOf(cur) : -1;
+    // 跳过【已知坏链】：failed 此前只写不读，于是自动续播会一头撞进刚标死的那几首，
+    // 白白连锁跳 5 次。最多绕一整圈；整圈都坏就退回原始行为（让 error 分支去收尾，
+    // 不然这里会成死循环）。unFail() 会把恢复的曲子从 failed 里删掉，自动重新纳入。
+    for(var k = 1; k <= btns.length; k++){
+      var j = (i + d * k) % btns.length;
+      if(j < 0) j += btns.length;
+      if(!failed[btns[j].dataset.src || '']){ load(btns[j]); return; }
+    }
+    var j0 = i + d;
+    if(j0 < 0) j0 = btns.length - 1;
+    if(j0 >= btns.length) j0 = 0;
+    load(btns[j0]);
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){playCard(b);});});
+  if(TOG)TOG.addEventListener('click',function(){if(!cur){if(btns[0])load(btns[0]);return;}if(au.paused)au.play();else au.pause();});
+  if(PREV)PREV.addEventListener('click',function(){step(-1);});
+  if(NEXT)NEXT.addEventListener('click',function(){step(1);});
+  if(BAR)BAR.addEventListener('click',function(e){if(!au.duration)return;var r=BAR.getBoundingClientRect();au.currentTime=(e.clientX-r.left)/r.width*au.duration;});
+  document.addEventListener('keydown',function(e){var tag=(e.target.tagName||'').toLowerCase();if(tag==='input'||tag==='textarea')return;
+    // 浮层开着时让位：这些快捷键挂在 document 上，而 inert 只挡指针与焦点、
+    // **挡不住 document 级的键盘事件**。实测浮层里按空格：浮层不关，反而在它
+    // 背后开始放歌（左右键还能切背景曲目），而焦点明明停在关闭键上。
+    // 模态期间键盘应当只属于模态。
+    var lbx = document.getElementById('lb');
+    if(lbx && lbx.classList.contains('on')) return;
+    if(e.code==='Space'){e.preventDefault();if(!cur){if(btns[0])load(btns[0]);}else if(au.paused)au.play();else au.pause();}
+    else if(e.key==='ArrowRight'){step(1);}else if(e.key==='ArrowLeft'){step(-1);}});
+})();
+
+// 分享：navigator.share 是移动端原生分享面板（微信/微博/AirDrop 一键直达）。
+// 桌面浏览器大多不支持，此时退回「复制链接」——但【按钮默认 hidden】、
+// 只在确认有能力时才显示，避免点了没反应。
+(function(){
+  var b = document.getElementById('share-btn');
+  if(!b) return;
+  var canShare = !!(navigator.share);
+  var canCopy  = !!(navigator.clipboard && navigator.clipboard.writeText);
+  if(!canShare && !canCopy) return;          // 两样都没有就不显示这个按钮
+  b.hidden = false;
+  if(!canShare) b.textContent = '复制本期链接';
+  b.addEventListener('click', function(){
+    var url = location.href.split('#')[0];
+    var title = document.title;
+    var text = (document.querySelector('meta[property="og:description"]')||{}).content || '';
+    if(canShare){
+      // share() 被用户取消也会 reject（AbortError），那不是错误，别提示
+      navigator.share({title: title, text: text, url: url}).catch(function(e){
+        if(e && e.name === 'AbortError') return;
+        if(canCopy) fallbackCopy(url, b);
+      });
+      return;
+    }
+    fallbackCopy(url, b);
+  });
+  function fallbackCopy(url, btn){
+    navigator.clipboard.writeText(url).then(function(){
+      var o = btn.textContent;
+      btn.textContent = '链接已复制 ✓';
+      setTimeout(function(){ btn.textContent = o; }, 1800);
+    }).catch(function(){
+      var o = btn.textContent;
+      btn.textContent = '复制失败，请手动复制地址栏';
+      setTimeout(function(){ btn.textContent = o; }, 2400);
+    });
+  }
+})();
+
+// heart 收藏：localStorage 跨期累计 + 只看收藏 + 导出网易云
+(function(){
+  var KEY='md_hearts';
+  function ld(){try{return JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){return [];}}
+  function sv(a){try{localStorage.setItem(KEY,JSON.stringify(a));}catch(e){}}
+  var hearts=ld(), nEl=document.getElementById('fav-n');
+  function applyFilter(){var on=document.body.classList.contains('fav-mode');
+    document.querySelectorAll('.mod').forEach(function(m){if(m.classList.contains('fill'))return;
+      m.classList.toggle('hidden', on && hearts.indexOf(m.dataset.k)<0);});}
+  function pageHits(){var n=0;document.querySelectorAll('.mod').forEach(function(m){
+    if(!m.classList.contains('fill') && m.dataset.k && hearts.indexOf(m.dataset.k)>=0)n++;});return n;}
+  function refresh(){document.querySelectorAll('.heart').forEach(function(h){h.classList.toggle('on',hearts.indexOf(h.dataset.k)>=0);});
+    if(nEl)nEl.textContent=pageHits();}   /* 数本页命中，不数跨期总收藏——按钮做的是本页筛选 */
+  document.querySelectorAll('.heart').forEach(function(h){h.addEventListener('click',function(){
+    var k=h.dataset.k,i=hearts.indexOf(k);if(i>=0)hearts.splice(i,1);else hearts.push(k);sv(hearts);refresh();applyFilter();});});
+  var only=document.getElementById('fav-only');
+  /* 只改 label 文本，不用 innerHTML 整体替换 —— 那会把 #fav-n 换成新节点，
+     JS 手里的 nEl 变成游离引用，之后 refresh() 全写进空气里。 */
+  var lbEl=document.getElementById('fav-lb');
+  function hint(msg){if(!lbEl)return; var o=lbEl.textContent; lbEl.textContent=msg;
+    if(nEl)nEl.style.display='none';
+    setTimeout(function(){lbEl.textContent=o;if(nEl)nEl.style.display='';refresh();},1900);}
+  if(only)only.addEventListener('click',function(){
+    if(!document.body.classList.contains('fav-mode') && pageHits()===0){
+      /* 判「本页有没有命中」而不是「有没有收藏过」：只在往期收藏过时，本页筛完是空的 */
+      hint(hearts.length ? '本期没有收藏 · 往期 ARCHIVE 里有 '+hearts.length+' 首'
+                         : '还没收藏 · 点卡片右上角 ♥'); return;}
+    document.body.classList.toggle('fav-mode');
+    only.classList.toggle('active',document.body.classList.contains('fav-mode'));applyFilter();});
+  var exp=document.getElementById('fav-export'), box=document.getElementById('fav-box'), txt=document.getElementById('fav-text');
+  if(exp)exp.addEventListener('click',function(){
+    txt.textContent=hearts.length?('我收藏的 · MUSIC DAILY（含往期，共 '+hearts.length+' 首）\n'+hearts.join('\n')):'（还没有收藏。点每首右上角的 heart 即可）';
+    box.style.display='block';box.scrollIntoView({behavior:'smooth'});});
+  refresh();
+})();
+function copyFav(){var t=document.getElementById('fav-text').innerText;
+  navigator.clipboard.writeText(t).then(function(){var b=document.getElementById('fav-copy'),o=b.innerText;
+    b.innerText='copied ✓';setTimeout(function(){b.innerText=o;},1600);});}
+</script>
+<script>
+(function(){
+  var lb=document.getElementById('lb'); if(!lb) return;
+  var $=function(i){return document.getElementById(i)};
+  var last=null;
+
+  // iTunes 缩略图按既定命名规则换更大尺寸；非 iTunes 的 URL 原样返回
+  function big(u){ return u ? u.replace(/\/(\d+)x(\d+)(bb)?\.(jpg|png)/i, '/600x600bb.$4') : ''; }
+
+  function esc(s){ var d=document.createElement('div'); d.textContent=s==null?'':s; return d.innerHTML; }
+
+  function open(d, trigger){
+    // 存【触发元素】而不是 document.activeElement —— 鼠标点击时 activeElement
+    // 是 body（点 div 不给焦点），于是关闭后焦点掉回 body，键盘用户要从头 Tab。
+    // 2026-08-04 实测：修前 Esc 后 activeElement 就是 <body class="anim">。
+    last = trigger || document.activeElement;
+    $('lb-big').innerHTML = d.cover
+      ? '<img src="'+esc(big(d.cover))+'" alt="">'
+      : '<div class="ph">'+esc((d.artist||'?').slice(0,1).toUpperCase())+'</div>';
+    if(d.year || d.album){
+      $('lb-big').insertAdjacentHTML('beforeend',
+        '<div class="yr"><span>'+esc(d.album||'')+'</span><span>'+esc(d.year||'')+'</span></div>');
+    }
+    // 主体是音乐人：大标题放艺人名，副行放年代跨度与流派
+    $('lb-artist').textContent = d.artist||'';
+    var sub=[]; if(d.years) sub.push(d.years); else if(d.year) sub.push(d.year);
+    if(d.g0) sub.push(d.g0);
+    $('lb-sub').textContent = sub.join(' · ');
+    $('lb-tags').innerHTML = (d.tags||'').split('|').filter(Boolean)
+      .map(function(t){return '<span>'+esc(t)+'</span>'}).join('');
+    // 本站收录该艺人的其它曲目（当前这首标 cur）
+    var inp=(d.inpool||'').split('|').filter(Boolean);
+    $('lb-inpool').innerHTML = inp.map(function(x){
+      var cur = x===d.title ? ' class="cur"' : '';
+      return '<a href="?t='+encodeURIComponent(x)+'"'+cur+'>'+esc(x)+'</a>';
+    }).join('');
+    $('lb-inpool-w').style.display = inp.length>1 ? '' : 'none';
+    // 这一首（次要块）
+    $('lb-trkname').textContent = [d.title, d.album, d.year, d.bpm].filter(Boolean).join(' · ');
+    [['bio','lb-bio'],['one','lb-one'],['why','lb-why'],['scene','lb-scene']].forEach(function(p){
+      var v=d[p[0]]||'';
+      $(p[1]).textContent=v;
+      var w=$(p[1]+'-w'); if(w) w.style.display = v ? '' : 'none';   // 该段没内容就整块收起
+    });
+    $('lb-trk-w').style.display = (d.why||d.scene) ? '' : 'none';
+    var lk=[];
+    if(d.apple)   lk.push('<a href="'+esc(d.apple)+'" target="_blank" rel="noopener">apple music ↗</a>');
+    if(d.spotify) lk.push('<a href="'+esc(d.spotify)+'" target="_blank" rel="noopener">spotify ↗</a>');
+    if(d.netease) lk.push('<a href="'+esc(d.netease)+'" target="_blank" rel="noopener">netease ↗</a>');
+    $('lb-links').innerHTML = lk.join('');
+    lb.classList.add('on');
+    document.body.style.overflow='hidden';
+    // 焦点 trap：把 #lb 以外的顶层兄弟节点整棵设为 inert —— 它们既不可聚焦
+    // 也不接受点击，Tab 自然被关在浮层里。比手写「首尾元素循环」可靠得多：
+    // 那种写法要维护「可聚焦元素清单」，而浮层内容是动态渲染的，清单必然漂。
+    // 2026-08-04 实测：修之前连按 12 次 Tab，10 次落到浮层背后的卡片上，
+    // 而 #lb 明明声明了 role=dialog + aria-modal=true —— 承诺了模态却没兑现。
+    inertKids(true);
+    lb.querySelector('.x').focus();
+  }
+  // 除 #lb 外的 body 子节点整体 inert / 恢复。只动我们设过的那些（记在 _inert 上），
+  // 免得把页面本来就有的 inert 属性给清掉。
+  function inertKids(on){
+    var kids = document.body.children;
+    for(var i=0;i<kids.length;i++){
+      var el = kids[i];
+      if(el === lb) continue;
+      if(on){
+        if(!el.hasAttribute('inert')){ el.setAttribute('inert',''); el._lbInert = 1; }
+      } else if(el._lbInert){
+        el.removeAttribute('inert'); el._lbInert = 0;
+      }
+    }
+  }
+  function close(){
+    lb.classList.remove('on');
+    document.body.style.overflow='';
+    inertKids(false);
+    // 焦点归位要在解除 inert 【之后】—— 在 inert 状态下 focus() 是无效的，
+    // 焦点会掉回 body，用户按 Tab 得从头再来。
+    if(last && last.focus) last.focus();
+  }
+
+  document.addEventListener('click', function(e){
+    if(e.target.closest('[data-close]')){ close(); return; }
+    // 点播放键不开浮层
+    if(e.target.closest('.pbtn')) return;
+    var h=e.target.closest('.art'); if(!h) return;
+    var d=h.dataset; if(!d.title && !d.cover) return;
+    e.preventDefault(); open(d, h);
+  });
+  addEventListener('keydown', function(e){
+    if(e.key==='Escape' && lb.classList.contains('on')){ close(); return; }
+    if(lb.classList.contains('on')) return;      // 浮层已开，下面只管"打开"
+    // 封面卡片声明了 role="button" + tabindex="0"，那就必须响应 Enter / Space ——
+    // 原生 <button> 自带这个行为，用 div 扮演按钮就得自己补齐。
+    // 之前只绑了 click：键盘用户能聚焦到封面（还能看到焦点环），按下去毫无反应，
+    // 于是那个焦点环和浮层里的焦点 trap 对他们全是白做的。
+    if(e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+    var h = e.target.closest && e.target.closest('.art');
+    if(!h) return;
+    var d = h.dataset; if(!d.title && !d.cover) return;
+    e.preventDefault();                           // Space 默认会滚动页面
+    open(d, h);
+  });
+})();
+</script>
+<script>
+(function(){
+  // orpheus://search/曲名 艺人 —— 网易云 App 的搜索入口（各平台一致）
+  function scheme(q){ return 'orpheus://search/' + encodeURIComponent(q); }
+  function web(q){ return 'https://music.163.com/#/search/m/?s=' + encodeURIComponent(q); }
+
+  function openApp(q){
+    var fallback = null, done = false;
+    function cancel(){
+      if(done) return; done = true;
+      if(fallback){ clearTimeout(fallback); fallback = null; }
+      document.removeEventListener('visibilitychange', onHide);
+      removeEventListener('pagehide', onHide);
+      removeEventListener('blur', onHide);
+    }
+    // 页面转后台/失焦 = App 被唤起了
+    function onHide(){ cancel(); }
+
+    // App 真被唤起 → 本页转后台 → 取消兜底，避免回来时多了一个网页 tab
+    document.addEventListener('visibilitychange', onHide);
+    addEventListener('pagehide', onHide);
+    addEventListener('blur', onHide);
+
+    // 用隐藏 iframe 触发 scheme：scheme 未注册时 location.href 会让 Safari
+    // 弹「无法打开页面」，iframe 静默失败
+    var f = document.createElement('iframe');
+    f.style.cssText = 'display:none;width:0;height:0;border:0';
+    f.src = scheme(q);
+    document.body.appendChild(f);
+    setTimeout(function(){ try{ f.remove(); }catch(e){} }, 1500);
+
+    // 1.2s 没走成就回退网页（没装 App / 桌面浏览器不认 scheme）
+    fallback = setTimeout(function(){
+      if(done) return;
+      done = true;
+      window.open(web(q), '_blank', 'noopener');
+    }, 1200);
+  }
+
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('[data-nc]');
+    if(!a) return;
+    e.preventDefault();
+    openApp(a.getAttribute('data-nc'));
+  });
+})();
+</script>
+<a href="../../archive/2026-08-08.html" style="position:fixed;right:12px;top:calc(72px + env(safe-area-inset-top,0px));z-index:1100;padding:10px 12px;background:#0f0e12;color:#fff;font:12px monospace;border:1px solid #ccc">旧版外观 · 返回新版 ↗</a></body>
+</html>

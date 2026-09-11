@@ -87,7 +87,9 @@ def main() -> int:
     if leak:
         warn.append(f"当前池含 {len(leak)} 首不合格(黑名单/无旋律)——picker 会过滤，但建议清理")
 
-    pool_ids = set(ids)
+    import build_daily
+    discovery = build_daily._random_catalog_items([])
+    pool_ids = set(ids) | {t["id"] for t in discovery}
     dangling = {d: [i for i in lst if i not in pool_ids] for d, lst in history.items()}
     dangling = {d: v for d, v in dangling.items() if v}
     if dangling:
@@ -99,15 +101,15 @@ def main() -> int:
     warn += c_warn
 
     # 库存（告警）
-    eligible = [t for t in pool if picker.is_eligible(t)[0]]
+    eligible = picker.daily_candidates(pool, discovery)
     sent_dates = sorted(history)
-    recent = picker._recent_sent_ids(history, set(sent_dates[-45:]))
-    fresh = sum(1 for t in eligible if t.get("id") not in recent)
+    recent = picker._recent_sent_ids(history, set(sent_dates))
+    fresh = len({picker.work_key(t) for t in picker.unsent_tracks(eligible, history, build_daily._historical_tracks())})
     days = fresh // N_PER_ISSUE
-    stock = {"total": len(pool), "eligible": len(eligible), "recently_sent": len(recent),
+    stock = {"total": len(pool) + len(discovery), "curated": len(pool), "discovery": len(discovery), "eligible": len(eligible), "ever_sent": len(recent),
              "fresh": fresh, "est_days_supply": days}
-    if len(eligible) < 900:
-        warn.append(f"库存偏低(合格 {len(eligible)}，目标≥1350)——靠每周补库补足")
+    if fresh < N_PER_ISSUE * 7:
+        warn.append(f"从未推荐库存仅 {fresh} 首，需补库；已推荐作品不会回填")
 
     print("=== healthcheck ===")
     print("stock:", json.dumps(stock, ensure_ascii=False))

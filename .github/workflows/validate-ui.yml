@@ -1,0 +1,26 @@
+name: Validate UI interactions
+
+on:
+  pull_request:
+    paths: ["scripts/**", "tests/**", ".github/workflows/validate-ui.yml"]
+  push:
+    branches: [main]
+    paths: ["scripts/**", "tests/**", ".github/workflows/validate-ui.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: python -m unittest discover -s tests -v
+      - run: python tests/test_catalog.py
+      - run: python scripts/check_daily_freshness.py

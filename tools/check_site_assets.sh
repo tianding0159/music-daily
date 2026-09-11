@@ -20,6 +20,12 @@ PRODUCTS=(
   archive/index.html
   pool.min.json
   artists.min.json
+  legacy/index.html
+  legacy/daily.html
+  legacy/random.html
+  legacy/archive/index.html
+  legacy/pool.min.json
+  legacy/artists.min.json
 )
 
 # 静态签入的资源 —— 【不由任何脚本重新生成】，只靠 checkout 带过来。

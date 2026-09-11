@@ -39,9 +39,11 @@ jobs:
         run: python3 scripts/build_daily.py --theme grid
 
       - name: 回写状态到 repo（history / issue 快照 / latest / iTunes 缓存 / site）
+        # 检查先于任何状态提交，重复作品不能进入部署链。
         run: |
           git config user.name "music-daily-bot"
           git config user.email "actions@users.noreply.github.com"
+          python3 scripts/check_daily_freshness.py
           # pool_media.json 必须在列 —— build_daily 每次增量补封面/试听后写它
           # （见 build_daily.py:197「媒体增量补 N 首，剩 M 首下次继续」）。
           # 漏掉的话增量永远回不到库里：每天重新去 iTunes 查同一批、每次限流 3s/首，

@@ -14,6 +14,7 @@
 from __future__ import annotations
 
 import html
+from pathlib import Path
 import re
 import urllib.parse
 
@@ -161,7 +162,7 @@ CSS = """
      2026-08-03 实测（CDP getPlatformFontsForNode）：页面 44 处中文都在这条栈上，
      全部走了系统回退。Noto Sans SC 本来已在 --sans 里引过，复用不增加网络请求。 */
   --mono:"Space Mono","JetBrains Mono","Noto Sans SC",ui-monospace,Menlo,monospace;
-  --fs-10:clamp(11px,.92vw,13px); --fs-15:clamp(12px,1.1vw,15px);
+  --fs-10:clamp(11px,.92vw,13px); --fs-15:clamp(14px,1.1vw,15px);
   --fs-20:clamp(15px,1.5vw,20px); --fs-25:clamp(19px,2.1vw,27px);
   --fs-30:clamp(23px,2.7vw,36px); --fs-40:clamp(34px,5vw,68px);
   --sp-xs:clamp(4px,.5vw,6px); --sp-sm:clamp(8px,1vw,12px);
@@ -390,13 +391,14 @@ a{color:inherit; text-decoration:none}
 .m-code{display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:var(--fs-10);
   text-transform:uppercase; color:var(--white); padding:3px 8px}
 .m-main{display:flex; gap:var(--sp-md); padding:var(--sp-md) var(--sp-md) 0}
-.art{position:relative; width:clamp(84px,9vw,104px); aspect-ratio:1; flex:none}
+.art{position:relative; width:clamp(84px,9vw,104px); aspect-ratio:1; flex:none; align-self:flex-start}
+.art>button.cover-zoom{display:block; width:100%; height:100%; border:0; padding:0; background:transparent; cursor:pointer; color:inherit}
 .cover{width:100%; height:100%; object-fit:cover; display:block; background:var(--g100);
   border:1px solid var(--g100); transition:opacity .2s}
 .cover.ph{display:grid; place-items:center; font-family:var(--mono); font-size:var(--fs-30);
   color:var(--white); background:var(--ink); border:none}
 .art:hover .cover{opacity:.82}
-.pbtn{position:absolute; left:6px; bottom:6px; width:26px; height:26px; display:grid; place-items:center;
+.pbtn{position:absolute; left:4px; bottom:4px; width:40px; height:40px; display:grid; place-items:center;
   background:var(--ink); color:var(--white); border:none; padding:0; cursor:pointer; opacity:.9;
   transition:transform .15s, opacity .2s, background .2s}
 .pbtn:hover{opacity:1}
@@ -439,7 +441,7 @@ a{color:inherit; text-decoration:none}
 #np-time{flex:none; min-width:82px; text-align:right; font-family:var(--mono); font-size:var(--fs-10); color:var(--g300)}
 @media(max-width:720px){#np-meta{width:clamp(90px,32vw,160px)} #np-time{display:none}}
 #np-prev,#np-next{width:30px; height:30px} #np-prev svg,#np-next svg{width:12px; height:10px}
-.heart{background:none; border:none; padding:0 0 0 8px; cursor:pointer; line-height:0}
+.heart{background:none; border:none; padding:0; margin-left:4px; width:44px; height:40px; flex:none; cursor:pointer; line-height:0}
 .heart svg{width:18px; height:18px; fill:var(--g300); transition:fill .15s, transform .15s}
 .heart:hover svg{fill:var(--g600)}
 .heart.on svg{fill:var(--red)}
@@ -459,7 +461,7 @@ a{color:inherit; text-decoration:none}
 .arc .no{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); flex:none}
 .arc .t{font-size:var(--fs-15); font-weight:300; color:var(--g900); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 .hd{flex:1; min-width:0}
-.title{font-size:var(--fs-25); font-weight:100; line-height:1.12; letter-spacing:-.01em}
+.title{font-size:var(--fs-25); font-weight:300; line-height:1.25; letter-spacing:-.01em; overflow-wrap:anywhere}
 .artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
   margin-top:5px; letter-spacing:.09em}
 .meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:7px; line-height:1.6}
@@ -470,7 +472,7 @@ a{color:inherit; text-decoration:none}
   background:var(--g100); color:var(--g900)}
 .body{padding:var(--sp-md); display:flex; flex-direction:column; flex:1}
 .one{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); line-height:1.65; margin-bottom:7px}
-.why{font-size:var(--fs-15); font-weight:300; line-height:1.55}
+.why{font-size:var(--fs-15); font-weight:300; line-height:1.7}
 .scene{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
   margin-top:auto; padding-top:11px}
 .scene .k{color:var(--orange)}
@@ -539,17 +541,87 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
   .tools{gap:7px}
   .tools .tbtn{flex:1 1 calc(50% - 4px); justify-content:center; padding:9px 8px; font-size:10px}
   /* 卡片：封面与文字改上下叠，封面横铺（竖屏并排 130px 封面太憋） */
-  .m-main{flex-direction:column !important; gap:12px; padding:12px 12px 0}
-  .m-main .art{width:100%; aspect-ratio:16/10}
-  .m-top{padding:10px 12px}
-  .body{padding:0 12px 12px}
+  .m-main{flex-direction:row; gap:12px; padding:12px 12px 0}
+  .m-main .art{width:88px; aspect-ratio:1}
+  .m-top{padding:4px 8px 4px 12px}
+  .body{padding:12px}
   /* LCD：猫和跑马灯在窄屏共存，缩小猫舞台 */
   .lcd .row1{min-height:40px; padding:7px 12px; gap:7px}
   .lcd .cat-wrap{transform:scale(.85); transform-origin:center bottom}
   footer{flex-direction:column; gap:6px; text-align:center}
 }
+/* 原有铭牌、网格与色盘内的操作细节。 */
+button,input,select,a{-webkit-tap-highlight-color:transparent; touch-action:manipulation}
+button,input,select{font:inherit}
+.nav .wrap{gap:16px}
+.nav .site-links{display:flex; gap:18px; margin-left:auto; flex:none; font:12px var(--mono)}
+.nav .site-links a{display:flex; align-items:center; min-height:44px; border-bottom:2px solid transparent; color:var(--g200)}
+.nav .site-links a:hover,.nav .site-links a[aria-current=page]{color:var(--white); border-bottom-color:var(--orange)}
+.nav .nav-meta{font-size:10px; flex:none}
+.daily-page .hero{padding-top:clamp(22px,3vw,36px)}
+.daily-page .m-top{padding-block:4px}
+.daily-page .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.daily-page .one{color:#666; line-height:1.75}
+.daily-page .src{color:var(--g600)}
+.daily-page .tools .tbtn,.daily-page .links .btn{min-height:40px; display:inline-flex; align-items:center; justify-content:center}
+.track-search{display:flex; flex:1 1 210px; align-items:center; gap:8px; border:1px solid var(--g300); padding:0 10px; min-height:40px}
+.track-search span{font:11px var(--mono); color:var(--g600); flex:none}
+.track-search input{min-width:0; width:100%; border:0; border-radius:0; background:transparent; color:var(--ink); font-size:14px; padding:8px 0}
+.track-search:focus-within{outline:2px solid var(--orange); outline-offset:1px}
+.track-search input:focus-visible{outline:none}
+.filter-note{font:11px var(--mono); color:var(--g600); margin-top:10px; min-height:17px}
+.empty-list{padding:24px 16px; border:1px solid var(--g300); text-align:center; font-size:14px}
+.empty-list button{margin-top:12px}
+.daily-page #np{gap:10px}
+.daily-page .np-btn,.daily-page #np-prev,.daily-page #np-next{width:44px; height:44px}
+.daily-page #np-meta{width:clamp(110px,20vw,240px)}
+#np-seek{flex:1; min-width:60px; width:100%; height:28px; accent-color:var(--green); cursor:pointer}
+.daily-page #np[aria-busy=true] #np-toggle{background:var(--g900)}
+.daily-page .pbtn.loading{background:var(--g900)}
+.daily-page .pbtn.loading::after{content:'…'; position:absolute; inset:0; display:grid; place-items:center; font-size:20px}
+.daily-page .pbtn.loading svg{visibility:hidden}
+.daily-page .export,.mod{scroll-margin-top:84px}
+.arc a{min-height:64px}
+.archive-page{padding-bottom:var(--sab)}
+@media(max-width:900px){.nav .nav-meta{display:none}}
+@media(max-width:720px){
+  .daily-page .grid{grid-template-columns:1fr}
+  .daily-page #np{height:calc(92px + var(--sab)); padding:8px calc(12px + var(--sar)) calc(28px + var(--sab)) calc(12px + var(--sal)); gap:6px}
+  .daily-page{--np-h:92px}
+  .daily-page #np-cover{width:40px; height:40px}
+  .daily-page #np-meta{flex:1; width:auto}
+  .daily-page #np-artist{letter-spacing:.02em}
+  #np-seek{position:absolute; bottom:var(--sab); left:calc(12px + var(--sal)); width:calc(100% - 24px - var(--sal) - var(--sar)); margin:0; height:28px}
+  .arc a{display:grid; grid-template-columns:1fr auto; gap:4px 12px; padding:12px}
+  .arc .t{grid-column:1 / -1; white-space:normal; font-size:13px; line-height:1.6}
+}
+@media(max-width:520px){
+  .nav .wrap{gap:8px}
+  .nav .site-links{gap:10px; font-size:11px}
+  .daily-page .hero{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:10px; padding:20px 0 14px}
+  .daily-page .hero .h-l h1{font-size:32px}
+  .daily-page .hero .h-l .en{max-width:190px; font-size:10px; line-height:1.6}
+  .daily-page .hero .h-r{font-size:10px}
+  .daily-page .hero .h-r .big{display:block; margin:0 0 4px; font-size:32px}
+  .daily-page .spec{grid-template-columns:1fr 1fr 1fr}
+  .daily-page .spec div{padding:7px 9px; font-size:10px; flex-wrap:wrap; gap:0 5px; border-right:1px solid var(--g100); border-bottom:1px solid var(--g100)}
+  .daily-page .spec div:nth-child(3){border-right:0}
+  .daily-page .spec div:last-child{grid-column:1 / -1; border:0}
+  .daily-page .tools{gap:6px}
+  .daily-page .track-search{flex-basis:100%; min-height:44px}
+  .daily-page .track-search input{font-size:16px}
+  .daily-page .tools .tbtn{flex:1 1 auto; min-height:44px; font-size:11px}
+  .daily-page .links .btn{flex:1; min-height:44px; padding:8px}
+  .daily-page .title{font-size:21px}
+  .daily-page .meta{line-height:1.65; overflow-wrap:anywhere}
+  .daily-page .tags{gap:4px}
+  .daily-page .tag{font-size:10px; padding:2px 5px}
+  .daily-page .m-main .art{width:88px}
+  .daily-page .m-code{max-width:210px; font-size:10px}
+  .daily-page .export .h{align-items:flex-start; flex-direction:column; gap:4px}
+}
 @media(prefers-reduced-motion:reduce){
-  .mod{opacity:1; transform:none; transition:none}
+  .anim .mod,.anim .mod.in{opacity:1; transform:none; transition:none}
   .track,.dot,.rec,.pose,.p-sleep,.cat-wrap,.cat-move,.cat-eyes,.cat-tail,.prop{animation:none}
   .pose{opacity:0}
   .p-stand{opacity:1}
@@ -557,231 +629,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 }
 """
 
-JS = """
-// LCD boot 打字机
-const boot=document.getElementById('boot'), BOOT=boot?boot.dataset.text:'';
-if(boot){let i=0;boot.textContent='';(function type(){if(i<=BOOT.length){boot.innerHTML=BOOT.slice(0,i)+'<span class="cur">▋</span>';i++;setTimeout(type,26);}else{boot.textContent=BOOT;}})();}
-
-// 卡片分级进场（渐进增强：默认可见，仅 JS 正常时启用进场动画，避免 JS 出错整页空白）
-if('IntersectionObserver' in window){
-  document.body.classList.add('anim');
-  const io=new IntersectionObserver((es)=>{es.forEach((e,k)=>{if(e.isIntersecting){const el=e.target;
-    setTimeout(()=>el.classList.add('in'),(el.dataset.d||0)*1);io.unobserve(el);}});},{threshold:.12});
-  document.querySelectorAll('.mod').forEach((m,k)=>{m.dataset.d=(k%6)*70;io.observe(m);});
-}
-
-function copyNC(){const t=document.getElementById('nc-text').innerText;
-  navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('nc-btn'),o=b.innerText;
-    b.innerText='copied ✓';setTimeout(()=>b.innerText=o,1600);});}
-
-// 30s 试听：单例 audio + 底部条；整期贯穿(自动续播/上一首/下一首)、键盘、切歌互斥（iTunes 公开 previewUrl，仅预览非整曲）
-(function(){
-  var au=new Audio(), cur=null;
-  var btns=[].slice.call(document.querySelectorAll('.pbtn'));
-  var np=document.getElementById('np'), C=document.getElementById('np-cover'),
-      T=document.getElementById('np-title'), A=document.getElementById('np-artist'),
-      BAR=document.getElementById('np-bar'), FILL=document.getElementById('np-fill'),
-      TIME=document.getElementById('np-time'), TOG=document.getElementById('np-toggle'),
-      PREV=document.getElementById('np-prev'), NEXT=document.getElementById('np-next');
-  function fmt(s){if(!isFinite(s)||s<0)s=0;s=Math.floor(s);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
-  function mark(on){if(cur)cur.classList.toggle('playing',on);if(np)np.classList.toggle('playing',on);}
-  au.addEventListener('timeupdate',function(){if(au.duration&&FILL){FILL.style.width=(au.currentTime/au.duration*100)+'%';TIME.textContent=fmt(au.currentTime)+' / '+fmt(au.duration);}});
-  au.addEventListener('play',function(){mark(true);});
-  au.addEventListener('pause',function(){mark(false);});
-  au.addEventListener('ended',function(){mark(false);if(FILL)FILL.style.width='0%';step(1);});
-
-  // ── 试听失败的处理 ──────────────────────────────────────────
-  // iTunes 的 preview URL 会失效（池里已有 12 首连封面都拿不到）。此前既没有
-  // error 监听、play() 的 Promise 也没接 —— 点下去毫无反馈、按钮卡在 playing，
-  // 用户会以为是自己网络的问题。
-  // 处理分两层：①把这首标成不可播、状态回滚、告诉用户为什么；
-  //            ②【自动跳到下一首】—— 一次连播里遇到坏链不该整条断掉。
-  // 载入代次：每次 load() 自增。play() 的 Promise 是【异步】兑现的，等它
-  // reject 时可能早已跳到下一首了 —— 那条迟到的 catch 必须认出自己已经过期，
-  // 否则它会拿旧曲的失败去污染新曲（实测：只坏第一首时，b1 已开始播，
-  // 迟到的 catch 把 LCD 曲名改成「无法试听」，mark(false) 还按【当前】cur
-  // 抹掉了 b1 的 playing 态 —— 坏的是 b0，遭殃的是 b1）。
-  // reported = 已由 error 事件完整处理过的代次。error 事件与 play() 拒绝是
-  // 【同一次失败的两条上报路径】，谁后到谁就会覆盖前一条的措辞。连锁跳到上限时
-  // 后到的偏偏是笼统那条：「连续几首都无法试听，先停一下」被盖成「这首暂时无法
-  // 试听」—— 用户会以为只是这首坏、还能换一首点，其实整条播放已经停了。
-  var failed = {}, autoStep = 0, gen = 0, reported = 0, skipNote = 0;
-  function noteFail(b, why){
-    if(!b) return;
-    b.classList.remove('playing');
-    b.classList.add('dead');
-    b.setAttribute('aria-label', '这首暂时无法试听');
-    b.title = '这首暂时无法试听（' + why + '）';
-    failed[b.dataset.src || ''] = 1;
-  }
-  function say(msg){
-    if(T) T.textContent = msg;
-    if(A) A.textContent = '';
-    if(TIME) TIME.textContent = '';
-    if(FILL) FILL.style.width = '0%';
-  }
-  // dead 是【这一刻取不到音源】的快照，不是永久判决 —— 一次隧道/电梯里的网络
-  // 抖动会连锁标死 6 首，网络恢复后它们仍然灰着、划着 ×、读屏念「暂时无法试听」，
-  // 整个会话都洗不掉。所以真的播出声（playing 事件）就必须撤销。
-  function unFail(b){
-    if(!b || !b.classList.contains('dead')) return;
-    b.classList.remove('dead');
-    b.setAttribute('aria-label', '试听 30 秒');
-    b.removeAttribute('title');
-    delete failed[b.dataset.src || ''];
-  }
-  au.addEventListener('error', function(){
-    var b = cur;
-    reported = gen;               // 认领本代次，别让 play() 的拒绝再复述一遍
-    noteFail(b, '音源失效');
-    mark(false);
-    // 【不在这里 say】——下面 step(1) 会同步走到 load()，把 LCD 改成下一首的曲名，
-    // 两次写入在同一个宏任务里相隔不到 1ms，浏览器根本画不出中间那帧。
-    // 提示要交给 load() 在设好新曲名【之后】显示，见 load() 里的 skipNote。
-    if(autoStep < 5){ autoStep++; skipNote = 1; step(1); }
-    else { autoStep = 0; say('连续几首都无法试听，先停一下'); }
-  });
-  au.addEventListener('playing', function(){
-    autoStep = 0;
-    unFail(cur);                  // 真出声了，撤销之前的失败判定
-  });
-
-  function load(b){var src=b.dataset.src;
-    if(!src){ noteFail(b, '没有试听源'); say('这首没有试听源'); return; }
-    if(cur)cur.classList.remove('playing');
-    var myGen = ++gen;
-    au.src=src;cur=b;
-    if(C)C.src=b.dataset.cover||'';if(T)T.textContent=b.dataset.title||'';if(A)A.textContent=b.dataset.artist||'';
-    if(np)np.classList.add('on');
-    // 自动跳曲的说明必须在【设好新曲名之后】追加，否则会被上面那行覆盖掉、
-    // 用户看到的就是"点了第 1 首、第 2 首在放、零解释"。
-    if(skipNote){ skipNote = 0; if(A) A.textContent = '上一首取不到音源，已自动跳到这首'; }
-    // play() 返回 Promise：被浏览器策略拦下（未交互）或音源解不开时会 reject。
-    // 不接的话按钮永远停在 playing，这正是「点了没反应」的来源。
-    var pr = au.play();
-    if(pr && pr.catch) pr.catch(function(err){
-      // 已经跳到别的曲子了 —— 这条拒绝属于上一首，丢掉。
-      // （换 au.src 会让挂起的 play() 以 AbortError 拒绝，正是这条路径。）
-      if(myGen !== gen) return;
-      // error 事件已经完整处理过这一代（含"停下来"那条终止提示），别再复述
-      if(reported === myGen) return;
-      mark(false);
-      // NotAllowedError = 浏览器自动播放策略，不是音源坏，别标死
-      if(err && err.name === 'NotAllowedError'){ say('点一下播放键即可开始'); return; }
-      noteFail(b, (err && err.name) || '播放失败');
-      say('这首暂时无法试听');
-    });
-  }
-  function playCard(b){if(cur===b){if(au.paused)au.play();else au.pause();return;}load(b);}
-  function step(d){
-    if(!btns.length) return;
-    var i = cur ? btns.indexOf(cur) : -1;
-    // 跳过【已知坏链】：failed 此前只写不读，于是自动续播会一头撞进刚标死的那几首，
-    // 白白连锁跳 5 次。最多绕一整圈；整圈都坏就退回原始行为（让 error 分支去收尾，
-    // 不然这里会成死循环）。unFail() 会把恢复的曲子从 failed 里删掉，自动重新纳入。
-    for(var k = 1; k <= btns.length; k++){
-      var j = (i + d * k) % btns.length;
-      if(j < 0) j += btns.length;
-      if(!failed[btns[j].dataset.src || '']){ load(btns[j]); return; }
-    }
-    var j0 = i + d;
-    if(j0 < 0) j0 = btns.length - 1;
-    if(j0 >= btns.length) j0 = 0;
-    load(btns[j0]);
-  }
-  btns.forEach(function(b){b.addEventListener('click',function(){playCard(b);});});
-  if(TOG)TOG.addEventListener('click',function(){if(!cur){if(btns[0])load(btns[0]);return;}if(au.paused)au.play();else au.pause();});
-  if(PREV)PREV.addEventListener('click',function(){step(-1);});
-  if(NEXT)NEXT.addEventListener('click',function(){step(1);});
-  if(BAR)BAR.addEventListener('click',function(e){if(!au.duration)return;var r=BAR.getBoundingClientRect();au.currentTime=(e.clientX-r.left)/r.width*au.duration;});
-  document.addEventListener('keydown',function(e){var tag=(e.target.tagName||'').toLowerCase();if(tag==='input'||tag==='textarea')return;
-    // 浮层开着时让位：这些快捷键挂在 document 上，而 inert 只挡指针与焦点、
-    // **挡不住 document 级的键盘事件**。实测浮层里按空格：浮层不关，反而在它
-    // 背后开始放歌（左右键还能切背景曲目），而焦点明明停在关闭键上。
-    // 模态期间键盘应当只属于模态。
-    var lbx = document.getElementById('lb');
-    if(lbx && lbx.classList.contains('on')) return;
-    if(e.code==='Space'){e.preventDefault();if(!cur){if(btns[0])load(btns[0]);}else if(au.paused)au.play();else au.pause();}
-    else if(e.key==='ArrowRight'){step(1);}else if(e.key==='ArrowLeft'){step(-1);}});
-})();
-
-// 分享：navigator.share 是移动端原生分享面板（微信/微博/AirDrop 一键直达）。
-// 桌面浏览器大多不支持，此时退回「复制链接」——但【按钮默认 hidden】、
-// 只在确认有能力时才显示，避免点了没反应。
-(function(){
-  var b = document.getElementById('share-btn');
-  if(!b) return;
-  var canShare = !!(navigator.share);
-  var canCopy  = !!(navigator.clipboard && navigator.clipboard.writeText);
-  if(!canShare && !canCopy) return;          // 两样都没有就不显示这个按钮
-  b.hidden = false;
-  if(!canShare) b.textContent = '复制本期链接';
-  b.addEventListener('click', function(){
-    var url = location.href.split('#')[0];
-    var title = document.title;
-    var text = (document.querySelector('meta[property="og:description"]')||{}).content || '';
-    if(canShare){
-      // share() 被用户取消也会 reject（AbortError），那不是错误，别提示
-      navigator.share({title: title, text: text, url: url}).catch(function(e){
-        if(e && e.name === 'AbortError') return;
-        if(canCopy) fallbackCopy(url, b);
-      });
-      return;
-    }
-    fallbackCopy(url, b);
-  });
-  function fallbackCopy(url, btn){
-    navigator.clipboard.writeText(url).then(function(){
-      var o = btn.textContent;
-      btn.textContent = '链接已复制 ✓';
-      setTimeout(function(){ btn.textContent = o; }, 1800);
-    }).catch(function(){
-      var o = btn.textContent;
-      btn.textContent = '复制失败，请手动复制地址栏';
-      setTimeout(function(){ btn.textContent = o; }, 2400);
-    });
-  }
-})();
-
-// heart 收藏：localStorage 跨期累计 + 只看收藏 + 导出网易云
-(function(){
-  var KEY='md_hearts';
-  function ld(){try{return JSON.parse(localStorage.getItem(KEY)||'[]');}catch(e){return [];}}
-  function sv(a){try{localStorage.setItem(KEY,JSON.stringify(a));}catch(e){}}
-  var hearts=ld(), nEl=document.getElementById('fav-n');
-  function applyFilter(){var on=document.body.classList.contains('fav-mode');
-    document.querySelectorAll('.mod').forEach(function(m){if(m.classList.contains('fill'))return;
-      m.classList.toggle('hidden', on && hearts.indexOf(m.dataset.k)<0);});}
-  function pageHits(){var n=0;document.querySelectorAll('.mod').forEach(function(m){
-    if(!m.classList.contains('fill') && m.dataset.k && hearts.indexOf(m.dataset.k)>=0)n++;});return n;}
-  function refresh(){document.querySelectorAll('.heart').forEach(function(h){h.classList.toggle('on',hearts.indexOf(h.dataset.k)>=0);});
-    if(nEl)nEl.textContent=pageHits();}   /* 数本页命中，不数跨期总收藏——按钮做的是本页筛选 */
-  document.querySelectorAll('.heart').forEach(function(h){h.addEventListener('click',function(){
-    var k=h.dataset.k,i=hearts.indexOf(k);if(i>=0)hearts.splice(i,1);else hearts.push(k);sv(hearts);refresh();applyFilter();});});
-  var only=document.getElementById('fav-only');
-  /* 只改 label 文本，不用 innerHTML 整体替换 —— 那会把 #fav-n 换成新节点，
-     JS 手里的 nEl 变成游离引用，之后 refresh() 全写进空气里。 */
-  var lbEl=document.getElementById('fav-lb');
-  function hint(msg){if(!lbEl)return; var o=lbEl.textContent; lbEl.textContent=msg;
-    if(nEl)nEl.style.display='none';
-    setTimeout(function(){lbEl.textContent=o;if(nEl)nEl.style.display='';refresh();},1900);}
-  if(only)only.addEventListener('click',function(){
-    if(!document.body.classList.contains('fav-mode') && pageHits()===0){
-      /* 判「本页有没有命中」而不是「有没有收藏过」：只在往期收藏过时，本页筛完是空的 */
-      hint(hearts.length ? '\u672c\u671f\u6ca1\u6709\u6536\u85cf \u00b7 \u5f80\u671f ARCHIVE \u91cc\u6709 '+hearts.length+' \u9996'
-                         : '\u8fd8\u6ca1\u6536\u85cf \u00b7 \u70b9\u5361\u7247\u53f3\u4e0a\u89d2 \u2665'); return;}
-    document.body.classList.toggle('fav-mode');
-    only.classList.toggle('active',document.body.classList.contains('fav-mode'));applyFilter();});
-  var exp=document.getElementById('fav-export'), box=document.getElementById('fav-box'), txt=document.getElementById('fav-text');
-  if(exp)exp.addEventListener('click',function(){
-    txt.textContent=hearts.length?('我收藏的 · MUSIC DAILY（含往期，共 '+hearts.length+' 首）\\n'+hearts.join('\\n')):'（还没有收藏。点每首右上角的 heart 即可）';
-    box.style.display='block';box.scrollIntoView({behavior:'smooth'});});
-  refresh();
-})();
-function copyFav(){var t=document.getElementById('fav-text').innerText;
-  navigator.clipboard.writeText(t).then(function(){var b=document.getElementById('fav-copy'),o=b.innerText;
-    b.innerText='copied \u2713';setTimeout(function(){b.innerText=o;},1600);});}
-"""
+JS = Path(__file__).with_name("daily_interactions.js").read_text(encoding="utf-8")
 
 
 def _esc(s) -> str:
@@ -881,9 +729,9 @@ def _art(track: dict) -> str:
             f'data-cover="{_esc(art)}" data-title="{_esc(track.get("title",""))}" '
             f'data-artist="{_esc(track.get("artist",""))}" aria-label="试听 30 秒">'
             f'{ICON_PLAY}{ICON_PAUSE}</button>') if prev else ""
-    return (f'<div class="art cover-zoom" role="button" tabindex="0"'
-            f' aria-label="看大图与详情"{_lb_data(track, ARTIST_CTX.get(track.get("artist", "")))}>'
-            f'{cover}{pbtn}</div>')
+    return (f'<div class="art"><button class="cover-zoom" type="button"'
+            f' aria-label="查看 {_esc(track.get("title", ""))} 详情"{_lb_data(track, ARTIST_CTX.get(track.get("artist", "")))}>'
+            f'{cover}</button>{pbtn}</div>')
 
 
 def _mod(track: dict, idx: int) -> str:
@@ -914,7 +762,7 @@ def _mod(track: dict, idx: int) -> str:
         <span class="m-num">{idx:02d}</span>
         <span style="display:flex; align-items:center">
           <span class="m-code" style="background:{_knob(g0)}">{_esc(g0)}</span>
-          <button class="heart" type="button" data-k="{_esc(key)}" aria-label="收藏">{ICON_HEART}</button>
+          <button class="heart" type="button" data-k="{_esc(key)}" aria-label="收藏 {_esc(track['title'])}" aria-pressed="false">{ICON_HEART}</button>
         </span>
       </div>
       <div class="m-main">
@@ -929,8 +777,7 @@ def _mod(track: dict, idx: int) -> str:
       <div class="body">
         <div class="one">{_esc(track.get('artist_oneliner',''))}</div>
         <div class="why">{_esc(track.get('why',''))}</div>
-        <div class="scene"><span class="k">use ▸</span> {_esc(track.get('scene',''))}</div>
-        <div class="links">{''.join(links)}</div>
+        {('<div class="scene"><span class="k">use ▸</span> ' + _esc(track['scene']) + '</div>') if track.get('scene') else ''}<div class="links">{''.join(links)}</div>
         <div class="src">src · {src}</div>
       </div>
     </article>"""
@@ -951,6 +798,9 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
     nc = _esc(netease_text)
     js = JS
     n = len(tracks)
+    pending = sum(t.get("selection_status") == "discovery_not_curated" for t in tracks)
+    heading = "今日新发现" if pending == n and n else ("今日推荐" if pending else "今日精选")
+    edition_note = f"本期 {pending} 首新发现 · 资料已核对，听感待精选" if pending else "today's selection · daily music report"
     ymd = date_str.replace("-", ".")
 
     # ── Open Graph 的四个值 ──────────────────────────────────
@@ -1030,19 +880,20 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
 <style>{CSS}{LIGHTBOX_CSS}</style>
 </head>
-<body>
+<body class="daily-page">
 <nav class="nav">
   <div class="wrap">
-    <div class="brand"><span class="sq"></span>MUSIC DAILY</div>
-    <div class="serial"><span>model <b>md-{n:02d}</b></span><span>issue <b>{issue_no:03d}</b></span><span>date <b>{ymd}</b></span></div>
+    <a class="brand" href="{up}index.html" aria-label="MUSIC DAILY 首页"><span class="sq"></span>MUSIC DAILY</a>
+    <div class="serial nav-meta"><span>issue <b>{issue_no:03d}</b></span><span>{ymd}</span></div>
+    <div class="site-links" aria-label="页面导航"><a href="{up}daily.html" aria-current="page">今日</a><a href="{random_href}">随机</a><a href="{archive_href}">往期</a><a href="{up}legacy/{'archive/' + date_str + '.html' if _in_archive else 'daily.html'}">旧版</a></div>
   </div>
 </nav>
 
 <main class="wrap">
   <div class="hero">
     <div class="h-l">
-      <h1 class="lc">今日精选</h1>
-      <div class="en">today's selection · daily music report</div>
+      <h1 class="lc">{heading}</h1>
+      <div class="en">{edition_note}</div>
     </div>
     <div class="h-r"><span class="big">{n:02d}</span>tracks / daily<br>{ymd}</div>
   </div>
@@ -1053,23 +904,24 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
   </div>
 
   <div class="spec">
-    <div>sort <b>melody-first</b></div><div>bpm <b>70–120</b></div>
+    <div>sort <b>{'new discovery' if pending else 'melody-first'}</b></div><div>bpm <b>{'待核实' if pending else '70–120'}</b></div>
     <div>tracks <b>{n:02d}</b></div><div>genres <b>{genre_line or '—'}</b></div>
   </div>
 
   <div class="tools">
-    <button class="tbtn" id="fav-only" type="button"><span id="fav-lb">♥ 只看收藏</span> <span id="fav-n">0</span></button>
+    <label class="track-search"><span>本期搜索</span><input id="track-search" type="search" placeholder="歌名、艺人、风格" autocomplete="off"></label>
+    <button class="tbtn" id="fav-only" type="button" aria-pressed="false"><span id="fav-lb">♥ 只看收藏</span> <span id="fav-n">0</span></button>
     <button class="tbtn line" id="fav-export" type="button">导出收藏</button>
-    <a class="tbtn line" href="{archive_href}">往期 archive ↗</a>
-    <a class="tbtn line" href="{random_href}">听点别的 shuffle ↗</a>
     <button class="tbtn line" id="share-btn" type="button" hidden>分享这期</button>
     {nav_prev}{nav_next}
   </div>
+  <p class="filter-note" id="filter-note" role="status"></p>
 
   <div class="sect">tracklist</div>
   <div class="grid">
     {mods}
   </div>
+  <div class="empty-list" id="empty-list" hidden><p id="empty-message"></p><button class="tbtn" id="filter-reset" type="button">显示本期全部</button></div>
 
   <section class="export">
     <div class="h">data export · 网易云导入 <span>format: title - artist</span></div>
@@ -1096,19 +948,19 @@ def build_html(date_str: str, tracks: list[dict], issue_no: int, netease_text: s
   </footer>
 </main>
 
-<div id="np" aria-live="polite">
+<div id="np" role="region" aria-label="试听播放器" aria-busy="false">
   <img id="np-cover" alt="">
-  <div id="np-meta"><div id="np-title" class="lc"></div><div id="np-artist"></div></div>
+  <div id="np-meta" aria-live="polite"><div id="np-title" class="lc"></div><div id="np-artist"></div></div>
   <button id="np-prev" class="np-btn" type="button" aria-label="上一首">{ICON_PREV}</button>
   <button id="np-toggle" class="np-btn" type="button" aria-label="播放/暂停">{ICON_PLAY}{ICON_PAUSE}</button>
   <button id="np-next" class="np-btn" type="button" aria-label="下一首">{ICON_NEXT}</button>
-  <div id="np-bar"><div id="np-fill"></div></div>
+  <input id="np-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="试听进度" disabled>
   <span id="np-time" class="mono">0:00 / 0:00</span>
 </div>
 
 {LIGHTBOX_HTML}
 <script>{js}</script>
-<script>{lightbox_js('.art')}</script>
+<script>{lightbox_js('.cover-zoom', up + 'random.html')}</script>
 <script>{NETEASE_OPEN_JS}</script>
 </body>
 </html>"""
@@ -1150,10 +1002,11 @@ def build_archive_index(issues: list[dict]) -> str:
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
 <style>{CSS}{LIGHTBOX_CSS}</style>
 </head>
-<body>
+<body class="archive-page">
 <nav class="nav"><div class="wrap">
-  <div class="brand"><span class="sq"></span>MUSIC DAILY</div>
-  <div class="serial"><span>archive</span><span>共 <b>{len(issues)}</b> 期</span></div>
+  <a class="brand" href="../index.html" aria-label="MUSIC DAILY 首页"><span class="sq"></span>MUSIC DAILY</a>
+  <div class="serial nav-meta"><span>共 <b>{len(issues)}</b> 期</span></div>
+  <div class="site-links" aria-label="页面导航"><a href="../daily.html">今日</a><a href="../random.html">随机</a><a href="index.html" aria-current="page">往期</a><a href="../legacy/archive/index.html">旧版</a></div>
 </div></nav>
 <main class="wrap">
   <div class="hero"><div class="h-l"><h1 class="lc">往期</h1>

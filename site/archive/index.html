@@ -57,7 +57,7 @@
      2026-08-03 实测（CDP getPlatformFontsForNode）：页面 44 处中文都在这条栈上，
      全部走了系统回退。Noto Sans SC 本来已在 --sans 里引过，复用不增加网络请求。 */
   --mono:"Space Mono","JetBrains Mono","Noto Sans SC",ui-monospace,Menlo,monospace;
-  --fs-10:clamp(11px,.92vw,13px); --fs-15:clamp(12px,1.1vw,15px);
+  --fs-10:clamp(11px,.92vw,13px); --fs-15:clamp(14px,1.1vw,15px);
   --fs-20:clamp(15px,1.5vw,20px); --fs-25:clamp(19px,2.1vw,27px);
   --fs-30:clamp(23px,2.7vw,36px); --fs-40:clamp(34px,5vw,68px);
   --sp-xs:clamp(4px,.5vw,6px); --sp-sm:clamp(8px,1vw,12px);
@@ -286,13 +286,14 @@ a{color:inherit; text-decoration:none}
 .m-code{display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:var(--fs-10);
   text-transform:uppercase; color:var(--white); padding:3px 8px}
 .m-main{display:flex; gap:var(--sp-md); padding:var(--sp-md) var(--sp-md) 0}
-.art{position:relative; width:clamp(84px,9vw,104px); aspect-ratio:1; flex:none}
+.art{position:relative; width:clamp(84px,9vw,104px); aspect-ratio:1; flex:none; align-self:flex-start}
+.art>button.cover-zoom{display:block; width:100%; height:100%; border:0; padding:0; background:transparent; cursor:pointer; color:inherit}
 .cover{width:100%; height:100%; object-fit:cover; display:block; background:var(--g100);
   border:1px solid var(--g100); transition:opacity .2s}
 .cover.ph{display:grid; place-items:center; font-family:var(--mono); font-size:var(--fs-30);
   color:var(--white); background:var(--ink); border:none}
 .art:hover .cover{opacity:.82}
-.pbtn{position:absolute; left:6px; bottom:6px; width:26px; height:26px; display:grid; place-items:center;
+.pbtn{position:absolute; left:4px; bottom:4px; width:40px; height:40px; display:grid; place-items:center;
   background:var(--ink); color:var(--white); border:none; padding:0; cursor:pointer; opacity:.9;
   transition:transform .15s, opacity .2s, background .2s}
 .pbtn:hover{opacity:1}
@@ -335,7 +336,7 @@ a{color:inherit; text-decoration:none}
 #np-time{flex:none; min-width:82px; text-align:right; font-family:var(--mono); font-size:var(--fs-10); color:var(--g300)}
 @media(max-width:720px){#np-meta{width:clamp(90px,32vw,160px)} #np-time{display:none}}
 #np-prev,#np-next{width:30px; height:30px} #np-prev svg,#np-next svg{width:12px; height:10px}
-.heart{background:none; border:none; padding:0 0 0 8px; cursor:pointer; line-height:0}
+.heart{background:none; border:none; padding:0; margin-left:4px; width:44px; height:40px; flex:none; cursor:pointer; line-height:0}
 .heart svg{width:18px; height:18px; fill:var(--g300); transition:fill .15s, transform .15s}
 .heart:hover svg{fill:var(--g600)}
 .heart.on svg{fill:var(--red)}
@@ -355,7 +356,7 @@ a{color:inherit; text-decoration:none}
 .arc .no{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); flex:none}
 .arc .t{font-size:var(--fs-15); font-weight:300; color:var(--g900); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 .hd{flex:1; min-width:0}
-.title{font-size:var(--fs-25); font-weight:100; line-height:1.12; letter-spacing:-.01em}
+.title{font-size:var(--fs-25); font-weight:300; line-height:1.25; letter-spacing:-.01em; overflow-wrap:anywhere}
 .artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
   margin-top:5px; letter-spacing:.09em}
 .meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:7px; line-height:1.6}
@@ -366,7 +367,7 @@ a{color:inherit; text-decoration:none}
   background:var(--g100); color:var(--g900)}
 .body{padding:var(--sp-md); display:flex; flex-direction:column; flex:1}
 .one{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); line-height:1.65; margin-bottom:7px}
-.why{font-size:var(--fs-15); font-weight:300; line-height:1.55}
+.why{font-size:var(--fs-15); font-weight:300; line-height:1.7}
 .scene{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
   margin-top:auto; padding-top:11px}
 .scene .k{color:var(--orange)}
@@ -435,17 +436,87 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
   .tools{gap:7px}
   .tools .tbtn{flex:1 1 calc(50% - 4px); justify-content:center; padding:9px 8px; font-size:10px}
   /* 卡片：封面与文字改上下叠，封面横铺（竖屏并排 130px 封面太憋） */
-  .m-main{flex-direction:column !important; gap:12px; padding:12px 12px 0}
-  .m-main .art{width:100%; aspect-ratio:16/10}
-  .m-top{padding:10px 12px}
-  .body{padding:0 12px 12px}
+  .m-main{flex-direction:row; gap:12px; padding:12px 12px 0}
+  .m-main .art{width:88px; aspect-ratio:1}
+  .m-top{padding:4px 8px 4px 12px}
+  .body{padding:12px}
   /* LCD：猫和跑马灯在窄屏共存，缩小猫舞台 */
   .lcd .row1{min-height:40px; padding:7px 12px; gap:7px}
   .lcd .cat-wrap{transform:scale(.85); transform-origin:center bottom}
   footer{flex-direction:column; gap:6px; text-align:center}
 }
+/* 原有铭牌、网格与色盘内的操作细节。 */
+button,input,select,a{-webkit-tap-highlight-color:transparent; touch-action:manipulation}
+button,input,select{font:inherit}
+.nav .wrap{gap:16px}
+.nav .site-links{display:flex; gap:18px; margin-left:auto; flex:none; font:12px var(--mono)}
+.nav .site-links a{display:flex; align-items:center; min-height:44px; border-bottom:2px solid transparent; color:var(--g200)}
+.nav .site-links a:hover,.nav .site-links a[aria-current=page]{color:var(--white); border-bottom-color:var(--orange)}
+.nav .nav-meta{font-size:10px; flex:none}
+.daily-page .hero{padding-top:clamp(22px,3vw,36px)}
+.daily-page .m-top{padding-block:4px}
+.daily-page .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.daily-page .one{color:#666; line-height:1.75}
+.daily-page .src{color:var(--g600)}
+.daily-page .tools .tbtn,.daily-page .links .btn{min-height:40px; display:inline-flex; align-items:center; justify-content:center}
+.track-search{display:flex; flex:1 1 210px; align-items:center; gap:8px; border:1px solid var(--g300); padding:0 10px; min-height:40px}
+.track-search span{font:11px var(--mono); color:var(--g600); flex:none}
+.track-search input{min-width:0; width:100%; border:0; border-radius:0; background:transparent; color:var(--ink); font-size:14px; padding:8px 0}
+.track-search:focus-within{outline:2px solid var(--orange); outline-offset:1px}
+.track-search input:focus-visible{outline:none}
+.filter-note{font:11px var(--mono); color:var(--g600); margin-top:10px; min-height:17px}
+.empty-list{padding:24px 16px; border:1px solid var(--g300); text-align:center; font-size:14px}
+.empty-list button{margin-top:12px}
+.daily-page #np{gap:10px}
+.daily-page .np-btn,.daily-page #np-prev,.daily-page #np-next{width:44px; height:44px}
+.daily-page #np-meta{width:clamp(110px,20vw,240px)}
+#np-seek{flex:1; min-width:60px; width:100%; height:28px; accent-color:var(--green); cursor:pointer}
+.daily-page #np[aria-busy=true] #np-toggle{background:var(--g900)}
+.daily-page .pbtn.loading{background:var(--g900)}
+.daily-page .pbtn.loading::after{content:'…'; position:absolute; inset:0; display:grid; place-items:center; font-size:20px}
+.daily-page .pbtn.loading svg{visibility:hidden}
+.daily-page .export,.mod{scroll-margin-top:84px}
+.arc a{min-height:64px}
+.archive-page{padding-bottom:var(--sab)}
+@media(max-width:900px){.nav .nav-meta{display:none}}
+@media(max-width:720px){
+  .daily-page .grid{grid-template-columns:1fr}
+  .daily-page #np{height:calc(92px + var(--sab)); padding:8px calc(12px + var(--sar)) calc(28px + var(--sab)) calc(12px + var(--sal)); gap:6px}
+  .daily-page{--np-h:92px}
+  .daily-page #np-cover{width:40px; height:40px}
+  .daily-page #np-meta{flex:1; width:auto}
+  .daily-page #np-artist{letter-spacing:.02em}
+  #np-seek{position:absolute; bottom:var(--sab); left:calc(12px + var(--sal)); width:calc(100% - 24px - var(--sal) - var(--sar)); margin:0; height:28px}
+  .arc a{display:grid; grid-template-columns:1fr auto; gap:4px 12px; padding:12px}
+  .arc .t{grid-column:1 / -1; white-space:normal; font-size:13px; line-height:1.6}
+}
+@media(max-width:520px){
+  .nav .wrap{gap:8px}
+  .nav .site-links{gap:10px; font-size:11px}
+  .daily-page .hero{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:10px; padding:20px 0 14px}
+  .daily-page .hero .h-l h1{font-size:32px}
+  .daily-page .hero .h-l .en{max-width:190px; font-size:10px; line-height:1.6}
+  .daily-page .hero .h-r{font-size:10px}
+  .daily-page .hero .h-r .big{display:block; margin:0 0 4px; font-size:32px}
+  .daily-page .spec{grid-template-columns:1fr 1fr 1fr}
+  .daily-page .spec div{padding:7px 9px; font-size:10px; flex-wrap:wrap; gap:0 5px; border-right:1px solid var(--g100); border-bottom:1px solid var(--g100)}
+  .daily-page .spec div:nth-child(3){border-right:0}
+  .daily-page .spec div:last-child{grid-column:1 / -1; border:0}
+  .daily-page .tools{gap:6px}
+  .daily-page .track-search{flex-basis:100%; min-height:44px}
+  .daily-page .track-search input{font-size:16px}
+  .daily-page .tools .tbtn{flex:1 1 auto; min-height:44px; font-size:11px}
+  .daily-page .links .btn{flex:1; min-height:44px; padding:8px}
+  .daily-page .title{font-size:21px}
+  .daily-page .meta{line-height:1.65; overflow-wrap:anywhere}
+  .daily-page .tags{gap:4px}
+  .daily-page .tag{font-size:10px; padding:2px 5px}
+  .daily-page .m-main .art{width:88px}
+  .daily-page .m-code{max-width:210px; font-size:10px}
+  .daily-page .export .h{align-items:flex-start; flex-direction:column; gap:4px}
+}
 @media(prefers-reduced-motion:reduce){
-  .mod{opacity:1; transform:none; transition:none}
+  .anim .mod,.anim .mod.in{opacity:1; transform:none; transition:none}
   .track,.dot,.rec,.pose,.p-sleep,.cat-wrap,.cat-move,.cat-eyes,.cat-tail,.prop{animation:none}
   .pose{opacity:0}
   .p-stand{opacity:1}
@@ -458,18 +529,19 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
    这比顶栏被埋严重得多（顶栏只是看不见，浮层是操作不了）。
    变量在 render_grid 的 :root 里定义，本文件的样式注入同一个文档，直接继承。 */
 #lb{position:fixed; inset:0; z-index:2000; display:none;
-  padding:calc(clamp(14px,4vw,40px) + var(--sat, 0px))
-          calc(clamp(14px,4vw,40px) + var(--sar, 0px))
-          calc(clamp(14px,4vw,40px) + var(--sab, 0px))
-          calc(clamp(14px,4vw,40px) + var(--sal, 0px));
-  align-items:center; justify-content:center}
+  padding:calc(clamp(12px,3vw,28px) + var(--sat, 0px))
+          calc(clamp(12px,3vw,28px) + var(--sar, 0px))
+          calc(clamp(12px,3vw,28px) + var(--sab, 0px))
+          calc(clamp(12px,3vw,28px) + var(--sal, 0px));
+  align-items:center; justify-content:center; overscroll-behavior:contain}
 #lb.on{display:flex}
 #lb .veil{position:absolute; inset:0; background:rgba(10,9,12,.86);
   backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px);
   animation:lb-veil .26s ease-out both}
 @keyframes lb-veil{from{opacity:0}to{opacity:1}}
-#lb .sheet{position:relative; z-index:1; width:min(880px,100%); max-height:92svh;
-  display:grid; grid-template-columns:minmax(0,300px) minmax(0,1fr);
+#lb .sheet{position:relative; z-index:1; width:min(820px,100%);
+  max-height:calc(100svh - 2 * clamp(12px,3vw,28px) - var(--sat, 0px) - var(--sab, 0px));
+  display:grid; grid-template-columns:minmax(0,280px) minmax(0,1fr);
   background:var(--paper); border:1px solid var(--g1000); overflow:hidden;
   animation:lb-in .38s cubic-bezier(.16,1,.3,1) both}
 @keyframes lb-in{from{opacity:0; transform:translateY(14px) scale(.965)}
@@ -487,15 +559,18 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
   background:linear-gradient(transparent,rgba(0,0,0,.78) 40%);
   display:flex; justify-content:space-between; gap:10px}
 /* 右：详情 */
-#lb .info{padding:clamp(18px,2.6vw,28px); overflow:auto; display:flex; flex-direction:column}
+#lb .info{padding:clamp(18px,2.6vw,24px); min-height:0; min-width:0;
+  overflow:auto; overscroll-behavior:contain; scrollbar-width:thin;
+  display:flex; flex-direction:column}
 #lb .kicker{font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.16em;
-  text-transform:uppercase; color:var(--g600); display:flex; align-items:center; gap:9px}
+  text-transform:uppercase; color:var(--g600); display:flex; align-items:center; gap:9px;
+  padding-right:28px}
 #lb .kicker::after{content:""; flex:1; height:1px; background:var(--g200)}
 #lb h3{font-size:clamp(26px,3.4vw,36px); font-weight:100; line-height:1.24;
   letter-spacing:-.015em; margin-top:11px; text-transform:lowercase;
-  padding-bottom:.1em; overflow:visible}
+  padding-bottom:.1em; overflow:visible; overflow-wrap:anywhere}
 #lb .ar{font-family:var(--mono); font-size:var(--fs-15); text-transform:uppercase;
-  letter-spacing:.1em; color:var(--g900); margin-top:5px}
+  letter-spacing:.1em; color:var(--g900); margin-top:5px; overflow-wrap:anywhere}
 #lb .meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
   margin-top:11px; line-height:1.7}
 #lb .tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:12px}
@@ -511,8 +586,9 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 #lb .sec#lb-bio-w{margin-top:14px}
 /* 本站收录的曲目：可点，跳到那一首 */
 #lb .pool{display:flex; flex-wrap:wrap; gap:5px}
-#lb .pool a{font-family:var(--mono); font-size:9px; letter-spacing:.04em;
+#lb .pool a{font-family:var(--mono); font-size:10px; letter-spacing:.04em;
   border:1px solid var(--g200); padding:4px 8px; color:var(--g900); background:var(--white);
+  display:inline-flex; align-items:center; min-height:32px; overflow-wrap:anywhere;
   transition:background .14s, color .14s}
 #lb .pool a:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
 #lb .pool a.cur{background:var(--ink); color:var(--white); border-color:var(--ink)}
@@ -526,13 +602,15 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 #lb .lb-links{display:flex; flex-wrap:wrap; gap:7px; margin-top:auto; padding-top:20px}
 #lb .lb-links a{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
   letter-spacing:.06em; border:1px solid var(--g300); padding:8px 13px; color:var(--ink);
+  display:inline-flex; align-items:center; min-height:44px;
   transition:background .15s, border-color .15s}
 #lb .lb-links a:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
-#lb .x{position:absolute; right:0; top:0; z-index:3; width:42px; height:42px;
+#lb .x{position:absolute; right:0; top:0; z-index:3; width:44px; height:44px;
   border:none; border-left:1px solid var(--g200); border-bottom:1px solid var(--g200);
   background:var(--paper); color:var(--ink); cursor:pointer; font-family:var(--mono);
   font-size:16px; line-height:1; transition:background .15s}
 #lb .x:hover{background:var(--ink); color:var(--white)}
+#lb a:focus-visible,#lb button:focus-visible{outline:2px solid var(--orange); outline-offset:-3px}
 /* 封面可点：给个手型 + 悬停微亮 + 右下角放大镜提示 */
 .cover-zoom{cursor:zoom-in}
 .cover-zoom::after{content:"⤢"; position:absolute; right:6px; bottom:6px; z-index:2;
@@ -541,8 +619,9 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
   pointer-events:none}
 .cover-zoom:hover::after{opacity:1}
 @media(max-width:720px){
-  #lb .sheet{grid-template-columns:1fr; max-height:88svh; overflow:auto}
-  #lb .big{aspect-ratio:16/11}
+  #lb .sheet{grid-template-columns:1fr; grid-template-rows:auto minmax(0,1fr)}
+  /* 方形封面完整显示；只有详情滚动，关闭键始终留在右上角。 */
+  #lb .big{width:min(220px,32svh,100%); aspect-ratio:1; justify-self:center; margin-top:12px}
   #lb .info{padding:16px}
   #lb h3{font-size:24px}
 }
@@ -551,10 +630,11 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
 }
 </style>
 </head>
-<body>
+<body class="archive-page">
 <nav class="nav"><div class="wrap">
-  <div class="brand"><span class="sq"></span>MUSIC DAILY</div>
-  <div class="serial"><span>archive</span><span>共 <b>46</b> 期</span></div>
+  <a class="brand" href="../index.html" aria-label="MUSIC DAILY 首页"><span class="sq"></span>MUSIC DAILY</a>
+  <div class="serial nav-meta"><span>共 <b>46</b> 期</span></div>
+  <div class="site-links" aria-label="页面导航"><a href="../daily.html">今日</a><a href="../random.html">随机</a><a href="index.html" aria-current="page">往期</a><a href="../legacy/archive/index.html">旧版</a></div>
 </div></nav>
 <main class="wrap">
   <div class="hero"><div class="h-l"><h1 class="lc">往期</h1>
@@ -562,7 +642,7 @@ footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; mar
     <div class="h-r"><span class="big">46</span>issues<br><a href="../daily.html" style="border-bottom:1px solid var(--g300)">← 最新一期</a></div>
   </div>
   <div class="arc">
-    <a href="2026-09-11.html"><span class="d">2026-09-11</span><span class="no">issue 046 / 30首</span><span class="t">电子像呼吸的那种（09.11）</span></a>
+    <a href="2026-09-11.html"><span class="d">2026-09-11</span><span class="no">issue 046 / 30首</span><span class="t">今天第一次推荐的 30 首（09.11）</span></a>
 <a href="2026-09-10.html"><span class="d">2026-09-10</span><span class="no">issue 045 / 30首</span><span class="t">一个人也不觉得空的房间（09.10）</span></a>
 <a href="2026-09-09.html"><span class="d">2026-09-09</span><span class="no">issue 044 / 30首</span><span class="t">有点甜，但克制着（09.09）</span></a>
 <a href="2026-09-08.html"><span class="d">2026-09-08</span><span class="no">issue 043 / 30首</span><span class="t">凌晨两点，只留一盏灯（09.08）</span></a>

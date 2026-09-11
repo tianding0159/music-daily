@@ -18,8 +18,11 @@ on:
     paths:
       - "site/**"
       - "scripts/render_*.py"
+      - "scripts/daily_interactions.js"
       - "scripts/lightbox.py"
       - "scripts/build_daily.py"
+      - "scripts/picker.py"
+      - "scripts/check_daily_freshness.py"
       - "data/discovery.json"
   workflow_dispatch:
 
@@ -89,9 +92,12 @@ jobs:
           fi
 
       - name: 检查 site/ 有内容
+        # 发布已生成内容之前验证新规则下没有重复推荐。
         # 清单是 tools/check_site_assets.sh（唯一来源）——daily.yml 调的是同一个脚本。
         # 复制一份清单到第二个 workflow 会立刻开始漂移。
-        run: ./tools/check_site_assets.sh
+        run: |
+          python3 scripts/check_daily_freshness.py
+          ./tools/check_site_assets.sh
 
       - uses: actions/upload-pages-artifact@v3
         with:
