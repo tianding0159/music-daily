@@ -1,38 +1,39 @@
 {
-  "date": "2026-09-12",
-  "issue_no": 47,
-  "playlist_title": "今天第一次推荐的 30 首（09.12）",
-  "tracks_brief": [
-    {
-      "title": "Busstop",
-      "artist": "Jitwam"
-    },
-    {
-      "title": "(You Keep Me) Hangin' On",
-      "artist": "Ann Peebles"
-    },
-    {
-      "title": "Weary",
-      "artist": "Solange"
-    },
-    {
-      "title": "Montego Sunset",
-      "artist": "Menahan Street Band"
-    },
-    {
-      "title": "Slow Down",
-      "artist": "Mac Ayres"
-    },
-    {
-      "title": "Bar 'L' Len",
-      "artist": "Kohsuke Mine"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [
-    "bright保底(+5)"
-  ],
-  "fresh_build": true,
-  "selection_policy": "never_repeat_v1"
+ "date": "2026-09-12",
+ "issue_no": 47,
+ "playlist_title": "今天第一次推荐的 30 首（09.12）",
+ "tracks_brief": [
+  {
+   "title": "Busstop",
+   "artist": "Jitwam"
+  },
+  {
+   "title": "(You Keep Me) Hangin' On",
+   "artist": "Ann Peebles"
+  },
+  {
+   "title": "Weary",
+   "artist": "Solange"
+  },
+  {
+   "title": "Montego Sunset",
+   "artist": "Menahan Street Band"
+  },
+  {
+   "title": "Slow Down",
+   "artist": "Mac Ayres"
+  },
+  {
+   "title": "Bar 'L' Len",
+   "artist": "Kohsuke Mine"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [
+  "bright保底(+5)"
+ ],
+ "fresh_build": true,
+ "selection_policy": "never_repeat_v1",
+ "notified": "2026-09-12"
 }
