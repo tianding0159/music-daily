@@ -1,0 +1,551 @@
+{
+  "issue_no": 47,
+  "date": "2026-09-12",
+  "generated_at": "2026-09-12T00:00:45+00:00",
+  "theme": "grid",
+  "playlist_title": "今天第一次推荐的 30 首（09.12）",
+  "netease_text": "今天第一次推荐的 30 首（09.12）\nBusstop - Jitwam\n(You Keep Me) Hangin' On - Ann Peebles\nWeary - Solange\nMontego Sunset - Menahan Street Band\nSlow Down - Mac Ayres\nBar 'L' Len - Kohsuke Mine\nIn The Night-Time - Michael Henderson\nDopamine - Kim Oki\nLay It on the Line - Logg\nDirtbag Transformation (Still Dirty) - Horsegirl\nMoon View - Emily A. Sprague\nGuarantee That I’d Be Loved - Sondre Lerche\nRemain - Jay Som\nHome Away From Home - Arthur Russell\nWintergreen - Roger Eno & Brian Eno\nDefective - Medicine\nChong Wang - Yin Yin\nInharmonious Slog - Photay\nTracking Elevator - Shugo Tokumaru\nInclude Me Out - Young Marble Giants\nEasy to Forget (feat. Ariel Pink) - Drugdealer\nAny Other Way - Tomberlin\nforwards beckon rebound - Adrianne Lenker\nCherry Blossom - Matthew Halsall\nDon't Be Right - Nap Eyes\nTonite It Shows - Mercury Rev\nI FEEL LOVE - Yukika\nWow and Flutter - Stereolab\nSlow Ascent - Marisa Anderson\nBlack Dove (feat. Sudan Archives) - Teebs",
+  "tracks": [
+    {
+      "id": "apple:1452887648",
+      "title": "Busstop",
+      "artist": "Jitwam",
+      "selection_status": "discovery_not_curated",
+      "album": "Honeycomb",
+      "year": "2019",
+      "genres": [
+        "neo-soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/busstop/1452887644?i=1452887648&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/2a/0b/af/2a0baf74-3875-7165-4a93-17d9223de3d1/0730003681004.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7b/1a/36/7b1a3600-88a2-125a-db0c-d444ee6a6ed3/mzaf_16106953884584793308.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/busstop/1452887644?i=1452887648&uo=4"
+    },
+    {
+      "id": "apple:1074125640",
+      "title": "(You Keep Me) Hangin' On",
+      "artist": "Ann Peebles",
+      "selection_status": "discovery_not_curated",
+      "album": "I Can't Stand the Rain",
+      "year": "1974",
+      "genres": [
+        "soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/you-keep-me-hangin-on/1074125635?i=1074125640&uo=4",
+      "why": "曲目资料已核对；1974 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/69/46/67/694667cd-9ac2-db7f-41c5-35b9c1e7ba78/886445697872.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/de/7a/a7/de7aa7d0-ac33-3813-dead-12d472ddef94/mzaf_18267359316523517048.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/you-keep-me-hangin-on/1074125635?i=1074125640&uo=4"
+    },
+    {
+      "id": "apple:1159507280",
+      "title": "Weary",
+      "artist": "Solange",
+      "selection_status": "discovery_not_curated",
+      "album": "A Seat at the Table",
+      "year": "2016",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/weary/1159507212?i=1159507280&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/76/2b/c4/762bc430-fae3-3262-ef16-bd74bad9cdea/886446143170.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6d/46/1e/6d461e9e-4971-28f7-fecb-9333dc2b933f/mzaf_18157193216451535745.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/weary/1159507212?i=1159507280&uo=4"
+    },
+    {
+      "id": "apple:1484988586",
+      "title": "Montego Sunset",
+      "artist": "Menahan Street Band",
+      "selection_status": "discovery_not_curated",
+      "album": "Make the Road By Walking",
+      "year": "2008",
+      "genres": [
+        "soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/montego-sunset/1484988181?i=1484988586&uo=4",
+      "why": "曲目资料已核对；2008 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/89/49/77/89497796-d985-b82f-53b5-22d5bc6882e7/884385894320.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ef/1f/2f/ef1f2fac-5339-8c66-a8b4-1b4abee272c5/mzaf_11656637658469958389.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/montego-sunset/1484988181?i=1484988586&uo=4"
+    },
+    {
+      "id": "apple:1267571124",
+      "title": "Slow Down",
+      "artist": "Mac Ayres",
+      "selection_status": "discovery_not_curated",
+      "album": "Drive Slow",
+      "year": "2017",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/slow-down/1267570000?i=1267571124&uo=4",
+      "why": "曲目资料已核对；2017 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/9c/e6/69/9ce66914-f218-c3b0-b3cd-92d1f2fabfde/810046031186_01_img001.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/20/10/10/201010a9-96eb-a77a-f6e1-2d6d4bb84955/mzaf_8628379438803524547.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/slow-down/1267570000?i=1267571124&uo=4"
+    },
+    {
+      "id": "apple:1553016089",
+      "title": "Bar 'L' Len",
+      "artist": "Kohsuke Mine",
+      "selection_status": "discovery_not_curated",
+      "album": "First",
+      "year": "1970",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/bar-l-len/1553016075?i=1553016089&uo=4",
+      "why": "曲目资料已核对；1970 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/82/fe/94/82fe944a-09db-d874-4a4d-d9d7018b10c5/195497548538.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview124/v4/0d/02/6f/0d026fd5-db61-c25b-e79d-0b4712b1bd2f/mzaf_1379168871698884782.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/bar-l-len/1553016075?i=1553016089&uo=4"
+    },
+    {
+      "id": "apple:1264732565",
+      "title": "In The Night-Time",
+      "artist": "Michael Henderson",
+      "selection_status": "discovery_not_curated",
+      "album": "In The Night-Time",
+      "year": "1978",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/in-the-night-time/1264732545?i=1264732565&uo=4",
+      "why": "曲目资料已核对；1978 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/77/74/e2/7774e279-8b51-f149-5ae4-c256e18e1bfe/886446557694.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/3f/3a/0c/3f3a0c54-563b-c522-71cf-c34d8e13011a/mzaf_13940035060332208453.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/in-the-night-time/1264732545?i=1264732565&uo=4"
+    },
+    {
+      "id": "apple:1442171707",
+      "title": "Dopamine",
+      "artist": "Kim Oki",
+      "selection_status": "discovery_not_curated",
+      "album": "Saturn Meditation",
+      "year": "2018",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/dopamine/1442171695?i=1442171707&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/16/e3/24/16e324d2-2bc4-2cae-5e87-ddf77fb3c977/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/17/49/f2/1749f20a-df34-b673-39ba-8812d7ba924e/mzaf_17150703259250471566.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/dopamine/1442171695?i=1442171707&uo=4"
+    },
+    {
+      "id": "apple:1438102614",
+      "title": "Lay It on the Line",
+      "artist": "Logg",
+      "selection_status": "discovery_not_curated",
+      "album": "Logg",
+      "year": "1981",
+      "genres": [
+        "dance"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/lay-it-on-the-line/1438102611?i=1438102614&uo=4",
+      "why": "曲目资料已核对；1981 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/c6/03/b7/c603b70d-bbbf-378e-26ad-48f94988bdbb/0617465397950.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/9f/28/dc/9f28dcd9-0ca9-61e8-a2f3-9c59e48d26ae/mzaf_9811562845492996199.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/lay-it-on-the-line/1438102611?i=1438102614&uo=4"
+    },
+    {
+      "id": "apple:1610089658",
+      "title": "Dirtbag Transformation (Still Dirty)",
+      "artist": "Horsegirl",
+      "selection_status": "discovery_not_curated",
+      "album": "Versions of Modern Performance",
+      "year": "2022",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/dirtbag-transformation-still-dirty/1610089396?i=1610089658&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/ea/c2/23/eac22315-0bf3-4dd6-1a04-f6f2d19f1777/191401184670.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/eb/36/bd/eb36bdc0-7f9f-847d-967b-17badf0a4120/mzaf_16643329484822414290.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/dirtbag-transformation-still-dirty/1610089396?i=1610089658&uo=4"
+    },
+    {
+      "id": "apple:1532820207",
+      "title": "Moon View",
+      "artist": "Emily A. Sprague",
+      "selection_status": "discovery_not_curated",
+      "album": "Hill, Flower, Fog",
+      "year": "2020",
+      "genres": [
+        "ambient"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/moon-view/1532820206?i=1532820207&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/0c/54/c2/0c54c21d-d761-d47d-c5ee-f020bd38cdf5/54986.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/74/e6/88/74e6884b-0a8b-acc2-735a-258a7caf1fff/mzaf_12316335222359590843.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/moon-view/1532820206?i=1532820207&uo=4"
+    },
+    {
+      "id": "apple:1599812249",
+      "title": "Guarantee That I’d Be Loved",
+      "artist": "Sondre Lerche",
+      "selection_status": "discovery_not_curated",
+      "album": "Avatars of Love",
+      "year": "2022",
+      "genres": [
+        "singer/songwriter"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/guarantee-that-id-be-loved/1599812246?i=1599812249&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/4b/2e/3b/4b2e3b83-ca46-fe88-d351-99a899ce28de/192641901836_Cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/17/66/aa/1766aa56-3709-c8f3-743d-70b5989cf2b3/mzaf_13247857600566855474.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/guarantee-that-id-be-loved/1599812246?i=1599812249&uo=4"
+    },
+    {
+      "id": "apple:1651301817",
+      "title": "Remain",
+      "artist": "Jay Som",
+      "selection_status": "discovery_not_curated",
+      "album": "Everybody Works",
+      "year": "2017",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/remain/1651301810?i=1651301817&uo=4",
+      "why": "曲目资料已核对；2017 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1b/8b/fe/1b8bfea5-786b-121b-df56-e463e1bafa4b/644110032997.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/f2/43/f7/f243f77c-a457-1f93-ad23-090443b87492/mzaf_10879435830201475258.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/remain/1651301810?i=1651301817&uo=4"
+    },
+    {
+      "id": "apple:1554111844",
+      "title": "Home Away From Home",
+      "artist": "Arthur Russell",
+      "selection_status": "discovery_not_curated",
+      "album": "Another Thought",
+      "year": "1993",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/home-away-from-home/1554111548?i=1554111844&uo=4",
+      "why": "曲目资料已核对；1993 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/67/53/cb/6753cba5-1273-879d-0fb9-526d03b619d3/881626570869_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/f5/a6/db/f5a6dbbe-6d53-abd6-cabe-5db2aca8143a/mzaf_7763964493129481548.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/home-away-from-home/1554111548?i=1554111844&uo=4"
+    },
+    {
+      "id": "apple:1494291245",
+      "title": "Wintergreen",
+      "artist": "Roger Eno & Brian Eno",
+      "selection_status": "discovery_not_curated",
+      "album": "Mixing Colours",
+      "year": "2020",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/wintergreen/1494291232?i=1494291245&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/b6/a0/1b/b6a01b7b-33e8-a05d-0974-12ca6d81f61f/19UMGIM71230.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/56/84/c5/5684c5cb-45de-7e39-7245-c0e714239690/mzaf_11314227320884656033.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/wintergreen/1494291232?i=1494291245&uo=4"
+    },
+    {
+      "id": "apple:1443655673",
+      "title": "Defective",
+      "artist": "Medicine",
+      "selection_status": "discovery_not_curated",
+      "album": "Shot Forth Self Living",
+      "year": "1991",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/defective/1443655667?i=1443655673&uo=4",
+      "why": "曲目资料已核对；1991 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/d7/68/6a/d7686a87-6fe9-30e6-f0c3-2954dfa3c210/00602537216406.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d5/94/10/d5941063-b229-6849-37a7-7240e719c2cd/mzaf_16944595153284234577.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/defective/1443655667?i=1443655673&uo=4"
+    },
+    {
+      "id": "apple:1604213772",
+      "title": "Chong Wang",
+      "artist": "Yin Yin",
+      "selection_status": "discovery_not_curated",
+      "album": "The Age of Aquarius",
+      "year": "2022",
+      "genres": [
+        "worldwide"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/chong-wang/1604213564?i=1604213772&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/c8/32/74/c832747a-491c-107d-0677-a757a1732461/4030433612477_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/ed/ed/c4/ededc49a-bac0-7c11-a7e2-e755f411e710/mzaf_16376814549285151671.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/chong-wang/1604213564?i=1604213772&uo=4"
+    },
+    {
+      "id": "apple:1254524830",
+      "title": "Inharmonious Slog",
+      "artist": "Photay",
+      "selection_status": "discovery_not_curated",
+      "album": "Onism",
+      "year": "2017",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/inharmonious-slog/1254524399?i=1254524830&uo=4",
+      "why": "曲目资料已核对；2017 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/cc/2b/4f/cc2b4fa5-b8f1-3af1-8e2e-dc647a9e49eb/816216026648.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c6/bf/73/c6bf7394-28ad-be12-36a7-d76556a00fde/mzaf_4848882814539161673.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/inharmonious-slog/1254524399?i=1254524830&uo=4"
+    },
+    {
+      "id": "apple:1651337970",
+      "title": "Tracking Elevator",
+      "artist": "Shugo Tokumaru",
+      "selection_status": "discovery_not_curated",
+      "album": "Port Entropy",
+      "year": "2010",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/tracking-elevator/1651337967?i=1651337970&uo=4",
+      "why": "曲目资料已核对；2010 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/22/ab/bc/22abbce6-f8cf-7cef-8bad-3248300e77bf/644110021298.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/ae/52/56/ae52565e-cade-d3a0-02f3-d5999dc4eff8/mzaf_10448082808800377731.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/tracking-elevator/1651337967?i=1651337970&uo=4"
+    },
+    {
+      "id": "apple:1535230476",
+      "title": "Include Me Out",
+      "artist": "Young Marble Giants",
+      "selection_status": "discovery_not_curated",
+      "album": "Colossal Youth (40th Anniversary Edition)",
+      "year": "1979",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/include-me-out/1535230234?i=1535230476&uo=4",
+      "why": "曲目资料已核对；1979 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/74/8b/f8/748bf8f9-b0e4-a352-3c43-8bb913ab7832/887830003261.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/12/e1/5e/12e15ee9-e03c-6596-f8b4-d7fe1a231daa/mzaf_5892908056638013392.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/include-me-out/1535230234?i=1535230476&uo=4"
+    },
+    {
+      "id": "apple:1131207791",
+      "title": "Easy to Forget (feat. Ariel Pink)",
+      "artist": "Drugdealer",
+      "selection_status": "discovery_not_curated",
+      "album": "The End of Comedy",
+      "year": "2016",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/easy-to-forget-feat-ariel-pink/1131207436?i=1131207791&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music20/v4/6d/aa/08/6daa08b9-99b3-758b-6242-71ce9d9a67f1/dj.cswpzgux.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/38/94/c8/3894c83a-4592-91f9-c731-8048b5f576ef/mzaf_11645410695628624096.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/easy-to-forget-feat-ariel-pink/1131207436?i=1131207791&uo=4"
+    },
+    {
+      "id": "apple:1389930965",
+      "title": "Any Other Way",
+      "artist": "Tomberlin",
+      "selection_status": "discovery_not_curated",
+      "album": "At Weddings",
+      "year": "2018",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/any-other-way/1389930779?i=1389930965&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/90/dc/b0/90dcb0f1-0f20-1cf6-320c-9df9edf22e80/lbj-276_10x10_300dpi.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c0/58/02/c0580204-3fdd-bdf6-a6b6-4ed03c16641e/mzaf_1828442511085828085.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/any-other-way/1389930779?i=1389930965&uo=4"
+    },
+    {
+      "id": "apple:1526437444",
+      "title": "forwards beckon rebound",
+      "artist": "Adrianne Lenker",
+      "selection_status": "discovery_not_curated",
+      "album": "songs",
+      "year": "2020",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/forwards-beckon-rebound/1526437437?i=1526437444&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/70/f0/a6/70f0a6a5-cd71-9da2-174b-41927d331cdd/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/45/55/18/455518a5-646a-900f-32f8-c2c4064d0020/mzaf_6537760599992491660.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/forwards-beckon-rebound/1526437437?i=1526437444&uo=4"
+    },
+    {
+      "id": "apple:1576442131",
+      "title": "Cherry Blossom",
+      "artist": "Matthew Halsall",
+      "selection_status": "discovery_not_curated",
+      "album": "Fletcher Moss Park",
+      "year": "2012",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/cherry-blossom/1576442129?i=1576442131&uo=4",
+      "why": "曲目资料已核对；2012 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/89/59/db/8959dbc6-2f56-06fe-7e30-dde4e93dd5d3/5050580580718_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/41/70/07/417007b5-a903-263d-40b2-f35010cd6a2f/mzaf_12455273510580890355.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/cherry-blossom/1576442129?i=1576442131&uo=4"
+    },
+    {
+      "id": "apple:1058443817",
+      "title": "Don't Be Right",
+      "artist": "Nap Eyes",
+      "selection_status": "discovery_not_curated",
+      "album": "Thought Rock Fish Scale",
+      "year": "2016",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/dont-be-right/1058442966?i=1058443817&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music71/v4/ea/5e/08/ea5e08b9-5e7e-1fff-4e3f-6caa3e8e7cb6/mzm.nekdhaaj.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/20/a2/b8/20a2b8de-6c10-62c3-564b-b624cab60811/mzaf_6726394992836974785.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/dont-be-right/1058442966?i=1058443817&uo=4"
+    },
+    {
+      "id": "apple:1523531924",
+      "title": "Tonite It Shows",
+      "artist": "Mercury Rev",
+      "selection_status": "discovery_not_curated",
+      "album": "Deserter's Songs (Remastered)",
+      "year": "1998",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/tonite-it-shows/1523531674?i=1523531924&uo=4",
+      "why": "曲目资料已核对；1998 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/f6/42/c5/f642c5d9-6316-6936-0217-3cef7c494dfb/881626599761_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b5/83/77/b583779c-040c-50fd-edd9-c860400d94b1/mzaf_2941820366089110819.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/tonite-it-shows/1523531674?i=1523531924&uo=4"
+    },
+    {
+      "id": "apple:1524421701",
+      "title": "I FEEL LOVE",
+      "artist": "Yukika",
+      "selection_status": "discovery_not_curated",
+      "album": "Soul Lady",
+      "year": "2020",
+      "genres": [
+        "k-pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/i-feel-love/1524421699?i=1524421701&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/b4/b1/46/b4b146b4-95e8-7d55-1894-f0434660b382/191953086927.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/2a/11/6d/2a116d71-1815-1ddb-0a80-e511a8b3212e/mzaf_4269770996538380648.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/i-feel-love/1524421699?i=1524421701&uo=4"
+    },
+    {
+      "id": "apple:1231421050",
+      "title": "Wow and Flutter",
+      "artist": "Stereolab",
+      "selection_status": "discovery_not_curated",
+      "album": "Mars Audiac Quintet",
+      "year": "1994",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/wow-and-flutter/1231421047?i=1231421050&uo=4",
+      "why": "曲目资料已核对；1994 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music117/v4/48/86/6d/48866dcb-e9e3-af22-b29a-ab74d319c8e4/5060384612256.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/98/dc/a4/98dca46b-f2e8-45c9-3849-c4834fa59442/mzaf_14507504982224691757.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/wow-and-flutter/1231421047?i=1231421050&uo=4"
+    },
+    {
+      "id": "apple:1348421614",
+      "title": "Slow Ascent",
+      "artist": "Marisa Anderson",
+      "selection_status": "discovery_not_curated",
+      "album": "Cloud Corner",
+      "year": "2018",
+      "genres": [
+        "folk"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/slow-ascent/1348421377?i=1348421614&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2d/b0/50/2db05010-6522-6d90-536f-234545b37da0/466_3000-300dpi.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/05/bc/4f/05bc4f61-78db-2fae-154e-9cd261d1de69/mzaf_13491023051685230032.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/slow-ascent/1348421377?i=1348421614&uo=4"
+    },
+    {
+      "id": "apple:1479480773",
+      "title": "Black Dove (feat. Sudan Archives)",
+      "artist": "Teebs",
+      "selection_status": "discovery_not_curated",
+      "album": "Anicca",
+      "year": "2019",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/black-dove-feat-sudan-archives/1479480771?i=1479480773&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/75/e9/ce/75e9ce2f-d318-4883-1a8d-5fb95dbb2af9/5054429139594.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/71/92/73/71927306-cc34-5d44-d236-352a84d267c0/mzaf_18436432056588543045.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/black-dove-feat-sudan-archives/1479480771?i=1479480773&uo=4"
+    }
+  ],
+  "selection_policy": "never_repeat_v1"
+}
