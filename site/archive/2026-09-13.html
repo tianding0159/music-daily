@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="MUSIC DAILY">
 <meta property="og:title" content="MUSIC DAILY · 第 048 期 · 2026.09.13">
 <meta property="og:description" content="今日 30 首：VRY BLK (feat. Noname) — Jamila Woods、Through It All — Lady Wray、Completeness — Minnie Riperton…">
-<meta property="og:url" content="https://tianding0159.github.io/music-daily/">
+<meta property="og:url" content="https://tianding0159.github.io/music-daily/archive/2026-09-13.html">
 <meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/5b/7a/4c/5b7a4c16-3d3b-44ec-2b00-4890ebbc7cdf/656605231266.jpg/600x600bb.jpg">
 <meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary_large_image">
@@ -27,8 +27,8 @@
      只做 manifest 不做 Service Worker —— 这个站每天出新刊，SW 的缓存失效
      写不对就会让用户看到昨天的日报【而且他不知道】，那类静默失效的代价
      远大于「离线翻往期」的收益。 -->
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icon-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="MD-30">
@@ -649,9 +649,9 @@ button,input,select{font:inherit}
 <body class="daily-page">
 <nav class="nav">
   <div class="wrap">
-    <a class="brand" href="index.html" aria-label="MUSIC DAILY 首页"><span class="sq"></span>MUSIC DAILY</a>
+    <a class="brand" href="../index.html" aria-label="MUSIC DAILY 首页"><span class="sq"></span>MUSIC DAILY</a>
     <div class="serial nav-meta"><span>issue <b>048</b></span><span>2026.09.13</span></div>
-    <div class="site-links" aria-label="页面导航"><a href="daily.html" aria-current="page">今日</a><a href="random.html">随机</a><a href="archive/index.html">往期</a><a href="legacy/daily.html">旧版</a></div>
+    <div class="site-links" aria-label="页面导航"><a href="../daily.html" aria-current="page">今日</a><a href="../random.html">随机</a><a href="index.html">往期</a><a href="../legacy/archive/2026-09-13.html">旧版</a></div>
   </div>
 </nav>
 
@@ -679,7 +679,7 @@ button,input,select{font:inherit}
     <button class="tbtn" id="fav-only" type="button" aria-pressed="false"><span id="fav-lb">♥ 只看收藏</span> <span id="fav-n">0</span></button>
     <button class="tbtn line" id="fav-export" type="button">导出收藏</button>
     <button class="tbtn line" id="share-btn" type="button" hidden>分享这期</button>
-    <a class="tbtn line" rel="prev" href="archive/2026-09-12.html">← 上一期</a>
+    <a class="tbtn line" rel="prev" href="2026-09-12.html">← 上一期</a>
   </div>
   <p class="filter-note" id="filter-note" role="status"></p>
 
@@ -1803,7 +1803,7 @@ function copyFav() { return copyPanel('fav-text', 'fav-copy'); }
     var inp=(d.inpool||'').split('|').filter(Boolean);
     $('lb-inpool').innerHTML = inp.map(function(x){
       var cur = x===d.title ? ' class="cur"' : '';
-      var url="random.html"+'?t='+encodeURIComponent(x)+'&artist='+encodeURIComponent(d.artist||'');
+      var url="../random.html"+'?t='+encodeURIComponent(x)+'&artist='+encodeURIComponent(d.artist||'');
       return '<a href="'+esc(url)+'"'+cur+'>'+esc(x)+'</a>';
     }).join('');
     $('lb-inpool-w').style.display = inp.length>1 ? '' : 'none';

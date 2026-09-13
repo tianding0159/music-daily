@@ -1,37 +1,38 @@
 {
-  "date": "2026-09-12",
-  "issue_no": 47,
-  "playlist_title": "今天第一次推荐的 30 首（09.12）",
+  "date": "2026-09-13",
+  "issue_no": 48,
+  "playlist_title": "今天第一次推荐的 30 首（09.13）",
   "tracks_brief": [
     {
-      "title": "Busstop",
-      "artist": "Jitwam"
+      "title": "VRY BLK (feat. Noname)",
+      "artist": "Jamila Woods"
     },
     {
-      "title": "(You Keep Me) Hangin' On",
-      "artist": "Ann Peebles"
+      "title": "Through It All",
+      "artist": "Lady Wray"
     },
     {
-      "title": "Weary",
-      "artist": "Solange"
+      "title": "Completeness",
+      "artist": "Minnie Riperton"
     },
     {
-      "title": "Montego Sunset",
-      "artist": "Menahan Street Band"
+      "title": "I Choose You (Soundtrack/The Mack)",
+      "artist": "Willie Hutch"
     },
     {
-      "title": "Slow Down",
-      "artist": "Mac Ayres"
+      "title": "Let the Music Take Me",
+      "artist": "Patrice Rushen"
     },
     {
-      "title": "Bar 'L' Len",
-      "artist": "Kohsuke Mine"
+      "title": "Concussion",
+      "artist": "Delvon Lamarr Organ Trio"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-09-12"
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
