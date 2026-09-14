@@ -1,37 +1,38 @@
 {
-  "date": "2026-09-13",
-  "issue_no": 48,
-  "playlist_title": "今天第一次推荐的 30 首（09.13）",
+  "date": "2026-09-14",
+  "issue_no": 49,
+  "playlist_title": "今天第一次推荐的 30 首（09.14）",
   "tracks_brief": [
     {
-      "title": "VRY BLK (feat. Noname)",
-      "artist": "Jamila Woods"
+      "title": "messy",
+      "artist": "serpentwithfeet"
     },
     {
-      "title": "Through It All",
-      "artist": "Lady Wray"
+      "title": "Rainbow Fantasia",
+      "artist": "Crackazat"
     },
     {
-      "title": "Completeness",
-      "artist": "Minnie Riperton"
+      "title": "In the Thick of It",
+      "artist": "Brenda Russell"
     },
     {
-      "title": "I Choose You (Soundtrack/The Mack)",
-      "artist": "Willie Hutch"
+      "title": "Place I Belong",
+      "artist": "Michael Kiwanuka"
     },
     {
-      "title": "Let the Music Take Me",
-      "artist": "Patrice Rushen"
+      "title": "No Ordinary Love",
+      "artist": "Sade"
     },
     {
-      "title": "Concussion",
-      "artist": "Delvon Lamarr Organ Trio"
+      "title": "Bath County",
+      "artist": "Wednesday"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-09-13"
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
