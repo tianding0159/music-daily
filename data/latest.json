@@ -1,38 +1,39 @@
 {
-  "date": "2026-09-14",
-  "issue_no": 49,
-  "playlist_title": "今天第一次推荐的 30 首（09.14）",
-  "tracks_brief": [
-    {
-      "title": "messy",
-      "artist": "serpentwithfeet"
-    },
-    {
-      "title": "Rainbow Fantasia",
-      "artist": "Crackazat"
-    },
-    {
-      "title": "In the Thick of It",
-      "artist": "Brenda Russell"
-    },
-    {
-      "title": "Place I Belong",
-      "artist": "Michael Kiwanuka"
-    },
-    {
-      "title": "No Ordinary Love",
-      "artist": "Sade"
-    },
-    {
-      "title": "Bath County",
-      "artist": "Wednesday"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [
-    "bright保底(+5)"
-  ],
-  "fresh_build": true,
-  "selection_policy": "never_repeat_v1"
+ "date": "2026-09-14",
+ "issue_no": 49,
+ "playlist_title": "今天第一次推荐的 30 首（09.14）",
+ "tracks_brief": [
+  {
+   "title": "messy",
+   "artist": "serpentwithfeet"
+  },
+  {
+   "title": "Rainbow Fantasia",
+   "artist": "Crackazat"
+  },
+  {
+   "title": "In the Thick of It",
+   "artist": "Brenda Russell"
+  },
+  {
+   "title": "Place I Belong",
+   "artist": "Michael Kiwanuka"
+  },
+  {
+   "title": "No Ordinary Love",
+   "artist": "Sade"
+  },
+  {
+   "title": "Bath County",
+   "artist": "Wednesday"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [
+  "bright保底(+5)"
+ ],
+ "fresh_build": true,
+ "selection_policy": "never_repeat_v1",
+ "notified": "2026-09-14"
 }
