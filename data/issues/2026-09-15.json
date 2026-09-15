@@ -1,0 +1,551 @@
+{
+  "issue_no": 50,
+  "date": "2026-09-15",
+  "generated_at": "2026-09-15T00:00:44+00:00",
+  "theme": "grid",
+  "playlist_title": "今天第一次推荐的 30 首（09.15）",
+  "netease_text": "今天第一次推荐的 30 首（09.15）\nWho Has the Last Laugh Now - Bloodstone\nBetter Man - Leon Bridges\nGettin' in the Way - Jill Scott\nCome And Get This Stuff - Syreeta\nGirl Next Door (feat. Ayana) - Musiq Soulchild\nThe Edges - Rachika Nayar\nPale Blue - The fin.\nYou Are the Only One - Hideki Kaji\nDaddy's Car - The Cardigans\nVolks Volkswagen Blues - Gilberto Gil\nHolding On - Tirzah\nArchitect - C Duncan\nTo See the Next Part of the Dream - Parannoul\nSouth of the River - Tom Misch\nMrs Simpson - Microdisney\nWater - Anna St. Louis\nTiming - Office Culture\nPra Vida - Rogê\nSugar Coated - Yves Jarvis\nDon't Make Promises - Tim Hardin\nOh, Command Me Lord ! - Gwenifer Raymond\nSeismic - Mid-Air Thief\nMost Like Lee - Lee Morgan\nJo - Haley Heynderickx\nAkil olmayinca - Gaye Su Akyol\nSuppression Street - H. Hawkline\nDating - Esbjörn Svensson Trio\nNext To You - Poolside\nI'M OK WHEN YOU'RE AROUND. - Swansea Sound\nPara Transcribir (Sol) - Lido Pimienta",
+  "tracks": [
+    {
+      "id": "apple:1451182517",
+      "title": "Who Has the Last Laugh Now",
+      "artist": "Bloodstone",
+      "selection_status": "discovery_not_curated",
+      "album": "Natural High",
+      "year": "1972",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/who-has-the-last-laugh-now/1451182503?i=1451182517&uo=4",
+      "why": "曲目资料已核对；1972 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/11/a1/14/11a11403-fc32-2b09-7376-033dcdb54a31/842474112045.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/dd/c2/7f/ddc27f0e-f942-1ff9-8364-623d757f0ccd/mzaf_12550012930438263770.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/who-has-the-last-laugh-now/1451182503?i=1451182517&uo=4"
+    },
+    {
+      "id": "apple:1079234235",
+      "title": "Better Man",
+      "artist": "Leon Bridges",
+      "selection_status": "discovery_not_curated",
+      "album": "Coming Home (Deluxe)",
+      "year": "2015",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/better-man/1079234232?i=1079234235&uo=4",
+      "why": "曲目资料已核对；2015 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/27/37/70/273770eb-92ac-1d00-87e6-e0f5ec0e97ab/886445452204.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9e/a5/69/9ea569a3-6b02-a8a5-4696-f05800fe96f3/mzaf_9833433883415020646.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/better-man/1079234232?i=1079234235&uo=4"
+    },
+    {
+      "id": "apple:1416159156",
+      "title": "Gettin' in the Way",
+      "artist": "Jill Scott",
+      "selection_status": "discovery_not_curated",
+      "album": "Who Is Jill Scott?: Words and Sounds, Vol. 1",
+      "year": "2000",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/gettin-in-the-way/1416153023?i=1416159156&uo=4",
+      "why": "曲目资料已核对；2000 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b2/10/00/b21000e9-7ecf-0316-037e-1beb2b414025/00894096001788.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a2/61/8d/a2618d44-7bd7-13d8-060a-1d028563cf0d/mzaf_15602680374479940733.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/gettin-in-the-way/1416153023?i=1416159156&uo=4"
+    },
+    {
+      "id": "apple:1444960131",
+      "title": "Come And Get This Stuff",
+      "artist": "Syreeta",
+      "selection_status": "discovery_not_curated",
+      "album": "Stevie Wonder Presents Syreeta",
+      "year": "1974",
+      "genres": [
+        "soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/come-and-get-this-stuff/1444960128?i=1444960131&uo=4",
+      "why": "曲目资料已核对；1974 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/8b/e6/34/8be634d3-b1e1-c3a2-05e7-8464b7c25906/00602577219931.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/17/34/95/1734955b-4a2e-f1a4-89a2-86672d76f829/mzaf_3530194003131112411.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/come-and-get-this-stuff/1444960128?i=1444960131&uo=4"
+    },
+    {
+      "id": "apple:1452810395",
+      "title": "Girl Next Door (feat. Ayana)",
+      "artist": "Musiq Soulchild",
+      "selection_status": "discovery_not_curated",
+      "album": "Aijuswanaseing (Special Edition)",
+      "year": "2000",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/girl-next-door-feat-ayana/1452810391?i=1452810395&uo=4",
+      "why": "曲目资料已核对；2000 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/2b/79/88/2b79888b-a4cb-5a56-0fc2-121f71704821/00602517464865.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a1/71/5f/a1715f18-4b42-e3fe-c623-34cc0aac6309/mzaf_720283218741763630.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/girl-next-door-feat-ayana/1452810391?i=1452810395&uo=4"
+    },
+    {
+      "id": "apple:1543413620",
+      "title": "The Edges",
+      "artist": "Rachika Nayar",
+      "selection_status": "discovery_not_curated",
+      "album": "Our Hands Against the Dusk",
+      "year": "2021",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/the-edges/1543413615?i=1543413620&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/71/47/9a/71479a18-c170-52e8-df31-6b3bfb1ae5df/634457045019.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/17/28/74/17287415-2e6c-8c11-dbcb-1abdd4d47f72/mzaf_2895349498800626137.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/the-edges/1543413615?i=1543413620&uo=4"
+    },
+    {
+      "id": "apple:1338638891",
+      "title": "Pale Blue",
+      "artist": "The fin.",
+      "selection_status": "discovery_not_curated",
+      "album": "There",
+      "year": "2018",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/pale-blue/1338638509?i=1338638891&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/90/4f/bb/904fbb7a-d354-451a-3f72-0c2eb6002cd4/dj.mfuozhln.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e4/6a/c1/e46ac1c6-6093-0df5-04f0-26aad5279a24/mzaf_5795828375513152679.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/pale-blue/1338638509?i=1338638891&uo=4"
+    },
+    {
+      "id": "apple:1503106264",
+      "title": "You Are the Only One",
+      "artist": "Hideki Kaji",
+      "selection_status": "discovery_not_curated",
+      "album": "Towns and Streets",
+      "year": "2007",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/you-are-the-only-one/1503106246?i=1503106264&uo=4",
+      "why": "曲目资料已核对；2007 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/b9/c0/01/b9c001fc-fbab-5a8b-4bf3-351c43192cd2/4538182876497_cov.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/61/e9/b9/61e9b964-da52-3e5c-40e6-9a1497a9e40c/mzaf_12949364930338144399.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/you-are-the-only-one/1503106246?i=1503106264&uo=4"
+    },
+    {
+      "id": "apple:1444028406",
+      "title": "Daddy's Car",
+      "artist": "The Cardigans",
+      "selection_status": "discovery_not_curated",
+      "album": "Life",
+      "year": "1995",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/daddys-car/1444027809?i=1444028406&uo=4",
+      "why": "曲目资料已核对；1995 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/7e/2f/3f/7e2f3ff6-8247-bfdb-a507-5c9e025ff54f/00731452355621.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/e2/19/d5/e219d504-3348-4b7d-c3bd-2cb7ee6b872a/mzaf_223200569993659706.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/daddys-car/1444027809?i=1444028406&uo=4"
+    },
+    {
+      "id": "apple:1576818001",
+      "title": "Volks Volkswagen Blues",
+      "artist": "Gilberto Gil",
+      "selection_status": "discovery_not_curated",
+      "album": "Gilberto Gil (1969)",
+      "year": "1969",
+      "genres": [
+        "brazilian"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/volks-volkswagen-blues/1576817998?i=1576818001&uo=4",
+      "why": "曲目资料已核对；1969 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/bb/36/50/bb3650ff-29ae-187a-0815-439b154747a9/08429006189557_Cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ed/e0/58/ede05869-cb8e-547a-c122-17ebd2409f4b/mzaf_17634974181477087164.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/volks-volkswagen-blues/1576817998?i=1576818001&uo=4"
+    },
+    {
+      "id": "apple:1372737665",
+      "title": "Holding On",
+      "artist": "Tirzah",
+      "selection_status": "discovery_not_curated",
+      "album": "Devotion",
+      "year": "2018",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/holding-on/1372735578?i=1372737665&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/cc/f7/42/ccf742e6-d991-8f8d-7a70-8b5c1e53c1b6/887828039463.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fa/bc/b2/fabcb2bf-6241-3a3a-5938-b0427db9b02e/mzaf_11189630990114485670.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/holding-on/1372735578?i=1372737665&uo=4"
+    },
+    {
+      "id": "apple:1494536323",
+      "title": "Architect",
+      "artist": "C Duncan",
+      "selection_status": "discovery_not_curated",
+      "album": "Architect",
+      "year": "2015",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/architect/1494536320?i=1494536323&uo=4",
+      "why": "曲目资料已核对；2015 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/7c/99/0d/7c990dc9-b821-4fdd-1563-120c1b7b3af2/0600116513052_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/3f/e1/de/3fe1de8d-4c08-45b5-b531-635a506006af/mzaf_6512795932747672043.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/architect/1494536320?i=1494536323&uo=4"
+    },
+    {
+      "id": "apple:1563369241",
+      "title": "To See the Next Part of the Dream",
+      "artist": "Parannoul",
+      "selection_status": "discovery_not_curated",
+      "album": "To See the Next Part of the Dream",
+      "year": "2021",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/to-see-the-next-part-of-the-dream/1563369236?i=1563369241&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/84/67/1b/84671b2c-f97f-5280-0b73-383bcc8e4f29/Parannoul_ToSeeTheNextPartOfTheDream_3000.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a2/b8/35/a2b83557-5096-81df-103b-30528277cc6e/mzaf_8339475066434302600.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/to-see-the-next-part-of-the-dream/1563369236?i=1563369241&uo=4"
+    },
+    {
+      "id": "apple:1327772742",
+      "title": "South of the River",
+      "artist": "Tom Misch",
+      "selection_status": "discovery_not_curated",
+      "album": "Geography",
+      "year": "2018",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/south-of-the-river/1327772541?i=1327772742&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/4c/f6/72/4cf672af-31a3-772a-f27d-4ebc4ddeafbf/5056167104650.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/2d/07/29/2d072951-04fb-07c8-c118-361edd8e4d68/mzaf_9651864036243044362.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/south-of-the-river/1327772541?i=1327772742&uo=4"
+    },
+    {
+      "id": "apple:1618352914",
+      "title": "Mrs Simpson",
+      "artist": "Microdisney",
+      "selection_status": "discovery_not_curated",
+      "album": "Crooked Mile",
+      "year": "1986",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/mrs-simpson/1618352891?i=1618352914&uo=4",
+      "why": "曲目资料已核对；1986 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/11/67/cc/1167cc83-5292-6391-9a15-a5f362c6a685/22UMGIM24328.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/73/38/af/7338af8f-a302-5f32-4913-ea0970cd3d12/mzaf_18406210308320004714.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/mrs-simpson/1618352891?i=1618352914&uo=4"
+    },
+    {
+      "id": "apple:1414568269",
+      "title": "Water",
+      "artist": "Anna St. Louis",
+      "selection_status": "discovery_not_curated",
+      "album": "If Only There Was a River",
+      "year": "2018",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/water/1414568267?i=1414568269&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2a/83/cf/2a83cf33-ebe3-0243-168b-3a5902857543/647603402413.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c8/7a/6e/c87a6eb2-3ff7-9cac-c0cf-7e1d23858030/mzaf_5323571389731879712.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/water/1414568267?i=1414568269&uo=4"
+    },
+    {
+      "id": "apple:1630832239",
+      "title": "Timing",
+      "artist": "Office Culture",
+      "selection_status": "discovery_not_curated",
+      "album": "Big Time Things",
+      "year": "2022",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/timing/1630832236?i=1630832239&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/7d/e6/7a/7de67afe-013c-a396-7af1-7e105140223c/634457108912.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/15/d5/ae/15d5ae0a-e431-09c7-04f9-a2990fe7df73/mzaf_2156135619400614703.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/timing/1630832236?i=1630832239&uo=4"
+    },
+    {
+      "id": "apple:1635384267",
+      "title": "Pra Vida",
+      "artist": "Rogê",
+      "selection_status": "discovery_not_curated",
+      "album": "Curyman",
+      "year": "2023",
+      "genres": [
+        "brazilian"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/pra-vida/1635384261?i=1635384267&uo=4",
+      "why": "曲目资料已核对；2023 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/04/e1/66/04e16683-9588-f219-9543-826e8652687b/35802.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/d6/4f/64/d64f6486-f3b6-81bc-a914-9b2d3edd7128/mzaf_14433833424646316008.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/pra-vida/1635384261?i=1635384267&uo=4"
+    },
+    {
+      "id": "apple:1485073997",
+      "title": "Sugar Coated",
+      "artist": "Yves Jarvis",
+      "selection_status": "discovery_not_curated",
+      "album": "The Same but by Different Means",
+      "year": "2019",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/sugar-coated/1485073994?i=1485073997&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/29/80/d4/2980d45b-0be5-fe61-32db-93e8b691c866/0045778759200.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/6b/80/7e/6b807e1d-196d-87f7-a52f-67f735a497d0/mzaf_15386447938153609657.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/sugar-coated/1485073994?i=1485073997&uo=4"
+    },
+    {
+      "id": "apple:1443924095",
+      "title": "Don't Make Promises",
+      "artist": "Tim Hardin",
+      "selection_status": "discovery_not_curated",
+      "album": "Tim Hardin 1",
+      "year": "1966",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/dont-make-promises/1443923920?i=1443924095&uo=4",
+      "why": "曲目资料已核对；1966 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/e3/2f/c9/e32fc9dc-1eba-9e50-3443-4c6e8f0f6f7c/00602547920393.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/5f/e3/de/5fe3deec-e531-1349-24fb-03d08c6036e9/mzaf_1354374356068342682.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/dont-make-promises/1443923920?i=1443924095&uo=4"
+    },
+    {
+      "id": "apple:1387758618",
+      "title": "Oh, Command Me Lord !",
+      "artist": "Gwenifer Raymond",
+      "selection_status": "discovery_not_curated",
+      "album": "You Never Were Much of a Dancer",
+      "year": "2018",
+      "genres": [
+        "contemporary folk"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/oh-command-me-lord/1387758344?i=1387758618&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/56/af/25/56af2569-8455-f70a-3373-261fe1601324/192641108587_Cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f9/5a/06/f95a06e7-f707-3525-7d48-218630f6a6fb/mzaf_6982837498416853546.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/oh-command-me-lord/1387758344?i=1387758618&uo=4"
+    },
+    {
+      "id": "apple:1502227007",
+      "title": "Seismic",
+      "artist": "Mid-Air Thief",
+      "selection_status": "discovery_not_curated",
+      "album": "Gongjoong Doduk",
+      "year": "2015",
+      "genres": [
+        "singer/songwriter"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/seismic/1502227003?i=1502227007&uo=4",
+      "why": "曲目资料已核对；2015 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/34/c9/95/34c995be-3a2e-f867-3736-ecce0dc2d301/MiAirThief_GongjoongDoduk_3000.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/7b/83/62/7b83625a-9654-dd6a-c007-ac343946e0fb/mzaf_12292893651989901907.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/seismic/1502227003?i=1502227007&uo=4"
+    },
+    {
+      "id": "apple:1440954366",
+      "title": "Most Like Lee",
+      "artist": "Lee Morgan",
+      "selection_status": "discovery_not_curated",
+      "album": "Cornbread",
+      "year": "1965",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/most-like-lee/1440954105?i=1440954366&uo=4",
+      "why": "曲目资料已核对；1965 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/e4/a8/20/e4a82051-4728-b7f9-6551-9b6b713be404/13UMGIM30085.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/bf/6b/c7/bf6bc740-8a8b-855f-2281-c41970dc44cc/mzaf_1569666638365023763.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/most-like-lee/1440954105?i=1440954366&uo=4"
+    },
+    {
+      "id": "apple:1332042899",
+      "title": "Jo",
+      "artist": "Haley Heynderickx",
+      "selection_status": "discovery_not_curated",
+      "album": "I Need to Start a Garden",
+      "year": "2018",
+      "genres": [
+        "alternative folk"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/jo/1332042313?i=1332042899&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/77/bc/ec/77bcecdb-c1de-443f-e5db-d48ec7502fe1/192562088135.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/15/47/73/154773fb-07af-063e-3d00-ebd399de600d/mzaf_1648021048728901232.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/jo/1332042313?i=1332042899&uo=4"
+    },
+    {
+      "id": "apple:1167625922",
+      "title": "Akil olmayinca",
+      "artist": "Gaye Su Akyol",
+      "selection_status": "discovery_not_curated",
+      "album": "Hologram İmparatorluğu",
+      "year": "2016",
+      "genres": [
+        "worldwide"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/akil-olmayinca/1167625764?i=1167625922&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music71/v4/5c/e7/3f/5ce73f26-9645-db43-ad89-7054f3278d52/4030433604021_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/53/37/c9/5337c98c-e08b-7b98-e1d9-826e835a56ff/mzaf_1475008469705547395.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/akil-olmayinca/1167625764?i=1167625922&uo=4"
+    },
+    {
+      "id": "apple:1647432605",
+      "title": "Suppression Street",
+      "artist": "H. Hawkline",
+      "selection_status": "discovery_not_curated",
+      "album": "Milk For Flowers",
+      "year": "2023",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/suppression-street/1647432590?i=1647432605&uo=4",
+      "why": "曲目资料已核对；2023 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/de/2a/10/de2a106e-1d74-00ad-5174-258b4326237c/5400863066871_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/cd/a7/2e/cda72e68-3d4d-eadb-7b23-60fc138a3d6e/mzaf_7919029487836936768.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/suppression-street/1647432590?i=1647432605&uo=4"
+    },
+    {
+      "id": "apple:1405003097",
+      "title": "Dating",
+      "artist": "Esbjörn Svensson Trio",
+      "selection_status": "discovery_not_curated",
+      "album": "From Gagarin's Point of View",
+      "year": "1999",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/dating/1405002907?i=1405003097&uo=4",
+      "why": "曲目资料已核对；1999 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/7e/03/16/7e031659-3b47-ac4c-9c7b-e2927d33a779/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b6/7b/63/b67b63f7-0e54-d779-8f80-e7d4627eebd7/mzaf_13123511991789330185.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/dating/1405002907?i=1405003097&uo=4"
+    },
+    {
+      "id": "apple:1216384314",
+      "title": "Next To You",
+      "artist": "Poolside",
+      "selection_status": "discovery_not_curated",
+      "album": "Pacific Standard Time",
+      "year": "2012",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/next-to-you/1216384091?i=1216384314&uo=4",
+      "why": "曲目资料已核对；2012 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/bb/f2/28/bbf22859-cf2c-f0ab-9a10-ca9351e7e28d/859708548983_PacificStandardTime.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/36/7a/8e/367a8eee-64ac-b9f1-27ec-75eaaafcd6f4/mzaf_14590693620983291079.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/next-to-you/1216384091?i=1216384314&uo=4"
+    },
+    {
+      "id": "apple:1584974923",
+      "title": "I'M OK WHEN YOU'RE AROUND.",
+      "artist": "Swansea Sound",
+      "selection_status": "discovery_not_curated",
+      "album": "Live at the Rum Puncheon",
+      "year": "2021",
+      "genres": [
+        "indie pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/im-ok-when-youre-around/1584974920?i=1584974923&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ce/00/a0/ce00a05b-e19b-a183-d0f1-807da72fc09e/5056321654410.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e5/39/5a/e5395acf-8d03-2c6d-ac61-d27807b0cdb5/mzaf_1212775039640048206.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/im-ok-when-youre-around/1584974920?i=1584974923&uo=4"
+    },
+    {
+      "id": "apple:1494471812",
+      "title": "Para Transcribir (Sol)",
+      "artist": "Lido Pimienta",
+      "selection_status": "discovery_not_curated",
+      "album": "Miss Colombia",
+      "year": "2020",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/para-transcribir-sol/1494471811?i=1494471812&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/bf/29/e2/bf29e2a9-1a21-db60-054b-4473c7045baa/0045778763863.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f2/3e/f9/f23ef99a-10ef-c6cd-0024-1d5ec6744aa3/mzaf_2168983338399193297.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/para-transcribir-sol/1494471811?i=1494471812&uo=4"
+    }
+  ],
+  "selection_policy": "never_repeat_v1"
+}
