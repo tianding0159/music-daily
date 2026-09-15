@@ -1,39 +1,37 @@
 {
- "date": "2026-09-15",
- "issue_no": 50,
- "playlist_title": "今天第一次推荐的 30 首（09.15）",
- "tracks_brief": [
-  {
-   "title": "Who Has the Last Laugh Now",
-   "artist": "Bloodstone"
-  },
-  {
-   "title": "Better Man",
-   "artist": "Leon Bridges"
-  },
-  {
-   "title": "Gettin' in the Way",
-   "artist": "Jill Scott"
-  },
-  {
-   "title": "Come And Get This Stuff",
-   "artist": "Syreeta"
-  },
-  {
-   "title": "Girl Next Door (feat. Ayana)",
-   "artist": "Musiq Soulchild"
-  },
-  {
-   "title": "The Edges",
-   "artist": "Rachika Nayar"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [
-  "bright保底(+5)"
- ],
- "fresh_build": true,
- "selection_policy": "never_repeat_v1",
- "notified": "2026-09-15"
+  "date": "2026-09-15",
+  "issue_no": 50,
+  "playlist_title": "今天第一次推荐的 30 首（09.15）",
+  "tracks_brief": [
+    {
+      "title": "Who Has the Last Laugh Now",
+      "artist": "Bloodstone"
+    },
+    {
+      "title": "Better Man",
+      "artist": "Leon Bridges"
+    },
+    {
+      "title": "Gettin' in the Way",
+      "artist": "Jill Scott"
+    },
+    {
+      "title": "Come And Get This Stuff",
+      "artist": "Syreeta"
+    },
+    {
+      "title": "Girl Next Door (feat. Ayana)",
+      "artist": "Musiq Soulchild"
+    },
+    {
+      "title": "The Edges",
+      "artist": "Rachika Nayar"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false,
+  "selection_policy": "never_repeat_v1",
+  "notified": "2026-09-15"
 }
