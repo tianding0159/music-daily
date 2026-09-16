@@ -1,39 +1,37 @@
 {
- "date": "2026-09-16",
- "issue_no": 51,
- "playlist_title": "今天第一次推荐的 30 首（09.16）",
- "tracks_brief": [
-  {
-   "title": "Reminisce (feat. Mos Def & Common)",
-   "artist": "Bilal"
-  },
-  {
-   "title": "Reach Out",
-   "artist": "Durand Jones & The Indications"
-  },
-  {
-   "title": "Down On Me",
-   "artist": "Sudan Archives"
-  },
-  {
-   "title": "What's Going On",
-   "artist": "Marvin Gaye"
-  },
-  {
-   "title": "Situationship",
-   "artist": "Snoh Aalegra"
-  },
-  {
-   "title": "Right Side of My Neck",
-   "artist": "Faye Webster"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [
-  "bright保底(+5)"
- ],
- "fresh_build": true,
- "selection_policy": "never_repeat_v1",
- "notified": "2026-09-16"
+  "date": "2026-09-16",
+  "issue_no": 51,
+  "playlist_title": "今天第一次推荐的 30 首（09.16）",
+  "tracks_brief": [
+    {
+      "title": "Reminisce (feat. Mos Def & Common)",
+      "artist": "Bilal"
+    },
+    {
+      "title": "Reach Out",
+      "artist": "Durand Jones & The Indications"
+    },
+    {
+      "title": "Down On Me",
+      "artist": "Sudan Archives"
+    },
+    {
+      "title": "What's Going On",
+      "artist": "Marvin Gaye"
+    },
+    {
+      "title": "Situationship",
+      "artist": "Snoh Aalegra"
+    },
+    {
+      "title": "Right Side of My Neck",
+      "artist": "Faye Webster"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false,
+  "selection_policy": "never_repeat_v1",
+  "notified": "2026-09-16"
 }
