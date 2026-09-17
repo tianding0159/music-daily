@@ -1,37 +1,38 @@
 {
-  "date": "2026-09-16",
-  "issue_no": 51,
-  "playlist_title": "今天第一次推荐的 30 首（09.16）",
+  "date": "2026-09-17",
+  "issue_no": 52,
+  "playlist_title": "今天第一次推荐的 30 首（09.17）",
   "tracks_brief": [
     {
-      "title": "Reminisce (feat. Mos Def & Common)",
-      "artist": "Bilal"
+      "title": "Where Can I Go?",
+      "artist": "Marlena Shaw"
     },
     {
-      "title": "Reach Out",
-      "artist": "Durand Jones & The Indications"
+      "title": "Point of No Return",
+      "artist": "The Stylistics"
     },
     {
-      "title": "Down On Me",
-      "artist": "Sudan Archives"
+      "title": "Moon",
+      "artist": "dosii"
     },
     {
-      "title": "What's Going On",
-      "artist": "Marvin Gaye"
+      "title": "Facing East",
+      "artist": "79.5"
     },
     {
-      "title": "Situationship",
-      "artist": "Snoh Aalegra"
+      "title": "Eternal",
+      "artist": "Jenevieve"
     },
     {
-      "title": "Right Side of My Neck",
-      "artist": "Faye Webster"
+      "title": "Téo e Gaivota",
+      "artist": "Marcelo Camelo"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-09-16"
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
