@@ -1,37 +1,38 @@
 {
-  "date": "2026-09-17",
-  "issue_no": 52,
-  "playlist_title": "今天第一次推荐的 30 首（09.17）",
+  "date": "2026-09-18",
+  "issue_no": 53,
+  "playlist_title": "今天第一次推荐的 30 首（09.18）",
   "tracks_brief": [
     {
-      "title": "Where Can I Go?",
-      "artist": "Marlena Shaw"
+      "title": "Read My Mind",
+      "artist": "Lianne La Havas"
     },
     {
-      "title": "Point of No Return",
-      "artist": "The Stylistics"
+      "title": "Waitin",
+      "artist": "Kelela"
     },
     {
-      "title": "Moon",
-      "artist": "dosii"
+      "title": "People Get Ready",
+      "artist": "The Brand New Heavies"
     },
     {
-      "title": "Facing East",
-      "artist": "79.5"
+      "title": "Where Did I Go?",
+      "artist": "Jorja Smith"
     },
     {
-      "title": "Eternal",
-      "artist": "Jenevieve"
+      "title": "May",
+      "artist": "Jordan Rakei"
     },
     {
-      "title": "Téo e Gaivota",
-      "artist": "Marcelo Camelo"
+      "title": "Pinkvibes",
+      "artist": "Suchmos"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-09-17"
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
