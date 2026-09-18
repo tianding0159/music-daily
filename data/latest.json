@@ -1,38 +1,39 @@
 {
-  "date": "2026-09-18",
-  "issue_no": 53,
-  "playlist_title": "今天第一次推荐的 30 首（09.18）",
-  "tracks_brief": [
-    {
-      "title": "Read My Mind",
-      "artist": "Lianne La Havas"
-    },
-    {
-      "title": "Waitin",
-      "artist": "Kelela"
-    },
-    {
-      "title": "People Get Ready",
-      "artist": "The Brand New Heavies"
-    },
-    {
-      "title": "Where Did I Go?",
-      "artist": "Jorja Smith"
-    },
-    {
-      "title": "May",
-      "artist": "Jordan Rakei"
-    },
-    {
-      "title": "Pinkvibes",
-      "artist": "Suchmos"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [
-    "bright保底(+5)"
-  ],
-  "fresh_build": true,
-  "selection_policy": "never_repeat_v1"
+ "date": "2026-09-18",
+ "issue_no": 53,
+ "playlist_title": "今天第一次推荐的 30 首（09.18）",
+ "tracks_brief": [
+  {
+   "title": "Read My Mind",
+   "artist": "Lianne La Havas"
+  },
+  {
+   "title": "Waitin",
+   "artist": "Kelela"
+  },
+  {
+   "title": "People Get Ready",
+   "artist": "The Brand New Heavies"
+  },
+  {
+   "title": "Where Did I Go?",
+   "artist": "Jorja Smith"
+  },
+  {
+   "title": "May",
+   "artist": "Jordan Rakei"
+  },
+  {
+   "title": "Pinkvibes",
+   "artist": "Suchmos"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [
+  "bright保底(+5)"
+ ],
+ "fresh_build": true,
+ "selection_policy": "never_repeat_v1",
+ "notified": "2026-09-18"
 }
