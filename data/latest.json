@@ -1,39 +1,37 @@
 {
- "date": "2026-09-19",
- "issue_no": 54,
- "playlist_title": "今天第一次推荐的 30 首（09.19）",
- "tracks_brief": [
-  {
-   "title": "Get Up and Get Down",
-   "artist": "The Dramatics"
-  },
-  {
-   "title": "I Wanted It Too",
-   "artist": "Roberta Flack"
-  },
-  {
-   "title": "The Devil's in the Details",
-   "artist": "Mac Ayres"
-  },
-  {
-   "title": "Do I Need You",
-   "artist": "Ann Peebles"
-  },
-  {
-   "title": "You Got It",
-   "artist": "Eddie Kendricks"
-  },
-  {
-   "title": "Dark Green Water",
-   "artist": "Great Grandpa"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [
-  "bright保底(+5)"
- ],
- "fresh_build": true,
- "selection_policy": "never_repeat_v1",
- "notified": "2026-09-19"
+  "date": "2026-09-19",
+  "issue_no": 54,
+  "playlist_title": "今天第一次推荐的 30 首（09.19）",
+  "tracks_brief": [
+    {
+      "title": "Get Up and Get Down",
+      "artist": "The Dramatics"
+    },
+    {
+      "title": "I Wanted It Too",
+      "artist": "Roberta Flack"
+    },
+    {
+      "title": "The Devil's in the Details",
+      "artist": "Mac Ayres"
+    },
+    {
+      "title": "Do I Need You",
+      "artist": "Ann Peebles"
+    },
+    {
+      "title": "You Got It",
+      "artist": "Eddie Kendricks"
+    },
+    {
+      "title": "Dark Green Water",
+      "artist": "Great Grandpa"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false,
+  "selection_policy": "never_repeat_v1",
+  "notified": "2026-09-19"
 }
