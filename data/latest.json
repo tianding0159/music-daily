@@ -1,37 +1,38 @@
 {
-  "date": "2026-09-18",
-  "issue_no": 53,
-  "playlist_title": "今天第一次推荐的 30 首（09.18）",
+  "date": "2026-09-19",
+  "issue_no": 54,
+  "playlist_title": "今天第一次推荐的 30 首（09.19）",
   "tracks_brief": [
     {
-      "title": "Read My Mind",
-      "artist": "Lianne La Havas"
+      "title": "Get Up and Get Down",
+      "artist": "The Dramatics"
     },
     {
-      "title": "Waitin",
-      "artist": "Kelela"
+      "title": "I Wanted It Too",
+      "artist": "Roberta Flack"
     },
     {
-      "title": "People Get Ready",
-      "artist": "The Brand New Heavies"
+      "title": "The Devil's in the Details",
+      "artist": "Mac Ayres"
     },
     {
-      "title": "Where Did I Go?",
-      "artist": "Jorja Smith"
+      "title": "Do I Need You",
+      "artist": "Ann Peebles"
     },
     {
-      "title": "May",
-      "artist": "Jordan Rakei"
+      "title": "You Got It",
+      "artist": "Eddie Kendricks"
     },
     {
-      "title": "Pinkvibes",
-      "artist": "Suchmos"
+      "title": "Dark Green Water",
+      "artist": "Great Grandpa"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-09-18"
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
