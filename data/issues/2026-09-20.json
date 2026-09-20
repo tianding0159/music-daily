@@ -1,0 +1,551 @@
+{
+  "issue_no": 55,
+  "date": "2026-09-20",
+  "generated_at": "2026-09-20T00:00:42+00:00",
+  "theme": "grid",
+  "playlist_title": "今天第一次推荐的 30 首（09.20）",
+  "netease_text": "今天第一次推荐的 30 首（09.20）\nCome On In - Lady Wray\nDiamonds - Jitwam\nBubbles - Jamila Woods\nAla Vida - El Michels Affair\nKeeping the Faith in Love - Patrice Rushen\nThe Flower Lane - Ducktails\nWill We Ever Comprehend (feat. Rodrigo Alarcon & Ana Muller) - Sondre Lerche\nDid I Buy It? (feat. Mild High Club) - Jerry Paper\nParlour (Variation I) - Library Tapes\nVay Dünya - Altın Gün\noranges - Ada Lea\nTwist Your Ankle - Andy Shauf\nSlumber - Luke Howard\nArgente - Floating Points\nTo B Without a Hitch - Bridget St John\nKept It All to Myself - The Weather Station\nShēnzou V. - Yin Yin\nEarthquake - Deerhunter\nTudo ao Redor - Domenico Lancellotti\ncœur croisé - Polo & Pan\nFor Seeking Heat - Swervedriver\nDon't Look Back - Teenage Fanclub\nEscape - Tanukichan\nMr. Gorgeous (And Miss Curvaceous) - Smoke City\nDoing What I Can - Raphael Saadiq\nYesterday - Yukika\nBonde (with Ry Cooder) [with Ry Cooder] - Ali Farka Touré\nThe Psalmnist - Kamasi Washington\nFlylo Tweet - Yazmin Lacey\nLa Mirada - Nicola Cruz",
+  "tracks": [
+    {
+      "id": "apple:1584425238",
+      "title": "Come On In",
+      "artist": "Lady Wray",
+      "selection_status": "discovery_not_curated",
+      "album": "Piece of Me",
+      "year": "2022",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/come-on-in/1584425037?i=1584425238&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/90/95/41/9095412f-2700-7aef-3144-ff7b3c0c3928/26987.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e2/8e/3d/e28e3d19-fe05-b98b-afb0-8264fa527311/mzaf_4057876115286002954.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/come-on-in/1584425037?i=1584425238&uo=4"
+    },
+    {
+      "id": "apple:1452887653",
+      "title": "Diamonds",
+      "artist": "Jitwam",
+      "selection_status": "discovery_not_curated",
+      "album": "Honeycomb",
+      "year": "2019",
+      "genres": [
+        "neo-soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/diamonds/1452887644?i=1452887653&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/2a/0b/af/2a0baf74-3875-7165-4a93-17d9223de3d1/0730003681004.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/13/d0/1a/13d01a42-ff0a-c148-6ef2-88d20ea11bba/mzaf_18043553972672603427.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/diamonds/1452887644?i=1452887653&uo=4"
+    },
+    {
+      "id": "apple:1264798112",
+      "title": "Bubbles",
+      "artist": "Jamila Woods",
+      "selection_status": "discovery_not_curated",
+      "album": "HEAVN",
+      "year": "2017",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/bubbles/1264798110?i=1264798112&uo=4",
+      "why": "曲目资料已核对；2017 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/5b/7a/4c/5b7a4c16-3d3b-44ec-2b00-4890ebbc7cdf/656605231266.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/b8/7b/e1/b87be1ca-32a1-d278-ed7a-b962dd75b866/mzaf_12653031287805025359.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/bubbles/1264798110?i=1264798112&uo=4"
+    },
+    {
+      "id": "apple:1608057204",
+      "title": "Ala Vida",
+      "artist": "El Michels Affair",
+      "selection_status": "discovery_not_curated",
+      "album": "Yeti Season (Deluxe Version)",
+      "year": "2021",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/ala-vida/1608057192?i=1608057204&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/6b/0c/69/6b0c69ca-6474-28f2-719b-baf4908251d8/30300.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a7/fc/f7/a7fcf79b-b252-bbf2-280d-7674f05b45e7/mzaf_4424682209047427808.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/ala-vida/1608057192?i=1608057204&uo=4"
+    },
+    {
+      "id": "apple:1319514312",
+      "title": "Keeping the Faith in Love",
+      "artist": "Patrice Rushen",
+      "selection_status": "discovery_not_curated",
+      "album": "Pizzazz",
+      "year": "1979",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/keeping-the-faith-in-love/1319514159?i=1319514312&uo=4",
+      "why": "曲目资料已核对；1979 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/50/ea/94/50ea947c-de5b-cd6b-7ade-780f44cd4c2b/0730003317453_1448.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/23/6d/08/236d08a3-c547-24ce-b72b-0fa3e10cc05c/mzaf_2547084666232128978.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/keeping-the-faith-in-love/1319514159?i=1319514312&uo=4"
+    },
+    {
+      "id": "apple:1338965213",
+      "title": "The Flower Lane",
+      "artist": "Ducktails",
+      "selection_status": "discovery_not_curated",
+      "album": "The Flower Lane",
+      "year": "2013",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/the-flower-lane/1338965201?i=1338965213&uo=4",
+      "why": "曲目资料已核对；2013 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/62/9e/10/629e104c-dced-82bd-ad81-b340a3afd38d/artwork.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e5/5d/ba/e55dba7b-6ce9-358c-0bde-e060e662f66f/mzaf_11750864149536056978.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/the-flower-lane/1338965201?i=1338965213&uo=4"
+    },
+    {
+      "id": "apple:1599812253",
+      "title": "Will We Ever Comprehend (feat. Rodrigo Alarcon & Ana Muller)",
+      "artist": "Sondre Lerche",
+      "selection_status": "discovery_not_curated",
+      "album": "Avatars of Love",
+      "year": "2022",
+      "genres": [
+        "singer/songwriter"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/will-we-ever-comprehend-feat-rodrigo-alarcon-ana-muller/1599812246?i=1599812253&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/4b/2e/3b/4b2e3b83-ca46-fe88-d351-99a899ce28de/192641901836_Cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/93/24/08/932408bc-1122-6ae9-28d9-2891d6618516/mzaf_756552903703279261.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/will-we-ever-comprehend-feat-rodrigo-alarcon-ana-muller/1599812246?i=1599812253&uo=4"
+    },
+    {
+      "id": "apple:1414714109",
+      "title": "Did I Buy It? (feat. Mild High Club)",
+      "artist": "Jerry Paper",
+      "selection_status": "discovery_not_curated",
+      "album": "Like a Baby",
+      "year": "2018",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/did-i-buy-it-feat-mild-high-club/1414714102?i=1414714109&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/85/f9/53/85f95394-f496-2db8-599a-cb649d9ade42/likeababy.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/56/e4/37/56e437a4-99c0-8e8d-90de-fa287c67fca5/mzaf_13025925329113134604.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/did-i-buy-it-feat-mild-high-club/1414714102?i=1414714109&uo=4"
+    },
+    {
+      "id": "apple:1419088250",
+      "title": "Parlour (Variation I)",
+      "artist": "Library Tapes",
+      "selection_status": "discovery_not_curated",
+      "album": "Sun Peeking Through",
+      "year": "2012",
+      "genres": [
+        "classical"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/parlour-variation-i/1419088093?i=1419088250&uo=4",
+      "why": "曲目资料已核对；2012 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/85/ec/3d/85ec3d0d-7432-638b-0bd5-fa6e6998167b/800739667297.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ca/d0/74/cad074cf-d0eb-9191-196c-b5472b81407f/mzaf_429736060701145997.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/parlour-variation-i/1419088093?i=1419088250&uo=4"
+    },
+    {
+      "id": "apple:1456045830",
+      "title": "Vay Dünya",
+      "artist": "Altın Gün",
+      "selection_status": "discovery_not_curated",
+      "album": "Gece",
+      "year": "2019",
+      "genres": [
+        "worldwide"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/vay-d%C3%BCnya/1456045490?i=1456045830&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/1d/8f/4b/1d8f4b26-53bb-3007-d6ac-15e45abacb13/393.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/d7/96/1d/d7961d25-77ca-99bc-b28b-567d1258aaaa/mzaf_11854527824983373322.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/vay-d%C3%BCnya/1456045490?i=1456045830&uo=4"
+    },
+    {
+      "id": "apple:1574537840",
+      "title": "oranges",
+      "artist": "Ada Lea",
+      "selection_status": "discovery_not_curated",
+      "album": "one hand on the steering wheel the other sewing a garden",
+      "year": "2021",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/oranges/1574537836?i=1574537840&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/63/9a/7f/639a7f55-2246-69de-a81a-062891037c1c/LBJ-306_10x10_300dpi_RGB.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/9e/73/a4/9e73a4d7-6a04-b3af-e8b3-99bcafe397f7/mzaf_11428489650084072105.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/oranges/1574537836?i=1574537840&uo=4"
+    },
+    {
+      "id": "apple:1485075431",
+      "title": "Twist Your Ankle",
+      "artist": "Andy Shauf",
+      "selection_status": "discovery_not_curated",
+      "album": "The Party",
+      "year": "2016",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/twist-your-ankle/1485075427?i=1485075431&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b7/55/87/b7558743-7c1f-514a-f223-b77adc6d5eb8/0045778745609.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/d4/13/64/d41364f3-376e-133d-c25f-1de66d9edba9/mzaf_8388865198101917927.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/twist-your-ankle/1485075427?i=1485075431&uo=4"
+    },
+    {
+      "id": "apple:1452500371",
+      "title": "Slumber",
+      "artist": "Luke Howard",
+      "selection_status": "discovery_not_curated",
+      "album": "Sun, Cloud",
+      "year": "2013",
+      "genres": [
+        "classical crossover"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/slumber/1452500180?i=1452500371&uo=4",
+      "why": "曲目资料已核对；2013 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/63/05/ae/6305ae97-d082-cce6-88ce-5cd61989ea75/00028948151202.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/3e/d4/da/3ed4dad4-1064-b3b4-7903-8714d812f057/mzaf_2367470037525331029.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/slumber/1452500180?i=1452500371&uo=4"
+    },
+    {
+      "id": "apple:1030954029",
+      "title": "Argente",
+      "artist": "Floating Points",
+      "selection_status": "discovery_not_curated",
+      "album": "Elaenia",
+      "year": "2015",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/argente/1030953710?i=1030954029&uo=4",
+      "why": "曲目资料已核对；2015 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/9a/94/32/9a9432f2-748a-4ce4-a3ed-a0a568d6994c/889845575757.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/9b/9f/ac/9b9facaf-5ea8-577f-dce1-44f31fd070c9/mzaf_13656186127231816233.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/argente/1030953710?i=1030954029&uo=4"
+    },
+    {
+      "id": "apple:161608889",
+      "title": "To B Without a Hitch",
+      "artist": "Bridget St John",
+      "selection_status": "discovery_not_curated",
+      "album": "Ask Me No Questions",
+      "year": "1969",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/to-b-without-a-hitch/161608884?i=161608889&uo=4",
+      "why": "曲目资料已核对；1969 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/b2/45/03/mzi.rapytqew.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview71/v4/28/0f/55/280f55ed-d68c-1a6a-f011-d1bf72e7b596/mzaf_9108992860110167178.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/to-b-without-a-hitch/161608884?i=161608889&uo=4"
+    },
+    {
+      "id": "apple:1253654998",
+      "title": "Kept It All to Myself",
+      "artist": "The Weather Station",
+      "selection_status": "discovery_not_curated",
+      "album": "The Weather Station",
+      "year": "2017",
+      "genres": [
+        "alternative folk"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/kept-it-all-to-myself/1253654985?i=1253654998&uo=4",
+      "why": "曲目资料已核对；2017 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d1/a7/10/d1a71089-2ca6-721a-7275-75727f931c96/616892482642.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/54/ed/71/54ed7119-56a6-987b-1012-63a414b72556/mzaf_16845889041886130410.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/kept-it-all-to-myself/1253654985?i=1253654998&uo=4"
+    },
+    {
+      "id": "apple:1604213779",
+      "title": "Shēnzou V.",
+      "artist": "Yin Yin",
+      "selection_status": "discovery_not_curated",
+      "album": "The Age of Aquarius",
+      "year": "2022",
+      "genres": [
+        "worldwide"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/sh%C4%93nzou-v/1604213564?i=1604213779&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/c8/32/74/c832747a-491c-107d-0677-a757a1732461/4030433612477_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/43/ee/ec/43eeec49-f130-b365-6f6c-1168bac9fac6/mzaf_18184352854964008259.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/sh%C4%93nzou-v/1604213564?i=1604213779&uo=4"
+    },
+    {
+      "id": "apple:1544226567",
+      "title": "Earthquake",
+      "artist": "Deerhunter",
+      "selection_status": "discovery_not_curated",
+      "album": "Halcyon Digest",
+      "year": "2010",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/earthquake/1544226562?i=1544226567&uo=4",
+      "why": "曲目资料已核对；2010 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/c8/93/80/c8938060-b785-3f40-5cc5-6464265f10d6/652637303865.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e4/82/df/e482df5f-7630-ab99-2363-ffe871168346/mzaf_16756890703218030143.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/earthquake/1544226562?i=1544226567&uo=4"
+    },
+    {
+      "id": "apple:1351955665",
+      "title": "Tudo ao Redor",
+      "artist": "Domenico Lancellotti",
+      "selection_status": "discovery_not_curated",
+      "album": "The Good is a Big God",
+      "year": "2018",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/tudo-ao-redor/1351955493?i=1351955665&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/28/27/4b/28274b0d-4a00-bbf4-8642-763efb7c549c/680899008822.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c8/d3/60/c8d3604b-8750-93ec-b6bd-914f6962bd3d/mzaf_6875248699566283473.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/tudo-ao-redor/1351955493?i=1351955665&uo=4"
+    },
+    {
+      "id": "apple:1440885030",
+      "title": "cœur croisé",
+      "artist": "Polo & Pan",
+      "selection_status": "discovery_not_curated",
+      "album": "Caravelle",
+      "year": "2017",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/c%C5%93ur-crois%C3%A9/1440885023?i=1440885030&uo=4",
+      "why": "曲目资料已核对；2017 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/df/59/0a/df590a4b-5c6a-c13c-e613-d5fec8e32c73/17UMGIM90177.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ca/e7/d2/cae7d232-5860-d881-60a1-2d789c2be799/mzaf_696119331057748690.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/c%C5%93ur-crois%C3%A9/1440885023?i=1440885030&uo=4"
+    },
+    {
+      "id": "apple:1444116739",
+      "title": "For Seeking Heat",
+      "artist": "Swervedriver",
+      "selection_status": "discovery_not_curated",
+      "album": "Mezcal Head",
+      "year": "1993",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/for-seeking-heat/1444116738?i=1444116739&uo=4",
+      "why": "曲目资料已核对；1993 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/91/62/05/916205c8-a3d6-6e7d-0b1c-f0c058ec485f/00731454012928.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/e2/73/a7/e273a7fa-ee98-6898-1c47-d5eabed9be40/mzaf_12704674340273464439.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/for-seeking-heat/1444116738?i=1444116739&uo=4"
+    },
+    {
+      "id": "apple:1443912828",
+      "title": "Don't Look Back",
+      "artist": "Teenage Fanclub",
+      "selection_status": "discovery_not_curated",
+      "album": "Grand Prix",
+      "year": "1995",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/dont-look-back/1443912606?i=1443912828&uo=4",
+      "why": "曲目资料已核对；1995 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/df/2f/91/df2f9157-7474-5162-d32c-10115e0c6a36/00720642480229.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/c1/5c/23/c15c2310-8258-a404-ce02-7a945b34463c/mzaf_1581432483103662381.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/dont-look-back/1443912606?i=1443912828&uo=4"
+    },
+    {
+      "id": "apple:1650906219",
+      "title": "Escape",
+      "artist": "Tanukichan",
+      "selection_status": "discovery_not_curated",
+      "album": "GIZMO",
+      "year": "2023",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/escape/1650906218?i=1650906219&uo=4",
+      "why": "曲目资料已核对；2023 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/c4/6f/7a/c46f7af9-41ce-380c-03c9-43e514837dec/677517301854.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/c5/23/98/c52398ab-a84d-8e1c-c6c1-6494db50df0e/mzaf_15834888393440170941.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/escape/1650906218?i=1650906219&uo=4"
+    },
+    {
+      "id": "apple:1266447399",
+      "title": "Mr. Gorgeous (And Miss Curvaceous)",
+      "artist": "Smoke City",
+      "selection_status": "discovery_not_curated",
+      "album": "Flying Away",
+      "year": "1997",
+      "genres": [
+        "pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/mr-gorgeous-and-miss-curvaceous/1266447134?i=1266447399&uo=4",
+      "why": "曲目资料已核对；1997 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/0d/4c/ee/0d4cee93-a8a2-e805-0f0d-9baa6ee2b02e/886446674278.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6b/ca/e5/6bcae5e3-bb6e-5309-60bf-8708631339f6/mzaf_4093011621132301631.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/mr-gorgeous-and-miss-curvaceous/1266447134?i=1266447399&uo=4"
+    },
+    {
+      "id": "apple:1440658300",
+      "title": "Doing What I Can",
+      "artist": "Raphael Saadiq",
+      "selection_status": "discovery_not_curated",
+      "album": "Instant Vintage",
+      "year": "2002",
+      "genres": [
+        "hip-hop/rap"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/doing-what-i-can/1440658297?i=1440658300&uo=4",
+      "why": "曲目资料已核对；2002 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/98/25/dc/9825dc59-80d1-7f38-cf5c-9f31df8377c3/00044001665424.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5f/2a/50/5f2a505f-3236-cdcb-9391-f3c2d4530440/mzaf_4227534739567936082.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/doing-what-i-can/1440658297?i=1440658300&uo=4"
+    },
+    {
+      "id": "apple:1524421703",
+      "title": "Yesterday",
+      "artist": "Yukika",
+      "selection_status": "discovery_not_curated",
+      "album": "Soul Lady",
+      "year": "2020",
+      "genres": [
+        "k-pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/yesterday/1524421699?i=1524421703&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/b4/b1/46/b4b146b4-95e8-7d55-1894-f0434660b382/191953086927.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/44/bf/48/44bf4868-85cc-1176-674f-38c7afb1d2e4/mzaf_6941860298552733717.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/yesterday/1524421699?i=1524421703&uo=4"
+    },
+    {
+      "id": "apple:1528519971",
+      "title": "Bonde (with Ry Cooder) [with Ry Cooder]",
+      "artist": "Ali Farka Touré",
+      "selection_status": "discovery_not_curated",
+      "album": "Talking Timbuktu (with Ry Cooder)",
+      "year": "1994",
+      "genres": [
+        "worldwide"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/bonde-with-ry-cooder-with-ry-cooder/1528519970?i=1528519971&uo=4",
+      "why": "曲目资料已核对；1994 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/46/21/52/462152eb-c0f4-39a8-e1c0-758481a867ba/0859381180500.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/f8/ef/d0/f8efd0c4-f760-cc74-d1e0-82272010ecdd/mzaf_13134028318761193510.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/bonde-with-ry-cooder-with-ry-cooder/1528519970?i=1528519971&uo=4"
+    },
+    {
+      "id": "apple:1363035303",
+      "title": "The Psalmnist",
+      "artist": "Kamasi Washington",
+      "selection_status": "discovery_not_curated",
+      "album": "Heaven and Earth",
+      "year": "2018",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/the-psalmnist/1363033047?i=1363035303&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/7a/55/fa/7a55fa75-c905-96bd-0856-e207058f6f6e/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c2/db/65/c2db65d6-f531-29a2-e75a-c12bf124b45f/mzaf_5501963492789760008.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/the-psalmnist/1363033047?i=1363035303&uo=4"
+    },
+    {
+      "id": "apple:1651197154",
+      "title": "Flylo Tweet",
+      "artist": "Yazmin Lacey",
+      "selection_status": "discovery_not_curated",
+      "album": "Voice Notes",
+      "year": "2023",
+      "genres": [
+        "contemporary r&b"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/flylo-tweet/1651197148?i=1651197154&uo=4",
+      "why": "曲目资料已核对；2023 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/89/8c/e2/898ce24b-7191-d7ba-72e2-908730e41024/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/55/6f/1b/556f1b60-ebe5-dfbc-be77-10b8797aad03/mzaf_5254191893130851928.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/flylo-tweet/1651197148?i=1651197154&uo=4"
+    },
+    {
+      "id": "apple:1568195770",
+      "title": "La Mirada",
+      "artist": "Nicola Cruz",
+      "selection_status": "discovery_not_curated",
+      "album": "Prender el Alma",
+      "year": "2015",
+      "genres": [
+        "dance"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/la-mirada/1568195429?i=1568195770&uo=4",
+      "why": "曲目资料已核对；2015 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ac/01/b3/ac01b32c-8151-0117-1497-a80e36ab5a63/8176.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/aa/5e/a8/aa5ea80b-4840-9f69-3828-b9038f311c07/mzaf_16470669290238788468.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/la-mirada/1568195429?i=1568195770&uo=4"
+    }
+  ],
+  "selection_policy": "never_repeat_v1"
+}
