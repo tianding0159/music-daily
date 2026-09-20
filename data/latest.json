@@ -1,39 +1,37 @@
 {
- "date": "2026-09-20",
- "issue_no": 55,
- "playlist_title": "今天第一次推荐的 30 首（09.20）",
- "tracks_brief": [
-  {
-   "title": "Come On In",
-   "artist": "Lady Wray"
-  },
-  {
-   "title": "Diamonds",
-   "artist": "Jitwam"
-  },
-  {
-   "title": "Bubbles",
-   "artist": "Jamila Woods"
-  },
-  {
-   "title": "Ala Vida",
-   "artist": "El Michels Affair"
-  },
-  {
-   "title": "Keeping the Faith in Love",
-   "artist": "Patrice Rushen"
-  },
-  {
-   "title": "The Flower Lane",
-   "artist": "Ducktails"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [
-  "bright保底(+5)"
- ],
- "fresh_build": true,
- "selection_policy": "never_repeat_v1",
- "notified": "2026-09-20"
+  "date": "2026-09-20",
+  "issue_no": 55,
+  "playlist_title": "今天第一次推荐的 30 首（09.20）",
+  "tracks_brief": [
+    {
+      "title": "Come On In",
+      "artist": "Lady Wray"
+    },
+    {
+      "title": "Diamonds",
+      "artist": "Jitwam"
+    },
+    {
+      "title": "Bubbles",
+      "artist": "Jamila Woods"
+    },
+    {
+      "title": "Ala Vida",
+      "artist": "El Michels Affair"
+    },
+    {
+      "title": "Keeping the Faith in Love",
+      "artist": "Patrice Rushen"
+    },
+    {
+      "title": "The Flower Lane",
+      "artist": "Ducktails"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false,
+  "selection_policy": "never_repeat_v1",
+  "notified": "2026-09-20"
 }
