@@ -1,38 +1,39 @@
 {
-  "date": "2026-09-21",
-  "issue_no": 56,
-  "playlist_title": "今天第一次推荐的 30 首（09.21）",
-  "tracks_brief": [
-    {
-      "title": "Mad (feat. Lil Wayne)",
-      "artist": "Solange"
-    },
-    {
-      "title": "I Couldn't Love You More",
-      "artist": "Sade"
-    },
-    {
-      "title": "Tired of Fighting",
-      "artist": "Menahan Street Band"
-    },
-    {
-      "title": "If Only for One Night",
-      "artist": "Brenda Russell"
-    },
-    {
-      "title": "Memory Band",
-      "artist": "Minnie Riperton"
-    },
-    {
-      "title": "Treaty",
-      "artist": "Cande y Paulo"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [
-    "bright保底(+5)"
-  ],
-  "fresh_build": true,
-  "selection_policy": "never_repeat_v1"
+ "date": "2026-09-21",
+ "issue_no": 56,
+ "playlist_title": "今天第一次推荐的 30 首（09.21）",
+ "tracks_brief": [
+  {
+   "title": "Mad (feat. Lil Wayne)",
+   "artist": "Solange"
+  },
+  {
+   "title": "I Couldn't Love You More",
+   "artist": "Sade"
+  },
+  {
+   "title": "Tired of Fighting",
+   "artist": "Menahan Street Band"
+  },
+  {
+   "title": "If Only for One Night",
+   "artist": "Brenda Russell"
+  },
+  {
+   "title": "Memory Band",
+   "artist": "Minnie Riperton"
+  },
+  {
+   "title": "Treaty",
+   "artist": "Cande y Paulo"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [
+  "bright保底(+5)"
+ ],
+ "fresh_build": true,
+ "selection_policy": "never_repeat_v1",
+ "notified": "2026-09-21"
 }
