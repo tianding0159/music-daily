@@ -1,0 +1,551 @@
+{
+  "issue_no": 56,
+  "date": "2026-09-21",
+  "generated_at": "2026-09-21T00:01:18+00:00",
+  "theme": "grid",
+  "playlist_title": "今天第一次推荐的 30 首（09.21）",
+  "netease_text": "今天第一次推荐的 30 首（09.21）\nMad (feat. Lil Wayne) - Solange\nI Couldn't Love You More - Sade\nTired of Fighting - Menahan Street Band\nIf Only for One Night - Brenda Russell\nMemory Band - Minnie Riperton\nTreaty - Cande y Paulo\nRomance - Hiroshi Suzuki\nTransona Five - Stereolab\nlose you - Winter\nMurmuration - GoGo Penguin\nNew Ogi - Jessy Lanza\nHey Latasha - Seam\nThe Real World (feat. Sheer Agony) - Drugdealer\nDown In the Flood - Sandy Denny\nThe Taxi - Young Marble Giants\nButterfly dust - Meaningful Stone\nJohn Thomas on the Inside Is Nothing but Foam - Telefon Tel Aviv\nGolden Days - Whitney\nStrength of Strings - Gene Clark\nCloud - Masayoshi Fujita\nTechno Show - Peach Pit\nThese Are the Days - Neal Francis\nHotter Colder - This Is the Kit\nSir Queen - The Bats\nSpring Frost - Roger Eno & Brian Eno\nIconography - Max Richter\nStill There, Still Here - Lucid Fall\nCalienta - Helado Negro\nErnetti - Greg Haines\nCamel Rise - Bobby Hutcherson",
+  "tracks": [
+    {
+      "id": "apple:1159507304",
+      "title": "Mad (feat. Lil Wayne)",
+      "artist": "Solange",
+      "selection_status": "discovery_not_curated",
+      "album": "A Seat at the Table",
+      "year": "2016",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/mad-feat-lil-wayne/1159507212?i=1159507304&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/76/2b/c4/762bc430-fae3-3262-ef16-bd74bad9cdea/886446143170.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/39/97/4a/39974ab2-6ce9-06fc-39b9-0ac0a26e6769/mzaf_16042787175453848861.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/mad-feat-lil-wayne/1159507212?i=1159507304&uo=4"
+    },
+    {
+      "id": "apple:158796585",
+      "title": "I Couldn't Love You More",
+      "artist": "Sade",
+      "selection_status": "discovery_not_curated",
+      "album": "Love Deluxe",
+      "year": "1992",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/i-couldnt-love-you-more/158796559?i=158796585&uo=4",
+      "why": "曲目资料已核对；1992 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/18/c8/d7/18c8d7bc-8491-09e6-df0d-6e0a83ead680/mzi.wsikzifg.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b1/46/6e/b1466eeb-49fd-dee2-659d-21c75cbc067b/mzaf_12650858337599219289.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/i-couldnt-love-you-more/158796559?i=158796585&uo=4"
+    },
+    {
+      "id": "apple:1484988576",
+      "title": "Tired of Fighting",
+      "artist": "Menahan Street Band",
+      "selection_status": "discovery_not_curated",
+      "album": "Make the Road By Walking",
+      "year": "2008",
+      "genres": [
+        "soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/tired-of-fighting/1484988181?i=1484988576&uo=4",
+      "why": "曲目资料已核对；2008 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/89/49/77/89497796-d985-b82f-53b5-22d5bc6882e7/884385894320.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/3b/ba/0c/3bba0c76-83ff-7e43-5b95-d0c0a4a017ef/mzaf_1041578546638524252.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/tired-of-fighting/1484988181?i=1484988576&uo=4"
+    },
+    {
+      "id": "apple:1444130249",
+      "title": "If Only for One Night",
+      "artist": "Brenda Russell",
+      "selection_status": "discovery_not_curated",
+      "album": "Brenda Russell",
+      "year": "1979",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/if-only-for-one-night/1444130231?i=1444130249&uo=4",
+      "why": "曲目资料已核对；1979 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/82/9c/7d/829c7d3f-c73e-210d-4c6b-1a68c8be0d74/00606949063726.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d6/1f/0b/d61f0ba9-7d8b-a828-086c-13eaac1c5130/mzaf_11813588458385694336.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/if-only-for-one-night/1444130231?i=1444130249&uo=4"
+    },
+    {
+      "id": "apple:1450574036",
+      "title": "Memory Band",
+      "artist": "Minnie Riperton",
+      "selection_status": "discovery_not_curated",
+      "album": "Come to My Garden",
+      "year": "1970",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/memory-band/1450573758?i=1450574036&uo=4",
+      "why": "曲目资料已核对；1970 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/7d/1b/96/7d1b96cc-1519-8a06-0a28-62aba1bc0aa0/00602577421426.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b5/73/ed/b573ed8a-3052-2483-c26d-5e4714265542/mzaf_16470166436028610255.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/memory-band/1450573758?i=1450574036&uo=4"
+    },
+    {
+      "id": "apple:1558474666",
+      "title": "Treaty",
+      "artist": "Cande y Paulo",
+      "selection_status": "discovery_not_curated",
+      "album": "Cande y Paulo",
+      "year": "2021",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/treaty/1558474657?i=1558474666&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/8f/8b/3a/8f8b3a2b-1bd1-86f2-5ad1-027f5fc5707b/20UMGIM94099.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c1/d2/6c/c1d26c84-cb60-f555-65bb-72b45caef5b9/mzaf_10625049867681493028.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/treaty/1558474657?i=1558474666&uo=4"
+    },
+    {
+      "id": "apple:1464111615",
+      "title": "Romance",
+      "artist": "Hiroshi Suzuki",
+      "selection_status": "discovery_not_curated",
+      "album": "Cat",
+      "year": "1976",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/romance/1464111606?i=1464111615&uo=4",
+      "why": "曲目资料已核对；1976 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/b7/93/a3/b793a354-b314-93dc-c797-a15126a6055e/COCB-54118.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/51/4f/bd/514fbdb1-235d-fe9d-13a2-ff1c3ae8ce9d/mzaf_18269479794490979351.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/romance/1464111606?i=1464111615&uo=4"
+    },
+    {
+      "id": "apple:1231421321",
+      "title": "Transona Five",
+      "artist": "Stereolab",
+      "selection_status": "discovery_not_curated",
+      "album": "Mars Audiac Quintet",
+      "year": "1994",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/transona-five/1231421047?i=1231421321&uo=4",
+      "why": "曲目资料已核对；1994 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music117/v4/48/86/6d/48866dcb-e9e3-af22-b29a-ab74d319c8e4/5060384612256.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/b4/17/28/b41728c3-c23d-857e-df32-97d4001829b1/mzaf_13468538830204607475.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/transona-five/1231421047?i=1231421321&uo=4"
+    },
+    {
+      "id": "apple:1629981961",
+      "title": "lose you",
+      "artist": "Winter",
+      "selection_status": "discovery_not_curated",
+      "album": "What Kind of Blue Are You?",
+      "year": "2022",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/lose-you/1629981936?i=1629981961&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/54/90/84/54908488-747f-30af-7427-c64e452d9542/34413.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/e9/aa/f3/e9aaf3ad-87b3-5042-8d42-2f65942a641c/mzaf_16528420573050125942.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/lose-you/1629981936?i=1629981961&uo=4"
+    },
+    {
+      "id": "apple:1579118890",
+      "title": "Murmuration",
+      "artist": "GoGo Penguin",
+      "selection_status": "discovery_not_curated",
+      "album": "v2.0 (Deluxe Edition)",
+      "year": "2014",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/murmuration/1579118524?i=1579118890&uo=4",
+      "why": "曲目资料已核对；2014 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/bd/b9/a4/bdb9a434-4ec4-3dcc-b72c-c7f02ed1f2de/5050580625426_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/16/d4/a5/16d4a522-420e-ca21-1e9f-a9025c5af6ca/mzaf_16523193022195540797.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/murmuration/1579118524?i=1579118890&uo=4"
+    },
+    {
+      "id": "apple:1077534943",
+      "title": "New Ogi",
+      "artist": "Jessy Lanza",
+      "selection_status": "discovery_not_curated",
+      "album": "Oh No",
+      "year": "2016",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/new-ogi/1077534787?i=1077534943&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/c2/d1/db/c2d1db0c-9d1f-2d02-35ee-08cd586eba47/12499.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/20/1c/db/201cdb19-eeaf-441f-2f5c-1a0166b2dae4/mzaf_9303663110240109874.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/new-ogi/1077534787?i=1077534943&uo=4"
+    },
+    {
+      "id": "apple:1120065304",
+      "title": "Hey Latasha",
+      "artist": "Seam",
+      "selection_status": "discovery_not_curated",
+      "album": "Are You Driving Me Crazy?",
+      "year": "1995",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/hey-latasha/1120065262?i=1120065304&uo=4",
+      "why": "曲目资料已核对；1995 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music60/v4/76/2f/5e/762f5e37-01af-50a6-b297-6a6f7abfaf16/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/10/b7/fa/10b7fa1a-d0a2-71b0-2b87-8f06ec28baa2/mzaf_4607373102305491037.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/hey-latasha/1120065262?i=1120065304&uo=4"
+    },
+    {
+      "id": "apple:1131207783",
+      "title": "The Real World (feat. Sheer Agony)",
+      "artist": "Drugdealer",
+      "selection_status": "discovery_not_curated",
+      "album": "The End of Comedy",
+      "year": "2016",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/the-real-world-feat-sheer-agony/1131207436?i=1131207783&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music20/v4/6d/aa/08/6daa08b9-99b3-758b-6242-71ce9d9a67f1/dj.cswpzgux.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c5/8d/7a/c58d7a48-2abf-2b18-5532-b7ed9ad6c7b5/mzaf_4231258077237912866.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/the-real-world-feat-sheer-agony/1131207436?i=1131207783&uo=4"
+    },
+    {
+      "id": "apple:1443230175",
+      "title": "Down In the Flood",
+      "artist": "Sandy Denny",
+      "selection_status": "discovery_not_curated",
+      "album": "The North Star Grassman and the Ravens (Deluxe Edition)",
+      "year": "1971",
+      "genres": [
+        "singer/songwriter"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/down-in-the-flood/1443229737?i=1443230175&uo=4",
+      "why": "曲目资料已核对；1971 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/ee/d1/90/eed190ca-0fd4-98b0-a602-c6799c768c01/00600753340585.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/65/ac/b6/65acb6df-1110-68df-b900-8a17bc453570/mzaf_16438898106095081724.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/down-in-the-flood/1443229737?i=1443230175&uo=4"
+    },
+    {
+      "id": "apple:1535230477",
+      "title": "The Taxi",
+      "artist": "Young Marble Giants",
+      "selection_status": "discovery_not_curated",
+      "album": "Colossal Youth (40th Anniversary Edition)",
+      "year": "1979",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/the-taxi/1535230234?i=1535230477&uo=4",
+      "why": "曲目资料已核对；1979 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/74/8b/f8/748bf8f9-b0e4-a352-3c43-8bb913ab7832/887830003261.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/06/2d/6b/062d6b0f-2a23-3637-7f10-9caa879e9ae2/mzaf_9846261558809202920.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/the-taxi/1535230234?i=1535230477&uo=4"
+    },
+    {
+      "id": "apple:1533397189",
+      "title": "Butterfly dust",
+      "artist": "Meaningful Stone",
+      "selection_status": "discovery_not_curated",
+      "album": "A Call from My Dream",
+      "year": "2020",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/butterfly-dust/1533397185?i=1533397189&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/84/5f/87/845f8771-6288-9972-a7f7-ecbb72c78705/8809712287776.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1d/ba/f0/1dbaf0ea-6c78-4cb4-149b-e5841b3459b3/mzaf_11255857325625261090.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/butterfly-dust/1533397185?i=1533397189&uo=4"
+    },
+    {
+      "id": "apple:1163911986",
+      "title": "John Thomas on the Inside Is Nothing but Foam",
+      "artist": "Telefon Tel Aviv",
+      "selection_status": "discovery_not_curated",
+      "album": "Fahrenheit Fair Enough",
+      "year": "2001",
+      "genres": [
+        "idm/experimental"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/john-thomas-on-the-inside-is-nothing-but-foam/1163911790?i=1163911986&uo=4",
+      "why": "曲目资料已核对；2001 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music71/v4/6c/5f/b4/6c5fb4de-697d-ff3f-7067-af1ae9a767df/804297827223.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/7b/0f/64/7b0f6412-1962-cac5-7a53-15caf0381c8c/mzaf_11768830966083696805.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/john-thomas-on-the-inside-is-nothing-but-foam/1163911790?i=1163911986&uo=4"
+    },
+    {
+      "id": "apple:1093890755",
+      "title": "Golden Days",
+      "artist": "Whitney",
+      "selection_status": "discovery_not_curated",
+      "album": "Light Upon the Lake",
+      "year": "2016",
+      "genres": [
+        "indie rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/golden-days/1093890670?i=1093890755&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ac/1c/c8/ac1cc8cd-2932-9847-6193-27e2773903cf/656605033761.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/21/f6/ee/21f6ee7b-dff4-ba8c-8010-43dbd4725764/mzaf_18056318913745031635.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/golden-days/1093890670?i=1093890755&uo=4"
+    },
+    {
+      "id": "apple:1325736146",
+      "title": "Strength of Strings",
+      "artist": "Gene Clark",
+      "selection_status": "discovery_not_curated",
+      "album": "No Other",
+      "year": "1974",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/strength-of-strings/1325735987?i=1325736146&uo=4",
+      "why": "曲目资料已核对；1974 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/27/00/9f/27009f07-288b-ca29-a724-94d87062646a/191400007567.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/37/a6/e7/37a6e737-ecc4-0507-f02e-b91c5b7a956e/mzaf_10957517663992359998.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/strength-of-strings/1325735987?i=1325736146&uo=4"
+    },
+    {
+      "id": "apple:1451160017",
+      "title": "Cloud",
+      "artist": "Masayoshi Fujita",
+      "selection_status": "discovery_not_curated",
+      "album": "Stories",
+      "year": "2018",
+      "genres": [
+        "ambient"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/cloud/1451159999?i=1451160017&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/ae/50/41/ae50411d-69df-fae4-2a29-cccd80716a06/4050486115015_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/86/7d/4d/867d4d32-d4a7-1f35-07a9-86ba8b8e8bc4/mzaf_6696113703676790149.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/cloud/1451159999?i=1451160017&uo=4"
+    },
+    {
+      "id": "apple:1404025210",
+      "title": "Techno Show",
+      "artist": "Peach Pit",
+      "selection_status": "discovery_not_curated",
+      "album": "Being So Normal",
+      "year": "2018",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/techno-show/1404025195?i=1404025210&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c1/d4/3d/c1d43d94-2c88-d796-6c62-5efa41cfcc74/886447136270.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/6a/61/c9/6a61c99d-e9aa-4fd5-bf1a-61a7564a27f5/mzaf_13072941350904487021.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/techno-show/1404025195?i=1404025210&uo=4"
+    },
+    {
+      "id": "apple:1471193299",
+      "title": "These Are the Days",
+      "artist": "Neal Francis",
+      "selection_status": "discovery_not_curated",
+      "album": "Changes",
+      "year": "2019",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/these-are-the-days/1471193295?i=1471193299&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1b/28/be/1b28be68-3b82-a7c7-bc15-b55b4a6dd1a6/60930.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9b/41/6c/9b416c25-a5a9-10b8-33c0-7974ddaca479/mzaf_16666939894579841043.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/these-are-the-days/1471193295?i=1471193299&uo=4"
+    },
+    {
+      "id": "apple:1231073776",
+      "title": "Hotter Colder",
+      "artist": "This Is the Kit",
+      "selection_status": "discovery_not_curated",
+      "album": "Moonshine Freeze",
+      "year": "2017",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/hotter-colder/1231073766?i=1231073776&uo=4",
+      "why": "曲目资料已核对；2017 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music117/v4/45/d1/37/45d137fa-faae-48b9-a105-17d8320c1514/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/34/04/fc/3404fc6d-cac9-299d-cfe1-aebca6e4dc1e/mzaf_3146465703815204766.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/hotter-colder/1231073766?i=1231073776&uo=4"
+    },
+    {
+      "id": "apple:1443493828",
+      "title": "Sir Queen",
+      "artist": "The Bats",
+      "selection_status": "discovery_not_curated",
+      "album": "Daddy's Highway",
+      "year": "1987",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/sir-queen/1443493583?i=1443493828&uo=4",
+      "why": "曲目资料已核对；1987 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/fe/c6/17/fec6179d-184c-413a-75e6-cc99ea70987d/00035498007125.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/88/ad/75/88ad752f-133a-d79e-c71e-043302d602a5/mzaf_12887973060865986948.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/sir-queen/1443493583?i=1443493828&uo=4"
+    },
+    {
+      "id": "apple:1494291238",
+      "title": "Spring Frost",
+      "artist": "Roger Eno & Brian Eno",
+      "selection_status": "discovery_not_curated",
+      "album": "Mixing Colours",
+      "year": "2020",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/spring-frost/1494291232?i=1494291238&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/b6/a0/1b/b6a01b7b-33e8-a05d-0974-12ca6d81f61f/19UMGIM71230.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/75/5c/30/755c308d-68f6-ca5e-4dfa-a378a03c8ebe/mzaf_646270256512928640.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/spring-frost/1494291232?i=1494291238&uo=4"
+    },
+    {
+      "id": "apple:1368090629",
+      "title": "Iconography",
+      "artist": "Max Richter",
+      "selection_status": "discovery_not_curated",
+      "album": "The Blue Notebooks (15 Years)",
+      "year": "2004",
+      "genres": [
+        "classical"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/iconography/1368089903?i=1368090629&uo=4",
+      "why": "曲目资料已核对；2004 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/58/ec/d7/58ecd75d-8df8-c05f-5e1a-b144292c6493/17UM1IM64259.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/40/1c/60/401c6018-354e-176c-11be-85915c8279aa/mzaf_8371676220292134175.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/iconography/1368089903?i=1368090629&uo=4"
+    },
+    {
+      "id": "apple:1527240356",
+      "title": "Still There, Still Here",
+      "artist": "Lucid Fall",
+      "selection_status": "discovery_not_curated",
+      "album": "Someone, Somewhere",
+      "year": "2015",
+      "genres": [
+        "singer/songwriter"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/still-there-still-here/1527240352?i=1527240356&uo=4",
+      "why": "曲目资料已核对；2015 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/3f/cf/ed/3fcfed66-51a1-e576-a701-deffa3fcb64c/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/91/ef/36/91ef367b-dfb2-08e0-b9e8-89a1897e7427/mzaf_2468007964141036738.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/still-there-still-here/1527240352?i=1527240356&uo=4"
+    },
+    {
+      "id": "apple:1221972917",
+      "title": "Calienta",
+      "artist": "Helado Negro",
+      "selection_status": "discovery_not_curated",
+      "album": "Private Energy (Expanded)",
+      "year": "2016",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/calienta/1221972520?i=1221972917&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music111/v4/6c/13/b8/6c13b8c4-4ecc-f252-985f-52658d4f89ed/716670165757.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/43/76/bb/4376bb88-1a10-8d10-68e8-c294efdc90bd/mzaf_3905178170862533555.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/calienta/1221972520?i=1221972917&uo=4"
+    },
+    {
+      "id": "apple:1533276807",
+      "title": "Ernetti",
+      "artist": "Greg Haines",
+      "selection_status": "discovery_not_curated",
+      "album": "Digressions",
+      "year": "2013",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/ernetti/1533276806?i=1533276807&uo=4",
+      "why": "曲目资料已核对；2013 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/bb/f3/c0/bbf3c0f7-cabc-95c6-11ee-f13a586ba153/634457034693.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/85/ef/a8/85efa879-cb35-a49b-5663-ea9446201e84/mzaf_8473602824168027012.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/ernetti/1533276806?i=1533276807&uo=4"
+    },
+    {
+      "id": "apple:1444189678",
+      "title": "Camel Rise",
+      "artist": "Bobby Hutcherson",
+      "selection_status": "discovery_not_curated",
+      "album": "Montara",
+      "year": "1975",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/camel-rise/1444189674?i=1444189678&uo=4",
+      "why": "曲目资料已核对；1975 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/90/b4/97/90b4973f-e89d-bc09-c803-de189bcf3a37/00602537827541.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/f1/fb/0f/f1fb0f59-06c9-20ca-4921-90758dfd4f57/mzaf_16511069613469030989.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/camel-rise/1444189674?i=1444189678&uo=4"
+    }
+  ],
+  "selection_policy": "never_repeat_v1"
+}

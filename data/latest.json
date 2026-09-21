@@ -1,37 +1,38 @@
 {
-  "date": "2026-09-20",
-  "issue_no": 55,
-  "playlist_title": "今天第一次推荐的 30 首（09.20）",
+  "date": "2026-09-21",
+  "issue_no": 56,
+  "playlist_title": "今天第一次推荐的 30 首（09.21）",
   "tracks_brief": [
     {
-      "title": "Come On In",
-      "artist": "Lady Wray"
+      "title": "Mad (feat. Lil Wayne)",
+      "artist": "Solange"
     },
     {
-      "title": "Diamonds",
-      "artist": "Jitwam"
+      "title": "I Couldn't Love You More",
+      "artist": "Sade"
     },
     {
-      "title": "Bubbles",
-      "artist": "Jamila Woods"
+      "title": "Tired of Fighting",
+      "artist": "Menahan Street Band"
     },
     {
-      "title": "Ala Vida",
-      "artist": "El Michels Affair"
+      "title": "If Only for One Night",
+      "artist": "Brenda Russell"
     },
     {
-      "title": "Keeping the Faith in Love",
-      "artist": "Patrice Rushen"
+      "title": "Memory Band",
+      "artist": "Minnie Riperton"
     },
     {
-      "title": "The Flower Lane",
-      "artist": "Ducktails"
+      "title": "Treaty",
+      "artist": "Cande y Paulo"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-09-20"
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
