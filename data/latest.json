@@ -1,37 +1,38 @@
 {
-  "date": "2026-09-21",
-  "issue_no": 56,
-  "playlist_title": "今天第一次推荐的 30 首（09.21）",
+  "date": "2026-09-22",
+  "issue_no": 57,
+  "playlist_title": "今天第一次推荐的 30 首（09.22）",
   "tracks_brief": [
     {
-      "title": "Mad (feat. Lil Wayne)",
-      "artist": "Solange"
+      "title": "whisper",
+      "artist": "serpentwithfeet"
     },
     {
-      "title": "I Couldn't Love You More",
-      "artist": "Sade"
+      "title": "Vampin' (Soundtrack/The Mack)",
+      "artist": "Willie Hutch"
     },
     {
-      "title": "Tired of Fighting",
-      "artist": "Menahan Street Band"
+      "title": "Spinnin' And Spinnin'",
+      "artist": "Syreeta"
     },
     {
-      "title": "If Only for One Night",
-      "artist": "Brenda Russell"
+      "title": "Welcome Speech",
+      "artist": "Crackazat"
     },
     {
-      "title": "Memory Band",
-      "artist": "Minnie Riperton"
+      "title": "Falling",
+      "artist": "Michael Kiwanuka"
     },
     {
-      "title": "Treaty",
-      "artist": "Cande y Paulo"
+      "title": "Thembi",
+      "artist": "Pharoah Sanders"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-09-21"
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
