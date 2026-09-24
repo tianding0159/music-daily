@@ -1,37 +1,38 @@
 {
-  "date": "2026-09-23",
-  "issue_no": 58,
-  "playlist_title": "今天第一次推荐的 30 首（09.23）",
+  "date": "2026-09-24",
+  "issue_no": 59,
+  "playlist_title": "今天第一次推荐的 30 首（09.24）",
   "tracks_brief": [
     {
-      "title": "All That I Am",
-      "artist": "Bilal"
+      "title": "Even So",
+      "artist": "dosii"
     },
     {
-      "title": "Mary Go Round (feat. Osunlade)",
-      "artist": "Musiq Soulchild"
+      "title": "Country Living",
+      "artist": "The Stylistics"
     },
     {
-      "title": "More Than Ever",
-      "artist": "Durand Jones & The Indications"
+      "title": "Peter's Jones",
+      "artist": "Bloodstone"
     },
     {
-      "title": "Exclusively",
-      "artist": "Jill Scott"
+      "title": "Wavy",
+      "artist": "79.5"
     },
     {
-      "title": "Whoa",
-      "artist": "Snoh Aalegra"
+      "title": "Brown Skin Girl",
+      "artist": "Leon Bridges"
     },
     {
-      "title": "Dreamy Bruises",
-      "artist": "Sylvan Esso"
+      "title": "Sick & Tired",
+      "artist": "The Cardigans"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-09-23"
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
