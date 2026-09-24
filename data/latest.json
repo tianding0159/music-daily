@@ -1,38 +1,39 @@
 {
-  "date": "2026-09-24",
-  "issue_no": 59,
-  "playlist_title": "今天第一次推荐的 30 首（09.24）",
-  "tracks_brief": [
-    {
-      "title": "Even So",
-      "artist": "dosii"
-    },
-    {
-      "title": "Country Living",
-      "artist": "The Stylistics"
-    },
-    {
-      "title": "Peter's Jones",
-      "artist": "Bloodstone"
-    },
-    {
-      "title": "Wavy",
-      "artist": "79.5"
-    },
-    {
-      "title": "Brown Skin Girl",
-      "artist": "Leon Bridges"
-    },
-    {
-      "title": "Sick & Tired",
-      "artist": "The Cardigans"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [
-    "bright保底(+5)"
-  ],
-  "fresh_build": true,
-  "selection_policy": "never_repeat_v1"
+ "date": "2026-09-24",
+ "issue_no": 59,
+ "playlist_title": "今天第一次推荐的 30 首（09.24）",
+ "tracks_brief": [
+  {
+   "title": "Even So",
+   "artist": "dosii"
+  },
+  {
+   "title": "Country Living",
+   "artist": "The Stylistics"
+  },
+  {
+   "title": "Peter's Jones",
+   "artist": "Bloodstone"
+  },
+  {
+   "title": "Wavy",
+   "artist": "79.5"
+  },
+  {
+   "title": "Brown Skin Girl",
+   "artist": "Leon Bridges"
+  },
+  {
+   "title": "Sick & Tired",
+   "artist": "The Cardigans"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [
+  "bright保底(+5)"
+ ],
+ "fresh_build": true,
+ "selection_policy": "never_repeat_v1",
+ "notified": "2026-09-24"
 }
