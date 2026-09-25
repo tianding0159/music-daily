@@ -1,37 +1,38 @@
 {
-  "date": "2026-09-24",
-  "issue_no": 59,
-  "playlist_title": "今天第一次推荐的 30 首（09.24）",
+  "date": "2026-09-25",
+  "issue_no": 60,
+  "playlist_title": "今天第一次推荐的 30 首（09.25）",
   "tracks_brief": [
     {
-      "title": "Even So",
-      "artist": "dosii"
+      "title": "Enough",
+      "artist": "Kelela"
     },
     {
-      "title": "Country Living",
-      "artist": "The Stylistics"
+      "title": "Green Papaya",
+      "artist": "Lianne La Havas"
     },
     {
-      "title": "Peter's Jones",
-      "artist": "Bloodstone"
+      "title": "Medallion",
+      "artist": "Jenevieve"
     },
     {
-      "title": "Wavy",
-      "artist": "79.5"
+      "title": "What's Happening Brother",
+      "artist": "Marvin Gaye"
     },
     {
-      "title": "Brown Skin Girl",
-      "artist": "Leon Bridges"
+      "title": "Did You Know",
+      "artist": "Sudan Archives"
     },
     {
-      "title": "Sick & Tired",
-      "artist": "The Cardigans"
+      "title": "Strings",
+      "artist": "Asobi Seksu"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-09-24"
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
