@@ -1,39 +1,37 @@
 {
- "date": "2026-09-25",
- "issue_no": 60,
- "playlist_title": "今天第一次推荐的 30 首（09.25）",
- "tracks_brief": [
-  {
-   "title": "Enough",
-   "artist": "Kelela"
-  },
-  {
-   "title": "Green Papaya",
-   "artist": "Lianne La Havas"
-  },
-  {
-   "title": "Medallion",
-   "artist": "Jenevieve"
-  },
-  {
-   "title": "What's Happening Brother",
-   "artist": "Marvin Gaye"
-  },
-  {
-   "title": "Did You Know",
-   "artist": "Sudan Archives"
-  },
-  {
-   "title": "Strings",
-   "artist": "Asobi Seksu"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [
-  "bright保底(+5)"
- ],
- "fresh_build": true,
- "selection_policy": "never_repeat_v1",
- "notified": "2026-09-25"
+  "date": "2026-09-25",
+  "issue_no": 60,
+  "playlist_title": "今天第一次推荐的 30 首（09.25）",
+  "tracks_brief": [
+    {
+      "title": "Enough",
+      "artist": "Kelela"
+    },
+    {
+      "title": "Green Papaya",
+      "artist": "Lianne La Havas"
+    },
+    {
+      "title": "Medallion",
+      "artist": "Jenevieve"
+    },
+    {
+      "title": "What's Happening Brother",
+      "artist": "Marvin Gaye"
+    },
+    {
+      "title": "Did You Know",
+      "artist": "Sudan Archives"
+    },
+    {
+      "title": "Strings",
+      "artist": "Asobi Seksu"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false,
+  "selection_policy": "never_repeat_v1",
+  "notified": "2026-09-25"
 }
