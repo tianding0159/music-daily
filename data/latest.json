@@ -1,37 +1,38 @@
 {
-  "date": "2026-09-25",
-  "issue_no": 60,
-  "playlist_title": "今天第一次推荐的 30 首（09.25）",
+  "date": "2026-09-26",
+  "issue_no": 61,
+  "playlist_title": "今天第一次推荐的 30 首（09.26）",
   "tracks_brief": [
     {
-      "title": "Enough",
-      "artist": "Kelela"
+      "title": "Stormy Monday",
+      "artist": "Marlena Shaw"
     },
     {
-      "title": "Green Papaya",
-      "artist": "Lianne La Havas"
+      "title": "Thank You for Your Love",
+      "artist": "The Dramatics"
     },
     {
-      "title": "Medallion",
-      "artist": "Jenevieve"
+      "title": "Lost & Found",
+      "artist": "Jorja Smith"
     },
     {
-      "title": "What's Happening Brother",
-      "artist": "Marvin Gaye"
+      "title": "Until You Came Into My Life",
+      "artist": "Ann Peebles"
     },
     {
-      "title": "Did You Know",
-      "artist": "Sudan Archives"
+      "title": "Feelin' That Glow",
+      "artist": "Roberta Flack"
     },
     {
-      "title": "Strings",
-      "artist": "Asobi Seksu"
+      "title": "Tobacco",
+      "artist": "Suchmos"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-09-25"
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
