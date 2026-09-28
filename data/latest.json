@@ -1,37 +1,38 @@
 {
-  "date": "2026-09-27",
-  "issue_no": 62,
-  "playlist_title": "今天第一次推荐的 30 首（09.27）",
+  "date": "2026-09-28",
+  "issue_no": 63,
+  "playlist_title": "今天第一次推荐的 30 首（09.28）",
   "tracks_brief": [
     {
-      "title": "Unathi (feat. Piya Malik)",
-      "artist": "El Michels Affair"
+      "title": "Come to My Garden",
+      "artist": "Minnie Riperton"
     },
     {
-      "title": "Hearts Don't Lie",
-      "artist": "Jitwam"
+      "title": "Home Again",
+      "artist": "Menahan Street Band"
     },
     {
-      "title": "Bnh",
-      "artist": "The Brand New Heavies"
+      "title": "Eye to Eye",
+      "artist": "Jordan Rakei"
     },
     {
-      "title": "Something Shady (Is Going On)",
-      "artist": "Eddie Kendricks"
+      "title": "Feel No Pain",
+      "artist": "Sade"
     },
     {
-      "title": "I Do",
-      "artist": "Lady Wray"
+      "title": "Lonely (feat. Lorine Chia)",
+      "artist": "Jamila Woods"
     },
     {
-      "title": "O Pato",
-      "artist": "Stan Getz & Charlie Byrd"
+      "title": "Sweet to Me",
+      "artist": "Logg"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-09-27"
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
