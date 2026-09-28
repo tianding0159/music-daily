@@ -1,39 +1,37 @@
 {
- "date": "2026-09-28",
- "issue_no": 63,
- "playlist_title": "今天第一次推荐的 30 首（09.28）",
- "tracks_brief": [
-  {
-   "title": "Come to My Garden",
-   "artist": "Minnie Riperton"
-  },
-  {
-   "title": "Home Again",
-   "artist": "Menahan Street Band"
-  },
-  {
-   "title": "Eye to Eye",
-   "artist": "Jordan Rakei"
-  },
-  {
-   "title": "Feel No Pain",
-   "artist": "Sade"
-  },
-  {
-   "title": "Lonely (feat. Lorine Chia)",
-   "artist": "Jamila Woods"
-  },
-  {
-   "title": "Sweet to Me",
-   "artist": "Logg"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [
-  "bright保底(+5)"
- ],
- "fresh_build": true,
- "selection_policy": "never_repeat_v1",
- "notified": "2026-09-28"
+  "date": "2026-09-28",
+  "issue_no": 63,
+  "playlist_title": "今天第一次推荐的 30 首（09.28）",
+  "tracks_brief": [
+    {
+      "title": "Come to My Garden",
+      "artist": "Minnie Riperton"
+    },
+    {
+      "title": "Home Again",
+      "artist": "Menahan Street Band"
+    },
+    {
+      "title": "Eye to Eye",
+      "artist": "Jordan Rakei"
+    },
+    {
+      "title": "Feel No Pain",
+      "artist": "Sade"
+    },
+    {
+      "title": "Lonely (feat. Lorine Chia)",
+      "artist": "Jamila Woods"
+    },
+    {
+      "title": "Sweet to Me",
+      "artist": "Logg"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false,
+  "selection_policy": "never_repeat_v1",
+  "notified": "2026-09-28"
 }
