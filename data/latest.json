@@ -1,37 +1,38 @@
 {
-  "date": "2026-09-28",
-  "issue_no": 63,
-  "playlist_title": "今天第一次推荐的 30 首（09.28）",
+  "date": "2026-09-29",
+  "issue_no": 64,
+  "playlist_title": "今天第一次推荐的 30 首（09.29）",
   "tracks_brief": [
     {
-      "title": "Come to My Garden",
-      "artist": "Minnie Riperton"
+      "title": "I'm Goin' Left",
+      "artist": "Syreeta"
     },
     {
-      "title": "Home Again",
-      "artist": "Menahan Street Band"
+      "title": "Called My Name",
+      "artist": "Crackazat"
     },
     {
-      "title": "Eye to Eye",
-      "artist": "Jordan Rakei"
+      "title": "So Good, so Right",
+      "artist": "Brenda Russell"
     },
     {
-      "title": "Feel No Pain",
-      "artist": "Sade"
+      "title": "Black Man in a White World",
+      "artist": "Michael Kiwanuka"
     },
     {
-      "title": "Lonely (feat. Lorine Chia)",
-      "artist": "Jamila Woods"
+      "title": "Calvin's Joint (feat. Declan Miers)",
+      "artist": "Mac Ayres"
     },
     {
-      "title": "Sweet to Me",
-      "artist": "Logg"
+      "title": "Analog Sentimentalism",
+      "artist": "Parannoul"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-09-28"
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
