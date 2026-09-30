@@ -1,38 +1,39 @@
 {
-  "date": "2026-09-30",
-  "issue_no": 65,
-  "playlist_title": "今天第一次推荐的 30 首（09.30）",
-  "tracks_brief": [
-    {
-      "title": "For You",
-      "artist": "Bilal"
-    },
-    {
-      "title": "You and Me",
-      "artist": "Musiq Soulchild"
-    },
-    {
-      "title": "Do You Remember",
-      "artist": "Jill Scott"
-    },
-    {
-      "title": "Find Someone Like You",
-      "artist": "Snoh Aalegra"
-    },
-    {
-      "title": "Don't You Wait",
-      "artist": "Solange"
-    },
-    {
-      "title": "What Have I Got to Do",
-      "artist": "The Orchids"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [
-    "bright保底(+5)"
-  ],
-  "fresh_build": true,
-  "selection_policy": "never_repeat_v1"
+ "date": "2026-09-30",
+ "issue_no": 65,
+ "playlist_title": "今天第一次推荐的 30 首（09.30）",
+ "tracks_brief": [
+  {
+   "title": "For You",
+   "artist": "Bilal"
+  },
+  {
+   "title": "You and Me",
+   "artist": "Musiq Soulchild"
+  },
+  {
+   "title": "Do You Remember",
+   "artist": "Jill Scott"
+  },
+  {
+   "title": "Find Someone Like You",
+   "artist": "Snoh Aalegra"
+  },
+  {
+   "title": "Don't You Wait",
+   "artist": "Solange"
+  },
+  {
+   "title": "What Have I Got to Do",
+   "artist": "The Orchids"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [
+  "bright保底(+5)"
+ ],
+ "fresh_build": true,
+ "selection_policy": "never_repeat_v1",
+ "notified": "2026-09-30"
 }
