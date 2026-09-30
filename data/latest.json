@@ -1,37 +1,38 @@
 {
-  "date": "2026-09-29",
-  "issue_no": 64,
-  "playlist_title": "今天第一次推荐的 30 首（09.29）",
+  "date": "2026-09-30",
+  "issue_no": 65,
+  "playlist_title": "今天第一次推荐的 30 首（09.30）",
   "tracks_brief": [
     {
-      "title": "I'm Goin' Left",
-      "artist": "Syreeta"
+      "title": "For You",
+      "artist": "Bilal"
     },
     {
-      "title": "Called My Name",
-      "artist": "Crackazat"
+      "title": "You and Me",
+      "artist": "Musiq Soulchild"
     },
     {
-      "title": "So Good, so Right",
-      "artist": "Brenda Russell"
+      "title": "Do You Remember",
+      "artist": "Jill Scott"
     },
     {
-      "title": "Black Man in a White World",
-      "artist": "Michael Kiwanuka"
+      "title": "Find Someone Like You",
+      "artist": "Snoh Aalegra"
     },
     {
-      "title": "Calvin's Joint (feat. Declan Miers)",
-      "artist": "Mac Ayres"
+      "title": "Don't You Wait",
+      "artist": "Solange"
     },
     {
-      "title": "Analog Sentimentalism",
-      "artist": "Parannoul"
+      "title": "What Have I Got to Do",
+      "artist": "The Orchids"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-09-29"
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
