@@ -1,0 +1,551 @@
+{
+  "issue_no": 66,
+  "date": "2026-10-01",
+  "generated_at": "2026-10-01T00:00:38+00:00",
+  "theme": "grid",
+  "playlist_title": "今天第一次推荐的 30 首（10.01）",
+  "netease_text": "今天第一次推荐的 30 首（10.01）\nComing Home - Leon Bridges\nTheme of the Mack (Soundtrack/The Mack) - Willie Hutch\nYeowool - dosii\nwrong tree - serpentwithfeet\nI Stay, You Stay - 79.5\nRound and Down - The Bats\nCurl Your Toes - Bridget St John\nAnxi. (feat. Jenny Hval) - Kelly Lee Owens\nMM Abduction - Swervedriver\nInsensible - Mandalay\nI Follow You - Melody's Echo Chamber\nsedona - Dear Nora\nStorm - Photay\n2021 - LÜCY\nPearl - Rubel\nBailophone Dance - Pharoah Sanders\nGod Bless - Lamb\nTo Hold - Sea Oleena\nCome Saturday - The Pains of Being Pure at Heart\nDon't Know Why - Slowdive\nBonny Light Horseman (feat. Eric D. Johnson, Josh Kaufman, & Anais Mitchell) - Bonny Light Horseman\nCérebro Eletrônico - Gilberto Gil\nImprovisation for Coughs and a Cell Phone - Nils Frahm\nMercury - Emma-Jean Thackray\nKittone - Kaho Nakamura\nRun the World!!! - Dayglow\nMás O Menos Antes - Silvana Estrada\nLife's Greatest Fool - Gene Clark\nSolo Dance - Wang Wen\nWith You - Smoke City",
+  "tracks": [
+    {
+      "id": "apple:1079234234",
+      "title": "Coming Home",
+      "artist": "Leon Bridges",
+      "selection_status": "discovery_not_curated",
+      "album": "Coming Home (Deluxe)",
+      "year": "2015",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/coming-home/1079234232?i=1079234234&uo=4",
+      "why": "曲目资料已核对；2015 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/27/37/70/273770eb-92ac-1d00-87e6-e0f5ec0e97ab/886445452204.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/5d/51/e4/5d51e495-e8d2-3d05-ab45-efe10d3ccd64/mzaf_3253469197800185369.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/coming-home/1079234232?i=1079234234&uo=4"
+    },
+    {
+      "id": "apple:1444124669",
+      "title": "Theme of the Mack (Soundtrack/The Mack)",
+      "artist": "Willie Hutch",
+      "selection_status": "discovery_not_curated",
+      "album": "The Mack",
+      "year": "1973",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/theme-of-the-mack-soundtrack-the-mack/1444124662?i=1444124669&uo=4",
+      "why": "曲目资料已核对；1973 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/ff/34/fd/ff34fd29-ff56-63ee-54b3-dc9b8b27b48e/00731453038929.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/45/a5/79/45a57977-6003-6034-a3ad-1375789d7da8/mzaf_1509939022405499257.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/theme-of-the-mack-soundtrack-the-mack/1444124662?i=1444124669&uo=4"
+    },
+    {
+      "id": "apple:1615714643",
+      "title": "Yeowool",
+      "artist": "dosii",
+      "selection_status": "discovery_not_curated",
+      "album": "Dosii",
+      "year": "2019",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/yeowool/1615714640?i=1615714643&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/11/ba/53/11ba5374-ecdd-ba2d-5a79-c8a671ca3998/8809658310644_Cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d2/36/ec/d236eca3-851c-9f26-3347-a5de988af842/mzaf_16298601681364786043.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/yeowool/1615714640?i=1615714643&uo=4"
+    },
+    {
+      "id": "apple:1352429014",
+      "title": "wrong tree",
+      "artist": "serpentwithfeet",
+      "selection_status": "discovery_not_curated",
+      "album": "soil",
+      "year": "2018",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/wrong-tree/1352429003?i=1352429014&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/da/ad/a4/daada480-e8a3-e782-974f-10e263314f53/656605036663.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/60/f2/20/60f2206d-2046-7924-809e-714ce0f9ea17/mzaf_12748897580189126729.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/wrong-tree/1352429003?i=1352429014&uo=4"
+    },
+    {
+      "id": "apple:1472448697",
+      "title": "I Stay, You Stay",
+      "artist": "79.5",
+      "selection_status": "discovery_not_curated",
+      "album": "Predictions",
+      "year": "2018",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/i-stay-you-stay/1472448695?i=1472448697&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/89/20/23/8920230c-d8bc-78d2-94e8-2e36278120e5/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/1a/36/e5/1a36e507-91e6-e168-4e2d-ac46e1e5ab70/mzaf_13368694572011584177.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/i-stay-you-stay/1472448695?i=1472448697&uo=4"
+    },
+    {
+      "id": "apple:1443493834",
+      "title": "Round and Down",
+      "artist": "The Bats",
+      "selection_status": "discovery_not_curated",
+      "album": "Daddy's Highway",
+      "year": "1987",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/round-and-down/1443493583?i=1443493834&uo=4",
+      "why": "曲目资料已核对；1987 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/fe/c6/17/fec6179d-184c-413a-75e6-cc99ea70987d/00035498007125.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d1/85/d0/d185d0c2-3d72-a5af-812f-9d8da4bbd6e1/mzaf_8993474724302947677.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/round-and-down/1443493583?i=1443493834&uo=4"
+    },
+    {
+      "id": "apple:161608904",
+      "title": "Curl Your Toes",
+      "artist": "Bridget St John",
+      "selection_status": "discovery_not_curated",
+      "album": "Ask Me No Questions",
+      "year": "1969",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/curl-your-toes/161608884?i=161608904&uo=4",
+      "why": "曲目资料已核对；1969 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/b2/45/03/mzi.rapytqew.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/Music2/v4/e1/9a/73/e19a73b7-7d67-2f04-ea30-2eef7ab7422c/mzaf_6824907443226594656.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/curl-your-toes/161608884?i=161608904&uo=4"
+    },
+    {
+      "id": "apple:1499159818",
+      "title": "Anxi. (feat. Jenny Hval)",
+      "artist": "Kelly Lee Owens",
+      "selection_status": "discovery_not_curated",
+      "album": "Kelly Lee Owens",
+      "year": "2017",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/anxi-feat-jenny-hval/1499159807?i=1499159818&uo=4",
+      "why": "曲目资料已核对；2017 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/66/6c/68/666c6826-31f9-3106-9224-981a40084e58/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d3/84/3d/d3843d56-9926-e6b9-754b-ab08779a9b13/mzaf_14336432865026592961.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/anxi-feat-jenny-hval/1499159807?i=1499159818&uo=4"
+    },
+    {
+      "id": "apple:1444116747",
+      "title": "MM Abduction",
+      "artist": "Swervedriver",
+      "selection_status": "discovery_not_curated",
+      "album": "Mezcal Head",
+      "year": "1993",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/mm-abduction/1444116738?i=1444116747&uo=4",
+      "why": "曲目资料已核对；1993 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/91/62/05/916205c8-a3d6-6e7d-0b1c-f0c058ec485f/00731454012928.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview118/v4/68/44/6c/68446c87-85a9-b59b-9920-f587426c4c49/mzaf_5372968320900917952.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/mm-abduction/1444116738?i=1444116747&uo=4"
+    },
+    {
+      "id": "apple:1443162722",
+      "title": "Insensible",
+      "artist": "Mandalay",
+      "selection_status": "discovery_not_curated",
+      "album": "Empathy",
+      "year": "1998",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/insensible/1443162704?i=1443162722&uo=4",
+      "why": "曲目资料已核对；1998 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/68/d5/f4/68d5f439-9e62-9d22-8caa-43301b247722/05033197012926.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/d3/2c/94/d32c9432-c56f-092c-5093-a40c02eaba17/mzaf_6781121108775317623.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/insensible/1443162704?i=1443162722&uo=4"
+    },
+    {
+      "id": "apple:1194793822",
+      "title": "I Follow You",
+      "artist": "Melody's Echo Chamber",
+      "selection_status": "discovery_not_curated",
+      "album": "Melody's Echo Chamber",
+      "year": "2012",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/i-follow-you/1194793478?i=1194793822&uo=4",
+      "why": "曲目资料已核对；2012 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/04/8e/6a/048e6ae8-8777-a19a-e743-792680a3e7d6/886446283968.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/0a/a9/95/0aa9959c-cd83-3d8c-0b27-bdbeb1cb35d8/mzaf_18444756085886495587.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/i-follow-you/1194793478?i=1194793822&uo=4"
+    },
+    {
+      "id": "apple:1637112366",
+      "title": "sedona",
+      "artist": "Dear Nora",
+      "selection_status": "discovery_not_curated",
+      "album": "human futures",
+      "year": "2022",
+      "genres": [
+        "indie pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/sedona/1637112348?i=1637112366&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/76/47/1d/76471d98-b4e2-e782-9c0d-2f5062936b15/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/66/90/7a/66907a16-5907-3afb-fe5b-b3594d1c2bb5/mzaf_2428032680672477172.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/sedona/1637112348?i=1637112366&uo=4"
+    },
+    {
+      "id": "apple:1254524922",
+      "title": "Storm",
+      "artist": "Photay",
+      "selection_status": "discovery_not_curated",
+      "album": "Onism",
+      "year": "2017",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/storm/1254524399?i=1254524922&uo=4",
+      "why": "曲目资料已核对；2017 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/cc/2b/4f/cc2b4fa5-b8f1-3af1-8e2e-dc647a9e49eb/816216026648.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/fa/08/5d/fa085d55-5b8e-34e6-1303-dc54d693e7ee/mzaf_4734653116368792367.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/storm/1254524399?i=1254524922&uo=4"
+    },
+    {
+      "id": "apple:1628728685",
+      "title": "2021",
+      "artist": "LÜCY",
+      "selection_status": "discovery_not_curated",
+      "album": "LÜCY",
+      "year": "2022",
+      "genres": [
+        "alternative folk"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/2021/1628728683?i=1628728685&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/22/9f/ff/229fff49-d0a8-9143-09d0-ca01237c944b/193017059588.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/14/da/c2/14dac21a-f0e0-7ce0-c28e-9b42bfcbf2af/mzaf_17779658664521344320.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/2021/1628728683?i=1628728685&uo=4"
+    },
+    {
+      "id": "apple:1598419310",
+      "title": "Pearl",
+      "artist": "Rubel",
+      "selection_status": "discovery_not_curated",
+      "album": "Pearl",
+      "year": "2015",
+      "genres": [
+        "mpb"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/pearl/1598419059?i=1598419310&uo=4",
+      "why": "曲目资料已核对；2015 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/19/fe/a3/19fea397-009f-ce3d-67ad-3420716e5a1f/8445162552479.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/55/64/64/556464bd-b063-9bbf-1114-849477c98871/mzaf_3870995822451555897.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/pearl/1598419059?i=1598419310&uo=4"
+    },
+    {
+      "id": "apple:1443825580",
+      "title": "Bailophone Dance",
+      "artist": "Pharoah Sanders",
+      "selection_status": "discovery_not_curated",
+      "album": "Thembi",
+      "year": "1971",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/bailophone-dance/1443825067?i=1443825580&uo=4",
+      "why": "曲目资料已核对；1971 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/31/d5/ec/31d5ec35-5cc0-088d-8725-3b97ba51434c/06UMGIM01890.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/b3/f8/2d/b3f82dfc-85ea-09d6-a30f-4ab09e6b1f9c/mzaf_14793118450833813898.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/bailophone-dance/1443825067?i=1443825580&uo=4"
+    },
+    {
+      "id": "apple:1442928999",
+      "title": "God Bless",
+      "artist": "Lamb",
+      "selection_status": "discovery_not_curated",
+      "album": "Lamb",
+      "year": "1996",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/god-bless/1442928989?i=1442928999&uo=4",
+      "why": "曲目资料已核对；1996 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/8e/89/12/8e891239-e0e8-85f2-0957-a9cab7ecfcc1/00731453296824.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/fa/59/80/fa5980ee-9679-1966-1831-a6e08b84945d/mzaf_33779436036265498.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/god-bless/1442928989?i=1442928999&uo=4"
+    },
+    {
+      "id": "apple:1280786893",
+      "title": "To Hold",
+      "artist": "Sea Oleena",
+      "selection_status": "discovery_not_curated",
+      "album": "Shallow",
+      "year": "2014",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/to-hold/1280786272?i=1280786893&uo=4",
+      "why": "曲目资料已核对；2014 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/a9/bb/39/a9bb39c0-fc14-0467-22c4-4735344769bf/191773675042.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/73/2e/b2/732eb247-41d5-cab3-30bb-8578e8ae62a2/mzaf_14016172840253873348.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/to-hold/1280786272?i=1280786893&uo=4"
+    },
+    {
+      "id": "apple:1321216632",
+      "title": "Come Saturday",
+      "artist": "The Pains of Being Pure at Heart",
+      "selection_status": "discovery_not_curated",
+      "album": "The Pains of Being Pure at Heart",
+      "year": "2009",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/come-saturday/1321216180?i=1321216632&uo=4",
+      "why": "曲目资料已核对；2009 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/77/7f/66/777f6616-39c8-570e-3299-1d12935028e5/749846008985.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/6f/ca/c0/6fcac06f-2d31-482f-1f92-20c4ece84ac9/mzaf_1042980131138475533.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/come-saturday/1321216180?i=1321216632&uo=4"
+    },
+    {
+      "id": "apple:1210172773",
+      "title": "Don't Know Why",
+      "artist": "Slowdive",
+      "selection_status": "discovery_not_curated",
+      "album": "Slowdive",
+      "year": "2017",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/dont-know-why/1210172617?i=1210172773&uo=4",
+      "why": "曲目资料已核对；2017 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/81/42/f5/8142f595-dc02-1b4f-0cea-b265ac6c85f3/656605143262.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f4/b4/c9/f4b4c9ee-8650-8630-9cae-22830df193be/mzaf_11172346765968583261.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/dont-know-why/1210172617?i=1210172773&uo=4"
+    },
+    {
+      "id": "apple:1480433372",
+      "title": "Bonny Light Horseman (feat. Eric D. Johnson, Josh Kaufman, & Anais Mitchell)",
+      "artist": "Bonny Light Horseman",
+      "selection_status": "discovery_not_curated",
+      "album": "Bonny Light Horseman (feat. Eric D. Johnson, Josh Kaufman, & Anais Mitchell)",
+      "year": "2020",
+      "genres": [
+        "folk"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/bonny-light-horseman-feat-eric-d-johnson-josh-kaufman/1480433371?i=1480433372&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/68/42/45/684245d4-4861-6e08-8405-601350d82207/656605347981.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8f/f5/a4/8ff5a40d-91dc-72cb-602e-e12557845d73/mzaf_379873370064495150.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/bonny-light-horseman-feat-eric-d-johnson-josh-kaufman/1480433371?i=1480433372&uo=4"
+    },
+    {
+      "id": "apple:1576817999",
+      "title": "Cérebro Eletrônico",
+      "artist": "Gilberto Gil",
+      "selection_status": "discovery_not_curated",
+      "album": "Gilberto Gil (1969)",
+      "year": "1969",
+      "genres": [
+        "brazilian"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/c%C3%A9rebro-eletr%C3%B4nico/1576817998?i=1576817999&uo=4",
+      "why": "曲目资料已核对；1969 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/bb/36/50/bb3650ff-29ae-187a-0815-439b154747a9/08429006189557_Cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a4/46/b3/a446b374-a9a7-03b3-9f18-25062650db6b/mzaf_919961354068443948.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/c%C3%A9rebro-eletr%C3%B4nico/1576817998?i=1576817999&uo=4"
+    },
+    {
+      "id": "apple:1453571977",
+      "title": "Improvisation for Coughs and a Cell Phone",
+      "artist": "Nils Frahm",
+      "selection_status": "discovery_not_curated",
+      "album": "Spaces (Special Edition)",
+      "year": "2013",
+      "genres": [
+        "ambient"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/improvisation-for-coughs-and-a-cell-phone/1453571326?i=1453571977&uo=4",
+      "why": "曲目资料已核对；2013 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/9f/40/da/9f40da77-e818-f6f8-b252-d02a2ed7c89f/4050486115855_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/6a/a8/7a/6aa87af0-5ba5-1639-9bee-8ff3ee44cd09/mzaf_11296068891676399894.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/improvisation-for-coughs-and-a-cell-phone/1453571326?i=1453571977&uo=4"
+    },
+    {
+      "id": "apple:1574720060",
+      "title": "Mercury",
+      "artist": "Emma-Jean Thackray",
+      "selection_status": "discovery_not_curated",
+      "album": "Yellow",
+      "year": "2021",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/mercury/1574720059?i=1574720060&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/16/d5/ab/16d5abfc-1856-9121-7910-b06e02004562/5060263723424.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f0/04/04/f004043d-1094-0e6e-1cbd-d1b51d0aded6/mzaf_10680571749767743614.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/mercury/1574720059?i=1574720060&uo=4"
+    },
+    {
+      "id": "apple:1439029242",
+      "title": "Kittone",
+      "artist": "Kaho Nakamura",
+      "selection_status": "discovery_not_curated",
+      "album": "Ainou",
+      "year": "2018",
+      "genres": [
+        "j-pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/kittone/1439029178?i=1439029242&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b5/cf/4c/b5cf4c73-59f3-1922-32e3-d22c38e285e1/4538182779828_cov.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/c5/20/09/c5200967-bc2d-8e70-ba69-76e8801d6623/mzaf_8892567146657010504.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/kittone/1439029178?i=1439029242&uo=4"
+    },
+    {
+      "id": "apple:1482950914",
+      "title": "Run the World!!!",
+      "artist": "Dayglow",
+      "selection_status": "discovery_not_curated",
+      "album": "Fuzzybrain",
+      "year": "2019",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/run-the-world/1482950619?i=1482950914&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/db/c9/d4/dbc9d483-e882-f86d-69b1-25092801e526/5054526793347.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/45/43/f6/4543f603-8cdc-b911-5615-678c2d5079c9/mzaf_17301751535165826930.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/run-the-world/1482950619?i=1482950914&uo=4"
+    },
+    {
+      "id": "apple:1640345257",
+      "title": "Más O Menos Antes",
+      "artist": "Silvana Estrada",
+      "selection_status": "discovery_not_curated",
+      "album": "Marchita",
+      "year": "2022",
+      "genres": [
+        "latin"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/m%C3%A1s-o-menos-antes/1640345256?i=1640345257&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/91/2e/e3/912ee307-2a88-4b18-dd52-b7bd9b3f53e3/5056167167563.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/36/99/6f/36996f1f-97d2-7ded-c878-0f8b4f1d7911/mzaf_3734566814381153351.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/m%C3%A1s-o-menos-antes/1640345256?i=1640345257&uo=4"
+    },
+    {
+      "id": "apple:1325735998",
+      "title": "Life's Greatest Fool",
+      "artist": "Gene Clark",
+      "selection_status": "discovery_not_curated",
+      "album": "No Other",
+      "year": "1974",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/lifes-greatest-fool/1325735987?i=1325735998&uo=4",
+      "why": "曲目资料已核对；1974 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/27/00/9f/27009f07-288b-ca29-a724-94d87062646a/191400007567.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/35/e3/fa/35e3fabc-aea3-ae0e-9c27-b032e853118d/mzaf_11696457432788494369.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/lifes-greatest-fool/1325735987?i=1325735998&uo=4"
+    },
+    {
+      "id": "apple:1422881764",
+      "title": "Solo Dance",
+      "artist": "Wang Wen",
+      "selection_status": "discovery_not_curated",
+      "album": "Invisible City",
+      "year": "2018",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/solo-dance/1422881259?i=1422881764&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/99/f7/d8/99f7d8e8-8147-3ced-d1f9-f9df6115db9a/192562723708.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/83/83/e6/8383e60e-a944-1f87-392f-b42bbea1a174/mzaf_17506807264585961686.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/solo-dance/1422881259?i=1422881764&uo=4"
+    },
+    {
+      "id": "apple:1266447391",
+      "title": "With You",
+      "artist": "Smoke City",
+      "selection_status": "discovery_not_curated",
+      "album": "Flying Away",
+      "year": "1997",
+      "genres": [
+        "pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/with-you/1266447134?i=1266447391&uo=4",
+      "why": "曲目资料已核对；1997 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/0d/4c/ee/0d4cee93-a8a2-e805-0f0d-9baa6ee2b02e/886446674278.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b6/80/85/b680852d-3b62-d606-c743-6d434407e6ad/mzaf_12248587338268669933.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/with-you/1266447134?i=1266447391&uo=4"
+    }
+  ],
+  "selection_policy": "never_repeat_v1"
+}

@@ -1,37 +1,38 @@
 {
-  "date": "2026-09-30",
-  "issue_no": 65,
-  "playlist_title": "今天第一次推荐的 30 首（09.30）",
+  "date": "2026-10-01",
+  "issue_no": 66,
+  "playlist_title": "今天第一次推荐的 30 首（10.01）",
   "tracks_brief": [
     {
-      "title": "For You",
-      "artist": "Bilal"
+      "title": "Coming Home",
+      "artist": "Leon Bridges"
     },
     {
-      "title": "You and Me",
-      "artist": "Musiq Soulchild"
+      "title": "Theme of the Mack (Soundtrack/The Mack)",
+      "artist": "Willie Hutch"
     },
     {
-      "title": "Do You Remember",
-      "artist": "Jill Scott"
+      "title": "Yeowool",
+      "artist": "dosii"
     },
     {
-      "title": "Find Someone Like You",
-      "artist": "Snoh Aalegra"
+      "title": "wrong tree",
+      "artist": "serpentwithfeet"
     },
     {
-      "title": "Don't You Wait",
-      "artist": "Solange"
+      "title": "I Stay, You Stay",
+      "artist": "79.5"
     },
     {
-      "title": "What Have I Got to Do",
-      "artist": "The Orchids"
+      "title": "Round and Down",
+      "artist": "The Bats"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-09-30"
+  "relax": [
+    "bright保底(+5)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
