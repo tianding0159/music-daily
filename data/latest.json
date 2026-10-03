@@ -1,37 +1,38 @@
 {
-  "date": "2026-10-02",
-  "issue_no": 67,
-  "playlist_title": "今天第一次推荐的 30 首（10.02）",
+  "date": "2026-10-03",
+  "issue_no": 68,
+  "playlist_title": "今天第一次推荐的 30 首（10.03）",
   "tracks_brief": [
     {
-      "title": "Settle for My Love",
-      "artist": "Patrice Rushen"
+      "title": "Teenage Fantasy",
+      "artist": "Jorja Smith"
     },
     {
-      "title": "Take Me Apart",
-      "artist": "Kelela"
+      "title": "Woman of the Ghetto",
+      "artist": "Marlena Shaw"
     },
     {
-      "title": "You Know We've Learned",
-      "artist": "Bloodstone"
+      "title": "Stop, Look, Listen (To Your Heart)",
+      "artist": "The Stylistics"
     },
     {
-      "title": "Nxwhere",
-      "artist": "Jenevieve"
+      "title": "Black Vivaldi Sonata",
+      "artist": "Sudan Archives"
     },
     {
-      "title": "Flyin' High (In the Friendly Sky)",
-      "artist": "Marvin Gaye"
+      "title": "pacify",
+      "artist": "Hand Habits"
     },
     {
-      "title": "Don't Want to Know",
-      "artist": "John Martyn"
+      "title": "wish i knew",
+      "artist": "Winter"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-10-02"
+  "relax": [
+    "bright保底(+4)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }

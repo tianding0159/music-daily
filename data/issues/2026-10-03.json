@@ -1,0 +1,551 @@
+{
+  "issue_no": 68,
+  "date": "2026-10-03",
+  "generated_at": "2026-10-03T00:00:39+00:00",
+  "theme": "grid",
+  "playlist_title": "今天第一次推荐的 30 首（10.03）",
+  "netease_text": "今天第一次推荐的 30 首（10.03）\nTeenage Fantasy - Jorja Smith\nWoman of the Ghetto - Marlena Shaw\nStop, Look, Listen (To Your Heart) - The Stylistics\nBlack Vivaldi Sonata - Sudan Archives\npacify - Hand Habits\nwish i knew - Winter\nFragments Found - Fabrizio Paterlini\nSlow Down - Poolside\nTalk Over Town - Katy J Pearson\nroyal screw up - Soccer Mommy\nMade of Moods - Massage\nIt Could Have Been a Brilliant Career - Belle and Sebastian\nFishing Net - Gregor\nLonely Girl - Dorothy Ashby\nIt Always Rains - SRSQ\nSpace 2 - Nala Sinephro\nMarina - Ulla\ncan't stop me from dying - Ada Lea\nSonnenschein - Harmonia\nPneuma, Pt. 3 - Michael White\nDon't Cry - Deerhunter\nTo Climb the Cliff - Antena\nAqualand - Polo & Pan\nJust Let Go - John Metcalfe\nFlaming Home (feat. Julie Doiron & Fred Squire) - Mount Eerie\nOtherside - Perfume Genius\nClash the Truth - Beach Fossils\nEasy on the Thieves - This Is the Kit\nStranger - SE SO NEON\nImaginary Girl - Danny Wilson",
+  "tracks": [
+    {
+      "id": "apple:1373567761",
+      "title": "Teenage Fantasy",
+      "artist": "Jorja Smith",
+      "selection_status": "discovery_not_curated",
+      "album": "Lost & Found",
+      "year": "2018",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/teenage-fantasy/1373567754?i=1373567761&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/9f/da/5d/9fda5dfb-8be4-e656-6fb3-a83cc9dbd60a/192562402849.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8b/cf/63/8bcf634d-bd5d-aeac-3b84-2b41af683bf3/mzaf_11879959144764103545.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/teenage-fantasy/1373567754?i=1373567761&uo=4"
+    },
+    {
+      "id": "apple:1452869050",
+      "title": "Woman of the Ghetto",
+      "artist": "Marlena Shaw",
+      "selection_status": "discovery_not_curated",
+      "album": "The Spice of Life",
+      "year": "1969",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/woman-of-the-ghetto/1452869043?i=1452869050&uo=4",
+      "why": "曲目资料已核对；1969 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/a3/04/3a/a3043a23-3feb-0b14-f27e-a005610dba5c/06UMGIM17992.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/63/de/04/63de04af-db16-8515-e626-58da5105e94d/mzaf_12155367421253643980.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/woman-of-the-ghetto/1452869043?i=1452869050&uo=4"
+    },
+    {
+      "id": "apple:1607689835",
+      "title": "Stop, Look, Listen (To Your Heart)",
+      "artist": "The Stylistics",
+      "selection_status": "discovery_not_curated",
+      "album": "The Stylistics",
+      "year": "1971",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/stop-look-listen-to-your-heart/1607689834?i=1607689835&uo=4",
+      "why": "曲目资料已核对；1971 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/d2/f6/f4/d2f6f482-35bc-3d10-a398-5512ed334986/051617074861.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/da/59/68/da596806-5dd1-abbf-34ed-7be61956feda/mzaf_4405705613602179957.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/stop-look-listen-to-your-heart/1607689834?i=1607689835&uo=4"
+    },
+    {
+      "id": "apple:1477555216",
+      "title": "Black Vivaldi Sonata",
+      "artist": "Sudan Archives",
+      "selection_status": "discovery_not_curated",
+      "album": "Athena",
+      "year": "2019",
+      "genres": [
+        "r&b/soul"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/black-vivaldi-sonata/1477555213?i=1477555216&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/0a/e5/2a/0ae52a91-b733-77be-5e5b-e45e4c193ad1/834.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/45/71/3a/45713a55-7147-7a07-73ab-c6fe2df05553/mzaf_1258634091146365965.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/black-vivaldi-sonata/1477555213?i=1477555216&uo=4"
+    },
+    {
+      "id": "apple:1447174880",
+      "title": "pacify",
+      "artist": "Hand Habits",
+      "selection_status": "discovery_not_curated",
+      "album": "placeholder",
+      "year": "2019",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/pacify/1447174874?i=1447174880&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/c1/2b/b8/c12bb84d-b6ab-7d0c-39df-95f0e44d7202/LBJ-291_10x10_300dpi_RGB.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/91/eb/96/91eb96ce-6505-c2e5-3e0a-4a7c12c418f3/mzaf_16674703496514226243.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/pacify/1447174874?i=1447174880&uo=4"
+    },
+    {
+      "id": "apple:1629981940",
+      "title": "wish i knew",
+      "artist": "Winter",
+      "selection_status": "discovery_not_curated",
+      "album": "What Kind of Blue Are You?",
+      "year": "2022",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/wish-i-knew/1629981936?i=1629981940&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/54/90/84/54908488-747f-30af-7427-c64e452d9542/34413.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/3b/46/81/3b4681ee-b5bc-a2d9-753a-78b9ae26a63a/mzaf_8709721860051985248.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/wish-i-knew/1629981936?i=1629981940&uo=4"
+    },
+    {
+      "id": "apple:1194668872",
+      "title": "Fragments Found",
+      "artist": "Fabrizio Paterlini",
+      "selection_status": "discovery_not_curated",
+      "album": "Fragments Found",
+      "year": "2010",
+      "genres": [
+        "classical crossover"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/fragments-found/1194668243?i=1194668872&uo=4",
+      "why": "曲目资料已核对；2010 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/60/88/c1/6088c138-7ae8-8807-815e-197d08ce3d32/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/12/4c/ae/124caeea-a900-5d66-f59b-53f0022bf2f8/mzaf_7069194030556427226.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/fragments-found/1194668243?i=1194668872&uo=4"
+    },
+    {
+      "id": "apple:1216384319",
+      "title": "Slow Down",
+      "artist": "Poolside",
+      "selection_status": "discovery_not_curated",
+      "album": "Pacific Standard Time",
+      "year": "2012",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/slow-down/1216384091?i=1216384319&uo=4",
+      "why": "曲目资料已核对；2012 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/bb/f2/28/bbf22859-cf2c-f0ab-9a10-ca9351e7e28d/859708548983_PacificStandardTime.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/8e/7f/eb/8e7febb9-70d7-01a6-c0d7-cd01e699fdde/mzaf_6528043529521713886.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/slow-down/1216384091?i=1216384319&uo=4"
+    },
+    {
+      "id": "apple:1607335602",
+      "title": "Talk Over Town",
+      "artist": "Katy J Pearson",
+      "selection_status": "discovery_not_curated",
+      "album": "Sound of the Morning",
+      "year": "2022",
+      "genres": [
+        "pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/talk-over-town/1607335043?i=1607335602&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/a9/6a/eb/a96aeb99-6d6f-8356-d193-ab5041126fab/5400863072094_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/cf/f3/b7/cff3b7c1-ccbf-e3b3-cb1d-908e2ab7a4c4/mzaf_17710605516557633877.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/talk-over-town/1607335043?i=1607335602&uo=4"
+    },
+    {
+      "id": "apple:1492157913",
+      "title": "royal screw up",
+      "artist": "Soccer Mommy",
+      "selection_status": "discovery_not_curated",
+      "album": "color theory",
+      "year": "2020",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/royal-screw-up/1492157909?i=1492157913&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f6/41/c1/f641c17a-ba93-7d25-f908-2811d1c22a2b/19CRGIM15802.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/fd/6e/ca/fd6ecaf0-9f26-dced-13ae-61b663d7b874/mzaf_3364761131528241619.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/royal-screw-up/1492157909?i=1492157913&uo=4"
+    },
+    {
+      "id": "apple:1569156092",
+      "title": "Made of Moods",
+      "artist": "Massage",
+      "selection_status": "discovery_not_curated",
+      "album": "Still Life",
+      "year": "2021",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/made-of-moods/1569156081?i=1569156092&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/54/78/f2/5478f2c7-80ec-9238-f87d-777542248485/192641745249_Cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f6/da/6a/f6da6a48-5a5b-9286-08c6-db96db569239/mzaf_9605697280592834808.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/made-of-moods/1569156081?i=1569156092&uo=4"
+    },
+    {
+      "id": "apple:1589191938",
+      "title": "It Could Have Been a Brilliant Career",
+      "artist": "Belle and Sebastian",
+      "selection_status": "discovery_not_curated",
+      "album": "The Boy With the Arab Strap",
+      "year": "1998",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/it-could-have-been-a-brilliant-career/1589191937?i=1589191938&uo=4",
+      "why": "曲目资料已核对；1998 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/2f/98/b0/2f98b0a0-2c61-8f13-3f70-30a6fa602862/744861031161.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b8/8f/ee/b88feea3-7a88-d682-b605-68962eb9eba7/mzaf_9780620730201492271.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/it-could-have-been-a-brilliant-career/1589191937?i=1589191938&uo=4"
+    },
+    {
+      "id": "apple:1407833348",
+      "title": "Fishing Net",
+      "artist": "Gregor",
+      "selection_status": "discovery_not_curated",
+      "album": "Silver Drop",
+      "year": "2018",
+      "genres": [
+        "indie pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/fishing-net/1407833342?i=1407833348&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/dc/0e/0b/dc0e0b3d-19bc-0829-aec0-cf917afaa62d/747742111822.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/3b/85/d7/3b85d727-73e7-04d1-0add-8da6f2eeb990/mzaf_15236539398190739108.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/fishing-net/1407833342?i=1407833348&uo=4"
+    },
+    {
+      "id": "apple:1443482177",
+      "title": "Lonely Girl",
+      "artist": "Dorothy Ashby",
+      "selection_status": "discovery_not_curated",
+      "album": "Afro-Harping",
+      "year": "1968",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/lonely-girl/1443481982?i=1443482177&uo=4",
+      "why": "曲目资料已核对；1968 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/ef/a6/3e/efa63e4f-47a4-ccba-f401-d70fae167a60/00044007603727.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b4/a3/5a/b4a35a50-1e54-0c8c-836b-66ad9e7ca3c9/mzaf_14599181698073741061.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/lonely-girl/1443481982?i=1443482177&uo=4"
+    },
+    {
+      "id": "apple:1621064377",
+      "title": "It Always Rains",
+      "artist": "SRSQ",
+      "selection_status": "discovery_not_curated",
+      "album": "Ever Crashing",
+      "year": "2022",
+      "genres": [
+        "indie pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/it-always-rains/1621064376?i=1621064377&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/b4/91/55/b49155e9-54d7-8d97-a3fd-f30f1436e63f/33204.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/1b/a7/5d/1ba75dcc-8b0d-9ea3-3396-2fbacfdaff72/mzaf_17593510436479521741.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/it-always-rains/1621064376?i=1621064377&uo=4"
+    },
+    {
+      "id": "apple:1576882002",
+      "title": "Space 2",
+      "artist": "Nala Sinephro",
+      "selection_status": "discovery_not_curated",
+      "album": "Space 1.8",
+      "year": "2021",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/space-2/1576882000?i=1576882002&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e4/57/42/e45742d5-0ac5-a3a5-9840-a54b8648d182/0801061032432.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3a/dd/52/3add5294-4ce0-7051-3477-f4c55ca05724/mzaf_6067001397597935623.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/space-2/1576882000?i=1576882002&uo=4"
+    },
+    {
+      "id": "apple:1654209757",
+      "title": "Marina",
+      "artist": "Ulla",
+      "selection_status": "discovery_not_curated",
+      "album": "Foam",
+      "year": "2022",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/marina/1654209753?i=1654209757&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4d/f2/bb/4df2bb0e-1593-d1e4-c58e-dfed1c38715b/5060165487639.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/dc/dc/d2/dcdcd208-57bc-df74-aaeb-35f81f6e8241/mzaf_17675804866555501315.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/marina/1654209753?i=1654209757&uo=4"
+    },
+    {
+      "id": "apple:1574537839",
+      "title": "can't stop me from dying",
+      "artist": "Ada Lea",
+      "selection_status": "discovery_not_curated",
+      "album": "one hand on the steering wheel the other sewing a garden",
+      "year": "2021",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/cant-stop-me-from-dying/1574537836?i=1574537839&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/63/9a/7f/639a7f55-2246-69de-a81a-062891037c1c/LBJ-306_10x10_300dpi_RGB.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d5/49/ca/d549cac0-1f57-15bb-2919-3e3863539c32/mzaf_14903253009176293185.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/cant-stop-me-from-dying/1574537836?i=1574537839&uo=4"
+    },
+    {
+      "id": "apple:1035400991",
+      "title": "Sonnenschein",
+      "artist": "Harmonia",
+      "selection_status": "discovery_not_curated",
+      "album": "Musik Von Harmonia",
+      "year": "1974",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/sonnenschein/1035400920?i=1035400991&uo=4",
+      "why": "曲目资料已核对；1974 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music20/v4/97/35/c4/9735c4f2-9502-7a15-31f9-738fe9c3b96d/mzm.ujzxjfaj.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/5f/0f/52/5f0f5244-7a03-822e-7914-f52106386963/mzaf_241462198519583935.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/sonnenschein/1035400920?i=1035400991&uo=4"
+    },
+    {
+      "id": "apple:1462370715",
+      "title": "Pneuma, Pt. 3",
+      "artist": "Michael White",
+      "selection_status": "discovery_not_curated",
+      "album": "Pneuma",
+      "year": "1972",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/pneuma-pt-3/1462370702?i=1462370715&uo=4",
+      "why": "曲目资料已核对；1972 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/98/38/77/98387751-489e-fbf6-dc9e-3ef6c0bd9040/19UMGIM38387.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview123/v4/6e/62/3e/6e623ec5-1b27-07e1-93d2-19e1ec7e28a8/mzaf_3155559384687296992.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/pneuma-pt-3/1462370702?i=1462370715&uo=4"
+    },
+    {
+      "id": "apple:1544226568",
+      "title": "Don't Cry",
+      "artist": "Deerhunter",
+      "selection_status": "discovery_not_curated",
+      "album": "Halcyon Digest",
+      "year": "2010",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/dont-cry/1544226562?i=1544226568&uo=4",
+      "why": "曲目资料已核对；2010 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/c8/93/80/c8938060-b785-3f40-5cc5-6464265f10d6/652637303865.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/45/5d/37/455d377e-5b0a-f656-5dc4-c81215eaa96d/mzaf_9690259451511508605.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/dont-cry/1544226562?i=1544226568&uo=4"
+    },
+    {
+      "id": "apple:1451924729",
+      "title": "To Climb the Cliff",
+      "artist": "Antena",
+      "selection_status": "discovery_not_curated",
+      "album": "Camino Del Sol",
+      "year": "1982",
+      "genres": [
+        "pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/to-climb-the-cliff/1451924726?i=1451924729&uo=4",
+      "why": "曲目资料已核对；1982 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/79/65/b3/7965b3f8-7495-f567-fa49-6f5da5057d6c/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ce/7a/90/ce7a907c-dc79-21d5-478b-5b761feca2b8/mzaf_12722848460922649305.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/to-climb-the-cliff/1451924726?i=1451924729&uo=4"
+    },
+    {
+      "id": "apple:1440885028",
+      "title": "Aqualand",
+      "artist": "Polo & Pan",
+      "selection_status": "discovery_not_curated",
+      "album": "Caravelle",
+      "year": "2017",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/aqualand/1440885023?i=1440885028&uo=4",
+      "why": "曲目资料已核对；2017 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/df/59/0a/df590a4b-5c6a-c13c-e613-d5fec8e32c73/17UMGIM90177.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1e/c9/84/1ec9849f-775d-f791-8826-39f44011d8a9/mzaf_3605235749708417987.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/aqualand/1440885023?i=1440885028&uo=4"
+    },
+    {
+      "id": "apple:1654121772",
+      "title": "Just Let Go",
+      "artist": "John Metcalfe",
+      "selection_status": "discovery_not_curated",
+      "album": "The Appearance of Colour",
+      "year": "2015",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/just-let-go/1654121433?i=1654121772&uo=4",
+      "why": "曲目资料已核对；2015 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/1a/94/30/1a943050-c16e-180d-70fd-cf5af7234ea3/0884108003152_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/29/b2/e5/29b2e54c-4b7a-1c5b-8971-8255f6276726/mzaf_2280753790542282696.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/just-let-go/1654121433?i=1654121772&uo=4"
+    },
+    {
+      "id": "apple:1500343456",
+      "title": "Flaming Home (feat. Julie Doiron & Fred Squire)",
+      "artist": "Mount Eerie",
+      "selection_status": "discovery_not_curated",
+      "album": "Lost Wisdom (feat. Julie Doiron & Fred Squire)",
+      "year": "2008",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/flaming-home-feat-julie-doiron-fred-squire/1500343246?i=1500343456&uo=4",
+      "why": "曲目资料已核对；2008 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/3b/d7/6a/3bd76a9c-aeef-72c9-cb80-8711c05ab363/887396827202.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/97/cd/b4/97cdb433-c7ff-7b9f-7b0d-6d5d4c9576b9/mzaf_5069316976823736035.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/flaming-home-feat-julie-doiron-fred-squire/1500343246?i=1500343456&uo=4"
+    },
+    {
+      "id": "apple:1586483589",
+      "title": "Otherside",
+      "artist": "Perfume Genius",
+      "selection_status": "discovery_not_curated",
+      "album": "No Shape",
+      "year": "2017",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/otherside/1586483586?i=1586483589&uo=4",
+      "why": "曲目资料已核对；2017 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/75/1a/84/751a8436-9079-9b63-ed14-1359a10d68d2/744861111368.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/27/b1/1b/27b11bd4-9cdc-08ec-371e-0cf4e5380434/mzaf_8895496091484961128.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/otherside/1586483586?i=1586483589&uo=4"
+    },
+    {
+      "id": "apple:1370896153",
+      "title": "Clash the Truth",
+      "artist": "Beach Fossils",
+      "selection_status": "discovery_not_curated",
+      "album": "Clash the Truth",
+      "year": "2013",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/clash-the-truth/1370893429?i=1370896153&uo=4",
+      "why": "曲目资料已核对；2013 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/0e/80/56/0e8056d0-fd06-74b1-f264-e712bd70b5ab/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/04/2f/7b/042f7b01-9598-0e1a-60ea-14e492f5ffef/mzaf_9029079922414153586.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/clash-the-truth/1370893429?i=1370896153&uo=4"
+    },
+    {
+      "id": "apple:1231073778",
+      "title": "Easy on the Thieves",
+      "artist": "This Is the Kit",
+      "selection_status": "discovery_not_curated",
+      "album": "Moonshine Freeze",
+      "year": "2017",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/easy-on-the-thieves/1231073766?i=1231073778&uo=4",
+      "why": "曲目资料已核对；2017 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music117/v4/45/d1/37/45d137fa-faae-48b9-a105-17d8320c1514/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e1/c0/7d/e1c07d7c-5c35-69ae-234a-52d672ebcf9a/mzaf_14504098540016086406.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/easy-on-the-thieves/1231073766?i=1231073778&uo=4"
+    },
+    {
+      "id": "apple:1499306584",
+      "title": "Stranger",
+      "artist": "SE SO NEON",
+      "selection_status": "discovery_not_curated",
+      "album": "Nonadaptation",
+      "year": "2020",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/stranger/1499306579?i=1499306584&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/fc/0b/b4/fc0bb4e9-3f0f-3e65-6d58-53f86e1f8140/8809325062258.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/67/a9/d9/67a9d90a-0f06-521d-fd4d-2808a62d2340/mzaf_12706169159682258238.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/stranger/1499306579?i=1499306584&uo=4"
+    },
+    {
+      "id": "apple:1480784751",
+      "title": "Imaginary Girl",
+      "artist": "Danny Wilson",
+      "selection_status": "discovery_not_curated",
+      "album": "Bebop Moptop",
+      "year": "1989",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/imaginary-girl/1480784742?i=1480784751&uo=4",
+      "why": "曲目资料已核对；1989 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/a5/76/63/a576635b-65b5-e6e7-94a3-1cfcd1b3b683/17UM1IM51962.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/8e/83/b7/8e83b7f7-87c5-294e-ab0e-ddcb56c58a7e/mzaf_16453264806827957611.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/imaginary-girl/1480784742?i=1480784751&uo=4"
+    }
+  ],
+  "selection_policy": "never_repeat_v1"
+}
