@@ -1,39 +1,37 @@
 {
- "date": "2026-10-04",
- "issue_no": 69,
- "playlist_title": "今天第一次推荐的 30 首（10.04）",
- "tracks_brief": [
-  {
-   "title": "Baby",
-   "artist": "Eddie Kendricks"
-  },
-  {
-   "title": "Sha Na Na (feat. The Shacks)",
-   "artist": "El Michels Affair"
-  },
-  {
-   "title": "Minority",
-   "artist": "Bill Evans"
-  },
-  {
-   "title": "This Time",
-   "artist": "Neal Francis"
-  },
-  {
-   "title": "Sunshine In 1929",
-   "artist": "Domenique Dumont"
-  },
-  {
-   "title": "Black Ting (feat. Le3 bLACK)",
-   "artist": "Loraine James"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [
-  "bright保底(+2)"
- ],
- "fresh_build": true,
- "selection_policy": "never_repeat_v1",
- "notified": "2026-10-04"
+  "date": "2026-10-04",
+  "issue_no": 69,
+  "playlist_title": "今天第一次推荐的 30 首（10.04）",
+  "tracks_brief": [
+    {
+      "title": "Baby",
+      "artist": "Eddie Kendricks"
+    },
+    {
+      "title": "Sha Na Na (feat. The Shacks)",
+      "artist": "El Michels Affair"
+    },
+    {
+      "title": "Minority",
+      "artist": "Bill Evans"
+    },
+    {
+      "title": "This Time",
+      "artist": "Neal Francis"
+    },
+    {
+      "title": "Sunshine In 1929",
+      "artist": "Domenique Dumont"
+    },
+    {
+      "title": "Black Ting (feat. Le3 bLACK)",
+      "artist": "Loraine James"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false,
+  "selection_policy": "never_repeat_v1",
+  "notified": "2026-10-04"
 }
