@@ -1,37 +1,37 @@
 {
- "date": "2026-10-05",
- "issue_no": 70,
- "playlist_title": "今天第一次推荐的 30 首（10.05）",
- "tracks_brief": [
-  {
-   "title": "You Disappear You Find Yourself Again",
-   "artist": "Perila"
-  },
-  {
-   "title": "SeeSaw (feat. Romy)",
-   "artist": "Jamie xx"
-  },
-  {
-   "title": "Off to See the Hangman, Pt. II",
-   "artist": "Gwenifer Raymond"
-  },
-  {
-   "title": "Water Temple",
-   "artist": "Jabu"
-  },
-  {
-   "title": "Say Yes (feat. Ruby Francis & Ashley Henry)",
-   "artist": "Blue Lab Beats"
-  },
-  {
-   "title": "Plastic Man",
-   "artist": "H. Hawkline"
-  }
- ],
- "n": 30,
- "low_pool_warn": null,
- "relax": [],
- "fresh_build": true,
- "selection_policy": "never_repeat_v1",
- "notified": "2026-10-05"
+  "date": "2026-10-05",
+  "issue_no": 70,
+  "playlist_title": "今天第一次推荐的 30 首（10.05）",
+  "tracks_brief": [
+    {
+      "title": "You Disappear You Find Yourself Again",
+      "artist": "Perila"
+    },
+    {
+      "title": "SeeSaw (feat. Romy)",
+      "artist": "Jamie xx"
+    },
+    {
+      "title": "Off to See the Hangman, Pt. II",
+      "artist": "Gwenifer Raymond"
+    },
+    {
+      "title": "Water Temple",
+      "artist": "Jabu"
+    },
+    {
+      "title": "Say Yes (feat. Ruby Francis & Ashley Henry)",
+      "artist": "Blue Lab Beats"
+    },
+    {
+      "title": "Plastic Man",
+      "artist": "H. Hawkline"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": null,
+  "relax": [],
+  "fresh_build": false,
+  "selection_policy": "never_repeat_v1",
+  "notified": "2026-10-05"
 }
