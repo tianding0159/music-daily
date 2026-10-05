@@ -1,0 +1,551 @@
+{
+  "issue_no": 70,
+  "date": "2026-10-05",
+  "generated_at": "2026-10-05T00:00:37+00:00",
+  "theme": "grid",
+  "playlist_title": "今天第一次推荐的 30 首（10.05）",
+  "netease_text": "今天第一次推荐的 30 首（10.05）\nYou Disappear You Find Yourself Again - Perila\nSeeSaw (feat. Romy) - Jamie xx\nOff to See the Hangman, Pt. II - Gwenifer Raymond\nWater Temple - Jabu\nSay Yes (feat. Ruby Francis & Ashley Henry) - Blue Lab Beats\nPlastic Man - H. Hawkline\nPanis Et Circenses - Os Mutantes\nTo Say That Is Easy - Yves Jarvis\n濕濕的夢 - My Little Airport\nAnd So We Run - The Three O'Clock\nNação Yupi - Rogê\nLion in Chains - Nap Eyes\nTea - Soaked Letter - Anna Burch\nDo Amor - Tulipa Ruiz\nJewels Drossed in the Runoff - Wild Pink\nEnchanted - Prefab Sprout\nRare Air - Mildlife\nBaghon Main (feat. Darian Donovan Thomas) - Arooj Aftab\nThe Chapel - Esbjörn Svensson Trio\n3Hands / Divine Hand I - Mndsgn\nSoukora (with Ry Cooder) [with Ry Cooder] - Ali Farka Touré\nThinking of You - Marissa Nadler\nThere Is a Place - Maisha\nDolphin - Linda Perhacs\nROCK N ROLL VOID. - Swansea Sound\nFrom a Sandbox - Rahill\nA Moment - Jerry Paper\nShe Wants - Metronomy\nZoo Eyes - Aldous Harding\nTrailways - Red House Painters",
+  "tracks": [
+    {
+      "id": "apple:1564179942",
+      "title": "You Disappear You Find Yourself Again",
+      "artist": "Perila",
+      "selection_status": "discovery_not_curated",
+      "album": "How Much Time it is Between You and Me?",
+      "year": "2021",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/you-disappear-you-find-yourself-again/1564179938?i=1564179942&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/6c/a1/d8/6ca1d8ed-e650-3fbb-6cc7-6a3505addd15/20659.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/bb/2a/bd/bb2abd55-68f8-6e4e-dd81-6a9f511b833c/mzaf_16286393360124603667.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/you-disappear-you-find-yourself-again/1564179938?i=1564179942&uo=4"
+    },
+    {
+      "id": "apple:1525506455",
+      "title": "SeeSaw (feat. Romy)",
+      "artist": "Jamie xx",
+      "selection_status": "discovery_not_curated",
+      "album": "In Colour",
+      "year": "2015",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/seesaw-feat-romy/1525506447?i=1525506455&uo=4",
+      "why": "曲目资料已核对；2015 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b9/dc/ce/b9dcce9c-8cf8-4105-0fab-fb048702bce2/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3e/e4/0e/3ee40e45-60e9-6e56-b235-69a66ac3d323/mzaf_17236081292565403603.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/seesaw-feat-romy/1525506447?i=1525506455&uo=4"
+    },
+    {
+      "id": "apple:1387758511",
+      "title": "Off to See the Hangman, Pt. II",
+      "artist": "Gwenifer Raymond",
+      "selection_status": "discovery_not_curated",
+      "album": "You Never Were Much of a Dancer",
+      "year": "2018",
+      "genres": [
+        "contemporary folk"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/off-to-see-the-hangman-pt-ii/1387758344?i=1387758511&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/56/af/25/56af2569-8455-f70a-3373-261fe1601324/192641108587_Cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/88/87/c7/8887c725-a775-3415-42fe-0f3070f5772c/mzaf_12401334442149328824.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/off-to-see-the-hangman-pt-ii/1387758344?i=1387758511&uo=4"
+    },
+    {
+      "id": "apple:1535131017",
+      "title": "Water Temple",
+      "artist": "Jabu",
+      "selection_status": "discovery_not_curated",
+      "album": "Sweet Company",
+      "year": "2020",
+      "genres": [
+        "pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/water-temple/1535131016?i=1535131017&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ab/77/f2/ab77f285-de75-ed35-0cfc-418a84a80675/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/33/44/d0/3344d0a6-6c84-8a1c-6ce5-8c309f16d28c/mzaf_5876778740263212482.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/water-temple/1535131016?i=1535131017&uo=4"
+    },
+    {
+      "id": "apple:1301342493",
+      "title": "Say Yes (feat. Ruby Francis & Ashley Henry)",
+      "artist": "Blue Lab Beats",
+      "selection_status": "discovery_not_curated",
+      "album": "Xover",
+      "year": "2018",
+      "genres": [
+        "contemporary jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/say-yes-feat-ruby-francis-ashley-henry/1301341780?i=1301342493&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/cd/18/d4/cd18d4e8-1aad-4a04-4c35-fc44fe7da36d/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ff/5c/60/ff5c6061-1d42-7c87-3683-4b272a590b38/mzaf_664724742028359683.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/say-yes-feat-ruby-francis-ashley-henry/1301341780?i=1301342493&uo=4"
+    },
+    {
+      "id": "apple:1647432603",
+      "title": "Plastic Man",
+      "artist": "H. Hawkline",
+      "selection_status": "discovery_not_curated",
+      "album": "Milk For Flowers",
+      "year": "2023",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/plastic-man/1647432590?i=1647432603&uo=4",
+      "why": "曲目资料已核对；2023 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/de/2a/10/de2a106e-1d74-00ad-5174-258b4326237c/5400863066871_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/44/94/4d/44944d81-309c-68ab-6a8a-f059c8d44746/mzaf_10434781859439808934.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/plastic-man/1647432590?i=1647432603&uo=4"
+    },
+    {
+      "id": "apple:1444060160",
+      "title": "Panis Et Circenses",
+      "artist": "Os Mutantes",
+      "selection_status": "discovery_not_curated",
+      "album": "Os Mutantes",
+      "year": "1968",
+      "genres": [
+        "brazilian"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/panis-et-circenses/1444060151?i=1444060160&uo=4",
+      "why": "曲目资料已核对；1968 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/f3/14/f8/f314f84f-d86b-a588-9d5a-18495b80eef2/00042282949820.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/83/0a/d0/830ad08d-5fbc-141f-c58d-8a77ebcc047a/mzaf_13107861967073247302.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/panis-et-circenses/1444060151?i=1444060160&uo=4"
+    },
+    {
+      "id": "apple:1485073995",
+      "title": "To Say That Is Easy",
+      "artist": "Yves Jarvis",
+      "selection_status": "discovery_not_curated",
+      "album": "The Same but by Different Means",
+      "year": "2019",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/to-say-that-is-easy/1485073994?i=1485073995&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/29/80/d4/2980d45b-0be5-fe61-32db-93e8b691c866/0045778759200.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/85/53/e4/8553e460-e311-146d-c7bc-be38a8f719a9/mzaf_1616675623237486842.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/to-say-that-is-easy/1485073994?i=1485073995&uo=4"
+    },
+    {
+      "id": "apple:1541142417",
+      "title": "濕濕的夢",
+      "artist": "My Little Airport",
+      "selection_status": "discovery_not_curated",
+      "album": "介乎法國與旺角的詩意",
+      "year": "2009",
+      "genres": [
+        "cantopop/hk-pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/%E6%BF%95%E6%BF%95%E7%9A%84%E5%A4%A2/1541142415?i=1541142417&uo=4",
+      "why": "曲目资料已核对；2009 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/86/b7/65/86b7651e-a296-9fcc-364f-2dd0eca05af9/884502773408_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f5/a6/28/f5a628cf-60ad-3ae7-4a5f-b964610340b1/mzaf_13065685182422642657.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/%E6%BF%95%E6%BF%95%E7%9A%84%E5%A4%A2/1541142415?i=1541142417&uo=4"
+    },
+    {
+      "id": "apple:1535879162",
+      "title": "And So We Run",
+      "artist": "The Three O'Clock",
+      "selection_status": "discovery_not_curated",
+      "album": "Sixteen Tambourines",
+      "year": "1983",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/and-so-we-run/1535879159?i=1535879162&uo=4",
+      "why": "曲目资料已核对；1983 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/46/25/f7/4625f7f8-917f-0480-0189-33f2def45a5d/100528.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview124/v4/11/06/64/11066439-6729-93ba-0fcf-fe2d2426e05e/mzaf_12200022958914214986.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/and-so-we-run/1535879159?i=1535879162&uo=4"
+    },
+    {
+      "id": "apple:1635384285",
+      "title": "Nação Yupi",
+      "artist": "Rogê",
+      "selection_status": "discovery_not_curated",
+      "album": "Curyman",
+      "year": "2023",
+      "genres": [
+        "brazilian"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/na%C3%A7%C3%A3o-yupi/1635384261?i=1635384285&uo=4",
+      "why": "曲目资料已核对；2023 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/04/e1/66/04e16683-9588-f219-9543-826e8652687b/35802.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/df/13/43/df13439a-345a-64c1-690c-82d17dcc4079/mzaf_4429164038191185697.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/na%C3%A7%C3%A3o-yupi/1635384261?i=1635384285&uo=4"
+    },
+    {
+      "id": "apple:1058443816",
+      "title": "Lion in Chains",
+      "artist": "Nap Eyes",
+      "selection_status": "discovery_not_curated",
+      "album": "Thought Rock Fish Scale",
+      "year": "2016",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/lion-in-chains/1058442966?i=1058443816&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music71/v4/ea/5e/08/ea5e08b9-5e7e-1fff-4e3f-6caa3e8e7cb6/mzm.nekdhaaj.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c7/c8/95/c7c8957f-99d1-4dad-0cec-9eb3a3cf7e5b/mzaf_5195831076333643004.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/lion-in-chains/1058442966?i=1058443816&uo=4"
+    },
+    {
+      "id": "apple:1651310064",
+      "title": "Tea - Soaked Letter",
+      "artist": "Anna Burch",
+      "selection_status": "discovery_not_curated",
+      "album": "Quit the Curse",
+      "year": "2018",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/tea-soaked-letter/1651310058?i=1651310064&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/b9/f7/e4/b9f7e486-de65-6154-c1f0-818449ef4bd9/644110034694.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/e2/b2/78/e2b27879-b127-1ffb-f5c1-a11c064e529a/mzaf_4437597895127308858.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/tea-soaked-letter/1651310058?i=1651310064&uo=4"
+    },
+    {
+      "id": "apple:1621722270",
+      "title": "Do Amor",
+      "artist": "Tulipa Ruiz",
+      "selection_status": "discovery_not_curated",
+      "album": "Efêmera",
+      "year": "2010",
+      "genres": [
+        "mpb"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/do-amor/1621722255?i=1621722270&uo=4",
+      "why": "曲目资料已核对；2010 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/4d/27/f3/4d27f38b-ff6a-7d48-aa32-f2c1fa0b97b2/8445162658805.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/7c/38/f6/7c38f6c2-d93c-ca0a-4b0d-0b05c084c6b0/mzaf_10526135208295729022.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/do-amor/1621722255?i=1621722270&uo=4"
+    },
+    {
+      "id": "apple:1376809887",
+      "title": "Jewels Drossed in the Runoff",
+      "artist": "Wild Pink",
+      "selection_status": "discovery_not_curated",
+      "album": "Yolk in the Fur",
+      "year": "2018",
+      "genres": [
+        "indie rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/jewels-drossed-in-the-runoff/1376807650?i=1376809887&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/8f/9d/2f/8f9d2fa0-e561-d266-1516-4d257335b9d0/55738.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/4f/0d/40/4f0d40bd-fa52-3801-5957-58cd0609a68e/mzaf_15713318766764159399.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/jewels-drossed-in-the-runoff/1376807650?i=1376809887&uo=4"
+    },
+    {
+      "id": "apple:1476849951",
+      "title": "Enchanted",
+      "artist": "Prefab Sprout",
+      "selection_status": "discovery_not_curated",
+      "album": "From Langley Park to Memphis",
+      "year": "1988",
+      "genres": [
+        "pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/enchanted/1476849774?i=1476849951&uo=4",
+      "why": "曲目资料已核对；1988 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/37/46/da/3746da02-8199-3953-63ca-6996ee400c4c/886447826164.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e2/0e/a9/e20ea926-cbb7-f287-6df7-0277c19ce36f/mzaf_8158263035520848550.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/enchanted/1476849774?i=1476849951&uo=4"
+    },
+    {
+      "id": "apple:1513399615",
+      "title": "Rare Air",
+      "artist": "Mildlife",
+      "selection_status": "discovery_not_curated",
+      "album": "Automatic",
+      "year": "2020",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/rare-air/1513399610?i=1513399615&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/55/81/95/5581954b-6fe2-730c-bd66-843f299dd6b2/5400863032517_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/1a/91/53/1a9153b3-e207-2cca-8480-f1845d2b556d/mzaf_9542630434598152585.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/rare-air/1513399610?i=1513399615&uo=4"
+    },
+    {
+      "id": "apple:1613561414",
+      "title": "Baghon Main (feat. Darian Donovan Thomas)",
+      "artist": "Arooj Aftab",
+      "selection_status": "discovery_not_curated",
+      "album": "Vulture Prince (Deluxe Edition)",
+      "year": "2022",
+      "genres": [
+        "worldwide"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/baghon-main-feat-darian-donovan-thomas/1613561221?i=1613561414&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d4/58/7e/d4587ea0-d45e-a037-b5c4-ba18474ce283/22UMGIM04811.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/17/16/5d/17165db5-2b06-e071-73ab-e049a187dd26/mzaf_1425829153746793500.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/baghon-main-feat-darian-donovan-thomas/1613561221?i=1613561414&uo=4"
+    },
+    {
+      "id": "apple:1405003684",
+      "title": "The Chapel",
+      "artist": "Esbjörn Svensson Trio",
+      "selection_status": "discovery_not_curated",
+      "album": "From Gagarin's Point of View",
+      "year": "1999",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/the-chapel/1405002907?i=1405003684&uo=4",
+      "why": "曲目资料已核对；1999 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/7e/03/16/7e031659-3b47-ac4c-9c7b-e2927d33a779/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/48/f6/5e/48f65e0d-5ad7-543f-3b67-cacd7b755fcb/mzaf_2794162327625490903.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/the-chapel/1405002907?i=1405003684&uo=4"
+    },
+    {
+      "id": "apple:1544857331",
+      "title": "3Hands / Divine Hand I",
+      "artist": "Mndsgn",
+      "selection_status": "discovery_not_curated",
+      "album": "Rare Pleasure",
+      "year": "2021",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/3hands-divine-hand-i/1544857326?i=1544857331&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/05/2e/e4/052ee43d-eb6c-cdcf-ee3c-7e89490dc49d/1234.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/c9/43/bb/c943bb36-d94c-54c5-7ccf-f294c7f8175a/mzaf_17924694590221230917.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/3hands-divine-hand-i/1544857326?i=1544857331&uo=4"
+    },
+    {
+      "id": "apple:1528519972",
+      "title": "Soukora (with Ry Cooder) [with Ry Cooder]",
+      "artist": "Ali Farka Touré",
+      "selection_status": "discovery_not_curated",
+      "album": "Talking Timbuktu (with Ry Cooder)",
+      "year": "1994",
+      "genres": [
+        "worldwide"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/soukora-with-ry-cooder-with-ry-cooder/1528519970?i=1528519972&uo=4",
+      "why": "曲目资料已核对；1994 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/46/21/52/462152eb-c0f4-39a8-e1c0-758481a867ba/0859381180500.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/8f/f0/50/8ff05069-4297-735d-1dc4-34bad5d9a95e/mzaf_18420165729146217572.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/soukora-with-ry-cooder-with-ry-cooder/1528519970?i=1528519972&uo=4"
+    },
+    {
+      "id": "apple:1487091902",
+      "title": "Thinking of You",
+      "artist": "Marissa Nadler",
+      "selection_status": "discovery_not_curated",
+      "album": "Songs III: Bird on the Water",
+      "year": "2007",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/thinking-of-you/1487091894?i=1487091902&uo=4",
+      "why": "曲目资料已核对；2007 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/20/ad/6f/20ad6faa-fdfe-0037-a4c5-37b2c80abf8a/859735606342_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/79/6b/1f/796b1f47-2719-3098-8aa9-f54d4f989881/mzaf_7194769780430204226.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/thinking-of-you/1487091894?i=1487091902&uo=4"
+    },
+    {
+      "id": "apple:1561236290",
+      "title": "There Is a Place",
+      "artist": "Maisha",
+      "selection_status": "discovery_not_curated",
+      "album": "There Is a Place",
+      "year": "2018",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/there-is-a-place/1561236117?i=1561236290&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/f3/9e/9f/f39e9f72-6047-ae0b-ae94-ed3b78b06365/5060180323653.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview124/v4/d6/87/54/d6875462-a659-395c-a3d8-760a4ff10748/mzaf_3504652537805145590.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/there-is-a-place/1561236117?i=1561236290&uo=4"
+    },
+    {
+      "id": "apple:1443772861",
+      "title": "Dolphin",
+      "artist": "Linda Perhacs",
+      "selection_status": "discovery_not_curated",
+      "album": "Parallelograms",
+      "year": "1970",
+      "genres": [
+        "alternative folk"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/dolphin/1443772850?i=1443772861&uo=4",
+      "why": "曲目资料已核对；1970 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/40/cf/af/40cfaf4b-1e58-a252-672a-98df9a5dff7c/00602537885794.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/c5/89/6c/c5896c31-edc4-77e8-f828-30bb81fc4f91/mzaf_17785433570907341230.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/dolphin/1443772850?i=1443772861&uo=4"
+    },
+    {
+      "id": "apple:1584974921",
+      "title": "ROCK N ROLL VOID.",
+      "artist": "Swansea Sound",
+      "selection_status": "discovery_not_curated",
+      "album": "Live at the Rum Puncheon",
+      "year": "2021",
+      "genres": [
+        "indie pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/rock-n-roll-void/1584974920?i=1584974921&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ce/00/a0/ce00a05b-e19b-a183-d0f1-807da72fc09e/5056321654410.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ef/f2/fe/eff2fe74-d265-a0aa-6b0d-13dee8396f69/mzaf_4565335980649724559.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/rock-n-roll-void/1584974920?i=1584974921&uo=4"
+    },
+    {
+      "id": "apple:1660270918",
+      "title": "From a Sandbox",
+      "artist": "Rahill",
+      "selection_status": "discovery_not_curated",
+      "album": "Flowers At Your Feet",
+      "year": "2023",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/from-a-sandbox/1660270914?i=1660270918&uo=4",
+      "why": "曲目资料已核对；2023 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a0/3d/ab/a03dab58-68ad-6172-15f6-46b2e260c9c2/5054429172645.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/8a/ae/ef/8aaeef1a-3fbe-3ac5-8cdb-f5e4b35c30ef/mzaf_3889934900489673362.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/from-a-sandbox/1660270914?i=1660270918&uo=4"
+    },
+    {
+      "id": "apple:1414714106",
+      "title": "A Moment",
+      "artist": "Jerry Paper",
+      "selection_status": "discovery_not_curated",
+      "album": "Like a Baby",
+      "year": "2018",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/a-moment/1414714102?i=1414714106&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/85/f9/53/85f95394-f496-2db8-599a-cb649d9ade42/likeababy.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/0d/04/58/0d045879-82b9-64a8-b463-fb6f6e7047a5/mzaf_7753692911644532046.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/a-moment/1414714102?i=1414714106&uo=4"
+    },
+    {
+      "id": "apple:1330668357",
+      "title": "She Wants",
+      "artist": "Metronomy",
+      "selection_status": "discovery_not_curated",
+      "album": "The English Riviera",
+      "year": "2011",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/she-wants/1330666927?i=1330668357&uo=4",
+      "why": "曲目资料已核对；2011 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/2a/b1/53/2ab153ba-fc3f-49e6-9525-d5a761a2eede/5060107728172_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/28/ff/0e/28ff0ec4-9e3a-8348-1be7-6f87031c050a/mzaf_17422259043569849699.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/she-wants/1330666927?i=1330668357&uo=4"
+    },
+    {
+      "id": "apple:1449805028",
+      "title": "Zoo Eyes",
+      "artist": "Aldous Harding",
+      "selection_status": "discovery_not_curated",
+      "album": "Designer",
+      "year": "2019",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/zoo-eyes/1449805020?i=1449805028&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c3/02/6c/c3026c53-598c-e31b-c452-419677a0e6d5/dj.bzknjjtt.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a6/23/f9/a623f9e2-312a-1214-9c9c-bf9d9b08c8ac/mzaf_12918552081129615925.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/zoo-eyes/1449805020?i=1449805028&uo=4"
+    },
+    {
+      "id": "apple:1443474714",
+      "title": "Trailways",
+      "artist": "Red House Painters",
+      "selection_status": "discovery_not_curated",
+      "album": "Songs for a Blue Guitar",
+      "year": "1996",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/trailways/1443474214?i=1443474714&uo=4",
+      "why": "曲目资料已核对；1996 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/03/e9/06/03e90654-cbfe-1f68-8244-ffd1dee2d01f/00016253106123.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/ec/b0/0b/ecb00bc6-e563-09a3-be31-005940e03ad8/mzaf_4211337545231136759.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/trailways/1443474214?i=1443474714&uo=4"
+    }
+  ],
+  "selection_policy": "never_repeat_v1"
+}

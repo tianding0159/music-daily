@@ -1,37 +1,36 @@
 {
-  "date": "2026-10-04",
-  "issue_no": 69,
-  "playlist_title": "今天第一次推荐的 30 首（10.04）",
+  "date": "2026-10-05",
+  "issue_no": 70,
+  "playlist_title": "今天第一次推荐的 30 首（10.05）",
   "tracks_brief": [
     {
-      "title": "Baby",
-      "artist": "Eddie Kendricks"
+      "title": "You Disappear You Find Yourself Again",
+      "artist": "Perila"
     },
     {
-      "title": "Sha Na Na (feat. The Shacks)",
-      "artist": "El Michels Affair"
+      "title": "SeeSaw (feat. Romy)",
+      "artist": "Jamie xx"
     },
     {
-      "title": "Minority",
-      "artist": "Bill Evans"
+      "title": "Off to See the Hangman, Pt. II",
+      "artist": "Gwenifer Raymond"
     },
     {
-      "title": "This Time",
-      "artist": "Neal Francis"
+      "title": "Water Temple",
+      "artist": "Jabu"
     },
     {
-      "title": "Sunshine In 1929",
-      "artist": "Domenique Dumont"
+      "title": "Say Yes (feat. Ruby Francis & Ashley Henry)",
+      "artist": "Blue Lab Beats"
     },
     {
-      "title": "Black Ting (feat. Le3 bLACK)",
-      "artist": "Loraine James"
+      "title": "Plastic Man",
+      "artist": "H. Hawkline"
     }
   ],
   "n": 30,
   "low_pool_warn": null,
   "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-10-04"
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
