@@ -1,36 +1,37 @@
 {
-  "date": "2026-10-06",
-  "issue_no": 71,
-  "playlist_title": "今天第一次推荐的 30 首（10.06）",
-  "tracks_brief": [
-    {
-      "title": "Gordon's Gardenparty",
-      "artist": "The Cardigans"
-    },
-    {
-      "title": "Not in the Band",
-      "artist": "Peel Dream Magazine"
-    },
-    {
-      "title": "Grand Scheme",
-      "artist": "Erin Rae"
-    },
-    {
-      "title": "On Your Way (Felix Song)",
-      "artist": "Anaïs Mitchell"
-    },
-    {
-      "title": "Spring, Summer, Fall, Winter (feat. Honggap)",
-      "artist": "Lucid Fall"
-    },
-    {
-      "title": "Never Enough",
-      "artist": "Jessy Lanza"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": null,
-  "relax": [],
-  "fresh_build": true,
-  "selection_policy": "never_repeat_v1"
+ "date": "2026-10-06",
+ "issue_no": 71,
+ "playlist_title": "今天第一次推荐的 30 首（10.06）",
+ "tracks_brief": [
+  {
+   "title": "Gordon's Gardenparty",
+   "artist": "The Cardigans"
+  },
+  {
+   "title": "Not in the Band",
+   "artist": "Peel Dream Magazine"
+  },
+  {
+   "title": "Grand Scheme",
+   "artist": "Erin Rae"
+  },
+  {
+   "title": "On Your Way (Felix Song)",
+   "artist": "Anaïs Mitchell"
+  },
+  {
+   "title": "Spring, Summer, Fall, Winter (feat. Honggap)",
+   "artist": "Lucid Fall"
+  },
+  {
+   "title": "Never Enough",
+   "artist": "Jessy Lanza"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": null,
+ "relax": [],
+ "fresh_build": true,
+ "selection_policy": "never_repeat_v1",
+ "notified": "2026-10-06"
 }
