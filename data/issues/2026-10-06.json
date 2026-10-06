@@ -1,0 +1,551 @@
+{
+  "issue_no": 71,
+  "date": "2026-10-06",
+  "generated_at": "2026-10-06T00:00:42+00:00",
+  "theme": "grid",
+  "playlist_title": "今天第一次推荐的 30 首（10.06）",
+  "netease_text": "今天第一次推荐的 30 首（10.06）\nGordon's Gardenparty - The Cardigans\nNot in the Band - Peel Dream Magazine\nGrand Scheme - Erin Rae\nOn Your Way (Felix Song) - Anaïs Mitchell\nSpring, Summer, Fall, Winter (feat. Honggap) - Lucid Fall\nNever Enough - Jessy Lanza\nEveryday - Weyes Blood\nFantastiktir bahti yarimin - Gaye Su Akyol\nAugust - Luke Howard\nSender - Pinback\nTheir Faces Streaked with Light and Filled with Pity - Mary Lattimore\nPainting and Splashing - Hideki Kaji\nPlanet Phrom - Ducktails\nA Day for Love - Yukika\nExhale - Kim Sawol\nSpace Walk - Lemon Jelly\nOut the Lies - Sault\nN19 5NF - Ela Minus\nBlame (feat. Miki Berenyi) - Blushing\nWintergreen - Visible Cloaks\nSmall death (feat. Jungwoo) - Meaningful Stone\nWayside - Renata Zeiguer\nAddis Nat - Hailu Mergia\nPreservation - Nadia Reid\nFreibad - Hauschka\nWhen You're Gone - Bedouine\nTudo Passa - Marcelo Camelo\nThe Lighthouse - Dawuna\nI Hear You Listening (To the Bug on My Wall) - Mega Bog\nDave’s Song - Whitney",
+  "tracks": [
+    {
+      "id": "apple:1444028400",
+      "title": "Gordon's Gardenparty",
+      "artist": "The Cardigans",
+      "selection_status": "discovery_not_curated",
+      "album": "Life",
+      "year": "1995",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/gordons-gardenparty/1444027809?i=1444028400&uo=4",
+      "why": "曲目资料已核对；1995 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/7e/2f/3f/7e2f3ff6-8247-bfdb-a507-5c9e025ff54f/00731452355621.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f0/df/c8/f0dfc895-db37-9cf4-45bb-9e9cbd355567/mzaf_2549079375709524178.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/gordons-gardenparty/1444027809?i=1444028400&uo=4"
+    },
+    {
+      "id": "apple:1626204156",
+      "title": "Not in the Band",
+      "artist": "Peel Dream Magazine",
+      "selection_status": "discovery_not_curated",
+      "album": "Pad",
+      "year": "2022",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/not-in-the-band/1626203975?i=1626204156&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/66/d7/54/66d754f2-3d0e-f4c3-32a4-8e1af054513c/749846027283.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/24/10/38/2410380c-61d0-8314-f4c7-8a1d741f82d9/mzaf_18431871518091115803.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/not-in-the-band/1626203975?i=1626204156&uo=4"
+    },
+    {
+      "id": "apple:1534392056",
+      "title": "Grand Scheme",
+      "artist": "Erin Rae",
+      "selection_status": "discovery_not_curated",
+      "album": "Putting On Airs",
+      "year": "2018",
+      "genres": [
+        "singer/songwriter"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/grand-scheme/1534392054?i=1534392056&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/f3/44/2d/f3442d9f-f742-7e7c-63fc-e9d778af2b99/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/6a/74/8c/6a748c1e-5b8a-4dac-94ae-7b8df9c7a44f/mzaf_17321545974173089289.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/grand-scheme/1534392054?i=1534392056&uo=4"
+    },
+    {
+      "id": "apple:1604196383",
+      "title": "On Your Way (Felix Song)",
+      "artist": "Anaïs Mitchell",
+      "selection_status": "discovery_not_curated",
+      "album": "Anaïs Mitchell",
+      "year": "2022",
+      "genres": [
+        "singer/songwriter"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/on-your-way-felix-song/1604196375?i=1604196383&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/5f/33/6f/5f336f0f-03de-68dc-6b56-00ebb556bd15/4050538719550.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview126/v4/a1/17/09/a11709f5-b61f-3f8f-03eb-9414a6074109/mzaf_6331214318950560612.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/on-your-way-felix-song/1604196375?i=1604196383&uo=4"
+    },
+    {
+      "id": "apple:1527240357",
+      "title": "Spring, Summer, Fall, Winter (feat. Honggap)",
+      "artist": "Lucid Fall",
+      "selection_status": "discovery_not_curated",
+      "album": "Someone, Somewhere",
+      "year": "2015",
+      "genres": [
+        "singer/songwriter"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/spring-summer-fall-winter-feat-honggap/1527240352?i=1527240357&uo=4",
+      "why": "曲目资料已核对；2015 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/3f/cf/ed/3fcfed66-51a1-e576-a701-deffa3fcb64c/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/11/1e/ad/111ead58-5324-bb63-b83a-1b1a66d514c5/mzaf_13960947430094427689.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/spring-summer-fall-winter-feat-honggap/1527240352?i=1527240357&uo=4"
+    },
+    {
+      "id": "apple:1077534945",
+      "title": "Never Enough",
+      "artist": "Jessy Lanza",
+      "selection_status": "discovery_not_curated",
+      "album": "Oh No",
+      "year": "2016",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/never-enough/1077534787?i=1077534945&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/c2/d1/db/c2d1db0c-9d1f-2d02-35ee-08cd586eba47/12499.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/52/1d/f8/521df8ed-2bea-1800-4f73-3a8cf849a77c/mzaf_9838981965120965477.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/never-enough/1077534787?i=1077534945&uo=4"
+    },
+    {
+      "id": "apple:1450550347",
+      "title": "Everyday",
+      "artist": "Weyes Blood",
+      "selection_status": "discovery_not_curated",
+      "album": "Titanic Rising",
+      "year": "2019",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/everyday/1450550344?i=1450550347&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/54/f6/fc/54f6fc73-6a18-d97a-a634-a4630ec35593/WeyesBlood_TitanicRising_3600.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/15/9b/38/159b3887-c198-fe45-fe85-1fa0242ca02e/mzaf_4157107554558005651.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/everyday/1450550344?i=1450550347&uo=4"
+    },
+    {
+      "id": "apple:1167625977",
+      "title": "Fantastiktir bahti yarimin",
+      "artist": "Gaye Su Akyol",
+      "selection_status": "discovery_not_curated",
+      "album": "Hologram İmparatorluğu",
+      "year": "2016",
+      "genres": [
+        "worldwide"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/fantastiktir-bahti-yarimin/1167625764?i=1167625977&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music71/v4/5c/e7/3f/5ce73f26-9645-db43-ad89-7054f3278d52/4030433604021_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/bb/3b/52/bb3b5207-10c8-91f5-c091-377cce3319a6/mzaf_15205349029699829529.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/fantastiktir-bahti-yarimin/1167625764?i=1167625977&uo=4"
+    },
+    {
+      "id": "apple:1452500368",
+      "title": "August",
+      "artist": "Luke Howard",
+      "selection_status": "discovery_not_curated",
+      "album": "Sun, Cloud",
+      "year": "2013",
+      "genres": [
+        "classical crossover"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/august/1452500180?i=1452500368&uo=4",
+      "why": "曲目资料已核对；2013 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/63/05/ae/6305ae97-d082-cce6-88ce-5cd61989ea75/00028948151202.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a6/00/33/a60033f3-d00d-dd6d-32b7-285d77c411ae/mzaf_11512995755202621603.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/august/1452500180?i=1452500368&uo=4"
+    },
+    {
+      "id": "apple:1479704244",
+      "title": "Sender",
+      "artist": "Pinback",
+      "selection_status": "discovery_not_curated",
+      "album": "Summer in Abaddon (15th Anniversary Edition)",
+      "year": "2004",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/sender/1479704242?i=1479704244&uo=4",
+      "why": "曲目资料已核对；2004 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/94/ac/37/94ac3747-f26c-26dc-6e64-6fe127025745/036172093786.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/2d/39/c0/2d39c077-4baf-0358-faf2-61865ea6eef3/mzaf_9839233200523278058.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/sender/1479704242?i=1479704244&uo=4"
+    },
+    {
+      "id": "apple:1353491029",
+      "title": "Their Faces Streaked with Light and Filled with Pity",
+      "artist": "Mary Lattimore",
+      "selection_status": "discovery_not_curated",
+      "album": "Hundreds of Days",
+      "year": "2018",
+      "genres": [
+        "ambient"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/their-faces-streaked-with-light-and-filled-with-pity/1353490901?i=1353491029&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/f7/f6/13/f7f61347-c77c-953b-dad7-150b28ea6edd/804297831701.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/5f/a1/81/5fa181a6-40f7-59b7-2a57-96beea59d65a/mzaf_10260921639024511370.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/their-faces-streaked-with-light-and-filled-with-pity/1353490901?i=1353491029&uo=4"
+    },
+    {
+      "id": "apple:1503106446",
+      "title": "Painting and Splashing",
+      "artist": "Hideki Kaji",
+      "selection_status": "discovery_not_curated",
+      "album": "Towns and Streets",
+      "year": "2007",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/painting-and-splashing/1503106246?i=1503106446&uo=4",
+      "why": "曲目资料已核对；2007 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/b9/c0/01/b9c001fc-fbab-5a8b-4bf3-351c43192cd2/4538182876497_cov.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/75/3c/c3/753cc333-b8e7-6d93-1248-be8d65e139a5/mzaf_14551240216366867342.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/painting-and-splashing/1503106246?i=1503106446&uo=4"
+    },
+    {
+      "id": "apple:1338965216",
+      "title": "Planet Phrom",
+      "artist": "Ducktails",
+      "selection_status": "discovery_not_curated",
+      "album": "The Flower Lane",
+      "year": "2013",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/planet-phrom/1338965201?i=1338965216&uo=4",
+      "why": "曲目资料已核对；2013 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/62/9e/10/629e104c-dced-82bd-ad81-b340a3afd38d/artwork.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/60/12/b9/6012b9e0-b408-a5dd-38c3-63b6bfde988d/mzaf_920978960098817346.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/planet-phrom/1338965201?i=1338965216&uo=4"
+    },
+    {
+      "id": "apple:1524421704",
+      "title": "A Day for Love",
+      "artist": "Yukika",
+      "selection_status": "discovery_not_curated",
+      "album": "Soul Lady",
+      "year": "2020",
+      "genres": [
+        "k-pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/a-day-for-love/1524421699?i=1524421704&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/b4/b1/46/b4b146b4-95e8-7d55-1894-f0434660b382/191953086927.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/fe/83/8d/fe838d86-0e9e-55e0-44ab-fea195af9b77/mzaf_9757188634209017246.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/a-day-for-love/1524421699?i=1524421704&uo=4"
+    },
+    {
+      "id": "apple:1313141924",
+      "title": "Exhale",
+      "artist": "Kim Sawol",
+      "selection_status": "discovery_not_curated",
+      "album": "Suzanne",
+      "year": "2015",
+      "genres": [
+        "singer/songwriter"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/exhale/1313141842?i=1313141924&uo=4",
+      "why": "曲目资料已核对；2015 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/49/94/5e/49945e42-cb1d-c2c1-52e5-af231a4aa9fe/suzanne_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/63/76/f9/6376f9e6-00bc-3c36-d306-ed81593ad331/mzaf_16765471216568845155.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/exhale/1313141842?i=1313141924&uo=4"
+    },
+    {
+      "id": "apple:1027466486",
+      "title": "Space Walk",
+      "artist": "Lemon Jelly",
+      "selection_status": "discovery_not_curated",
+      "album": "Lost Horizons",
+      "year": "2002",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/space-walk/1027466484?i=1027466486&uo=4",
+      "why": "曲目资料已核对；2002 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/90/de/c9/90dec9ed-7a3c-b156-3b42-40d4a20810fd/634904016005.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/73/8e/d1/738ed13d-908d-3c45-8d63-55a2d42ecda4/mzaf_8179484939057281326.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/space-walk/1027466484?i=1027466486&uo=4"
+    },
+    {
+      "id": "apple:1518680089",
+      "title": "Out the Lies",
+      "artist": "Sault",
+      "selection_status": "discovery_not_curated",
+      "album": "Untitled (Black Is)",
+      "year": "2020",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/out-the-lies/1518680087?i=1518680089&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/66/f1/98/66f19821-f899-77e5-4daa-32a8e877d649/859740074815_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a2/6a/7d/a26a7d47-6597-790a-1887-d37ba6cf87a2/mzaf_14862576186064353665.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/out-the-lies/1518680087?i=1518680089&uo=4"
+    },
+    {
+      "id": "apple:1526852448",
+      "title": "N19 5NF",
+      "artist": "Ela Minus",
+      "selection_status": "discovery_not_curated",
+      "album": "acts of rebellion",
+      "year": "2020",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/n19-5nf/1526852447?i=1526852448&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/10/ae/1e/10ae1e25-4e86-2a1b-5c49-9fb3f9975873/887828047093.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/32/b4/db/32b4db5b-8451-da8a-6925-968c3b12b1b4/mzaf_5920286676637262165.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/n19-5nf/1526852447?i=1526852448&uo=4"
+    },
+    {
+      "id": "apple:1586215306",
+      "title": "Blame (feat. Miki Berenyi)",
+      "artist": "Blushing",
+      "selection_status": "discovery_not_curated",
+      "album": "Possessions",
+      "year": "2022",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/blame-feat-miki-berenyi/1586215301?i=1586215306&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c3/40/36/c34036ba-047c-512b-e65f-55bca1ec9941/26871.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/cb/4f/55/cb4f551d-d2bd-b8a9-8227-54091dccc2ad/mzaf_5565722951685357916.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/blame-feat-miki-berenyi/1586215301?i=1586215306&uo=4"
+    },
+    {
+      "id": "apple:1176716940",
+      "title": "Wintergreen",
+      "artist": "Visible Cloaks",
+      "selection_status": "discovery_not_curated",
+      "album": "Reassemblage",
+      "year": "2017",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/wintergreen/1176716928?i=1176716940&uo=4",
+      "why": "曲目资料已核对；2017 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music71/v4/73/81/8a/73818a7e-0f26-da53-4662-cf98734d769c/716670165702.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/2f/12/62/2f126265-2579-3d0f-9127-4e197f0ff304/mzaf_5070001612332148007.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/wintergreen/1176716928?i=1176716940&uo=4"
+    },
+    {
+      "id": "apple:1533397188",
+      "title": "Small death (feat. Jungwoo)",
+      "artist": "Meaningful Stone",
+      "selection_status": "discovery_not_curated",
+      "album": "A Call from My Dream",
+      "year": "2020",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/small-death-feat-jungwoo/1533397185?i=1533397188&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/84/5f/87/845f8771-6288-9972-a7f7-ecbb72c78705/8809712287776.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/51/51/20/51512059-996c-bc4c-6f5d-47d4b6247854/mzaf_11191871105241900258.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/small-death-feat-jungwoo/1533397185?i=1533397188&uo=4"
+    },
+    {
+      "id": "apple:1319002690",
+      "title": "Wayside",
+      "artist": "Renata Zeiguer",
+      "selection_status": "discovery_not_curated",
+      "album": "Old Ghost",
+      "year": "2018",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/wayside/1319002688?i=1319002690&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/c2/24/b8/c224b884-029c-e4d4-83b7-5e366a095f18/754697444110.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/af/8b/8f/af8b8f44-0e1b-3d59-4ce4-3434b2d0f112/mzaf_15888439136959023329.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/wayside/1319002688?i=1319002690&uo=4"
+    },
+    {
+      "id": "apple:1313329813",
+      "title": "Addis Nat",
+      "artist": "Hailu Mergia",
+      "selection_status": "discovery_not_curated",
+      "album": "Lala Belu",
+      "year": "2018",
+      "genres": [
+        "worldwide"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/addis-nat/1313329534?i=1313329813&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/a2/48/78/a2487863-33c2-6c73-d117-01c5f7fdb79a/616892557449.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/23/1f/fd/231ffd1b-d880-1cbf-f9d9-d438171eb597/mzaf_7563288156213276202.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/addis-nat/1313329534?i=1313329813&uo=4"
+    },
+    {
+      "id": "apple:1179775006",
+      "title": "Preservation",
+      "artist": "Nadia Reid",
+      "selection_status": "discovery_not_curated",
+      "album": "Preservation",
+      "year": "2017",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/preservation/1179774934?i=1179775006&uo=4",
+      "why": "曲目资料已核对；2017 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/db/92/7c/db927cb2-ae47-9ccf-0886-c855e268cc4b/NadiaDigiCover1500.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/5d/9a/ba/5d9abae7-a723-41e4-46ac-d6df31cf0857/mzaf_13239540755642044302.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/preservation/1179774934?i=1179775006&uo=4"
+    },
+    {
+      "id": "apple:1495168897",
+      "title": "Freibad",
+      "artist": "Hauschka",
+      "selection_status": "discovery_not_curated",
+      "album": "Volker Bertelmann: Ferndorf",
+      "year": "2008",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/freibad/1495168707?i=1495168897&uo=4",
+      "why": "曲目资料已核对；2008 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/c4/11/86/c4118696-89c6-6e44-c3c7-bf64a5022826/0600116130853_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/ad/45/39/ad453922-680b-23ab-7123-77ccfce1c3e0/mzaf_13162145801041138855.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/freibad/1495168707?i=1495168897&uo=4"
+    },
+    {
+      "id": "apple:1546470671",
+      "title": "When You're Gone",
+      "artist": "Bedouine",
+      "selection_status": "discovery_not_curated",
+      "album": "Bird Songs of a Killjoy",
+      "year": "2019",
+      "genres": [
+        "alternative folk"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/when-youre-gone/1546470514?i=1546470671&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/1a/ae/5c/1aae5c80-998b-1c41-84d5-f4e771f3ceba/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/1d/13/2b/1d132b91-3e1e-b5c9-0da2-2cf834c8fce0/mzaf_7249882070943986956.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/when-youre-gone/1546470514?i=1546470671&uo=4"
+    },
+    {
+      "id": "apple:1505623113",
+      "title": "Tudo Passa",
+      "artist": "Marcelo Camelo",
+      "selection_status": "discovery_not_curated",
+      "album": "Sou",
+      "year": "2008",
+      "genres": [
+        "mpb"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/tudo-passa/1505623102?i=1505623113&uo=4",
+      "why": "曲目资料已核对；2008 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/b2/23/32/b22332f2-bd5f-5f02-b87f-46ededf81fa0/195081356389.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c5/63/7f/c5637fb9-340a-9215-5c11-272634711269/mzaf_10914496611517434627.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/tudo-passa/1505623102?i=1505623113&uo=4"
+    },
+    {
+      "id": "apple:1593857527",
+      "title": "The Lighthouse",
+      "artist": "Dawuna",
+      "selection_status": "discovery_not_curated",
+      "album": "Glass Lit Dream",
+      "year": "2021",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/the-lighthouse/1593857307?i=1593857527&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/57/2c/4f/572c4fb8-1298-6189-2495-595d4fc2d505/5056495291985_1.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/86/99/55/869955f8-2b47-e282-b098-c27f82568e88/mzaf_17890768222512529666.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/the-lighthouse/1593857307?i=1593857527&uo=4"
+    },
+    {
+      "id": "apple:1454850685",
+      "title": "I Hear You Listening (To the Bug on My Wall)",
+      "artist": "Mega Bog",
+      "selection_status": "discovery_not_curated",
+      "album": "Dolphine",
+      "year": "2019",
+      "genres": [
+        "indie pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/i-hear-you-listening-to-the-bug-on-my-wall/1454850681?i=1454850685&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/b8/ad/16/b8ad16dc-2ada-f835-53f4-b2e649d262d4/616892370048.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/3e/fd/d1/3efdd1f0-eeb9-4512-4b8b-88eafea72ba5/mzaf_6721456965070564017.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/i-hear-you-listening-to-the-bug-on-my-wall/1454850681?i=1454850685&uo=4"
+    },
+    {
+      "id": "apple:1093890756",
+      "title": "Dave’s Song",
+      "artist": "Whitney",
+      "selection_status": "discovery_not_curated",
+      "album": "Light Upon the Lake",
+      "year": "2016",
+      "genres": [
+        "indie rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/daves-song/1093890670?i=1093890756&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ac/1c/c8/ac1cc8cd-2932-9847-6193-27e2773903cf/656605033761.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/4a/19/33/4a193308-1f6b-eb00-57fe-b62e18494128/mzaf_8798847984505665454.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/daves-song/1093890670?i=1093890756&uo=4"
+    }
+  ],
+  "selection_policy": "never_repeat_v1"
+}
