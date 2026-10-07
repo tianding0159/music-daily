@@ -1,36 +1,37 @@
 {
-  "date": "2026-10-07",
-  "issue_no": 72,
-  "playlist_title": "今天第一次推荐的 30 首（10.07）",
-  "tracks_brief": [
-    {
-      "title": "Come True",
-      "artist": "Discovery Zone"
-    },
-    {
-      "title": "My Ideal",
-      "artist": "Jeff Parker"
-    },
-    {
-      "title": "two reverse",
-      "artist": "Adrianne Lenker"
-    },
-    {
-      "title": "Mythical Bonds",
-      "artist": "Mamalarky"
-    },
-    {
-      "title": "Hey No I Say",
-      "artist": "Onipa"
-    },
-    {
-      "title": "I'm an Outlaw",
-      "artist": "Kurt Vile"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": "⚠️ 还剩 190 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
-  "relax": [],
-  "fresh_build": true,
-  "selection_policy": "never_repeat_v1"
+ "date": "2026-10-07",
+ "issue_no": 72,
+ "playlist_title": "今天第一次推荐的 30 首（10.07）",
+ "tracks_brief": [
+  {
+   "title": "Come True",
+   "artist": "Discovery Zone"
+  },
+  {
+   "title": "My Ideal",
+   "artist": "Jeff Parker"
+  },
+  {
+   "title": "two reverse",
+   "artist": "Adrianne Lenker"
+  },
+  {
+   "title": "Mythical Bonds",
+   "artist": "Mamalarky"
+  },
+  {
+   "title": "Hey No I Say",
+   "artist": "Onipa"
+  },
+  {
+   "title": "I'm an Outlaw",
+   "artist": "Kurt Vile"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": "⚠️ 还剩 190 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
+ "relax": [],
+ "fresh_build": true,
+ "selection_policy": "never_repeat_v1",
+ "notified": "2026-10-07"
 }
