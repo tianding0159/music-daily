@@ -1,37 +1,36 @@
 {
-  "date": "2026-10-07",
-  "issue_no": 72,
-  "playlist_title": "今天第一次推荐的 30 首（10.07）",
+  "date": "2026-10-08",
+  "issue_no": 73,
+  "playlist_title": "今天第一次推荐的 30 首（10.08）",
   "tracks_brief": [
     {
-      "title": "Come True",
-      "artist": "Discovery Zone"
+      "title": "Speaking Gently",
+      "artist": "BADBADNOTGOOD"
     },
     {
-      "title": "My Ideal",
-      "artist": "Jeff Parker"
+      "title": "Topical Solution",
+      "artist": "Duster"
     },
     {
-      "title": "two reverse",
-      "artist": "Adrianne Lenker"
+      "title": "This Life",
+      "artist": "Mandalay"
     },
     {
-      "title": "Mythical Bonds",
-      "artist": "Mamalarky"
+      "title": "Marigolds & Tulsi",
+      "artist": "Rachika Nayar"
     },
     {
-      "title": "Hey No I Say",
-      "artist": "Onipa"
+      "title": "Cloak",
+      "artist": "Julianna Barwick"
     },
     {
-      "title": "I'm an Outlaw",
-      "artist": "Kurt Vile"
+      "title": "Singing Softly To Me",
+      "artist": "Kings of Convenience"
     }
   ],
   "n": 30,
-  "low_pool_warn": "⚠️ 还剩 190 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
+  "low_pool_warn": "⚠️ 还剩 160 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
   "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-10-07"
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
