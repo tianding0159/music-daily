@@ -1,0 +1,551 @@
+{
+  "issue_no": 74,
+  "date": "2026-10-09",
+  "generated_at": "2026-10-09T00:00:40+00:00",
+  "theme": "grid",
+  "playlist_title": "今天第一次推荐的 30 首（10.09）",
+  "netease_text": "今天第一次推荐的 30 首（10.09）\nLa Corriente - Silvana Estrada\nNever Be Mine - Angel Olsen\nMosquito - Stella Donnelly\nIdle Ties - Vetiver\nLusty - Lamb\n7:07 - Ogurusu Norihide\nNada (feat. Li Saumet) - Lido Pimienta\nMiss Cann - Fumio Itabashi\nFragment II - Jóhann Jóhannsson\nSmall Talk - Scritti Politti\nWhite Room - Mid-Air Thief\nHe Laughs She Cries - Kaidi Tatham\nDevil's Doubt - Common Holly\nDidn't We Love You - The Orchids\nHot Rod - Dayglow\nLa Malanga - Bobby Hutcherson\nBeing So Normal - Peach Pit\nU - Tourist\nSnow Storm - Masayoshi Fujita\nYou May They - Kaho Nakamura\nPressure to Party - Julia Jacklin\nWee Lan (Little Orchid) - Matthew Halsall\nSoftly - Mei Ehara\nEarly to the Party - Andy Shauf\nA Bad Dream - Tanukichan\nAté Meu Violão - Bruno Berle\nMi Niña - Los Ángeles Negros\nMa Wonka (feat. Pat Thomas) - Nubiyan Twist\nPar la fenêtre de Théo - Alexandra Stréliski\nGreat No One - The Beths",
+  "tracks": [
+    {
+      "id": "apple:1640345259",
+      "title": "La Corriente",
+      "artist": "Silvana Estrada",
+      "selection_status": "discovery_not_curated",
+      "album": "Marchita",
+      "year": "2022",
+      "genres": [
+        "latin"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/la-corriente/1640345256?i=1640345259&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/91/2e/e3/912ee307-2a88-4b18-dd52-b7bd9b3f53e3/5056167167563.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/8a/7a/da/8a7adae1-6bf5-805f-ae1d-735e169175c0/mzaf_1456230434436157184.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/la-corriente/1640345256?i=1640345259&uo=4"
+    },
+    {
+      "id": "apple:1115790783",
+      "title": "Never Be Mine",
+      "artist": "Angel Olsen",
+      "selection_status": "discovery_not_curated",
+      "album": "MY WOMAN",
+      "year": "2016",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/never-be-mine/1115790664?i=1115790783&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/28/e9/d8/28e9d80b-a026-63aa-818d-f02afb2e5532/656605228464.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/2b/fc/c9/2bfcc937-155b-926b-2c72-c5c80d964a4f/mzaf_10628541339523632860.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/never-be-mine/1115790664?i=1115790783&uo=4"
+    },
+    {
+      "id": "apple:1445943685",
+      "title": "Mosquito",
+      "artist": "Stella Donnelly",
+      "selection_status": "discovery_not_curated",
+      "album": "Beware of the Dogs",
+      "year": "2019",
+      "genres": [
+        "indie rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/mosquito/1445943682?i=1445943685&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2b/2f/51/2b2f515e-a3b3-1e02-1397-b8fca93f147b/656605037264.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/a2/fc/15/a2fc1514-efa6-9f80-c1b7-a10a78dfd46f/mzaf_16224877203737500425.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/mosquito/1445943682?i=1445943685&uo=4"
+    },
+    {
+      "id": "apple:138287126",
+      "title": "Idle Ties",
+      "artist": "Vetiver",
+      "selection_status": "discovery_not_curated",
+      "album": "To Find Me Gone",
+      "year": "2006",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/idle-ties/138286671?i=138287126&uo=4",
+      "why": "曲目资料已核对；2006 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/73/53/00/mzi.awgxrwzc.tif/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/b0/c1/73/b0c173d2-19f1-bc64-2222-0c05a9a715b8/mzaf_944266362893968731.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/idle-ties/138286671?i=138287126&uo=4"
+    },
+    {
+      "id": "apple:1442928994",
+      "title": "Lusty",
+      "artist": "Lamb",
+      "selection_status": "discovery_not_curated",
+      "album": "Lamb",
+      "year": "1996",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/lusty/1442928989?i=1442928994&uo=4",
+      "why": "曲目资料已核对；1996 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/8e/89/12/8e891239-e0e8-85f2-0957-a9cab7ecfcc1/00731453296824.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/89/c6/71/89c67178-5a66-1dc1-bcac-5a7667361e84/mzaf_3858107456344441201.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/lusty/1442928989?i=1442928994&uo=4"
+    },
+    {
+      "id": "apple:1583631018",
+      "title": "7:07",
+      "artist": "Ogurusu Norihide",
+      "selection_status": "discovery_not_curated",
+      "album": "Modern",
+      "year": "2003",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/7-07/1583631016?i=1583631018&uo=4",
+      "why": "曲目资料已核对；2003 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/fa/27/64/fa27649f-5efc-a114-256f-fbdee7988259/677517002553.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/8f/5a/c3/8f5ac364-c55e-f9b0-8783-f9c97c503e84/mzaf_982030342806207085.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/7-07/1583631016?i=1583631018&uo=4"
+    },
+    {
+      "id": "apple:1494471997",
+      "title": "Nada (feat. Li Saumet)",
+      "artist": "Lido Pimienta",
+      "selection_status": "discovery_not_curated",
+      "album": "Miss Colombia",
+      "year": "2020",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/nada-feat-li-saumet/1494471811?i=1494471997&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/bf/29/e2/bf29e2a9-1a21-db60-054b-4473c7045baa/0045778763863.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/05/e0/b1/05e0b1d9-2034-628e-06c5-06539db97914/mzaf_16110012950154247509.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/nada-feat-li-saumet/1494471811?i=1494471997&uo=4"
+    },
+    {
+      "id": "apple:1523585695",
+      "title": "Miss Cann",
+      "artist": "Fumio Itabashi",
+      "selection_status": "discovery_not_curated",
+      "album": "Watarase",
+      "year": "1982",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/miss-cann/1523585689?i=1523585695&uo=4",
+      "why": "曲目资料已核对；1982 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/c7/f2/a1/c7f2a187-1d2f-b24e-0f73-c32e77060150/COKM-42787.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview114/v4/eb/06/90/eb069082-a5d6-1514-d9b8-a24f477b8a6f/mzaf_5967999777725403468.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/miss-cann/1523585689?i=1523585695&uo=4"
+    },
+    {
+      "id": "apple:1440775427",
+      "title": "Fragment II",
+      "artist": "Jóhann Jóhannsson",
+      "selection_status": "discovery_not_curated",
+      "album": "Orphée",
+      "year": "2016",
+      "genres": [
+        "classical"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/fragment-ii/1440775286?i=1440775427&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/11/12/7d/11127dd5-936e-4ef9-66fc-2a4760940859/16UMGIM02397.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/75/55/a0/7555a080-e4ac-b596-9e3c-8a61146931ff/mzaf_18336051197075239924.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/fragment-ii/1440775286?i=1440775427&uo=4"
+    },
+    {
+      "id": "apple:1139092969",
+      "title": "Small Talk",
+      "artist": "Scritti Politti",
+      "selection_status": "discovery_not_curated",
+      "album": "Cupid & Psyche 85",
+      "year": "1985",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/small-talk/1139092963?i=1139092969&uo=4",
+      "why": "曲目资料已核对；1985 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/53/61/30/536130b3-1b78-3bb4-19a7-022d76e9d0dd/883870069564.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/bd/fb/26/bdfb2612-90ba-29d1-014a-9883a9fb6f76/mzaf_14197328391100505659.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/small-talk/1139092963?i=1139092969&uo=4"
+    },
+    {
+      "id": "apple:1502227005",
+      "title": "White Room",
+      "artist": "Mid-Air Thief",
+      "selection_status": "discovery_not_curated",
+      "album": "Gongjoong Doduk",
+      "year": "2015",
+      "genres": [
+        "singer/songwriter"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/white-room/1502227003?i=1502227005&uo=4",
+      "why": "曲目资料已核对；2015 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/34/c9/95/34c995be-3a2e-f867-3736-ecce0dc2d301/MiAirThief_GongjoongDoduk_3000.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/49/09/56/4909563d-8852-d17b-6db3-4809bd169cf1/mzaf_10828705968018715749.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/white-room/1502227003?i=1502227005&uo=4"
+    },
+    {
+      "id": "apple:1506606159",
+      "title": "He Laughs She Cries",
+      "artist": "Kaidi Tatham",
+      "selection_status": "discovery_not_curated",
+      "album": "In Search of Hope",
+      "year": "2008",
+      "genres": [
+        "breakbeat"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/he-laughs-she-cries/1506606034?i=1506606159&uo=4",
+      "why": "曲目资料已核对；2008 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/9d/7c/ab/9d7cab3a-72b3-50c6-e4b3-0a35f0ff72b9/5050580736078.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/d8/ae/56/d8ae56ea-29c6-113e-bdf0-3d55be813c49/mzaf_8128161785838607934.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/he-laughs-she-cries/1506606034?i=1506606159&uo=4"
+    },
+    {
+      "id": "apple:1520370201",
+      "title": "Devil's Doubt",
+      "artist": "Common Holly",
+      "selection_status": "discovery_not_curated",
+      "album": "Playing House",
+      "year": "2017",
+      "genres": [
+        "folk"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/devils-doubt/1520369734?i=1520370201&uo=4",
+      "why": "曲目资料已核对；2017 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/c2/f4/b9/c2f4b9c8-b976-c07f-d2de-dab149394ec0/859722873238_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/66/ea/07/66ea07e8-525f-543d-a353-af4717b86202/mzaf_8901037397564222250.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/devils-doubt/1520369734?i=1520370201&uo=4"
+    },
+    {
+      "id": "apple:1639516010",
+      "title": "Didn't We Love You",
+      "artist": "The Orchids",
+      "selection_status": "discovery_not_curated",
+      "album": "Dreaming Kind",
+      "year": "2022",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/didnt-we-love-you/1639516008?i=1639516010&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/fa/68/36/fa683606-ed58-f118-42fd-4918393d6405/5056321678232.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/43/db/2e/43db2e2e-eb1d-8164-2bc6-f1a7f4e1cf07/mzaf_348226672812723342.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/didnt-we-love-you/1639516008?i=1639516010&uo=4"
+    },
+    {
+      "id": "apple:1482950906",
+      "title": "Hot Rod",
+      "artist": "Dayglow",
+      "selection_status": "discovery_not_curated",
+      "album": "Fuzzybrain",
+      "year": "2019",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/hot-rod/1482950619?i=1482950906&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/db/c9/d4/dbc9d483-e882-f86d-69b1-25092801e526/5054526793347.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a5/25/05/a525051d-2877-f795-ee2b-8dc17faee94f/mzaf_14350085858429346754.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/hot-rod/1482950619?i=1482950906&uo=4"
+    },
+    {
+      "id": "apple:1444189684",
+      "title": "La Malanga",
+      "artist": "Bobby Hutcherson",
+      "selection_status": "discovery_not_curated",
+      "album": "Montara",
+      "year": "1975",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/la-malanga/1444189674?i=1444189684&uo=4",
+      "why": "曲目资料已核对；1975 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/90/b4/97/90b4973f-e89d-bc09-c803-de189bcf3a37/00602537827541.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/c1/b0/fa/c1b0fac9-fe42-6ccb-44a6-75cb7f66efb6/mzaf_1692568489532388718.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/la-malanga/1444189674?i=1444189684&uo=4"
+    },
+    {
+      "id": "apple:1404025209",
+      "title": "Being So Normal",
+      "artist": "Peach Pit",
+      "selection_status": "discovery_not_curated",
+      "album": "Being So Normal",
+      "year": "2018",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/being-so-normal/1404025195?i=1404025209&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/c1/d4/3d/c1d43d94-2c88-d796-6c62-5efa41cfcc74/886447136270.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/9a/c3/94/9ac394cb-b895-35a6-8f25-145a7133dc7f/mzaf_1257630072070631559.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/being-so-normal/1404025195?i=1404025209&uo=4"
+    },
+    {
+      "id": "apple:1551184048",
+      "title": "U",
+      "artist": "Tourist",
+      "selection_status": "discovery_not_curated",
+      "album": "U",
+      "year": "2016",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/u/1551184041?i=1551184048&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/7a/72/64/7a7264f9-52b8-e951-c3df-04c530110d0f/653738309527.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/83/f9/44/83f944ed-b7b2-10d9-e354-bd63270b78e5/mzaf_2434770620978812331.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/u/1551184041?i=1551184048&uo=4"
+    },
+    {
+      "id": "apple:1451160008",
+      "title": "Snow Storm",
+      "artist": "Masayoshi Fujita",
+      "selection_status": "discovery_not_curated",
+      "album": "Stories",
+      "year": "2018",
+      "genres": [
+        "ambient"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/snow-storm/1451159999?i=1451160008&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/ae/50/41/ae50411d-69df-fae4-2a29-cccd80716a06/4050486115015_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a5/63/7f/a5637f37-432a-a6ff-50de-b769f264fb61/mzaf_1756259835089126461.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/snow-storm/1451159999?i=1451160008&uo=4"
+    },
+    {
+      "id": "apple:1439029179",
+      "title": "You May They",
+      "artist": "Kaho Nakamura",
+      "selection_status": "discovery_not_curated",
+      "album": "Ainou",
+      "year": "2018",
+      "genres": [
+        "j-pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/you-may-they/1439029178?i=1439029179&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b5/cf/4c/b5cf4c73-59f3-1922-32e3-d22c38e285e1/4538182779828_cov.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1d/df/1e/1ddf1ee7-99d2-906a-89ee-4cfebdb6ee2c/mzaf_1098704841335398284.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/you-may-they/1439029178?i=1439029179&uo=4"
+    },
+    {
+      "id": "apple:1651292912",
+      "title": "Pressure to Party",
+      "artist": "Julia Jacklin",
+      "selection_status": "discovery_not_curated",
+      "album": "Crushing",
+      "year": "2019",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/pressure-to-party/1651292908?i=1651292912&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/bd/13/4f/bd134f31-d494-a64b-43c7-84511f2e92ab/644110037893.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/99/57/df/9957df77-f727-2d35-51d4-f32072908d51/mzaf_5333448435905144877.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/pressure-to-party/1651292908?i=1651292912&uo=4"
+    },
+    {
+      "id": "apple:1576442409",
+      "title": "Wee Lan (Little Orchid)",
+      "artist": "Matthew Halsall",
+      "selection_status": "discovery_not_curated",
+      "album": "Fletcher Moss Park",
+      "year": "2012",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/wee-lan-little-orchid/1576442129?i=1576442409&uo=4",
+      "why": "曲目资料已核对；2012 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/89/59/db/8959dbc6-2f56-06fe-7e30-dde4e93dd5d3/5050580580718_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/21/33/74/2133742c-73b7-4b09-51a8-fd341ccd1522/mzaf_16544007393214102367.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/wee-lan-little-orchid/1576442129?i=1576442409&uo=4"
+    },
+    {
+      "id": "apple:1509186384",
+      "title": "Softly",
+      "artist": "Mei Ehara",
+      "selection_status": "discovery_not_curated",
+      "album": "Ampersands",
+      "year": "2020",
+      "genres": [
+        "j-pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/softly/1509186266?i=1509186384&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/03/e6/c5/03e6c51e-e846-4f16-9eb3-22809361448c/4538182881248.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/0b/e5/6d/0be56df2-2e5f-185e-5604-bf72070cd0c5/mzaf_14072677940901316059.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/softly/1509186266?i=1509186384&uo=4"
+    },
+    {
+      "id": "apple:1485075430",
+      "title": "Early to the Party",
+      "artist": "Andy Shauf",
+      "selection_status": "discovery_not_curated",
+      "album": "The Party",
+      "year": "2016",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/early-to-the-party/1485075427?i=1485075430&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b7/55/87/b7558743-7c1f-514a-f223-b77adc6d5eb8/0045778745609.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/88/2d/2a/882d2a77-362e-1144-74ad-ec6730019f5c/mzaf_15659295371146181821.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/early-to-the-party/1485075427?i=1485075430&uo=4"
+    },
+    {
+      "id": "apple:1650906224",
+      "title": "A Bad Dream",
+      "artist": "Tanukichan",
+      "selection_status": "discovery_not_curated",
+      "album": "GIZMO",
+      "year": "2023",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/a-bad-dream/1650906218?i=1650906224&uo=4",
+      "why": "曲目资料已核对；2023 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/c4/6f/7a/c46f7af9-41ce-380c-03c9-43e514837dec/677517301854.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/f8/08/93/f8089399-ebcf-aee2-762d-2cc2ae08c60e/mzaf_3757369073134778732.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/a-bad-dream/1650906218?i=1650906224&uo=4"
+    },
+    {
+      "id": "apple:1619124323",
+      "title": "Até Meu Violão",
+      "artist": "Bruno Berle",
+      "selection_status": "discovery_not_curated",
+      "album": "No Reino Dos Afetos",
+      "year": "2022",
+      "genres": [
+        "indie pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/at%C3%A9-meu-viol%C3%A3o/1619124045?i=1619124323&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/07/c0/ea/07c0ea4e-03b5-1957-e505-f9b535d781b6/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/72/57/f3/7257f30e-5ee6-6487-969e-483e13172d74/mzaf_5674101079852903850.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/at%C3%A9-meu-viol%C3%A3o/1619124045?i=1619124323&uo=4"
+    },
+    {
+      "id": "apple:1435600011",
+      "title": "Mi Niña",
+      "artist": "Los Ángeles Negros",
+      "selection_status": "discovery_not_curated",
+      "album": "Y Volveré",
+      "year": "1970",
+      "genres": [
+        "latin"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/mi-nin-a/1435600006?i=1435600011&uo=4",
+      "why": "曲目资料已核对；1970 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/79/71/2f/79712fa4-6843-8414-c1f8-f2d5d5949de7/192562933954.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/d4/52/62/d45262c4-6233-5b23-fb0b-ad665f3c1eb3/mzaf_7675075495323598615.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/mi-nin-a/1435600006?i=1435600011&uo=4"
+    },
+    {
+      "id": "apple:1529513230",
+      "title": "Ma Wonka (feat. Pat Thomas)",
+      "artist": "Nubiyan Twist",
+      "selection_status": "discovery_not_curated",
+      "album": "Freedom Fables",
+      "year": "2021",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/ma-wonka-feat-pat-thomas/1529513007?i=1529513230&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e9/04/4f/e9044fcf-4069-4942-cdf2-8dcb59777311/4062548017380_3000.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview124/v4/b5/87/3c/b5873c52-baf0-a116-cbf0-722318ca5c8d/mzaf_14999816102884894505.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/ma-wonka-feat-pat-thomas/1529513007?i=1529513230&uo=4"
+    },
+    {
+      "id": "apple:1378812713",
+      "title": "Par la fenêtre de Théo",
+      "artist": "Alexandra Stréliski",
+      "selection_status": "discovery_not_curated",
+      "album": "INSCAPE",
+      "year": "2018",
+      "genres": [
+        "classical crossover"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/par-la-fen%C3%AAtre-de-th%C3%A9o/1378812703?i=1378812713&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/0b/0e/2f/0b0e2fd5-6f95-2da3-0491-139d3d79a9ff/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ca/7e/fc/ca7efc62-c7a5-d405-f0ca-0b5f5ffb5003/mzaf_10665359764965640540.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/par-la-fen%C3%AAtre-de-th%C3%A9o/1378812703?i=1378812713&uo=4"
+    },
+    {
+      "id": "apple:1583598365",
+      "title": "Great No One",
+      "artist": "The Beths",
+      "selection_status": "discovery_not_curated",
+      "album": "Future Me Hates Me",
+      "year": "2018",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/great-no-one/1583598359?i=1583598365&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/c6/0b/5a/c60b5ad5-6ad9-b6d9-78fc-1fedd8bd729f/96146.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/7b/6a/74/7b6a74b1-babe-fa77-655d-02695915dbe0/mzaf_12051580064933044965.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/great-no-one/1583598359?i=1583598365&uo=4"
+    }
+  ],
+  "selection_policy": "never_repeat_v1"
+}
