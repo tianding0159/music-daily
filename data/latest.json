@@ -1,37 +1,37 @@
 {
- "date": "2026-10-09",
- "issue_no": 74,
- "playlist_title": "今天第一次推荐的 30 首（10.09）",
- "tracks_brief": [
-  {
-   "title": "La Corriente",
-   "artist": "Silvana Estrada"
-  },
-  {
-   "title": "Never Be Mine",
-   "artist": "Angel Olsen"
-  },
-  {
-   "title": "Mosquito",
-   "artist": "Stella Donnelly"
-  },
-  {
-   "title": "Idle Ties",
-   "artist": "Vetiver"
-  },
-  {
-   "title": "Lusty",
-   "artist": "Lamb"
-  },
-  {
-   "title": "7:07",
-   "artist": "Ogurusu Norihide"
-  }
- ],
- "n": 30,
- "low_pool_warn": "⚠️ 还剩 130 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
- "relax": [],
- "fresh_build": true,
- "selection_policy": "never_repeat_v1",
- "notified": "2026-10-09"
+  "date": "2026-10-09",
+  "issue_no": 74,
+  "playlist_title": "今天第一次推荐的 30 首（10.09）",
+  "tracks_brief": [
+    {
+      "title": "La Corriente",
+      "artist": "Silvana Estrada"
+    },
+    {
+      "title": "Never Be Mine",
+      "artist": "Angel Olsen"
+    },
+    {
+      "title": "Mosquito",
+      "artist": "Stella Donnelly"
+    },
+    {
+      "title": "Idle Ties",
+      "artist": "Vetiver"
+    },
+    {
+      "title": "Lusty",
+      "artist": "Lamb"
+    },
+    {
+      "title": "7:07",
+      "artist": "Ogurusu Norihide"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": "⚠️ 还剩 130 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
+  "relax": [],
+  "fresh_build": false,
+  "selection_policy": "never_repeat_v1",
+  "notified": "2026-10-09"
 }
