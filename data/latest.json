@@ -1,37 +1,37 @@
 {
- "date": "2026-10-10",
- "issue_no": 75,
- "playlist_title": "今天第一次推荐的 30 首（10.10）",
- "tracks_brief": [
-  {
-   "title": "Tasty Cakes",
-   "artist": "Idris Muhammad"
-  },
-  {
-   "title": "How Long",
-   "artist": "Tim Hardin"
-  },
-  {
-   "title": "Another Thought",
-   "artist": "Arthur Russell"
-  },
-  {
-   "title": "Sisséxa",
-   "artist": "Antena"
-  },
-  {
-   "title": "Aubade",
-   "artist": "Hana Vu"
-  },
-  {
-   "title": "Found Out",
-   "artist": "Caribou"
-  }
- ],
- "n": 30,
- "low_pool_warn": "⚠️ 还剩 100 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
- "relax": [],
- "fresh_build": true,
- "selection_policy": "never_repeat_v1",
- "notified": "2026-10-10"
+  "date": "2026-10-10",
+  "issue_no": 75,
+  "playlist_title": "今天第一次推荐的 30 首（10.10）",
+  "tracks_brief": [
+    {
+      "title": "Tasty Cakes",
+      "artist": "Idris Muhammad"
+    },
+    {
+      "title": "How Long",
+      "artist": "Tim Hardin"
+    },
+    {
+      "title": "Another Thought",
+      "artist": "Arthur Russell"
+    },
+    {
+      "title": "Sisséxa",
+      "artist": "Antena"
+    },
+    {
+      "title": "Aubade",
+      "artist": "Hana Vu"
+    },
+    {
+      "title": "Found Out",
+      "artist": "Caribou"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": "⚠️ 还剩 100 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
+  "relax": [],
+  "fresh_build": false,
+  "selection_policy": "never_repeat_v1",
+  "notified": "2026-10-10"
 }
