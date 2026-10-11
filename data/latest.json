@@ -1,37 +1,37 @@
 {
- "date": "2026-10-11",
- "issue_no": 76,
- "playlist_title": "今天第一次推荐的 30 首（10.11）",
- "tracks_brief": [
-  {
-   "title": "EYE(S)",
-   "artist": "LÜCY"
-  },
-  {
-   "title": "Lagrangian Point",
-   "artist": "Jacco Gardner"
-  },
-  {
-   "title": "Angel's Rest",
-   "artist": "Marisa Anderson"
-  },
-  {
-   "title": "Lac des Arcs",
-   "artist": "Julia Kent"
-  },
-  {
-   "title": "Be Here (feat. D'Angelo)",
-   "artist": "Raphael Saadiq"
-  },
-  {
-   "title": "can’t calm down",
-   "artist": "Hand Habits"
-  }
- ],
- "n": 30,
- "low_pool_warn": "⚠️ 还剩 70 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
- "relax": [],
- "fresh_build": true,
- "selection_policy": "never_repeat_v1",
- "notified": "2026-10-11"
+  "date": "2026-10-11",
+  "issue_no": 76,
+  "playlist_title": "今天第一次推荐的 30 首（10.11）",
+  "tracks_brief": [
+    {
+      "title": "EYE(S)",
+      "artist": "LÜCY"
+    },
+    {
+      "title": "Lagrangian Point",
+      "artist": "Jacco Gardner"
+    },
+    {
+      "title": "Angel's Rest",
+      "artist": "Marisa Anderson"
+    },
+    {
+      "title": "Lac des Arcs",
+      "artist": "Julia Kent"
+    },
+    {
+      "title": "Be Here (feat. D'Angelo)",
+      "artist": "Raphael Saadiq"
+    },
+    {
+      "title": "can’t calm down",
+      "artist": "Hand Habits"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": "⚠️ 还剩 70 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
+  "relax": [],
+  "fresh_build": false,
+  "selection_policy": "never_repeat_v1",
+  "notified": "2026-10-11"
 }
