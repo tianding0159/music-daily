@@ -1,36 +1,37 @@
 {
-  "date": "2026-10-12",
-  "issue_no": 77,
-  "playlist_title": "今天第一次推荐的 30 首（10.12）",
-  "tracks_brief": [
-    {
-      "title": "Solo? Repeat!",
-      "artist": "Anne Müller"
-    },
-    {
-      "title": "Air Like Velvet",
-      "artist": "Perila"
-    },
-    {
-      "title": "Out of the Blue, into Both Hands",
-      "artist": "Yves Jarvis"
-    },
-    {
-      "title": "Vapour",
-      "artist": "Mildlife"
-    },
-    {
-      "title": "Lost in Train Station",
-      "artist": "Wang Wen"
-    },
-    {
-      "title": "The Woman That Loves You",
-      "artist": "Japanese Breakfast"
-    }
-  ],
-  "n": 30,
-  "low_pool_warn": "⚠️ 还剩 40 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
-  "relax": [],
-  "fresh_build": true,
-  "selection_policy": "never_repeat_v1"
+ "date": "2026-10-12",
+ "issue_no": 77,
+ "playlist_title": "今天第一次推荐的 30 首（10.12）",
+ "tracks_brief": [
+  {
+   "title": "Solo? Repeat!",
+   "artist": "Anne Müller"
+  },
+  {
+   "title": "Air Like Velvet",
+   "artist": "Perila"
+  },
+  {
+   "title": "Out of the Blue, into Both Hands",
+   "artist": "Yves Jarvis"
+  },
+  {
+   "title": "Vapour",
+   "artist": "Mildlife"
+  },
+  {
+   "title": "Lost in Train Station",
+   "artist": "Wang Wen"
+  },
+  {
+   "title": "The Woman That Loves You",
+   "artist": "Japanese Breakfast"
+  }
+ ],
+ "n": 30,
+ "low_pool_warn": "⚠️ 还剩 40 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
+ "relax": [],
+ "fresh_build": true,
+ "selection_policy": "never_repeat_v1",
+ "notified": "2026-10-12"
 }
