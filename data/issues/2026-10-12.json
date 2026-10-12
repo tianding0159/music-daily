@@ -1,0 +1,551 @@
+{
+  "issue_no": 77,
+  "date": "2026-10-12",
+  "generated_at": "2026-10-12T00:00:38+00:00",
+  "theme": "grid",
+  "playlist_title": "今天第一次推荐的 30 首（10.12）",
+  "netease_text": "今天第一次推荐的 30 首（10.12）\nSolo? Repeat! - Anne Müller\nAir Like Velvet - Perila\nOut of the Blue, into Both Hands - Yves Jarvis\nVapour - Mildlife\nLost in Train Station - Wang Wen\nThe Woman That Loves You - Japanese Breakfast\nwrite it out - Winter\nImposter - Pearl Charles\nPicnic - Esbjörn Svensson Trio\nI Smile for E - Rahill\nFall to the Ground - The Three O'Clock\nWe Broke Free - Metronomy\nA Sunday Smile - Beirut\nLimite En Tu Amor - Cande y Paulo\nTemples - The Goon Sax\nInayaat - Arooj Aftab\nAutumn Lullaby - Bridget St John\nStargazer - Nap Eyes\nSleep Sound - Jamie xx\nSugarcube - Yo La Tengo\nA Short Happy Life - Medicine\nSæglópur - Sigur Rós\nVariation II - Library Tapes\nAdeus Maria Fulô - Os Mutantes\nRare Pleasure II - Mndsgn\nContender - The Pains of Being Pure at Heart\nAsking 4 a Friend - Anna Burch\nSearch for Delicious - Panda Bear\nDino - Harmonia\nLately (feat. Sunun) - Jabu",
+  "tracks": [
+    {
+      "id": "apple:1479892200",
+      "title": "Solo? Repeat!",
+      "artist": "Anne Müller",
+      "selection_status": "discovery_not_curated",
+      "album": "Heliopause",
+      "year": "2019",
+      "genres": [
+        "classical"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/solo-repeat/1479892197?i=1479892200&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/21/3d/9b/213d9ba8-a534-c2ce-1f0c-c731bd7747c4/3663729096647_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/07/a3/37/07a337a4-78c0-f964-217c-912303ff8b6e/mzaf_2516050083472570667.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/solo-repeat/1479892197?i=1479892200&uo=4"
+    },
+    {
+      "id": "apple:1564179939",
+      "title": "Air Like Velvet",
+      "artist": "Perila",
+      "selection_status": "discovery_not_curated",
+      "album": "How Much Time it is Between You and Me?",
+      "year": "2021",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/air-like-velvet/1564179938?i=1564179939&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/6c/a1/d8/6ca1d8ed-e650-3fbb-6cc7-6a3505addd15/20659.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/64/f7/52/64f752e1-9e50-5d72-8b4c-ee58cf2fa624/mzaf_16707237767223323053.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/air-like-velvet/1564179938?i=1564179939&uo=4"
+    },
+    {
+      "id": "apple:1485074000",
+      "title": "Out of the Blue, into Both Hands",
+      "artist": "Yves Jarvis",
+      "selection_status": "discovery_not_curated",
+      "album": "The Same but by Different Means",
+      "year": "2019",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/out-of-the-blue-into-both-hands/1485073994?i=1485074000&uo=4",
+      "why": "曲目资料已核对；2019 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/29/80/d4/2980d45b-0be5-fe61-32db-93e8b691c866/0045778759200.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/3b/10/03/3b1003f0-2884-993b-ab70-90b21a2a29b9/mzaf_16515585416904632321.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/out-of-the-blue-into-both-hands/1485073994?i=1485074000&uo=4"
+    },
+    {
+      "id": "apple:1513399618",
+      "title": "Vapour",
+      "artist": "Mildlife",
+      "selection_status": "discovery_not_curated",
+      "album": "Automatic",
+      "year": "2020",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/vapour/1513399610?i=1513399618&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/55/81/95/5581954b-6fe2-730c-bd66-843f299dd6b2/5400863032517_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/12/16/71/12167194-656a-5d6f-088d-cb8ac31c1e44/mzaf_829329236733946340.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/vapour/1513399610?i=1513399618&uo=4"
+    },
+    {
+      "id": "apple:1422881746",
+      "title": "Lost in Train Station",
+      "artist": "Wang Wen",
+      "selection_status": "discovery_not_curated",
+      "album": "Invisible City",
+      "year": "2018",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/lost-in-train-station/1422881259?i=1422881746&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/99/f7/d8/99f7d8e8-8147-3ced-d1f9-f9df6115db9a/192562723708.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ee/f0/52/eef05244-09c1-399b-598a-5908299683ec/mzaf_5740046547105610245.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/lost-in-train-station/1422881259?i=1422881746&uo=4"
+    },
+    {
+      "id": "apple:1589104676",
+      "title": "The Woman That Loves You",
+      "artist": "Japanese Breakfast",
+      "selection_status": "discovery_not_curated",
+      "album": "Psychopomp",
+      "year": "2016",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/the-woman-that-loves-you/1589104667?i=1589104676&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/06/65/1a/06651aec-c055-3fd6-46fa-a125763e9f50/27251.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/02/fb/9f/02fb9f76-f33d-42b1-548d-99a5931ef3fa/mzaf_17713906643434643358.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/the-woman-that-loves-you/1589104667?i=1589104676&uo=4"
+    },
+    {
+      "id": "apple:1629981957",
+      "title": "write it out",
+      "artist": "Winter",
+      "selection_status": "discovery_not_curated",
+      "album": "What Kind of Blue Are You?",
+      "year": "2022",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/write-it-out/1629981936?i=1629981957&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/54/90/84/54908488-747f-30af-7427-c64e452d9542/34413.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/3c/ce/24/3cce248e-6ab4-26c7-244e-a4009366b3c7/mzaf_16135040333731312603.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/write-it-out/1629981936?i=1629981957&uo=4"
+    },
+    {
+      "id": "apple:1529385050",
+      "title": "Imposter",
+      "artist": "Pearl Charles",
+      "selection_status": "discovery_not_curated",
+      "album": "Magic Mirror",
+      "year": "2021",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/imposter/1529385045?i=1529385050&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4f/f0/53/4ff0535e-26ac-2d30-cb18-4c04f89953e2/827175024262.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/3e/59/74/3e5974d5-b4f8-9929-0fae-47c349ec213b/mzaf_4011602221461734561.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/imposter/1529385045?i=1529385050&uo=4"
+    },
+    {
+      "id": "apple:1405003117",
+      "title": "Picnic",
+      "artist": "Esbjörn Svensson Trio",
+      "selection_status": "discovery_not_curated",
+      "album": "From Gagarin's Point of View",
+      "year": "1999",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/picnic/1405002907?i=1405003117&uo=4",
+      "why": "曲目资料已核对；1999 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/7e/03/16/7e031659-3b47-ac4c-9c7b-e2927d33a779/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/0d/43/f1/0d43f1ed-9bb0-f405-4527-78a66c406986/mzaf_17371841343899523227.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/picnic/1405002907?i=1405003117&uo=4"
+    },
+    {
+      "id": "apple:1660270916",
+      "title": "I Smile for E",
+      "artist": "Rahill",
+      "selection_status": "discovery_not_curated",
+      "album": "Flowers At Your Feet",
+      "year": "2023",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/i-smile-for-e/1660270914?i=1660270916&uo=4",
+      "why": "曲目资料已核对；2023 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a0/3d/ab/a03dab58-68ad-6172-15f6-46b2e260c9c2/5054429172645.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/b3/b0/c2/b3b0c29b-0c66-3188-45fa-b64259fd72e3/mzaf_6007773839267200868.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/i-smile-for-e/1660270914?i=1660270916&uo=4"
+    },
+    {
+      "id": "apple:1535879163",
+      "title": "Fall to the Ground",
+      "artist": "The Three O'Clock",
+      "selection_status": "discovery_not_curated",
+      "album": "Sixteen Tambourines",
+      "year": "1983",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/fall-to-the-ground/1535879159?i=1535879163&uo=4",
+      "why": "曲目资料已核对；1983 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/46/25/f7/4625f7f8-917f-0480-0189-33f2def45a5d/100528.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview114/v4/b9/f8/76/b9f876cd-de87-d07e-8812-cd3353909a1c/mzaf_15297289839891861914.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/fall-to-the-ground/1535879159?i=1535879163&uo=4"
+    },
+    {
+      "id": "apple:1330667581",
+      "title": "We Broke Free",
+      "artist": "Metronomy",
+      "selection_status": "discovery_not_curated",
+      "album": "The English Riviera",
+      "year": "2011",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/we-broke-free/1330666927?i=1330667581&uo=4",
+      "why": "曲目资料已核对；2011 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/2a/b1/53/2ab153ba-fc3f-49e6-9525-d5a761a2eede/5060107728172_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ee/a6/3b/eea63b6b-152b-00d6-571a-18e76cd9568e/mzaf_13817618193075568475.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/we-broke-free/1330666927?i=1330667581&uo=4"
+    },
+    {
+      "id": "apple:1309355768",
+      "title": "A Sunday Smile",
+      "artist": "Beirut",
+      "selection_status": "discovery_not_curated",
+      "album": "The Flying Club Cup",
+      "year": "2007",
+      "genres": [
+        "indie rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/a-sunday-smile/1309355762?i=1309355768&uo=4",
+      "why": "曲目资料已核对；2007 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/31/c9/dd/31c9dd0c-4fe5-243b-a9fc-2aed7134c52e/656605365466.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a5/c7/52/a5c752ab-1903-1248-1ca1-f71f11e0b1fb/mzaf_1581072942111105536.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/a-sunday-smile/1309355762?i=1309355768&uo=4"
+    },
+    {
+      "id": "apple:1558474674",
+      "title": "Limite En Tu Amor",
+      "artist": "Cande y Paulo",
+      "selection_status": "discovery_not_curated",
+      "album": "Cande y Paulo",
+      "year": "2021",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/limite-en-tu-amor/1558474657?i=1558474674&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/8f/8b/3a/8f8b3a2b-1bd1-86f2-5ad1-027f5fc5707b/20UMGIM94099.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/1a/8d/28/1a8d285e-4ea8-875f-2944-fb0471c4c22c/mzaf_4140436113494148100.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/limite-en-tu-amor/1558474657?i=1558474674&uo=4"
+    },
+    {
+      "id": "apple:1616820456",
+      "title": "Temples",
+      "artist": "The Goon Sax",
+      "selection_status": "discovery_not_curated",
+      "album": "Mirror II (Deluxe Edition)",
+      "year": "2022",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/temples/1616820320?i=1616820456&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/56/c1/09/56c1099c-fc50-7780-d90c-f7e6699704d9/191401188678.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/01/15/3f/01153f33-0840-7746-fec9-b9a835cc36c2/mzaf_12827294861320628410.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/temples/1616820320?i=1616820456&uo=4"
+    },
+    {
+      "id": "apple:1613561424",
+      "title": "Inayaat",
+      "artist": "Arooj Aftab",
+      "selection_status": "discovery_not_curated",
+      "album": "Vulture Prince (Deluxe Edition)",
+      "year": "2022",
+      "genres": [
+        "worldwide"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/inayaat/1613561221?i=1613561424&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d4/58/7e/d4587ea0-d45e-a037-b5c4-ba18474ce283/22UMGIM04811.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/1f/dc/88/1fdc8813-b23d-4be9-b782-415e46b27107/mzaf_9992654332666207916.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/inayaat/1613561221?i=1613561424&uo=4"
+    },
+    {
+      "id": "apple:161608896",
+      "title": "Autumn Lullaby",
+      "artist": "Bridget St John",
+      "selection_status": "discovery_not_curated",
+      "album": "Ask Me No Questions",
+      "year": "1969",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/autumn-lullaby/161608884?i=161608896&uo=4",
+      "why": "曲目资料已核对；1969 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/b2/45/03/mzi.rapytqew.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/b3/6f/9c/b36f9cba-ce31-472c-7e30-77ddce30613e/mzaf_12111307583333931028.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/autumn-lullaby/161608884?i=161608896&uo=4"
+    },
+    {
+      "id": "apple:1058443815",
+      "title": "Stargazer",
+      "artist": "Nap Eyes",
+      "selection_status": "discovery_not_curated",
+      "album": "Thought Rock Fish Scale",
+      "year": "2016",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/stargazer/1058442966?i=1058443815&uo=4",
+      "why": "曲目资料已核对；2016 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music71/v4/ea/5e/08/ea5e08b9-5e7e-1fff-4e3f-6caa3e8e7cb6/mzm.nekdhaaj.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/53/62/90/53629005-71ef-bf00-e83c-5e4d01325ce9/mzaf_7253304771432913770.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/stargazer/1058442966?i=1058443815&uo=4"
+    },
+    {
+      "id": "apple:1525506454",
+      "title": "Sleep Sound",
+      "artist": "Jamie xx",
+      "selection_status": "discovery_not_curated",
+      "album": "In Colour",
+      "year": "2015",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/sleep-sound/1525506447?i=1525506454&uo=4",
+      "why": "曲目资料已核对；2015 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b9/dc/ce/b9dcce9c-8cf8-4105-0fab-fb048702bce2/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f0/5f/9f/f05f9f29-bc7a-a753-dd88-4a20259d574a/mzaf_10648739296652256019.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/sleep-sound/1525506447?i=1525506454&uo=4"
+    },
+    {
+      "id": "apple:1589243048",
+      "title": "Sugarcube",
+      "artist": "Yo La Tengo",
+      "selection_status": "discovery_not_curated",
+      "album": "I Can Hear the Heart Beating As One",
+      "year": "1997",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/sugarcube/1589242975?i=1589243048&uo=4",
+      "why": "曲目资料已核对；1997 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/86/bb/c8/86bbc8c1-dc0e-72bc-253f-7e01acdc076a/744861022237.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ac/7c/20/ac7c2053-23f1-e940-f28a-902ea5bbcb61/mzaf_10412059561938366601.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/sugarcube/1589242975?i=1589243048&uo=4"
+    },
+    {
+      "id": "apple:1443655675",
+      "title": "A Short Happy Life",
+      "artist": "Medicine",
+      "selection_status": "discovery_not_curated",
+      "album": "Shot Forth Self Living",
+      "year": "1991",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/a-short-happy-life/1443655667?i=1443655675&uo=4",
+      "why": "曲目资料已核对；1991 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/d7/68/6a/d7686a87-6fe9-30e6-f0c3-2954dfa3c210/00602537216406.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/0a/1f/72/0a1f725f-629a-629a-c4ea-b664cf8c7ce6/mzaf_14636820555052565225.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/a-short-happy-life/1443655667?i=1443655675&uo=4"
+    },
+    {
+      "id": "apple:1447486983",
+      "title": "Sæglópur",
+      "artist": "Sigur Rós",
+      "selection_status": "discovery_not_curated",
+      "album": "Takk...",
+      "year": "2005",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/s%C3%A6gl%C3%B3pur/1447486974?i=1447486983&uo=4",
+      "why": "曲目资料已核对；2005 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ce/3e/b8/ce3eb805-fb13-0200-5856-081ed0014e13/190296926952.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/39/fd/83/39fd8382-7184-fee9-4190-7a8eb418e631/mzaf_16743138055501656076.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/s%C3%A6gl%C3%B3pur/1447486974?i=1447486983&uo=4"
+    },
+    {
+      "id": "apple:1419088249",
+      "title": "Variation II",
+      "artist": "Library Tapes",
+      "selection_status": "discovery_not_curated",
+      "album": "Sun Peeking Through",
+      "year": "2012",
+      "genres": [
+        "classical"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/variation-ii/1419088093?i=1419088249&uo=4",
+      "why": "曲目资料已核对；2012 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/85/ec/3d/85ec3d0d-7432-638b-0bd5-fa6e6998167b/800739667297.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/50/08/75/500875f0-a92b-97c9-d5d0-025498f4a016/mzaf_10373670559805503295.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/variation-ii/1419088093?i=1419088249&uo=4"
+    },
+    {
+      "id": "apple:1444060173",
+      "title": "Adeus Maria Fulô",
+      "artist": "Os Mutantes",
+      "selection_status": "discovery_not_curated",
+      "album": "Os Mutantes",
+      "year": "1968",
+      "genres": [
+        "brazilian"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/adeus-maria-ful%C3%B4/1444060151?i=1444060173&uo=4",
+      "why": "曲目资料已核对；1968 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/f3/14/f8/f314f84f-d86b-a588-9d5a-18495b80eef2/00042282949820.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/01/8c/94/018c947b-4ddd-2c6f-b7e7-8bcf6ce21d1b/mzaf_225669828674921046.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/adeus-maria-ful%C3%B4/1444060151?i=1444060173&uo=4"
+    },
+    {
+      "id": "apple:1544857337",
+      "title": "Rare Pleasure II",
+      "artist": "Mndsgn",
+      "selection_status": "discovery_not_curated",
+      "album": "Rare Pleasure",
+      "year": "2021",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/rare-pleasure-ii/1544857326?i=1544857337&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/05/2e/e4/052ee43d-eb6c-cdcf-ee3c-7e89490dc49d/1234.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/a5/83/43/a58343ee-1a36-af57-9fb7-ec5b5b7adae7/mzaf_3953010103882285702.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/rare-pleasure-ii/1544857326?i=1544857337&uo=4"
+    },
+    {
+      "id": "apple:1321216631",
+      "title": "Contender",
+      "artist": "The Pains of Being Pure at Heart",
+      "selection_status": "discovery_not_curated",
+      "album": "The Pains of Being Pure at Heart",
+      "year": "2009",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/contender/1321216180?i=1321216631&uo=4",
+      "why": "曲目资料已核对；2009 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/77/7f/66/777f6616-39c8-570e-3299-1d12935028e5/749846008985.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/75/b4/eb/75b4eb78-ab57-6c0e-3a5b-9676b2b2d845/mzaf_7060548806126039964.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/contender/1321216180?i=1321216631&uo=4"
+    },
+    {
+      "id": "apple:1651310065",
+      "title": "Asking 4 a Friend",
+      "artist": "Anna Burch",
+      "selection_status": "discovery_not_curated",
+      "album": "Quit the Curse",
+      "year": "2018",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/asking-4-a-friend/1651310058?i=1651310065&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/b9/f7/e4/b9f7e486-de65-6154-c1f0-818449ef4bd9/644110034694.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/8f/8c/a3/8f8ca38b-bd27-ffbc-46ba-bb9b09208a27/mzaf_9324709331158861098.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/asking-4-a-friend/1651310058?i=1651310065&uo=4"
+    },
+    {
+      "id": "apple:1484070822",
+      "title": "Search for Delicious",
+      "artist": "Panda Bear",
+      "selection_status": "discovery_not_curated",
+      "album": "Person Pitch",
+      "year": "2007",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/search-for-delicious/1484070816?i=1484070822&uo=4",
+      "why": "曲目资料已核对；2007 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/8c/68/18/8c6818e7-df33-f282-f7fd-b4f586ab1da1/194606000967.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f0/0b/d8/f00bd80d-08c2-24d3-1767-2c18b2489cc6/mzaf_15107994563191913993.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/search-for-delicious/1484070816?i=1484070822&uo=4"
+    },
+    {
+      "id": "apple:1035400992",
+      "title": "Dino",
+      "artist": "Harmonia",
+      "selection_status": "discovery_not_curated",
+      "album": "Musik Von Harmonia",
+      "year": "1974",
+      "genres": [
+        "electronic"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/dino/1035400920?i=1035400992&uo=4",
+      "why": "曲目资料已核对；1974 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music20/v4/97/35/c4/9735c4f2-9502-7a15-31f9-738fe9c3b96d/mzm.ujzxjfaj.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/19/2c/34/192c3448-cd78-17ff-82b4-0cd88746afa2/mzaf_7005954608558783865.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/dino/1035400920?i=1035400992&uo=4"
+    },
+    {
+      "id": "apple:1535131020",
+      "title": "Lately (feat. Sunun)",
+      "artist": "Jabu",
+      "selection_status": "discovery_not_curated",
+      "album": "Sweet Company",
+      "year": "2020",
+      "genres": [
+        "pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/lately-feat-sunun/1535131016?i=1535131020&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ab/77/f2/ab77f285-de75-ed35-0cfc-418a84a80675/cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/f4/02/5c/f4025c81-3a26-35f5-d14a-8f643768ca09/mzaf_17250693239731927257.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/lately-feat-sunun/1535131016?i=1535131020&uo=4"
+    }
+  ],
+  "selection_policy": "never_repeat_v1"
+}

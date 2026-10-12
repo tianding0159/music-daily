@@ -1,37 +1,36 @@
 {
-  "date": "2026-10-11",
-  "issue_no": 76,
-  "playlist_title": "今天第一次推荐的 30 首（10.11）",
+  "date": "2026-10-12",
+  "issue_no": 77,
+  "playlist_title": "今天第一次推荐的 30 首（10.12）",
   "tracks_brief": [
     {
-      "title": "EYE(S)",
-      "artist": "LÜCY"
+      "title": "Solo? Repeat!",
+      "artist": "Anne Müller"
     },
     {
-      "title": "Lagrangian Point",
-      "artist": "Jacco Gardner"
+      "title": "Air Like Velvet",
+      "artist": "Perila"
     },
     {
-      "title": "Angel's Rest",
-      "artist": "Marisa Anderson"
+      "title": "Out of the Blue, into Both Hands",
+      "artist": "Yves Jarvis"
     },
     {
-      "title": "Lac des Arcs",
-      "artist": "Julia Kent"
+      "title": "Vapour",
+      "artist": "Mildlife"
     },
     {
-      "title": "Be Here (feat. D'Angelo)",
-      "artist": "Raphael Saadiq"
+      "title": "Lost in Train Station",
+      "artist": "Wang Wen"
     },
     {
-      "title": "can’t calm down",
-      "artist": "Hand Habits"
+      "title": "The Woman That Loves You",
+      "artist": "Japanese Breakfast"
     }
   ],
   "n": 30,
-  "low_pool_warn": "⚠️ 还剩 70 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
+  "low_pool_warn": "⚠️ 还剩 40 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
   "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-10-11"
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }
