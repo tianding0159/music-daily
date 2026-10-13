@@ -1,39 +1,37 @@
 {
- "date": "2026-10-13",
- "issue_no": 78,
- "playlist_title": "今天第一次推荐的 30 首（10.13）",
- "tracks_brief": [
-  {
-   "title": "Passeando",
-   "artist": "Marcelo Camelo"
-  },
-  {
-   "title": "Kendimin efendisiyim ben",
-   "artist": "Gaye Su Akyol"
-  },
-  {
-   "title": "Sunshine Sometimes",
-   "artist": "Bedouine"
-  },
-  {
-   "title": "Can't Cut Loose",
-   "artist": "Erin Rae"
-  },
-  {
-   "title": "The General",
-   "artist": "Dawuna"
-  },
-  {
-   "title": "Puente Roto",
-   "artist": "Nicola Cruz"
-  }
- ],
- "n": 30,
- "low_pool_warn": "⚠️ 还剩 10 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
- "relax": [
-  "放宽跨期艺人间隔(+16)"
- ],
- "fresh_build": true,
- "selection_policy": "never_repeat_v1",
- "notified": "2026-10-13"
+  "date": "2026-10-13",
+  "issue_no": 78,
+  "playlist_title": "今天第一次推荐的 30 首（10.13）",
+  "tracks_brief": [
+    {
+      "title": "Passeando",
+      "artist": "Marcelo Camelo"
+    },
+    {
+      "title": "Kendimin efendisiyim ben",
+      "artist": "Gaye Su Akyol"
+    },
+    {
+      "title": "Sunshine Sometimes",
+      "artist": "Bedouine"
+    },
+    {
+      "title": "Can't Cut Loose",
+      "artist": "Erin Rae"
+    },
+    {
+      "title": "The General",
+      "artist": "Dawuna"
+    },
+    {
+      "title": "Puente Roto",
+      "artist": "Nicola Cruz"
+    }
+  ],
+  "n": 30,
+  "low_pool_warn": "⚠️ 还剩 10 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
+  "relax": [],
+  "fresh_build": false,
+  "selection_policy": "never_repeat_v1",
+  "notified": "2026-10-13"
 }
