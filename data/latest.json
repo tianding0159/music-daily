@@ -1,37 +1,38 @@
 {
-  "date": "2026-10-13",
-  "issue_no": 78,
-  "playlist_title": "今天第一次推荐的 30 首（10.13）",
+  "date": "2026-10-14",
+  "issue_no": 79,
+  "playlist_title": "今天第一次推荐的 10 首（10.14）",
   "tracks_brief": [
     {
-      "title": "Passeando",
-      "artist": "Marcelo Camelo"
+      "title": "Little Robot",
+      "artist": "Mamalarky"
     },
     {
-      "title": "Kendimin efendisiyim ben",
-      "artist": "Gaye Su Akyol"
+      "title": "Real Eyes",
+      "artist": "Joe Hisaishi"
     },
     {
-      "title": "Sunshine Sometimes",
-      "artist": "Bedouine"
+      "title": "Obsequence",
+      "artist": "Sebastian Plano"
     },
     {
-      "title": "Can't Cut Loose",
-      "artist": "Erin Rae"
+      "title": "Salt Water Fish",
+      "artist": "Ruby"
     },
     {
-      "title": "The General",
-      "artist": "Dawuna"
+      "title": "About You",
+      "artist": "Teenage Fanclub"
     },
     {
-      "title": "Puente Roto",
-      "artist": "Nicola Cruz"
+      "title": "I - 80",
+      "artist": "Squirrel Flower"
     }
   ],
-  "n": 30,
-  "low_pool_warn": "⚠️ 还剩 10 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
-  "relax": [],
-  "fresh_build": false,
-  "selection_policy": "never_repeat_v1",
-  "notified": "2026-10-13"
+  "n": 10,
+  "low_pool_warn": "⚠️ 还剩 0 首从未推荐的作品（不足 7 期），请补库；不会回填旧歌。",
+  "relax": [
+    "放宽跨期艺人间隔(+5)"
+  ],
+  "fresh_build": true,
+  "selection_policy": "never_repeat_v1"
 }

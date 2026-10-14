@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f0e12">
+<meta name="description" content="今日 10 首：Little Robot — Mamalarky、Real Eyes — Joe Hisaishi、Obsequence — Sebastian Plano…">
+<title>MUSIC DAILY · md-10 · 2026-10-14</title>
+<!-- Open Graph：发到微信 / Twitter 时带标题 + 封面 + 摘要，而不是一条裸链接。
+     og:image 用当期第一首的封面（iTunes 的 https 绝对地址，零额外成本）；
+     没有封面时退回站点图标，宁可用占位也别留空 —— 空 og:image 有些抓取端
+     会去页面里乱抓一张图。 -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="MUSIC DAILY">
+<meta property="og:title" content="MUSIC DAILY · 第 079 期 · 2026.10.14">
+<meta property="og:description" content="今日 10 首：Little Robot — Mamalarky、Real Eyes — Joe Hisaishi、Obsequence — Sebastian Plano…">
+<meta property="og:url" content="https://tianding0159.github.io/music-daily/archive/2026-10-14.html">
+<meta property="og:image" content="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/09/3e/58/093e5803-68bd-47ca-e4b8-aeab6976a401/634457103757.png/600x600bb.jpg">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MUSIC DAILY · 第 079 期 · 2026.10.14">
+<meta name="twitter:description" content="今日 10 首：Little Robot — Mamalarky、Real Eyes — Joe Hisaishi、Obsequence — Sebastian Plano…">
+<meta name="twitter:image" content="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/09/3e/58/093e5803-68bd-47ca-e4b8-aeab6976a401/634457103757.png/600x600bb.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23f05a24%22/%3E%3Crect%20x%3D%225%22%20y%3D%225%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22none%22%20stroke%3D%22%230f0e12%22%20stroke-width%3D%222%22/%3E%3C/svg%3E">
+<!-- PWA：加到手机主屏后有真图标、全屏无地址栏、启动闪屏。
+     子目录页面用相对上级前缀取根目录的资源。
+     只做 manifest 不做 Service Worker —— 这个站每天出新刊，SW 的缓存失效
+     写不对就会让用户看到昨天的日报【而且他不知道】，那类静默失效的代价
+     远大于「离线翻往期」的收益。 -->
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MD-30">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@100;300;400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+/* hidden 是 HTML 语义属性（同时把元素从无障碍树摘除），必须是硬约束。
+   靠 UA 样式表的 [hidden]{display:none} 顶不住：任何组件类只要声明 display
+   就把它盖掉 —— 实测 .tbtn{display:inline-flex} 让分享按钮的「没有 share 也
+   没有 clipboard 就别显示」门禁完全失效（JS 关掉时按钮照样占 74×36px、
+   点了毫无反应；微信内置 webview 正是这种环境）。
+   用 !important 表达「这是硬约束」，比给每个组件类打 :not([hidden]) 补丁可靠。 */
+[hidden]{display:none !important}
+:root{
+  /* ── iOS 安全区 ──────────────────────────────────────────────
+     四页都声明了 viewport-fit=cover（这是让 env() 返回非零的前提，
+     同时也意味着内容真的会铺到刘海/home 条底下）。此前一处 safe-area
+     都没用，加到主屏 standalone 打开时实测（iPhone 14 Pro，顶 59px / 底 34px）：
+       · 顶栏 nav 高 53px，整条【完全埋在】刘海下，不是压掉一角
+       · 吸底播放器 76px 被 home 条压掉 34px，播放键点不到
+       · 浮层关闭键距顶 52px < 59px，浮层【关不掉】——这条最严重
+     浏览器里 env() 一律是 0，所以加它对普通网页零影响，纯粹是补 standalone。
+     fallback 写 0px 而不是省略：老 Safari 不认 env() 时整条声明会被丢弃。 */
+  --sat:env(safe-area-inset-top, 0px);
+  --sar:env(safe-area-inset-right, 0px);
+  --sab:env(safe-area-inset-bottom, 0px);
+  --sal:env(safe-area-inset-left, 0px);
+  /* 播放器实际占位高度 = 自身高度 + 底部安全区。随机页的篮子要叠在它上方，
+     此前两处各写死 76px（#np 的 height 与 #basket 的 bottom），
+     加了安全区就会错位 —— 抽成变量，一处改两处跟。 */
+  --np-h:76px;
+  --white:#fff; --paper:#f5f5f5; --ink:#0f0e12;
+  --g100:#e5e5e5; --g200:#ccc; --g300:#b2b2b2; --g500:#a1a7af;
+  --g600:#767676; --g900:#4d4d4d; --g1000:#272727;
+  --blue:#0071bb; --green:#00a651; --green-d:#006837; --orange:#f05a24;
+  --red:#b81d13; --yellow:#fab413;
+  --sans:"Inter","Noto Sans SC","Helvetica Neue",Arial,sans-serif;
+  /* Space Mono 不含汉字。栈里必须显式给中文字体，否则中文落到【操作系统默认】——
+     Windows 是雅黑、Linux 可能是文泉驿，同一页在不同机器上长得不一样。
+     2026-08-03 实测（CDP getPlatformFontsForNode）：页面 44 处中文都在这条栈上，
+     全部走了系统回退。Noto Sans SC 本来已在 --sans 里引过，复用不增加网络请求。 */
+  --mono:"Space Mono","JetBrains Mono","Noto Sans SC",ui-monospace,Menlo,monospace;
+  --fs-10:clamp(11px,.92vw,13px); --fs-15:clamp(14px,1.1vw,15px);
+  --fs-20:clamp(15px,1.5vw,20px); --fs-25:clamp(19px,2.1vw,27px);
+  --fs-30:clamp(23px,2.7vw,36px); --fs-40:clamp(34px,5vw,68px);
+  --sp-xs:clamp(4px,.5vw,6px); --sp-sm:clamp(8px,1vw,12px);
+  --sp-md:clamp(12px,1.5vw,18px); --sp-lg:clamp(18px,2.3vw,28px);
+  --sp-xl:clamp(28px,4vw,52px);
+}
+html{scroll-behavior:smooth}
+
+/* ── 键盘焦点 ────────────────────────────────────────────────
+   此前没有任何 :focus-visible 规则，键盘用户只能看浏览器默认蓝环 ——
+   跟这套黑白 + 橙的调性完全不搭，且在深色卡片上几乎看不清。
+   用 :focus-visible 而不是 :focus：后者会在【鼠标点击】时也亮起，
+   那是多数站点把焦点环整个 outline:none 掉的原因，代价是键盘用户彻底失明。
+   :focus-visible 只在浏览器判断「用户在用键盘导航」时才亮。
+   本站没有任何 outline:none（实测 0 处），所以这里是纯增强、不夺走兜底。 */
+:focus-visible{
+  outline:2px solid var(--orange);
+  outline-offset:2px;
+  border-radius:1px;   /* 方角站点上给焦点环一点点圆，避免看着像边框错位 */
+}
+/* 深色底上（LCD 屏、唱盘控制条）橙色对比不足，改用亮描边 + 橙外圈。
+   **浮层不在这一类**：它的 .sheet 与 .x 都是 var(--paper) 浅底 ——
+   把亮描边画在同色底上等于隐形，而外扩的橙环又被 .sheet 的 overflow:hidden
+   裁掉（.x 贴在右上角），实测橙色只剩左下两边、成了个 L 形拐角。
+   浅底就用默认那条橙描边，它本来就够。 */
+.lcd :focus-visible,
+.deckbox :focus-visible{
+  outline-color:#f5f5f5;
+  box-shadow:0 0 0 4px var(--orange);
+}
+/* 浮层的关闭键贴着 .sheet 右上角，向外扩会被裁 —— 内缩画。 */
+#lb .x:focus-visible{outline-offset:-3px}
+/* 封面这类大块可聚焦区域，焦点环贴边会被 overflow 裁掉 —— 内缩画 */
+.cover-zoom:focus-visible{outline-offset:-3px}
+body{font-family:var(--sans); font-weight:300; color:var(--ink); background:var(--paper);
+  line-height:1.5; letter-spacing:0; -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility; font-feature-settings:"kern" 1,"liga" 1;
+  padding-bottom:calc(var(--np-h) + var(--sab)); overscroll-behavior-y:none}
+a{color:inherit; text-decoration:none}
+.mono{font-family:var(--mono)}
+/* 左右吃 inset：横屏时刘海在侧边，纸白内容会被切掉一条。
+   顶部不用管 —— .nav 已经加了 padding-top，.wrap 被它自然推下去；
+   在这里再加一次会变成双倍留白。 */
+.wrap{max-width:1160px; margin:0 auto;
+  padding-left:calc(var(--sp-xl) + var(--sal)); padding-right:calc(var(--sp-xl) + var(--sar))}
+.lc{text-transform:lowercase}
+
+/* 顶部铭牌导航 */
+/* padding-top 而不是 margin/top 位移：底色要一直铺到屏幕最上沿（刘海区也是黑的，
+   与 --ink 同色，视觉上连成一体），只把【内容】推到安全区以下。
+   用 margin 会在刘海区留出一条纸白，反而更难看。 */
+.nav{position:sticky; top:0; z-index:1000; background:var(--ink); color:var(--white);
+  border-bottom:1px solid var(--g1000); padding-top:var(--sat)}
+.nav .wrap{height:clamp(52px,7vw,66px); display:flex; align-items:center; justify-content:space-between}
+.brand{display:flex; align-items:center; gap:10px; font-size:var(--fs-20); font-weight:100; letter-spacing:.01em}
+.brand .sq{width:14px; height:14px; background:var(--orange)}
+.nav .serial{font-family:var(--mono); font-size:var(--fs-10); color:var(--g300); text-transform:uppercase;
+  display:flex; gap:16px; flex-wrap:wrap; justify-content:flex-end}
+.nav .serial b{color:var(--white); font-weight:400}
+
+/* Hero */
+.hero{padding:var(--sp-xl) 0 var(--sp-lg); display:flex; align-items:flex-end;
+  justify-content:space-between; gap:var(--sp-lg); flex-wrap:wrap}
+.hero .h-l h1{font-size:var(--fs-40); font-weight:100; line-height:1.02; letter-spacing:-.01em}
+.hero .h-l .en{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
+  color:var(--g600); margin-top:10px; letter-spacing:.06em}
+.hero .h-r{text-align:right; font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
+  text-transform:uppercase; line-height:1.7}
+.hero .h-r .big{display:block; font-size:var(--fs-40); font-weight:100; color:var(--ink);
+  font-family:var(--sans); line-height:.9; letter-spacing:-.02em}
+
+/* LCD 屏幕模块 */
+.lcd{background:#08110c; border:1px solid var(--g1000); color:var(--green);
+  font-family:var(--mono); font-size:var(--fs-15); overflow:hidden; position:relative; margin-bottom:var(--sp-md)}
+.lcd .row1{display:flex; align-items:center; gap:10px; padding:9px 16px; min-height:46px; border-bottom:1px solid #12241a}
+.lcd .dot{width:8px; height:8px; border-radius:50%; background:var(--green); flex:none;
+  box-shadow:0 0 8px var(--green); animation:blink 1.3s steps(1) infinite}
+.lcd #boot{white-space:pre; overflow:hidden; flex:1; min-width:0; text-overflow:ellipsis}
+.lcd #boot .cur{animation:blink .8s steps(1) infinite}
+.lcd .cat-wrap{position:relative; width:clamp(104px,15vw,156px); height:34px; flex:none; margin-left:auto;
+  align-self:center}
+/* 4 套姿态叠在一起，靠 opacity 切换做定格动画；整体走位靠 .cat-wrap 的 travel */
+.lcd .pose{position:absolute; right:4px; bottom:0; width:42px; height:38px;
+  will-change:transform,opacity; backface-visibility:hidden; -webkit-font-smoothing:none; display:block;
+  image-rendering:pixelated; opacity:0; transform-origin:bottom center}
+.lcd .pose .fur rect{fill:#ffffff}
+.lcd .pose .fur2 rect{fill:#ffffff}
+.lcd .pose .cat-eyes rect{fill:#2b2620}
+.lcd .pose .glint{fill:#ffffff}
+.lcd .pose .nose{fill:var(--orange)}
+.lcd .pose .mouth{fill:var(--orange)}
+.lcd .pose .blush{fill:var(--orange); opacity:.42}
+.lcd .pose .pad rect{fill:#ffffff}
+.lcd .pose .zzz rect{fill:#9c9282}
+/* SVG 元素上的 transform 动画【默认不走合成器】：浏览器每帧都要重算
+   fill-box 的边界 → 每帧一次 layout。实测（CDP Performance + 逐条暂停二分）：
+   daily 页 1.5 秒内 91 次 layout，暂停 cat-wag 后降到 1 次 —— 一条尾巴动画
+   贡献了几乎全部 layout。cat-eyes 同构，一起处理。
+   加 will-change + translateZ 把它们各自提成独立合成层，transform 就只在
+   合成器线程插值、不再回到主线程做布局。旁边的 .cat-move 早就这么写了，
+   这两条是漏的。 */
+.lcd .pose .cat-eyes{transform-box:fill-box; transform-origin:center;
+  animation:cat-blink 2.2s infinite;
+  will-change:transform; backface-visibility:hidden; transform:translateZ(0)}
+.lcd .pose .cat-tail{transform-box:fill-box; transform-origin:0% 100%;
+  animation:cat-wag .42s ease-in-out infinite alternate;
+  will-change:transform; backface-visibility:hidden; transform:translateZ(0)}
+/* 走位（整只猫在舞台上来回） */
+.lcd .cat-move{position:absolute; inset:0; animation:cat-travel 20s cubic-bezier(.5,0,.5,1) infinite;
+  will-change:transform; backface-visibility:hidden; transform:translateZ(0)}
+/* travel 必须挂内层 .cat-move —— 挂 .cat-wrap 的话道具是它的子元素、会跟着猫一起平移，
+   猫与饭盆间距恒定，"走过去吃饭"就永远走不到。 */
+/* 9 个动作（20s 一轮，放慢到看得清每个动作）：
+   ①走去饭盆 ②低头吃 ③走回 ④伸懒腰 ⑤追球左右扑 ⑥连跳 ⑦坐下舔爪 ⑧趴下打盹 ⑨起身抖毛归位 */
+@keyframes cat-travel{
+  0%,6%{transform:translateX(0)}         /* 呆：站着（1.2s） */
+  13%,27%{transform:translateX(-64px)}   /* 走去饭盆 → 吃（吃的这段不移动） */
+  33%{transform:translateX(-64px)}       /* 呆：吃完抬头（1.2s，原地） */
+  38%,47%{transform:translateX(-28px)}   /* 走回来 → 伸懒腰（伸的这段不移动） */
+  53%{transform:translateX(-28px)}       /* 呆：伸完站定（1.2s，原地） */
+  57%{transform:translateX(14px)}        /* 追球：右扑 */
+  60%{transform:translateX(-18px)}       /*       左扑 */
+  62%{transform:translateX(6px)}         /*       右扑 */
+  64%,76%{transform:translateX(-4px)}    /* 呆 → 坐下舔爪（原地） */
+  93%{transform:translateX(-4px)}        /* 趴睡（整段原地） */
+  97%,100%{transform:translateX(0)}}     /* 起身抖毛归位 + 呆 */
+/* 姿态时间轴（5 套姿态切换支撑 9 个动作） */
+.lcd .p-stand{animation:pose-stand 20s steps(1) infinite, cat-bob .58s ease-in-out infinite}
+.lcd .p-sit{animation:pose-sit 20s steps(1) infinite, cat-eat 20s ease-in-out infinite}
+.lcd .p-stretch{animation:pose-stretch 20s steps(1) infinite, cat-stretch 20s ease-in-out infinite}
+.lcd .p-lick{animation:pose-lick 20s steps(1) infinite, cat-lick 20s ease-in-out infinite}
+.lcd .p-sleep{animation:pose-sleep 20s steps(1) infinite, cat-sleep 20s ease-in-out infinite}
+@keyframes pose-stand{0%{opacity:1}13%{opacity:0}27%{opacity:1}38%{opacity:0}
+  47%{opacity:1}64%{opacity:0}93%{opacity:1}100%{opacity:1}}
+@keyframes pose-sit{0%{opacity:0}13%{opacity:1}27%{opacity:0}100%{opacity:0}}
+@keyframes pose-stretch{0%{opacity:0}38%{opacity:1}47%{opacity:0}100%{opacity:0}}
+@keyframes pose-lick{0%{opacity:0}64%{opacity:1}76%{opacity:0}100%{opacity:0}}
+@keyframes pose-sleep{0%{opacity:0}76%{opacity:1}93%{opacity:0}100%{opacity:0}}
+/* 各动作细节 */
+@keyframes cat-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
+@keyframes cat-eat{0%,15%{transform:translateY(0) rotate(0)}
+  17%{transform:translateY(3px) rotate(5deg)}19%{transform:translateY(0) rotate(3deg)}
+  21%{transform:translateY(3px) rotate(5deg)}23%{transform:translateY(0) rotate(3deg)}
+  25%{transform:translateY(3px) rotate(5deg)}27%,100%{transform:translateY(0) rotate(0)}}
+@keyframes cat-stretch{0%,39%{transform:scaleX(1)}41.5%{transform:scaleX(1.22) translateX(-4px)}
+  44.5%{transform:scaleX(1.22) translateX(-4px)}47%,100%{transform:scaleX(1)}}
+@keyframes cat-lick{0%,66%{transform:rotate(0)}68.5%{transform:rotate(-12deg)}70%{transform:rotate(-3deg)}
+  71.5%{transform:rotate(-12deg)}73%{transform:rotate(-3deg)}74%,100%{transform:rotate(0)}}
+@keyframes cat-sleep{0%,78%{transform:translateY(0)}
+  81%{transform:translateY(3px)}84%{transform:translateY(2px)}
+  87%{transform:translateY(3px)}90%{transform:translateY(2px)}92%,100%{transform:translateY(0)}}
+/* ⑥ 连跳（叠在 stand 上） */
+.lcd .p-stand{animation:pose-stand 20s steps(1) infinite, cat-bob .58s ease-in-out infinite,
+  cat-hop 20s ease-in-out infinite}
+@keyframes cat-hop{0%,56%{transform:translateY(0)}
+  58%{transform:translateY(-9px) scaleY(1.1)}60%{transform:translateY(0) scaleY(.93)}
+  61.5%{transform:translateY(-6px) scaleY(1.06)}63%,93%{transform:translateY(0) scale(1)}
+  /* 起身抖毛，抖完留一段站定（呆） */
+  95%{transform:rotate(6deg)}96.5%{transform:rotate(-5deg)}98%{transform:rotate(3deg)}
+  99%,100%{transform:none}}
+@keyframes cat-blink{0%,90%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes cat-wag{from{transform:rotate(-26deg)}to{transform:rotate(22deg)}}
+/* 道具：饭盆(吃饭期) / 球(追球期被扑得乱弹) */
+.lcd .prop{position:absolute; bottom:1px; image-rendering:pixelated; opacity:0}
+.lcd .prop.bowl{left:6px; width:17px} .lcd .prop.bowl svg{display:block; width:17px}
+.lcd .prop.ball{right:0; width:10px} .lcd .prop.ball svg{display:block; width:10px}
+.lcd .prop.bowl{animation:prop-bowl 20s ease-in-out infinite}
+.lcd .prop.ball{animation:prop-ball 20s ease-in-out infinite}
+.lcd .prop.bowl rect{fill:#e9e9e9} .lcd .prop.bowl .food{fill:#b9b9b9}
+.lcd .prop.ball rect{fill:#f2f2f2} .lcd .prop.ball .hl{fill:#c8c8c8}
+@keyframes cat-breathe{50%{transform:scaleY(1.03)}}
+@keyframes prop-bowl{0%{opacity:0}8%,31%{opacity:1}34%,100%{opacity:0}}
+@keyframes prop-ball{
+  0%,52%{opacity:0; transform:translate(0,0)}
+  54%{opacity:1; transform:translate(0,0)}
+  57%{opacity:1; transform:translate(-20px,-12px)}
+  59%{opacity:1; transform:translate(5px,0)}
+  61%{opacity:1; transform:translate(-14px,-9px)}
+  62.5%{opacity:1; transform:translate(3px,0)}
+  64%{opacity:.7; transform:translate(-6px,-4px)}
+  66%,100%{opacity:0; transform:translate(0,0)}}
+.lcd .ticker{padding:8px 0; position:relative; -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.lcd .track{display:inline-block; white-space:nowrap; padding-left:100%; color:#3fae6f;
+  animation:marquee 26s linear infinite}
+.lcd:hover .track{animation-play-state:paused}
+.lcd .track b{color:var(--green); font-weight:700}
+.lcd .track i{color:#1f6b42; font-style:normal; margin:0 14px}
+@keyframes blink{50%{opacity:.2}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* 规格条 */
+.spec{border:1px solid var(--g300); font-family:var(--mono);
+  font-size:var(--fs-10); text-transform:uppercase; color:var(--g600);
+  /* 前三格是短单值，genres 是 6 个流派的长串，给它更宽的列：
+     等分下它要折 5 行、把整条撑到 127px；给 2fr 后 2 行就排完，另外三格不再空一大片。
+     不用省略号——这一格本来就是给人看全流派构成的。 */
+  display:grid; grid-template-columns:1fr 1fr 1fr 2.2fr; align-items:stretch}
+/* 各格：内容顶部对齐 + 同一行高，四格自然等高等齐；genres 长串照常折行，
+   折出来的行也和其它格共用同一条基线网格（line-height 一致）。 */
+.spec div{padding:10px 14px; border-right:1px solid var(--g100); min-width:0;
+  display:flex; align-items:flex-start; gap:7px; line-height:1.65}
+.spec div:last-child{border-right:none}
+.spec b{color:var(--ink); font-weight:700; letter-spacing:.02em; min-width:0;
+  /* genres 要看完整，不截断 —— 这一格本来就是给人看全流派构成的 */
+  overflow-wrap:anywhere}
+
+/* 分区标题 */
+.sect{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; letter-spacing:.14em;
+  color:var(--ink); margin:var(--sp-lg) 0 var(--sp-sm); display:flex; align-items:center; gap:12px}
+.sect::after{content:""; flex:1; height:1px; background:var(--ink)}
+
+/* 工程方格纸模块网格 */
+.grid{display:grid; grid-template-columns:repeat(2,1fr);
+  border-top:1px solid var(--g300); border-left:1px solid var(--g300)}
+.mod{border-right:1px solid var(--g300); border-bottom:1px solid var(--g300);
+  background:var(--paper); display:flex; flex-direction:column; position:relative}
+.anim .mod{opacity:0; transform:translateY(8px); transition:opacity .4s ease-out, transform .4s ease-out}
+.anim .mod.in{opacity:1; transform:none}
+.mod.fill{background:
+  repeating-linear-gradient(0deg,transparent,transparent 21px,var(--g100) 21px,var(--g100) 22px),
+  repeating-linear-gradient(90deg,transparent,transparent 21px,var(--g100) 21px,var(--g100) 22px)}
+.m-top{display:flex; align-items:center; justify-content:space-between; padding:10px 14px;
+  border-bottom:1px solid var(--g100)}
+.m-num{font-family:var(--mono); font-size:var(--fs-25); font-weight:400; line-height:1; letter-spacing:-.02em}
+.m-code{display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:var(--fs-10);
+  text-transform:uppercase; color:var(--white); padding:3px 8px}
+.m-main{display:flex; gap:var(--sp-md); padding:var(--sp-md) var(--sp-md) 0}
+.art{position:relative; width:clamp(84px,9vw,104px); aspect-ratio:1; flex:none; align-self:flex-start}
+.art>button.cover-zoom{display:block; width:100%; height:100%; border:0; padding:0; background:transparent; cursor:pointer; color:inherit}
+.cover{width:100%; height:100%; object-fit:cover; display:block; background:var(--g100);
+  border:1px solid var(--g100); transition:opacity .2s}
+.cover.ph{display:grid; place-items:center; font-family:var(--mono); font-size:var(--fs-30);
+  color:var(--white); background:var(--ink); border:none}
+.art:hover .cover{opacity:.82}
+.pbtn{position:absolute; left:4px; bottom:4px; width:40px; height:40px; display:grid; place-items:center;
+  background:var(--ink); color:var(--white); border:none; padding:0; cursor:pointer; opacity:.9;
+  transition:transform .15s, opacity .2s, background .2s}
+.pbtn:hover{opacity:1}
+.pbtn:active{transform:scale(.9)}
+.pbtn svg{width:11px; height:11px; fill:var(--white); display:block}
+.pbtn .i-pause{display:none}
+.pbtn.playing{background:var(--green-d); opacity:1}
+/* 试听失效：给出可见的「不可用」态，而不是让它看起来还能点 */
+.pbtn.dead{background:var(--g300); opacity:.55; cursor:not-allowed}
+.pbtn.dead svg{fill:var(--g600)}
+.pbtn.dead::after{content:"×"; position:absolute; font-size:13px; line-height:1;
+  color:var(--white); font-family:var(--mono)}
+.pbtn.dead .i-play,.pbtn.dead .i-pause{display:none}
+.pbtn.playing .i-play{display:none}
+.pbtn.playing .i-pause{display:block}
+/* 底部 now-playing 条：封面键触发后浮现，显当前曲/进度/播放暂停，与封面键联动 */
+/* height 保持 76px（内容区不变），额外用 padding-bottom 吃掉 home 条，
+   box-sizing:border-box 下总高变成 76+sab、内容仍居中在上面那 76px 里。
+   左右也吃 inset：横屏时刘海会在侧边。 */
+#np{position:fixed; left:0; right:0; bottom:0; z-index:1200; display:none; align-items:center; gap:clamp(8px,1.2vw,14px);
+  background:var(--ink); color:var(--white); border-top:1px solid var(--g1000);
+  height:calc(var(--np-h) + var(--sab)); padding:0 clamp(16px,4vw,52px) var(--sab);
+  padding-left:calc(clamp(16px,4vw,52px) + var(--sal));
+  padding-right:calc(clamp(16px,4vw,52px) + var(--sar))}
+#np.on{display:flex}
+#np-cover{width:52px; height:52px; flex:none; object-fit:cover; background:var(--g1000)}
+#np-meta{flex:none; width:clamp(110px,20vw,240px); min-width:0}
+#np-title{font-size:var(--fs-15); font-weight:300; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+#np-artist{font-family:var(--mono); font-size:var(--fs-10); color:var(--g300); text-transform:uppercase;
+  letter-spacing:.09em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:3px}
+.np-btn{width:34px; height:34px; flex:none; display:grid; place-items:center; cursor:pointer;
+  background:var(--green-d); color:var(--white); border:none; transition:transform .15s}
+.np-btn:active{transform:scale(.9)}
+.np-btn svg{width:13px; height:13px; fill:var(--white); display:block}
+.np-btn .i-pause{display:none}
+#np.playing .np-btn .i-play{display:none}
+#np.playing .np-btn .i-pause{display:block}
+#np-bar{flex:1; min-width:40px; height:4px; background:var(--g1000); position:relative; cursor:pointer}
+#np-fill{position:absolute; left:0; top:0; bottom:0; width:0; background:var(--green)}
+#np-time{flex:none; min-width:82px; text-align:right; font-family:var(--mono); font-size:var(--fs-10); color:var(--g300)}
+@media(max-width:720px){#np-meta{width:clamp(90px,32vw,160px)} #np-time{display:none}}
+#np-prev,#np-next{width:30px; height:30px} #np-prev svg,#np-next svg{width:12px; height:10px}
+.heart{background:none; border:none; padding:0; margin-left:4px; width:44px; height:40px; flex:none; cursor:pointer; line-height:0}
+.heart svg{width:18px; height:18px; fill:var(--g300); transition:fill .15s, transform .15s}
+.heart:hover svg{fill:var(--g600)}
+.heart.on svg{fill:var(--red)}
+.heart:active svg{transform:scale(.85)}
+.tools{display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-top:var(--sp-md)}
+.tbtn{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:8px 12px; cursor:pointer;
+  border:1px solid var(--ink); background:var(--paper); color:var(--ink); display:inline-flex; align-items:center; gap:6px; transition:opacity .2s}
+.tbtn:hover{opacity:.7}
+.tbtn.active{background:var(--ink); color:var(--white)}
+.tbtn.line{background:transparent}
+.mod.hidden{display:none}
+.arc{border-top:1px solid var(--g300); border-left:1px solid var(--g300); margin-top:var(--sp-md)}
+.arc a{display:flex; align-items:baseline; gap:var(--sp-md); padding:14px 16px;
+  border-right:1px solid var(--g300); border-bottom:1px solid var(--g300); transition:background .15s}
+.arc a:hover{background:var(--white)}
+.arc .d{font-family:var(--mono); font-size:var(--fs-15); color:var(--ink); flex:none; width:110px}
+.arc .no{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); flex:none}
+.arc .t{font-size:var(--fs-15); font-weight:300; color:var(--g900); min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.hd{flex:1; min-width:0}
+.title{font-size:var(--fs-25); font-weight:300; line-height:1.25; letter-spacing:-.01em; overflow-wrap:anywhere}
+.artist{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
+  margin-top:5px; letter-spacing:.09em}
+.meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-top:7px; line-height:1.6}
+.bpm{display:inline-block; margin-left:8px; padding:1px 6px 1px 5px; border:1px solid var(--g200);
+  border-left:3px solid var(--bc,var(--g300)); color:var(--g900); letter-spacing:.04em; white-space:nowrap}
+.tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:8px}
+.tag{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:2px 7px;
+  background:var(--g100); color:var(--g900)}
+.body{padding:var(--sp-md); display:flex; flex-direction:column; flex:1}
+.one{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); line-height:1.65; margin-bottom:7px}
+.why{font-size:var(--fs-15); font-weight:300; line-height:1.7}
+.scene{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; color:var(--g900);
+  margin-top:auto; padding-top:11px}
+.scene .k{color:var(--orange)}
+.links{display:flex; gap:7px; margin-top:11px; flex-wrap:wrap}
+.btn{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase; padding:8px 12px;
+  cursor:pointer; transition:opacity .2s; border:1px solid var(--ink)}
+.btn.solid{background:var(--ink); color:var(--white)}
+.btn.line{background:transparent; color:var(--ink)}
+.btn:hover{opacity:.7}
+.src{font-family:var(--mono); font-size:var(--fs-10); color:var(--g500); margin-top:10px; letter-spacing:.02em}
+.src a{border-bottom:1px solid var(--g300)}
+
+/* 导出面板 */
+.export{border:1px solid var(--g300); margin-top:var(--sp-lg); background:var(--white)}
+/* 只看收藏时，整期的网易云导入块和当前视图矛盾，隐去；#fav-box 是收藏导出，要留 */
+body.fav-mode .export:not(#fav-box){display:none}
+.export .h{display:flex; justify-content:space-between; align-items:center; padding:12px 16px;
+  border-bottom:1px solid var(--g100); font-family:var(--mono); font-size:var(--fs-10);
+  text-transform:uppercase; letter-spacing:.04em}
+.export .h span{color:var(--g600)}
+.export .in{padding:var(--sp-md)}
+.export p{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); margin-bottom:10px; text-transform:none}
+.export pre{border:1px solid var(--g100); background:var(--paper); padding:14px; font-family:var(--mono);
+  font-size:var(--fs-10); line-height:1.8; white-space:pre-wrap; max-height:280px; overflow:auto}
+
+footer{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-top:var(--sp-lg);
+  padding:var(--sp-lg) 0; font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
+  color:var(--g600); border-top:1px solid var(--g300)}
+
+@media(max-width:720px){
+  .grid{grid-template-columns:1fr}
+  .hero{align-items:flex-start}
+  .m-main{flex-direction:row}
+  .spec{grid-template-columns:repeat(2,1fr)}
+  .spec div:nth-child(2n){border-right:none}
+  .spec div:nth-child(-n+2){border-bottom:1px solid var(--g100)}
+}
+
+/* ── 竖屏（手机）适配：以 iPhone 390×844 为基准 ──
+   问题都是实测出来的，不是猜的：①logo「MUSIC DAILY」被折成两行
+   ②顶栏右侧 serial 三段挤成两排 ③规格条四列在 390 下每格都折行、genres 那格压成竖带
+   ④大数字与右侧说明断开 ⑤卡片内封面+文字并排太挤 */
+@media(max-width:520px){
+  /* 覆盖 padding-inline 会整条替换掉基础规则里的 calc()，丢掉左右安全区。
+     ≤520px 正是手机 —— 最需要安全区的那批设备（竖屏 left/right inset 为 0 所以
+     当前无感，横屏窄设备与未来机型会中）。 */
+  .wrap{padding-left:calc(16px + var(--sal)); padding-right:calc(16px + var(--sar))}
+  /* 顶栏：logo 不许折行，右侧信息只留最要紧的两段 */
+  .nav .wrap{height:52px}
+  .brand{font-size:14px; gap:8px; white-space:nowrap; flex:none}
+  .brand .sq{width:11px; height:11px}
+  .nav .serial{gap:10px; flex-wrap:nowrap; font-size:9px; overflow:hidden}
+  .nav .serial>*:nth-child(n+3){display:none}   /* 只留前两段，别挤成两排 */
+  /* Hero：大数字与说明并成一行，别各占一块 */
+  .hero{padding:20px 0 14px; gap:12px; align-items:flex-end}
+  .hero .h-l h1{font-size:34px}
+  .hero .h-l .en{margin-top:7px; font-size:9px; letter-spacing:.04em}
+  .hero .h-r{line-height:1.5; font-size:9px}
+  .hero .h-r .big{font-size:30px; display:inline-block; margin-right:6px}
+  /* 竖屏：390px 放四列每格都折行，改两列（保持原样式，只是换行数） */
+  .spec{grid-template-columns:repeat(2,1fr)}
+  .spec div{padding:8px 12px}
+  .spec div:nth-child(2n){border-right:none}
+  .spec div:nth-child(-n+2){border-bottom:1px solid var(--g100)}
+  /* 工具按钮：一行放不下就整行铺满，别半截换行 */
+  .tools{gap:7px}
+  .tools .tbtn{flex:1 1 calc(50% - 4px); justify-content:center; padding:9px 8px; font-size:10px}
+  /* 卡片：封面与文字改上下叠，封面横铺（竖屏并排 130px 封面太憋） */
+  .m-main{flex-direction:row; gap:12px; padding:12px 12px 0}
+  .m-main .art{width:88px; aspect-ratio:1}
+  .m-top{padding:4px 8px 4px 12px}
+  .body{padding:12px}
+  /* LCD：猫和跑马灯在窄屏共存，缩小猫舞台 */
+  .lcd .row1{min-height:40px; padding:7px 12px; gap:7px}
+  .lcd .cat-wrap{transform:scale(.85); transform-origin:center bottom}
+  footer{flex-direction:column; gap:6px; text-align:center}
+}
+/* 原有铭牌、网格与色盘内的操作细节。 */
+button,input,select,a{-webkit-tap-highlight-color:transparent; touch-action:manipulation}
+button,input,select{font:inherit}
+.nav .wrap{gap:16px}
+.nav .site-links{display:flex; gap:18px; margin-left:auto; flex:none; font:12px var(--mono)}
+.nav .site-links a{display:flex; align-items:center; min-height:44px; border-bottom:2px solid transparent; color:var(--g200)}
+.nav .site-links a:hover,.nav .site-links a[aria-current=page]{color:var(--white); border-bottom-color:var(--orange)}
+.nav .nav-meta{font-size:10px; flex:none}
+.daily-page .hero{padding-top:clamp(22px,3vw,36px)}
+.daily-page .m-top{padding-block:4px}
+.daily-page .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.daily-page .one{color:#666; line-height:1.75}
+.daily-page .src{color:var(--g600)}
+.daily-page .tools .tbtn,.daily-page .links .btn{min-height:40px; display:inline-flex; align-items:center; justify-content:center}
+.track-search{display:flex; flex:1 1 210px; align-items:center; gap:8px; border:1px solid var(--g300); padding:0 10px; min-height:40px}
+.track-search span{font:11px var(--mono); color:var(--g600); flex:none}
+.track-search input{min-width:0; width:100%; border:0; border-radius:0; background:transparent; color:var(--ink); font-size:14px; padding:8px 0}
+.track-search:focus-within{outline:2px solid var(--orange); outline-offset:1px}
+.track-search input:focus-visible{outline:none}
+.filter-note{font:11px var(--mono); color:var(--g600); margin-top:10px; min-height:17px}
+.empty-list{padding:24px 16px; border:1px solid var(--g300); text-align:center; font-size:14px}
+.empty-list button{margin-top:12px}
+.daily-page #np{gap:10px}
+.daily-page .np-btn,.daily-page #np-prev,.daily-page #np-next{width:44px; height:44px}
+.daily-page #np-meta{width:clamp(110px,20vw,240px)}
+#np-seek{flex:1; min-width:60px; width:100%; height:28px; accent-color:var(--green); cursor:pointer}
+.daily-page #np[aria-busy=true] #np-toggle{background:var(--g900)}
+.daily-page .pbtn.loading{background:var(--g900)}
+.daily-page .pbtn.loading::after{content:'…'; position:absolute; inset:0; display:grid; place-items:center; font-size:20px}
+.daily-page .pbtn.loading svg{visibility:hidden}
+.daily-page .export,.mod{scroll-margin-top:84px}
+.arc a{min-height:64px}
+.archive-page{padding-bottom:var(--sab)}
+@media(max-width:900px){.nav .nav-meta{display:none}}
+@media(max-width:720px){
+  .daily-page .grid{grid-template-columns:1fr}
+  .daily-page #np{height:calc(92px + var(--sab)); padding:8px calc(12px + var(--sar)) calc(28px + var(--sab)) calc(12px + var(--sal)); gap:6px}
+  .daily-page{--np-h:92px}
+  .daily-page #np-cover{width:40px; height:40px}
+  .daily-page #np-meta{flex:1; width:auto}
+  .daily-page #np-artist{letter-spacing:.02em}
+  #np-seek{position:absolute; bottom:var(--sab); left:calc(12px + var(--sal)); width:calc(100% - 24px - var(--sal) - var(--sar)); margin:0; height:28px}
+  .arc a{display:grid; grid-template-columns:1fr auto; gap:4px 12px; padding:12px}
+  .arc .t{grid-column:1 / -1; white-space:normal; font-size:13px; line-height:1.6}
+}
+@media(max-width:520px){
+  .nav .wrap{gap:8px}
+  .nav .site-links{gap:10px; font-size:11px}
+  .daily-page .hero{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:10px; padding:20px 0 14px}
+  .daily-page .hero .h-l h1{font-size:32px}
+  .daily-page .hero .h-l .en{max-width:190px; font-size:10px; line-height:1.6}
+  .daily-page .hero .h-r{font-size:10px}
+  .daily-page .hero .h-r .big{display:block; margin:0 0 4px; font-size:32px}
+  .daily-page .spec{grid-template-columns:1fr 1fr 1fr}
+  .daily-page .spec div{padding:7px 9px; font-size:10px; flex-wrap:wrap; gap:0 5px; border-right:1px solid var(--g100); border-bottom:1px solid var(--g100)}
+  .daily-page .spec div:nth-child(3){border-right:0}
+  .daily-page .spec div:last-child{grid-column:1 / -1; border:0}
+  .daily-page .tools{gap:6px}
+  .daily-page .track-search{flex-basis:100%; min-height:44px}
+  .daily-page .track-search input{font-size:16px}
+  .daily-page .tools .tbtn{flex:1 1 auto; min-height:44px; font-size:11px}
+  .daily-page .links .btn{flex:1; min-height:44px; padding:8px}
+  .daily-page .title{font-size:21px}
+  .daily-page .meta{line-height:1.65; overflow-wrap:anywhere}
+  .daily-page .tags{gap:4px}
+  .daily-page .tag{font-size:10px; padding:2px 5px}
+  .daily-page .m-main .art{width:88px}
+  .daily-page .m-code{max-width:210px; font-size:10px}
+  .daily-page .export .h{align-items:flex-start; flex-direction:column; gap:4px}
+}
+@media(prefers-reduced-motion:reduce){
+  .anim .mod,.anim .mod.in{opacity:1; transform:none; transition:none}
+  .track,.dot,.rec,.pose,.p-sleep,.cat-wrap,.cat-move,.cat-eyes,.cat-tail,.prop{animation:none}
+  .pose{opacity:0}
+  .p-stand{opacity:1}
+  html{scroll-behavior:auto}
+}
+
+/* ── 封面放大 + 艺人详情 ── */
+/* 四边都要加安全区：实测 iPhone 14 Pro standalone 下，.sheet 距顶 52px
+   而刘海是 59px —— 贴在 .sheet 右上角的关闭键整个埋在刘海底下，【浮层关不掉】。
+   这比顶栏被埋严重得多（顶栏只是看不见，浮层是操作不了）。
+   变量在 render_grid 的 :root 里定义，本文件的样式注入同一个文档，直接继承。 */
+#lb{position:fixed; inset:0; z-index:2000; display:none;
+  padding:calc(clamp(12px,3vw,28px) + var(--sat, 0px))
+          calc(clamp(12px,3vw,28px) + var(--sar, 0px))
+          calc(clamp(12px,3vw,28px) + var(--sab, 0px))
+          calc(clamp(12px,3vw,28px) + var(--sal, 0px));
+  align-items:center; justify-content:center; overscroll-behavior:contain}
+#lb.on{display:flex}
+#lb .veil{position:absolute; inset:0; background:rgba(10,9,12,.86);
+  backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px);
+  animation:lb-veil .26s ease-out both}
+@keyframes lb-veil{from{opacity:0}to{opacity:1}}
+#lb .sheet{position:relative; z-index:1; width:min(820px,100%);
+  max-height:calc(100svh - 2 * clamp(12px,3vw,28px) - var(--sat, 0px) - var(--sab, 0px));
+  display:grid; grid-template-columns:minmax(0,280px) minmax(0,1fr);
+  background:var(--paper); border:1px solid var(--g1000); overflow:hidden;
+  animation:lb-in .38s cubic-bezier(.16,1,.3,1) both}
+@keyframes lb-in{from{opacity:0; transform:translateY(14px) scale(.965)}
+  to{opacity:1; transform:none}}
+/* 左：大图。方形，底部压一条铭牌 */
+#lb .big{position:relative; background:var(--ink); aspect-ratio:1; overflow:hidden}
+#lb .big img{width:100%; height:100%; object-fit:cover; display:block;
+  animation:lb-img .5s cubic-bezier(.2,1,.3,1) both}
+@keyframes lb-img{from{opacity:0; transform:scale(1.06)}to{opacity:1; transform:none}}
+#lb .big .ph{width:100%; height:100%; display:grid; place-items:center;
+  font-family:var(--mono); font-size:64px; color:var(--g900); background:var(--g1000)}
+#lb .big .yr{position:absolute; left:0; right:0; bottom:0; padding:9px 13px;
+  font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.1em;
+  text-transform:uppercase; color:var(--white);
+  background:linear-gradient(transparent,rgba(0,0,0,.78) 40%);
+  display:flex; justify-content:space-between; gap:10px}
+/* 右：详情 */
+#lb .info{padding:clamp(18px,2.6vw,24px); min-height:0; min-width:0;
+  overflow:auto; overscroll-behavior:contain; scrollbar-width:thin;
+  display:flex; flex-direction:column}
+#lb .kicker{font-family:var(--mono); font-size:var(--fs-10); letter-spacing:.16em;
+  text-transform:uppercase; color:var(--g600); display:flex; align-items:center; gap:9px;
+  padding-right:28px}
+#lb .kicker::after{content:""; flex:1; height:1px; background:var(--g200)}
+#lb h3{font-size:clamp(26px,3.4vw,36px); font-weight:100; line-height:1.24;
+  letter-spacing:-.015em; margin-top:11px; text-transform:lowercase;
+  padding-bottom:.1em; overflow:visible; overflow-wrap:anywhere}
+#lb .ar{font-family:var(--mono); font-size:var(--fs-15); text-transform:uppercase;
+  letter-spacing:.1em; color:var(--g900); margin-top:5px; overflow-wrap:anywhere}
+#lb .meta{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600);
+  margin-top:11px; line-height:1.7}
+#lb .tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:12px}
+#lb .tags span{font-family:var(--mono); font-size:9px; letter-spacing:.06em;
+  text-transform:uppercase; border:1px solid var(--g200); padding:3px 7px; color:var(--g900)}
+#lb .sec{margin-top:16px}
+#lb .sec .lb-t{font-family:var(--mono); font-size:9px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--orange); margin-bottom:5px}
+#lb .sec p{font-size:var(--fs-20); font-weight:300; line-height:1.62}
+#lb .sec.mono p{font-family:var(--mono); font-size:var(--fs-10); color:var(--g600); line-height:1.75}
+/* bio 是主体，字号比别的段大一档 */
+#lb #lb-bio{font-size:var(--fs-20); font-weight:300; line-height:1.72}
+#lb .sec#lb-bio-w{margin-top:14px}
+/* 本站收录的曲目：可点，跳到那一首 */
+#lb .pool{display:flex; flex-wrap:wrap; gap:5px}
+#lb .pool a{font-family:var(--mono); font-size:10px; letter-spacing:.04em;
+  border:1px solid var(--g200); padding:4px 8px; color:var(--g900); background:var(--white);
+  display:inline-flex; align-items:center; min-height:32px; overflow-wrap:anywhere;
+  transition:background .14s, color .14s}
+#lb .pool a:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
+#lb .pool a.cur{background:var(--ink); color:var(--white); border-color:var(--ink)}
+/* 「这一首」降级成次要块：加左边线、字号收小 */
+#lb .sec.trk{border-left:2px solid var(--g200); padding-left:11px; margin-top:18px}
+#lb .sec.trk .tk{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
+  letter-spacing:.06em; color:var(--ink); margin-bottom:5px}
+#lb .sec.trk p{font-size:var(--fs-15); line-height:1.6; color:var(--g900)}
+#lb .sec.trk p.sc{font-family:var(--mono); font-size:9px; color:var(--g600);
+  margin-top:6px; line-height:1.7}
+#lb .lb-links{display:flex; flex-wrap:wrap; gap:7px; margin-top:auto; padding-top:20px}
+#lb .lb-links a{font-family:var(--mono); font-size:var(--fs-10); text-transform:uppercase;
+  letter-spacing:.06em; border:1px solid var(--g300); padding:8px 13px; color:var(--ink);
+  display:inline-flex; align-items:center; min-height:44px;
+  transition:background .15s, border-color .15s}
+#lb .lb-links a:hover{background:var(--ink); color:var(--white); border-color:var(--ink)}
+#lb .x{position:absolute; right:0; top:0; z-index:3; width:44px; height:44px;
+  border:none; border-left:1px solid var(--g200); border-bottom:1px solid var(--g200);
+  background:var(--paper); color:var(--ink); cursor:pointer; font-family:var(--mono);
+  font-size:16px; line-height:1; transition:background .15s}
+#lb .x:hover{background:var(--ink); color:var(--white)}
+#lb a:focus-visible,#lb button:focus-visible{outline:2px solid var(--orange); outline-offset:-3px}
+/* 封面可点：给个手型 + 悬停微亮 + 右下角放大镜提示 */
+.cover-zoom{cursor:zoom-in}
+.cover-zoom::after{content:"⤢"; position:absolute; right:6px; bottom:6px; z-index:2;
+  width:20px; height:20px; display:grid; place-items:center; font-size:11px;
+  background:rgba(15,14,18,.72); color:#fff; opacity:0; transition:opacity .18s;
+  pointer-events:none}
+.cover-zoom:hover::after{opacity:1}
+@media(max-width:720px){
+  #lb .sheet{grid-template-columns:1fr; grid-template-rows:auto minmax(0,1fr)}
+  /* 方形封面完整显示；只有详情滚动，关闭键始终留在右上角。 */
+  #lb .big{width:min(220px,32svh,100%); aspect-ratio:1; justify-self:center; margin-top:12px}
+  #lb .info{padding:16px}
+  #lb h3{font-size:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  #lb .veil,#lb .sheet,#lb .big img{animation:none}
+}
+</style>
+</head>
+<body class="daily-page">
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="../index.html" aria-label="MUSIC DAILY 首页"><span class="sq"></span>MUSIC DAILY</a>
+    <div class="serial nav-meta"><span>issue <b>079</b></span><span>2026.10.14</span></div>
+    <div class="site-links" aria-label="页面导航"><a href="../daily.html" aria-current="page">今日</a><a href="../random.html">随机</a><a href="index.html">往期</a><a href="../legacy/archive/2026-10-14.html">旧版</a></div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="hero">
+    <div class="h-l">
+      <h1 class="lc">今日新发现</h1>
+      <div class="en">本期 10 首新发现 · 资料已核对，听感待精选</div>
+    </div>
+    <div class="h-r"><span class="big">10</span>tracks / daily<br>2026.10.14</div>
+  </div>
+
+  <div class="lcd">
+    <div class="row1"><span class="dot"></span><span id="boot" data-text="system ready — 10 tracks loaded · melody-first · mood-first · production-first"></span><div class="cat-wrap"><div class="cat-move"><svg class="cat pose p-stand" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="12" width="2" height="2"/><rect x="17" y="10" width="2" height="2"/><rect x="18" y="9" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="12" width="10" height="4"/><rect x="4" y="16" width="3" height="2"/><rect x="11" y="16" width="3" height="2"/></g><g class="fur2"><rect x="10" y="12" width="4" height="2"/></g><g class="pad"><rect x="4" y="16" width="3" height="1"/><rect x="11" y="16" width="3" height="1"/></g></svg><svg class="cat pose p-sit" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="14" width="3" height="2"/><rect x="18" y="12" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="11" width="10" height="5"/><rect x="3" y="13" width="12" height="3"/></g><g class="pad"><rect x="5" y="15" width="2" height="1"/><rect x="11" y="15" width="2" height="1"/></g></svg><svg class="cat pose p-stretch" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="18" y="5" width="2" height="2"/><rect x="19" y="3" width="2" height="2"/></g><g class="fur"><rect x="2" y="2" width="3" height="2"/><rect x="8" y="1" width="3" height="2"/><rect x="1" y="3" width="11" height="5"/><rect x="0" y="5" width="14" height="4"/><rect x="13" y="4" width="6" height="6"/><rect x="1" y="9" width="3" height="2"/><rect x="14" y="10" width="3" height="3"/></g><g class="fur2"><rect x="13" y="4" width="6" height="2"/></g><g class="cat-eyes"><rect x="2" y="5" width="3" height="1"/></g><rect class="nose" x="0" y="6" width="1" height="1"/><g class="pad"><rect x="1" y="10" width="3" height="1"/></g></svg><svg class="cat pose p-lick" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="16" y="14" width="3" height="2"/><rect x="18" y="13" width="2" height="2"/></g><g class="fur"><rect x="3" y="1" width="3" height="2"/><rect x="12" y="1" width="3" height="2"/><rect x="2" y="2" width="14" height="9"/><rect x="1" y="4" width="16" height="6"/></g><g class="fur2"><rect x="3" y="1" width="3" height="2"/><rect x="2" y="2" width="4" height="2"/><rect x="12" y="4" width="4" height="4"/></g><g class="cat-eyes"><rect x="4" y="6" width="4" height="1"/><rect x="10" y="6" width="4" height="1"/></g><rect class="mouth" x="8" y="8" width="2" height="1"/><rect class="blush" x="2" y="9" width="2" height="1"/><rect class="blush" x="14" y="9" width="2" height="1"/><g class="fur"><rect x="4" y="11" width="10" height="5"/><rect x="8" y="8" width="3" height="5"/></g><g class="pad"><rect x="8" y="8" width="3" height="1"/><rect x="5" y="15" width="2" height="1"/></g></svg><svg class="cat pose p-sleep" viewBox="0 0 22 21" shape-rendering="crispEdges" aria-hidden="true"><g class="cat-tail fur"><rect x="17" y="15" width="3" height="1"/><rect x="19" y="14" width="2" height="1"/></g><g class="fur"><rect x="3" y="6" width="3" height="2"/><rect x="12" y="6" width="3" height="2"/><rect x="2" y="7" width="14" height="7"/><rect x="1" y="9" width="16" height="5"/><rect x="14" y="11" width="5" height="4"/></g><g class="fur2"><rect x="3" y="6" width="3" height="2"/><rect x="12" y="9" width="4" height="3"/></g><g class="cat-eyes"><rect x="4" y="10" width="3" height="1"/><rect x="11" y="10" width="3" height="1"/></g><rect class="nose" x="8" y="11" width="2" height="1"/><rect class="blush" x="2" y="11" width="2" height="1"/><g class="zzz"><rect x="17" y="4" width="3" height="1"/><rect x="19" y="5" width="1" height="1"/><rect x="17" y="6" width="3" height="1"/></g></svg></div><span class="prop bowl"><svg viewBox="0 0 14 8" shape-rendering="crispEdges" aria-hidden="true"><rect class="fish" x="4" y="0" width="4" height="1"/><rect class="fish" x="3" y="1" width="1" height="1"/><rect class="fish" x="8" y="1" width="1" height="1"/><rect class="food" x="3" y="2" width="8" height="1"/><rect x="1" y="3" width="12" height="1"/><rect x="2" y="4" width="10" height="3"/></svg></span><span class="prop ball"><svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><rect x="1" y="1" width="6" height="6"/><rect class="hl" x="1" y="1" width="2" height="2"/><rect class="yarn" x="3" y="2" width="1" height="4"/><rect class="yarn" x="2" y="4" width="4" height="1"/></svg></span></div></div>
+    <div class="ticker"><span class="track"><b>01</b> Little Robot <i>—</i> Mamalarky<i>·</i><b>02</b> Real Eyes <i>—</i> Joe Hisaishi<i>·</i><b>03</b> Obsequence <i>—</i> Sebastian Plano<i>·</i><b>04</b> Salt Water Fish <i>—</i> Ruby<i>·</i><b>05</b> About You <i>—</i> Teenage Fanclub<i>·</i><b>06</b> I - 80 <i>—</i> Squirrel Flower<i>·</i><b>07</b> Swift Inspiration (Quick Kid) <i>—</i> Kaidi Tatham<i>·</i><b>08</b> Gum <i>—</i> Kaho Nakamura<i>·</i><b>09</b> Spinning the Wheel <i>—</i> Mammal Hands<i>·</i><b>10</b> Te Guardo <i>—</i> Silvana Estrada<i>·</i><b>01</b> Little Robot <i>—</i> Mamalarky<i>·</i><b>02</b> Real Eyes <i>—</i> Joe Hisaishi<i>·</i><b>03</b> Obsequence <i>—</i> Sebastian Plano<i>·</i><b>04</b> Salt Water Fish <i>—</i> Ruby<i>·</i><b>05</b> About You <i>—</i> Teenage Fanclub<i>·</i><b>06</b> I - 80 <i>—</i> Squirrel Flower<i>·</i><b>07</b> Swift Inspiration (Quick Kid) <i>—</i> Kaidi Tatham<i>·</i><b>08</b> Gum <i>—</i> Kaho Nakamura<i>·</i><b>09</b> Spinning the Wheel <i>—</i> Mammal Hands<i>·</i><b>10</b> Te Guardo <i>—</i> Silvana Estrada<i>·</i></span></div>
+  </div>
+
+  <div class="spec">
+    <div>sort <b>new discovery</b></div><div>bpm <b>待核实</b></div>
+    <div>tracks <b>10</b></div><div>genres <b>alternative · breakbeat · classical crossover · j-pop · jazz · latin</b></div>
+  </div>
+
+  <div class="tools">
+    <label class="track-search"><span>本期搜索</span><input id="track-search" type="search" placeholder="歌名、艺人、风格" autocomplete="off"></label>
+    <button class="tbtn" id="fav-only" type="button" aria-pressed="false"><span id="fav-lb">♥ 只看收藏</span> <span id="fav-n">0</span></button>
+    <button class="tbtn line" id="fav-export" type="button">导出收藏</button>
+    <button class="tbtn line" id="share-btn" type="button" hidden>分享这期</button>
+    <a class="tbtn line" rel="prev" href="2026-10-13.html">← 上一期</a>
+  </div>
+  <p class="filter-note" id="filter-note" role="status"></p>
+
+  <div class="sect">tracklist</div>
+  <div class="grid">
+    
+    <article class="mod" data-k="Little Robot - Mamalarky">
+      <div class="m-top">
+        <span class="m-num">01</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#006837">alternative</span>
+          <button class="heart" type="button" data-k="Little Robot - Mamalarky" aria-label="收藏 Little Robot" aria-pressed="false"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art"><button class="cover-zoom" type="button" aria-label="查看 Little Robot 详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/09/3e/58/093e5803-68bd-47ca-e4b8-aeab6976a401/634457103757.png/600x600bb.jpg" data-title="Little Robot" data-artist="Mamalarky" data-year="2022" data-years="2022" data-g0="alternative" data-album="Pocket Fantasy" data-bpm="" data-tags="alternative" data-bio="Mamalarky 是由歌手兼吉他手 Livvy Bennett 领衔的美国乐队，成员曾分散在奥斯汀、亚特兰大与洛杉矶活动。乐队在二〇二〇年经 Fire Talk 推出同名首专，二〇二二年的《Pocket Fantasy》进一步固定四人协作。歌曲通常由 Bennett 的吉他草稿出发，再由键盘、贝斯与鼓组加入不对称转折。" data-inpool="Frog 2|Mythical Bonds|Little Robot|You Know I Know" data-one="新发现 · 待精选" data-why="曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。" data-scene="" data-apple="https://music.apple.com/us/album/little-robot/1622481275?i=1622481578&amp;uo=4" data-spotify="https://open.spotify.com/search/Little%20Robot%20Mamalarky"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/09/3e/58/093e5803-68bd-47ca-e4b8-aeab6976a401/634457103757.png/600x600bb.jpg" alt="" loading="lazy"></button><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/ae/59/05/ae5905bf-f02a-e8d2-2890-0fd98eec481a/mzaf_7531585551569259690.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/09/3e/58/093e5803-68bd-47ca-e4b8-aeab6976a401/634457103757.png/600x600bb.jpg" data-title="Little Robot" data-artist="Mamalarky" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Little Robot</div>
+          <div class="artist">Mamalarky</div>
+          <div class="meta">2022 / Pocket Fantasy</div>
+          <div class="tags"></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">新发现 · 待精选</div>
+        <div class="why">曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/little-robot/1622481275?i=1622481578&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Little%20Robot%20Mamalarky" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Little%20Robot%20Mamalarky" target="_blank" rel="noopener" data-nc="Little Robot Mamalarky">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/album/little-robot/1622481275?i=1622481578&amp;uo=4" target="_blank" rel="noopener">Apple Music</a></div>
+      </div>
+    </article>
+
+    <article class="mod" data-k="Real Eyes - Joe Hisaishi">
+      <div class="m-top">
+        <span class="m-num">02</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0071bb">soundtrack</span>
+          <button class="heart" type="button" data-k="Real Eyes - Joe Hisaishi" aria-label="收藏 Real Eyes" aria-pressed="false"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art"><button class="cover-zoom" type="button" aria-label="查看 Real Eyes 详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/53/3c/79/533c7931-cf83-b3d5-515d-935e770568ba/20UMGIM02999.rgb.jpg/600x600bb.jpg" data-title="Real Eyes" data-artist="Joe Hisaishi" data-year="1999" data-years="1999" data-g0="soundtrack" data-album="Kikujiro (Original Motion Picture Soundtrack)" data-bpm="" data-tags="soundtrack" data-bio="久石让本名藤泽守，1950 年生于长野县，早年在国立音乐大学学习作曲。1984 年《风之谷》开启了他与宫崎骏延续数十年的合作，此后《龙猫》《幽灵公主》《千与千寻》的主题都出自他手。他也长期为北野武电影写配乐，并以指挥者身份把电影主题改编成大型管弦作品。" data-inpool="Summer|Mad Summer|The Rain|Real Eyes" data-one="新发现 · 待精选" data-why="曲目资料已核对；1999 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。" data-scene="" data-apple="https://music.apple.com/us/album/real-eyes/1498700467?i=1498700688&amp;uo=4" data-spotify="https://open.spotify.com/search/Real%20Eyes%20Joe%20Hisaishi"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/53/3c/79/533c7931-cf83-b3d5-515d-935e770568ba/20UMGIM02999.rgb.jpg/600x600bb.jpg" alt="" loading="lazy"></button><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/fc/c6/50/fcc65029-3e25-47a5-43dd-5e3f40ed54e6/mzaf_8695098364952105986.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/53/3c/79/533c7931-cf83-b3d5-515d-935e770568ba/20UMGIM02999.rgb.jpg/600x600bb.jpg" data-title="Real Eyes" data-artist="Joe Hisaishi" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Real Eyes</div>
+          <div class="artist">Joe Hisaishi</div>
+          <div class="meta">1999 / Kikujiro (Original Motion Picture Soundtrack)</div>
+          <div class="tags"></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">新发现 · 待精选</div>
+        <div class="why">曲目资料已核对；1999 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/real-eyes/1498700467?i=1498700688&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Real%20Eyes%20Joe%20Hisaishi" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Real%20Eyes%20Joe%20Hisaishi" target="_blank" rel="noopener" data-nc="Real Eyes Joe Hisaishi">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/album/real-eyes/1498700467?i=1498700688&amp;uo=4" target="_blank" rel="noopener">Apple Music</a></div>
+      </div>
+    </article>
+
+    <article class="mod" data-k="Obsequence - Sebastian Plano">
+      <div class="m-top">
+        <span class="m-num">03</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0f0e12">classical crossover</span>
+          <button class="heart" type="button" data-k="Obsequence - Sebastian Plano" aria-label="收藏 Obsequence" aria-pressed="false"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art"><button class="cover-zoom" type="button" aria-label="查看 Obsequence 详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5e/7d/53/5e7d53a1-36a7-b881-7df2-3cd5d1a2936a/20UMGIM79348.rgb.jpg/600x600bb.jpg" data-title="Obsequence" data-artist="Sebastian Plano" data-year="2021" data-years="2021" data-g0="classical crossover" data-album="Save Me Not" data-bpm="" data-tags="classical crossover" data-bio="Sebastian Plano 是阿根廷出生的大提琴家、作曲人与制作人，成年后在美国和欧洲学习、工作，并长期居于柏林。他以大提琴多轨、钢琴和电子处理完成个人作品，也为舞蹈、电影与装置项目写作。二〇一九年的《Verve》获得水星奖提名，二〇二一年的《Save Me Not》继续由他承担演奏、录音和制作。" data-inpool="Save Me Not|Agos|A Present for a Young Traveller|Obsequence" data-one="新发现 · 待精选" data-why="曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。" data-scene="" data-apple="https://music.apple.com/us/album/obsequence/1554077598?i=1554077860&amp;uo=4" data-spotify="https://open.spotify.com/search/Obsequence%20Sebastian%20Plano"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5e/7d/53/5e7d53a1-36a7-b881-7df2-3cd5d1a2936a/20UMGIM79348.rgb.jpg/600x600bb.jpg" alt="" loading="lazy"></button><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/bd/7e/8b/bd7e8be5-44b3-15e3-b4ad-a181bf834c9e/mzaf_1196801563042434565.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5e/7d/53/5e7d53a1-36a7-b881-7df2-3cd5d1a2936a/20UMGIM79348.rgb.jpg/600x600bb.jpg" data-title="Obsequence" data-artist="Sebastian Plano" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Obsequence</div>
+          <div class="artist">Sebastian Plano</div>
+          <div class="meta">2021 / Save Me Not</div>
+          <div class="tags"></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">新发现 · 待精选</div>
+        <div class="why">曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/obsequence/1554077598?i=1554077860&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Obsequence%20Sebastian%20Plano" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Obsequence%20Sebastian%20Plano" target="_blank" rel="noopener" data-nc="Obsequence Sebastian Plano">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/album/obsequence/1554077598?i=1554077860&amp;uo=4" target="_blank" rel="noopener">Apple Music</a></div>
+      </div>
+    </article>
+
+    <article class="mod" data-k="Salt Water Fish - Ruby">
+      <div class="m-top">
+        <span class="m-num">04</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#006837">alternative</span>
+          <button class="heart" type="button" data-k="Salt Water Fish - Ruby" aria-label="收藏 Salt Water Fish" aria-pressed="false"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art"><button class="cover-zoom" type="button" aria-label="查看 Salt Water Fish 详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Features/3f/79/3d/dj.bzevbxbb.jpg/600x600bb.jpg" data-title="Salt Water Fish" data-artist="Ruby" data-year="1996" data-years="1996" data-g0="alternative" data-album="Salt Peter" data-bpm="" data-tags="alternative" data-bio="Ruby 是苏格兰歌手 Lesley Rankine 与美国制作人 Mark Walk 在九十年代组建的二人项目。Rankine 此前是噪音摇滚团 Silverfish 主唱，Walk 则负责采样、编程和低频制作。首张专辑《Salt Peter》于一九九五年发行，单曲《Tiny Meat》和《Paraffin》把工业摇滚的声音材料压进当时的慢拍电子结构。" data-inpool="Paraffin|Flippin&#x27; Tha Bird|Salt Water Fish|Heidi" data-one="新发现 · 待精选" data-why="曲目资料已核对；1996 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。" data-scene="" data-apple="https://music.apple.com/us/album/salt-water-fish/158712627?i=158712650&amp;uo=4" data-spotify="https://open.spotify.com/search/Salt%20Water%20Fish%20Ruby"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Features/3f/79/3d/dj.bzevbxbb.jpg/600x600bb.jpg" alt="" loading="lazy"></button><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/8f/9f/97/8f9f979e-2484-c391-a3da-5dcc653e7ad5/mzaf_5813873306096786184.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Features/3f/79/3d/dj.bzevbxbb.jpg/600x600bb.jpg" data-title="Salt Water Fish" data-artist="Ruby" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Salt Water Fish</div>
+          <div class="artist">Ruby</div>
+          <div class="meta">1996 / Salt Peter</div>
+          <div class="tags"></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">新发现 · 待精选</div>
+        <div class="why">曲目资料已核对；1996 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/salt-water-fish/158712627?i=158712650&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Salt%20Water%20Fish%20Ruby" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Salt%20Water%20Fish%20Ruby" target="_blank" rel="noopener" data-nc="Salt Water Fish Ruby">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/album/salt-water-fish/158712627?i=158712650&amp;uo=4" target="_blank" rel="noopener">Apple Music</a></div>
+      </div>
+    </article>
+
+    <article class="mod" data-k="About You - Teenage Fanclub">
+      <div class="m-top">
+        <span class="m-num">05</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0f0e12">rock</span>
+          <button class="heart" type="button" data-k="About You - Teenage Fanclub" aria-label="收藏 About You" aria-pressed="false"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art"><button class="cover-zoom" type="button" aria-label="查看 About You 详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/df/2f/91/df2f9157-7474-5162-d32c-10115e0c6a36/00720642480229.rgb.jpg/600x600bb.jpg" data-title="About You" data-artist="Teenage Fanclub" data-year="1995" data-years="1995" data-g0="rock" data-album="Grand Prix" data-bpm="" data-tags="rock" data-bio="Teenage Fanclub 一九八九年在苏格兰贝尔斯希尔成立，Norman Blake、Raymond McGinley 与 Gerard Love 长期轮流写歌和主唱。乐队从噪音较重的早期作品转向三声部和声与双吉他，一九九一年的《Bandwagonesque》获得国际关注。二〇一八年 Love 离队后，Blake 与 McGinley 继续带领乐队录制和巡演。" data-inpool="Sparky&#x27;s Dream|About You|Mellow Doubt|Don&#x27;t Look Back" data-one="新发现 · 待精选" data-why="曲目资料已核对；1995 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。" data-scene="" data-apple="https://music.apple.com/us/album/about-you/1443912606?i=1443912823&amp;uo=4" data-spotify="https://open.spotify.com/search/About%20You%20Teenage%20Fanclub"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/df/2f/91/df2f9157-7474-5162-d32c-10115e0c6a36/00720642480229.rgb.jpg/600x600bb.jpg" alt="" loading="lazy"></button><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/af/f3/60/aff36070-e61c-e5fd-3712-6d8905cf4a3b/mzaf_13527350325222484772.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/df/2f/91/df2f9157-7474-5162-d32c-10115e0c6a36/00720642480229.rgb.jpg/600x600bb.jpg" data-title="About You" data-artist="Teenage Fanclub" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">About You</div>
+          <div class="artist">Teenage Fanclub</div>
+          <div class="meta">1995 / Grand Prix</div>
+          <div class="tags"></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">新发现 · 待精选</div>
+        <div class="why">曲目资料已核对；1995 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/about-you/1443912606?i=1443912823&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/About%20You%20Teenage%20Fanclub" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=About%20You%20Teenage%20Fanclub" target="_blank" rel="noopener" data-nc="About You Teenage Fanclub">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/album/about-you/1443912606?i=1443912823&amp;uo=4" target="_blank" rel="noopener">Apple Music</a></div>
+      </div>
+    </article>
+
+    <article class="mod" data-k="I - 80 - Squirrel Flower">
+      <div class="m-top">
+        <span class="m-num">06</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#006837">alternative</span>
+          <button class="heart" type="button" data-k="I - 80 - Squirrel Flower" aria-label="收藏 I - 80" aria-pressed="false"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art"><button class="cover-zoom" type="button" aria-label="查看 I - 80 详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/9d/ff/9b/9dff9be8-f7bc-9ac3-c1cb-fe06fb71c2d4/644110039590.png/600x600bb.jpg" data-title="I - 80" data-artist="Squirrel Flower" data-year="2020" data-years="2019–2020" data-g0="alternative" data-album="I Was Born Swimming" data-bpm="" data-tags="alternative" data-bio="Squirrel Flower 是 Ella O&#x27;Connor Williams 童年起使用的名字，她1996年出生于古典、爵士与蓝调音乐家庭。她小时候加入 Boston Children&#x27;s Chorus，并自学吉他和乐理。Polyvinyl 于2020年发行首专《I Was Born Swimming》。" data-inpool="Red Shoulder|Headlights|I - 80|Slapback|Eight Hours" data-one="新发现 · 待精选" data-why="曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。" data-scene="" data-apple="https://music.apple.com/us/album/i-80/1651286711?i=1651286712&amp;uo=4" data-spotify="https://open.spotify.com/search/I%20-%2080%20Squirrel%20Flower"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/9d/ff/9b/9dff9be8-f7bc-9ac3-c1cb-fe06fb71c2d4/644110039590.png/600x600bb.jpg" alt="" loading="lazy"></button><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/45/c6/d0/45c6d056-074b-2352-2183-da0e8a949c1a/mzaf_15275822385256813177.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/9d/ff/9b/9dff9be8-f7bc-9ac3-c1cb-fe06fb71c2d4/644110039590.png/600x600bb.jpg" data-title="I - 80" data-artist="Squirrel Flower" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">I - 80</div>
+          <div class="artist">Squirrel Flower</div>
+          <div class="meta">2020 / I Was Born Swimming</div>
+          <div class="tags"></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">新发现 · 待精选</div>
+        <div class="why">曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/i-80/1651286711?i=1651286712&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/I%20-%2080%20Squirrel%20Flower" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=I%20-%2080%20Squirrel%20Flower" target="_blank" rel="noopener" data-nc="I - 80 Squirrel Flower">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/album/i-80/1651286711?i=1651286712&amp;uo=4" target="_blank" rel="noopener">Apple Music</a></div>
+      </div>
+    </article>
+
+    <article class="mod" data-k="Swift Inspiration (Quick Kid) - Kaidi Tatham">
+      <div class="m-top">
+        <span class="m-num">07</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0f0e12">breakbeat</span>
+          <button class="heart" type="button" data-k="Swift Inspiration (Quick Kid) - Kaidi Tatham" aria-label="收藏 Swift Inspiration (Quick Kid)" aria-pressed="false"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art"><button class="cover-zoom" type="button" aria-label="查看 Swift Inspiration (Quick Kid) 详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/9d/7c/ab/9d7cab3a-72b3-50c6-e4b3-0a35f0ff72b9/5050580736078.png/600x600bb.jpg" data-title="Swift Inspiration (Quick Kid)" data-artist="Kaidi Tatham" data-year="2008" data-years="2008" data-g0="breakbeat" data-album="In Search of Hope" data-bpm="" data-tags="breakbeat" data-bio="Kaidi Tatham 是西伦敦 broken beat 场景的键盘手、制作人和多乐器演奏者，曾参与 Bugz in the Attic 与 Neon Phusion。他和 Dego 以 2000Black 名义长期合作，负责其中大量和声、键盘与节奏设计。2008 年《In Search of Hope》以个人名义集中呈现了他对 fusion、放克和碎拍的连接方式。" data-inpool="Do What You Gotta Do|Swift Inspiration (Quick Kid)|Could I Ever Know?|He Laughs She Cries" data-one="新发现 · 待精选" data-why="曲目资料已核对；2008 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。" data-scene="" data-apple="https://music.apple.com/us/album/swift-inspiration-quick-kid/1506606034?i=1506606156&amp;uo=4" data-spotify="https://open.spotify.com/search/Swift%20Inspiration%20%28Quick%20Kid%29%20Kaidi%20Tatham"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/9d/7c/ab/9d7cab3a-72b3-50c6-e4b3-0a35f0ff72b9/5050580736078.png/600x600bb.jpg" alt="" loading="lazy"></button><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/6f/8c/b5/6f8cb5d6-2a04-af03-d04b-c917d221d2cc/mzaf_7739903457826482750.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/9d/7c/ab/9d7cab3a-72b3-50c6-e4b3-0a35f0ff72b9/5050580736078.png/600x600bb.jpg" data-title="Swift Inspiration (Quick Kid)" data-artist="Kaidi Tatham" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Swift Inspiration (Quick Kid)</div>
+          <div class="artist">Kaidi Tatham</div>
+          <div class="meta">2008 / In Search of Hope</div>
+          <div class="tags"></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">新发现 · 待精选</div>
+        <div class="why">曲目资料已核对；2008 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/swift-inspiration-quick-kid/1506606034?i=1506606156&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Swift%20Inspiration%20%28Quick%20Kid%29%20Kaidi%20Tatham" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Swift%20Inspiration%20%28Quick%20Kid%29%20Kaidi%20Tatham" target="_blank" rel="noopener" data-nc="Swift Inspiration (Quick Kid) Kaidi Tatham">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/album/swift-inspiration-quick-kid/1506606034?i=1506606156&amp;uo=4" target="_blank" rel="noopener">Apple Music</a></div>
+      </div>
+    </article>
+
+    <article class="mod" data-k="Gum - Kaho Nakamura">
+      <div class="m-top">
+        <span class="m-num">08</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#0071bb">j-pop</span>
+          <button class="heart" type="button" data-k="Gum - Kaho Nakamura" aria-label="收藏 Gum" aria-pressed="false"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art"><button class="cover-zoom" type="button" aria-label="查看 Gum 详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b5/cf/4c/b5cf4c73-59f3-1922-32e3-d22c38e285e1/4538182779828_cov.jpg/600x600bb.jpg" data-title="Gum" data-artist="Kaho Nakamura" data-year="2018" data-years="2018" data-g0="j-pop" data-album="Ainou" data-bpm="" data-tags="j-pop" data-bio="中村佳穂来自京都，早期以钢琴、自弹自唱和大量现场即兴积累听众，常在演出中临时改写旋律与歌词。2018 年《AINOU》由固定乐队与多位制作人共同完成，把她的即兴能力收进精确的流行编曲。2021 年她为动画电影《龙与雀斑公主》的主角铃献声并演唱片中歌曲。" data-inpool="AINOU|You May They|Gum|Kittone" data-one="新发现 · 待精选" data-why="曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。" data-scene="" data-apple="https://music.apple.com/us/album/gum/1439029178?i=1439029180&amp;uo=4" data-spotify="https://open.spotify.com/search/Gum%20Kaho%20Nakamura"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b5/cf/4c/b5cf4c73-59f3-1922-32e3-d22c38e285e1/4538182779828_cov.jpg/600x600bb.jpg" alt="" loading="lazy"></button><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a4/dc/b5/a4dcb5d0-bcf3-552f-167c-4a87cc722933/mzaf_13419652492257497236.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b5/cf/4c/b5cf4c73-59f3-1922-32e3-d22c38e285e1/4538182779828_cov.jpg/600x600bb.jpg" data-title="Gum" data-artist="Kaho Nakamura" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Gum</div>
+          <div class="artist">Kaho Nakamura</div>
+          <div class="meta">2018 / Ainou</div>
+          <div class="tags"></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">新发现 · 待精选</div>
+        <div class="why">曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/gum/1439029178?i=1439029180&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Gum%20Kaho%20Nakamura" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Gum%20Kaho%20Nakamura" target="_blank" rel="noopener" data-nc="Gum Kaho Nakamura">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/album/gum/1439029178?i=1439029180&amp;uo=4" target="_blank" rel="noopener">Apple Music</a></div>
+      </div>
+    </article>
+
+    <article class="mod" data-k="Spinning the Wheel - Mammal Hands">
+      <div class="m-top">
+        <span class="m-num">09</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#fab413">jazz</span>
+          <button class="heart" type="button" data-k="Spinning the Wheel - Mammal Hands" aria-label="收藏 Spinning the Wheel" aria-pressed="false"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art"><button class="cover-zoom" type="button" aria-label="查看 Spinning the Wheel 详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/3e/d9/06/3ed90621-bc89-4d35-a77e-91de3b0ea565/5050580619913_cover.jpg/600x600bb.jpg" data-title="Spinning the Wheel" data-artist="Mammal Hands" data-year="2014" data-years="2014" data-g0="jazz" data-album="Animalia" data-bpm="" data-tags="jazz" data-bio="Mammal Hands 是英国诺里奇三人组，成员分别负责钢琴、萨克斯与鼓和塔布拉鼓。乐队由 Gondwana Records 签下，二〇一四年的《Animalia》开启一系列以现场合奏为核心的专辑。作品借鉴极简主义循环、电子舞曲结构和印度节奏，但录音主要依靠三件乐器的重复、错位与动态变化。" data-inpool="Kandaiki|Mansions of Millions of Years|Snow Bough|Spinning the Wheel" data-one="新发现 · 待精选" data-why="曲目资料已核对；2014 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。" data-scene="" data-apple="https://music.apple.com/us/album/spinning-the-wheel/1578456785?i=1578456956&amp;uo=4" data-spotify="https://open.spotify.com/search/Spinning%20the%20Wheel%20Mammal%20Hands"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/3e/d9/06/3ed90621-bc89-4d35-a77e-91de3b0ea565/5050580619913_cover.jpg/600x600bb.jpg" alt="" loading="lazy"></button><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/39/f8/2f/39f82f25-20da-0818-a958-33f9a0b75aab/mzaf_1206752555622019156.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/3e/d9/06/3ed90621-bc89-4d35-a77e-91de3b0ea565/5050580619913_cover.jpg/600x600bb.jpg" data-title="Spinning the Wheel" data-artist="Mammal Hands" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Spinning the Wheel</div>
+          <div class="artist">Mammal Hands</div>
+          <div class="meta">2014 / Animalia</div>
+          <div class="tags"></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">新发现 · 待精选</div>
+        <div class="why">曲目资料已核对；2014 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/spinning-the-wheel/1578456785?i=1578456956&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Spinning%20the%20Wheel%20Mammal%20Hands" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Spinning%20the%20Wheel%20Mammal%20Hands" target="_blank" rel="noopener" data-nc="Spinning the Wheel Mammal Hands">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/album/spinning-the-wheel/1578456785?i=1578456956&amp;uo=4" target="_blank" rel="noopener">Apple Music</a></div>
+      </div>
+    </article>
+
+    <article class="mod" data-k="Te Guardo - Silvana Estrada">
+      <div class="m-top">
+        <span class="m-num">10</span>
+        <span style="display:flex; align-items:center">
+          <span class="m-code" style="background:#f05a24">latin</span>
+          <button class="heart" type="button" data-k="Te Guardo - Silvana Estrada" aria-label="收藏 Te Guardo" aria-pressed="false"><svg class="i-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></button>
+        </span>
+      </div>
+      <div class="m-main">
+        <div class="art"><button class="cover-zoom" type="button" aria-label="查看 Te Guardo 详情" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/91/2e/e3/912ee307-2a88-4b18-dd52-b7bd9b3f53e3/5056167167563.jpg/600x600bb.jpg" data-title="Te Guardo" data-artist="Silvana Estrada" data-year="2022" data-years="2021–2022" data-g0="latin" data-album="Marchita" data-bpm="" data-tags="latin" data-bio="Silvana Estrada 1997年生于墨西哥韦拉克鲁斯州 Coatepec，父母都是制作乐器的工匠。她学习过爵士，并把委内瑞拉 cuatro 作为主要伴奏乐器。早期与 Charlie Hunter 合作后，她在 Glassnote 发行2022年专辑《Marchita》，同年获得拉丁格莱美最佳新人奖。" data-inpool="Marchita|Un Día Cualquiera|Más O Menos Antes|La Corriente|Te Guardo" data-one="新发现 · 待精选" data-why="曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。" data-scene="" data-apple="https://music.apple.com/us/album/te-guardo/1640345256?i=1640345260&amp;uo=4" data-spotify="https://open.spotify.com/search/Te%20Guardo%20Silvana%20Estrada"><img class="cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/91/2e/e3/912ee307-2a88-4b18-dd52-b7bd9b3f53e3/5056167167563.jpg/600x600bb.jpg" alt="" loading="lazy"></button><button class="pbtn" type="button" data-src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/36/75/24/367524bb-65e4-167f-378f-fddf619c0d01/mzaf_2161689174795468996.plus.aac.p.m4a" data-cover="https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/91/2e/e3/912ee307-2a88-4b18-dd52-b7bd9b3f53e3/5056167167563.jpg/600x600bb.jpg" data-title="Te Guardo" data-artist="Silvana Estrada" aria-label="试听 30 秒"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button></div>
+        <div class="hd">
+          <div class="title lc">Te Guardo</div>
+          <div class="artist">Silvana Estrada</div>
+          <div class="meta">2022 / Marchita</div>
+          <div class="tags"></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="one">新发现 · 待精选</div>
+        <div class="why">曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。</div>
+        <div class="links"><a class="btn solid" href="https://music.apple.com/us/album/te-guardo/1640345256?i=1640345260&amp;uo=4" target="_blank" rel="noopener">listen</a><a class="btn line" href="https://open.spotify.com/search/Te%20Guardo%20Silvana%20Estrada" target="_blank" rel="noopener">spotify ↗</a><a class="btn line" href="https://music.163.com/#/search/m/?s=Te%20Guardo%20Silvana%20Estrada" target="_blank" rel="noopener" data-nc="Te Guardo Silvana Estrada">netease ♫</a></div>
+        <div class="src">src · <a href="https://music.apple.com/us/album/te-guardo/1640345256?i=1640345260&amp;uo=4" target="_blank" rel="noopener">Apple Music</a></div>
+      </div>
+    </article>
+  </div>
+  <div class="empty-list" id="empty-list" hidden><p id="empty-message"></p><button class="tbtn" id="filter-reset" type="button">显示本期全部</button></div>
+
+  <section class="export">
+    <div class="h">data export · 网易云导入 <span>format: title - artist</span></div>
+    <div class="in">
+      <p>复制下列清单 → 网易云 App「新建歌单 → 导入」，第一行会作为歌单名自动创建。</p>
+      <pre id="nc-text">今天第一次推荐的 10 首（10.14）
+Little Robot - Mamalarky
+Real Eyes - Joe Hisaishi
+Obsequence - Sebastian Plano
+Salt Water Fish - Ruby
+About You - Teenage Fanclub
+I - 80 - Squirrel Flower
+Swift Inspiration (Quick Kid) - Kaidi Tatham
+Gum - Kaho Nakamura
+Spinning the Wheel - Mammal Hands
+Te Guardo - Silvana Estrada</pre>
+      <button class="btn solid" id="nc-btn" onclick="copyNC()" style="margin-top:12px">复制歌单 / copy</button>
+    </div>
+  </section>
+
+  <section class="export" id="fav-box" style="display:none">
+    <div class="h">我收藏的 · 网易云导入 <span>存在此浏览器 · 跨期累计</span></div>
+    <div class="in">
+      <p>你在各期点 ♥ 收藏的曲目（本浏览器）。复制 → 网易云「新建歌单 → 导入」。</p>
+      <pre id="fav-text"></pre>
+      <button class="btn solid" id="fav-copy" onclick="copyFav()" style="margin-top:12px">复制收藏 / copy</button>
+    </div>
+  </section>
+
+  <footer>
+    <span>MUSIC DAILY · md-10 · issue 079</span>
+    <span>updated 08:00 cst</span>
+    <span>cover &amp; preview via public music api · personal use</span>
+  </footer>
+</main>
+
+<div id="np" role="region" aria-label="试听播放器" aria-busy="false">
+  <img id="np-cover" alt="">
+  <div id="np-meta" aria-live="polite"><div id="np-title" class="lc"></div><div id="np-artist"></div></div>
+  <button id="np-prev" class="np-btn" type="button" aria-label="上一首"><svg viewBox="0 0 12 10" aria-hidden="true"><rect x="1" y="1" width="2" height="8"/><path d="M11 1 L4 5 L11 9 Z"/></svg></button>
+  <button id="np-toggle" class="np-btn" type="button" aria-label="播放/暂停"><svg class="i-play" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 1 L9 5 L2 9 Z"/></svg><svg class="i-pause" viewBox="0 0 10 10" aria-hidden="true"><rect x="2" y="1" width="2.6" height="8"/><rect x="5.4" y="1" width="2.6" height="8"/></svg></button>
+  <button id="np-next" class="np-btn" type="button" aria-label="下一首"><svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 1 L8 5 L1 9 Z"/><rect x="9" y="1" width="2" height="8"/></svg></button>
+  <input id="np-seek" type="range" min="0" max="100" step="0.1" value="0" aria-label="试听进度" disabled>
+  <span id="np-time" class="mono">0:00 / 0:00</span>
+</div>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="专辑详情" aria-hidden="true" tabindex="-1">
+  <div class="veil" data-close></div>
+  <div class="sheet">
+    <button class="x" type="button" data-close aria-label="关闭">✕</button>
+    <div class="big" id="lb-big"></div>
+    <div class="info">
+      <div class="kicker" id="lb-kick">artist</div>
+      <h3 id="lb-artist"></h3>
+      <div class="ar" id="lb-sub"></div>
+      <div class="tags" id="lb-tags"></div>
+      <div class="sec" id="lb-bio-w"><p id="lb-bio"></p></div>
+      <div class="sec" id="lb-one-w"><div class="lb-t">在音乐地图上</div><p id="lb-one"></p></div>
+      <div class="sec" id="lb-inpool-w"><div class="lb-t">本站收录</div>
+        <div class="pool" id="lb-inpool"></div></div>
+      <div class="sec trk" id="lb-trk-w"><div class="lb-t">这一首</div>
+        <p class="tk" id="lb-trkname"></p>
+        <p id="lb-why"></p>
+        <p class="sc" id="lb-scene"></p></div>
+      <div class="lb-links" id="lb-links"></div>
+    </div>
+  </div>
+</div>
+<script>// Inlined by render_grid.py: no extra request, shared by today's and archive issues.
+const boot = document.getElementById('boot');
+if (boot) boot.textContent = boot.dataset.text || '';
+
+async function copyPanel(textId, buttonId) {
+  const panel = document.getElementById(textId), button = document.getElementById(buttonId);
+  if (!panel || !button) return;
+  const original = button.dataset.label || button.textContent;
+  button.dataset.label = original;
+  clearTimeout(button.copyTimer);
+  try {
+    if (!navigator.clipboard) throw new Error('clipboard unavailable');
+    await navigator.clipboard.writeText(panel.textContent);
+    button.textContent = '已复制 ✓';
+  } catch (_) {
+    const range = document.createRange();
+    range.selectNodeContents(panel);
+    const selection = window.getSelection();
+    if (selection) { selection.removeAllRanges(); selection.addRange(range); }
+    button.textContent = '已选中清单，请长按或按 Ctrl+C 复制';
+  }
+  button.copyTimer = setTimeout(() => { button.textContent = original; }, 2400);
+}
+function copyNC() { return copyPanel('nc-text', 'nc-btn'); }
+function copyFav() { return copyPanel('fav-text', 'fav-copy'); }
+
+// A new Audio per source isolates late errors/playing events after rapid switching.
+// Only a current play() attempt may change controls (including resume and autoplay).
+(() => {
+  const buttons = Array.from(document.querySelectorAll('.pbtn'));
+  const np = document.getElementById('np');
+  if (!np) return;
+  const cover = document.getElementById('np-cover'), title = document.getElementById('np-title');
+  const artist = document.getElementById('np-artist'), seek = document.getElementById('np-seek');
+  const time = document.getElementById('np-time'), toggle = document.getElementById('np-toggle');
+  let audio = null, current = null, attempt = 0, failures = 0, pending = false;
+  const failed = new Set();
+  const fmt = value => { const n = Math.floor(Number.isFinite(value) ? Math.max(0, value) : 0); return Math.floor(n / 60) + ':' + String(n % 60).padStart(2, '0'); };
+  const available = () => buttons.filter(b => !b.closest('.mod').classList.contains('hidden'));
+  function mark(on) {
+    if (current) {
+      current.classList.toggle('playing', on);
+      current.setAttribute('aria-label', (on ? '暂停试听 ' : '试听 ') + current.dataset.title);
+      current.setAttribute('aria-pressed', String(on));
+    }
+    np.classList.toggle('playing', on);
+    toggle.setAttribute('aria-label', on ? '暂停试听' : '播放试听');
+  }
+  function busy(on) {
+    pending = on;
+    np.setAttribute('aria-busy', String(on));
+    if (current) current.classList.toggle('loading', on);
+  }
+  function progress() {
+    const duration = audio && audio.duration;
+    const ready = Number.isFinite(duration) && duration > 0;
+    seek.disabled = !ready;
+    seek.value = ready ? Math.min(100, audio.currentTime / duration * 100) : 0;
+    time.textContent = fmt(audio && audio.currentTime) + ' / ' + fmt(duration);
+    seek.setAttribute('aria-valuetext', time.textContent);
+  }
+  function fail(source, message) {
+    if (audio !== source || !source.playRequested || source.failureReported) return;
+    source.failureReported = true;
+    busy(false); mark(false);
+    failed.add(current.dataset.src);
+    current.classList.add('dead');
+    current.title = '暂时无法试听，再点一次重试';
+    current.setAttribute('aria-label', '重新试听 ' + current.dataset.title);
+    failures++;
+    const candidates = available().filter(b => !failed.has(b.dataset.src));
+    if (failures < 6 && candidates.length) step(1, true);
+    else artist.textContent = message + '，点播放重试';
+  }
+  async function play() {
+    if (!audio) return;
+    const source = audio, ticket = ++attempt;
+    source.playRequested = true;
+    busy(true);
+    try {
+      await source.play();
+      if (source !== audio || ticket !== attempt) return;
+      busy(false); mark(true);
+      failures = 0;
+      failed.delete(current.dataset.src);
+      current.classList.remove('dead');
+      current.removeAttribute('title');
+    } catch (error) {
+      if (source !== audio || ticket !== attempt) return;
+      busy(false); mark(false);
+      if (error.name === 'AbortError') return;
+      if (error.name === 'NotAllowedError') {
+        artist.textContent = '点播放键开始试听';
+      } else fail(source, '试听暂时不可用');
+    }
+  }
+  function pause() {
+    ++attempt;
+    busy(false);
+    if (audio) { audio.playRequested = false; audio.pause(); }
+    mark(false);
+  }
+  function load(button, skipped = false) {
+    pause();
+    if (audio) { audio.removeAttribute('src'); audio.load(); }
+    current = button;
+    const source = new Audio();
+    audio = source;
+    source.preload = 'none';
+    source.src = button.dataset.src;
+    cover.hidden = !button.dataset.cover;
+    if (button.dataset.cover) cover.src = button.dataset.cover;
+    title.textContent = button.dataset.title;
+    artist.textContent = skipped ? '上一首取不到音源，已跳到这首' : button.dataset.artist;
+    np.classList.add('on');
+    progress();
+    source.addEventListener('timeupdate', () => { if (source === audio) progress(); });
+    source.addEventListener('loadedmetadata', () => { if (source === audio) progress(); });
+    source.addEventListener('pause', () => { if (source === audio) mark(false); });
+    source.addEventListener('waiting', () => { if (source === audio && source.playRequested && !source.paused) busy(true); });
+    source.addEventListener('playing', () => {
+      if (source !== audio) return;
+      if (!source.playRequested) { source.pause(); return; }
+      if (!source.paused) { busy(false); mark(true); }
+    });
+    source.addEventListener('error', () => fail(source, '连续音源无法试听'));
+    source.addEventListener('ended', () => { if (source === audio && source.playRequested) { mark(false); step(1); } });
+    play();
+  }
+  function select(button) {
+    failures = 0;
+    if (button !== current || !audio || audio.error || failed.has(button.dataset.src)) load(button);
+    else if (pending || !audio.paused) pause();
+    else play();
+  }
+  function step(direction, skipped = false) {
+    const list = available();
+    if (!list.length) { pause(); artist.textContent = '当前筛选没有可试听歌曲'; return; }
+    const index = list.indexOf(current);
+    for (let offset = 1; offset <= list.length; offset++) {
+      const next = list[((index < 0 ? (direction > 0 ? -1 : 0) : index) + direction * offset + list.length * 2) % list.length];
+      if (!skipped || !failed.has(next.dataset.src)) { load(next, skipped); return; }
+    }
+    pause(); artist.textContent = '当前音源无法试听，点播放重试';
+  }
+  buttons.forEach(button => button.addEventListener('click', () => select(button)));
+  toggle.addEventListener('click', () => { const button = current || available()[0]; if (button) select(button); });
+  document.getElementById('np-prev').addEventListener('click', () => { failures = 0; step(-1); });
+  document.getElementById('np-next').addEventListener('click', () => { failures = 0; step(1); });
+  seek.addEventListener('input', () => {
+    if (audio && Number.isFinite(audio.duration) && audio.duration > 0) {
+      audio.currentTime = Math.max(0, Math.min(100, Number(seek.value))) / 100 * audio.duration;
+      progress();
+    }
+  });
+  document.addEventListener('keydown', event => {
+    if (event.defaultPrevented || event.repeat || event.altKey || event.ctrlKey || event.metaKey) return;
+    if (event.target.closest('button,a,input,textarea,select,[contenteditable], [role=button]')) return;
+    const modal = document.getElementById('lb');
+    if (modal && modal.classList.contains('on')) return;
+    if (event.code === 'Space') { event.preventDefault(); toggle.click(); }
+    else if (current && event.key === 'ArrowRight') { event.preventDefault(); step(1); }
+    else if (current && event.key === 'ArrowLeft') { event.preventDefault(); step(-1); }
+  });
+})();
+
+// Existing long-term browser favorites remain separate from shuffle's session basket.
+(() => {
+  const key = 'md_hearts', cards = Array.from(document.querySelectorAll('.mod[data-k]'));
+  const count = document.getElementById('fav-n'), only = document.getElementById('fav-only');
+  const search = document.getElementById('track-search'), note = document.getElementById('filter-note');
+  const empty = document.getElementById('empty-list'), box = document.getElementById('fav-box');
+  const text = document.getElementById('fav-text');
+  function read() {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(key) || '[]');
+      return new Set(Array.isArray(parsed) ? parsed.filter(x => typeof x === 'string' && x.trim()) : []);
+    } catch (_) { return null; }
+  }
+  let hearts = read() || new Set(), saveWarning = false;
+  const normalize = value => value.normalize('NFKC').toLocaleLowerCase().trim();
+  const index = new Map(cards.map(card => [card, normalize(card.querySelector('.hd').textContent)]));
+  function refresh() {
+    const terms = normalize(search.value).split(/\s+/).filter(Boolean);
+    const favorites = document.body.classList.contains('fav-mode');
+    let hits = 0, visible = 0;
+    cards.forEach(card => {
+      const selected = hearts.has(card.dataset.k), button = card.querySelector('.heart');
+      if (selected) hits++;
+      button.classList.toggle('on', selected);
+      button.setAttribute('aria-pressed', String(selected));
+      button.setAttribute('aria-label', (selected ? '取消收藏 ' : '收藏 ') + card.querySelector('.title').textContent);
+      const show = (!favorites || selected) && terms.every(term => index.get(card).includes(term));
+      card.classList.toggle('hidden', !show);
+      card.hidden = !show;
+      if (show) visible++;
+    });
+    document.querySelectorAll('.mod.fill').forEach(fill => { fill.hidden = !visible || visible % 2 === 0; });
+    count.textContent = hits;
+    only.classList.toggle('active', favorites);
+    only.setAttribute('aria-pressed', String(favorites));
+    empty.hidden = visible > 0;
+    document.getElementById('empty-message').textContent = favorites ? '本期没有符合条件的收藏，试试清除搜索或查看全部。' : '没有找到这首歌，试试歌名、艺人或风格。';
+    note.textContent = (saveWarning ? '收藏暂存在当前页面，浏览器未能保存。 · ' : '') + '显示 ' + visible + ' / ' + cards.length + ' 首';
+    text.textContent = hearts.size ? '我收藏的 · MUSIC DAILY（含往期，共 ' + hearts.size + ' 首）\n' + Array.from(hearts).join('\n') : '（还没有收藏。点歌曲右上角的 ♥ 即可）';
+  }
+  cards.forEach(card => card.querySelector('.heart').addEventListener('click', () => {
+    if (!saveWarning) hearts = read() || hearts;
+    const value = card.dataset.k;
+    if (hearts.has(value)) hearts.delete(value); else hearts.add(value);
+    try { localStorage.setItem(key, JSON.stringify(Array.from(hearts))); saveWarning = false; }
+    catch (_) { saveWarning = true; }
+    refresh();
+  }));
+  only.addEventListener('click', () => { document.body.classList.toggle('fav-mode'); refresh(); });
+  search.addEventListener('input', refresh);
+  document.getElementById('filter-reset').addEventListener('click', () => {
+    search.value = ''; document.body.classList.remove('fav-mode'); refresh(); search.focus();
+  });
+  document.getElementById('fav-export').addEventListener('click', () => {
+    refresh(); box.style.display = 'block'; box.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+  });
+  window.addEventListener('storage', event => {
+    if (event.key === key || event.key === null) { hearts = read() || new Set(); saveWarning = false; refresh(); }
+  });
+  refresh();
+})();
+
+(() => {
+  const button = document.getElementById('share-btn');
+  if (!button || (!navigator.share && !navigator.clipboard)) return;
+  button.hidden = false;
+  const label = navigator.share ? '分享这期' : '复制本期链接';
+  button.textContent = label;
+  button.addEventListener('click', async () => {
+    if (button.disabled) return;
+    button.disabled = true;
+    try {
+      if (navigator.share) await navigator.share({title: document.title, url: location.href.split('#')[0]});
+      else { await navigator.clipboard.writeText(location.href.split('#')[0]); button.textContent = '链接已复制 ✓'; }
+    } catch (error) {
+      if (error.name !== 'AbortError') button.textContent = '请复制地址栏链接';
+    } finally {
+      button.disabled = false;
+      setTimeout(() => { button.textContent = label; }, 2000);
+    }
+  });
+})();
+</script>
+<script>
+(function(){
+  var lb=document.getElementById('lb'); if(!lb) return;
+  var $=function(i){return document.getElementById(i)};
+  var last=null, previousOverflow='', inerted=[];
+
+  // iTunes 缩略图按既定命名规则换更大尺寸；非 iTunes 的 URL 原样返回
+  function big(u){ return u ? u.replace(/\/(\d+)x(\d+)(bb)?\.(jpg|png)/i, '/600x600bb.$4') : ''; }
+
+  function esc(s){
+    var d=document.createElement('div'); d.textContent=s==null?'':s;
+    return d.innerHTML.replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  }
+  function webUrl(value){
+    try{
+      var u=new URL(value);
+      return u.protocol==='https:' || u.protocol==='http:' ? u.href : '';
+    }catch(_){ return ''; }
+  }
+  function artistContext(d){
+    var sub=[]; if(d.years) sub.push(d.years); else if(d.year) sub.push(d.year);
+    if(d.g0) sub.push(d.g0);
+    $('lb-sub').textContent = sub.join(' · ');
+    $('lb-bio').textContent = d.bio||'';
+    $('lb-bio-w').style.display = d.bio ? '' : 'none';
+    // 本站收录跳到随机页，并用艺人名区分同名歌曲。
+    var inp=(d.inpool||'').split('|').filter(Boolean);
+    $('lb-inpool').innerHTML = inp.map(function(x){
+      var cur = x===d.title ? ' class="cur"' : '';
+      var url="../random.html"+'?t='+encodeURIComponent(x)+'&artist='+encodeURIComponent(d.artist||'');
+      return '<a href="'+esc(url)+'"'+cur+'>'+esc(x)+'</a>';
+    }).join('');
+    $('lb-inpool-w').style.display = inp.length>1 ? '' : 'none';
+  }
+
+  function open(d, trigger){
+    // 存【触发元素】而不是 document.activeElement —— 鼠标点击时 activeElement
+    // 是 body（点 div 不给焦点），于是关闭后焦点掉回 body，键盘用户要从头 Tab。
+    // 2026-08-04 实测：修前 Esc 后 activeElement 就是 <body class="anim">。
+    if(!lb.classList.contains('on')){
+      last = trigger || document.activeElement;
+      previousOverflow = document.body.style.overflow;
+    }
+    var cover=webUrl(d.cover);
+    $('lb-big').innerHTML = cover
+      ? '<img src="'+esc(big(cover))+'" alt="">'
+      : '<div class="ph">'+esc((d.artist||'?').slice(0,1).toUpperCase())+'</div>';
+    if(d.year || d.album){
+      $('lb-big').insertAdjacentHTML('beforeend',
+        '<div class="yr"><span>'+esc(d.album||'')+'</span><span>'+esc(d.year||'')+'</span></div>');
+    }
+    // 主体是音乐人：大标题放艺人名，副行放年代跨度与流派
+    $('lb-artist').textContent = d.artist||'';
+    artistContext(d);
+    $('lb-tags').innerHTML = (d.tags||'').split('|').filter(Boolean)
+      .map(function(t){return '<span>'+esc(t)+'</span>'}).join('');
+    // 这一首（次要块）
+    $('lb-trkname').textContent = [d.title, d.album, d.year, d.bpm].filter(Boolean).join(' · ');
+    [['one','lb-one'],['why','lb-why'],['scene','lb-scene']].forEach(function(p){
+      var v=d[p[0]]||'';
+      $(p[1]).textContent=v;
+      var w=$(p[1]+'-w'); if(w) w.style.display = v ? '' : 'none';   // 该段没内容就整块收起
+    });
+    $('lb-trk-w').style.display = (d.why||d.scene) ? '' : 'none';
+    var lk=[];
+    ['apple','spotify','netease'].forEach(function(name){
+      var url=webUrl(d[name]);
+      if(url) lk.push('<a href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+
+        (name==='apple' ? 'apple music' : name)+' ↗</a>');
+    });
+    $('lb-links').innerHTML = lk.join('');
+    lb.classList.add('on');
+    lb.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    // inert 隔离背后页面；Tab 时另按当前可见控件循环，避免焦点进入浏览器栏，
+    // 同时兼容未实现 inert 的浏览器。
+    inertKids(true);
+    lb.querySelector('.info').scrollTop=0;
+    lb.querySelector('.x').focus({preventScroll:true});
+  }
+  // 除 #lb 外的 body 子节点整体 inert / 恢复。只动我们设过的那些，
+  // 免得把页面本来就有的 inert 属性给清掉。
+  function inertKids(on){
+    if(!on){
+      inerted.forEach(function(el){el.removeAttribute('inert')});
+      inerted=[];
+      return;
+    }
+    var kids = document.body.children;
+    for(var i=0;i<kids.length;i++){
+      var el = kids[i];
+      if(el === lb) continue;
+      if(!el.hasAttribute('inert')){ el.setAttribute('inert',''); inerted.push(el); }
+    }
+  }
+  function close(){
+    if(!lb.classList.contains('on')) return;
+    lb.classList.remove('on');
+    document.body.style.overflow=previousOverflow;
+    inertKids(false);
+    // 焦点归位要在解除 inert 【之后】—— 在 inert 状态下 focus() 是无效的，
+    // 焦点会掉回 body，用户按 Tab 得从头再来。
+    if(last && last.isConnected && last.focus) last.focus({preventScroll:true});
+    lb.setAttribute('aria-hidden','true');
+    last=null;
+  }
+
+  document.addEventListener('click', function(e){
+    if(lb.contains(e.target) && e.target.closest('[data-close]')){ close(); return; }
+    if(lb.classList.contains('on')) return;
+    // 点播放键不开浮层
+    if(e.target.closest('.pbtn')) return;
+    var h=e.target.closest('.cover-zoom'); if(!h) return;
+    var d=h.dataset; if(!d.title && !d.cover) return;
+    e.preventDefault(); open(d, h);
+  });
+  document.addEventListener('musicdaily:artist-context', function(e){
+    if(lb.classList.contains('on') && last===e.target) artistContext(last.dataset);
+  });
+  document.addEventListener('keydown', function(e){
+    if(lb.classList.contains('on')){
+      // 不让页面播放器的全局快捷键响应浮层里的操作。
+      e.stopPropagation();
+      if(e.key==='Escape'){ e.preventDefault(); close(); return; }
+      if(e.key==='Tab'){
+        var focusable=Array.from(lb.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])'))
+          .filter(function(el){return el.getClientRects().length>0});
+        var first=focusable[0]||lb, end=focusable[focusable.length-1]||lb;
+        var active=document.activeElement;
+        if(!lb.contains(active) || active===lb || (e.shiftKey ? active===first : active===end)){
+          e.preventDefault(); (e.shiftKey ? end : first).focus();
+        }
+      }
+      return;
+    }
+    // 封面卡片声明了 role="button" + tabindex="0"，那就必须响应 Enter / Space ——
+    // 原生 <button> 自带这个行为，用 div 扮演按钮就得自己补齐。
+    // 之前只绑了 click：键盘用户能聚焦到封面（还能看到焦点环），按下去毫无反应，
+    // 于是那个焦点环和浮层里的焦点 trap 对他们全是白做的。
+    if(e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+    if(e.defaultPrevented || e.repeat || e.altKey || e.ctrlKey || e.metaKey) return;
+    var h = e.target.closest && e.target.closest('.cover-zoom');
+    if(!h) return;
+    // 原生按钮由浏览器触发 click；旧封面内的播放键也保留自身操作。
+    if(e.target.closest('button,a,input,textarea,select,[contenteditable="true"],.pbtn')) return;
+    var d = h.dataset; if(!d.title && !d.cover) return;
+    e.preventDefault();                           // Space 默认会滚动页面
+    e.stopPropagation();
+    open(d, h);
+  }, true);
+})();
+</script>
+<script>
+(function(){
+  // orpheus://search/曲名 艺人 —— 网易云 App 的搜索入口（各平台一致）
+  function scheme(q){ return 'orpheus://search/' + encodeURIComponent(q); }
+  function web(q){ return 'https://music.163.com/#/search/m/?s=' + encodeURIComponent(q); }
+
+  function openApp(q){
+    var fallback = null, done = false;
+    function cancel(){
+      if(done) return; done = true;
+      if(fallback){ clearTimeout(fallback); fallback = null; }
+      document.removeEventListener('visibilitychange', onHide);
+      removeEventListener('pagehide', onHide);
+      removeEventListener('blur', onHide);
+    }
+    // 页面转后台/失焦 = App 被唤起了
+    function onHide(){ cancel(); }
+
+    // App 真被唤起 → 本页转后台 → 取消兜底，避免回来时多了一个网页 tab
+    document.addEventListener('visibilitychange', onHide);
+    addEventListener('pagehide', onHide);
+    addEventListener('blur', onHide);
+
+    // 用隐藏 iframe 触发 scheme：scheme 未注册时 location.href 会让 Safari
+    // 弹「无法打开页面」，iframe 静默失败
+    var f = document.createElement('iframe');
+    f.style.cssText = 'display:none;width:0;height:0;border:0';
+    f.src = scheme(q);
+    document.body.appendChild(f);
+    setTimeout(function(){ try{ f.remove(); }catch(e){} }, 1500);
+
+    // 1.2s 没走成就回退网页（没装 App / 桌面浏览器不认 scheme）
+    fallback = setTimeout(function(){
+      if(done) return;
+      done = true;
+      window.open(web(q), '_blank', 'noopener');
+    }, 1200);
+  }
+
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('[data-nc]');
+    if(!a) return;
+    e.preventDefault();
+    openApp(a.getAttribute('data-nc'));
+  });
+})();
+</script>
+</body>
+</html>

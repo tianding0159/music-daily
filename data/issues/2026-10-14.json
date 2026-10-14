@@ -1,0 +1,191 @@
+{
+  "issue_no": 79,
+  "date": "2026-10-14",
+  "generated_at": "2026-10-14T00:00:42+00:00",
+  "theme": "grid",
+  "playlist_title": "今天第一次推荐的 10 首（10.14）",
+  "netease_text": "今天第一次推荐的 10 首（10.14）\nLittle Robot - Mamalarky\nReal Eyes - Joe Hisaishi\nObsequence - Sebastian Plano\nSalt Water Fish - Ruby\nAbout You - Teenage Fanclub\nI - 80 - Squirrel Flower\nSwift Inspiration (Quick Kid) - Kaidi Tatham\nGum - Kaho Nakamura\nSpinning the Wheel - Mammal Hands\nTe Guardo - Silvana Estrada",
+  "tracks": [
+    {
+      "id": "apple:1622481578",
+      "title": "Little Robot",
+      "artist": "Mamalarky",
+      "selection_status": "discovery_not_curated",
+      "album": "Pocket Fantasy",
+      "year": "2022",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/little-robot/1622481275?i=1622481578&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/09/3e/58/093e5803-68bd-47ca-e4b8-aeab6976a401/634457103757.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview122/v4/ae/59/05/ae5905bf-f02a-e8d2-2890-0fd98eec481a/mzaf_7531585551569259690.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/little-robot/1622481275?i=1622481578&uo=4"
+    },
+    {
+      "id": "apple:1498700688",
+      "title": "Real Eyes",
+      "artist": "Joe Hisaishi",
+      "selection_status": "discovery_not_curated",
+      "album": "Kikujiro (Original Motion Picture Soundtrack)",
+      "year": "1999",
+      "genres": [
+        "soundtrack"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/real-eyes/1498700467?i=1498700688&uo=4",
+      "why": "曲目资料已核对；1999 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/53/3c/79/533c7931-cf83-b3d5-515d-935e770568ba/20UMGIM02999.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/fc/c6/50/fcc65029-3e25-47a5-43dd-5e3f40ed54e6/mzaf_8695098364952105986.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/real-eyes/1498700467?i=1498700688&uo=4"
+    },
+    {
+      "id": "apple:1554077860",
+      "title": "Obsequence",
+      "artist": "Sebastian Plano",
+      "selection_status": "discovery_not_curated",
+      "album": "Save Me Not",
+      "year": "2021",
+      "genres": [
+        "classical crossover"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/obsequence/1554077598?i=1554077860&uo=4",
+      "why": "曲目资料已核对；2021 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/5e/7d/53/5e7d53a1-36a7-b881-7df2-3cd5d1a2936a/20UMGIM79348.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/bd/7e/8b/bd7e8be5-44b3-15e3-b4ad-a181bf834c9e/mzaf_1196801563042434565.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/obsequence/1554077598?i=1554077860&uo=4"
+    },
+    {
+      "id": "apple:158712650",
+      "title": "Salt Water Fish",
+      "artist": "Ruby",
+      "selection_status": "discovery_not_curated",
+      "album": "Salt Peter",
+      "year": "1996",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/salt-water-fish/158712627?i=158712650&uo=4",
+      "why": "曲目资料已核对；1996 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Features/3f/79/3d/dj.bzevbxbb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/8f/9f/97/8f9f979e-2484-c391-a3da-5dcc653e7ad5/mzaf_5813873306096786184.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/salt-water-fish/158712627?i=158712650&uo=4"
+    },
+    {
+      "id": "apple:1443912823",
+      "title": "About You",
+      "artist": "Teenage Fanclub",
+      "selection_status": "discovery_not_curated",
+      "album": "Grand Prix",
+      "year": "1995",
+      "genres": [
+        "rock"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/about-you/1443912606?i=1443912823&uo=4",
+      "why": "曲目资料已核对；1995 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/df/2f/91/df2f9157-7474-5162-d32c-10115e0c6a36/00720642480229.rgb.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/af/f3/60/aff36070-e61c-e5fd-3712-6d8905cf4a3b/mzaf_13527350325222484772.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/about-you/1443912606?i=1443912823&uo=4"
+    },
+    {
+      "id": "apple:1651286712",
+      "title": "I - 80",
+      "artist": "Squirrel Flower",
+      "selection_status": "discovery_not_curated",
+      "album": "I Was Born Swimming",
+      "year": "2020",
+      "genres": [
+        "alternative"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/i-80/1651286711?i=1651286712&uo=4",
+      "why": "曲目资料已核对；2020 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/9d/ff/9b/9dff9be8-f7bc-9ac3-c1cb-fe06fb71c2d4/644110039590.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview112/v4/45/c6/d0/45c6d056-074b-2352-2183-da0e8a949c1a/mzaf_15275822385256813177.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/i-80/1651286711?i=1651286712&uo=4"
+    },
+    {
+      "id": "apple:1506606156",
+      "title": "Swift Inspiration (Quick Kid)",
+      "artist": "Kaidi Tatham",
+      "selection_status": "discovery_not_curated",
+      "album": "In Search of Hope",
+      "year": "2008",
+      "genres": [
+        "breakbeat"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/swift-inspiration-quick-kid/1506606034?i=1506606156&uo=4",
+      "why": "曲目资料已核对；2008 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/9d/7c/ab/9d7cab3a-72b3-50c6-e4b3-0a35f0ff72b9/5050580736078.png/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/6f/8c/b5/6f8cb5d6-2a04-af03-d04b-c917d221d2cc/mzaf_7739903457826482750.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/swift-inspiration-quick-kid/1506606034?i=1506606156&uo=4"
+    },
+    {
+      "id": "apple:1439029180",
+      "title": "Gum",
+      "artist": "Kaho Nakamura",
+      "selection_status": "discovery_not_curated",
+      "album": "Ainou",
+      "year": "2018",
+      "genres": [
+        "j-pop"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/gum/1439029178?i=1439029180&uo=4",
+      "why": "曲目资料已核对；2018 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b5/cf/4c/b5cf4c73-59f3-1922-32e3-d22c38e285e1/4538182779828_cov.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/a4/dc/b5/a4dcb5d0-bcf3-552f-167c-4a87cc722933/mzaf_13419652492257497236.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/gum/1439029178?i=1439029180&uo=4"
+    },
+    {
+      "id": "apple:1578456956",
+      "title": "Spinning the Wheel",
+      "artist": "Mammal Hands",
+      "selection_status": "discovery_not_curated",
+      "album": "Animalia",
+      "year": "2014",
+      "genres": [
+        "jazz"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/spinning-the-wheel/1578456785?i=1578456956&uo=4",
+      "why": "曲目资料已核对；2014 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/3e/d9/06/3ed90621-bc89-4d35-a77e-91de3b0ea565/5050580619913_cover.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/39/f8/2f/39f82f25-20da-0818-a958-33f9a0b75aab/mzaf_1206752555622019156.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/spinning-the-wheel/1578456785?i=1578456956&uo=4"
+    },
+    {
+      "id": "apple:1640345260",
+      "title": "Te Guardo",
+      "artist": "Silvana Estrada",
+      "selection_status": "discovery_not_curated",
+      "album": "Marchita",
+      "year": "2022",
+      "genres": [
+        "latin"
+      ],
+      "artist_oneliner": "新发现 · 待精选",
+      "source": "Apple Music",
+      "source_url": "https://music.apple.com/us/album/te-guardo/1640345256?i=1640345260&uo=4",
+      "why": "曲目资料已核对；2022 年为 Apple 当前发行版本年份，原始发行年与逐曲听感仍待核实。",
+      "_cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/91/2e/e3/912ee307-2a88-4b18-dd52-b7bd9b3f53e3/5056167167563.jpg/600x600bb.jpg",
+      "_preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/36/75/24/367524bb-65e4-167f-378f-fddf619c0d01/mzaf_2161689174795468996.plus.aac.p.m4a",
+      "_apple": "https://music.apple.com/us/album/te-guardo/1640345256?i=1640345260&uo=4"
+    }
+  ],
+  "selection_policy": "never_repeat_v1"
+}
